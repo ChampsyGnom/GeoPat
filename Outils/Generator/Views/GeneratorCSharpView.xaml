@@ -20,12 +20,26 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
                 </Grid.RowDefinitions>
-                <TextBlock Width="120" VerticalAlignment="Center" Text="NameSpace Data : " Margin="2" Grid.Row="0" Grid.Column="0"></TextBlock>
-                <TextBlock Width="120" VerticalAlignment="Center" Text="Répertoire Data : " Margin="2" Grid.Row="1" Grid.Column="0"></TextBlock>
-                <TextBox Width="300"  VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding Path=DataNamespace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></TextBox>
-                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="1" Text="{Binding Path=DataPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Margin="2"></TextBox>
-                <Button Command="{Binding Path=ChangeDataPathCommand}" Margin="2" Grid.Row="1" Grid.Column="2">
+
+                <TextBlock Width="150" VerticalAlignment="Center" Text="NameSpace Infra Data : " Margin="2" Grid.Row="0" Grid.Column="0"></TextBlock>
+                <TextBlock Width="150" VerticalAlignment="Center" Text="Répertoire Infra Data : " Margin="2" Grid.Row="1" Grid.Column="0"></TextBlock>
+                <TextBox MinWidth="300" HorizontalAlignment="Stretch"   VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding Path=DataInfraNamespace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></TextBox>
+                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="1" Text="{Binding Path=DataInfraPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Margin="2"></TextBox>
+                <Button Command="{Binding Path=ChangeDataInfraPathCommand}" Margin="2" Grid.Row="1" Grid.Column="2">
+                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=" ... " Width="32"></TextBlock>
+                </Button>
+
+
+                <TextBlock Width="150" VerticalAlignment="Center" Text="NameSpace Data : " Margin="2" Grid.Row="2" Grid.Column="0"></TextBlock>
+                <TextBlock Width="150" VerticalAlignment="Center" Text="Répertoire Data : " Margin="2" Grid.Row="3" Grid.Column="0"></TextBlock>
+                <TextBox MinWidth="300" HorizontalAlignment="Stretch"   VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding Path=DataNamespace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" Margin="2"></TextBox>
+                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="1" Text="{Binding Path=DataPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" Margin="2"></TextBox>
+                <Button Command="{Binding Path=ChangeDataPathCommand}" Margin="2" Grid.Row="3" Grid.Column="2">
                     <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=" ... " Width="32"></TextBlock>
                 </Button>
             </Grid>
@@ -40,13 +54,34 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
                 </Grid.RowDefinitions>
-                <TextBlock Width="120" VerticalAlignment="Center" Text="NameSpace Buisness : " Margin="2" Grid.Row="0" Grid.Column="0">
+
+                <TextBlock Width="150" VerticalAlignment="Center" Text="NameSpace Infra Buisness : " Margin="2" Grid.Row="0" Grid.Column="0"></TextBlock>
+                <TextBlock Width="150" VerticalAlignment="Center" Text="Répertoire Infra Buisness : " Margin="2" Grid.Row="1" Grid.Column="0"></TextBlock>
+                <TextBox MinWidth="300" HorizontalAlignment="Stretch"   VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding Path=BuisnessInfraNamespace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></TextBox>
+                <TextBox
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Center" 
+                    Grid.ColumnSpan="1" 
+                    Text="{Binding Path=BuisnessInfraPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                    Grid.Column="1" 
+                    Grid.Row="1" 
+                    Margin="2"></TextBox>
+                <Button Command="{Binding Path=ChangeBuisnessInfraPathCommand}" Margin="2" Grid.Row="1" Grid.Column="2">
+                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=" ... " Width="32"></TextBlock>
+                </Button>
+                
+                
+                <TextBlock Width="150" VerticalAlignment="Center" Text="NameSpace Buisness : " Margin="2" Grid.Row="2" Grid.Column="0">
                     </TextBlock>
-                <TextBlock Width="120" VerticalAlignment="Center" Text="Répertoire Buisness : " Margin="2" Grid.Row="1" Grid.Column="0"></TextBlock>
-                <TextBox  Width="300"  VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding Path=BuisnessNamespace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></TextBox>
-                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="1" Text="{Binding Path=BuisnessPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Margin="2"></TextBox>
-                <Button  Command="{Binding Path=ChangeBuisnessPathCommand}"  Margin="2" Grid.Row="1" Grid.Column="2">
+                <TextBlock Width="150" VerticalAlignment="Center" Text="Répertoire Buisness : " Margin="2" Grid.Row="3" Grid.Column="0"></TextBlock>
+                <TextBox  MinWidth="300" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding Path=BuisnessNamespace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" Margin="2"></TextBox>
+                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="1" Text="{Binding Path=BuisnessPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" Margin="2"></TextBox>
+                <Button  Command="{Binding Path=ChangeBuisnessPathCommand}"  Margin="2" Grid.Row="3" Grid.Column="2">
                         <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=" ... " Width="32"></TextBlock>
                     </Button>
             </Grid>

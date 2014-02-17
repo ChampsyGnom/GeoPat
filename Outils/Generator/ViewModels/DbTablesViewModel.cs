@@ -10,7 +10,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 {
     [DisplayName("Liste des tables")]
     [Browsable(false)]
-    public class DbTablesViewModel  : DbItemViewModel
+    public class DbTablesViewModel  : ViewModelBase
     {
         [Browsable(false)]
         public ObservableCollection<DbTableViewModel> Items { get; set; }

@@ -23,11 +23,11 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         public String Name { get; set; }
 
         [Browsable(false)]
-        public ObservableCollection<DbItemViewModel> Items { get; set; }
+        public ObservableCollection<ViewModelBase> Items { get; set; }
 
         public DbSchemaViewModel(DbSchema model)
         {
-            this.Items = new ObservableCollection<DbItemViewModel>();
+            this.Items = new ObservableCollection<ViewModelBase>();
             DbTablesViewModel vms = new DbTablesViewModel();
             model.Tables = (from t in model.Tables orderby t.DisplayName select t).ToList();
             foreach (DbTable table in model.Tables)
