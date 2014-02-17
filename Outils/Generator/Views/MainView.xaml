@@ -1,0 +1,142 @@
+﻿<Window x:Class="Emash.GeoPatNet.Generator.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:Emash.GeoPatNet.Generator.ViewModels"
+        xmlns:pg="clr-namespace:Xceed.Wpf.Toolkit.PropertyGrid;assembly=Xceed.Wpf.Toolkit"
+        Title="Generateur" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Fichier">
+                <MenuItem Command="{Binding Path=CreateProjectCommand}" Header="Créer un projet"></MenuItem>
+                <MenuItem Command="{Binding Path=OpenProjectCommand}"  Header="Ouvrir un projet"></MenuItem>
+                <MenuItem Command="{Binding Path=SaveProjectCommand}"  Header="Sauver un projet"></MenuItem>
+                <MenuItem Command="{Binding Path=SaveAsProjectCommand}"  Header="Sauver un projet sous ..."></MenuItem>
+                <MenuItem Command="{Binding Path=CloseProjectCommand}"  Header="Fermer le projet"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="{Binding Path=ExitCommand}"  Header="Quitter"></MenuItem>
+            </MenuItem>
+            <MenuItem IsEnabled="{Binding Path=HasCurrentProject}"  Header="Projet">
+                <MenuItem Command="{Binding Path=CurrentProject.AddMpdCommand}" Header="Ajouter un MPD"></MenuItem>
+                <MenuItem Header="Générer">
+                    <MenuItem Command="{Binding Path=CurrentProject.ShowGenerateCSharpCommand}" Header="Code source C#"></MenuItem>                    
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ContentControl  Content="{Binding Path=CurrentProject,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=HasCurrentProject,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                              
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                
+                                            </Grid.RowDefinitions>
+                                            <TabControl Grid.Row="0" ItemsSource="{Binding Path=Schemas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <TabControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay}"></TextBlock>
+                                                    </DataTemplate>
+                                                </TabControl.ItemTemplate>
+                                                <TabControl.ContentTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                                <ColumnDefinition Width="6"></ColumnDefinition>
+                                                                <ColumnDefinition Width="600"></ColumnDefinition>
+                                                            </Grid.ColumnDefinitions>
+                                                           
+                                                            <GroupBox Header="Base de données" Grid.Column="0">
+                                                                <TreeView x:Name="treeSchema" ItemsSource="{Binding Path=Items}">
+                                                                    <TreeView.Resources>
+
+                                                                        <HierarchicalDataTemplate   DataType="{x:Type vm:DbColumnViewModel}">
+                                                                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                                                        </HierarchicalDataTemplate>
+
+                                                                        <DataTemplate  DataType="{x:Type vm:DbConstraintPkViewModel}">
+                                                                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                                                        </DataTemplate>
+
+                                                                        <DataTemplate  DataType="{x:Type vm:DbConstraintUkViewModel}">
+                                                                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                                                        </DataTemplate>
+
+
+                                                                        <DataTemplate  DataType="{x:Type vm:DbConstraintFkJoinViewModel}">
+                                                                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                                                        </DataTemplate>
+
+                                                                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Joins}" DataType="{x:Type vm:DbConstraintFkViewModel}">
+                                                                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                                                        </HierarchicalDataTemplate>
+
+                                                                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Items}" DataType="{x:Type vm:DbColumnsViewModel}">
+                                                                            <TextBlock Text="Colonnes"></TextBlock>
+                                                                        </HierarchicalDataTemplate>
+
+                                                                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Items}" DataType="{x:Type vm:DbConstraintsViewModel}">
+                                                                            <TextBlock Text="Contraintes"></TextBlock>
+                                                                        </HierarchicalDataTemplate>
+
+                                                                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Items}"  DataType="{x:Type vm:DbTableViewModel}">
+                                                                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                                                        </HierarchicalDataTemplate>
+                                                                        
+                                                                        
+                                                                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Items}" DataType="{x:Type vm:DbTablesViewModel}">
+                                                                            <TextBlock Text="Tables"></TextBlock>
+                                                                        </HierarchicalDataTemplate>
+                                                                        
+                                                                    </TreeView.Resources>
+                                                                </TreeView>
+                                                            </GroupBox>
+                                                            <GridSplitter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" Grid.Column="1"></GridSplitter>
+                                                            <GroupBox Grid.Column="2" Header="Propriétées">
+                                                                <pg:PropertyGrid SelectedObject="{Binding ElementName=treeSchema,Path=SelectedItem,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" ></pg:PropertyGrid>
+                                                            </GroupBox>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </TabControl.ContentTemplate>
+                                            </TabControl>
+                                           
+                                        </Grid>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=HasCurrentProject,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Button  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window},Path=DataContext.CreateProjectCommand}"  Margin="8" Grid.Column="0">
+                                                <TextBlock Text="Nouveau projet"></TextBlock>
+                                            </Button>
+                                            <Button  Command="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window},Path=DataContext.OpenProjectCommand}"  Margin="8" Grid.Column="1">
+                                                <TextBlock Text="Ouvrir un projet"></TextBlock>
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>
