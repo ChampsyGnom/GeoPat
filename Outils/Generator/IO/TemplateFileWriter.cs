@@ -12,6 +12,7 @@ namespace Emash.GeoPatNet.Generator.IO
         public String Content { get; set; }
         private String _fileName;
         public List<TemplateProperty> Properties { get; set; }
+        public List<String> ModelBuilders { get; set; }
 
         public TemplateProperty AddProperty(String typeName, String propertyName)
         {
@@ -23,6 +24,7 @@ namespace Emash.GeoPatNet.Generator.IO
         {
             this._fileName = fileName;
             this.Properties = new List<TemplateProperty>();
+            this.ModelBuilders = new List<string>();
             FileStream stream = new FileStream(templateFileName, FileMode.Open);
             StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8);
             this.Content = reader.ReadToEnd();
@@ -56,6 +58,7 @@ namespace Emash.GeoPatNet.Generator.IO
                
             }
             this.Content = this.Content.Replace("@Properties", ws.ToString());
+            this.Content = this.Content.Replace("@ModelBuilder",String.Join ("\r\n",(from s in ModelBuilders select "            "+s).ToList ()));
             writer.WriteLine(this.Content);
             writer.Close();
             writer.Dispose();
