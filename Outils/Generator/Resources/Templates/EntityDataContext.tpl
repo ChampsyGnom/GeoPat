@@ -7,17 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace @NameSpace
 {
     public class DataContext : IDataContext
     {
+	    private DbModelBuilder _modelBuilder;
+        public override DbModelBuilder ModelBuilder
+        {
+            get { return _modelBuilder; }
+        }
+
+@Properties	   
+        
 	    public DataContext(DbConnection connection)
             : base(connection)
         {
         
         }
 
-@Properties
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
+            this._modelBuilder = modelBuilder;
+@ModelBuilder
+        }
+
+
 
     }
 }

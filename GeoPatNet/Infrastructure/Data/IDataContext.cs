@@ -9,6 +9,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure
 {
     public abstract class IDataContext : DbContext
     {
+        public abstract DbModelBuilder ModelBuilder { get;  }
         public IDataContext(System.Data.Common.DbConnection  connection)
             : base(connection,true)
         { }

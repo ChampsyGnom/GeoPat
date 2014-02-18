@@ -5,6 +5,41 @@
         WindowStartupLocation="CenterOwner"
         Title="Script SQL Postgre" Height="400" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <GroupBox Header="SQL" Grid.Row="0" Margin="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+             
+                <TextBlock Width="150" VerticalAlignment="Center" Text="Répertoire Script SQL : " Margin="2" Grid.Row="1" Grid.Column="0"></TextBlock>
+                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.ColumnSpan="1" Text="{Binding Path=SqlPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Margin="2"></TextBox>
+                <Button Command="{Binding Path=ChangeSqlPathCommand}" Margin="2" Grid.Row="1" Grid.Column="2">
+                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text=" ... " Width="32"></TextBlock>
+                </Button>
+
+
+                
+            </Grid>
+        </GroupBox>
+
+        <Button Command="{Binding Path=GenerateCommand}" Height="32" Width="300" Grid.Row="2" Margin="4">
+            <TextBlock Text="Generer"></TextBlock>
+        </Button>
     </Grid>
 </Window>
