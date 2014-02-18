@@ -6,11 +6,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.Common;
 namespace @NameSpace
 {
-    public class DataContext : DbContext,IDataContext
+    public class DataContext : IDataContext
     {
+	    public DataContext(DbConnection connection)
+            : base(connection)
+        {
+        
+        }
 
 @Properties
 

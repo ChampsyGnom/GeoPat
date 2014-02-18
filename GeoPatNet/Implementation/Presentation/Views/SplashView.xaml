@@ -4,6 +4,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
+        Cursor="Wait"
         WindowStartupLocation="CenterScreen"
         Title="SplashView" Height="300" Width="400">
     <Border BorderBrush="Black" BorderThickness="2" Background="YellowGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="20 0 20 0">

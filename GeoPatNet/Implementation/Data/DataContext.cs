@@ -2,6 +2,7 @@
 using Emash.GeoPatNet.Data.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -11,203 +12,208 @@ namespace Emash.GeoPatNet.Data.Implementation
 {
     public class DataContext : IDataContext
     {
+	    public DataContext(DbConnection connection)
+            : base(connection)
+        {
+        
+        }
 
         public DbSet<InfAccident>  InfAccidents
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfAmenagements
+        public DbSet<InfAmenagement>  InfAmenagements
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfPrOlds
+        public DbSet<InfPrOld>  InfPrOlds
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfBifurcations
+        public DbSet<InfBifurcation>  InfBifurcations
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfBretelles
+        public DbSet<InfBretelle>  InfBretelles
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfChaussees
+        public DbSet<InfChaussee>  InfChaussees
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeTrafics
+        public DbSet<InfCodeTrafic>  InfCodeTrafics
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfClimats
+        public DbSet<InfClimat>  InfClimats
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeAmenagements
+        public DbSet<InfCodeAmenagement>  InfCodeAmenagements
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeBifurcations
+        public DbSet<InfCodeBifurcation>  InfCodeBifurcations
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeClimats
+        public DbSet<InfCodeClimat>  InfCodeClimats
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeDecs
+        public DbSet<InfCodeDec>  InfCodeDecs
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeEclairages
+        public DbSet<InfCodeEclairage>  InfCodeEclairages
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeGares
+        public DbSet<InfCodeGare>  InfCodeGares
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeOccupants
+        public DbSet<InfCodeOccupant>  InfCodeOccupants
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeOccupations
+        public DbSet<InfCodeOccupation>  InfCodeOccupations
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodePtSings
+        public DbSet<InfCodePtSing>  InfCodePtSings
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodePosits
+        public DbSet<InfCodePosit>  InfCodePosits
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeSecurites
+        public DbSet<InfCodeSecurite>  InfCodeSecurites
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeSensibles
+        public DbSet<InfCodeSensible>  InfCodeSensibles
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeTaluss
+        public DbSet<InfCodeTalus>  InfCodeTaluss
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeTpcs
+        public DbSet<InfCodeTpc>  InfCodeTpcs
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeVoies
+        public DbSet<InfCodeVoie>  InfCodeVoies
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfEclairages
+        public DbSet<InfEclairage>  InfEclairages
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfFamDecs
+        public DbSet<InfFamDec>  InfFamDecs
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfGares
+        public DbSet<InfGare>  InfGares
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfLiaisons
+        public DbSet<InfLiaison>  InfLiaisons
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfOccupations
+        public DbSet<InfOccupation>  InfOccupations
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfPaveVoies
+        public DbSet<InfPaveVoie>  InfPaveVoies
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfPks
+        public DbSet<InfPk>  InfPks
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfPtSings
+        public DbSet<InfPtSing>  InfPtSings
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfRepartitionTrafics
+        public DbSet<InfRepartitionTrafic>  InfRepartitionTrafics
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfReperes
+        public DbSet<InfRepere>  InfReperes
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfSectionTrafics
+        public DbSet<InfSectionTrafic>  InfSectionTrafics
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfSecurites
+        public DbSet<InfSecurite>  InfSecurites
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfSensibles
+        public DbSet<InfSensible>  InfSensibles
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfTaluss
+        public DbSet<InfTalus>  InfTaluss
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfTpcs
+        public DbSet<InfTpc>  InfTpcs
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfTrDecs
+        public DbSet<InfTrDec>  InfTrDecs
         {
             get;
             set;
         }
-        public DbSet<InfAccident>  InfCodeLiaisons
+        public DbSet<InfCodeLiaison>  InfCodeLiaisons
         {
             get;
             set;

@@ -322,7 +322,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                 foreach (DbTable table in schema.Tables)
                 { 
                     String className = NameConverter.TableNameToEntityName(table.Name)+"";
-                    writer.AddProperty("public DbSet<InfAccident> ", className + "s");
+                    writer.AddProperty("public DbSet<" + className + "> ", className + "s");
                 }
             }
             writer.WriteContent();

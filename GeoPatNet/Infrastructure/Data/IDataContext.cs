@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace Emash.GeoPatNet.Data.Infrastructure
 {
     public abstract class IDataContext : DbContext
-    { 
-       
+    {
+        public IDataContext(System.Data.Common.DbConnection  connection)
+            : base(connection,true)
+        { }
     }
 }

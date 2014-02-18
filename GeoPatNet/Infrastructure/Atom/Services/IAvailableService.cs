@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emash.GeoPatNet.Engine.Infrastructure.services
+namespace Emash.GeoPatNet.Atom.Infrastructure.Services
 {
     public interface IAvailableService
     {
+        Boolean IsAvailable {get;}
     }
 }

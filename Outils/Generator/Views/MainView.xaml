@@ -22,7 +22,8 @@
             <MenuItem IsEnabled="{Binding Path=HasCurrentProject}"  Header="Projet">
                 <MenuItem Command="{Binding Path=CurrentProject.AddMpdCommand}" Header="Ajouter un MPD"></MenuItem>
                 <MenuItem Header="Générer">
-                    <MenuItem Command="{Binding Path=CurrentProject.ShowGenerateCSharpCommand}" Header="Code source C#"></MenuItem>                    
+                    <MenuItem Command="{Binding Path=CurrentProject.ShowGenerateCSharpCommand}" Header="Code source C#"></MenuItem>
+                    <MenuItem Command="{Binding Path=CurrentProject.ShowGenerateSqlPostgreCommand}" Header="Script SQL Postgre"></MenuItem>
                 </MenuItem>
             </MenuItem>
         </Menu>

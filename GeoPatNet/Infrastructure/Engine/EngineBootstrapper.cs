@@ -72,7 +72,7 @@ namespace Emash.GeoPatNet.Engine.Infrastructure
             this._splashTask.Start();
             IDataService dataService = this.Container.TryResolve<IDataService>();
             if (dataService != null)
-            {dataService.Initialize("");}
+            { dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=aio;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;"); }
         }
     }
 }

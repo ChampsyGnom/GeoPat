@@ -120,11 +120,15 @@
     <Compile Include="ViewModels\DbTablesViewModel.cs" />
     <Compile Include="ViewModels\DbTableViewModel.cs" />
     <Compile Include="ViewModels\GeneratorCSharpViewModel.cs" />
+    <Compile Include="ViewModels\GeneratorSqlPostgreViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\GeneratorCSharpView.xaml.cs">
       <DependentUpon>GeneratorCSharpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneratorSqlPostgreView.xaml.cs">
+      <DependentUpon>GeneratorSqlPostgreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -188,6 +192,10 @@
     <Page Include="Views\GeneratorCSharpView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GeneratorSqlPostgreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>

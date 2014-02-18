@@ -23,7 +23,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         }
         public DelegateCommand AddMpdCommand { get; set; }
         public DelegateCommand ShowGenerateCSharpCommand { get; set; }
-
+        public DelegateCommand ShowGenerateSqlPostgreCommand { get; set; }
        
         public ObservableCollection<DbSchemaViewModel> Schemas { get; set; }
         public ProjectViewModel(Project model)
@@ -41,6 +41,15 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             }
             this.AddMpdCommand = new DelegateCommand(AddMpdExecute, CanAddMpdExecute);
             this.ShowGenerateCSharpCommand = new DelegateCommand(ShowGenerateCSharpExecute, CanShowGenerateCSharpExecute);
+            this.ShowGenerateSqlPostgreCommand = new DelegateCommand(ShowGenerateSqlPostgreExecute);
+        }
+
+        private void ShowGenerateSqlPostgreExecute()
+        {
+            GeneratorSqlPostgreViewModel vm = new GeneratorSqlPostgreViewModel(this.Model);
+            GeneratorSqlPostgreView v = new GeneratorSqlPostgreView(vm);
+            v.Owner = System.Windows.Application.Current.MainWindow;
+            v.ShowDialog();
         }
 
         private void ShowGenerateCSharpExecute()

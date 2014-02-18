@@ -75,7 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EngineBootstrapper.cs" />
-    <Compile Include="Services\IAvailableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="Views\IMainView.cs" />
@@ -88,6 +87,10 @@
     <ProjectReference Include="..\..\Implementation\Presentation\Presentation.csproj">
       <Project>{55fb94d1-4420-4c91-9784-863545f39bc9}</Project>
       <Name>Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Atom\Atom.csproj">
+      <Project>{d34ef644-add7-4273-99ca-848c62d9d3ae}</Project>
+      <Name>Atom</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{0f0e37dc-7717-4bf0-97c1-1f9794f9c8de}</Project>

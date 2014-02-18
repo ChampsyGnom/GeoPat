@@ -64,11 +64,14 @@
     <Reference Include="Microsoft.Windows.Shell">
       <HintPath>..\..\packages\Ribbon\Microsoft.Windows.Shell.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql">
-      <HintPath>..\..\packages\npgsql\Npgsql.dll</HintPath>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\packages\npgsql\2.1\Mono.Security.dll</HintPath>
     </Reference>
-    <Reference Include="policy.2.0.Npgsql">
-      <HintPath>..\..\packages\npgsql\policy.2.0.Npgsql.dll</HintPath>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\packages\npgsql\2.1\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql.EntityFramework">
+      <HintPath>..\..\packages\npgsql\2.1\Npgsql.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="RibbonControlsLibrary">
       <HintPath>..\..\packages\Ribbon\RibbonControlsLibrary.dll</HintPath>
@@ -156,6 +159,10 @@
     <ProjectReference Include="..\..\Implementation\Presentation\Presentation.csproj">
       <Project>{55fb94d1-4420-4c91-9784-863545f39bc9}</Project>
       <Name>Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Atom\Atom.csproj">
+      <Project>{d34ef644-add7-4273-99ca-848c62d9d3ae}</Project>
+      <Name>Atom</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Data\Data.csproj">
       <Project>{0f0e37dc-7717-4bf0-97c1-1f9794f9c8de}</Project>

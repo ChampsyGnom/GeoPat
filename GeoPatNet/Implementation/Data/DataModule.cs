@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Data.Implementation
 {
+    [Module(ModuleName = "Data")]
     public class DataModule : IModule
     {
         private IEventAggregator _eventAggregator;
