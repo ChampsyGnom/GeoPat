@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Section trafic")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -23,6 +26,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Classe de trafic")]
         [ColumnName("INF_CD_TRAFIC__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodeTrafic InfCodeTrafic
         {
             get;
@@ -30,6 +35,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Aboutissant")]
         [ColumnName("INF_SECTION_TRAFIC__ABOUT")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String About
         {
             get;
@@ -38,6 +46,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_SECTION_TRAFIC__ABS_DEB")]
         [UniqueKey("INF_SECTION_TRAFIC_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsDeb
         {
             get;
@@ -45,6 +56,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_SECTION_TRAFIC__ABS_FIN")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> AbsFin
         {
             get;
@@ -54,6 +68,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_SECTION_TRAFIC__ID")]
         [PrimaryKey("INF_SECTION_TRAFIC_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -63,6 +79,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_SECTION_TRAFIC","JOIN_o756")]
         [UniqueKey("INF_SECTION_TRAFIC_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -72,6 +91,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_TRAFIC__ID")]
         [ForeignKey("INF_CD_TRAFIC__INF_SECTION_TRAFIC","JOIN_o763")]
         [UniqueKey("INF_SECTION_TRAFIC_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodeTraficId
         {
             get;
@@ -79,6 +101,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Tenant")]
         [ColumnName("INF_SECTION_TRAFIC__TENANT")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String Tenant
         {
             get;

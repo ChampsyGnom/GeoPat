@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Code voie")]
@@ -23,6 +24,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Code")]
         [ColumnName("INF_CD_VOIE__CODE")]
         [UniqueKey("UK_CODE_VOIE")]
+        [MaxCharLength(50)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(false)]
         public String Code
         {
             get;
@@ -32,6 +36,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_VOIE__ID")]
         [PrimaryKey("INF_CD_VOIE_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -39,6 +45,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Libellé")]
         [ColumnName("INF_CD_VOIE__LIBELLE")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String Libelle
         {
             get;
@@ -46,6 +55,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Position")]
         [ColumnName("INF_CD_VOIE__POSITION")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Position
         {
             get;
@@ -53,6 +65,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Roulable")]
         [ColumnName("INF_CD_VOIE__ROULABLE")]
+        [ControlType(ControlType.Check)]
+        [AllowNull(false)]
         public Boolean Roulable
         {
             get;

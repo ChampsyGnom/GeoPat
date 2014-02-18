@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Aménagement")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -23,6 +26,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Code aménagement")]
         [ColumnName("INF_CD_AMENAGEMENT__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodeAmenagement InfCodeAmenagement
         {
             get;
@@ -30,6 +35,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Commentaire")]
         [ColumnName("INF_AMENAGEMENT__INFO")]
+        [MaxCharLength(500)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String Info
         {
             get;
@@ -37,6 +45,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Coût")]
         [ColumnName("INF_AMENAGEMENT__COUT")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> Cout
         {
             get;
@@ -45,6 +56,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Date début")]
         [ColumnName("INF_AMENAGEMENT__DATE_DEB")]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
+        [ControlType(ControlType.Date)]
+        [AllowNull(false)]
         public DateTime DateDeb
         {
             get;
@@ -52,6 +65,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Date fin")]
         [ColumnName("INF_AMENAGEMENT__DATE_FIN")]
+        [ControlType(ControlType.Date)]
+        [AllowNull(true)]
         public Nullable<DateTime> DateFin
         {
             get;
@@ -60,6 +75,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_AMENAGEMENT__ABS_DEB")]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsDeb
         {
             get;
@@ -67,6 +85,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_AMENAGEMENT__ABS_FIN")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> AbsFin
         {
             get;
@@ -76,6 +97,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_AMENAGEMENT__ID")]
         [PrimaryKey("INF_AMENAGEMENT_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -85,6 +108,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_AMENAGEMENT","JOIN_o743")]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -94,6 +120,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_AMENAGEMENT__ID")]
         [ForeignKey("INF_CD_AMENAGEMENT__INF_AMENAGEMENT","JOIN_o764")]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodeAmenagementId
         {
             get;

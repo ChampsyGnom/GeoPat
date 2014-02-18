@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Code position")]
@@ -30,6 +31,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_POSIT__ID")]
         [PrimaryKey("INF_CD_POSIT_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -37,6 +40,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Ordre")]
         [ColumnName("INF_CD_POSIT__ORDRE")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> Ordre
         {
             get;
@@ -45,6 +51,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Position")]
         [ColumnName("INF_CD_POSIT__POSITION")]
         [UniqueKey("INF_CD_POSIT_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Position
         {
             get;

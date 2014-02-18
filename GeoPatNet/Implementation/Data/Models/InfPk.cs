@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("PK Chantier")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -24,6 +27,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Abscisse")]
         [ColumnName("INF_PK__ABS_CUM")]
         [UniqueKey("INF_PK_PK_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsCum
         {
             get;
@@ -31,6 +37,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Distance inter PR")]
         [ColumnName("INF_PK__INTER")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Inter
         {
             get;
@@ -40,6 +49,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_PK__ID")]
         [PrimaryKey("INF_PK_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -50,6 +61,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CHAUSSEE__INF_PK","JOIN_o752")]
         [UniqueKey("INF_PK_PK_UK_REF")]
         [UniqueKey("INF_PK_PK_UK1")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -58,6 +72,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("N° de PR")]
         [ColumnName("INF_PK__NUM")]
         [UniqueKey("INF_PK_PK_UK1")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Num
         {
             get;

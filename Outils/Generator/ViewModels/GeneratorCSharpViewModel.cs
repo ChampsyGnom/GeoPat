@@ -198,6 +198,11 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         TemplateProperty prop = writer.AddProperty("public virtual " + parentEntityName, parentEntityName);
                         prop.Attributes.Add("[DisplayName(\"" + parentTable.DisplayName + "\")]");
                         prop.Attributes.Add("[ColumnName(\"" + childColumn.Name + "\")]");
+                        if (childColumn.AllowNull)
+                        { prop.Attributes.Add("[AllowNull(true)]"); }
+                        else
+                        { prop.Attributes.Add("[AllowNull(false)]"); }
+                        prop.Attributes.Add("[ControlType(ControlType.Combo)]");
 
                     }
 
@@ -231,6 +236,10 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 {prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]");}
+                                prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
+                                prop.Attributes.Add("[ControlType(ControlType.Integer)]");
+                                prop.Attributes.Add("[AllowNull(true)]");
+                               
                             }
                             else
                             {
@@ -242,6 +251,9 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
+                                prop.Attributes.Add("[ControlType(ControlType.Integer)]");
+                                prop.Attributes.Add("[AllowNull(false)]");
                             }
                         }
                         else if (column.DataType.Equals("SERIAL"))
@@ -256,7 +268,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                             foreach (DbUniqueKey uk in uks)
                             { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
-
+                            prop.Attributes.Add("[ControlType(ControlType.None)]");
+                            prop.Attributes.Add("[AllowNull(false)]");
 
                         }
                         else if (column.DataType.StartsWith("VARCHAR"))
@@ -273,9 +286,18 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); 
                             }
 
+                            prop.Attributes.Add("[MaxCharLength(" + column.Length + ")]");
+                            prop.Attributes.Add("[ControlType(ControlType.Text)]");
+                            //MaxCharLengthAttribute
+                            if (column.AllowNull)
+                            { prop.Attributes.Add("[AllowNull(true)]"); }
+                            else
+                            { prop.Attributes.Add("[AllowNull(false)]"); }
+
                         }
                         else if (column.DataType.StartsWith("FLOAT8"))
                         {
+                            //RangeValueAttribute
                             if (column.AllowNull)
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Double>", propertyName);
@@ -286,6 +308,9 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
+                                prop.Attributes.Add("[ControlType(ControlType.Decimal)]");
+                                prop.Attributes.Add("[AllowNull(true)]");
                             }
                             else
                             {
@@ -297,6 +322,9 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
+                                prop.Attributes.Add("[ControlType(ControlType.Decimal)]");
+                                prop.Attributes.Add("[AllowNull(false)]");
                             }
 
 
@@ -313,6 +341,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[ControlType(ControlType.Date)]");
+                                prop.Attributes.Add("[AllowNull(true)]");
                             }
                             else
                             {
@@ -324,6 +354,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[ControlType(ControlType.Date)]");
+                                prop.Attributes.Add("[AllowNull(false)]");
                             }
 
 
@@ -340,6 +372,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[ControlType(ControlType.Check)]");
+                                prop.Attributes.Add("[AllowNull(true)]");
                             }
                             else
                             {
@@ -351,6 +385,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                prop.Attributes.Add("[ControlType(ControlType.Check)]");
+                                prop.Attributes.Add("[AllowNull(false)]");
                             }
 
 
@@ -409,6 +445,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         {
 
                             TemplateProperty prop = writer.AddProperty("String", propertyName);
+                            
 
                         }
                         else if (column.DataType.StartsWith("FLOAT8"))

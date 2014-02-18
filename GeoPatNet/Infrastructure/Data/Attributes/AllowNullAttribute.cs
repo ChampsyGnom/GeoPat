@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Data.Infrastructure.Attributes
 {
-    public class MaxCharLengthAttribute : Attribute
+    public class AllowNullAttribute : Attribute
     {
-        public int MaxCharLength { get; private set; }
+        public Boolean AllowNull { get; private set; }
 
-        public MaxCharLengthAttribute(int maxCharLength)
+        public AllowNullAttribute(Boolean allowNull)
         {
-            this.MaxCharLength = maxCharLength;
+            this.AllowNull = allowNull;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Liaison")]
@@ -22,6 +23,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Type liaison")]
         [ColumnName("INF_CD_LIAISON__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodeLiaison InfCodeLiaison
         {
             get;
@@ -30,6 +33,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Code")]
         [ColumnName("INF_LIAISON__CODE")]
         [UniqueKey("INF_LIAISON_UK_REF")]
+        [MaxCharLength(50)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(false)]
         public String Code
         {
             get;
@@ -39,6 +45,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_LIAISON__ID")]
         [PrimaryKey("INF_LIAISON_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -48,6 +56,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_LIAISON__ID")]
         [ForeignKey("INF_CD_LIAISON__INF_LIAISON","JOIN_o762")]
         [UniqueKey("INF_LIAISON_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodeLiaisonId
         {
             get;
@@ -55,6 +66,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Libellé")]
         [ColumnName("INF_LIAISON__LIBELLE")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String Libelle
         {
             get;

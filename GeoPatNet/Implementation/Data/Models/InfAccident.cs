@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Accident")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -24,6 +27,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Année")]
         [ColumnName("INF_ACCIDENT__ANNEE")]
         [UniqueKey("INF_ACCIDENT__UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Annee
         {
             get;
@@ -32,6 +38,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_ACCIDENT__ABS_DEB")]
         [UniqueKey("INF_ACCIDENT__UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsDeb
         {
             get;
@@ -39,6 +48,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_ACCIDENT__ABS_FIN")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> AbsFin
         {
             get;
@@ -48,6 +60,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_ACCIDENT__ID")]
         [PrimaryKey("INF_ACCIDENT_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -57,6 +71,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_ACCIDENT","JOIN_o742")]
         [UniqueKey("INF_ACCIDENT__UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -65,6 +82,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Mois")]
         [ColumnName("INF_ACCIDENT__MOIS")]
         [UniqueKey("INF_ACCIDENT__UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Mois
         {
             get;
@@ -72,6 +92,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Nb accident")]
         [ColumnName("INF_ACCIDENT__NB")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> Nb
         {
             get;
@@ -79,6 +102,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Nb accident par mois")]
         [ColumnName("INF_ACCIDENT__NB_MOIS")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> NbMois
         {
             get;

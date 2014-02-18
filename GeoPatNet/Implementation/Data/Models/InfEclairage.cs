@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Eclairage")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -23,6 +26,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Code éclairage")]
         [ColumnName("INF_CD_ECLAIRAGE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodeEclairage InfCodeEclairage
         {
             get;
@@ -30,6 +35,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Code position")]
         [ColumnName("INF_CD_POSIT__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodePosit InfCodePosit
         {
             get;
@@ -38,6 +45,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_ECLAIRAGE__ABS_DEB")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsDeb
         {
             get;
@@ -47,6 +57,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_ECLAIRAGE__ID")]
         [PrimaryKey("INF_ECLAIRAGE_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -56,6 +68,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_ECLAIRAGE","JOIN_o748")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -65,6 +80,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_ECLAIRAGE__ID")]
         [ForeignKey("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o768")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodeEclairageId
         {
             get;
@@ -74,6 +92,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_POSIT__ID")]
         [ForeignKey("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o773")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodePositId
         {
             get;

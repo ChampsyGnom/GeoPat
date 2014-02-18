@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Talus")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -23,6 +26,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Code talus")]
         [ColumnName("INF_CD_TALUS__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodeTalus InfCodeTalus
         {
             get;
@@ -31,6 +36,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_TALUS__ABS_DEB")]
         [UniqueKey("INF_TALUS_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsDeb
         {
             get;
@@ -38,6 +46,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_TALUS__ABS_FIN")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(true)]
         public Nullable<Int64> AbsFin
         {
             get;
@@ -45,6 +56,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Hauteur")]
         [ColumnName("INF_TALUS__HAUTEUR")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Decimal)]
+        [AllowNull(true)]
         public Nullable<Double> Hauteur
         {
             get;
@@ -54,6 +68,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_TALUS__ID")]
         [PrimaryKey("INF_TALUS_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -63,6 +79,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_TALUS","JOIN_o759")]
         [UniqueKey("INF_TALUS_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -72,6 +91,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_TALUS__ID")]
         [ForeignKey("INF_CD_TALUS__INF_TALUS","JOIN_o778")]
         [UniqueKey("INF_TALUS_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodeTalusId
         {
             get;

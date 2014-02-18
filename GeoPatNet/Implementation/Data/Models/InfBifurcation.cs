@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Bifurcation")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -23,6 +26,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Code bifurcation")]
         [ColumnName("INF_CD_BIFURCATION__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfCodeBifurcation InfCodeBifurcation
         {
             get;
@@ -30,6 +35,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Commentaire")]
         [ColumnName("INF_BIFURCATION__INFO")]
+        [MaxCharLength(500)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String Info
         {
             get;
@@ -38,6 +46,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Date MS")]
         [ColumnName("INF_BIFURCATION__DATE_MS")]
         [UniqueKey("INF_BIFURCATION_UK_REF")]
+        [ControlType(ControlType.Date)]
+        [AllowNull(true)]
         public Nullable<DateTime> DateMs
         {
             get;
@@ -46,6 +56,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_BIFURCATION__ABS_DEB")]
         [UniqueKey("INF_BIFURCATION_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsDeb
         {
             get;
@@ -55,6 +68,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_BIFURCATION__ID")]
         [PrimaryKey("INF_BIFURCATION_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -64,6 +79,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_BIFURCATION","JOIN_o745")]
         [UniqueKey("INF_BIFURCATION_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -73,6 +91,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_BIFURCATION__ID")]
         [ForeignKey("INF_CD_BIFURCATION__INF_BIFURCATION","JOIN_o765")]
         [UniqueKey("INF_BIFURCATION_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfCodeBifurcationId
         {
             get;
@@ -80,6 +101,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("N° exploitation")]
         [ColumnName("INF_BIFURCATION__NUM_EXPLOIT")]
+        [MaxCharLength(50)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String NumExploit
         {
             get;
@@ -87,6 +111,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Nom")]
         [ColumnName("INF_BIFURCATION__NOM")]
+        [MaxCharLength(100)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
         public String Nom
         {
             get;

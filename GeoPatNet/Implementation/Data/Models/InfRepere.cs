@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Repère")]
@@ -16,6 +17,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     	
         [DisplayName("Chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [AllowNull(false)]
+        [ControlType(ControlType.Combo)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -24,6 +27,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Abscisse")]
         [ColumnName("INF_REPERE__ABS_CUM")]
         [UniqueKey("INF_REPERE_UK_REF")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 AbsCum
         {
             get;
@@ -31,6 +37,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Distance inter PR")]
         [ColumnName("INF_REPERE__INTER")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Inter
         {
             get;
@@ -40,6 +49,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_REPERE__ID")]
         [PrimaryKey("INF_REPERE_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
         public Int64 Id
         {
             get;
@@ -49,6 +60,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_REPERE","JOIN_o755")]
         [UniqueKey("INF_REPERE_UK2")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 InfChausseeId
         {
             get;
@@ -57,6 +71,9 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("N° de PR")]
         [ColumnName("INF_REPERE__NUM")]
         [UniqueKey("INF_REPERE_UK2")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
         public Int64 Num
         {
             get;

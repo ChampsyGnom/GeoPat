@@ -9,9 +9,13 @@ namespace Emash.GeoPatNet.Presentation.Infrastructure.Attributes
 
     public enum ControlType
     { 
-        Textbox,
-        Checkbox,
-        Combobox
+        Integer,
+        Decimal,
+        Text,
+        Check,
+        Combo,
+        Date,
+        None
     }
 
 

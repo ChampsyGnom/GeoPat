@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AllowNullAttribute.cs" />
     <Compile Include="Attributes\ColumnNameAttribute.cs" />
     <Compile Include="Attributes\MaxCharLengthAttribute.cs" />
     <Compile Include="Attributes\RangeValueAttribute.cs" />
