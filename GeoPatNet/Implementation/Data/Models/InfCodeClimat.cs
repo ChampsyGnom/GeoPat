@@ -5,19 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
+using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Code climat")]
+    [TableName("INF_CD_CLIMAT")]
+    [SchemaName("INF")]
     public class InfCodeClimat : IInfCodeClimat
     {
     	
-        [DisplayName("Climat")]
+        [DisplayName("Climats")]
         public virtual ICollection<InfClimat> InfClimats
         {
             get;
             set;
         }
         [DisplayName("Code")]
+        [ColumnName("INF_CD_CLIMAT__CODE")]
+        [UniqueKey("INF_CD_CLIMAT_UK_REF")]
         public String Code
         {
             get;
@@ -25,12 +30,15 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
+        [ColumnName("INF_CD_CLIMAT__ID")]
+        [PrimaryKey("INF_CD_CLIMAT_PK")]
         public Int64 Id
         {
             get;
             set;
         }
         [DisplayName("Libellé")]
+        [ColumnName("INF_CD_CLIMAT__LIBELLE")]
         public String Libelle
         {
             get;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 namespace @NameSpace
 {
     public class DataContext : IDataContext

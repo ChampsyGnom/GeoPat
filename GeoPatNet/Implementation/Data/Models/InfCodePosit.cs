@@ -5,19 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
+using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Code position")]
+    [TableName("INF_CD_POSIT")]
+    [SchemaName("INF")]
     public class InfCodePosit : IInfCodePosit
     {
     	
-        [DisplayName("Eclairage")]
+        [DisplayName("Eclairages")]
         public virtual ICollection<InfEclairage> InfEclairages
         {
             get;
             set;
         }
-        [DisplayName("Sécurité")]
+        [DisplayName("Sécurités")]
         public virtual ICollection<InfSecurite> InfSecurites
         {
             get;
@@ -25,18 +28,23 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
+        [ColumnName("INF_CD_POSIT__ID")]
+        [PrimaryKey("INF_CD_POSIT_PK")]
         public Int64 Id
         {
             get;
             set;
         }
         [DisplayName("Ordre")]
+        [ColumnName("INF_CD_POSIT__ORDRE")]
         public Nullable<Int64> Ordre
         {
             get;
             set;
         }
         [DisplayName("Position")]
+        [ColumnName("INF_CD_POSIT__POSITION")]
+        [UniqueKey("INF_CD_POSIT_UK_REF")]
         public Int64 Position
         {
             get;

@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using @NameSpaceInfrastructure.Models;
+using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 namespace @NameSpace.Models
 {
 	[DisplayName("@DisplayName")]
+@ClassAttributes
     public class @EntityName : I@EntityName
     {
     	

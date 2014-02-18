@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Data.Entity.ModelConfiguration;
+using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation
 {
     public class DataContext : IDataContext
@@ -791,10 +791,8 @@ namespace Emash.GeoPatNet.Data.Implementation
             modelBuilder.Entity<InfCodeLiaison>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<InfCodeLiaison>().Property(t => t.Libelle) .HasColumnName("INF_CD_LIAISON__LIBELLE");
             modelBuilder.Entity<InfCodeLiaison>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<InfCodeLiaison>().HasKey<long>(t => t.Id);
+            modelBuilder.Entity<InfCodeLiaison>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeLiaison>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            EntityTypeConfiguration<InfCodeLiaison> config = modelBuilder.Entity<InfCodeLiaison>();
-            Console.WriteLine(config);
         }
 
 

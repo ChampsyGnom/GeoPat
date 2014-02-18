@@ -88,7 +88,10 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                 { 
                     String className = NameConverter.TableNameToEntityName(table.Name)+"";
                     writer.AddProperty("public DbSet<" + className + "> ", className + "s");
+                   
 
+                    
+    
                     foreach (DbForeignKey fk in table.ForeignKeys)
                     {
                         DbTable parentTable = (from t in schema.Tables where t.Id.Equals (fk.ParentTableId ) select t).FirstOrDefault();
@@ -172,7 +175,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     String className = NameConverter.TableNameToEntityName(table.Name)+"";
                     String modelFileName = Path.Combine(modelPath, className + ".cs");
                     TemplateFileWriter writer = new TemplateFileWriter(modelFileName, templateFileName);
-
+                    writer.ClassAttributes.Add("[TableName(\"" + table.Name + "\")]");
+                    writer.ClassAttributes.Add("[SchemaName(\"" + schema.Name + "\")]");
                     List<DbForeignKey> childFks = (from fk in allFks where fk.ParentTableId.Equals(table.Id) select fk).ToList();
 
                     foreach (DbForeignKey childFk in childFks)
@@ -180,7 +184,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         DbTable childTable = (from t in schema.Tables where t.Id.Equals(childFk.ChildTableId) select t).FirstOrDefault();
                         String childEntityName = NameConverter.TableNameToEntityName(childTable.Name);
                         TemplateProperty prop = writer.AddProperty("public virtual ICollection<" + childEntityName + ">", childEntityName + "s");
-                        prop.Attributes.Add("[DisplayName(\"" + childTable.DisplayName + "\")]");
+                        prop.Attributes.Add("[DisplayName(\"" + childTable.DisplayName + "s\")]");
 
                     }
 
@@ -190,8 +194,10 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     {
                         DbTable parentTable = (from t in schema.Tables where t.Id.Equals(parentFk.ParentTableId) select t).FirstOrDefault();
                         String parentEntityName = NameConverter.TableNameToEntityName(parentTable.Name);
+                        DbColumn childColumn = (from c in table.Columns where (from j in  parentFk.Joins  select j.ChildColumnId ).Contains (c.Id ) select c).FirstOrDefault();
                         TemplateProperty prop = writer.AddProperty("public virtual " + parentEntityName, parentEntityName);
                         prop.Attributes.Add("[DisplayName(\"" + parentTable.DisplayName + "\")]");
+                        prop.Attributes.Add("[ColumnName(\"" + childColumn.Name + "\")]");
 
                     }
 
@@ -201,7 +207,17 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     writer.ReplaceTag("@EntityName", className);
                     foreach (DbColumn column in table.Columns)
                     {
+                        DbForeignKey fkTable = (from fk in table.ForeignKeys where (from j in fk.Joins select j.ChildColumnId ).Contains (column.Id ) select fk).FirstOrDefault();
+                        DbForeignKeyJoin fkJoinColumn = null;
 
+                        List<DbUniqueKey> uks = (from uk in table.UniqueKeys where uk.ColumnIds.Contains (column.Id ) select uk).ToList(); 
+                     
+                        if (fkTable != null)
+                        {
+                            fkJoinColumn = (from j in fkTable.Joins where j.ChildColumnId.Equals(column.Id) select j).FirstOrDefault(); 
+                           
+                        }
+                        
                         String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Replace(table.Name, ""));
                         if (column.DataType.Equals("INT4"))
                         {
@@ -209,21 +225,38 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Int64>", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn .Id+ "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                {prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]");}
                             }
                             else
                             {
                                 TemplateProperty prop = writer.AddProperty("public Int64", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
                         }
                         else if (column.DataType.Equals("SERIAL"))
                         {
 
-                            TemplateProperty prop = writer.AddProperty("public Int64", propertyName);
-
-                            //BrowsableAttribute 
+                            TemplateProperty prop = writer.AddProperty("public Int64", propertyName);                        
                             prop.Attributes.Add("[Browsable(false)]");
                             prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                            prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                            if (table.PrimaryKey.ColumnIds.Contains(column.Id))
+                            {prop.Attributes.Add("[PrimaryKey(\"" + table.PrimaryKey.Name + "\")]");}
+
+                            foreach (DbUniqueKey uk in uks)
+                            { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+
 
                         }
                         else if (column.DataType.StartsWith("VARCHAR"))
@@ -231,6 +264,14 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                             TemplateProperty prop = writer.AddProperty("public String", propertyName);
                             prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                            prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                            if (fkJoinColumn != null)
+                            { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                            foreach (DbUniqueKey uk in uks)
+                            {
+                                prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); 
+                            }
 
                         }
                         else if (column.DataType.StartsWith("FLOAT8"))
@@ -239,11 +280,23 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Double>", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
                             else
                             {
                                 TemplateProperty prop = writer.AddProperty("public Double", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
 
 
@@ -254,11 +307,23 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<DateTime>", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
                             else
                             {
                                 TemplateProperty prop = writer.AddProperty("public DateTime", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
 
 
@@ -269,11 +334,23 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Boolean>", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
                             else
                             {
                                 TemplateProperty prop = writer.AddProperty("public Boolean", propertyName);
-                                prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                                prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]"); 
+                                prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
+
+                                foreach (DbUniqueKey uk in uks)
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                             }
 
 
