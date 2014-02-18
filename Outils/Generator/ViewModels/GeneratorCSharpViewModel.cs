@@ -89,6 +89,14 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     String className = NameConverter.TableNameToEntityName(table.Name)+"";
                     writer.AddProperty("public DbSet<" + className + "> ", className + "s");
 
+                    foreach (DbForeignKey fk in table.ForeignKeys)
+                    {
+                        DbTable parentTable = (from t in schema.Tables where t.Id.Equals (fk.ParentTableId ) select t).FirstOrDefault();
+                        String parentEntityName = NameConverter.TableNameToEntityName(parentTable.Name);
+                        writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().HasRequired<" + parentEntityName + ">(c => c." + parentEntityName + ").WithMany(t => t." + className + "s);");
+                    }
+
+                    //  
                     writer.ModelBuilders.Add("modelBuilder.Entity<"+className+">().ToTable(\""+table.Name+"\", \""+schema.Name+"\");");
                     foreach (DbColumn column in table.Columns)
                     {
@@ -117,7 +125,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             }
                         }
                         
-                        //
+                        
                        
                     }
                     if (table.PrimaryKey.ColumnIds.Count == 1)
@@ -212,6 +220,9 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         {
 
                             TemplateProperty prop = writer.AddProperty("public Int64", propertyName);
+
+                            //BrowsableAttribute 
+                            prop.Attributes.Add("[Browsable(false)]");
                             prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
 
                         }

@@ -41,6 +41,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
+        [Browsable(false)]
         [DisplayName("Identifiant")]
         public Int64 Id
         {
