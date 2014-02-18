@@ -10,8 +10,11 @@ using System.Windows;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Prism.Modularity;
 using System.Diagnostics;
-using Emash.GeoPatNet.Presentation.Implentation.Views;
+
 using Emash.GeoPatNet.Data.Infrastructure.Services;
+
+using Emash.GeoPatNet.Presentation.Infrastructure.Services;
+
 
 namespace Emash.GeoPatNet.Engine.Infrastructure
 {
@@ -21,16 +24,18 @@ namespace Emash.GeoPatNet.Engine.Infrastructure
        
     {
         public int MaxIntializeTimeout { get; protected set; }
-        private Task _splashTask;
+        private Task _moduleInitializerTask;
         public EngineBootstrapper()
         {
-            this.MaxIntializeTimeout = 3000;
+            this.MaxIntializeTimeout = 1000;
         }
         protected override void ConfigureModuleCatalog()
         {
             base.ConfigureModuleCatalog();
             String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             this.ModuleCatalog = new DirectoryModuleCatalog() { ModulePath = System.IO.Path.Combine(appStartPath, "Resources\\Modules") };
+           
+            
         }
        
         protected override void ConfigureContainer()
@@ -51,28 +56,25 @@ namespace Emash.GeoPatNet.Engine.Infrastructure
         protected override System.Windows.DependencyObject CreateShell()
         {
             V mainView = this.Container.Resolve<V>();
-            System.Windows.Threading.Dispatcher dispatcher = System.Windows.Application.Current.Dispatcher;
-            SplashView splashView = new SplashView();
-            splashView.Show();
-            this._splashTask = new Task(new Action(delegate()
-            {
-                System.Threading.Thread.Sleep(this.MaxIntializeTimeout);
-                dispatcher.Invoke(new Action(delegate()
-                {
-                    splashView.Close();
-                    mainView.Show();
-                }));
-            }));
             return mainView;
         }
 
         protected override void InitializeModules()
         {
+           
             base.InitializeModules();
-            this._splashTask.Start();
-            IDataService dataService = this.Container.TryResolve<IDataService>();
+            this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
+            IDataService dataService = this.Container.TryResolve<IDataService>();            
             if (dataService != null)
-            { dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=aio;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;"); }
+            {
+                _moduleInitializerTask = new Task(new Action(delegate()
+                {
+                    dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=aio;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+                    this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
+                }));
+                _moduleInitializerTask.Start();
+              
+            }
         }
     }
 }

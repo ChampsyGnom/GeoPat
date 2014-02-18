@@ -1,6 +1,5 @@
 ﻿using Emash.GeoPatNet.Data.Implementation.Services;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
-using Emash.GeoPatNet.Presentation.Implentation.Events;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Unity;
@@ -9,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Emash.GeoPatNet.Presentation.Infrastructure.Events;
+
 
 namespace Emash.GeoPatNet.Data.Implementation
 {

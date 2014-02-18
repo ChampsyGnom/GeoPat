@@ -1,4 +1,4 @@
-﻿using Emash.GeoPatNet.Presentation.Implentation.Events;
+﻿
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.ServiceLocation;
 using System;
@@ -14,8 +14,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Emash.GeoPatNet.Presentation.Infrastructure.Events;
+using Emash.GeoPatNet.Presentation.Infrastructure.Services;
 
-namespace Emash.GeoPatNet.Presentation.Implentation.Views
+
+namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
     /// <summary>
     /// Logique d'interaction pour SplashView.xaml
@@ -24,16 +27,11 @@ namespace Emash.GeoPatNet.Presentation.Implentation.Views
     {
         public SplashView()
         {
+            this.DataContext = ServiceLocator.Current.GetInstance<ISplashService>();
             InitializeComponent();
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<SplashEvent>().Subscribe(OnSplashEvent);
-        }
-
-        private void OnSplashEvent(String message)
-        {
-            this.Dispatcher.Invoke(new Action(delegate() {
-                txtMessage.Text = message;
-            }));
             
         }
+
+        
     }
 }

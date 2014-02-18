@@ -7,13 +7,13 @@ using System.Windows;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Referentiel")]
-[assembly: AssemblyDescription("Gestion du référentiel")]
+[assembly: AssemblyTitle("Presentation")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Emash")]
-[assembly: AssemblyProduct("Referentiel")]
-[assembly: AssemblyCopyright("Copyright © Emash  2014")]
-[assembly: AssemblyTrademark("Emash")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("Presentation")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // L'affectation de la valeur false à ComVisible rend les types invisibles dans cet assembly 
@@ -31,13 +31,13 @@ using System.Windows;
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
 
-[assembly: ThemeInfo(
+[assembly:ThemeInfo(
     ResourceDictionaryLocation.None, //où se trouvent les dictionnaires de ressources spécifiques à un thème
-    //(utilisé si une ressource est introuvable dans la page, 
-    // ou dictionnaires de ressources de l'application)
+                             //(utilisé si une ressource est introuvable dans la page, 
+                             // ou dictionnaires de ressources de l'application)
     ResourceDictionaryLocation.SourceAssembly //où se trouve le dictionnaire de ressources générique
-    //(utilisé si une ressource est introuvable dans la page, 
-    // dans l'application ou dans l'un des dictionnaires de ressources spécifiques à un thème)
+                                      //(utilisé si une ressource est introuvable dans la page, 
+                                      // dans l'application ou dans l'un des dictionnaires de ressources spécifiques à un thème)
 )]
 
 

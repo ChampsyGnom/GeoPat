@@ -84,10 +84,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Implementation\Presentation\Presentation.csproj">
-      <Project>{55fb94d1-4420-4c91-9784-863545f39bc9}</Project>
-      <Name>Presentation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Atom\Atom.csproj">
       <Project>{d34ef644-add7-4273-99ca-848c62d9d3ae}</Project>
       <Name>Atom</Name>
@@ -95,6 +91,10 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{0f0e37dc-7717-4bf0-97c1-1f9794f9c8de}</Project>
       <Name>Data %28Infrastructure\Data%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation\Presentation.csproj">
+      <Project>{7364ea64-5842-4f1a-a0c8-44c15d6d4dc6}</Project>
+      <Name>Presentation %28Infrastructure\Presentation%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

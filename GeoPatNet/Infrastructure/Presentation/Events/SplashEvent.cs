@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emash.GeoPatNet.Presentation.Implentation.Events
+namespace Emash.GeoPatNet.Presentation.Infrastructure.Events
 {
     public class SplashEvent : CompositePresentationEvent<String>
     {
