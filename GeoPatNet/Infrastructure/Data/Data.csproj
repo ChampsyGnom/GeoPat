@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F0E37DC-7717-4BF0-97C1-1F9794F9C8DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Emash.GeoPatNet.Data.Infrastructure</RootNamespace>
+    <AssemblyName>Data.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions">
+      <HintPath>..\..\packages\Prism.UnityExtensions.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDataContext.cs" />
+    <Compile Include="Models\IInfAccident.cs" />
+    <Compile Include="Models\IInfAmenagement.cs" />
+    <Compile Include="Models\IInfBifurcation.cs" />
+    <Compile Include="Models\IInfBretelle.cs" />
+    <Compile Include="Models\IInfChaussee.cs" />
+    <Compile Include="Models\IInfClimat.cs" />
+    <Compile Include="Models\IInfCodeAmenagement.cs" />
+    <Compile Include="Models\IInfCodeBifurcation.cs" />
+    <Compile Include="Models\IInfCodeClimat.cs" />
+    <Compile Include="Models\IInfCodeDec.cs" />
+    <Compile Include="Models\IInfCodeEclairage.cs" />
+    <Compile Include="Models\IInfCodeGare.cs" />
+    <Compile Include="Models\IInfCodeLiaison.cs" />
+    <Compile Include="Models\IInfCodeOccupant.cs" />
+    <Compile Include="Models\IInfCodeOccupation.cs" />
+    <Compile Include="Models\IInfCodePosit.cs" />
+    <Compile Include="Models\IInfCodePtSing.cs" />
+    <Compile Include="Models\IInfCodeSecurite.cs" />
+    <Compile Include="Models\IInfCodeSensible.cs" />
+    <Compile Include="Models\IInfCodeTalus.cs" />
+    <Compile Include="Models\IInfCodeTpc.cs" />
+    <Compile Include="Models\IInfCodeTrafic.cs" />
+    <Compile Include="Models\IInfCodeVoie.cs" />
+    <Compile Include="Models\IInfEclairage.cs" />
+    <Compile Include="Models\IInfFamDec.cs" />
+    <Compile Include="Models\IInfGare.cs" />
+    <Compile Include="Models\IInfLiaison.cs" />
+    <Compile Include="Models\IInfOccupation.cs" />
+    <Compile Include="Models\IInfPaveVoie.cs" />
+    <Compile Include="Models\IInfPk.cs" />
+    <Compile Include="Models\IInfPrOld.cs" />
+    <Compile Include="Models\IInfPtSing.cs" />
+    <Compile Include="Models\IInfRepartitionTrafic.cs" />
+    <Compile Include="Models\IInfRepere.cs" />
+    <Compile Include="Models\IInfSectionTrafic.cs" />
+    <Compile Include="Models\IInfSecurite.cs" />
+    <Compile Include="Models\IInfSensible.cs" />
+    <Compile Include="Models\IInfTalus.cs" />
+    <Compile Include="Models\IInfTpc.cs" />
+    <Compile Include="Models\IInfTrDec.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IDataService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

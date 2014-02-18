@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Emash.GeoPatNet.Generator.ViewModels
 {
@@ -33,6 +34,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             this.SaveAsProjectCommand = new DelegateCommand(SaveAsProjectExecute, CanSaveAsProjectExecute);
             this.CloseProjectCommand = new DelegateCommand(CloseProjectExecute, CanCloseProjectExecute);
             this.ExitCommand = new DelegateCommand(ExitExecute, CanExitExecute);
+            
         }
 
         private void RaiseCommandChange()

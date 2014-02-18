@@ -27,5 +27,25 @@ namespace Emash.GeoPatNet.Generator.Utils
             }
             return String.Join("", formattedItems);
         }
+
+        public static String ColumnNameToPropertyName(String columnName)
+        {
+            List<String> items = columnName.Split("_".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<String> formattedItems = new List<string>();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ToLower().Equals("cd"))
+                {
+                    formattedItems.Add("Code");
+                }
+                else
+                {
+                    String formattedItem = items[i].Substring(0, 1).ToUpper() + items[i].Substring(1).ToLower();
+                    formattedItems.Add(formattedItem);
+                }
+
+            }
+            return String.Join("", formattedItems);
+        }
     }
 }

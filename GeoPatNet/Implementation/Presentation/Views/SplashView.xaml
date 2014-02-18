@@ -1,0 +1,20 @@
+﻿<Window x:Class="Emash.GeoPatNet.Presentation.Implentation.Views.SplashView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="SplashView" Height="300" Width="400">
+    <Border BorderBrush="Black" BorderThickness="2" Background="YellowGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="20 0 20 0">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Titre" FontSize="30" TextAlignment="Center"></TextBlock>
+            <TextBlock x:Name="txtMessage" Grid.Row="2" Text="Initialisation ..." FontSize="12"></TextBlock>
+        </Grid>
+    </Border>
+</Window>
