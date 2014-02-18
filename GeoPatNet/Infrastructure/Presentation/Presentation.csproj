@@ -71,6 +71,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ControlTypeAttribute.cs" />
     <Compile Include="Events\SplashEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

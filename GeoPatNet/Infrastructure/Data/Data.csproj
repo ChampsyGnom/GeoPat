@@ -70,6 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ColumnNameAttribute.cs" />
+    <Compile Include="Attributes\MaxCharLengthAttribute.cs" />
+    <Compile Include="Attributes\RangeValueAttribute.cs" />
+    <Compile Include="Attributes\SchemaNameAttribute.cs" />
+    <Compile Include="Attributes\ForeignKeyAttribute.cs" />
+    <Compile Include="Attributes\TableNameAttribute.cs" />
+    <Compile Include="Attributes\UniqueKeyAttribute.cs" />
+    <Compile Include="Attributes\PrimaryKeyAttribute.cs" />
     <Compile Include="IDataContext.cs" />
     <Compile Include="Models\IInfAccident.cs" />
     <Compile Include="Models\IInfAmenagement.cs" />

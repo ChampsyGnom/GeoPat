@@ -69,7 +69,7 @@ namespace Emash.GeoPatNet.Engine.Infrastructure
             {
                 _moduleInitializerTask = new Task(new Action(delegate()
                 {
-                    dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+                    dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
                 }));
                 _moduleInitializerTask.Start();
