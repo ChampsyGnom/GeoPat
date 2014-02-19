@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Emash.GeoPatNet.Generator.Models
 {
@@ -15,7 +16,13 @@ namespace Emash.GeoPatNet.Generator.Models
         public String DataType { get; set; }
         public Boolean AllowNull { get; set; }
         public Nullable<Int32> Length { get; set; }
+        [XmlElement(Type = typeof(DbRulePr), ElementName = "RulePr")]
+        public List<DbRule> Rules { get; set; }
 
+        public DbColumn()
+        {
+            this.Rules = new List<DbRule>();
+        }
         internal string GetSqlPostgreDefinition()
         {
             if (DataType.Equals("SERIAL"))

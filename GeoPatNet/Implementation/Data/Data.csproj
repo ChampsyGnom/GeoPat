@@ -92,6 +92,7 @@
     <Compile Include="Models\InfCodeAmenagement.cs" />
     <Compile Include="Models\InfCodeBifurcation.cs" />
     <Compile Include="Models\InfCodeClimat.cs" />
+    <Compile Include="Models\InfCodeDashboard.cs" />
     <Compile Include="Models\InfCodeDec.cs" />
     <Compile Include="Models\InfCodeEclairage.cs" />
     <Compile Include="Models\InfCodeGare.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Models\InfCodeTpc.cs" />
     <Compile Include="Models\InfCodeTrafic.cs" />
     <Compile Include="Models\InfCodeVoie.cs" />
+    <Compile Include="Models\InfDashboard.cs" />
     <Compile Include="Models\InfEclairage.cs" />
     <Compile Include="Models\InfFamDec.cs" />
     <Compile Include="Models\InfGare.cs" />

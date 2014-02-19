@@ -76,7 +76,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_GARE","JOIN_o749")]
+        [ForeignKey("INF_CHAUSSEE__INF_GARE","JOIN_o774")]
         [UniqueKey("INF_GARE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -88,7 +88,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code gare")]
         [ColumnName("INF_CD_GARE__ID")]
-        [ForeignKey("INF_CD_GARE__INF_GARE","JOIN_o769")]
+        [ForeignKey("INF_CD_GARE__INF_GARE","JOIN_o794")]
         [UniqueKey("INF_GARE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

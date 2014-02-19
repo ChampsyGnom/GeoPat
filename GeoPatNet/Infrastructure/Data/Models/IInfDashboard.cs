@@ -8,45 +8,25 @@ using System.ComponentModel;
 namespace Emash.GeoPatNet.Data.Infrastructure.Models
 {
 	
-    public interface IInfChaussee
+    public interface IInfDashboard
     {
 
-        String About
-        {
-            get;
-            set;
-        }
-        String Code
-        {
-            get;
-            set;
-        }
-        Int64 AbsDeb
-        {
-            get;
-            set;
-        }
-        Int64 AbsFin
-        {
-            get;
-            set;
-        }
         Int64 Id
         {
             get;
             set;
         }
-        Int64 InfLiaisonId
+        Int64 IdParent
         {
             get;
             set;
         }
-        String Libelle
+        Int64 InfCodeDashboardId
         {
             get;
             set;
         }
-        String Tenant
+        Int64 Ordre
         {
             get;
             set;

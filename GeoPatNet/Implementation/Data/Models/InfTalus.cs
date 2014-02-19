@@ -77,7 +77,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_TALUS","JOIN_o759")]
+        [ForeignKey("INF_CHAUSSEE__INF_TALUS","JOIN_o784")]
         [UniqueKey("INF_TALUS_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -89,7 +89,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code talus")]
         [ColumnName("INF_CD_TALUS__ID")]
-        [ForeignKey("INF_CD_TALUS__INF_TALUS","JOIN_o778")]
+        [ForeignKey("INF_CD_TALUS__INF_TALUS","JOIN_o803")]
         [UniqueKey("INF_TALUS_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

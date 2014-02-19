@@ -76,7 +76,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_SECURITE","JOIN_o757")]
+        [ForeignKey("INF_CHAUSSEE__INF_SECURITE","JOIN_o782")]
         [UniqueKey("INF_SECURITE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -88,7 +88,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code position")]
         [ColumnName("INF_CD_POSIT__ID")]
-        [ForeignKey("INF_CD_POSIT__INF_SECURITE","JOIN_o775")]
+        [ForeignKey("INF_CD_POSIT__INF_SECURITE","JOIN_o800")]
         [UniqueKey("INF_SECURITE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -100,7 +100,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code sécurité")]
         [ColumnName("INF_CD_SECURITE__ID")]
-        [ForeignKey("INF_CD_SECURITE__INF_SECURITE","JOIN_o776")]
+        [ForeignKey("INF_CD_SECURITE__INF_SECURITE","JOIN_o801")]
         [UniqueKey("INF_SECURITE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

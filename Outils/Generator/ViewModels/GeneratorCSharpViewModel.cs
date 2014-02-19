@@ -226,6 +226,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Replace(table.Name, ""));
                         if (column.DataType.Equals("INT4"))
                         {
+                            DbRulePr rulePr = (from r in column.Rules where r is DbRulePr select r as DbRulePr).FirstOrDefault();
                             if (column.AllowNull)
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Int64>", propertyName);
@@ -237,7 +238,13 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 foreach (DbUniqueKey uk in uks)
                                 {prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]");}
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
-                                prop.Attributes.Add("[ControlType(ControlType.Integer)]");
+                                if (rulePr != null)
+                                { 
+                                    prop.Attributes.Add("[RulePr(\""+rulePr.ChausseIdColumnName+"\")]");
+                                    prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                }
+                                else
+                                { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }         
                                 prop.Attributes.Add("[AllowNull(true)]");
                                
                             }
@@ -252,7 +259,13 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
-                                prop.Attributes.Add("[ControlType(ControlType.Integer)]");
+                                if (rulePr != null)
+                                {
+                                    prop.Attributes.Add("[RulePr(\"" + rulePr.ChausseIdColumnName + "\")]");
+                                    prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                }
+                                else
+                                { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }         
                                 prop.Attributes.Add("[AllowNull(false)]");
                             }
                         }

@@ -74,6 +74,7 @@
     <Compile Include="Attributes\ColumnNameAttribute.cs" />
     <Compile Include="Attributes\MaxCharLengthAttribute.cs" />
     <Compile Include="Attributes\RangeValueAttribute.cs" />
+    <Compile Include="Attributes\RulePrAttribute.cs" />
     <Compile Include="Attributes\SchemaNameAttribute.cs" />
     <Compile Include="Attributes\ForeignKeyAttribute.cs" />
     <Compile Include="Attributes\TableNameAttribute.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Models\IInfCodeAmenagement.cs" />
     <Compile Include="Models\IInfCodeBifurcation.cs" />
     <Compile Include="Models\IInfCodeClimat.cs" />
+    <Compile Include="Models\IInfCodeDashboard.cs" />
     <Compile Include="Models\IInfCodeDec.cs" />
     <Compile Include="Models\IInfCodeEclairage.cs" />
     <Compile Include="Models\IInfCodeGare.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Models\IInfCodeTpc.cs" />
     <Compile Include="Models\IInfCodeTrafic.cs" />
     <Compile Include="Models\IInfCodeVoie.cs" />
+    <Compile Include="Models\IInfDashboard.cs" />
     <Compile Include="Models\IInfEclairage.cs" />
     <Compile Include="Models\IInfFamDec.cs" />
     <Compile Include="Models\IInfGare.cs" />

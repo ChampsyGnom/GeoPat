@@ -105,6 +105,8 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="IO\TemplateFileWriter.cs" />
     <Compile Include="IO\TemplateProperty.cs" />
+    <Compile Include="Models\DbRule.cs" />
+    <Compile Include="Models\DbRulePr.cs" />
     <Compile Include="Services\SerializationService.cs" />
     <Compile Include="Utils\NameConverter.cs" />
     <Compile Include="ViewModels\DbColumnsViewModel.cs" />

@@ -67,7 +67,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_TR_DEC","JOIN_o761")]
+        [ForeignKey("INF_CHAUSSEE__INF_TR_DEC","JOIN_o786")]
         [UniqueKey("INF_TR_DEC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -79,7 +79,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code découpage")]
         [ColumnName("INF_CD_DEC__ID")]
-        [ForeignKey("INF_CD_DEC__INF_TR_DEC","JOIN_o767")]
+        [ForeignKey("INF_CD_DEC__INF_TR_DEC","JOIN_o792")]
         [UniqueKey("INF_TR_DEC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

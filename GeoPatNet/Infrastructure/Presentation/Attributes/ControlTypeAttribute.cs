@@ -15,6 +15,7 @@ namespace Emash.GeoPatNet.Presentation.Infrastructure.Attributes
         Check,
         Combo,
         Date,
+        Pr,
         None
     }
 

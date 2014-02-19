@@ -38,6 +38,8 @@ namespace Emash.GeoPatNet.Generator.IO
             XmlNode nodeModel = doc.SelectSingleNode("/Model/RootObject/Children/Model");          
             XmlNodeList nodes = doc.SelectNodes("/Model/RootObject/Children/Model/Tables/Table");
 
+          
+
             XmlNodeList nodeReferences = nodeModel.SelectNodes("References/Reference");
             foreach (XmlNode nodeReference in nodeReferences)
             {
@@ -77,7 +79,7 @@ namespace Emash.GeoPatNet.Generator.IO
             foreach (XmlNode nodeTable in nodes)
             {
                 String id = nodeTable.Attributes["Id"].Value;
-                DbTable table = (from t in schema.Tables where t.Id.Equals (id) select t).FirstOrDefault();
+                DbTable table = (from t in schema.Tables where t.Id.Equals(id) select t).FirstOrDefault();
                 XmlNode nodePk = nodeTable.SelectSingleNode("Keys/Key");
                 if (nodePk != null)
                 {
@@ -119,7 +121,7 @@ namespace Emash.GeoPatNet.Generator.IO
                                         expression = expression.Replace(" ", "");
                                         expression = expression.Replace("(", "");
                                         expression = expression.Replace(")", "");
-                                        DbColumn column = (from c in table.Columns where c.Name.Equals (expression) select c).FirstOrDefault();
+                                        DbColumn column = (from c in table.Columns where c.Name.Equals(expression) select c).FirstOrDefault();
                                         uk.ColumnIds.Add(column.Id);
                                     }
 
@@ -134,8 +136,8 @@ namespace Emash.GeoPatNet.Generator.IO
                     }
 
                 }
-              
 
+            
 
             }
             
@@ -148,6 +150,22 @@ namespace Emash.GeoPatNet.Generator.IO
             schema.Id = nodeModel.Attributes["Id"].Value;
             schema.Name = nodeModel.SelectSingleNode("Code").InnerText;
             schema.DisplayName = nodeModel.SelectSingleNode("Name").InnerText;
+
+            XmlNodeList nodeRules = doc.SelectNodes("/Model/RootObject/Children/Model/BusinessRules/BusinessRule");
+            
+
+            foreach (XmlNode nodeRule in nodeRules)
+            {
+                if (nodeRule.SelectSingleNode("Code").InnerText.StartsWith("PR"))
+                {
+                    DbRulePr rulePr = new DbRulePr();
+                    rulePr.Id = nodeRule.Attributes["Id"].Value;
+                    rulePr.ChausseIdColumnName = nodeRule.SelectSingleNode("ServerExpression").InnerText;
+                    schema.Rules.Add(rulePr);
+                }
+            }
+
+
             XmlNodeList nodes = doc.SelectNodes("/Model/RootObject/Children/Model/Tables/Table");
             foreach (XmlNode nodeTable in nodes)
             {
@@ -156,6 +174,19 @@ namespace Emash.GeoPatNet.Generator.IO
                 table.Id = id;
                 table.Name = nodeTable.SelectSingleNode("Code").InnerText;
                 table.DisplayName = nodeTable.SelectSingleNode("Name").InnerText;
+
+                XmlNodeList nodeTableRules = nodeTable.SelectNodes("AttachedRules/BusinessRule");
+                foreach (XmlNode nodeTableRule in nodeTableRules)
+                {
+                    String ruleId = nodeTableRule.Attributes["Ref"].Value;
+                    DbRule rule = (from s in schema.Rules where s.Id.Equals(ruleId) select s).FirstOrDefault();
+                    if (rule != null)
+                    {
+                        table.Rules.Add(rule);
+                    }
+                }
+
+
                 XmlNodeList nodeColumns = nodeTable.SelectNodes("Columns/Column");
                 foreach (XmlNode nodeColumn in nodeColumns)
                 {
@@ -175,6 +206,14 @@ namespace Emash.GeoPatNet.Generator.IO
                         { column.AllowNull = false; }
 
                     }
+                    XmlNodeList nodeColumnRules = nodeColumn.SelectNodes("AttachedRules/BusinessRule");
+                    foreach (XmlNode nodeColumnRule in nodeColumnRules)
+                    {
+                        String ruleId = nodeColumnRule.Attributes["Ref"].Value;
+                        DbRule rule = (from s in schema.Rules where s.Id.Equals (ruleId ) select s).FirstOrDefault();
+                        if (rule != null)
+                        {column.Rules.Add(rule);}
+                    }
                     table.Columns.Add(column);
                 }
 
@@ -189,9 +228,6 @@ namespace Emash.GeoPatNet.Generator.IO
             return schema;
         }
 
-        private Models.DbSchema LoadSchema()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

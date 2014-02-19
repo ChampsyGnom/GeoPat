@@ -9,30 +9,20 @@ using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
-	[DisplayName("Code découpage")]
-    [TableName("INF_CD_DEC")]
+	[DisplayName("Type de noeud")]
+    [TableName("INF_CD_DASHBOARD")]
     [SchemaName("INF")]
-    public class InfCodeDec : IInfCodeDec
+    public class InfCodeDashboard : IInfCodeDashboard
     {
     	
-        [DisplayName("Tronçons découpages")]
-        public virtual ICollection<InfTrDec> InfTrDecs
-        {
-            get;
-            set;
-        }
-        [DisplayName("Famille découpage")]
-        [ColumnName("INF_FAM_DEC__ID")]
-        [AllowNull(false)]
-        [ControlType(ControlType.Combo)]
-        public virtual InfFamDec InfFamDec
+        [DisplayName("Noeudss")]
+        public virtual ICollection<InfDashboard> InfDashboards
         {
             get;
             set;
         }
         [DisplayName("Code")]
-        [ColumnName("INF_CD_DEC__CODE")]
-        [UniqueKey("INF_CD_DEC_UK_REF")]
+        [ColumnName("INF_CD_DASHBOARD__CODE")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
@@ -43,8 +33,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
-        [ColumnName("INF_CD_DEC__ID")]
-        [PrimaryKey("INF_CD_DEC_PK")]
+        [ColumnName("INF_CD_DASHBOARD__ID")]
+        [PrimaryKey("INF_CD_DASHBOARD_PK")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -52,20 +42,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Identifiant famille découpage")]
-        [ColumnName("INF_FAM_DEC__ID")]
-        [ForeignKey("INF_FAM_DEC__INF_CD_DEC","JOIN_o806")]
-        [UniqueKey("INF_CD_DEC_UK_REF")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
-        [AllowNull(false)]
-        public Int64 InfFamDecId
-        {
-            get;
-            set;
-        }
         [DisplayName("Libellé")]
-        [ColumnName("INF_CD_DEC__LIBELLE")]
+        [ColumnName("INF_CD_DASHBOARD__LIBELLE")]
         [MaxCharLength(200)]
         [ControlType(ControlType.Text)]
         [AllowNull(true)]

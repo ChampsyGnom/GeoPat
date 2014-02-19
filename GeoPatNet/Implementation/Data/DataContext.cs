@@ -155,6 +155,11 @@ namespace Emash.GeoPatNet.Data.Implementation
             get;
             set;
         }
+        public DbSet<InfDashboard>  InfDashboards
+        {
+            get;
+            set;
+        }
         public DbSet<InfOccupation>  InfOccupations
         {
             get;
@@ -211,6 +216,11 @@ namespace Emash.GeoPatNet.Data.Implementation
             set;
         }
         public DbSet<InfTrDec>  InfTrDecs
+        {
+            get;
+            set;
+        }
+        public DbSet<InfCodeDashboard>  InfCodeDashboards
         {
             get;
             set;
@@ -328,15 +338,23 @@ namespace Emash.GeoPatNet.Data.Implementation
             modelBuilder.Entity<InfBretelle>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfChaussee>().HasRequired<InfLiaison>(c => c.InfLiaison).WithMany(t => t.InfChaussees);
             modelBuilder.Entity<InfChaussee>().ToTable("INF_CHAUSSEE", "INF");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.About) .HasColumnName("INF_CHAUSSEE__ABOUT");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.About).HasMaxLength(200);
             modelBuilder.Entity<InfChaussee>().Property(t => t.Code) .HasColumnName("INF_CHAUSSEE__CODE");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Code).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<InfChaussee>().Property(t => t.AbsDeb) .HasColumnName("INF_CHAUSSEE__ABS_DEB");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.AbsDeb).IsRequired();
+            modelBuilder.Entity<InfChaussee>().Property(t => t.AbsFin) .HasColumnName("INF_CHAUSSEE__ABS_FIN");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.AbsFin).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id) .HasColumnName("INF_CHAUSSEE__ID");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.InfLiaisonId) .HasColumnName("INF_LIAISON__ID");
             modelBuilder.Entity<InfChaussee>().Property(t => t.InfLiaisonId).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.Libelle) .HasColumnName("INF_CHAUSSEE__LIBELLE");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<InfChaussee>().Property(t => t.Tenant) .HasColumnName("INF_CHAUSSEE__TENANT");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.Tenant).HasMaxLength(200);
             modelBuilder.Entity<InfChaussee>().HasKey(t => t.Id);
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfCodeTrafic>().ToTable("INF_CD_TRAFIC", "INF");
@@ -584,6 +602,18 @@ namespace Emash.GeoPatNet.Data.Implementation
             modelBuilder.Entity<InfLiaison>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfLiaison>().HasKey(t => t.Id);
             modelBuilder.Entity<InfLiaison>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfDashboard>().HasRequired<InfCodeDashboard>(c => c.InfCodeDashboard).WithMany(t => t.InfDashboards);
+            modelBuilder.Entity<InfDashboard>().ToTable("INF_DASHBOARD", "INF");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Id) .HasColumnName("INF_DASHBOARD__ID");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfDashboard>().Property(t => t.IdParent) .HasColumnName("INF_DASHBOARD__ID_PARENT");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.IdParent).IsRequired();
+            modelBuilder.Entity<InfDashboard>().Property(t => t.InfCodeDashboardId) .HasColumnName("INF_CD_DASHBOARD__ID");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.InfCodeDashboardId).IsRequired();
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Ordre) .HasColumnName("INF_DASHBOARD__ORDRE");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Ordre).IsRequired();
+            modelBuilder.Entity<InfDashboard>().HasKey(t => t.Id);
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfOccupation>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfOccupations);
             modelBuilder.Entity<InfOccupation>().HasRequired<InfCodeOccupant>(c => c.InfCodeOccupant).WithMany(t => t.InfOccupations);
             modelBuilder.Entity<InfOccupation>().HasRequired<InfCodeOccupation>(c => c.InfCodeOccupation).WithMany(t => t.InfOccupations);
@@ -783,6 +813,16 @@ namespace Emash.GeoPatNet.Data.Implementation
             modelBuilder.Entity<InfTrDec>().Property(t => t.InfCodeDecId).IsRequired();
             modelBuilder.Entity<InfTrDec>().HasKey(t => t.Id);
             modelBuilder.Entity<InfTrDec>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfCodeDashboard>().ToTable("INF_CD_DASHBOARD", "INF");
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Code) .HasColumnName("INF_CD_DASHBOARD__CODE");
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Id) .HasColumnName("INF_CD_DASHBOARD__ID");
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Libelle) .HasColumnName("INF_CD_DASHBOARD__LIBELLE");
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<InfCodeDashboard>().HasKey(t => t.Id);
+            modelBuilder.Entity<InfCodeDashboard>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfCodeLiaison>().ToTable("INF_CD_LIAISON", "INF");
             modelBuilder.Entity<InfCodeLiaison>().Property(t => t.Code) .HasColumnName("INF_CD_LIAISON__CODE");
             modelBuilder.Entity<InfCodeLiaison>().Property(t => t.Code).IsRequired();
