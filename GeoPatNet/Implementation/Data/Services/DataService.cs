@@ -22,6 +22,21 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
         public DataContext DataContext { get; private set; }
         private Boolean _isAvailable;
         private String _connectionString;
+
+        public IQueryable<T> GetQueryable<T>() where T : class 
+        {
+            foreach (Type type in this.GetType().Assembly.GetTypes())
+            {
+                if (typeof(T).IsAssignableFrom(type))
+                {
+                    var method = typeof(DbContext).GetMethod("Set", new Type[0]).MakeGenericMethod(new Type[] { type });
+                    Object set = method.Invoke(this.DataContext, new object[0]);
+                    IQueryable<T> genericItem = set as IQueryable<T>;
+                    return genericItem;
+                }
+            }
+           return  this.DataContext.Set<T>();
+        }
         public DataService(IEventAggregator eventAggregator, IUnityContainer container)
         {
             this._isAvailable = false;

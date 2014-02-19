@@ -10,5 +10,6 @@ namespace Emash.GeoPatNet.App.Referentiel.ViewModels
 {
     public class MainViewModel : MainViewModelBase
     {
+        public Object ActiveContent { get; set; }
     }
 }

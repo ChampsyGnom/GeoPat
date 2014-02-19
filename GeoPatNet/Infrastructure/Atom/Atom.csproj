@@ -68,6 +68,7 @@
     <Compile Include="Events\ServiceLoadedEventArg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IAvailableService.cs" />
+    <Compile Include="Services\IDashBoardService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

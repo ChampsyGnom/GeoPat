@@ -66,8 +66,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             this.GenerateDataInfra();
             this.GenerateData();
             this.GenerateDataContext();
-           // this.GenerateBuisnessInfra(); 
-           // this.GenerateBuisness();
+           
         }
        
         private void GenerateDataContext()
@@ -100,14 +99,14 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     }
 
                     //  
-                    writer.ModelBuilders.Add("modelBuilder.Entity<"+className+">().ToTable(\""+table.Name+"\", \""+schema.Name+"\");");
+                    writer.ModelBuilders.Add("modelBuilder.Entity<"+className+">().ToTable(\""+table.Name.ToLower ()+"\", \""+schema.Name.ToLower ()+"\");");
                     foreach (DbColumn column in table.Columns)
                     {
 
                         if (column.Name.StartsWith (table.Name +"__"))
                         {
                             String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Substring(column.Name.IndexOf("__")));
-                            writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ") .HasColumnName(\"" + column.Name + "\");");
+                            writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ") .HasColumnName(\"" + column.Name.ToLower () + "\");");
                             if (!column.AllowNull)
                             { writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ").IsRequired();"); }
 
@@ -119,7 +118,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         else
                         {
                             String propertyName = NameConverter.ColumnNameToPropertyName(column.Name);
-                            writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ") .HasColumnName(\"" + column.Name + "\");");
+                            writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ") .HasColumnName(\"" + column.Name.ToLower() + "\");");
                             if (!column.AllowNull)
                             { writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ").IsRequired();"); }
                             if (column.DataType.StartsWith("VARCHAR"))

@@ -1,10 +1,113 @@
 ﻿<ribbon:RibbonWindow x:Class="Emash.GeoPatNet.App.Referentiel.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:r="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
         WindowStartupLocation="CenterScreen"
-         xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
+        xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
         Title="Référentiel" Height="700" Width="1000">
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ribbon:Ribbon  Grid.Row="0">
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu >
+                    <ribbon:RibbonApplicationSplitMenuItem  Header="Fichier">
+
+
+                        <ribbon:RibbonApplicationMenuItem Command="{Binding Path=ImportCommand}" MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-file-import.png" Header="Importer">
+
+
+                        </ribbon:RibbonApplicationMenuItem>
+                        <ribbon:RibbonApplicationMenuItem  Command="{Binding Path=ExportCommand}"  MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-file-export.png" Header="Exporter">
+
+
+                        </ribbon:RibbonApplicationMenuItem>
+
+                    </ribbon:RibbonApplicationSplitMenuItem>
+
+                    <ribbon:RibbonSeparator></ribbon:RibbonSeparator>
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-help.png" Header="Manuel">
+
+
+                    </ribbon:RibbonApplicationMenuItem>
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-about.png" Header="A propos ...">
+
+
+                    </ribbon:RibbonApplicationMenuItem>
+                    <ribbon:RibbonSeparator></ribbon:RibbonSeparator>
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-exit.png" Header="Quitter">
+
+
+                    </ribbon:RibbonApplicationMenuItem>
+                </ribbon:RibbonApplicationMenu>
+
+            </ribbon:Ribbon.ApplicationMenu>
+            <ribbon:RibbonTab Header="Données">
+                <ribbon:RibbonGroup Header="Import/Export">
+                    <ribbon:RibbonButton Command="{Binding Path=ImportCommand}"  Label="Importer"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding Path=ExportCommand}"  Label="Exporter"></ribbon:RibbonButton>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="Affichage">
+                    <ribbon:RibbonButton Command="{Binding SwapActiveViewCommand}" Label="Changer de vue"></ribbon:RibbonButton>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="Analyse">
+                    <ribbon:RibbonButton Command="{Binding ShowStatCommand}" Label="Statistiques"></ribbon:RibbonButton>
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab Header="Suivis">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab Header="Prévisions">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab Header="Travaux">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab Header="Budjet">
+            </ribbon:RibbonTab>
+
+        </ribbon:Ribbon>
+        <avalonDock:DockingManager Grid.Row="1" ActiveContent="{Binding Path=ActiveContent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" r:RegionManager.RegionName="TabRegion"   x:Name="dockingManager">
+            <avalonDock:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Content.DataContext.DisplayName}"></TextBlock>
+                </DataTemplate>
+            </avalonDock:DockingManager.DocumentHeaderTemplate>
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+
+                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="150" Orientation="Vertical">
+                        <avalonDock:LayoutAnchorablePane>
+                            <avalonDock:LayoutAnchorable  CanAutoHide="False"  CanClose="False" CanFloat="False" CanHide="False"  Title="Clé d'accès">
+
+                                <ContentControl r:RegionManager.RegionName="AccessKey"></ContentControl>
+
+                            </avalonDock:LayoutAnchorable>
+
+                        </avalonDock:LayoutAnchorablePane>
+                        <avalonDock:LayoutAnchorablePane>
+                            <avalonDock:LayoutAnchorable CanAutoHide="False"  CanClose="False" CanFloat="False" CanHide="False" Title="Tableau de bord">
+                                <ContentControl  r:RegionManager.RegionName="DashBoard"></ContentControl>
+                            </avalonDock:LayoutAnchorable>
+
+                        </avalonDock:LayoutAnchorablePane>
+                    </avalonDock:LayoutAnchorablePaneGroup>
+
+
+                    <avalonDock:LayoutDocumentPaneGroup>
+                        <avalonDock:LayoutDocumentPane >
+
+                        </avalonDock:LayoutDocumentPane>
+
+                    </avalonDock:LayoutDocumentPaneGroup>
+                    <!--
+                    
+                    -->
+                </avalonDock:LayoutPanel>
+
+            </avalonDock:LayoutRoot>
+        </avalonDock:DockingManager>
     </Grid>
+  
 </ribbon:RibbonWindow>

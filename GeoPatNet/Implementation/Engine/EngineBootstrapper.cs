@@ -14,9 +14,15 @@ using System.Diagnostics;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
 
 using Emash.GeoPatNet.Presentation.Infrastructure.Services;
+using Microsoft.Practices.Prism.Regions;
+using Xceed.Wpf.AvalonDock;
+using Microsoft.Practices.ServiceLocation;
+using Emash.GeoPatNet.Presentation.Infrastructure.RegionAdapters;
+using Xceed.Wpf.AvalonDock.Layout;
+using Emash.GeoPatNet.Atom.Infrastructure.Services;
 
 
-namespace Emash.GeoPatNet.Engine.Infrastructure
+namespace Emash.GeoPatNet.Engine.Implementation
 {
     public class EngineBootstrapper<VM, V> : UnityBootstrapper
         where VM : IMainViewModel 
@@ -37,7 +43,17 @@ namespace Emash.GeoPatNet.Engine.Infrastructure
            
             
         }
-       
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        {
+            var mappings = base.ConfigureRegionAdapterMappings();
+            if (mappings == null) return null;
+
+            // Add custom mappings
+            mappings.RegisterMapping(typeof(DockingManager), ServiceLocator.Current.GetInstance<DockingManagerRegionAdapter>());
+            mappings.RegisterMapping(typeof(LayoutAnchorable), ServiceLocator.Current.GetInstance<AnchorableRegionAdapter>());
+            return mappings;
+
+        }
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
@@ -64,17 +80,22 @@ namespace Emash.GeoPatNet.Engine.Infrastructure
            
             base.InitializeModules();
             this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
-            IDataService dataService = this.Container.TryResolve<IDataService>();            
+            IDataService dataService = this.Container.TryResolve<IDataService>();
+            IDashBoardService dashBoardService = this.Container.TryResolve<IDashBoardService>();            
             if (dataService != null)
             {
                 _moduleInitializerTask = new Task(new Action(delegate()
                 {
                     dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+                    if (dashBoardService != null)
+                    { dashBoardService.Initialize(); }
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
                 }));
                 _moduleInitializerTask.Start();
               
             }
+           
+            
         }
     }
 }
