@@ -88,7 +88,7 @@
                         </avalonDock:LayoutAnchorablePane>
                         <avalonDock:LayoutAnchorablePane>
                             <avalonDock:LayoutAnchorable CanAutoHide="False"  CanClose="False" CanFloat="False" CanHide="False" Title="Tableau de bord">
-                                <ContentControl  r:RegionManager.RegionName="DashBoard"></ContentControl>
+                                <ContentControl  r:RegionManager.RegionName="Dashboard"></ContentControl>
                             </avalonDock:LayoutAnchorable>
 
                         </avalonDock:LayoutAnchorablePane>

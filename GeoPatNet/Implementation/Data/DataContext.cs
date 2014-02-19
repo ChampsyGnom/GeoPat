@@ -19,6 +19,9 @@ namespace Emash.GeoPatNet.Data.Implementation
         {
             get { return _modelBuilder; }
         }
+        
+        
+
 
         public DbSet<InfAccident>  InfAccidents
         {

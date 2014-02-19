@@ -87,10 +87,12 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                 { 
                     String className = NameConverter.TableNameToEntityName(table.Name)+"";
                     writer.AddProperty("public DbSet<" + className + "> ", className + "s");
-                   
 
+                   
                     
-    
+                        //
+                    //public InfAccident CreateInfAccident()  
+                   // 
                     foreach (DbForeignKey fk in table.ForeignKeys)
                     {
                         DbTable parentTable = (from t in schema.Tables where t.Id.Equals (fk.ParentTableId ) select t).FirstOrDefault();

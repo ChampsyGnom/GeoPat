@@ -23,7 +23,20 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
         private Boolean _isAvailable;
         private String _connectionString;
 
-        public IQueryable<T> GetQueryable<T>() where T : class 
+        public T CreateItem<T>() where T : class
+        {
+            foreach (Type type in this.GetType().Assembly.GetTypes())
+            {
+                if (typeof(T).IsAssignableFrom(type))
+                {
+                    
+                    return (T) Activator.CreateInstance (type);
+                }
+            }
+            return null;
+        }
+
+        public DbSet<T> GetDbSet<T>() where T : class 
         {
             foreach (Type type in this.GetType().Assembly.GetTypes())
             {
@@ -31,7 +44,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 {
                     var method = typeof(DbContext).GetMethod("Set", new Type[0]).MakeGenericMethod(new Type[] { type });
                     Object set = method.Invoke(this.DataContext, new object[0]);
-                    IQueryable<T> genericItem = set as IQueryable<T>;
+                    DbSet<T> genericItem = set as DbSet<T>;
                     return genericItem;
                 }
             }

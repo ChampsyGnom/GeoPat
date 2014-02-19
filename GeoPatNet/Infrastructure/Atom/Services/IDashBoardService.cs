@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Atom.Infrastructure.Services
 {
-    public interface IDashBoardService
+    public interface IDashboardService
     {
         void Initialize();
     }

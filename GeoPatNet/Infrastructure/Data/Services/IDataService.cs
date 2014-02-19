@@ -11,6 +11,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Services
     public interface IDataService : IAvailableService
     {
         void Initialize(string connectionString);
-        IQueryable<T> GetQueryable<T>() where T : class;
+        DbSet<T> GetDbSet<T>() where T : class;
+        T CreateItem<T>() where T : class;
     }
 }
