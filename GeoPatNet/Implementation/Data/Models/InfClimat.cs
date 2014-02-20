@@ -77,7 +77,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_CLIMAT","JOIN_o772")]
+        [ForeignKey("INF_CHAUSSEE__INF_CLIMAT","JOIN_o770")]
         [UniqueKey("INF_CLIMAT_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -89,7 +89,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code climat")]
         [ColumnName("INF_CD_CLIMAT__ID")]
-        [ForeignKey("INF_CD_CLIMAT__INF_CLIMAT","JOIN_o791")]
+        [ForeignKey("INF_CD_CLIMAT__INF_CLIMAT","JOIN_o789")]
         [UniqueKey("INF_CLIMAT_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

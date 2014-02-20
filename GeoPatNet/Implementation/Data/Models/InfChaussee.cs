@@ -144,16 +144,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Aboutissant")]
-        [ColumnName("INF_CHAUSSEE__ABOUT")]
-        [MaxCharLength(200)]
-        [ControlType(ControlType.Text)]
-        [AllowNull(true)]
-        public String About
-        {
-            get;
-            set;
-        }
         [DisplayName("Code")]
         [ColumnName("INF_CHAUSSEE__CODE")]
         [UniqueKey("INF_CHAUSSEE_UK_REF")]
@@ -161,28 +151,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
         public String Code
-        {
-            get;
-            set;
-        }
-        [DisplayName("Début")]
-        [ColumnName("INF_CHAUSSEE__ABS_DEB")]
-        [RangeValue(-999999999999,999999999999)]
-        [RulePr("INF_CHAUSSEE__ID")]
-        [ControlType(ControlType.Pr)]
-        [AllowNull(false)]
-        public Int64 AbsDeb
-        {
-            get;
-            set;
-        }
-        [DisplayName("Fin")]
-        [ColumnName("INF_CHAUSSEE__ABS_FIN")]
-        [RangeValue(-999999999999,999999999999)]
-        [RulePr("INF_CHAUSSEE__ID")]
-        [ControlType(ControlType.Pr)]
-        [AllowNull(false)]
-        public Int64 AbsFin
         {
             get;
             set;
@@ -200,7 +168,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant liaison")]
         [ColumnName("INF_LIAISON__ID")]
-        [ForeignKey("INF_LIAISON__CHAUSSEE_INF","JOIN_o795")]
+        [ForeignKey("INF_LIAISON__CHAUSSEE_INF","JOIN_o793")]
         [UniqueKey("INF_CHAUSSEE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -216,16 +184,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ControlType(ControlType.Text)]
         [AllowNull(true)]
         public String Libelle
-        {
-            get;
-            set;
-        }
-        [DisplayName("Tenant")]
-        [ColumnName("INF_CHAUSSEE__TENANT")]
-        [MaxCharLength(200)]
-        [ControlType(ControlType.Text)]
-        [AllowNull(true)]
-        public String Tenant
         {
             get;
             set;

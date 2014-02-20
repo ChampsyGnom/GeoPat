@@ -16,12 +16,17 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
             get;
             set;
         }
-        Int64 IdParent
+        Nullable<Int64> IdParent
         {
             get;
             set;
         }
         Int64 InfCodeDashboardId
+        {
+            get;
+            set;
+        }
+        String Libelle
         {
             get;
             set;

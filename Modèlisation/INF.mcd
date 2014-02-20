@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{C380AB8A-2C90-4A81-8567-777EE163E9BB}" Label="" LastModificationDate="1392849420" Name="Référentiel" Objects="555" Symbols="204" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{C380AB8A-2C90-4A81-8567-777EE163E9BB}" Label="" LastModificationDate="1392857807" Name="Référentiel" Objects="557" Symbols="204" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>INF</a:Code>
 <a:CreationDate>1392372401</a:CreationDate>
 <a:Creator>loic</a:Creator>
-<a:ModificationDate>1392849344</a:ModificationDate>
+<a:ModificationDate>1392857807</a:ModificationDate>
 <a:Modifier>loic</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -2237,8 +2237,8 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o169">
 <a:CreationDate>1392849344</a:CreationDate>
 <a:ModificationDate>1392849344</a:ModificationDate>
-<a:Rect>((-139602,20396), (-137755,27850))</a:Rect>
-<a:ListOfPoints>((-139602,27850),(-139490,20396))</a:ListOfPoints>
+<a:Rect>((-139556,20396), (-137756,27850))</a:Rect>
+<a:ListOfPoints>((-139518,27850),(-139518,20396))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -2258,8 +2258,8 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o173">
 <a:CreationDate>1392849344</a:CreationDate>
 <a:ModificationDate>1392849344</a:ModificationDate>
-<a:Rect>((-141706,12942), (-139848,20396))</a:Rect>
-<a:ListOfPoints>((-139848,12942),(-139960,20396))</a:ListOfPoints>
+<a:Rect>((-141706,12970), (-139871,20396))</a:Rect>
+<a:ListOfPoints>((-139871,12970),(-139932,20396))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -5185,7 +5185,7 @@ Identifiers 0 Arial,8,N</a:FontList>
 <a:CreationDate>1392849077</a:CreationDate>
 <a:ModificationDate>1392849339</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-147987,9893), (-132283,15661))</a:Rect>
+<a:Rect>((-150343,9407), (-129927,16147))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -8141,7 +8141,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>INF_DASHBOARD</a:Code>
 <a:CreationDate>1392849077</a:CreationDate>
 <a:Creator>loic</a:Creator>
-<a:ModificationDate>1392849360</a:ModificationDate>
+<a:ModificationDate>1392857807</a:ModificationDate>
 <a:Modifier>loic</a:Modifier>
 <c:Identifiers>
 <o:Identifier Id="o748">
@@ -8193,11 +8193,22 @@ LABL 0 Arial,8,N</a:FontList>
 <o:DataItem Ref="o754"/>
 </c:DataItem>
 </o:EntityAttribute>
+<o:EntityAttribute Id="o755">
+<a:ObjectID>647AF21D-4E42-4EE1-8F9F-88A88C7CB896</a:ObjectID>
+<a:CreationDate>1392857774</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1392857807</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:BaseAttribute.Mandatory>1</a:BaseAttribute.Mandatory>
+<c:DataItem>
+<o:DataItem Ref="o756"/>
+</c:DataItem>
+</o:EntityAttribute>
 </c:Attributes>
 </o:Entity>
 </c:Entities>
 <c:DataItems>
-<o:DataItem Id="o755">
+<o:DataItem Id="o757">
 <a:ObjectID>668CA8B3-DDD5-442A-B574-B93A941DB855</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>INF_REPERE__ID3</a:Code>
@@ -8207,7 +8218,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>loic</a:Modifier>
 <a:DataType>NO</a:DataType>
 </o:DataItem>
-<o:DataItem Id="o756">
+<o:DataItem Id="o758">
 <a:ObjectID>12D1CA0D-B2E7-4369-ACC2-7844CF892665</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>INF_CHAUSSEE__ID2</a:Code>
@@ -8217,7 +8228,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>loic</a:Modifier>
 <a:DataType>NO</a:DataType>
 </o:DataItem>
-<o:DataItem Id="o757">
+<o:DataItem Id="o759">
 <a:ObjectID>A7B67774-6384-42FA-A9F4-E6AB0DF2BFD8</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>INF_REPERE__ID2</a:Code>
@@ -8227,7 +8238,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>loic</a:Modifier>
 <a:DataType>NO</a:DataType>
 </o:DataItem>
-<o:DataItem Id="o758">
+<o:DataItem Id="o760">
 <a:ObjectID>CA91B0FA-6543-4EE6-A787-E7C0822A75AE</a:ObjectID>
 <a:Name>Irentifiant</a:Name>
 <a:Code>ID</a:Code>
@@ -9988,6 +9999,17 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>loic</a:Modifier>
 <a:DataType>I</a:DataType>
 </o:DataItem>
+<o:DataItem Id="o756">
+<a:ObjectID>AD4F58AB-35FA-47B3-BE06-447A5B1E2A05</a:ObjectID>
+<a:Name>Libellé</a:Name>
+<a:Code>INF_DASHBOARD__LIBELLE</a:Code>
+<a:CreationDate>1392857774</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1392857807</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:DataType>VA200</a:DataType>
+<a:Length>200</a:Length>
+</o:DataItem>
 </c:DataItems>
 <c:Associations>
 <o:Association Id="o275">
@@ -11511,7 +11533,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:AssociationLink>
 </c:AssociationsLinks>
 <c:TargetModels>
-<o:TargetModel Id="o759">
+<o:TargetModel Id="o761">
 <a:ObjectID>B217CDB9-E924-45EF-821E-1D4719273659</a:ObjectID>
 <a:Name>Référentiel</a:Name>
 <a:Code>INF</a:Code>
@@ -11526,7 +11548,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o760">
+<o:TargetModel Id="o762">
 <a:ObjectID>FBA9F7EA-900F-4BB2-9C0E-B71CB603DFA5</a:ObjectID>
 <a:Name>Référentiel</a:Name>
 <a:Code>INF</a:Code>

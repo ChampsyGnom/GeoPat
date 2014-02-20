@@ -10,7 +10,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
     public class DashboardFolderViewModel : DashboardItemViewModel
     {
         public ObservableCollection<DashboardItemViewModel> Items { get; private set; }
-
+        
         public DashboardFolderViewModel()
         {
             this.Items = new ObservableCollection<DashboardItemViewModel>();

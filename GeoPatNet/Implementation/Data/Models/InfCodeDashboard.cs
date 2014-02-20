@@ -9,13 +9,13 @@ using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
-	[DisplayName("Type de noeud")]
+	[DisplayName("Code tableau de bord")]
     [TableName("INF_CD_DASHBOARD")]
     [SchemaName("INF")]
     public class InfCodeDashboard : IInfCodeDashboard
     {
     	
-        [DisplayName("Noeudss")]
+        [DisplayName("Tableau de bords")]
         public virtual ICollection<InfDashboard> InfDashboards
         {
             get;
@@ -34,7 +34,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
-        [PrimaryKey("INF_CD_DASHBOARD_PK")]
+        [PrimaryKey("IDENTIFIANT_1")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

@@ -9,13 +9,13 @@ using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
-	[DisplayName("Noeuds")]
+	[DisplayName("Tableau de bord")]
     [TableName("INF_DASHBOARD")]
     [SchemaName("INF")]
     public class InfDashboard : IInfDashboard
     {
     	
-        [DisplayName("Type de noeud")]
+        [DisplayName("Code tableau de bord")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
@@ -27,7 +27,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("INF_DASHBOARD__ID")]
-        [PrimaryKey("INF_DASHBOARD_PK")]
+        [PrimaryKey("IDENTIFIANT_1")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -39,19 +39,29 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_DASHBOARD__ID_PARENT")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
-        [AllowNull(false)]
-        public Int64 IdParent
+        [AllowNull(true)]
+        public Nullable<Int64> IdParent
         {
             get;
             set;
         }
         [DisplayName("Identifiant2")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
-        [ForeignKey("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o807")]
+        [ForeignKey("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o800")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
         public Int64 InfCodeDashboardId
+        {
+            get;
+            set;
+        }
+        [DisplayName("Libellé")]
+        [ColumnName("INF_DASHBOARD__LIBELLE")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(false)]
+        public String Libelle
         {
             get;
             set;

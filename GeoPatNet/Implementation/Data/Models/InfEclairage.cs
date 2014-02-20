@@ -66,7 +66,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_ECLAIRAGE","JOIN_o773")]
+        [ForeignKey("INF_CHAUSSEE__INF_ECLAIRAGE","JOIN_o771")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -78,7 +78,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code éclairage")]
         [ColumnName("INF_CD_ECLAIRAGE__ID")]
-        [ForeignKey("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o793")]
+        [ForeignKey("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o791")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -90,7 +90,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code position")]
         [ColumnName("INF_CD_POSIT__ID")]
-        [ForeignKey("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o798")]
+        [ForeignKey("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o796")]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

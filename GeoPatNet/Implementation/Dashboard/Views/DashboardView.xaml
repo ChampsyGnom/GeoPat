@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:vm="clr-namespace:Emash.GeoPatNet.Dashboard.Implementation.ViewModels"
            xmlns:b="clr-namespace:Emash.GeoPatNet.Presentation.Infrastructure.Behaviors;assembly=Presentation.Infrastructure"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -15,7 +16,12 @@
             <RowDefinition Height="Auto"></RowDefinition>
            
         </Grid.RowDefinitions>
-        <TreeView Margin="2" Grid.Row="0">
+        <TreeView Margin="2" Grid.Row="0" ItemsSource="{Binding Path=Items,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type vm:DashboardFolderViewModel}" ItemsSource="{Binding Path=Items,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                    <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
             <i:Interaction.Behaviors>
                 <b:BindableSelectedItemBehavior SelectedItem="{Binding Path=SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></b:BindableSelectedItemBehavior>
             </i:Interaction.Behaviors>

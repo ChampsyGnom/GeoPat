@@ -58,7 +58,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_BRETELLE","JOIN_o771")]
+        [ForeignKey("INF_CHAUSSEE__INF_BRETELLE","JOIN_o769")]
         [UniqueKey("INF_BRETELLE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

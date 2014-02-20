@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Emash.GeoPatNet.Dashboard.Implementation.Services
 {
@@ -25,7 +26,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
         public DashboardItemViewModel SelectedItem { get; set; }
         private IDataService _dataService;
         private IEventAggregator _eventAggregator;
-        
+        private Dispatcher _dispatcher;
         public DashboardService(IEventAggregator eventAggregator,IDataService dataService)
         {
             this._dataService = dataService;
@@ -33,6 +34,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
             this.AddItemCommand= new DelegateCommand(AddItem);
             this.RemoveItemCommand = new DelegateCommand(RemoveItem);
             this.Items = new ObservableCollection<DashboardItemViewModel>();
+            _dispatcher = System.Windows.Application.Current.MainWindow.Dispatcher;
         }
 
         private void AddItem()
@@ -62,8 +64,10 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                     dashboardFolder.InfCodeDashboard = (from c in datasCodeDashboard where c.Code .Equals ("FOLDER") select c).FirstOrDefault();
                     dashboardFolder.IdParent = idParent;
                     dashboardFolder.Ordre = order ;
+                    dashboardFolder.Libelle = vm.FolderName;
                     datasDashboard.Add(dashboardFolder);
                     _dataService.DataContext.SaveChanges();
+                    this.LoadDashboard();
                 }
             }
         }
@@ -71,7 +75,25 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
        
 
         private void RemoveItem()
-        { }
+        {
+            if (this.SelectedItem != null)
+            {
+                this.RecurseRemoveItem(this.SelectedItem.Model);
+                this.LoadDashboard();
+            }
+        }
+
+        private void RecurseRemoveItem(InfDashboard item)
+        {
+            DbSet<InfDashboard> datasDashboard = _dataService.GetDbSet<InfDashboard>();
+            List<InfDashboard> childs = (from c in datasDashboard where c.IdParent == item.Id select c).ToList();
+            foreach (InfDashboard child in childs)
+            {
+                this.RecurseRemoveItem(child);
+                datasDashboard.Remove(child);
+                _dataService.DataContext.SaveChanges();
+            }
+        }
 
 
         public DelegateCommand AddItemCommand { get; private set; }
@@ -101,8 +123,40 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                 datasCodeDashboard.Add(codeTable);
                 _dataService.DataContext.SaveChanges();
             }
+           _dispatcher.Invoke(new Action(delegate()
+            {
+                this.LoadDashboard();
+            }));
+           
+         
+        }
+
+        private void LoadDashboard()
+        {
             IQueryable<InfDashboard> datasDashboard = _dataService.GetDbSet<InfDashboard>();
+            List<InfDashboard> items = (from i in datasDashboard select i).ToList();
+           
+            this.Items.Clear();
+            this.RecurseLoadDashboard(items, this.Items, -1);
             Console.WriteLine(datasDashboard.ToString());
         }
+
+        private void RecurseLoadDashboard(List<InfDashboard> items, ObservableCollection<DashboardItemViewModel> parentList, long parentId)
+        {
+            List<InfDashboard> childs = (from i in items where i.IdParent == parentId orderby i.Ordre select i).ToList();
+            foreach (InfDashboard child in childs) 
+            {
+                if (child.InfCodeDashboard.Code.Equals("FOLDER"))
+                {
+                    DashboardFolderViewModel folder = new DashboardFolderViewModel();
+                    folder.Model = child;
+                    folder.DisplayName = child.Libelle;
+                    parentList.Add(folder);
+                    this.RecurseLoadDashboard(items, folder.Items, child.Id);
+                }
+            }
+        }
+
+        
     }
 }
