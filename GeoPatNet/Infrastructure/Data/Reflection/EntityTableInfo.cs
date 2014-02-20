@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
+using System.Reflection;
+using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 
 namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
 {
@@ -17,7 +19,9 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public String TableName { get; private set; }
         public String SchemaName { get; private set; }
         public String DisplayName { get; private set; }
-      
+       
+        public EntitySchemaInfo SchemaInfo { get;   set; }
+        public List<EntityColumnInfo> ColumnInfos { get; private set; }
         public EntityTableInfo(Type entityType)
         {
             this.EntityType = entityType;
@@ -37,6 +41,19 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
                 {
                     this.DisplayName = (att as DisplayNameAttribute).DisplayName;
                 }
+            }
+            this.ColumnInfos = new List<EntityColumnInfo>();
+            PropertyInfo[] properties = entityType.GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                ControlTypeAttribute att = property.GetCustomAttribute<ControlTypeAttribute>();
+                if (att != null)
+                {
+                    EntityColumnInfo columnInfo = new EntityColumnInfo(this, property);
+
+                    this.ColumnInfos.Add(columnInfo);
+                }
+                
             }
 
             Console.WriteLine(this.SchemaName + "." + this.TableName);

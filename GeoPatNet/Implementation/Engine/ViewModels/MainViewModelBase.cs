@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         { 
             Console.WriteLine ("Open "+tableInfo.DisplayName );
             SwapRegionView swapRegionView = new SwapRegionView();
-            Object viewModel =  Activator.CreateInstance ( typeof(GenericListItemViewModel<>).MakeGenericType(new Type[] { tableInfo.EntityType  }));
+            Object viewModel =  Activator.CreateInstance ( typeof(GenericListViewModel<>).MakeGenericType(new Type[] { tableInfo.EntityType  }));
             swapRegionView.DataContext = viewModel;
             IRegion region = this._regionManager.Regions["TabRegion"];
             IRegionManager detailsRegionManager = region.Add(swapRegionView, null, true);

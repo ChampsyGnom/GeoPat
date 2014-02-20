@@ -137,6 +137,40 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
         }
 
 
-     
+
+
+
+        public List<string> GetTableFieldPaths(EntityTableInfo entityTableInfo)
+        {
+            List<String> fieldPaths = new List<string>();
+            foreach (EntityColumnInfo columnInfo in entityTableInfo.ColumnInfos)
+            {
+                if (columnInfo.PrimaryKeyName == null)
+                {
+                    if (columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.None )
+                    {
+                        if (columnInfo.ForeignKeyName != null)
+                        {
+                            fieldPaths.AddRange(GetFkTableFieldPaths(columnInfo));
+                        }
+                        else
+                        { fieldPaths.Add(columnInfo.PropertyName); }
+                      //  Console.WriteLine(columnInfo.PropertyName + " " + columnInfo.ControlType);
+                       
+                    }
+                  
+                }
+            }
+
+            return fieldPaths;
+        }
+
+        private List<string> GetFkTableFieldPaths(EntityColumnInfo columnInfo)
+        {
+            List<String> fkFieldPaths = new List<string>();
+            Console.WriteLine("List" + columnInfo.ColumnName);
+
+            return fkFieldPaths;
+        }
     }
 }

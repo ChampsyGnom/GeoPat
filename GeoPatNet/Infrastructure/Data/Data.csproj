@@ -154,6 +154,10 @@
       <Project>{d34ef644-add7-4273-99ca-848c62d9d3ae}</Project>
       <Name>Atom</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Presentation\Presentation.csproj">
+      <Project>{7364ea64-5842-4f1a-a0c8-44c15d6d4dc6}</Project>
+      <Name>Presentation %28GeoPat\Infrastructure\Presentation%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

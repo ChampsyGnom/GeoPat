@@ -234,20 +234,25 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
                                 if (fkJoinColumn != null)
-                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn .Id+ "\")]"); }
+                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
 
                                 foreach (DbUniqueKey uk in uks)
-                                {prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]");}
+                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
-                                if (rulePr != null)
-                                { 
-                                    prop.Attributes.Add("[RulePr(\""+rulePr.ChausseIdColumnName+"\")]");
-                                    prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                if (fkJoinColumn != null)
+                                { prop.Attributes.Add("[ControlType(ControlType.None)]"); }
+                                {
+                                    if (rulePr != null)
+                                    {
+                                        prop.Attributes.Add("[RulePr(\"" + rulePr.ChausseIdColumnName + "\")]");
+                                        prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                    }
+                                    else
+                                    { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }
                                 }
-                                else
-                                { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }         
-                                prop.Attributes.Add("[AllowNull(true)]");
                                
+                                prop.Attributes.Add("[AllowNull(true)]");
+
                             }
                             else
                             {
@@ -260,13 +265,20 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 foreach (DbUniqueKey uk in uks)
                                 { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
-                                if (rulePr != null)
-                                {
-                                    prop.Attributes.Add("[RulePr(\"" + rulePr.ChausseIdColumnName + "\")]");
-                                    prop.Attributes.Add("[ControlType(ControlType.Pr)]");
-                                }
+
+                                if (fkJoinColumn != null)
+                                {prop.Attributes.Add("[ControlType(ControlType.None)]");   }
                                 else
-                                { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }         
+                                {
+                                    if (rulePr != null)
+                                    {
+                                        prop.Attributes.Add("[RulePr(\"" + rulePr.ChausseIdColumnName + "\")]");
+                                        prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                    }
+                                    else
+                                    { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }
+                                }
+                                  
                                 prop.Attributes.Add("[AllowNull(false)]");
                             }
                         }
@@ -279,6 +291,16 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
                             if (table.PrimaryKey.ColumnIds.Contains(column.Id))
                             {prop.Attributes.Add("[PrimaryKey(\"" + table.PrimaryKey.Name + "\")]");}
+
+                            foreach (DbForeignKey fk in parentFks)
+                            {
+                                foreach (DbForeignKeyJoin j in fk.Joins)
+                                {
+                                    if (j.ParentColumnId.Equals(column.Id))
+                                    { prop.Attributes.Add("[ForeignKeyAttribute(\"" + fk.Name + "\",\"JOIN_" + j.Id + "\")]"); }
+                                }
+                             
+                            }
 
                             foreach (DbUniqueKey uk in uks)
                             { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
