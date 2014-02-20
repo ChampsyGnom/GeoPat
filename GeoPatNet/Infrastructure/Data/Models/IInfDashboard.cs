@@ -11,6 +11,11 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
     public interface IInfDashboard
     {
 
+        String Code
+        {
+            get;
+            set;
+        }
         Int64 Id
         {
             get;

@@ -54,7 +54,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant famille découpage")]
         [ColumnName("INF_FAM_DEC__ID")]
-        [ForeignKey("INF_FAM_DEC__INF_CD_DEC","JOIN_o805")]
+        [ForeignKey("INF_FAM_DEC__INF_CD_DEC","JOIN_o806")]
         [UniqueKey("INF_CD_DEC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

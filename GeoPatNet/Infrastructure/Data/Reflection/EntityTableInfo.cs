@@ -5,6 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using Microsoft.Practices.ServiceLocation;
+using Emash.GeoPatNet.Data.Infrastructure.Services;
 
 namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
 {
@@ -14,6 +17,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public String TableName { get; private set; }
         public String SchemaName { get; private set; }
         public String DisplayName { get; private set; }
+      
         public EntityTableInfo(Type entityType)
         {
             this.EntityType = entityType;
@@ -34,6 +38,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
                     this.DisplayName = (att as DisplayNameAttribute).DisplayName;
                 }
             }
+
             Console.WriteLine(this.SchemaName + "." + this.TableName);
         }
     }

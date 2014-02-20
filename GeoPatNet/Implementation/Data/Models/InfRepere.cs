@@ -58,7 +58,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_REPERE","JOIN_o778")]
+        [ForeignKey("INF_CHAUSSEE__INF_REPERE","JOIN_o779")]
         [UniqueKey("INF_REPERE_UK2")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

@@ -67,7 +67,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_TPC","JOIN_o783")]
+        [ForeignKey("INF_CHAUSSEE__INF_TPC","JOIN_o784")]
         [UniqueKey("INF_TPC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -79,7 +79,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code TPC")]
         [ColumnName("INF_CD_TPC__ID")]
-        [ForeignKey("INF_CD_TPC__INF_TPC","JOIN_o803")]
+        [ForeignKey("INF_CD_TPC__INF_TPC","JOIN_o804")]
         [UniqueKey("INF_TPC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

@@ -66,7 +66,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_SENSIBLE","JOIN_o781")]
+        [ForeignKey("INF_CHAUSSEE__INF_SENSIBLE","JOIN_o782")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -77,7 +77,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code sensible")]
         [ColumnName("INF_CD_SENSIBLE__ID")]
-        [ForeignKey("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o801")]
+        [ForeignKey("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o802")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

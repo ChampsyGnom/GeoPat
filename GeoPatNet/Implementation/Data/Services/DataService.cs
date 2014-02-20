@@ -62,6 +62,10 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             }
            return  this.DataContext.Set<T>();
         }
+        public DbSet GetDbSet(Type entityType)
+        {
+           return  this.DataContext.Set(entityType);
+        }
         
         public void Initialize(string connectionString)
         {
@@ -116,7 +120,23 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
            
         }
 
-       
-       
+
+
+
+
+        public EntityTableInfo GetEntityTableInfo(Type type)
+        {
+            foreach (EntitySchemaInfo schema in this.SchemaInfos)
+            {
+                foreach (EntityTableInfo table in schema.TableInfos)
+                {
+                    if (table.EntityType.Equals(type)) return table;
+                }
+            }
+            return null;
+        }
+
+
+     
     }
 }

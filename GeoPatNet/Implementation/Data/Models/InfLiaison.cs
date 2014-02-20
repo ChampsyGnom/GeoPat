@@ -54,7 +54,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant type liaison")]
         [ColumnName("INF_CD_LIAISON__ID")]
-        [ForeignKey("INF_CD_LIAISON__INF_LIAISON","JOIN_o785")]
+        [ForeignKey("INF_CD_LIAISON__INF_LIAISON","JOIN_o786")]
         [UniqueKey("INF_LIAISON_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

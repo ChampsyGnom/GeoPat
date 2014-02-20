@@ -761,6 +761,9 @@ namespace Emash.GeoPatNet.Data.Implementation
             modelBuilder.Entity<InfSensible>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfDashboard>().HasRequired<InfCodeDashboard>(c => c.InfCodeDashboard).WithMany(t => t.InfDashboards);
             modelBuilder.Entity<InfDashboard>().ToTable("inf_dashboard", "inf");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Code) .HasColumnName("inf_dashboard__code");
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<InfDashboard>().Property(t => t.Code).HasMaxLength(50);
             modelBuilder.Entity<InfDashboard>().Property(t => t.Id) .HasColumnName("inf_dashboard__id");
             modelBuilder.Entity<InfDashboard>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<InfDashboard>().Property(t => t.IdParent) .HasColumnName("inf_dashboard__id_parent");

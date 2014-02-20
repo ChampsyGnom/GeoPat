@@ -16,5 +16,9 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Services
         void Initialize(string connectionString);
         DbSet<T> GetDbSet<T>() where T : class;
         T CreateItem<T>() where T : class;
+
+        EntityTableInfo GetEntityTableInfo(Type type);
+
+        DbSet GetDbSet(Type entityType);
     }
 }

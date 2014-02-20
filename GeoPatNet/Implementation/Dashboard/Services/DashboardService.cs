@@ -18,6 +18,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Emash.GeoPatNet.Data.Infrastructure.Reflection;
+using Emash.GeoPatNet.Data.Infrastructure.Events;
 
 namespace Emash.GeoPatNet.Dashboard.Implementation.Services
 {
@@ -33,6 +35,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+        public DelegateCommand OpenItemCommand { get; private set; }
         public ObservableCollection<DashboardItemViewModel> Items { get; private set; }
        
 
@@ -73,8 +76,25 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
             this.RemoveItemCommand = new DelegateCommand(RemoveItem);
             this.Items = new ObservableCollection<DashboardItemViewModel>();
             _dispatcher = System.Windows.Application.Current.MainWindow.Dispatcher;
+            this.OpenItemCommand = new DelegateCommand(OpenItem);
         }
-
+        private void OpenItem()
+        {
+            if (this.SelectedItem != null && this.SelectedItem is DashboardTableViewModel)
+            {
+                DashboardTableViewModel vm = this.SelectedItem as DashboardTableViewModel;
+                String[] items = vm.Model.Code.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                if (items.Length == 2)
+                {
+                    EntitySchemaInfo schema = (from s in _dataService.SchemaInfos where s.SchemaName.Equals (items[0]) select s).FirstOrDefault();
+                    if (schema != null)
+                    {
+                        EntityTableInfo table = (from t in schema.TableInfos where t.TableName.Equals (items[1]) select t).FirstOrDefault();
+                        this._eventAggregator.GetEvent<OpenEntityEvent>().Publish(table);
+                    }
+                }
+            }
+        }
         private void AddItem()
         {
             DashboardItemViewModel selectedItem = this.SelectedItem;
@@ -103,6 +123,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                     dashboardFolder.IdParent = idParent;
                     dashboardFolder.Ordre = order ;
                     dashboardFolder.Libelle = vm.FolderName;
+                    dashboardFolder.Code = vm.FolderName;
                     datasDashboard.Add(dashboardFolder);
                     DashboardFolderViewModel folder = new DashboardFolderViewModel();
                     folder.Model = dashboardFolder;
@@ -127,10 +148,12 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                     dashboardTable.InfCodeDashboard = (from c in datasCodeDashboard where c.Code.Equals("TABLE") select c).FirstOrDefault();
                     dashboardTable.IdParent = idParent;
                     dashboardTable.Ordre = order;
+                    dashboardTable.Code = vm.SelectedTableInfo.SchemaName + "." + vm.SelectedTableInfo.TableName;
                     dashboardTable.Libelle = vm.SelectedTableInfo.DisplayName;
                     datasDashboard.Add(dashboardTable);
                     DashboardTableViewModel table = new DashboardTableViewModel();
                     table.Model = dashboardTable;
+
                     table.DisplayName = dashboardTable.Libelle;
                     if (idParent == -1)
                     { this.Items.Add(table); }

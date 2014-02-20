@@ -106,7 +106,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_AMENAGEMENT","JOIN_o766")]
+        [ForeignKey("INF_CHAUSSEE__INF_AMENAGEMENT","JOIN_o767")]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
@@ -118,7 +118,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code aménagement")]
         [ColumnName("INF_CD_AMENAGEMENT__ID")]
-        [ForeignKey("INF_CD_AMENAGEMENT__INF_AMENAGEMENT","JOIN_o787")]
+        [ForeignKey("INF_CD_AMENAGEMENT__INF_AMENAGEMENT","JOIN_o788")]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

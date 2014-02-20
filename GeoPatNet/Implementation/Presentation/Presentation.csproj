@@ -104,6 +104,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\SplashService.cs" />
+    <Compile Include="Views\DataRecordPosition.xaml.cs">
+      <DependentUpon>DataRecordPosition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataToolbar.xaml.cs">
+      <DependentUpon>DataToolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericDataFormView.xaml.cs">
+      <DependentUpon>GenericDataFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericDataGridView.xaml.cs">
+      <DependentUpon>GenericDataGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SplashView.xaml.cs">
       <DependentUpon>SplashView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +131,22 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DataRecordPosition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataToolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenericDataFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenericDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SplashView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

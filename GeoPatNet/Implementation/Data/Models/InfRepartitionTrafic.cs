@@ -79,7 +79,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_REPARTITION_TRAFIC","JOIN_o777")]
+        [ForeignKey("INF_CHAUSSEE__INF_REPARTITION_TRAFIC","JOIN_o778")]
         [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]

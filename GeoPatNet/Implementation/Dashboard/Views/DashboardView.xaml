@@ -17,10 +17,14 @@
            
         </Grid.RowDefinitions>
         <TreeView Margin="2" Grid.Row="0" ItemsSource="{Binding Path=Items,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
-            <TreeView.Resources>
+            <i:Interaction.Behaviors>
+                <b:MouseDoubleClickBehavior DoubleClickCommand="{Binding Path=OpenItemCommand}"> </b:MouseDoubleClickBehavior>
+            </i:Interaction.Behaviors>
+                <TreeView.Resources>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
                     <Setter Property="IsSelected" Value="{Binding Path=IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                    
                 </Style>
          
           

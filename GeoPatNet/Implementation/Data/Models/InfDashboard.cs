@@ -24,6 +24,16 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
+        [DisplayName("Code")]
+        [ColumnName("INF_DASHBOARD__CODE")]
+        [MaxCharLength(50)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(false)]
+        public String Code
+        {
+            get;
+            set;
+        }
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("INF_DASHBOARD__ID")]
@@ -47,7 +57,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant2")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
-        [ForeignKey("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o800")]
+        [ForeignKey("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o801")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

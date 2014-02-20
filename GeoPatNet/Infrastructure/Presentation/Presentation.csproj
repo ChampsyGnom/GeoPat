@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Attributes\ControlTypeAttribute.cs" />
     <Compile Include="Behaviors\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Behaviors\MouseDoubleClickBehavior.cs" />
     <Compile Include="Events\SplashEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -109,6 +110,9 @@
     <Compile Include="RegionAdapters\DockingManagerDocumentsSourceSyncBehavior.cs" />
     <Compile Include="RegionAdapters\DockingManagerRegionAdapter.cs" />
     <Compile Include="Services\ISplashService.cs" />
+    <Compile Include="Views\SwapRegionView.xaml.cs">
+      <DependentUpon>SwapRegionView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -119,6 +123,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\SwapRegionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

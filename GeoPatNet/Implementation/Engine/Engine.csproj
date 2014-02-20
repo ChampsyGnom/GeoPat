@@ -95,6 +95,8 @@
   <ItemGroup>
     <Compile Include="EngineBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\GenericListItemViewModel.cs" />
+    <Compile Include="ViewModels\GenericListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +122,10 @@
     <ProjectReference Include="..\..\Infrastructure\Presentation\Presentation.csproj">
       <Project>{7364ea64-5842-4f1a-a0c8-44c15d6d4dc6}</Project>
       <Name>Presentation %28GeoPat\Infrastructure\Presentation%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation\Presentation.csproj">
+      <Project>{55fb94d1-4420-4c91-9784-863545f39bc9}</Project>
+      <Name>Presentation %28GeoPat\Implementation\Presentation%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

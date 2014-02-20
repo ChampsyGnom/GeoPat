@@ -95,6 +95,7 @@
     <Compile Include="Attributes\TableNameAttribute.cs" />
     <Compile Include="Attributes\UniqueKeyAttribute.cs" />
     <Compile Include="Attributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="Events\OpenEntityEvent.cs" />
     <Compile Include="IDataContext.cs" />
     <Compile Include="Models\IInfAccident.cs" />
     <Compile Include="Models\IInfAmenagement.cs" />
