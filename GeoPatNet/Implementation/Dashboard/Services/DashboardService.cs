@@ -10,6 +10,7 @@ using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,47 @@ using System.Windows.Threading;
 
 namespace Emash.GeoPatNet.Dashboard.Implementation.Services
 {
-    public class DashboardService : IDashboardService
+    public class DashboardService : IDashboardService, INotifyPropertyChanged
     {
+        public String FolderName { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
         public ObservableCollection<DashboardItemViewModel> Items { get; private set; }
-        public DashboardItemViewModel SelectedItem { get; set; }
+       
+
+        public DashboardItemViewModel SelectedItem
+        {
+            get { 
+                return this.RecurseGetSelectedItem(this.Items); 
+            }
+           
+        }
+
+        private DashboardItemViewModel RecurseGetSelectedItem(ObservableCollection<DashboardItemViewModel> list)
+        {
+            foreach (DashboardItemViewModel vm in list)
+            {
+                if (vm.IsSelected) return vm;
+                else
+                {
+                    if (vm is DashboardFolderViewModel)
+                    {
+                        if (this.RecurseGetSelectedItem((vm as DashboardFolderViewModel).Items) != null)
+                        { return this.RecurseGetSelectedItem((vm as DashboardFolderViewModel).Items); }
+                    }
+                }
+            }
+            return null;
+        }
+
+        
         private IDataService _dataService;
         private IEventAggregator _eventAggregator;
         private Dispatcher _dispatcher;
@@ -66,8 +104,44 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                     dashboardFolder.Ordre = order ;
                     dashboardFolder.Libelle = vm.FolderName;
                     datasDashboard.Add(dashboardFolder);
+                    DashboardFolderViewModel folder = new DashboardFolderViewModel();
+                    folder.Model = dashboardFolder;
+                    folder.DisplayName = dashboardFolder.Libelle;
+                    if (idParent == -1)
+                    {this.Items.Add(folder);}
+                    else
+                    {
+                        (selectedItem as DashboardFolderViewModel).Items.Add(folder);
+                        selectedItem.IsExpanded = true;                        
+                        folder.IsSelected = true;
+                       
+                    }
                     _dataService.DataContext.SaveChanges();
-                    this.LoadDashboard();
+                }
+
+
+                if (vm.IsTable )
+                {
+
+                    InfDashboard dashboardTable = new InfDashboard();
+                    dashboardTable.InfCodeDashboard = (from c in datasCodeDashboard where c.Code.Equals("TABLE") select c).FirstOrDefault();
+                    dashboardTable.IdParent = idParent;
+                    dashboardTable.Ordre = order;
+                    dashboardTable.Libelle = vm.SelectedTableInfo.DisplayName;
+                    datasDashboard.Add(dashboardTable);
+                    DashboardTableViewModel table = new DashboardTableViewModel();
+                    table.Model = dashboardTable;
+                    table.DisplayName = dashboardTable.Libelle;
+                    if (idParent == -1)
+                    { this.Items.Add(table); }
+                    else
+                    {
+                        (selectedItem as DashboardFolderViewModel).Items.Add(table);
+                        selectedItem.IsExpanded = true;
+                        table.IsSelected = true;
+
+                    }
+                    _dataService.DataContext.SaveChanges();
                 }
             }
         }
@@ -78,22 +152,39 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
         {
             if (this.SelectedItem != null)
             {
-                this.RecurseRemoveItem(this.SelectedItem.Model);
-                this.LoadDashboard();
-            }
-        }
+                DashboardFolderViewModel parent = this.GetParentFolder(this.Items , this.SelectedItem);
+                ObservableCollection<DashboardItemViewModel> list = null;
+                if (parent == null)
+                { 
+                    this.Items.Remove(this.SelectedItem);
+                    list = this.Items;
+                }
+                else
+                { 
+                    parent.Items.Remove(this.SelectedItem);
+                    list = parent.Items;
+                }
 
-        private void RecurseRemoveItem(InfDashboard item)
-        {
-            DbSet<InfDashboard> datasDashboard = _dataService.GetDbSet<InfDashboard>();
-            List<InfDashboard> childs = (from c in datasDashboard where c.IdParent == item.Id select c).ToList();
-            foreach (InfDashboard child in childs)
-            {
-                this.RecurseRemoveItem(child);
-                datasDashboard.Remove(child);
+                for (int i = 0; i < list.Count; i++)
+                {list[i].Model.Ordre = i;}
                 _dataService.DataContext.SaveChanges();
             }
         }
+
+        private DashboardFolderViewModel GetParentFolder(ObservableCollection<DashboardItemViewModel> list, DashboardItemViewModel item)
+        {
+            foreach (DashboardItemViewModel i in list)
+            {
+                if (i is DashboardFolderViewModel)
+                { 
+                    DashboardFolderViewModel p = i as DashboardFolderViewModel;
+                    if (p.Model.Id == item.Model.IdParent) return p;
+                }
+            }
+            return null;
+        }
+
+      
 
 
         public DelegateCommand AddItemCommand { get; private set; }
@@ -153,6 +244,16 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                     folder.DisplayName = child.Libelle;
                     parentList.Add(folder);
                     this.RecurseLoadDashboard(items, folder.Items, child.Id);
+                }
+
+
+                if (child.InfCodeDashboard.Code.Equals("TABLE"))
+                {
+                    DashboardTableViewModel table = new DashboardTableViewModel();
+                    table.Model = child;
+                    table.DisplayName = child.Libelle;
+                    parentList.Add(table);
+                    
                 }
             }
         }

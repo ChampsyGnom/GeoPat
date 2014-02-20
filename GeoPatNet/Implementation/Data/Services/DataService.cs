@@ -12,12 +12,15 @@ using System.Threading.Tasks;
 using Emash.GeoPatNet.Presentation.Infrastructure.Events;
 using System.Threading;
 using Microsoft.Practices.Prism.Commands;
+using Emash.GeoPatNet.Data.Infrastructure.Reflection;
+using System.Reflection;
 
 
 namespace Emash.GeoPatNet.Data.Implementation.Services
 {
     public class DataService : IDataService
     {
+
         private IEventAggregator _eventAggregator;
         private IUnityContainer _container;
         public DbContext DataContext { get; private set; }
@@ -72,12 +75,48 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             this._isAvailable = true;
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Service de données initialisé");
             Thread.Sleep(100);
+            this._schemaInfos = new List<EntitySchemaInfo>();
+            PropertyInfo[] dataContextProperties = this.DataContext.GetType().GetProperties();
+            List<EntityTableInfo> tableInfos = new List<EntityTableInfo>();
+
+            foreach (PropertyInfo dataContextProperty in dataContextProperties)
+            {
+                if (dataContextProperty.PropertyType.IsGenericType)
+                {
+                    Type[] types = dataContextProperty.PropertyType.GetGenericArguments();
+                    if (types.Length == 1)
+                    {
+                        EntityTableInfo entityTableInfo = new Infrastructure.Reflection.EntityTableInfo (types[0]);
+                        tableInfos.Add(entityTableInfo);
+                       
+                    }
+                }
+            }
+            List<String> schemaNames = (from t in tableInfos select t.SchemaName).Distinct().ToList();
+            foreach (String schemaName in schemaNames)
+            {
+                EntitySchemaInfo schemaInfo = new EntitySchemaInfo();
+                schemaInfo.TableInfos.AddRange((from t in tableInfos where t.SchemaName .Equals (schemaName ) select t).ToList());
+                schemaInfo.SchemaName = schemaName;
+                this.SchemaInfos.Add(schemaInfo);
+            }
             this._eventAggregator.GetEvent<ServiceLoadedEvent>().Publish(new ServiceLoadedEventArg(this));
+
         }
      
         public bool IsAvailable
         {
             get { return this._isAvailable; }
         }
+        private List<EntitySchemaInfo> _schemaInfos;
+
+        public List<EntitySchemaInfo> SchemaInfos
+        {
+            get { return _schemaInfos; }
+           
+        }
+
+       
+       
     }
 }

@@ -10,6 +10,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
 
         </Grid.RowDefinitions>
         
@@ -26,7 +27,27 @@
 
         <TextBlock Visibility="{Binding Path=IsFolderVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Text="Nom : " Grid.Column="0" Margin="2"></TextBlock>
         <TextBox  Text="{Binding Path=FolderName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="300"  Visibility="{Binding Path=IsFolderVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="2" Grid.Column="1" Margin="2"></TextBox>
-        <Grid Margin="8"  Grid.ColumnSpan="2" Grid.Row="3">
+
+        <TextBlock Visibility="{Binding Path=IsTableVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Text="Métier : " Grid.Column="0" Margin="2"></TextBlock>
+        <ComboBox x:Name="comboSchemas" ItemsSource="{Binding Path=SchemaInfos,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Width="300"  Visibility="{Binding Path=IsTableVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="2" Grid.Column="1" Margin="2">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=SchemaName,Mode=OneWay}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Visibility="{Binding Path=IsTableVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Text="Table : " Grid.Column="0" Margin="2"></TextBlock>
+        <ComboBox SelectedItem="{Binding Path=SelectedTableInfo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ElementName=comboSchemas,Path=SelectedItem.TableInfos,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Width="300"  Visibility="{Binding Path=IsTableVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="3" Grid.Column="1" Margin="2">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+        <Grid Margin="8"  Grid.ColumnSpan="2" Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>

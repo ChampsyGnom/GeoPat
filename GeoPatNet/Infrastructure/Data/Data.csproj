@@ -139,6 +139,9 @@
     <Compile Include="Models\IInfTpc.cs" />
     <Compile Include="Models\IInfTrDec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\EntityColumnInfo.cs" />
+    <Compile Include="Reflection\EntitySchemaInfo.cs" />
+    <Compile Include="Reflection\EntityTableInfo.cs" />
     <Compile Include="Services\IDataService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,5 +8,6 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
 {
     public class DashboardTableViewModel : DashboardItemViewModel
     {
+        
     }
 }

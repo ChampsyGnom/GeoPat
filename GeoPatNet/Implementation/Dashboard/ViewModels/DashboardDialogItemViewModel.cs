@@ -1,5 +1,7 @@
-﻿using System;
-
+﻿using Emash.GeoPatNet.Data.Infrastructure.Reflection;
+using Emash.GeoPatNet.Data.Infrastructure.Services;
+using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,6 +13,8 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
 {
     public class DashboardDialogItemViewModel : INotifyPropertyChanged
     {
+        public EntityTableInfo SelectedTableInfo { get;  set; }
+        public List<EntitySchemaInfo> SchemaInfos { get; private set; }
         public String FolderName { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
@@ -21,8 +25,21 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-        public Visibility IsFolderVisibility { get; set; }
-        public Visibility IsTableVisibility { get; set; }
+        public Visibility IsFolderVisibility
+        {
+            get
+            {
+                if (this._isFolder) return Visibility.Visible;
+                else return Visibility.Hidden;
+            }
+        }
+        public Visibility IsTableVisibility {
+            get 
+            {
+                if (this._isFolder) return Visibility.Hidden;
+                else return Visibility.Visible;
+            } 
+        }
         private Boolean _isFolder;
 
         public Boolean IsFolder
@@ -48,6 +65,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
         public String Title { get; set; }
         public DashboardDialogItemViewModel(DashboardItemViewModel dashboardItemViewModel)
         {
+            this.SchemaInfos = ServiceLocator.Current.GetInstance<IDataService>().SchemaInfos;
             if (dashboardItemViewModel == null)
             {
                 this.Title = "Ajout d'un élément au tableau de bord";

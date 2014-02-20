@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Emash.GeoPatNet.Data.Infrastructure.Reflection;
 
 namespace Emash.GeoPatNet.Data.Infrastructure.Services
 {
     public interface IDataService : IAvailableService
     {
+        List<EntitySchemaInfo> SchemaInfos { get; }
         DbContext DataContext { get; }
         void Initialize(string connectionString);
         DbSet<T> GetDbSet<T>() where T : class;
