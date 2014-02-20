@@ -26,6 +26,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_FAM_DEC__INF_CD_DEC",null)]
+        [UniqueKey("INF_CD_DEC_UK_REF")]
         public virtual InfFamDec InfFamDec
         {
             get;
@@ -56,8 +57,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant famille découpage")]
         [ColumnName("INF_FAM_DEC__ID")]
-        [ForeignKey("INF_FAM_DEC__INF_CD_DEC","JOIN_o806")]
-        [UniqueKey("INF_CD_DEC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

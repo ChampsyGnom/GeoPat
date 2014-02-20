@@ -89,6 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponentModel\IRowEditableItem.cs" />
+    <Compile Include="ComponentModel\IRowEditableList.cs" />
+    <Compile Include="Enums\GenericDataListState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IGenericListViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />

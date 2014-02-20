@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_OCCUPATION",null)]
+        [UniqueKey("INF_OCCUPATION_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -30,6 +31,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_OCCUPANT__INF_OCCUPATION",null)]
+        [UniqueKey("INF_OCCUPATION_UK_REF")]
         public virtual InfCodeOccupant InfCodeOccupant
         {
             get;
@@ -40,6 +42,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_OCCUPATION__INF_OCCUPATION",null)]
+        [UniqueKey("INF_OCCUPATION_UK_REF")]
         public virtual InfCodeOccupation InfCodeOccupation
         {
             get;
@@ -75,7 +78,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_OCCUPATION__ABS_DEB")]
-        [UniqueKey("INF_OCCUPATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -107,8 +109,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_OCCUPATION","JOIN_o774")]
-        [UniqueKey("INF_OCCUPATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -119,8 +119,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code occupant")]
         [ColumnName("INF_CD_OCCUPANT__ID")]
-        [ForeignKey("INF_CD_OCCUPANT__INF_OCCUPATION","JOIN_o795")]
-        [UniqueKey("INF_OCCUPATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -131,8 +129,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code occupation")]
         [ColumnName("INF_CD_OCCUPATION__ID")]
-        [ForeignKey("INF_CD_OCCUPATION__INF_OCCUPATION","JOIN_o798")]
-        [UniqueKey("INF_OCCUPATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

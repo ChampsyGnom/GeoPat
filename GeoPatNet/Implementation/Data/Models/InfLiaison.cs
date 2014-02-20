@@ -26,6 +26,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_LIAISON__INF_LIAISON",null)]
+        [UniqueKey("INF_LIAISON_UK_REF")]
         public virtual InfCodeLiaison InfCodeLiaison
         {
             get;
@@ -56,8 +57,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant type liaison")]
         [ColumnName("INF_CD_LIAISON__ID")]
-        [ForeignKey("INF_CD_LIAISON__INF_LIAISON","JOIN_o786")]
-        [UniqueKey("INF_LIAISON_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

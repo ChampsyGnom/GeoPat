@@ -58,7 +58,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant2")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
-        [ForeignKey("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o801")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

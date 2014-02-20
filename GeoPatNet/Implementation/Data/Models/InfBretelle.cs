@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_BRETELLE",null)]
+        [UniqueKey("INF_BRETELLE_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -27,7 +28,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_BRETELLE__ABS_DEB")]
-        [UniqueKey("INF_BRETELLE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -59,8 +59,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_BRETELLE","JOIN_o770")]
-        [UniqueKey("INF_BRETELLE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

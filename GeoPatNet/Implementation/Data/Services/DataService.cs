@@ -136,6 +136,11 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             return null;
         }
 
+        public EntityColumnInfo GetEntityColumnInfo(EntityTableInfo tableInfo,String fieldName)
+        {
+            return (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (fieldName ) select c).FirstOrDefault();
+        }
+
 
 
 
@@ -149,10 +154,14 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 {
                     if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Combo )
                     {
-                        List<String> paths = new List<string>();                      
-                        GetFkTableFieldPaths(columnInfo, paths);
-                        paths.Reverse();
-                        fieldPaths.AddRange(paths);
+                        List<EntityColumnInfo> parentColumnInfos = this.FindFkParentProperties(columnInfo);
+                        foreach (EntityColumnInfo parentColumnInfo in parentColumnInfos)
+                        {
+
+                            String path = this.GetPath(parentColumnInfo.TableInfo, entityTableInfo) + "." + parentColumnInfo.PropertyName;
+                            fieldPaths.Add(path);
+                        }
+                        Console.WriteLine(parentColumnInfos);
                     }
                     else if (columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.None)
                     {
@@ -165,77 +174,143 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             return fieldPaths;
         }
 
-        private List<string> GetFkTableFieldPaths( EntityColumnInfo columnInfo,List<String> paths)
+
+        private bool GetPath(EntityTableInfo parent, EntityTableInfo child, List<string> paths)
         {
-            List<String> fkFieldPaths = new List<string>();
+            List<EntityTableInfo> parentTables = this.GetParentTables(child);
+            foreach (EntityTableInfo parentTable in parentTables)
+            {
+                if (parentTable.EntityType.Equals(parent.EntityType))
+                {
+                    paths.Add(parentTable.EntityType.Name);
+                    return true;
+                }
+                else
+                {
+                    paths.Add(parentTable.EntityType.Name);
+                    if (GetPath(parent, parentTable, paths))
+                    { return true; }
+                    paths.Remove(parentTable.EntityType.Name);
+                }
+            }
+            return false;
+
+        }
+
+        private List<EntityTableInfo> GetParentTables(EntityTableInfo child)
+        {
+            List<EntityTableInfo> tables = new List<EntityTableInfo>();
+            List<String> childFkNames = new List<string>();
+            foreach (EntityColumnInfo column in child.ColumnInfos)
+            {
+                if (column.ForeignKeyNames .Count > 0 && column.PrimaryKeyName == null)
+                {
+                    childFkNames.AddRange(column.ForeignKeyNames);
+                }
+            }
+            childFkNames = (from f in childFkNames select f).Distinct().ToList ();
+
             foreach (EntitySchemaInfo schema in this.SchemaInfos)
             {
                 foreach (EntityTableInfo table in schema.TableInfos)
                 {
-                    if ((from c in table.ColumnInfos where c.ForeignKeyNames.Contains (columnInfo.ForeignKeyNames[0]) && c.PrimaryKeyName != null  select c).Any())
+                    bool parentFkNamesContainChildFkName = false;
+                    foreach (EntityColumnInfo column in table.ColumnInfos)
                     {
-                        List<EntityColumnInfo> ukColumns = new List<EntityColumnInfo>();
-                        foreach (EntityColumnInfo c in table.ColumnInfos)
+                        if (column.ForeignKeyNames.Count > 0 && column.PrimaryKeyName != null)
                         {
-                            foreach (String ukName in c.UniqueKeyNames)
+                            
+                            foreach (String childFkName in childFkNames)
                             {
-                                if (ukName.EndsWith("REF"))
-                                { ukColumns.Add(c); }
-                            }
-                        }
-                        foreach (EntityColumnInfo ukColumn in ukColumns)
-                        {
-                            // dans le cas de chaussée
-                            // la premiere uk est code
-                            if (ukColumn.ForeignKeyNames.Count == 0)
-                            {
-                                String path = table.EntityType.Name + "." + ukColumn.PropertyName;
-                                paths.Add(path);
-                            }
-                            // la deuxieme est InfLiaisonId 
-                            else if ( ukColumn.ForeignKeyNames.Count == 1)
-                            {
-                                EntityTableInfo parentFkTable = null;
-                                EntityColumnInfo parentFkColumn = null;
-                                foreach (EntitySchemaInfo schemaIter in this.SchemaInfos)
-                                {
-                                    foreach (EntityTableInfo tableIter in schema.TableInfos)
-                                    {
-                                        if (!tableIter.TableName.Equals(table.TableName))
-                                        {
-                                            foreach (EntityColumnInfo columnIter in tableIter.ColumnInfos)
-                                            {
-                                                if (columnIter.PropertyName != null)
-                                                { 
-                                                    if (columnIter.ForeignKeyNames .Contains (ukColumn.ForeignKeyNames.First ()))
-                                                    {
-                                                        parentFkTable = tableIter;
-                                                        parentFkColumn = columnIter;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                if (parentFkTable != null)
-                                {
-                                    this.GetFkTableFieldPaths(parentFkColumn, paths);
-                                }
-                              
+                                if (column.ForeignKeyNames.Contains(childFkName))
+                                { parentFkNamesContainChildFkName = true; }
+                                
                             }
                            
                         }
                     }
+                    if (parentFkNamesContainChildFkName)
+                    { tables.Add(table); }
+                }
+            }
+            return tables;
+        }
+
+        private string GetPath(EntityTableInfo parent, EntityTableInfo child)
+        {
+            List<String> paths = new List<string>();
+            GetPath(parent, child, paths);
+            return String.Join(".", paths);
+        }
+
+        public String GetReferenceUkName(EntityTableInfo tableInfo)
+        {
+            String ukNameRef = null;
+            List<String> allUkNames = new List<string>();
+            foreach (EntityColumnInfo columnIno in tableInfo.ColumnInfos)
+            {allUkNames.AddRange(columnIno.UniqueKeyNames);}
+            allUkNames = (from uk in allUkNames select uk).Distinct ().ToList ();
+            foreach (String ukName in allUkNames)
+            {
+                if (ukName.EndsWith("_REF"))
+                { ukNameRef = ukName; }
+            }
+            if (ukNameRef == null && allUkNames.Count > 0)
+            { ukNameRef = allUkNames.First(); }
+            return ukNameRef;
+        }
+
+        private List<EntityColumnInfo> FindFkParentProperties(EntityColumnInfo columnInfo)
+        {
+            List<EntityColumnInfo> list = new List<EntityColumnInfo>();
+            EntityTableInfo parentTable = this.GetEntityTableInfo(columnInfo.PropertyType);
+            String ukRefName = this.GetReferenceUkName(parentTable);
+            List<EntityColumnInfo> ukRefColumnInfos = (from c in parentTable.ColumnInfos where c.UniqueKeyNames.Contains (ukRefName ) select c).ToList();
+            foreach (EntityColumnInfo ukRefColumnInfo in ukRefColumnInfos)
+            {
+                if (ukRefColumnInfo.ForeignKeyNames.Count > 0)
+                {
+                    list.AddRange(FindFkParentProperties(ukRefColumnInfo));
+                }
+                else
+                {
+                    list.Add(ukRefColumnInfo);
                 }
             }
            
-            return fkFieldPaths;
+            return list;
         }
 
+        
 
-       
-       
 
-      
+
+
+
+
+
+
+        public EntityColumnInfo GetTopParentProperty(Type sourceType, string fieldPath)
+        {
+            EntityTableInfo sourceTableInfo = this.GetEntityTableInfo(sourceType);
+            if (fieldPath.IndexOf(".") == -1)
+            {
+                return this.GetEntityColumnInfo(sourceTableInfo, fieldPath);
+            }
+            else
+            {
+                EntityTableInfo currentTableInfo = sourceTableInfo;
+                String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                EntityColumnInfo currentColumnInfo = null;
+                for (int i = 0; i < items.Length; i++)
+                {
+                    currentColumnInfo = this.GetEntityColumnInfo(currentTableInfo, items[i]);
+                    currentTableInfo = this.GetEntityTableInfo(currentColumnInfo.Property.PropertyType);
+                    
+                    
+                }
+                return currentColumnInfo;
+            }
+        }
     }
 }

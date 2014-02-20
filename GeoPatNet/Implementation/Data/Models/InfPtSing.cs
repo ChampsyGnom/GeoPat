@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_PT_SING",null)]
+        [UniqueKey("INF_PT_SING_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -30,6 +31,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_PT_SING__INF_PT_SING",null)]
+        [UniqueKey("INF_PT_SING_UK_REF")]
         public virtual InfCodePtSing InfCodePtSing
         {
             get;
@@ -47,7 +49,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_PT_SING__ABS_DEB")]
-        [UniqueKey("INF_PT_SING_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -69,8 +70,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_PT_SING","JOIN_o777")]
-        [UniqueKey("INF_PT_SING_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -81,8 +80,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code point singulier")]
         [ColumnName("INF_CD_PT_SING__ID")]
-        [ForeignKey("INF_CD_PT_SING__INF_PT_SING","JOIN_o796")]
-        [UniqueKey("INF_PT_SING_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_REPERE",null)]
+        [UniqueKey("INF_REPERE_UK2")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -27,7 +28,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Abscisse")]
         [ColumnName("INF_REPERE__ABS_CUM")]
-        [UniqueKey("INF_REPERE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -59,8 +59,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_REPERE","JOIN_o779")]
-        [UniqueKey("INF_REPERE_UK2")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -71,7 +69,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("N° de PR")]
         [ColumnName("INF_REPERE__NUM")]
-        [UniqueKey("INF_REPERE_UK2")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_BIFURCATION",null)]
+        [UniqueKey("INF_BIFURCATION_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -30,6 +31,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_BIFURCATION__INF_BIFURCATION",null)]
+        [UniqueKey("INF_BIFURCATION_UK_REF")]
         public virtual InfCodeBifurcation InfCodeBifurcation
         {
             get;
@@ -57,7 +59,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_BIFURCATION__ABS_DEB")]
-        [UniqueKey("INF_BIFURCATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -79,8 +80,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_BIFURCATION","JOIN_o769")]
-        [UniqueKey("INF_BIFURCATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -91,8 +90,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code bifurcation")]
         [ColumnName("INF_CD_BIFURCATION__ID")]
-        [ForeignKey("INF_CD_BIFURCATION__INF_BIFURCATION","JOIN_o789")]
-        [UniqueKey("INF_BIFURCATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

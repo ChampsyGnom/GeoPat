@@ -113,6 +113,7 @@
     <Compile Include="Views\GenericDataFormView.xaml.cs">
       <DependentUpon>GenericDataFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenericDataGridTemplateColumn.cs" />
     <Compile Include="Views\GenericDataGridView.xaml.cs">
       <DependentUpon>GenericDataGridView.xaml</DependentUpon>
     </Compile>

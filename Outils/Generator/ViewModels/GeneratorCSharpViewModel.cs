@@ -186,7 +186,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         String childEntityName = NameConverter.TableNameToEntityName(childTable.Name);
                         TemplateProperty prop = writer.AddProperty("public virtual ICollection<" + childEntityName + ">", childEntityName + "s");
                         prop.Attributes.Add("[DisplayName(\"" + childTable.DisplayName + "s\")]");
-
+                        
                     }
 
                     List<DbForeignKey> parentFks = (from fk in allFks where fk.ChildTableId.Equals(table.Id) select fk).ToList();
@@ -203,7 +203,10 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         else
                         { prop.Attributes.Add("[AllowNull(false)]"); }
                         prop.Attributes.Add("[ControlType(ControlType.Combo)]");
-                        prop.Attributes.Add("[ForeignKey(\"" + parentFk.Name + "\",null)]"); 
+                        prop.Attributes.Add("[ForeignKey(\"" + parentFk.Name + "\",null)]");
+                        List<DbUniqueKey> uks = (from uk in table.UniqueKeys where uk.ColumnIds.Contains(childColumn.Id) select uk).ToList();
+                        foreach (DbUniqueKey uk in uks)
+                        { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
 
                     }
 
@@ -227,17 +230,29 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Replace(table.Name, ""));
                         if (column.DataType.Equals("INT4"))
                         {
+                            DbColumn childColumn = null;
+                            foreach (DbForeignKey parentFk in parentFks)
+                            {
+                                if ((from c in table.Columns where (from j in parentFk.Joins select j.ChildColumnId).Contains(c.Id) select c).FirstOrDefault() != null)
+                                { childColumn = (from c in table.Columns where (from j in parentFk.Joins select j.ChildColumnId).Contains(c.Id) select c).FirstOrDefault(); }
+                      
+                            }
                             DbRulePr rulePr = (from r in column.Rules where r is DbRulePr select r as DbRulePr).FirstOrDefault();
                             if (column.AllowNull)
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Int64>", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
-                                if (fkJoinColumn != null)
-                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
 
-                                foreach (DbUniqueKey uk in uks)
-                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                if (childColumn == null)
+                                {
+                                    foreach (DbUniqueKey uk in uks)
+                                    { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                }
+                                else
+                                { Console.WriteLine("Exclude from uk"); }
+
+
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
                                 if (fkJoinColumn != null)
                                 { prop.Attributes.Add("[ControlType(ControlType.None)]"); }
@@ -259,11 +274,15 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 TemplateProperty prop = writer.AddProperty("public Int64", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
-                                if (fkJoinColumn != null)
-                                { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
 
-                                foreach (DbUniqueKey uk in uks)
-                                { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+
+                                if (childColumn == null)
+                                {
+                                    foreach (DbUniqueKey uk in uks)
+                                    { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
+                                }
+                                else
+                                { Console.WriteLine("Exclude from uk"); }
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
 
                                 if (fkJoinColumn != null)

@@ -20,6 +20,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_PR_OLD",null)]
+        [UniqueKey("INF_PR_OLD_UK_REF")]
+        [UniqueKey("INF_PR_OLD_UK2")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -27,7 +29,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Abscisse")]
         [ColumnName("INF_PR_OLD__ABS_CUM")]
-        [UniqueKey("INF_PR_OLD_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -59,9 +60,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_PR_OLD","JOIN_o768")]
-        [UniqueKey("INF_PR_OLD_UK_REF")]
-        [UniqueKey("INF_PR_OLD_UK2")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -72,7 +70,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("N° de PR")]
         [ColumnName("INF_PR_OLD__NUM")]
-        [UniqueKey("INF_PR_OLD_UK2")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

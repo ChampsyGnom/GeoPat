@@ -22,5 +22,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Services
         DbSet GetDbSet(Type entityType);
 
         List<string> GetTableFieldPaths(EntityTableInfo _entityTableInfo);
+
+        EntityColumnInfo GetTopParentProperty(Type modelType, string fieldPath);
     }
 }

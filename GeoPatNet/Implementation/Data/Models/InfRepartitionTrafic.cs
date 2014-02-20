@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_REPARTITION_TRAFIC",null)]
+        [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -37,7 +38,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Année")]
         [ColumnName("INF_REPARTITION_TRAFIC__ANNEE")]
-        [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -48,7 +48,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_REPARTITION_TRAFIC__ABS_DEB")]
-        [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -80,8 +79,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_REPARTITION_TRAFIC","JOIN_o778")]
-        [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

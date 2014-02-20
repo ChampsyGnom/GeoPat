@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_PAVE_VOIE",null)]
+        [UniqueKey("INF_PAVE_VOIE_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -30,6 +31,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_VOIE__INF_PAVE_VOIE",null)]
+        [UniqueKey("INF_PAVE_VOIE_UK_REF")]
         public virtual InfCodeVoie InfCodeVoie
         {
             get;
@@ -46,7 +48,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_PAVE_VOIE__ABS_DEB")]
-        [UniqueKey("INF_PAVE_VOIE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -78,8 +79,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_PAVE_VOIE","JOIN_o775")]
-        [UniqueKey("INF_PAVE_VOIE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -90,8 +89,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant code voie")]
         [ColumnName("INF_CD_VOIE__ID")]
-        [ForeignKey("INF_CD_VOIE__INF_PAVE_VOIE","JOIN_o805")]
-        [UniqueKey("INF_PAVE_VOIE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

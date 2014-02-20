@@ -20,6 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_ACCIDENT",null)]
+        [UniqueKey("INF_ACCIDENT__UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -27,7 +28,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Année")]
         [ColumnName("INF_ACCIDENT__ANNEE")]
-        [UniqueKey("INF_ACCIDENT__UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -38,7 +38,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_ACCIDENT__ABS_DEB")]
-        [UniqueKey("INF_ACCIDENT__UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -70,8 +69,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
-        [ForeignKey("INF_CHAUSSEE__INF_ACCIDENT","JOIN_o766")]
-        [UniqueKey("INF_ACCIDENT__UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
@@ -82,7 +79,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Mois")]
         [ColumnName("INF_ACCIDENT__MOIS")]
-        [UniqueKey("INF_ACCIDENT__UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

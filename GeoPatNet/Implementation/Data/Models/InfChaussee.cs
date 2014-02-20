@@ -140,6 +140,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_LIAISON__CHAUSSEE_INF",null)]
+        [UniqueKey("INF_CHAUSSEE_UK_REF")]
         public virtual InfLiaison InfLiaison
         {
             get;
@@ -189,8 +190,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Identifiant liaison")]
         [ColumnName("INF_LIAISON__ID")]
-        [ForeignKey("INF_LIAISON__CHAUSSEE_INF","JOIN_o794")]
-        [UniqueKey("INF_CHAUSSEE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

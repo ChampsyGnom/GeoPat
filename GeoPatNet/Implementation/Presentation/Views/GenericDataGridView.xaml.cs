@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Engine.Infrastructure.ViewModels;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Data.Infrastructure.Reflection;
+using Emash.GeoPatNet.Engine.Infrastructure.ComponentModel;
 namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
     /// <summary>
@@ -37,9 +38,87 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
 
         public GenericDataGridView()
         {
+           
             this.DataContextChanged += GenericDataGridView_DataContextChanged;
             InitializeComponent();
             BindingOperations.SetBinding(this, GenericDataGridView.FieldPathsProperty, new Binding("FieldPaths"));
+            BindingOperations.SetBinding(dataGrid, DataGrid.ItemsSourceProperty, new Binding("ItemsView"));
+            this.dataGrid.GotFocus += dataGrid_GotFocus;
+            this.dataGrid.BeginningEdit += dataGrid_BeginningEdit;
+            this.dataToolBar.GotFocus += dataToolBar_GotFocus;
+            this.dataToolBar.cancelButton.Click += cancelButton_Click;
+            this.dataToolBar.commitbutton.Click += commitbutton_Click;
+        }
+
+        void commitbutton_Click(object sender, RoutedEventArgs e)
+        {
+            Keyboard.ClearFocus();
+            this.dataGrid.CommitEdit();
+            this.dataToolBar.Focus();
+        }
+
+        void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Keyboard.ClearFocus();
+            this.dataGrid.CommitEdit();
+            this.dataToolBar.Focus();
+        }
+
+        void dataToolBar_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Keyboard.ClearFocus();
+            this.dataGrid.CommitEdit();
+            this.dataToolBar.Focus();
+        }
+
+        void dataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            if (this.DataContext != null && e.Row.DataContext != null)
+            {
+                if (this.DataContext is IRowEditableList && e.Row.DataContext is IRowEditableItem)
+                {
+                    IRowEditableList rowEditableList = this.DataContext as IRowEditableList;
+                    IRowEditableItem rowEditableItem = e.Row.DataContext as IRowEditableItem;
+                    if (!rowEditableList.CanEdit(rowEditableItem))
+                    { e.Cancel = true; }
+
+                }
+            }
+           
+        }
+
+        void dataGrid_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource.GetType() == typeof(DataGridCell))
+            {
+                // Starts the Edit on the row;
+                DataGrid grd = (DataGrid)sender;
+                grd.BeginEdit(e);
+                Control control = GetFirstChildByType<Control>(e.OriginalSource as DataGridCell);
+                if (control != null)
+                {
+                    control.Focus();
+                }
+            }
+        }
+        private T GetFirstChildByType<T>(DependencyObject prop) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(prop); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild((prop), i) as DependencyObject;
+                if (child == null)
+                    continue;
+
+                T castedProp = child as T;
+                if (castedProp != null)
+                    return castedProp;
+
+                castedProp = GetFirstChildByType<T>(child);
+
+                if (castedProp != null)
+                    return castedProp;
+            }
+            return null;
         }
 
         void GenericDataGridView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -106,13 +185,22 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 {
                     if (fieldPath.IndexOf(".") == -1)
                     {
-                        DataGridTemplateColumn column = new DataGridTemplateColumn();
+                        GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
                         EntityColumnInfo columnInfo = (from c in entityTableInfo.ColumnInfos where c.PropertyName.Equals (fieldPath ) select c).FirstOrDefault();
                         column.Header = columnInfo.DisplayName;
                         dataGrid.Columns.Add(column);
                     }
                     else
-                    { }
+                    {
+                        
+                        EntityColumnInfo parentProperty = dataService.GetTopParentProperty(modelType, fieldPath);
+                        if (parentProperty != null)
+                        {
+                            GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
+                            column.Header = parentProperty.TableInfo.DisplayName + " " + parentProperty.DisplayName;
+                            dataGrid.Columns.Add(column);
+                        }
+                    }
                 }
             }
         }
