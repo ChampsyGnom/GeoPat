@@ -139,6 +139,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_LIAISON__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_LIAISON__CHAUSSEE_INF",null)]
         public virtual InfLiaison InfLiaison
         {
             get;
@@ -159,6 +160,26 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CHAUSSEE__ID")]
         [PrimaryKey("INF_CHAUSSEE_PK")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_ACCIDENT","JOIN_o766")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_AMENAGEMENT","JOIN_o767")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PR_OLD","JOIN_o768")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_BIFURCATION","JOIN_o769")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_BRETELLE","JOIN_o770")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_CLIMAT","JOIN_o771")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_ECLAIRAGE","JOIN_o772")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_GARE","JOIN_o773")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_OCCUPATION","JOIN_o774")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PAVE_VOIE","JOIN_o775")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PK","JOIN_o776")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PT_SING","JOIN_o777")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_REPARTITION_TRAFIC","JOIN_o778")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_REPERE","JOIN_o779")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SECTION_TRAFIC","JOIN_o780")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SECURITE","JOIN_o781")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SENSIBLE","JOIN_o782")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TALUS","JOIN_o783")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TPC","JOIN_o784")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TR_DEC","JOIN_o785")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -171,7 +192,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_LIAISON__CHAUSSEE_INF","JOIN_o794")]
         [UniqueKey("INF_CHAUSSEE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfLiaisonId
         {

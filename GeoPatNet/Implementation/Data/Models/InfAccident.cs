@@ -19,6 +19,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CHAUSSEE__INF_ACCIDENT",null)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -72,7 +73,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CHAUSSEE__INF_ACCIDENT","JOIN_o766")]
         [UniqueKey("INF_ACCIDENT__UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfChausseeId
         {

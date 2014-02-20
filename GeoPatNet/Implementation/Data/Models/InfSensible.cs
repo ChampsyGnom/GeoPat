@@ -19,6 +19,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CHAUSSEE__INF_SENSIBLE",null)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -28,6 +29,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_SENSIBLE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CD_SENSIBLE__INF_SENSIBLE",null)]
         public virtual InfCodeSensible InfCodeSensible
         {
             get;
@@ -68,7 +70,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [ForeignKey("INF_CHAUSSEE__INF_SENSIBLE","JOIN_o782")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfChausseeId
         {
@@ -79,7 +81,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_SENSIBLE__ID")]
         [ForeignKey("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o802")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeSensibleId
         {

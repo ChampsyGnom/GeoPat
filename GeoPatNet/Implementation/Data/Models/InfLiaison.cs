@@ -25,6 +25,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_LIAISON__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CD_LIAISON__INF_LIAISON",null)]
         public virtual InfCodeLiaison InfCodeLiaison
         {
             get;
@@ -45,6 +46,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_LIAISON__ID")]
         [PrimaryKey("INF_LIAISON_PK")]
+        [ForeignKeyAttribute("INF_LIAISON__CHAUSSEE_INF","JOIN_o794")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -57,7 +59,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CD_LIAISON__INF_LIAISON","JOIN_o786")]
         [UniqueKey("INF_LIAISON_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeLiaisonId
         {

@@ -25,6 +25,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_FAM_DEC__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_FAM_DEC__INF_CD_DEC",null)]
         public virtual InfFamDec InfFamDec
         {
             get;
@@ -45,6 +46,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_DEC__ID")]
         [PrimaryKey("INF_CD_DEC_PK")]
+        [ForeignKeyAttribute("INF_CD_DEC__INF_TR_DEC","JOIN_o791")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -57,7 +59,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_FAM_DEC__INF_CD_DEC","JOIN_o806")]
         [UniqueKey("INF_CD_DEC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfFamDecId
         {

@@ -147,16 +147,16 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             {
                 if (columnInfo.PrimaryKeyName == null)
                 {
-                    if (columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.None )
+                    if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Combo )
                     {
-                        if (columnInfo.ForeignKeyName != null)
-                        {
-                            fieldPaths.AddRange(GetFkTableFieldPaths(columnInfo));
-                        }
-                        else
-                        { fieldPaths.Add(columnInfo.PropertyName); }
-                      //  Console.WriteLine(columnInfo.PropertyName + " " + columnInfo.ControlType);
-                       
+                        List<String> paths = new List<string>();                      
+                        GetFkTableFieldPaths(columnInfo, paths);
+                        paths.Reverse();
+                        fieldPaths.AddRange(paths);
+                    }
+                    else if (columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.None)
+                    {
+                        fieldPaths.Add(columnInfo.PropertyName);
                     }
                   
                 }
@@ -165,12 +165,77 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             return fieldPaths;
         }
 
-        private List<string> GetFkTableFieldPaths(EntityColumnInfo columnInfo)
+        private List<string> GetFkTableFieldPaths( EntityColumnInfo columnInfo,List<String> paths)
         {
             List<String> fkFieldPaths = new List<string>();
-            Console.WriteLine("List" + columnInfo.ColumnName);
-
+            foreach (EntitySchemaInfo schema in this.SchemaInfos)
+            {
+                foreach (EntityTableInfo table in schema.TableInfos)
+                {
+                    if ((from c in table.ColumnInfos where c.ForeignKeyNames.Contains (columnInfo.ForeignKeyNames[0]) && c.PrimaryKeyName != null  select c).Any())
+                    {
+                        List<EntityColumnInfo> ukColumns = new List<EntityColumnInfo>();
+                        foreach (EntityColumnInfo c in table.ColumnInfos)
+                        {
+                            foreach (String ukName in c.UniqueKeyNames)
+                            {
+                                if (ukName.EndsWith("REF"))
+                                { ukColumns.Add(c); }
+                            }
+                        }
+                        foreach (EntityColumnInfo ukColumn in ukColumns)
+                        {
+                            // dans le cas de chaussée
+                            // la premiere uk est code
+                            if (ukColumn.ForeignKeyNames.Count == 0)
+                            {
+                                String path = table.EntityType.Name + "." + ukColumn.PropertyName;
+                                paths.Add(path);
+                            }
+                            // la deuxieme est InfLiaisonId 
+                            else if ( ukColumn.ForeignKeyNames.Count == 1)
+                            {
+                                EntityTableInfo parentFkTable = null;
+                                EntityColumnInfo parentFkColumn = null;
+                                foreach (EntitySchemaInfo schemaIter in this.SchemaInfos)
+                                {
+                                    foreach (EntityTableInfo tableIter in schema.TableInfos)
+                                    {
+                                        if (!tableIter.TableName.Equals(table.TableName))
+                                        {
+                                            foreach (EntityColumnInfo columnIter in tableIter.ColumnInfos)
+                                            {
+                                                if (columnIter.PropertyName != null)
+                                                { 
+                                                    if (columnIter.ForeignKeyNames .Contains (ukColumn.ForeignKeyNames.First ()))
+                                                    {
+                                                        parentFkTable = tableIter;
+                                                        parentFkColumn = columnIter;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (parentFkTable != null)
+                                {
+                                    this.GetFkTableFieldPaths(parentFkColumn, paths);
+                                }
+                              
+                            }
+                           
+                        }
+                    }
+                }
+            }
+           
             return fkFieldPaths;
         }
+
+
+       
+       
+
+      
     }
 }

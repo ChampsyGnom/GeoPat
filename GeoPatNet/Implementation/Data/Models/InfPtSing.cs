@@ -19,6 +19,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CHAUSSEE__INF_PT_SING",null)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -28,6 +29,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_PT_SING__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CD_PT_SING__INF_PT_SING",null)]
         public virtual InfCodePtSing InfCodePtSing
         {
             get;
@@ -70,7 +72,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CHAUSSEE__INF_PT_SING","JOIN_o777")]
         [UniqueKey("INF_PT_SING_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfChausseeId
         {
@@ -82,7 +84,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CD_PT_SING__INF_PT_SING","JOIN_o796")]
         [UniqueKey("INF_PT_SING_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodePtSingId
         {

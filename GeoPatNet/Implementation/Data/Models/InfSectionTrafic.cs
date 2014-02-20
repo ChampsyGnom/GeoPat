@@ -19,6 +19,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CHAUSSEE__INF_SECTION_TRAFIC",null)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -28,6 +29,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_TRAFIC__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CD_TRAFIC__INF_SECTION_TRAFIC",null)]
         public virtual InfCodeTrafic InfCodeTrafic
         {
             get;
@@ -80,7 +82,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CHAUSSEE__INF_SECTION_TRAFIC","JOIN_o780")]
         [UniqueKey("INF_SECTION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfChausseeId
         {
@@ -92,7 +94,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CD_TRAFIC__INF_SECTION_TRAFIC","JOIN_o787")]
         [UniqueKey("INF_SECTION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeTraficId
         {

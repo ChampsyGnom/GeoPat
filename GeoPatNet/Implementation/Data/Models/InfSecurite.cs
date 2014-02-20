@@ -19,6 +19,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CHAUSSEE__INF_SECURITE",null)]
         public virtual InfChaussee InfChaussee
         {
             get;
@@ -28,6 +29,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_POSIT__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CD_POSIT__INF_SECURITE",null)]
         public virtual InfCodePosit InfCodePosit
         {
             get;
@@ -37,6 +39,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_CD_SECURITE__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_CD_SECURITE__INF_SECURITE",null)]
         public virtual InfCodeSecurite InfCodeSecurite
         {
             get;
@@ -79,7 +82,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CHAUSSEE__INF_SECURITE","JOIN_o781")]
         [UniqueKey("INF_SECURITE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfChausseeId
         {
@@ -91,7 +94,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CD_POSIT__INF_SECURITE","JOIN_o799")]
         [UniqueKey("INF_SECURITE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodePositId
         {
@@ -103,7 +106,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ForeignKey("INF_CD_SECURITE__INF_SECURITE","JOIN_o800")]
         [UniqueKey("INF_SECURITE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeSecuriteId
         {

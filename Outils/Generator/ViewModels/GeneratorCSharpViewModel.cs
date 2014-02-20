@@ -190,7 +190,6 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     }
 
                     List<DbForeignKey> parentFks = (from fk in allFks where fk.ChildTableId.Equals(table.Id) select fk).ToList();
-
                     foreach (DbForeignKey parentFk in parentFks)
                     {
                         DbTable parentTable = (from t in schema.Tables where t.Id.Equals(parentFk.ParentTableId) select t).FirstOrDefault();
@@ -204,6 +203,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         else
                         { prop.Attributes.Add("[AllowNull(false)]"); }
                         prop.Attributes.Add("[ControlType(ControlType.Combo)]");
+                        prop.Attributes.Add("[ForeignKey(\"" + parentFk.Name + "\",null)]"); 
 
                     }
 
@@ -292,12 +292,14 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             if (table.PrimaryKey.ColumnIds.Contains(column.Id))
                             {prop.Attributes.Add("[PrimaryKey(\"" + table.PrimaryKey.Name + "\")]");}
 
-                            foreach (DbForeignKey fk in parentFks)
+                            foreach (DbForeignKey fk in childFks)
                             {
                                 foreach (DbForeignKeyJoin j in fk.Joins)
                                 {
                                     if (j.ParentColumnId.Equals(column.Id))
-                                    { prop.Attributes.Add("[ForeignKeyAttribute(\"" + fk.Name + "\",\"JOIN_" + j.Id + "\")]"); }
+                                    { 
+                                        prop.Attributes.Add("[ForeignKeyAttribute(\"" + fk.Name + "\",\"JOIN_" + j.Id + "\")]"); 
+                                    }
                                 }
                              
                             }

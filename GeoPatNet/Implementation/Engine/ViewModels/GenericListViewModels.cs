@@ -9,9 +9,10 @@ using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.ServiceLocation;
 using System.Collections.ObjectModel;
+using Emash.GeoPatNet.Engine.Infrastructure.ViewModels;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
-    public class GenericListViewModel<M> 
+    public class GenericListViewModel<M>  : IGenericListViewModel<M>
         where M : class
     {
         public String DisplayName { get; private set; }
@@ -52,10 +53,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             List<String> fieldPaths = this._dataService.GetTableFieldPaths(_entityTableInfo);
 
             foreach (String fieldPath in fieldPaths)
-            {
-                Console.WriteLine(fieldPath);
-                this.FieldPaths.Add(fieldPath);
-            }
+            {this.FieldPaths.Add(fieldPath);}
         }
 
         private void QuitExecute()

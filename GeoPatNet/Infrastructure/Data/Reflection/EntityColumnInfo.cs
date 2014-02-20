@@ -25,7 +25,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public Boolean IsPr { get; private set; }
         public String PrChausseeColumnName { get; private set; }
         public String PrimaryKeyName { get; private set; }
-        public String ForeignKeyName { get; private set; }
+        public List<String> ForeignKeyNames { get; private set; }
         public List<String> UniqueKeyNames { get; private set; }
         public ControlType ControlType { get; private set; }
        
@@ -34,6 +34,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         {
             // TODO: Complete member initialization
             this.TableInfo = entityTableInfo;
+            this.ForeignKeyNames = new List<string>();
             this.Property = property;
             this.PropertyName = property.Name;
             this.UniqueKeyNames = new List<string>();
@@ -81,7 +82,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
                 { this.PrimaryKeyName = (att as PrimaryKeyAttribute).PrimaryKeyName ; }
 
                 if (att is ForeignKeyAttribute )
-                { this.ForeignKeyName = (att as ForeignKeyAttribute).ForeignKeyName; }
+                { this.ForeignKeyNames.Add (  (att as ForeignKeyAttribute).ForeignKeyName); }
 
                 if (att is UniqueKeyAttribute )
                 { this.UniqueKeyNames.Add((att as UniqueKeyAttribute).UniqueKeyName); }

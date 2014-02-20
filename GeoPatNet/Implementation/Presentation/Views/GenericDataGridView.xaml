@@ -14,6 +14,6 @@
         </Grid.RowDefinitions>
         <v:DataToolbar Grid.Row="0"></v:DataToolbar>
         <v:DataRecordPosition HorizontalAlignment="Left" Grid.Row="1"></v:DataRecordPosition>
-        <DataGrid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserSortColumns="True" AutoGenerateColumns="False"></DataGrid>
+        <DataGrid x:Name="dataGrid" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserSortColumns="True" AutoGenerateColumns="False"></DataGrid>
     </Grid>
 </UserControl>
