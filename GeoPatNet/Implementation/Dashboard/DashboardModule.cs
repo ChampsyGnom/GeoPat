@@ -1,7 +1,9 @@
 ﻿
 using Emash.GeoPatNet.Atom.Infrastructure.Services;
 using Emash.GeoPatNet.Dashboard.Implementation.Services;
+using Emash.GeoPatNet.Dashboard.Implementation.ViewModels;
 using Emash.GeoPatNet.Dashboard.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Infrastructure.Events;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
@@ -25,6 +27,8 @@ namespace Emash.GeoPatNet.Dashboard.Implementation
         public DashboardModule(IEventAggregator eventAggregator, IUnityContainer container,IRegionManager regionManager)
         {
             this._eventAggregator = eventAggregator;
+            this._eventAggregator.GetEvent<SplashEvent>().Publish("Chargement du module tableau de bord ...");
+            this._eventAggregator = eventAggregator;
             this._container = container;
             this._regionManager = regionManager;
            
@@ -33,6 +37,8 @@ namespace Emash.GeoPatNet.Dashboard.Implementation
 
         public void Initialize()
         {
+            this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du module tableau de bord ...");
+            this._container.RegisterType<DashboardDialogItemViewModel>();
             this._container.RegisterType<IDashboardService, DashboardService>(new ContainerControlledLifetimeManager());
             this._regionManager.RegisterViewWithRegion("Dashboard", typeof(DashboardView));
 

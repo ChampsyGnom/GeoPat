@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Emash.GeoPatNet.Presentation.Infrastructure.Events;
 using System.Threading;
+using Microsoft.Practices.Prism.Commands;
 
 
 namespace Emash.GeoPatNet.Data.Implementation.Services
@@ -19,9 +20,17 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
     {
         private IEventAggregator _eventAggregator;
         private IUnityContainer _container;
-        public DataContext DataContext { get; private set; }
+        public DbContext DataContext { get; private set; }
         private Boolean _isAvailable;
         private String _connectionString;
+
+        public DataService(IEventAggregator eventAggregator, IUnityContainer container)
+        {
+            this._isAvailable = false;
+            this._eventAggregator = eventAggregator;
+            this._container = container;
+            this._container.RegisterType<IDataService, DataService>(new ContainerControlledLifetimeManager());
+        }
 
         public T CreateItem<T>() where T : class
         {
@@ -50,14 +59,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             }
            return  this.DataContext.Set<T>();
         }
-        public DataService(IEventAggregator eventAggregator, IUnityContainer container)
-        {
-            this._isAvailable = false;
-            this._eventAggregator = eventAggregator;            
-            this._container = container;
-            this._container.RegisterType<IDataService, DataService>(new ContainerControlledLifetimeManager());
-            
-        }
+        
         public void Initialize(string connectionString)
         {
             this._connectionString = connectionString;

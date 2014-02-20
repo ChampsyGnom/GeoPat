@@ -31,6 +31,7 @@ namespace Emash.GeoPatNet.Data.Implementation
         public void Initialize()
         {
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du module de données ...");
+
            
         }
     }

@@ -1,6 +1,4 @@
-﻿using Emash.GeoPatNet.Dashboard.Implementation.Services;
-using Emash.GeoPatNet.Presentation.Infrastructure.Behaviors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,21 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Emash.GeoPatNet.Dashboard.Implementation.Views
 {
     /// <summary>
-    /// Logique d'interaction pour DashboardView.xaml
+    /// Logique d'interaction pour DashboardDialogItemView.xaml
     /// </summary>
-    public partial class DashboardView : UserControl
+    public partial class DashboardDialogItemView : Window
     {
-        public DashboardView(DashboardService viemModel)
+        public DashboardDialogItemView()
         {
-            this.DataContext = viemModel;
-             
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Services
 {
     public interface IDataService : IAvailableService
     {
+        DbContext DataContext { get; }
         void Initialize(string connectionString);
         DbSet<T> GetDbSet<T>() where T : class;
         T CreateItem<T>() where T : class;
