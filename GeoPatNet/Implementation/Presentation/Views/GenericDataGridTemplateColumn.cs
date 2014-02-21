@@ -62,23 +62,12 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             contentControlStyle.Triggers.Add(CreateTrigger(dataService, topProperty, GenericDataListState.Updating));
             contentControlStyle.Triggers.Add(CreateTrigger(dataService, topProperty, GenericDataListState.InsertingDisplay));
             contentControl.SetValue(ContentControl.StyleProperty, contentControlStyle);
-            contentControl.SetValue(ContentControl.WidthProperty, 200D);
+  
 
             contentControl.AddHandler(ContentControl.GotFocusEvent, new RoutedEventHandler(OnContentControlGotFocus));
 
 
-            if (topProperty.PrimaryKeyName == null && topProperty.ForeignKeyNames.Count > 0)
-            {
-                // Combo lié
-            }
-            else
-            {
-                // dépendant du type
-                if (topProperty.PropertyType.Equals(typeof(String)))
-                {
-
-                }
-            }
+           
             dataTemplate.VisualTree = contentControl;
             return dataTemplate;
         }
@@ -92,6 +81,12 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 {
                     txt.Focus();
                     txt.SelectAll();
+                }
+                ComboBox combo = this.FindChild<ComboBox>(obj);
+                if (combo != null)
+                {
+                    combo.Focus();
+                    combo.IsDropDownOpen = true;
                 }
             }
             
@@ -126,11 +121,11 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             contentControl.SetBinding(ContentControl.ContentProperty, new Binding());
             Style contentControlStyle = new Style();           
             contentControl.SetValue(ContentControl.StyleProperty, contentControlStyle);
-            contentControl.SetValue(ContentControl.WidthProperty, 200D);
+
 
             DataTemplate tpl = new DataTemplate();
             FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBlock));
-            textBox.SetValue(TextBlock.MinWidthProperty, 120D);
+   
             textBox.SetBinding(TextBlock.TextProperty, this.CreateBindingOneWay(this._fieldPath));
             tpl.VisualTree = textBox;
             contentControlStyle.Setters.Add (new Setter (ContentControl.ContentTemplateProperty, tpl));
@@ -164,10 +159,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             if (this._fieldPath.IndexOf(".") != -1)
             {
                 String[] items = this._fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                String comboListPath = "Lists[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
-                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
-                comboBox.SetValue(ComboBox.MinWidthProperty, 120D);
+                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));          
                 comboBox.SetBinding(ComboBox.SelectedItemProperty, this.CreateBindingTwoWay(this._fieldPath));
+
+                String comboListPath = "Lists[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";               
                 Binding bindingList = new Binding(comboListPath);
                 bindingList.Mode = BindingMode.OneWay;
                 bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
@@ -182,35 +177,35 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     if (state == GenericDataListState.Search)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+               
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.InsertingEmpty)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                      
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.Display)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                   
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.Updating)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+ 
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.InsertingDisplay)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+   
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }

@@ -11,6 +11,7 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
@@ -37,7 +38,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this._values = new Dictionary<string, string>();
             this.Lists = new GenericListSources<M>();
         }
-        [IndexerName("Values")]
+     
         public string this[String  fieldPath]
         {
             get 
@@ -56,32 +57,48 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 if (fieldPath.IndexOf(".") != -1)
                 {
                     this.UpdateDepedencyListFilter(fieldPath);
-                    
-
                 }
 
                 if (this.Manager.State == Infrastructure.Enums.GenericDataListState.Display && !this.Manager.IsLocked)
                 {this.Manager.BeginEdit(this);}
 
+               
                 this.RaisePropertyChanged("[" + fieldPath + "]");
+                this.RaisePropertyChanged("Lists");
+                EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
+                List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);
+                List<String> pathToProps = new List<string>();
+                foreach (EntityColumnInfo parentfkProperty in parentfkProperties)
+                {
+                    String pathToChild = this.Manager.DataService.GetPath(parentfkProperty.TableInfo, bottomProp.TableInfo);
+                    String pathToProp = pathToChild + "." + parentfkProperty.PropertyName;
+                    this.RaisePropertyChanged("[" + pathToProp + "]");
+
+                }
+
             }
         }
 
         private void UpdateDepedencyListFilter(string fieldPath)
         {
-            EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
-            List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);
             this.Lists.UpdateFilter(fieldPath, this._values);
+            EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
+            List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);         
+            List<String> pathToProps = new List<string>();
             foreach (EntityColumnInfo parentfkProperty in parentfkProperties)
             {
                 String pathToChild = this.Manager.DataService.GetPath(parentfkProperty.TableInfo, bottomProp.TableInfo);
                 String pathToProp = pathToChild + "." + parentfkProperty.PropertyName;
-                Console.WriteLine("Path to prop " + pathToProp);
+                pathToProps.Add(pathToProp);                
 
             }
+            int startIndex = pathToProps.IndexOf(fieldPath)+1;
+            for (int i = startIndex; i < pathToProps.Count; i++)
+            {this._values[pathToProps[i]] = CultureConfiguration.ListNullString;   }
+            this.RaiseValuesChanges();
         }
 
-        
+
 
         public void LoadFromModel(List<String> fieldPaths)
         {
@@ -103,14 +120,32 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     }
                 }
                 else
-                { 
-
+                {
+                    String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    Type baseType = typeof(M);
+                    object baseValue = this.Model;
+                    for(int i = 0 ; i < items .Length ;i++)
+                    {
+                        PropertyInfo prop = baseType.GetProperty(items[i]);
+                        baseValue = prop.GetValue(baseValue);
+                        if (baseValue == null)
+                        {break;}
+                        baseType = baseValue.GetType();
+                    }
+                    if (baseValue != null)
+                    { this._values[fieldPath] = baseValue.ToString (); }
+                    else
+                    { this._values[fieldPath] = CultureConfiguration.ListNullString; }
                 }
             }
         }
 
+
+
         public void SaveToModel(List<String> fieldPaths)
         {
+            EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo (typeof(M));
+            List<EntityColumnInfo> navigationProperties = new List<EntityColumnInfo>();
             foreach (String fieldPath in fieldPaths)
             {
                 EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), fieldPath);
@@ -123,68 +158,74 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 else
                 {
-                    EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
-                    EntityTableInfo parentTableInfo = this.Manager.DataService.GetEntityTableInfo(bottomProp.PropertyType);
-                    DbSet set = this.Manager.DataService.GetDbSet(parentTableInfo.EntityType);
-                    IQueryable queryable = set.AsQueryable();
-                    List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);
-                    ParameterExpression expressionBase = Expression.Parameter(parentTableInfo.EntityType, "item");
-                    List<Expression> expressions = new List<Expression> ();
-
-                    foreach (EntityColumnInfo parentfkProperty in parentfkProperties)
-                    {
-                        String pathToChild = this.Manager.DataService.GetPath(parentfkProperty.TableInfo, parentTableInfo);
-                        if (String.IsNullOrEmpty(pathToChild))
-                        {
-                            Expression propertyMember = Expression.Property(expressionBase, parentfkProperty.PropertyName);
-                            Expression expression = Expression.Equal(propertyMember, Expression.Constant ( this._values[fieldPath]));
-                            expressions.Add(expression);
-                        }
-                        else
-                        {
-                            String[] pathsToChild = pathToChild.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                            Expression propertyMember = null;
-                            for (int i = 0; i < pathsToChild.Length; i++)
-                            {
-                                if (propertyMember == null)
-                                { propertyMember = Expression.Property(expressionBase, pathsToChild[i]); }
-                                else
-                                { propertyMember = Expression.Property(propertyMember, pathsToChild[i]); }
-                            }
-                            propertyMember = Expression.Property(propertyMember, parentfkProperty.PropertyName);
-                            Expression expression = Expression.Equal(propertyMember, Expression.Constant(this._values[fieldPath]));
-                            expressions.Add(expression);
-                        }
-                    }
-
-                    if (expressions.Count > 0)
-                    {
-                        Expression expressionAnd = expressions.First();
-                        for (int i = 1; i < expressions.Count; i++)
-                        { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
-                        MethodCallExpression whereCallExpression = Expression.Call(
-                        typeof(Queryable),
-                        "Where",
-                        new Type[] { queryable.ElementType },
-                        queryable.Expression,
-                        Expression.Lambda(expressionAnd, expressionBase));
-                        queryable = queryable.Provider.CreateQuery(whereCallExpression);
-                    }
-
-                    List<Object> values = new List<object>();
-                    foreach (Object obj in queryable)
-                    {
-                        this.Model.GetType().GetProperty(bottomProp.PropertyName).SetValue(this.Model, obj);
-                    }
-
+                 
+                    String[] fieldPathItems = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    EntityColumnInfo bottomProp = (from p in tableInfo.ColumnInfos where p.PropertyName.Equals (fieldPathItems[0]) select p).FirstOrDefault();
+                    navigationProperties.Add(bottomProp);
                 }
+            }
+            navigationProperties = (from p in navigationProperties select p).Distinct().ToList();
+            foreach (EntityColumnInfo navigationProperty in navigationProperties)
+            {
+                EntityTableInfo parentTableInfo = this.Manager.DataService.GetEntityTableInfo(navigationProperty.PropertyType);
+                DbSet set = this.Manager.DataService.GetDbSet(parentTableInfo.EntityType);
+                IQueryable queryable = set.AsQueryable();
+                List<EntityColumnInfo> parentNavProps =  this.Manager.DataService.FindFkParentProperties(navigationProperty);
+                List<String> parentNavPropsPaths = new List<string>();
+                foreach (EntityColumnInfo column in parentNavProps)
+                {
+                    String pathToChild = this.Manager.DataService.GetPath(column.TableInfo, tableInfo);
+                    String pathToProp = pathToChild + "." + column.PropertyName;
+                   
+                }
+
+                ParameterExpression expressionBase = Expression.Parameter(parentTableInfo.EntityType, "item");
+                List<Expression> expressions = new List<Expression>();
+
+                foreach (String parentNavPropsPath in parentNavPropsPaths)
+                {
+                    String[] items = parentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    Expression propertyMember = null;
+                    for (int i = 0; i < items.Length; i++)
+                    {
+                        if (propertyMember == null)
+                        { propertyMember = Expression.Property(expressionBase, items[i]); }
+                        else
+                        { propertyMember = Expression.Property(propertyMember, items[i]); }
+                    }
+                    Expression expression = Expression.Equal(propertyMember, Expression.Constant(this._values[parentNavPropsPath]));
+                    expressions.Add(expression);
+                }
+
+
+                if (expressions.Count > 0)
+                {
+                    Expression expressionAnd = expressions.First();
+                    for (int i = 1; i < expressions.Count; i++)
+                    { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
+                    MethodCallExpression whereCallExpression = Expression.Call(
+                    typeof(Queryable),
+                    "Where",
+                    new Type[] { queryable.ElementType },
+                    queryable.Expression,
+                    Expression.Lambda(expressionAnd, expressionBase));
+                    queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                }
+
+                List<Object> values = new List<object>();
+                foreach (Object obj in queryable)
+                {this.Model.GetType().GetProperty(navigationProperty.PropertyName).SetValue(this.Model, obj);}
             }
         }
 
         internal void RaiseValuesChanges()
         {
             foreach (String key in this._values.Keys)
-            { this.RaisePropertyChanged("[" + key + "]"); }
+            {
+                this.RaisePropertyChanged("Item["+key+"]");
+                this.RaisePropertyChanged("[" + key + "]"); 
+            }
+           
            
         }
 
@@ -217,7 +258,14 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         }
                         else
                         {
-
+                            String[] items = path.Split (".".ToCharArray (),StringSplitOptions .RemoveEmptyEntries );
+                            EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
+                            EntityColumnInfo topProperty = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
+                            EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (items[0]) select c).FirstOrDefault();
+                            if (!bottomProp.AllowNull && (String.IsNullOrEmpty(this._values[path]) || (this._values[path].Equals (CultureConfiguration.ListNullString ) )))
+                            {
+                                return "Valeur vide non autorisée";
+                            }
                         }
                     }
                 }
