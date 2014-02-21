@@ -14,6 +14,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem,IDataErrorInfo
     {
+        public GenericListSources Lists { get; private set; }
+        
         private Dictionary<String, String> _values;
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
@@ -31,6 +33,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Model = model;
             this.Manager = manager;
             this._values = new Dictionary<string, string>();
+            this.Lists = new GenericListSources();
         }
         [IndexerName("Values")]
         public string this[String  fieldPath]

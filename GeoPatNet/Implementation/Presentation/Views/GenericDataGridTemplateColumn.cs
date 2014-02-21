@@ -161,46 +161,63 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         private DataTemplate CreateTemplate(IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state)
         {
             DataTemplate dataTemplate = new DataTemplate();
-            if (topProperty.PropertyType.Equals(typeof(String)))
+            if (this._fieldPath.IndexOf(".") != -1)
             {
-                if (state == GenericDataListState.Search)
-                {
-                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));                 
-                    textBox.SetValue(TextBox.MinWidthProperty, 120D);
-                    textBox.SetBinding (TextBox.TextProperty ,this.CreateBindingTwoWay (this._fieldPath));
-                    dataTemplate.VisualTree = textBox;
-                }
-                else if (state == GenericDataListState.InsertingEmpty)
-                {
-                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                    textBox.SetValue(TextBox.MinWidthProperty, 120D);
-                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
-                    dataTemplate.VisualTree = textBox;
-                }
-                else if (state == GenericDataListState.Display)
-                {
-                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                    textBox.SetValue(TextBox.MinWidthProperty, 120D);
-                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
-                    dataTemplate.VisualTree = textBox;
-                }
-                else if (state == GenericDataListState.Updating)
-                {
-                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                    textBox.SetValue(TextBox.MinWidthProperty, 120D);
-                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
-                    dataTemplate.VisualTree = textBox;
-                }
-                else if (state == GenericDataListState.InsertingDisplay)
-                {
-                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                    textBox.SetValue(TextBox.MinWidthProperty, 120D);
-                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
-                    dataTemplate.VisualTree = textBox;
-                }
+                String[] items = this._fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                String comboListPath = "Lists[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
+                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
+                comboBox.SetValue(ComboBox.MinWidthProperty, 120D);
+                comboBox.SetBinding(ComboBox.SelectedItemProperty, this.CreateBindingTwoWay(this._fieldPath));
+                Binding bindingList = new Binding(comboListPath);
+                bindingList.Mode = BindingMode.OneWay;
+                bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                comboBox.SetBinding(ComboBox.ItemsSourceProperty, bindingList);
                 
+                dataTemplate.VisualTree = comboBox;
             }
+            else
+            {
+                if (topProperty.PropertyType.Equals(typeof(String)))
+                {
+                    if (state == GenericDataListState.Search)
+                    {
+                        FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                        textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                        dataTemplate.VisualTree = textBox;
+                    }
+                    else if (state == GenericDataListState.InsertingEmpty)
+                    {
+                        FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                        textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                        dataTemplate.VisualTree = textBox;
+                    }
+                    else if (state == GenericDataListState.Display)
+                    {
+                        FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                        textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                        dataTemplate.VisualTree = textBox;
+                    }
+                    else if (state == GenericDataListState.Updating)
+                    {
+                        FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                        textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                        dataTemplate.VisualTree = textBox;
+                    }
+                    else if (state == GenericDataListState.InsertingDisplay)
+                    {
+                        FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                        textBox.SetValue(TextBox.MinWidthProperty, 120D);
+                        textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                        dataTemplate.VisualTree = textBox;
+                    }
 
+                }
+            }
+            
             return dataTemplate;
         }
 

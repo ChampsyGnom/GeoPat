@@ -312,5 +312,18 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 return currentColumnInfo;
             }
         }
+
+
+        public EntityTableInfo GetEntityTableInfo(string entityName)
+        {
+            foreach (EntitySchemaInfo schema in this.SchemaInfos)
+            {
+                foreach (EntityTableInfo table in schema.TableInfos)
+                {
+                    if (table.EntityType.Name.Equals(entityName)) return table;
+                }
+            }
+            return null;
+        }
     }
 }

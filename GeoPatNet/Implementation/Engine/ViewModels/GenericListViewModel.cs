@@ -30,7 +30,6 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-       
         public String DisplayName { get; private set; }
         public IDataService DataService { get; private set; }
         private EntityTableInfo _entityTableInfo;
@@ -81,6 +80,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Items.Add(this.SearchItem);
             this.State = GenericDataListState.Search;
             this.IsLocked = true;
+            
             this.ItemsView.CurrentChanged += ItemsView_CurrentChanged;
         }
 
