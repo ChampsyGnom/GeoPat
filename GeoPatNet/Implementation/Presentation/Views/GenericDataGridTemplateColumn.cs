@@ -169,7 +169,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 String[] items = this._fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
 
-                String comboListPath = "[" + items[items.Length - 2] + "." + items[items.Length - 1] + ".ItemsSource]";
+                String comboListPath = "ComboItemsSource[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
                 Binding bindingList = new Binding(comboListPath);
                 bindingList.Mode = BindingMode.OneWay;
                 bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;

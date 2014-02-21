@@ -24,7 +24,15 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         
         private Dictionary<String, Object> _values;
         public event PropertyChangedEventHandler PropertyChanged;
-        public Dictionary<String, ObservableCollection<Object>> _comboItemsSource;
+        private GenericItemsSource _comboItemsSource;
+
+        public GenericItemsSource ComboItemsSource
+        {
+            get { return _comboItemsSource; }
+            
+        }
+
+      
         protected void RaisePropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -42,24 +50,18 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Manager = manager;
             this._values = new Dictionary<string, Object>();
             this.Lists = new GenericListSources<M>();
-            this._comboItemsSource = new Dictionary<string, ObservableCollection<object>>();
+            this._comboItemsSource = new GenericItemsSource();
         }
      
         public Object  this[String  fieldPath]
         {
             get 
             {
-                // Si le nom du champ finit par ItemsSource il s'agit d'une source d'une combo
-                if (fieldPath.EndsWith(".ItemsSource"))
-                { 
-                    return this.GetComboItemsSource(fieldPath);
-                }
-                else
-                {
+                
                     if (!this._values.ContainsKey(fieldPath))
                     { this._values.Add(fieldPath, null); }
                     return this._values[fieldPath];
-                }
+                
                 
             }
             set
@@ -86,6 +88,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 else
                 {
              
+
+                    // @ Imper important , déplacer cela dans la classe qui gère les items source !!!!!!!
                     EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
                     List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);
                     List<String> pathToProps = new List<string>();
@@ -95,20 +99,22 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         String pathToProp = pathToChild + "." + parentfkProperty.PropertyName;
                         pathToProps.Add(pathToProp);
                     }
+                    String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    String itemSourceName = items[items.Length - 2] + "." + items[items.Length - 1] + ".ItemsSource";
                     int nextPropIndex = pathToProps.IndexOf(fieldPath)+1;
-                    if (nextPropIndex < pathToProps.Count)
+                    for (int i = nextPropIndex; i < pathToProps.Count; i++)
                     {
-                        this[pathToProps[nextPropIndex]] = CultureConfiguration.ListNullString;
-                        this.RaisePropertyChanged("[" + pathToProps[nextPropIndex] + "]");
-
-                        Console.WriteLine("Reset List " + pathToProps[nextPropIndex] + " -> " + CultureConfiguration.ListNullString);
-                      
+                        String pathToProp = pathToProps[nextPropIndex];
+                        this._values[pathToProp] = CultureConfiguration.ListNullString;
+                        this._comboItemsSource.Remove(itemSourceName);
+                        this.RaisePropertyChanged("[" + pathToProp + "]");
+                        Console.WriteLine("Reset List " + pathToProp + " -> " + CultureConfiguration.ListNullString);
                     }
-
                     this.RaisePropertyChanged("[" + fieldPath + "]");
+                    this.RaisePropertyChanged("Item[]");
                 }
                 this.RaisePropertyChanged("Error");
-                this.RaiseValuesChanges();
+                
 
             }
         }
@@ -120,123 +126,12 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             {
                 this._comboItemsSource.Add(fieldPath, new ObservableCollection<object>());
                 // On lance le premier chargemement
-                this.LoadList(fieldPath);
+                this._comboItemsSource.LoadList(fieldPath);
             }
             return this._comboItemsSource[fieldPath];
         }
 
-        private void LoadList(string fieldPath)
-        {
-            if (fieldPath.EndsWith(".ItemsSource"))
-            {
-                this._comboItemsSource[fieldPath].Clear();
-                IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
-                String[] items = fieldPath.Substring(0, fieldPath.Length - ".ItemsSource".Length).Split (".".ToArray (),StringSplitOptions .RemoveEmptyEntries );            
-                Console.WriteLine("Load ItemsSource for path " + items[0] + "." + items[1]);
-                EntityTableInfo itemsSourceTableInfo = dataService.GetEntityTableInfo(items[0]);
-                DbSet itemsSourceDbSet = dataService.GetDbSet(itemsSourceTableInfo.EntityType);
-                IQueryable itemsSourceQueryable = itemsSourceDbSet.AsQueryable();
-                itemsSourceQueryable = this.TryApplyListFilters(itemsSourceQueryable);
-                PropertyInfo itemsSourcePropertyInfo = itemsSourceTableInfo.EntityType.GetProperty (items [1]);
-
-                List<Object> datas = new List<object>();
-                foreach (Object data in itemsSourceQueryable)
-                {
-                    Object value = itemsSourcePropertyInfo.GetValue(data);
-                    if (value != null)
-                    { datas.Add(value); }
-                }
-                datas = (from d in datas orderby d select d).Distinct().ToList();
-                foreach (Object d in datas)
-                { this._comboItemsSource[fieldPath].Add(d); }
-                this._comboItemsSource[fieldPath].Insert(0, CultureConfiguration.ListNullString);
-            }
-           
-            /*
-            
-
-            String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            EntityTableInfo tableInfo = dataService.GetEntityTableInfo(items[0]);
-            EntityTableInfo masterTableInfo = dataService.GetEntityTableInfo(typeof(M));
-            String masterPath = dataService.GetPath(tableInfo, masterTableInfo);
-            String masterPropertyPath = masterPath + "." + items[items.Length - 1];
-            DbSet dbSet = dataService.GetDbSet(tableInfo.EntityType);
-
-            IQueryable queryable = dbSet.AsQueryable();
-            List<Expression> expressions = new List<Expression>();
-            if (this._values != null)
-            {
-                EntityColumnInfo bottomProp = dataService.GetBottomProperty(typeof(M), masterPropertyPath);
-                List<EntityColumnInfo> parentfkProperties = dataService.FindFkParentProperties(bottomProp);
-
-                List<String> pathToProps = new List<string>();
-                foreach (EntityColumnInfo parentfkProperty in parentfkProperties)
-                {
-                    String pathToChild = dataService.GetPath(parentfkProperty.TableInfo, bottomProp.TableInfo);
-                    String pathToProp = pathToChild + "." + parentfkProperty.PropertyName;
-                    pathToProps.Add(pathToProp);
-
-                }
-                int endIndex = pathToProps.IndexOf(fieldPath);
-                ParameterExpression expressionBase = Expression.Parameter(tableInfo.EntityType, "item");
-                for (int i = 0; i < endIndex; i++)
-                {
-                    String realPath = pathToProps[i].Substring(tableInfo.EntityType.Name.Length + 1);
-                    Console.WriteLine("Add filter to " + fieldPath + " on " + realPath);
-                    String[] itemsFilters = realPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                    Expression expression = null;
-                    for (int j = 0; j < itemsFilters.Length; j++)
-                    {
-                        if (expression == null)
-                        { expression = Expression.Property(expressionBase, itemsFilters[j]); }
-                        else
-
-                        { expression = Expression.Property(expression, itemsFilters[j]); }
-                    }
-                    String key = dataService.GetPath(tableInfo, masterTableInfo) + "." + realPath;
-                    Console.WriteLine(key);
-                    if (_values.ContainsKey(key) && !key.Equals(fieldPath))
-                    {
-                        String value = this._values[key].ToString(); ;
-                        expression = Expression.Equal(expression, Expression.Constant(value));
-                        expressions.Add(expression);
-                    }
-
-
-                }
-
-                if (expressions.Count > 0)
-                {
-                    Expression expressionAnd = expressions.First();
-                    for (int i = 1; i < expressions.Count; i++)
-                    { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
-                    MethodCallExpression whereCallExpression = Expression.Call(
-                    typeof(Queryable),
-                    "Where",
-                    new Type[] { queryable.ElementType },
-                    queryable.Expression,
-                    Expression.Lambda(expressionAnd, expressionBase));
-                    queryable = queryable.Provider.CreateQuery(whereCallExpression);
-                }
-            }
-            Console.WriteLine(queryable.ToString());
-            List<Object> objs = new List<object>();
-            foreach (Object obj in queryable)
-            {
-                Object value = obj.GetType().GetProperty(items[1]).GetValue(obj);
-                objs.Add(value);
-            }
-            objs = (from o in objs orderby o select o).Distinct().ToList();
-            objs.Insert(0, CultureConfiguration.ListNullString );
-            foreach (Object o in objs)
-            { this._comboItemsSource[fieldPath].Add(o); }
-             * */
-        }
-
-        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable)
-        {
-            return itemsSourceQueryable;
-        }
+       
 
 
         /*
@@ -390,7 +285,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 this.RaisePropertyChanged("Item["+key+"]");
                 this.RaisePropertyChanged("[" + key + "]"); 
             }
-            this.RaisePropertyChanged("Item[]");
+            
            
         }
 
