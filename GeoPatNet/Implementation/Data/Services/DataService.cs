@@ -236,7 +236,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             return tables;
         }
 
-        private string GetPath(EntityTableInfo parent, EntityTableInfo child)
+        public string GetPath(EntityTableInfo parent, EntityTableInfo child)
         {
             List<String> paths = new List<string>();
             GetPath(parent, child, paths);
@@ -260,7 +260,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             return ukNameRef;
         }
 
-        private List<EntityColumnInfo> FindFkParentProperties(EntityColumnInfo columnInfo)
+        public List<EntityColumnInfo> FindFkParentProperties(EntityColumnInfo columnInfo)
         {
             List<EntityColumnInfo> list = new List<EntityColumnInfo>();
             EntityTableInfo parentTable = this.GetEntityTableInfo(columnInfo.PropertyType);
@@ -325,5 +325,27 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             }
             return null;
         }
+
+
+      
+
+
+        public EntityColumnInfo GetBottomProperty(Type type, string fieldPath)
+        {
+            EntityTableInfo tableInfo = this.GetEntityTableInfo(type);
+            if (fieldPath.IndexOf(".") == -1)
+            {
+                return (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (fieldPath ) select c).FirstOrDefault();
+            }
+            else 
+            {
+                String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                return (from c in tableInfo.ColumnInfos where c.PropertyName.Equals(items[0]) select c).FirstOrDefault();
+               
+            }
+        }
+
+
+        
     }
 }

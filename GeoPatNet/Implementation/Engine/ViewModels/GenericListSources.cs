@@ -8,9 +8,10 @@ using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Data.Infrastructure.Reflection;
 using System.Data.Entity;
+using Emash.GeoPatNet.Data.Infrastructure.Validations;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
-    public class GenericListSources
+    public class GenericListSources<M>
     {
         public Dictionary<String, ObservableCollection<Object>> _lists;
 
@@ -24,10 +25,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             {
                 String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 if (!this._lists.ContainsKey(fieldPath))
-                {
-                    this._lists.Add(fieldPath, new ObservableCollection<object>());
-                    this.LoadList(fieldPath);
-                }
+                {this._lists.Add(fieldPath, new ObservableCollection<object>());}
+                if (this._lists[fieldPath] == null || this._lists[fieldPath].Count() == 0)
+                { this.LoadList(fieldPath); }
                 ObservableCollection<Object> results = this._lists[fieldPath];
                 return results;
             }
@@ -38,6 +38,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             this._lists[fieldPath].Clear();
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            
             String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             EntityTableInfo tableInfo = dataService.GetEntityTableInfo(items[0]);
             DbSet dbSet = dataService.GetDbSet(tableInfo.EntityType);
@@ -48,8 +49,18 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 objs.Add(value);
             }
             objs = (from o in objs orderby o select o).Distinct().ToList();
+            objs.Insert(0, CultureConfiguration.ListNullString);
             foreach (Object o in objs)
             {this._lists[fieldPath].Add(o);}
+        }
+
+
+
+
+
+        internal void UpdateFilter(string fieldPath, Dictionary<string, string> dictionary)
+        {
+            
         }
     }
 }
