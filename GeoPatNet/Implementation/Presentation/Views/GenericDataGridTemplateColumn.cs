@@ -82,6 +82,15 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     txt.Focus();
                     txt.SelectAll();
                 }
+                TextBlock textBlock = this.FindChild<TextBlock>(obj);
+                if (textBlock != null)
+                {
+                    textBlock.Focus();
+                   var bindingExpression = textBlock.GetBindingExpression(TextBlock.TextProperty);
+                   if (bindingExpression != null)
+                   { bindingExpression.UpdateTarget(); }
+                
+                }
                 ComboBox combo = this.FindChild<ComboBox>(obj);
                 if (combo != null)
                 {
@@ -128,8 +137,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
    
             textBox.SetBinding(TextBlock.TextProperty, this.CreateBindingOneWay(this._fieldPath));
             tpl.VisualTree = textBox;
-            contentControlStyle.Setters.Add (new Setter (ContentControl.ContentTemplateProperty, tpl));
-            
+            contentControlStyle.Setters.Add (new Setter (ContentControl.ContentTemplateProperty, tpl));            
             dataTemplate.VisualTree = contentControl;
             return dataTemplate;
         }
@@ -159,15 +167,20 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             if (this._fieldPath.IndexOf(".") != -1)
             {
                 String[] items = this._fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));          
-                comboBox.SetBinding(ComboBox.SelectedItemProperty, this.CreateBindingTwoWay(this._fieldPath));
+                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
 
-                String comboListPath = "Lists[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";               
+                String comboListPath = "[" + items[items.Length - 2] + "." + items[items.Length - 1] + ".ItemsSource]";
                 Binding bindingList = new Binding(comboListPath);
                 bindingList.Mode = BindingMode.OneWay;
                 bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
                 comboBox.SetBinding(ComboBox.ItemsSourceProperty, bindingList);
                 
+                Binding binding = new Binding();
+                binding.Path = new PropertyPath("["+this._fieldPath+"]");
+                binding.Mode = BindingMode.TwoWay;
+                binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                binding.ValidatesOnDataErrors = true;
+                comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);
                 dataTemplate.VisualTree = comboBox;
             }
             else

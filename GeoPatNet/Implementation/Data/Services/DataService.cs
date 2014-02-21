@@ -263,21 +263,32 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
         public List<EntityColumnInfo> FindFkParentProperties(EntityColumnInfo columnInfo)
         {
             List<EntityColumnInfo> list = new List<EntityColumnInfo>();
-            EntityTableInfo parentTable = this.GetEntityTableInfo(columnInfo.PropertyType);
-            String ukRefName = this.GetReferenceUkName(parentTable);
-            List<EntityColumnInfo> ukRefColumnInfos = (from c in parentTable.ColumnInfos where c.UniqueKeyNames.Contains (ukRefName ) select c).ToList();
-            foreach (EntityColumnInfo ukRefColumnInfo in ukRefColumnInfos)
+            EntityTableInfo parentTable = null;
+            String ukRefName = null;
+            List<EntityColumnInfo> ukRefColumnInfos = null;
+
+            try
             {
-                if (ukRefColumnInfo.ForeignKeyNames.Count > 0)
+                parentTable = this.GetEntityTableInfo(columnInfo.PropertyType);
+                ukRefName = this.GetReferenceUkName(parentTable);
+                ukRefColumnInfos = (from c in parentTable.ColumnInfos where c.UniqueKeyNames.Contains(ukRefName) select c).ToList();
+                foreach (EntityColumnInfo ukRefColumnInfo in ukRefColumnInfos)
                 {
-                    list.AddRange(FindFkParentProperties(ukRefColumnInfo));
-                }
-                else
-                {
-                    list.Add(ukRefColumnInfo);
+                    if (ukRefColumnInfo.ForeignKeyNames.Count > 0)
+                    {
+                        list.AddRange(FindFkParentProperties(ukRefColumnInfo));
+                    }
+                    else
+                    {
+                        list.Add(ukRefColumnInfo);
+                    }
                 }
             }
-           
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
             return list;
         }
 

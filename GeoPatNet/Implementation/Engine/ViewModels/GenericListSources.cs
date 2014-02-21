@@ -24,7 +24,17 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-        public Dictionary<String, String> _values;
+        private Dictionary<String, Object> _values;
+
+
+        public Dictionary<String, Object> Values
+        {
+            get { return _values; }
+            set { _values = value; }
+        }
+
+
+     
         public Dictionary<String, ObservableCollection<Object>> _lists;
         public IDataService DataService { get; private set; }
         public GenericListSources()
@@ -93,7 +103,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     Console.WriteLine(key);
                     if (_values.ContainsKey(key) && ! key .Equals (fieldPath ))
                     {
-                        String value = this._values[key];
+                        String value = this._values[key].ToString(); ;
                         expression = Expression.Equal(expression, Expression.Constant(value));
                         expressions.Add(expression);
                     }
@@ -123,7 +133,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 objs.Add(value);
             }
             objs = (from o in objs orderby o select o).Distinct().ToList();
-            objs.Insert(0, CultureConfiguration.ListNullString);
+            objs.Insert(0, null);
             foreach (Object o in objs)
             {this._lists[fieldPath].Add(o);}
         }
@@ -132,7 +142,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
 
 
-        internal void UpdateFilter(string fieldPath, Dictionary<string, string> values)
+        internal void UpdateFilter(string fieldPath, Dictionary<string, Object> values)
         {
             this._values = values;
             
@@ -150,8 +160,6 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             int startIndex = pathToProps.IndexOf(fieldPath) + 1;
             for (int i = startIndex; i < pathToProps.Count; i++)
             {
-               
-                
                 this[pathToProps[i]].Clear();
                 this.LoadList(pathToProps[i]);
                 this.RaisePropertyChanged("[" + pathToProps[i] + "]");
