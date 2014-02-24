@@ -189,11 +189,19 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             }
             else if (this.State == GenericDataListState.Updating)
             {
-                this.UpdatingItem.SaveToModel(this.FieldPaths.ToList ());
-                this.DataService.DataContext.SaveChanges();
-                this.State = GenericDataListState.Display;
-                this.UpdatingItem = null;
-                this.RaiseStateChange();
+                IDataErrorInfo errorInfo = (IDataErrorInfo)this.UpdatingItem;
+                if (String.IsNullOrEmpty(errorInfo.Error))
+                {
+                    this.UpdatingItem.SaveToModel(this.FieldPaths.ToList());
+                    this.DataService.DataContext.SaveChanges();
+                    this.State = GenericDataListState.Display;
+                    this.UpdatingItem = null;
+                    this.RaiseStateChange();
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + errorInfo.Error, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
             else if (this.State == GenericDataListState.InsertingDisplay)
             {

@@ -20,10 +20,16 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem,IDataErrorInfo
     {
-        public GenericListSources<M> Lists { get; private set; }
-        
+
         private Dictionary<String, Object> _values;
-        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public Dictionary<String, Object> Values
+        {
+            get { return _values; }
+
+        }
+
         private GenericItemsSource<M> _comboItemsSource;
 
         public GenericItemsSource<M> ComboItemsSource
@@ -32,7 +38,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             
         }
 
-      
+        public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -49,7 +55,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Model = model;
             this.Manager = manager;
             this._values = new Dictionary<string, Object>();
-            this.Lists = new GenericListSources<M>();
+            
             this._comboItemsSource = new GenericItemsSource<M>();
         }
      
@@ -58,11 +64,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             get 
             {
                 
-                    if (!this._values.ContainsKey(fieldPath))
-                    { this._values.Add(fieldPath, null); }
-                    return this._values[fieldPath];
-                
-                
+                if (!this._values.ContainsKey(fieldPath))
+                { this._values.Add(fieldPath, null); }
+                return this._values[fieldPath];
             }
             set
             {
@@ -71,7 +75,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
                 
                 this._values[fieldPath] = value;
-                this.Lists.Values = this._values;
+               
 
                
 
@@ -85,25 +89,29 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 else
                 {
-                    EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
-                    List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);
+                    EntityColumnInfo currentEntityProperty = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
+                    List<EntityColumnInfo> currentEntityPropertyFkProperties = this.Manager.DataService.FindFkParentProperties(currentEntityProperty);
                     List<String> pathToProps = new List<string>();
-                    foreach (EntityColumnInfo parentfkProperty in parentfkProperties)
+                    foreach (EntityColumnInfo currentEntityPropertyFkProperty in currentEntityPropertyFkProperties)
                     {
-                        String pathToChild = this.Manager.DataService.GetPath(parentfkProperty.TableInfo, bottomProp.TableInfo);
-                        String pathToProp = pathToChild + "." + parentfkProperty.PropertyName;
-                        pathToProps.Add(pathToProp);
+                        String pathToCurrentEntity = this.Manager.DataService.GetPath(currentEntityPropertyFkProperty.TableInfo, currentEntityProperty.TableInfo);
+                        String pathToCurrentEntityProperty = pathToCurrentEntity + "." + currentEntityPropertyFkProperty.PropertyName;
+                        pathToProps.Add(pathToCurrentEntityProperty);
                     }
                     String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                     String itemSourceName = items[items.Length - 2] + "." + items[items.Length - 1] + ".ItemsSource";
                     int nextPropIndex = pathToProps.IndexOf(fieldPath)+1;
+                    this._comboItemsSource.Values = this._values;
                     for (int i = nextPropIndex; i < pathToProps.Count; i++)
                     {
                         String pathToProp = pathToProps[nextPropIndex];
+                        String[] subItems = pathToProp.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                        String subItemSourceName = subItems[subItems.Length - 2] + "." + subItems[subItems.Length - 1];        
+                        this._comboItemsSource[subItemSourceName].Clear();
+                        this._comboItemsSource.LoadList(subItemSourceName);
                         this._values[pathToProp] = CultureConfiguration.ListNullString;
-                        this._comboItemsSource.Remove(itemSourceName);
+                       
                         this.RaisePropertyChanged("[" + pathToProp + "]");
-                        Console.WriteLine("Reset List " + pathToProp + " -> " + CultureConfiguration.ListNullString);
                     }
                     this.RaisePropertyChanged("[" + fieldPath + "]");
                     this.RaisePropertyChanged("Item[]");
@@ -129,31 +137,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
        
 
 
-        /*
-        private void UpdateDepedencyListFilter(string fieldPath)
-        {
-            this.Lists.UpdateFilter(fieldPath, this._values);
-            EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
-            List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);         
-            List<String> pathToProps = new List<string>();
-            foreach (EntityColumnInfo parentfkProperty in parentfkProperties)
-            {
-                String pathToChild = this.Manager.DataService.GetPath(parentfkProperty.TableInfo, bottomProp.TableInfo);
-                String pathToProp = pathToChild + "." + parentfkProperty.PropertyName;
-                pathToProps.Add(pathToProp);
-                
-
-            }
-            int startIndex = pathToProps.IndexOf(fieldPath)+1;
-            for (int i = startIndex; i < pathToProps.Count; i++)
-            {
-                this[pathToProps[i]] = null;
-              
-            }
-           
-        }
-
-        */
+      
 
         public void LoadFromModel(List<String> fieldPaths)
         {
@@ -193,6 +177,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     { this._values[fieldPath] = CultureConfiguration.ListNullString; }
                 }
             }
+            this._comboItemsSource.Values = this._values;
         }
 
 
@@ -229,8 +214,18 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 List<String> parentNavPropsPaths = new List<string>();
                 foreach (EntityColumnInfo column in parentNavProps)
                 {
-                    String pathToChild = this.Manager.DataService.GetPath(column.TableInfo, tableInfo);
-                    String pathToProp = pathToChild + "." + column.PropertyName;
+                    String pathToChild = this.Manager.DataService.GetPath(column.TableInfo, parentTableInfo);
+                    if (String.IsNullOrEmpty(pathToChild))
+                    {
+                        String pathToProp =  column.PropertyName;
+                        parentNavPropsPaths.Add(pathToProp);
+                    }
+                    else
+                    {
+                        String pathToProp = pathToChild + "." + column.PropertyName;
+                        parentNavPropsPaths.Add(pathToProp);
+                    }
+                   
                    
                 }
 
@@ -240,6 +235,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 foreach (String parentNavPropsPath in parentNavPropsPaths)
                 {
                     String[] items = parentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    EntityTableInfo navPropEntity = this.Manager.DataService.GetEntityTableInfo(items[0]);
+                    if (navPropEntity == null)
+                    { navPropEntity = parentTableInfo; }
                     Expression propertyMember = null;
                     for (int i = 0; i < items.Length; i++)
                     {
@@ -248,7 +246,14 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         else
                         { propertyMember = Expression.Property(propertyMember, items[i]); }
                     }
-                    Expression expression = Expression.Equal(propertyMember, Expression.Constant(this._values[parentNavPropsPath]));
+                    String pathTo = this.Manager.DataService.GetPath(navPropEntity, tableInfo);
+                    String valuePath = pathTo + "." + items[items.Length - 1];
+                    if (String.IsNullOrEmpty(pathTo))
+                    { pathTo = items[items.Length - 1]; }
+                 
+            
+                    Object value = this._values[valuePath];
+                    Expression expression = Expression.Equal(propertyMember, Expression.Constant(value));
                     expressions.Add(expression);
                 }
 
@@ -269,7 +274,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
               
                 List<Object> values = new List<object>();
                 foreach (Object obj in queryable)
-                {this.Model.GetType().GetProperty(navigationProperty.PropertyName).SetValue(this.Model, obj);}
+                {
+                    this.Model.GetType().GetProperty(navigationProperty.PropertyName).SetValue(this.Model, obj);
+                }
             }
         }
 
@@ -331,6 +338,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                             EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
                             EntityColumnInfo topProperty = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
                             EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (items[0]) select c).FirstOrDefault();
+                            Object valueObject = this._values[path];
                             if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
                             {
                                 Console.WriteLine("Find Error for " + columnName);
