@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="EngineBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DataImportViewModel.cs" />
     <Compile Include="ViewModels\GenericItemsSource.cs" />
     <Compile Include="ViewModels\GenericListViewModel.cs" />
     <Compile Include="ViewModels\GenericListItemViewModel.cs" />

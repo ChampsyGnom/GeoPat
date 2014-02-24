@@ -109,6 +109,7 @@
     <Compile Include="RegionAdapters\AnchorableRegionAdapter.cs" />
     <Compile Include="RegionAdapters\DockingManagerDocumentsSourceSyncBehavior.cs" />
     <Compile Include="RegionAdapters\DockingManagerRegionAdapter.cs" />
+    <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\ISplashService.cs" />
     <Compile Include="Views\SwapRegionView.xaml.cs">
       <DependentUpon>SwapRegionView.xaml</DependentUpon>

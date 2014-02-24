@@ -20,6 +20,7 @@ using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Presentation.Infrastructure.RegionAdapters;
 using Xceed.Wpf.AvalonDock.Layout;
 using Emash.GeoPatNet.Atom.Infrastructure.Services;
+using Emash.GeoPatNet.Engine.Implentation.ViewModels;
 
 
 namespace Emash.GeoPatNet.Engine.Implementation
@@ -59,8 +60,13 @@ namespace Emash.GeoPatNet.Engine.Implementation
             base.ConfigureContainer();
             this.Container.RegisterType<IMainViewModel, VM>(new ContainerControlledLifetimeManager());
             this.Container.RegisterType<IMainView,V>(new ContainerControlledLifetimeManager ());
+            this.Container.RegisterType<IDataImportViewModel, DataImportViewModel>();
+
+
             
         }
+
+
         protected override void InitializeShell()
         {
             base.InitializeShell();
@@ -86,7 +92,7 @@ namespace Emash.GeoPatNet.Engine.Implementation
             {
                 _moduleInitializerTask = new Task(new Action(delegate()
                 {
-                    dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
+                    dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
                     if (dashBoardService != null)
                     { dashBoardService.Initialize(); }
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);

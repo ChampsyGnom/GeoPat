@@ -103,7 +103,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\SplashService.cs" />
+    <Compile Include="Views\DataImportView.xaml.cs">
+      <DependentUpon>DataImportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DataRecordPosition.xaml.cs">
       <DependentUpon>DataRecordPosition.xaml</DependentUpon>
     </Compile>
@@ -116,6 +120,9 @@
     <Compile Include="Views\GenericDataGridTemplateColumn.cs" />
     <Compile Include="Views\GenericDataGridView.xaml.cs">
       <DependentUpon>GenericDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegionDialog.xaml.cs">
+      <DependentUpon>RegionDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SplashView.xaml.cs">
       <DependentUpon>SplashView.xaml</DependentUpon>
@@ -132,6 +139,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DataImportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DataRecordPosition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GenericDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegionDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

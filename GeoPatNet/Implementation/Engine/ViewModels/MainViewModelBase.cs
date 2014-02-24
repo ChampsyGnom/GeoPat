@@ -13,6 +13,9 @@ using Emash.GeoPatNet.Presentation.Infrastructure.Views;
 using Microsoft.Practices.Prism.Regions;
 using System.Reflection;
 using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Infrastructure.Services;
+using Microsoft.Practices.Unity;
+using System.Windows;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public abstract class MainViewModelBase : IMainViewModel
@@ -25,12 +28,15 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
    
         private IEventAggregator _eventAggregator;
         private IRegionManager _regionManager;
-        public MainViewModelBase(IEventAggregator eventAggregator, IRegionManager regionManager)
+        private IUnityContainer _container;
+        public MainViewModelBase(IEventAggregator eventAggregator, IRegionManager regionManager,IUnityContainer container)
         {
            
             this._eventAggregator = eventAggregator;
             this._regionManager = regionManager;
+            this._container = container;
             this._eventAggregator.GetEvent<OpenEntityEvent>().Subscribe(OpenEntityTable);
+            this.ImportDataCommand = new DelegateCommand(ImportDataExecute);
         }
 
         private void OpenEntityTable(EntityTableInfo tableInfo)
@@ -48,6 +54,13 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             swapRegionView.Configure(detailsRegionManager, views.ToArray());
             region.Activate(swapRegionView);
             swapRegionView.SwapView();
+        }
+
+        private void ImportDataExecute()
+        {
+            IDialogService dialogService = _container.Resolve<IDialogService>();
+            Window window = dialogService.CreateDialog("DataImportRegion","Importer des données");
+            Nullable<Boolean> result = window.ShowDialog();
         }
     }
 }

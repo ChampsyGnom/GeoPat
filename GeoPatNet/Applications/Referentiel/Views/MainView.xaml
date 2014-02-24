@@ -18,11 +18,11 @@
                     <ribbon:RibbonApplicationSplitMenuItem  Header="Fichier">
 
 
-                        <ribbon:RibbonApplicationMenuItem Command="{Binding Path=ImportCommand}" MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-file-import.png" Header="Importer">
+                        <ribbon:RibbonApplicationMenuItem Command="{Binding Path=ImportDataCommand}" MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-file-import.png" Header="Importer">
 
 
                         </ribbon:RibbonApplicationMenuItem>
-                        <ribbon:RibbonApplicationMenuItem  Command="{Binding Path=ExportCommand}"  MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-file-export.png" Header="Exporter">
+                        <ribbon:RibbonApplicationMenuItem  Command="{Binding Path=ExportDataCommand}"  MinHeight="24" ImageSource="pack://application:,,,/Referentiel;component/Resources/Icons/32x32/menu-file-export.png" Header="Exporter">
 
 
                         </ribbon:RibbonApplicationMenuItem>
@@ -48,8 +48,8 @@
             </ribbon:Ribbon.ApplicationMenu>
             <ribbon:RibbonTab Header="Données">
                 <ribbon:RibbonGroup Header="Import/Export">
-                    <ribbon:RibbonButton Command="{Binding Path=ImportCommand}"  Label="Importer"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding Path=ExportCommand}"  Label="Exporter"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding Path=ImportDataCommand}"  Label="Importer"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding Path=ExportDataCommand}"  Label="Exporter"></ribbon:RibbonButton>
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Affichage">
                     <ribbon:RibbonButton Command="{Binding SwapActiveViewCommand}" Label="Changer de vue"></ribbon:RibbonButton>

@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using Microsoft.Practices.Prism.Events;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 namespace Emash.GeoPatNet.App.Referentiel.ViewModels
 {
     public class MainViewModel : MainViewModelBase
     {
-        public MainViewModel(IEventAggregator eventAggregator, IRegionManager regionManager)
-            : base(eventAggregator, regionManager)
+        public MainViewModel(IEventAggregator eventAggregator, IRegionManager regionManager,IUnityContainer container)
+            : base(eventAggregator, regionManager, container)
         { 
             
         }

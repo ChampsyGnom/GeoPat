@@ -19,8 +19,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList
         where M : class, new()
-       
     {
+        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {
@@ -30,39 +30,119 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+        #endregion
+
+        #region Propriétées
+        /// <summary>
+        /// Libellé de l'entité M
+        /// </summary>
         public String DisplayName { get; private set; }
+        /// <summary>
+        /// Service de donnée
+        /// </summary>
         public IDataService DataService { get; private set; }
-        private EntityTableInfo _entityTableInfo;
+        /// <summary>
+        /// Information sur l'entité M
+        /// </summary>
+        public EntityTableInfo EntityTableInfo { get; private set; }
+        /// <summary>
+        /// Nombre d'enregistrement affiché
+        /// </summary>
         public String DisplayRecordCount { get; private set; }
+        /// <summary>
+        /// N° de l'enregistrement courant ou * si on est en mode recherche
+        /// </summary>
         public String DisplayRecordIndex { get; private set; }
+        /// <summary>
+        /// DsSet de l'entité M
+        /// </summary>
         public DbSet<M> DbSet { get; private set; }
+        /// <summary>
+        /// Etat acutel du view Model
+        /// </summary>
         public GenericDataListState   State { get; private set; }
+        /// <summary>
+        /// Command vérouiller/dévérouiller
+        /// </summary>
         public DelegateCommand LockUnlockCommand { get; private set; }
+        /// <summary>
+        /// Command insérer
+        /// </summary>
         public DelegateCommand InsertCommand { get; private set; }
+        /// <summary>
+        /// Command supprimer
+        /// </summary>
         public DelegateCommand DeleteCommand { get; private set; }
+        /// <summary>
+        /// Command annuler
+        /// </summary>
         public DelegateCommand CancelCommand { get; private set; }
+        /// <summary>
+        /// Command valider
+        /// </summary>
         public DelegateCommand CommitCommand { get; private set; }
+        /// <summary>
+        /// Command vider
+        /// </summary>
         public DelegateCommand ClearCommand { get; private set; }
+        /// <summary>
+        /// Commande chercher
+        /// </summary>
         public DelegateCommand SearchCommand { get; private set; }
+        /// <summary>
+        /// Commande quitter
+        /// </summary>
         public DelegateCommand QuitCommand { get; private set; }
+        /// <summary>
+        /// Liste des champs à afficher
+        /// Si il s'agit d'une propriété de l'entité M c'est le nom de la propriété
+        /// Si il s'agit d'une propriété d'une table parente c'est NomTableParent.NomPropriete 
+        /// Il peut y avoir plusieurs niveaux par example le code laision de la table des aires auras comme fieldPath InfChaussee.InfLiaison.InfCodeLiaison.Code
+        /// </summary>
         public ObservableCollection<String> FieldPaths { get; private set; }
+        /// <summary>
+        /// Liste des éléments 
+        /// </summary>
         public ObservableCollection<GenericListItemViewModel<M>> Items { get; private set; }
+        /// <summary>
+        /// Vue sur la liste des éléments
+        /// </summary>
         public ListCollectionView ItemsView { get; private set; }
+        /// <summary>
+        /// Element de recherche
+        /// </summary>
         public GenericListItemViewModel<M> SearchItem { get; private set; }
+        /// <summary>
+        /// Element en cours d'insertion
+        /// </summary>
         public GenericListItemViewModel<M> InsertingItem { get; private set; }
+        /// <summary>
+        /// Element en cours de lise à jour
+        /// </summary>
         public GenericListItemViewModel<M> UpdatingItem { get; private set; }
+        /// <summary>
+        /// Element en cours de supression
+        /// </summary>
         public GenericListItemViewModel<M> DeletingItem { get; private set; }
+        /// <summary>
+        /// True si lecture seul
+        /// </summary>
         public Boolean IsLocked { get; private set; }
+        #endregion
 
         public GenericListViewModel()
         {
-            this.FieldPaths = new ObservableCollection<string>();
+            // On récupères les informations de l'entité via le service de donnée
             DataService = ServiceLocator.Current.GetInstance<IDataService>();
-            _entityTableInfo = DataService.GetEntityTableInfo(typeof(M));
+            EntityTableInfo = DataService.GetEntityTableInfo(typeof(M));
             DbSet = DataService.DataContext.Set<M>();
+
+            // On initialise le nombre d'enregistrement et le libellé
             this.DisplayRecordCount = (from c in DbSet select c).Count().ToString();
             this.DisplayRecordIndex = "*";
-            this.DisplayName = _entityTableInfo.DisplayName;
+            this.DisplayName = EntityTableInfo.DisplayName;
+
+            // On instancie les commbndes
             this.LockUnlockCommand = new DelegateCommand(LockUnlockExecute, CanLockUnlockExecute);
             this.InsertCommand = new DelegateCommand(InsertExecute, CanInsertExecute);
             this.DeleteCommand = new DelegateCommand(DeleteExecute, CanDeleteExecute);
@@ -71,16 +151,24 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.ClearCommand = new DelegateCommand(ClearExecute, CanClearExecute);
             this.SearchCommand = new DelegateCommand(SearchExecute, CanSearchExecute);
             this.QuitCommand = new DelegateCommand(QuitExecute, CanQuitExecute);
-            List<String> fieldPaths = this.DataService.GetTableFieldPaths(_entityTableInfo);
+            
+            // On instancie la liste d'élement et sa vue
             this.Items = new ObservableCollection<GenericListItemViewModel<M>>();
             this.ItemsView = new ListCollectionView(this.Items);
+
+            // On instancie la lliste des champs à afficher
+            this.FieldPaths = new ObservableCollection<string>();
+            List<String> fieldPaths = this.DataService.GetTableFieldPaths(EntityTableInfo);
             foreach (String fieldPath in fieldPaths)
             {this.FieldPaths.Add(fieldPath);}
+
+            // On cré l'élément de recherche et on initialise le mode de la table à recherche
             this.SearchItem = new GenericListItemViewModel<M>(this,null);
             this.Items.Add(this.SearchItem);
             this.State = GenericDataListState.Search;
-            this.IsLocked = true;
-            
+            this.IsLocked = true;            
+
+            // On ecoute le changement de l'élément courant pour mettre à jour l'enregistrement courant
             this.ItemsView.CurrentChanged += ItemsView_CurrentChanged;
         }
 

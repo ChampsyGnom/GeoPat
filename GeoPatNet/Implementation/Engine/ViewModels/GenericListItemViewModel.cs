@@ -22,8 +22,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
     {
 
         private Dictionary<String, Object> _values;
-
-
+        /// <summary>
+        /// Liste des valeurs des champs
+        /// </summary>
         public Dictionary<String, Object> Values
         {
             get { return _values; }
@@ -31,7 +32,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         }
 
         private GenericItemsSource<M> _comboItemsSource;
-
+        /// <summary>
+        /// Liste des sources des combo
+        /// </summary>
         public GenericItemsSource<M> ComboItemsSource
         {
             get { return _comboItemsSource; }
@@ -48,17 +51,37 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+
+        /// <summary>
+        /// Modèle sous-jacent , entité
+        /// </summary>
         public M Model { get; private set; }
+
+        /// <summary>
+        /// Manager de la liste ... (on pourais s'en passer ...)
+        /// </summary>
         public IGenericListViewModel Manager { get; private set; }
+
         public GenericListItemViewModel(IGenericListViewModel manager, M model)
         {
             this.Model = model;
             this.Manager = manager;
-            this._values = new Dictionary<string, Object>();
-            
+            this._values = new Dictionary<string, Object>();            
             this._comboItemsSource = new GenericItemsSource<M>();
         }
      
+        /// <summary>
+        /// Accès aux valeurs des champs
+        /// </summary>
+        /// <param name="fieldPath">
+        /// /// <summary>
+        /// Path du champ
+        /// Si il s'agit d'une propriété de l'entité M c'est le nom de la propriété
+        /// Si il s'agit d'une propriété d'une table parente c'est NomTableParent.NomPropriete 
+        /// Il peut y avoir plusieurs niveaux par example le code laision de la table des aires auras comme fieldPath InfChaussee.InfLiaison.InfCodeLiaison.Code
+        /// </summary>
+        /// </param>
+        /// <returns></returns>
         public Object  this[String  fieldPath]
         {
             get 
@@ -82,19 +105,23 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 if (this.Manager.State == Infrastructure.Enums.GenericDataListState.Display && !this.Manager.IsLocked)
                 {this.Manager.BeginEdit(this);}
 
-
+                // Si il n'y as pas de point dans le path c'est une propriété normal
                 if (fieldPath.IndexOf(".") == -1)
                 {
                     this.RaisePropertyChanged("[" + fieldPath + "]");
                 }
                 else
                 {
-                    EntityColumnInfo currentEntityProperty = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
-                    List<EntityColumnInfo> currentEntityPropertyFkProperties = this.Manager.DataService.FindFkParentProperties(currentEntityProperty);
+                    // Sinon c'est une propriété de navigation
+
+                    // On récupère la propriété de navigation de l'entité M
+                    EntityColumnInfo currentEntityNavigationProperty = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
+                    // On récupères les informations de colonne parente
+                    List<EntityColumnInfo> currentEntityNavigationPropertyParentForeignColumnInfos = this.Manager.DataService.FindParentForeignColumnInfos(currentEntityNavigationProperty);
                     List<String> pathToProps = new List<string>();
-                    foreach (EntityColumnInfo currentEntityPropertyFkProperty in currentEntityPropertyFkProperties)
+                    foreach (EntityColumnInfo currentEntityPropertyFkProperty in currentEntityNavigationPropertyParentForeignColumnInfos)
                     {
-                        String pathToCurrentEntity = this.Manager.DataService.GetPath(currentEntityPropertyFkProperty.TableInfo, currentEntityProperty.TableInfo);
+                        String pathToCurrentEntity = this.Manager.DataService.GetPath(currentEntityPropertyFkProperty.TableInfo, currentEntityNavigationProperty.TableInfo);
                         String pathToCurrentEntityProperty = pathToCurrentEntity + "." + currentEntityPropertyFkProperty.PropertyName;
                         pathToProps.Add(pathToCurrentEntityProperty);
                     }
@@ -210,7 +237,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 EntityTableInfo parentTableInfo = this.Manager.DataService.GetEntityTableInfo(navigationProperty.PropertyType);
                 DbSet set = this.Manager.DataService.GetDbSet(parentTableInfo.EntityType);
                 IQueryable queryable = set.AsQueryable();
-                List<EntityColumnInfo> parentNavProps =  this.Manager.DataService.FindFkParentProperties(navigationProperty);
+                List<EntityColumnInfo> parentNavProps =  this.Manager.DataService.FindParentForeignColumnInfos(navigationProperty);
                 List<String> parentNavPropsPaths = new List<string>();
                 foreach (EntityColumnInfo column in parentNavProps)
                 {

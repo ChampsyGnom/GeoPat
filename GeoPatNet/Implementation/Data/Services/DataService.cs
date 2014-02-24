@@ -154,7 +154,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 {
                     if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Combo )
                     {
-                        List<EntityColumnInfo> parentColumnInfos = this.FindFkParentProperties(columnInfo);
+                        List<EntityColumnInfo> parentColumnInfos = this.FindParentForeignColumnInfos(columnInfo);
                         foreach (EntityColumnInfo parentColumnInfo in parentColumnInfos)
                         {
 
@@ -260,7 +260,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             return ukNameRef;
         }
 
-        public List<EntityColumnInfo> FindFkParentProperties(EntityColumnInfo columnInfo)
+        public List<EntityColumnInfo> FindParentForeignColumnInfos(EntityColumnInfo columnInfo)
         {
             List<EntityColumnInfo> list = new List<EntityColumnInfo>();
             EntityTableInfo parentTable = null;
@@ -276,7 +276,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 {
                     if (ukRefColumnInfo.ForeignKeyNames.Count > 0)
                     {
-                        list.AddRange(FindFkParentProperties(ukRefColumnInfo));
+                        list.AddRange(FindParentForeignColumnInfos(ukRefColumnInfo));
                     }
                     else
                     {
