@@ -296,11 +296,20 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             get {
                 List<String> errors = new List<string>();
+                EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
                 foreach (String key in this._values.Keys)
                 { 
-                    if (((IDataErrorInfo ) this)[key] != null)
+                    if (((IDataErrorInfo ) this)["["+key+"]"] != null)
                     {
-                        errors.Add(((IDataErrorInfo)this)[key]);
+                      
+                        EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), key);
+                        String displayName = columnInfo.DisplayName;
+                        if (key.IndexOf(".") != -1)
+                        {displayName = columnInfo.TableInfo.DisplayName + " " + columnInfo.DisplayName;}
+
+
+                        String error = displayName + " : " + ((IDataErrorInfo)this)["[" + key + "]"];
+                        errors.Add(error);
                     }
                 }
                 if (errors.Count > 0)
@@ -342,7 +351,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                             if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
                             {
                                 Console.WriteLine("Find Error for " + columnName);
-                                return "Valeur vide non autorisée";
+                                return "valeur vide non autorisée";
                             }
                         }
                     }

@@ -162,14 +162,24 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             if (this.State == GenericDataListState.InsertingEmpty)
             {
-                this.InsertingItem.SaveToModel(this.FieldPaths.ToList ());
-                this.DbSet.Add(this.InsertingItem.Model);
-                this.DataService.DataContext.SaveChanges();
-                this.State = GenericDataListState.Search;
-                this.Items.Clear();
-                this.Items.Add(this.SearchItem);
-                this.InsertingItem = null;
-                this.RaiseStateChange();
+                IDataErrorInfo errorInfo = (IDataErrorInfo)this.InsertingItem;
+                if (String.IsNullOrEmpty(errorInfo.Error))
+                {
+                    this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
+                    this.DbSet.Add(this.InsertingItem.Model);
+                    this.DataService.DataContext.SaveChanges();
+                    this.State = GenericDataListState.Search;
+                    this.Items.Clear();
+                    this.Items.Add(this.SearchItem);
+                    this.InsertingItem = null;
+                    this.RaiseStateChange();
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + errorInfo.Error, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+               
             }
             else if (this.State == GenericDataListState.Deleting)
             {
@@ -197,6 +207,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this.State = GenericDataListState.Display;
                     this.UpdatingItem = null;
                     this.RaiseStateChange();
+                   
+                   
                 }
                 else
                 {
@@ -205,12 +217,21 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             }
             else if (this.State == GenericDataListState.InsertingDisplay)
             {
-                this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
-                this.DbSet.Add(this.InsertingItem.Model);
-                this.DataService.DataContext.SaveChanges();
-                this.State = GenericDataListState.Display;
-                this.InsertingItem = null;
-                this.RaiseStateChange();
+                IDataErrorInfo errorInfo = (IDataErrorInfo)this.InsertingItem;
+                if (String.IsNullOrEmpty(errorInfo.Error))
+                {
+                    this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
+                    this.DbSet.Add(this.InsertingItem.Model);
+                    this.DataService.DataContext.SaveChanges();
+                    this.State = GenericDataListState.Display;
+                    this.InsertingItem = null;
+                    this.RaiseStateChange();
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + errorInfo.Error, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+               
             }
         }
 
