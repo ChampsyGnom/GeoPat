@@ -24,9 +24,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         
         private Dictionary<String, Object> _values;
         public event PropertyChangedEventHandler PropertyChanged;
-        private GenericItemsSource _comboItemsSource;
+        private GenericItemsSource<M> _comboItemsSource;
 
-        public GenericItemsSource ComboItemsSource
+        public GenericItemsSource<M> ComboItemsSource
         {
             get { return _comboItemsSource; }
             
@@ -50,7 +50,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Manager = manager;
             this._values = new Dictionary<string, Object>();
             this.Lists = new GenericListSources<M>();
-            this._comboItemsSource = new GenericItemsSource();
+            this._comboItemsSource = new GenericItemsSource<M>();
         }
      
         public Object  this[String  fieldPath]
@@ -82,14 +82,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 if (fieldPath.IndexOf(".") == -1)
                 {
                     this.RaisePropertyChanged("[" + fieldPath + "]");
-                   
-                    
                 }
                 else
                 {
-             
-
-                    // @ Imper important , déplacer cela dans la classe qui gère les items source !!!!!!!
                     EntityColumnInfo bottomProp = this.Manager.DataService.GetBottomProperty(typeof(M), fieldPath);
                     List<EntityColumnInfo> parentfkProperties = this.Manager.DataService.FindFkParentProperties(bottomProp);
                     List<String> pathToProps = new List<string>();

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
-    public class GenericItemsSource
+    public class GenericItemsSource<M>
     {
         private Dictionary<String, ObservableCollection<Object>> _comboItemsSource;
 
@@ -22,11 +22,11 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             get { return _comboItemsSource; }
   
         }
-
+        public IDataService DataService { get;private  set; }
         public GenericItemsSource()
         {
             this._comboItemsSource = new Dictionary<string, ObservableCollection<object>>();
-
+            this.DataService = ServiceLocator.Current.GetInstance<IDataService>();
         }
 
         public ObservableCollection<Object> this[String fieldPath]
@@ -71,7 +71,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 EntityTableInfo itemsSourceTableInfo = dataService.GetEntityTableInfo(items[0]);
                 DbSet itemsSourceDbSet = dataService.GetDbSet(itemsSourceTableInfo.EntityType);
                 IQueryable itemsSourceQueryable = itemsSourceDbSet.AsQueryable();
-                itemsSourceQueryable = this.TryApplyListFilters(itemsSourceQueryable);
+                itemsSourceQueryable = this.TryApplyListFilters(itemsSourceQueryable, fieldPath);
                 PropertyInfo itemsSourcePropertyInfo = itemsSourceTableInfo.EntityType.GetProperty(items[1]);
 
                 List<Object> datas = new List<object>();
@@ -89,9 +89,23 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         }
 
-        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable)
+        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath)
         {
+            Console.Write("Try apply filter for " + fieldPath);
+            String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            EntityTableInfo listTableInfo = this.DataService.GetEntityTableInfo (items[0]);
+            EntityTableInfo baseTableInfo = this.DataService.GetEntityTableInfo (typeof (M));
+            String basePropertyName =   this.DataService.GetPath (listTableInfo,baseTableInfo)+"."+items[1];
+            EntityColumnInfo baseProperty = this.DataService.GetBottomProperty(typeof(M), basePropertyName);
+            List<EntityColumnInfo> parentfkProperties = this.DataService.FindFkParentProperties(baseProperty);
+            int index = parentfkProperties.IndexOf(baseProperty) + 1;
+            for (int i = index; i < parentfkProperties.Count; i++)
+            { 
+                
+            }
             return itemsSourceQueryable;
         }
+
+      
     }
 }
