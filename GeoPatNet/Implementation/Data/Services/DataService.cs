@@ -103,6 +103,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 schemaInfo.TableInfos.AddRange((from t in tableInfos where t.SchemaName .Equals (schemaName ) select t).ToList());
                 schemaInfo.SchemaName = schemaName;
                 this.SchemaInfos.Add(schemaInfo);
+                schemaInfo.FillDependencies();
             }
             this._eventAggregator.GetEvent<ServiceLoadedEvent>().Publish(new ServiceLoadedEventArg(this));
 

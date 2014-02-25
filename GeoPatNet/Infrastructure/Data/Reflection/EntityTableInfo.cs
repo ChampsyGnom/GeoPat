@@ -19,11 +19,13 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public String TableName { get; private set; }
         public String SchemaName { get; private set; }
         public String DisplayName { get; private set; }
-       
+        public Int32 Level { get; set; }
         public EntitySchemaInfo SchemaInfo { get;   set; }
         public List<EntityColumnInfo> ColumnInfos { get; private set; }
         public EntityTableInfo(Type entityType)
         {
+            this.Level = -1;
+            
             this.EntityType = entityType;
             Object[] atts = this.EntityType.GetCustomAttributes(false);
             foreach (Attribute att in atts)
