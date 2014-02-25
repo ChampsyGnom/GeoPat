@@ -14,6 +14,8 @@ using System.Windows.Data;
 using System.Windows.Threading;
 using Microsoft.Practices.Prism.Commands;
 using System.Threading;
+using System.Data.Entity;
+using System.Reflection;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class DataImportViewModel : IDataImportViewModel,INotifyPropertyChanged
@@ -59,24 +61,83 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         private void ImportExecute()
         {
+            #if DEBUG
+            this.Import();
+            #else
             Task task = new Task(Import);
             task.Start();
+            #endif
+
 
         }
 
         private void Import()
         {
+           
             this.Dispatcher.Invoke(new Action(delegate() {
                 this.IsEnabled = false;
                 this.RaisePropertyChanged("IsEnabled");
+                this.Files.SortDescriptions.Clear();
+                this.Files.SortDescriptions.Add(new SortDescription("Level", ListSortDirection.Ascending));
             }));
-            Thread.Sleep(2000);
+
+            List<DataFileViewModel> vms = (from f in this._files orderby f.Level select f).ToList();
+            this.ImportFile(vms);
 
             this.Dispatcher.Invoke(new Action(delegate()
             {
                 this.IsEnabled = true;
                 this.RaisePropertyChanged("IsEnabled");
             }));
+        }
+
+        private void ImportFile(List<DataFileViewModel> vms)
+        {
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            foreach (DataFileViewModel vm in vms)
+            {
+                if (vm.Import)
+                {
+                    DbSet dbSet = dataService.GetDbSet(vm.TableInfo.EntityType);
+                    dbSet.Load();
+                    List<Object> oldObjs = new List<object>();
+                    foreach (Object o in dbSet.Local)
+                    { oldObjs.Add(o); }
+
+                    foreach (Object o in oldObjs)
+                    {
+                        dbSet.Remove(o);
+                    }
+                    dataService.DataContext.SaveChanges();
+                    foreach (List<String> datas in vm.Datas)
+                    {
+                        
+                        Object item = Activator.CreateInstance(vm.TableInfo.EntityType);
+                        foreach (String propertyName in vm.Mapping.Keys)
+                        {
+                            int index = vm.Mapping[propertyName];
+                        
+                            PropertyInfo property = item.GetType().GetProperty(propertyName);
+                            Object propertyValue = this.ParseString(property.PropertyType, datas[index]);
+                            property.SetValue(item, propertyValue);
+                        
+                        }
+                        dbSet.Add(item);
+                    }
+                    dataService.DataContext.SaveChanges();
+                    
+                }
+            }
+        }
+
+        private object ParseString(Type type, string valueString)
+        {
+            if (type.Equals(typeof(String)))
+            {
+                if (String.IsNullOrEmpty(valueString)) return null;
+                else return valueString;
+            }
+            else throw new Exception("Type non géré " + type.Name);
         }
 
         private void StartDirectoryScan()

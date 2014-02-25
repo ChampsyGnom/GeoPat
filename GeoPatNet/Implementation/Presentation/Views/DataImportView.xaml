@@ -22,16 +22,17 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" Margin="2" Text="Répertoire : "></TextBlock>
         <c:SelectDirectoryBox IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  SelectedDirectory="{Binding Path=ImportDirectory,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></c:SelectDirectoryBox>
-        <DataGrid IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="True" ItemsSource="{Binding Path=Files}" IsReadOnly="True" Grid.Row="1" Grid.ColumnSpan="2">
+        <DataGrid IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="True" ItemsSource="{Binding Path=Files}" IsReadOnly="False" Grid.Row="1" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="60" Header="Schéma" Binding="{Binding Path=TableInfo.SchemaName}"></DataGridTextColumn>
-                <DataGridTextColumn MinWidth="120" Header="Table" Binding="{Binding Path=TableInfo.TableName}"></DataGridTextColumn>
-                <DataGridTextColumn MinWidth="120" Header="Entité" Binding="{Binding Path=TableInfo.EntityType.Name}"></DataGridTextColumn>
-                <DataGridTextColumn MinWidth="120" Header="Libellé" Binding="{Binding Path=TableInfo.DisplayName}"></DataGridTextColumn>
-                <DataGridTemplateColumn Header="Etat" Width="*"></DataGridTemplateColumn>
-                <DataGridTextColumn Header="Lignes" Binding="{Binding Path=RowCount,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Niveau" Binding="{Binding Path=Level}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Legacy" Binding="{Binding Path=IsLegacy}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Importer" Binding="{Binding Path=Import,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn IsReadOnly="True" Width="60" Header="Schéma" Binding="{Binding Path=TableInfo.SchemaName}"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" MinWidth="120" Header="Table" Binding="{Binding Path=TableInfo.TableName}"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" MinWidth="120" Header="Entité" Binding="{Binding Path=TableInfo.EntityType.Name}"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" MinWidth="120" Header="Libellé" Binding="{Binding Path=TableInfo.DisplayName}"></DataGridTextColumn>
+                <DataGridTemplateColumn IsReadOnly="True" Header="Etat" Width="*"></DataGridTemplateColumn>
+                <DataGridTextColumn IsReadOnly="True" Header="Lignes" Binding="{Binding Path=RowCount,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Header="Niveau" Binding="{Binding Path=Level}"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Header="Legacy" Binding="{Binding Path=IsLegacy}"></DataGridTextColumn>
               
                 
             </DataGrid.Columns>

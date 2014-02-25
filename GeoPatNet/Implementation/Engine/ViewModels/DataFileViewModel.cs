@@ -12,9 +12,25 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class DataFileViewModel : INotifyPropertyChanged
     {
+        private Dictionary<String, int> _mapping;
+
+
+        public Dictionary<String,int> Mapping
+        {
+            get { return _mapping; }           
+        }
+
+        public Boolean Import { get; set; }
         public Dispatcher _dispatcher;
         public List<String> _headers;
-        public List<List<String>> _datas;
+        private List<List<String>> _datas;
+
+
+        public List<List<String>> Datas
+        {
+            get { return _datas; }           
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {
@@ -36,6 +52,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.FileInfo = new FileInfo(this.FilePath);
             this._headers = new List<string>();
             this._datas = new List<List<string>>();
+            this.Import = false;
+            this._mapping = new Dictionary<String, int>();
             
 
         }
@@ -61,6 +79,52 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             stream.Close();
             stream.Dispose();
             this.RaisePropertyChanged("RowCount");
+            this.FillMapping();
+        }
+
+        private void FillMapping()
+        {
+            if (this.IsLegacy)
+            {
+                if (this.TableInfo.TableName.Equals("INF_CD_SENSIBLE"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("CODE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("CODE"));
+                    this.Import = true;
+                }
+                else  if (this.TableInfo.TableName.Equals("INF_FAM_DEC"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("FAM_DEC"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_CD_GARE"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("TYPE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("TYPE"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_CD_LIAISON"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("CD_LIAISON"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_CD_OCCUPANT"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("NOM"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("NOM"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_CD_POSIT"))
+                {
+                    this._mapping.Add("Position", this._headers.IndexOf("POSIT"));
+                    this._mapping.Add("Ordre", this._headers.IndexOf("ORDRE"));
+                    this.Import = true;
+                }
+            }
+            else 
+            { }
         }
 
         public int RowCount
