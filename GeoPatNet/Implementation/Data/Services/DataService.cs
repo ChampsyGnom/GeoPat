@@ -14,6 +14,7 @@ using System.Threading;
 using Microsoft.Practices.Prism.Commands;
 using Emash.GeoPatNet.Data.Infrastructure.Reflection;
 using System.Reflection;
+using Emash.GeoPatNet.Data.Infrastructure.Validations;
 
 
 namespace Emash.GeoPatNet.Data.Implementation.Services
@@ -358,6 +359,48 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
         }
 
 
-        
+
+
+        /*
+        public List<string> ValidateEntity(Type type, Dictionary<string, String> values)
+        {
+            // On commence par validé les données
+            String message = null;
+            Object result = null;
+            List<String> errors = new List<string>();
+            EntityTableInfo tableInfo = this.GetEntityTableInfo(type);
+            foreach (String path in values.Keys)
+            {
+                EntityColumnInfo topColumn = this.GetTopParentProperty(type, path);
+                String displayName = topColumn.DisplayName;
+                if (path.IndexOf(".") != -1)
+                { displayName = topColumn.TableInfo.DisplayName + " " + topColumn.DisplayName; }
+
+
+                if (path.IndexOf(".") == -1)
+                {
+                    if (!Validator.ValidateObject(values[path], topColumn, out message, out result))
+                    { errors.Add(displayName+" : "+message); ; }
+                }
+                else
+                {
+                    String[] items = path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+                    EntityColumnInfo topProperty = this.GetTopParentProperty(type, path);
+                    EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals(items[0]) select c).FirstOrDefault();
+                    Object valueObject = values[path];
+                    if (!bottomProp.AllowNull && (values[path] == null || String.IsNullOrEmpty(values[path].ToString()) || values[path].Equals(CultureConfiguration.ListNullString)))
+                    { errors.Add (displayName+  " : valeur vide non autorisée"); }
+                }
+            }
+            if (errors.Count == 0)
+            { 
+                
+            
+            }
+            return errors;
+
+        }
+         */
     }
 }

@@ -51,6 +51,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
+        [RuleEmprise("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         public Int64 AbsDeb
         {
@@ -62,6 +63,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
+        [RuleEmprise("INF_CHAUSSEE__ID")]
         [AllowNull(false)]
         public Int64 AbsFin
         {

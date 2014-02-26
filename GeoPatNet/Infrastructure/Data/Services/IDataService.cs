@@ -31,5 +31,6 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Services
         EntityColumnInfo GetBottomProperty(Type type, string fieldPath);
         string GetPath(EntityTableInfo parent, EntityTableInfo child);
         List<EntityColumnInfo> FindParentForeignColumnInfos(EntityColumnInfo columnInfo);
+        
     }
 }

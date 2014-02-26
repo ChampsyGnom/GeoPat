@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Attributes\AllowNullAttribute.cs" />
     <Compile Include="Attributes\ColumnNameAttribute.cs" />
+    <Compile Include="Attributes\RuleEmpriseAttribute.cs" />
     <Compile Include="Attributes\MaxCharLengthAttribute.cs" />
     <Compile Include="Attributes\RangeValueAttribute.cs" />
     <Compile Include="Attributes\RulePrAttribute.cs" />

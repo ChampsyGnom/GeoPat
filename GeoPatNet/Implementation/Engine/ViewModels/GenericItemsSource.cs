@@ -27,10 +27,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-        private Dictionary<String, Object> _values;
+        private Dictionary<String, String> _values;
 
 
-        public Dictionary<String, Object> Values
+        public Dictionary<String, String> Values
         {
             get { return _values; }
             set { _values = value; }
@@ -125,7 +125,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             {
                 EntityColumnInfo parentfkProperty = parentfkProperties[i];
                 String parentfkPropertyPath = this.DataService.GetPath(parentfkProperty.TableInfo,baseTableInfo)+"."+parentfkProperty.PropertyName;
-                if (this._values.ContainsKey(parentfkPropertyPath))
+                if (this._values != null && this._values.ContainsKey(parentfkPropertyPath))
                 {
                     String listPropertyPath = this.DataService.GetPath (parentfkProperty.TableInfo, listTableInfo)+"."+parentfkProperty.PropertyName;
                     String[] listPropertyPathItems = listPropertyPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);

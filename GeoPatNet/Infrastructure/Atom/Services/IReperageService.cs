@@ -10,6 +10,7 @@ namespace Emash.GeoPatNet.Atom.Infrastructure.Services
     {
         void Initialize();
 
-        string AbsToPr(long valueIdChaussee, long? valueAbs);
+        string AbsToPr(long chausseeId, long? valueAbs);
+        long? PrToAbs(long chausseeId, string valuePr);
     }
 }

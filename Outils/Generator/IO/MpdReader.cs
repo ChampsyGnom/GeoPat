@@ -163,6 +163,13 @@ namespace Emash.GeoPatNet.Generator.IO
                     rulePr.ChausseIdColumnName = nodeRule.SelectSingleNode("ServerExpression").InnerText;
                     schema.Rules.Add(rulePr);
                 }
+                if (nodeRule.SelectSingleNode("Code").InnerText.StartsWith("EMPRISE_CHAUSSEE"))
+                {
+                    DbRuleEmprise ruleEmprise = new DbRuleEmprise();
+                    ruleEmprise.Id = nodeRule.Attributes["Id"].Value;
+                    ruleEmprise.ChausseIdColumnName = nodeRule.SelectSingleNode("ServerExpression").InnerText;
+                    schema.Rules.Add(ruleEmprise);
+                }
             }
 
 
@@ -213,6 +220,8 @@ namespace Emash.GeoPatNet.Generator.IO
                         DbRule rule = (from s in schema.Rules where s.Id.Equals (ruleId ) select s).FirstOrDefault();
                         if (rule != null)
                         {column.Rules.Add(rule);}
+
+
                     }
                     table.Columns.Add(column);
                 }

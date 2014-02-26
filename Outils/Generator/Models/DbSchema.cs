@@ -15,6 +15,7 @@ namespace Emash.GeoPatNet.Generator.Models
         public String Name { get; set; }
         public String Id { get; set; }
         [XmlElement(Type=typeof(DbRulePr),ElementName="RulePr")]
+        [XmlElement(Type = typeof(DbRuleEmprise), ElementName = "RuleEmprise")]
         public List<DbRule> Rules { get; set; }
         public DbSchema()
         {

@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_BIFURCATION__ID")]
         [PrimaryKey("INF_CD_BIFURCATION_PK")]
-        [ForeignKeyAttribute("INF_CD_BIFURCATION__INF_BIFURCATION","JOIN_o790")]
+        [ForeignKeyAttribute("INF_CD_BIFURCATION__INF_BIFURCATION","JOIN_o791")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

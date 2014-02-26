@@ -92,6 +92,119 @@ namespace Emash.GeoPatNet.Reperage.Implementation.Services
             return num.ToString() + " +" + dplt.ToString("0000");
         }
 
-      
+
+
+
+        public long? PrToAbs(long chausseeId, string valuePr)
+        {
+            if (this.Reperes.ContainsKey (chausseeId ))
+            {
+                 List<InfRepere> chausseeReperes = this.Reperes[chausseeId];
+                 if (String.IsNullOrEmpty(valuePr)) return null;
+                 else
+                 {
+                     int num = 0;
+                     int dplt = 0;
+                     if (valuePr.IndexOf("+") == -1)
+                     {
+                         if (Int32.TryParse(valuePr.Trim(), out num))
+                         {
+                             InfRepere repere = (from r in chausseeReperes where r.Num == num select r).FirstOrDefault();
+                             if (repere == null)
+                             {
+                                 InfRepere lastRepere = (from r in chausseeReperes orderby r.AbsCum descending select r).FirstOrDefault();
+                                 if (num > lastRepere.Num)
+                                 {
+                                     int deltaNum = num - (int) lastRepere.Num;
+                                     return lastRepere.AbsCum + lastRepere.Inter + (deltaNum * num);
+                                 }
+                                 else 
+                                 {
+                                     InfRepere firstRepere = (from r in chausseeReperes orderby r.AbsCum select r).FirstOrDefault();
+                                     int deltaNum = (int)firstRepere.Num- num ;
+                                     return lastRepere.AbsCum - (deltaNum * num);
+                                     
+                                 }
+                             }
+                             else return repere.AbsCum;
+                         }
+                         else
+                         { return null; }
+                     }
+                     else
+                     {
+                         String[] items = valuePr.Split("+".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                         if (items.Length == 1)
+                         {
+                             return this.PrToAbs(chausseeId, items[0]);
+                         }
+                         else
+                         {
+
+                             if (Int32.TryParse(items[0].Trim(), out num) && Int32.TryParse(items[1].Trim(), out dplt))
+                             {
+                                 InfRepere repere = (from r in chausseeReperes where r.Num == num select r).FirstOrDefault();
+                                 if (repere == null)
+                                 {
+                                     InfRepere lastRepere = (from r in chausseeReperes orderby r.AbsCum descending select r).FirstOrDefault();
+                                     if (num > lastRepere.Num)
+                                     {
+                                         int deltaNum = num - (int)lastRepere.Num;
+                                         return lastRepere.AbsCum + lastRepere.Inter + (deltaNum * num);
+                                     }
+                                     else
+                                     {
+                                         InfRepere firstRepere = (from r in chausseeReperes orderby r.AbsCum select r).FirstOrDefault();
+                                         int deltaNum = (int)firstRepere.Num - num;
+                                         return lastRepere.AbsCum - (deltaNum * num);
+
+                                     }
+                                 }
+                                 else
+                                 {
+                                     return repere.AbsCum + dplt;
+                                 }
+                             }
+                             else
+                             { return null; }
+                         }
+                     }
+                 }
+            }
+            else
+            {
+                return this.PrToAbsVirtualized(valuePr);
+               
+            }
+            
+        }
+
+        private long? PrToAbsVirtualized(string valuePr)
+        {
+            int num = 0;
+            int dplt = 0;
+            String[] items = valuePr.Split("+".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            if (items.Length == 1)
+            {
+
+                if (Int32.TryParse(items[0].Trim(), out num))
+                {
+                    return num * 1000;
+                }
+                else
+                { return null; }
+
+            }
+            else
+            {
+                if (Int32.TryParse(items[0].Trim(), out num) && Int32.TryParse(items[1].Trim(), out dplt))
+                {
+                    return (num * 1000) + dplt;
+                }
+                else
+                { return null; }
+            }
+         
+        }
     }
 }

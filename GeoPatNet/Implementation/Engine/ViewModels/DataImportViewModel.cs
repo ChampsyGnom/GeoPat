@@ -174,7 +174,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                                         {
                                             String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
                                             Object propertyValue = null;
-                                            if (vm.Mapping.ContainsKey (dataPath) &&  Validator.ValidateObject(datas[vm.Mapping[dataPath]], fkParentColumnsInfo, out message, out propertyValue))
+                                            if (vm.Mapping.ContainsKey (dataPath) &&  Validator.ValidateEntityColumn(datas[vm.Mapping[dataPath]], fkParentColumnsInfo, out message, out propertyValue))
                                             {
                                                 String localDataPath = String.Join(".", (from s in dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
                                                                                          where dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().IndexOf(s) > 0
@@ -226,7 +226,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
                                         PropertyInfo property = item.GetType().GetProperty(columnInfo.PropertyName);
                                         Object propertyValue = null;
-                                        if (Validator.ValidateObject(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
+                                        if (Validator.ValidateEntityColumn(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
                                         {
                                             property.SetValue(item, propertyValue);
                                         }

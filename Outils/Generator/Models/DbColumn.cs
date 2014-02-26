@@ -17,6 +17,7 @@ namespace Emash.GeoPatNet.Generator.Models
         public Boolean AllowNull { get; set; }
         public Nullable<Int32> Length { get; set; }
         [XmlElement(Type = typeof(DbRulePr), ElementName = "RulePr")]
+        [XmlElement(Type = typeof(DbRuleEmprise), ElementName = "RuleEmprise")]
         public List<DbRule> Rules { get; set; }
 
         public DbColumn()

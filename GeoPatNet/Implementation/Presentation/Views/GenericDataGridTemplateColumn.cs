@@ -186,7 +186,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             }
             else
             {
-                if (topProperty.PropertyType.Equals(typeof(String)))
+                if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)))
                 {
                     if (state == GenericDataListState.Search)
                     {

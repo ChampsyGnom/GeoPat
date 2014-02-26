@@ -238,6 +238,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                       
                             }
                             DbRulePr rulePr = (from r in column.Rules where r is DbRulePr select r as DbRulePr).FirstOrDefault();
+                            DbRuleEmprise ruleEmprise = (from r in column.Rules where r is DbRuleEmprise select r as DbRuleEmprise).FirstOrDefault();
                             if (column.AllowNull)
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Int64>", propertyName);
@@ -261,6 +262,10 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                     {
                                         prop.Attributes.Add("[RulePr(\"" + rulePr.ChausseIdColumnName + "\")]");
                                         prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                        if (ruleEmprise != null)
+                                        {
+                                              prop.Attributes.Add("[RuleEmprise(\"" + rulePr.ChausseIdColumnName + "\")]");
+                                        }
                                     }
                                     else
                                     { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }
@@ -293,6 +298,11 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                     {
                                         prop.Attributes.Add("[RulePr(\"" + rulePr.ChausseIdColumnName + "\")]");
                                         prop.Attributes.Add("[ControlType(ControlType.Pr)]");
+                                        if (ruleEmprise != null)
+                                        {
+                                              prop.Attributes.Add("[RuleEmprise(\"" + rulePr.ChausseIdColumnName + "\")]");
+                                        }
+                                    
                                     }
                                     else
                                     { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }

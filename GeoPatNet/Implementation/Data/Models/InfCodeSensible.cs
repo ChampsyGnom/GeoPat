@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_SENSIBLE__ID")]
         [PrimaryKey("INF_CD_SENSIBLE_PK")]
-        [ForeignKeyAttribute("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o803")]
+        [ForeignKeyAttribute("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o804")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

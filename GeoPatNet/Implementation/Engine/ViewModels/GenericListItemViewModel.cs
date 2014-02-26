@@ -22,11 +22,11 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
     public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem,IDataErrorInfo
     {
 
-        private Dictionary<String, Object> _values;
+        private Dictionary<String, String> _values;
         /// <summary>
         /// Liste des valeurs des champs
         /// </summary>
-        public Dictionary<String, Object> Values
+        public Dictionary<String, String> Values
         {
             get { return _values; }
 
@@ -67,7 +67,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             this.Model = model;
             this.Manager = manager;
-            this._values = new Dictionary<string, Object>();            
+            this._values = new Dictionary<string, String>();            
             this._comboItemsSource = new GenericItemsSource<M>();
         }
      
@@ -83,7 +83,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         /// </summary>
         /// </param>
         /// <returns></returns>
-        public Object  this[String  fieldPath]
+        public String this[String fieldPath]
         {
             get 
             {
@@ -193,7 +193,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                             }
                             else
                             {
-                                Object formattedValue = Formatter.FormatValue(columnInfo.PropertyType, value);
+                                String formattedValue = Formatter.FormatValue(columnInfo.PropertyType, value);
                                 this._values[fieldPath] = formattedValue;
                             }
                             
@@ -240,8 +240,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 {
                     if (columnInfo.PropertyType.Equals(typeof(String)))
                     {
-                        
-                        if (Validator.ValidateObject(this[fieldPath], columnInfo, out message, out valueValidated))
+
+                        if (Validator.ValidateEntityColumn(this[fieldPath], columnInfo, out message, out valueValidated))
                         { this.Model.GetType().GetProperty(fieldPath).SetValue(this.Model, valueValidated); }
                         
                     }
@@ -285,8 +285,11 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 foreach (String parentNavPropsPath in parentNavPropsPaths)
                 {
                     String[] items = parentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                    EntityTableInfo navPropEntity = this.Manager.DataService.GetEntityTableInfo(items[0]);
-                    if (navPropEntity == null)
+                    EntityTableInfo navPropEntity = null;
+
+                    if (items.Length > 1)
+                    { navPropEntity = this.Manager.DataService.GetEntityTableInfo(items[items.Length - 2]); }
+                    else
                     { navPropEntity = parentTableInfo; }
                     Expression propertyMember = null;
                     for (int i = 0; i < items.Length; i++)
@@ -357,8 +360,6 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         String displayName = columnInfo.DisplayName;
                         if (key.IndexOf(".") != -1)
                         {displayName = columnInfo.TableInfo.DisplayName + " " + columnInfo.DisplayName;}
-
-
                         String error = displayName + " : " + ((IDataErrorInfo)this)["[" + key + "]"];
                         errors.Add(error);
                     }
@@ -376,37 +377,31 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             get {
                 String message = null;
                 Object result = null;
-                if (this.Model != null && !columnName.EndsWith (".ItemsSource"))
-                {
+                
                
-                    if (columnName.StartsWith("[") && columnName.EndsWith("]"))
+                if (columnName.StartsWith("[") && columnName.EndsWith("]"))
+                {
+                    String path = columnName.Substring(1);
+                    path = path.Substring(0, path.Length - 1);
+                    EntityColumnInfo topColumn = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
+                    if (path.IndexOf(".") == -1)
                     {
-                        String path = columnName.Substring(1);
-                        path = path.Substring(0, path.Length - 1);
-                        EntityColumnInfo topColumn = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
-                        if (path.IndexOf(".") == -1)
-                        {
 
-                            if (!Validator.ValidateObject(this._values[path], topColumn, out message, out result))
-                            {
-                                return message;
-                            }
-                        }
-                        else
-                        {
-                            String[] items = path.Split (".".ToCharArray (),StringSplitOptions .RemoveEmptyEntries );
-                            EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
-                            EntityColumnInfo topProperty = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
-                            EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (items[0]) select c).FirstOrDefault();
-                            Object valueObject = this._values[path];
-                            if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
-                            {
-                           
-                                return "valeur vide non autorisée";
-                            }
-                        }
+                        if (!Validator.ValidateEntityColumn(this._values[path], topColumn, out message, out result))
+                        {return message;}
+                    }
+                    else
+                    {
+                        String[] items = path.Split (".".ToCharArray (),StringSplitOptions .RemoveEmptyEntries );
+                        EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
+                        EntityColumnInfo topProperty = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
+                        EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (items[0]) select c).FirstOrDefault();
+                        Object valueObject = this._values[path];
+                        if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
+                        {return "valeur vide non autorisée";}
                     }
                 }
+                
                
                 return null;
             }

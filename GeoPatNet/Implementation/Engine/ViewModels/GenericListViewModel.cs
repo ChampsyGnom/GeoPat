@@ -15,6 +15,7 @@ using Emash.GeoPatNet.Engine.Infrastructure.Enums;
 using System.ComponentModel;
 using Emash.GeoPatNet.Engine.Infrastructure.ComponentModel;
 using System.Windows;
+using Emash.GeoPatNet.Data.Infrastructure.Validations;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList
@@ -249,9 +250,14 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             if (this.State == GenericDataListState.InsertingEmpty)
             {
-                IDataErrorInfo errorInfo = (IDataErrorInfo)this.InsertingItem;
-                if (String.IsNullOrEmpty(errorInfo.Error))
+                String message = null;
+                if (!Validator.ValidateEntity(this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
                 {
+                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {
+
                     this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DbSet.Add(this.InsertingItem.Model);
                     this.DataService.DataContext.SaveChanges();
@@ -261,10 +267,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this.InsertingItem = null;
                     this.RaiseStateChange();
                 }
-                else
-                {
-                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + errorInfo.Error, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+               
+
+
+              
 
                
             }
@@ -286,26 +292,31 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             }
             else if (this.State == GenericDataListState.Updating)
             {
-                IDataErrorInfo errorInfo = (IDataErrorInfo)this.UpdatingItem;
-                if (String.IsNullOrEmpty(errorInfo.Error))
+                String message = null;
+                if (!Validator.ValidateEntity(this.UpdatingItem.Values,this.DataService.GetEntityTableInfo (typeof(M)), out message))
                 {
+                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {                    
                     this.UpdatingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DataService.DataContext.SaveChanges();
                     this.State = GenericDataListState.Display;
                     this.UpdatingItem = null;
                     this.RaiseStateChange();
-                   
-                   
                 }
-                else
-                {
-                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + errorInfo.Error, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+               
+                  
+               
             }
             else if (this.State == GenericDataListState.InsertingDisplay)
             {
-                IDataErrorInfo errorInfo = (IDataErrorInfo)this.InsertingItem;
-                if (String.IsNullOrEmpty(errorInfo.Error))
+                String message = null;
+                if (!Validator.ValidateEntity(this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
+                {
+                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
                 {
                     this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DbSet.Add(this.InsertingItem.Model);
@@ -314,10 +325,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this.InsertingItem = null;
                     this.RaiseStateChange();
                 }
-                else
-                {
-                    MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + errorInfo.Error, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+             
                
             }
         }

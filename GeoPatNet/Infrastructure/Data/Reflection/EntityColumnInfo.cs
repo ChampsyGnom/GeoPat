@@ -24,10 +24,13 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public double MaxNumericValue { get; private set; }
         public Boolean IsPr { get; private set; }
         public String PrChausseeColumnName { get; private set; }
+        public Boolean HasChausseeEmpriseRule { get; private set; }
+        public String EmpriseChausseeColumnName { get; private set; }
         public String PrimaryKeyName { get; private set; }
         public List<String> ForeignKeyNames { get; private set; }
         public List<String> UniqueKeyNames { get; private set; }
         public ControlType ControlType { get; private set; }
+
       
         public String DisplayName { get; private set; }
         public EntityColumnInfo(EntityTableInfo entityTableInfo, PropertyInfo property)
@@ -36,6 +39,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
             this.TableInfo = entityTableInfo;
             this.ForeignKeyNames = new List<string>();
             this.Property = property;
+            this.HasChausseeEmpriseRule = false;
             this.PropertyName = property.Name;
             this.UniqueKeyNames = new List<string>();
             this.PropertyType = property.PropertyType;
@@ -46,6 +50,11 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
                 if (att is AllowNullAttribute)
                 {
                     this.AllowNull = (att as AllowNullAttribute).AllowNull;
+                }
+                if (att is RuleEmpriseAttribute)
+                {
+                    this.EmpriseChausseeColumnName = (att as RuleEmpriseAttribute).ChauseeColumnName;
+                    this.HasChausseeEmpriseRule = true;
                 } 
                 if (att is ControlTypeAttribute)
                 {

@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_ECLAIRAGE__ID")]
         [PrimaryKey("INF_CD_ECLAIRAGE_PK")]
-        [ForeignKeyAttribute("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o793")]
+        [ForeignKeyAttribute("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o794")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
