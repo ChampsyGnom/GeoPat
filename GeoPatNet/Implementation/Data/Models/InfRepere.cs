@@ -20,7 +20,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CHAUSSEE__INF_REPERE",null)]
-        [UniqueKey("INF_REPERE_UK2")]
+        [UniqueKey("INF_REPERE_UK_REF")]
         public virtual InfChaussee InfChaussee
         {
             get;

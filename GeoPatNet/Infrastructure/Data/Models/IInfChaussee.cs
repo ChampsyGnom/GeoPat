@@ -11,7 +11,22 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
     public interface IInfChaussee
     {
 
+        String About
+        {
+            get;
+            set;
+        }
         String Code
+        {
+            get;
+            set;
+        }
+        Int64 AbsDeb
+        {
+            get;
+            set;
+        }
+        Int64 AbsFin
         {
             get;
             set;
@@ -27,6 +42,11 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
             set;
         }
         String Libelle
+        {
+            get;
+            set;
+        }
+        String Tenant
         {
             get;
             set;

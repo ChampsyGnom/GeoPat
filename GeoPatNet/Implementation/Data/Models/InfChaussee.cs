@@ -146,6 +146,16 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
+        [DisplayName("Aboutissant")]
+        [ColumnName("INF_CHAUSSEE__ABOUT")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
+        public String About
+        {
+            get;
+            set;
+        }
         [DisplayName("Code")]
         [ColumnName("INF_CHAUSSEE__CODE")]
         [UniqueKey("INF_CHAUSSEE_UK_REF")]
@@ -157,30 +167,50 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
+        [DisplayName("Debut")]
+        [ColumnName("INF_CHAUSSEE__ABS_DEB")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
+        public Int64 AbsDeb
+        {
+            get;
+            set;
+        }
+        [DisplayName("Fin")]
+        [ColumnName("INF_CHAUSSEE__ABS_FIN")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.Integer)]
+        [AllowNull(false)]
+        public Int64 AbsFin
+        {
+            get;
+            set;
+        }
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("INF_CHAUSSEE__ID")]
         [PrimaryKey("INF_CHAUSSEE_PK")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_ACCIDENT","JOIN_o766")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_AMENAGEMENT","JOIN_o767")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PR_OLD","JOIN_o768")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_BIFURCATION","JOIN_o769")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_BRETELLE","JOIN_o770")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_CLIMAT","JOIN_o771")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_ECLAIRAGE","JOIN_o772")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_GARE","JOIN_o773")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_OCCUPATION","JOIN_o774")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PAVE_VOIE","JOIN_o775")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PK","JOIN_o776")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PT_SING","JOIN_o777")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_REPARTITION_TRAFIC","JOIN_o778")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_REPERE","JOIN_o779")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SECTION_TRAFIC","JOIN_o780")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SECURITE","JOIN_o781")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SENSIBLE","JOIN_o782")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TALUS","JOIN_o783")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TPC","JOIN_o784")]
-        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TR_DEC","JOIN_o785")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_ACCIDENT","JOIN_o767")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_AMENAGEMENT","JOIN_o768")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PR_OLD","JOIN_o769")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_BIFURCATION","JOIN_o770")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_BRETELLE","JOIN_o771")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_CLIMAT","JOIN_o772")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_ECLAIRAGE","JOIN_o773")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_GARE","JOIN_o774")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_OCCUPATION","JOIN_o775")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PAVE_VOIE","JOIN_o776")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PK","JOIN_o777")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_PT_SING","JOIN_o778")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_REPARTITION_TRAFIC","JOIN_o779")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_REPERE","JOIN_o780")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SECTION_TRAFIC","JOIN_o781")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SECURITE","JOIN_o782")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_SENSIBLE","JOIN_o783")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TALUS","JOIN_o784")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TPC","JOIN_o785")]
+        [ForeignKeyAttribute("INF_CHAUSSEE__INF_TR_DEC","JOIN_o786")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -204,6 +234,16 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ControlType(ControlType.Text)]
         [AllowNull(true)]
         public String Libelle
+        {
+            get;
+            set;
+        }
+        [DisplayName("Tenant")]
+        [ColumnName("INF_CHAUSSEE__TENANT")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
+        public String Tenant
         {
             get;
             set;

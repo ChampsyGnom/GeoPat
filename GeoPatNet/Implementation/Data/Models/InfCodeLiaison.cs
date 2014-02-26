@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_LIAISON__ID")]
         [PrimaryKey("INF_CD_LIAISON_PK")]
-        [ForeignKeyAttribute("INF_CD_LIAISON__INF_LIAISON","JOIN_o786")]
+        [ForeignKeyAttribute("INF_CD_LIAISON__INF_LIAISON","JOIN_o787")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

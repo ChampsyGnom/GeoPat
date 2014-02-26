@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>            
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -29,7 +30,13 @@
                 <DataGridTextColumn IsReadOnly="True" MinWidth="120" Header="Table" Binding="{Binding Path=TableInfo.TableName}"></DataGridTextColumn>
                 <DataGridTextColumn IsReadOnly="True" MinWidth="120" Header="Entité" Binding="{Binding Path=TableInfo.EntityType.Name}"></DataGridTextColumn>
                 <DataGridTextColumn IsReadOnly="True" MinWidth="120" Header="Libellé" Binding="{Binding Path=TableInfo.DisplayName}"></DataGridTextColumn>
-                <DataGridTemplateColumn IsReadOnly="True" Header="Etat" Width="*"></DataGridTemplateColumn>
+                <DataGridTemplateColumn IsReadOnly="True" Header="Etat" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=StateMessage,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn IsReadOnly="True" Header="Lignes" Binding="{Binding Path=RowCount,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
                 <DataGridTextColumn IsReadOnly="True" Header="Niveau" Binding="{Binding Path=Level}"></DataGridTextColumn>
                 <DataGridTextColumn IsReadOnly="True" Header="Legacy" Binding="{Binding Path=IsLegacy}"></DataGridTextColumn>
@@ -37,7 +44,20 @@
                 
             </DataGrid.Columns>
         </DataGrid>
-        <Button  IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Command="{Binding Path=ImportCommand}" Height="48" Grid.Row="2" Grid.ColumnSpan="2" Margin="2">
+        <Grid Grid.ColumnSpan="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding Path=CheckAllCommand}" Grid.Column="0" Height="48" Margin="2">
+                <TextBlock Text="Tout cocher"></TextBlock>
+            </Button>
+
+            <Button Command="{Binding Path=UncheckAllCommand}"  Grid.Column="1" Height="48" Margin="2">
+                <TextBlock Text="Tout décocher"></TextBlock>
+            </Button>
+        </Grid>
+        <Button  IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Command="{Binding Path=ImportCommand}" Height="48" Grid.Row="3" Grid.ColumnSpan="2" Margin="2">
             <TextBlock Text="Importer"></TextBlock>
         </Button>
     </Grid>

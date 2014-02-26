@@ -46,6 +46,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
 
         private void RecurseFillDependencies(List<EntityTableInfo> leveledTables,int level)
         {
+           
             foreach (EntityTableInfo tableInfo in this.TableInfos)
             {
                 if (!leveledTables.Contains(tableInfo))
@@ -67,6 +68,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
                     if (allParentLeveled == true)
                     {
                         tableInfo.Level = level;
+                        level++;
                         leveledTables.Add (tableInfo);
                     }
                 }

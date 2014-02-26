@@ -16,12 +16,19 @@ using Microsoft.Practices.Prism.Commands;
 using System.Threading;
 using System.Data.Entity;
 using System.Reflection;
+using Emash.GeoPatNet.Data.Infrastructure.Validations;
+using System.Linq.Expressions;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class DataImportViewModel : IDataImportViewModel,INotifyPropertyChanged
     {
+        public IDataService DataService { get; private set; }
         public Boolean IsEnabled { get; private set; }
         public DelegateCommand ImportCommand { get; private set; }
+        public DelegateCommand CheckAllCommand { get; private set; }
+        public DelegateCommand UncheckAllCommand { get; private set; }
+
+        //
         public Dispatcher Dispatcher { get; private set; }
         public ListCollectionView Files { get; private set; }
         private ObservableCollection<DataFileViewModel> _files;
@@ -57,12 +64,31 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Dispatcher = System.Windows.Application.Current.Dispatcher;
             this.ImportCommand = new DelegateCommand(ImportExecute);
             this.IsEnabled = true;
+            this.DataService = ServiceLocator.Current.GetInstance<IDataService>();
+            this.CheckAllCommand = new DelegateCommand(CheckAllExecute);
+            this.UncheckAllCommand = new DelegateCommand(UncheckAllExecute);
+        }
+
+        private void CheckAllExecute()
+        {
+            foreach (DataFileViewModel vm in this._files)
+            {
+                vm.Import = true;
+            }
+        }
+        private void UncheckAllExecute()
+        {
+            foreach (DataFileViewModel vm in this._files)
+            {
+                vm.Import = false;
+            }
         }
 
         private void ImportExecute()
         {
             #if DEBUG
-            this.Import();
+            Task task = new Task(Import);
+            task.Start();
             #else
             Task task = new Task(Import);
             task.Start();
@@ -80,10 +106,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 this.Files.SortDescriptions.Clear();
                 this.Files.SortDescriptions.Add(new SortDescription("Level", ListSortDirection.Ascending));
             }));
-
-            List<DataFileViewModel> vms = (from f in this._files orderby f.Level select f).ToList();
-            this.ImportFile(vms);
-
+            List<DataFileViewModel> lst = new List<DataFileViewModel>();
+            foreach (Object o in this.Files)
+            { lst.Add (o as DataFileViewModel); }
+            this.ImportFile(lst);
             this.Dispatcher.Invoke(new Action(delegate()
             {
                 this.IsEnabled = true;
@@ -109,37 +135,170 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         dbSet.Remove(o);
                     }
                     dataService.DataContext.SaveChanges();
+                    String message = null;
+                    int total = vm.Datas.Count;
+                    int index = 0;
                     foreach (List<String> datas in vm.Datas)
                     {
-                        
+                        index++;
                         Object item = Activator.CreateInstance(vm.TableInfo.EntityType);
-                        foreach (String propertyName in vm.Mapping.Keys)
+                        foreach (EntityColumnInfo columnInfo in vm.TableInfo.ColumnInfos)
                         {
-                            int index = vm.Mapping[propertyName];
-                        
-                            PropertyInfo property = item.GetType().GetProperty(propertyName);
-                            Object propertyValue = this.ParseString(property.PropertyType, datas[index]);
-                            property.SetValue(item, propertyValue);
-                        
+                            if (columnInfo.PrimaryKeyName == null)
+                            {
+                                if (columnInfo.ForeignKeyNames.Count > 0)
+                                {
+                                    List<EntityColumnInfo> fkParentColumnsInfos = dataService.FindParentForeignColumnInfos(columnInfo);
+                                    Boolean allValuePresent = true;
+                                    foreach (EntityColumnInfo fkParentColumnsInfo in fkParentColumnsInfos)
+                                    {
+                                        String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
+                                        if (!vm.Mapping.ContainsKey(dataPath))
+                                        {
+                                            allValuePresent = false;
+                                        }
+                                    }
+                                    EntityTableInfo listTableInfo = dataService.GetEntityTableInfo(columnInfo.PropertyType);
+                                    ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");
+                                    //if (allValuePresent)
+                                    //{
+                                       
+                                        DbSet listDbSet = dataService.GetDbSet(columnInfo.PropertyType);
+                                        IQueryable queryable = listDbSet.AsQueryable();
+                                        List<Expression> expressions = new List<Expression>();
+                                        foreach (EntityColumnInfo fkParentColumnsInfo in fkParentColumnsInfos)
+                                        {
+                                            String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
+                                            Object propertyValue = null;
+                                            if (vm.Mapping.ContainsKey (dataPath) &&  Validator.ValidateObject(datas[vm.Mapping[dataPath]], fkParentColumnsInfo, out message, out propertyValue))
+                                            {
+                                                String localDataPath = String.Join(".", (from s in dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                                                                                         where dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().IndexOf(s) > 0
+                                                                                         select s).ToList());
+
+                                                String[] localDataPaths = localDataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                                Expression expression = null;
+                                                foreach (string path in localDataPaths)
+                                                {
+                                                    if (expression == null)
+                                                    {
+                                                        expression = Expression.Property(expressionBase, path);
+                                                    }
+                                                    else
+                                                    { expression = Expression.Property(expression, path); }
+                                                }
+                                                expression = Expression.Equal(expression, Expression.Constant(propertyValue));
+                                                expressions.Add(expression);
+                                            }
+
+                                        }
+                                        if (expressions.Count > 0)
+                                        {
+                                            Expression expressionAnd = expressions.First();
+                                            for (int i = 1; i < expressions.Count; i++)
+                                            { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
+                                            MethodCallExpression whereCallExpression = Expression.Call(
+                                            typeof(Queryable),
+                                            "Where",
+                                            new Type[] { queryable.ElementType },
+                                            queryable.Expression,
+                                            Expression.Lambda(expressionAnd, expressionBase));
+                                            queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                                        }
+                                        
+                                        foreach (Object o in queryable)
+                                        {
+                                            columnInfo.Property.SetValue(item, o);
+                                        }
+
+                                   
+                                  
+                                }
+                                else
+                                {
+                                    if (vm.Mapping.ContainsKey(columnInfo.PropertyName))
+                                    {
+
+
+                                        PropertyInfo property = item.GetType().GetProperty(columnInfo.PropertyName);
+                                        Object propertyValue = null;
+                                        if (Validator.ValidateObject(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
+                                        {
+                                            property.SetValue(item, propertyValue);
+                                        }
+
+                                    }
+                                }
+                                
+                            }
+                            
+                           
                         }
+                        vm.StateMessage = "Import lignes "+index.ToString () +" / " +total.ToString () ;
                         dbSet.Add(item);
+                       // IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> result = dataService.DataContext.GetValidationErrors();
+                        dataService.DataContext.SaveChanges();
                     }
-                    dataService.DataContext.SaveChanges();
+                 
                     
                 }
             }
         }
-
-        private object ParseString(Type type, string valueString)
+        /*
+        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath,)
         {
-            if (type.Equals(typeof(String)))
+            //  Console.Write("Try apply filter for " + fieldPath);
+            String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            EntityTableInfo listTableInfo = this.DataService.GetEntityTableInfo(items[0]);
+            EntityColumnInfo listColumnInfo = (from c in listTableInfo.ColumnInfos where c.PropertyName.Equals(items[1]) select c).FirstOrDefault();
+            EntityTableInfo baseTableInfo = this.DataService.GetEntityTableInfo(typeof(M));
+            String basePropertyName = this.DataService.GetPath(listTableInfo, baseTableInfo) + "." + items[1];
+            EntityColumnInfo baseProperty = this.DataService.GetBottomProperty(typeof(M), basePropertyName);
+            List<EntityColumnInfo> parentfkProperties = this.DataService.FindParentForeignColumnInfos(baseProperty);
+            int index = parentfkProperties.IndexOf(listColumnInfo);
+            ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");
+            List<Expression> expressions = new List<Expression>();
+            for (int i = 0; i < index; i++)
             {
-                if (String.IsNullOrEmpty(valueString)) return null;
-                else return valueString;
-            }
-            else throw new Exception("Type non géré " + type.Name);
-        }
+                EntityColumnInfo parentfkProperty = parentfkProperties[i];
+                String parentfkPropertyPath = this.DataService.GetPath(parentfkProperty.TableInfo, baseTableInfo) + "." + parentfkProperty.PropertyName;
+                if (this._values.ContainsKey(parentfkPropertyPath))
+                {
+                    String listPropertyPath = this.DataService.GetPath(parentfkProperty.TableInfo, listTableInfo) + "." + parentfkProperty.PropertyName;
+                    String[] listPropertyPathItems = listPropertyPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
+                    Expression expression = null;
+                    foreach (String listPropertyPathItem in listPropertyPathItems)
+                    {
+                        if (expression == null)
+                        {
+                            expression = Expression.Property(expressionBase, listPropertyPathItem);
+                        }
+                        else
+                        { expression = Expression.Property(expression, listPropertyPathItem); }
+                    }
+                    expression = Expression.Equal(expression, Expression.Constant(this._values[parentfkPropertyPath]));
+                    expressions.Add(expression);
+                }
+
+            }
+
+            if (expressions.Count > 0)
+            {
+                Expression expressionAnd = expressions.First();
+                for (int i = 1; i < expressions.Count; i++)
+                { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
+                MethodCallExpression whereCallExpression = Expression.Call(
+                typeof(Queryable),
+                "Where",
+                new Type[] { itemsSourceQueryable.ElementType },
+                itemsSourceQueryable.Expression,
+                Expression.Lambda(expressionAnd, expressionBase));
+                itemsSourceQueryable = itemsSourceQueryable.Provider.CreateQuery(whereCallExpression);
+            }
+            return itemsSourceQueryable;
+        }
+        */
         private void StartDirectoryScan()
         {
             Task task = new Task(DirectoryScan);
