@@ -10,7 +10,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
 {
     public abstract class DashboardItemViewModel : INotifyPropertyChanged
     {
-        public String FolderName { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {

@@ -38,7 +38,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation
         public void Initialize()
         {
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du module tableau de bord ...");
-            this._container.RegisterType<DashboardDialogItemViewModel>();
+            this._container.RegisterType<DashboardDialogFolderViewModel>();
             this._container.RegisterType<IDashboardService, DashboardService>(new ContainerControlledLifetimeManager());
             this._regionManager.RegisterViewWithRegion("Dashboard", typeof(DashboardView));
 

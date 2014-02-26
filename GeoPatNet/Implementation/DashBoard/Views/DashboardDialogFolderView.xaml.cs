@@ -17,9 +17,9 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Views
     /// <summary>
     /// Logique d'interaction pour DashboardDialogItemView.xaml
     /// </summary>
-    public partial class DashboardDialogItemView : Window
+    public partial class DashboardDialogFolderView : Window
     {
-        public DashboardDialogItemView()
+        public DashboardDialogFolderView()
         {
             InitializeComponent();
         }

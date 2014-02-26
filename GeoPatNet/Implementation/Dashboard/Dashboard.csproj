@@ -94,12 +94,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\DashboardService.cs" />
-    <Compile Include="ViewModels\DashboardDialogItemViewModel.cs" />
+    <Compile Include="ViewModels\ContextMenuItem.cs" />
+    <Compile Include="ViewModels\DashboardDialogFolderViewModel.cs" />
     <Compile Include="ViewModels\DashboardFolderViewModel.cs" />
     <Compile Include="ViewModels\DashboardItemViewModel.cs" />
     <Compile Include="ViewModels\DashboardTableViewModel.cs" />
-    <Compile Include="Views\DashboardDialogItemView.xaml.cs">
-      <DependentUpon>DashboardDialogItemView.xaml</DependentUpon>
+    <Compile Include="Views\DashboardDialogFolderView.xaml.cs">
+      <DependentUpon>DashboardDialogFolderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
@@ -117,7 +118,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\DashboardDialogItemView.xaml">
+    <Page Include="Views\DashboardDialogFolderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

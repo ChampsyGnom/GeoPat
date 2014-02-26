@@ -17,6 +17,21 @@
            
         </Grid.RowDefinitions>
         <TreeView Margin="2" Grid.Row="0" ItemsSource="{Binding Path=Items,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+            <TreeView.ContextMenu>
+                <ContextMenu ItemsSource="{Binding TreeContextMenuItems,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                    <ContextMenu.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Command" Value="{Binding Path=Command}"></Setter>
+                            <Setter Property="CommandParameter" Value="{Binding}"></Setter>
+                        </Style>
+                    </ContextMenu.ItemContainerStyle>
+                    <ContextMenu.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type vm:ContextMenuItem}" ItemsSource="{Binding Path=Items}">
+                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                        </HierarchicalDataTemplate>
+                    </ContextMenu.Resources>
+                </ContextMenu>
+            </TreeView.ContextMenu>
             <i:Interaction.Behaviors>
                 <b:MouseDoubleClickBehavior DoubleClickCommand="{Binding Path=OpenItemCommand}"> </b:MouseDoubleClickBehavior>
             </i:Interaction.Behaviors>
@@ -24,7 +39,24 @@
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
                     <Setter Property="IsSelected" Value="{Binding Path=IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
-                    
+                    <Setter Property="ContextMenu"  >
+                        <Setter.Value>
+                            <ContextMenu ItemsSource="{Binding TreeContextMenuItems,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                                <ContextMenu.ItemContainerStyle>
+                                    <Style TargetType="MenuItem">
+                                        <Setter Property="Command" Value="{Binding Path=Command}"></Setter>
+                                        <Setter Property="CommandParameter" Value="{Binding}"></Setter>
+                                    </Style>
+                                </ContextMenu.ItemContainerStyle>
+                                <ContextMenu.Resources>
+                                    <HierarchicalDataTemplate DataType="{x:Type vm:ContextMenuItem}" ItemsSource="{Binding Path=Items}">
+                                        <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                    </HierarchicalDataTemplate>
+                                </ContextMenu.Resources>
+                            </ContextMenu>
+                        </Setter.Value>
+                    </Setter>
+
                 </Style>
          
           
