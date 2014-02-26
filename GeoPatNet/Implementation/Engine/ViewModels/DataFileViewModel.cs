@@ -111,6 +111,12 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
                     this.Import = true;
                 }
+                else if (this.TableInfo.TableName.Equals("INF_CD_BIFURCATION"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("TYPE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("TYPE"));
+                    this.Import = true;
+                }
                 else if (this.TableInfo.TableName.Equals("INF_CD_GARE"))
                 {
                     this._mapping.Add("Code", this._headers.IndexOf("TYPE"));
@@ -155,7 +161,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 else if (this.TableInfo.TableName.Equals("INF_CD_VOIE"))
                 {
-                    //VOIE;POSIT;LIBELLE;ROULABLE
+                   
                     this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
                     this._mapping.Add("Code", this._headers.IndexOf("VOIE"));                 
                     this._mapping.Add("Position", this._headers.IndexOf("POSIT"));
@@ -171,7 +177,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 else if (this.TableInfo.TableName.Equals("INF_CD_DEC"))
                 {
-                    //FAM_DEC_INF__FAM_DEC;CD_DEC;LIBELLE
+                    
                     this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
                     this._mapping.Add("Code", this._headers.IndexOf("CD_DEC"));
                     this._mapping.Add("InfFamDec.Code", this._headers.IndexOf("FAM_DEC_INF__FAM_DEC"));
@@ -190,8 +196,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this.Import = true;
                 }
                 else if (this.TableInfo.TableName.Equals("INF_CHAUSSEE"))
-                {
-                    //ABS_DEB;ABS_FIN;LIBELLE;TENANT;ABOUT
+                {                  
                     this._mapping.Add("InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
                     this._mapping.Add("Code", this._headers.IndexOf("SENS"));
                     this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
@@ -223,7 +228,6 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 else if (this.TableInfo.TableName.Equals("INF_GARE"))
                 {
-                    //LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;CD_GARE_INF__TYPE;NUM_EXPLOIT;NOM;DATE_MS;VOI_ENTREE;VOI_SORTIE;VOI_MIXTE;VOI_TSA;OBSERV
                     this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
                     this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
                     this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
@@ -240,7 +244,6 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 else if (this.TableInfo.TableName.Equals("INF_OCCUPATION"))
                 {
-                    //LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;ABS_FIN;CD_OCCUP_INF__TYPE;CD_OCCUPANT_INF__NOM;DATE_MS;DATE_FV;TRAV;OBS
                     this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
                     this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
                     this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
@@ -262,6 +265,159 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this._mapping.Add("Largeur", this._headers.IndexOf("LARGEUR"));
                     this._mapping.Add("DateMs", this._headers.IndexOf("DATE_MS"));
                    
+                    this.Import = true;
+                }
+
+                else if (this.TableInfo.TableName.Equals("INF_PK"))
+                {
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsCum", this._headers.IndexOf("ABS_CUM"));
+                    this._mapping.Add("Inter", this._headers.IndexOf("INTER"));
+                    this._mapping.Add("Num", this._headers.IndexOf("NUM"));
+                    this.Import = true;
+
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_PT_SING"))
+                {
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("Nom", this._headers.IndexOf("NOM_USAGE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
+                    this._mapping.Add("Info", this._headers.IndexOf("COMMENTAIRE"));
+                    this.Import = true;
+
+                
+                }
+                else if (this.TableInfo.TableName.Equals("INF_SECTION_TRAFIC"))
+                {
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodeTrafic.Code", this._headers.IndexOf("CD_CLASS_TRAF_INF__CODE"));
+                    this._mapping.Add("Tenant", this._headers.IndexOf("TENANT"));
+                    this._mapping.Add("About", this._headers.IndexOf("ABOUT"));                   
+                    this.Import = true;                    
+                }
+                else if (this.TableInfo.TableName.Equals("INF_SECURITE"))
+                {                  
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodePosit.Code", this._headers.IndexOf("CD_POSIT_INF__POSIT"));
+                    this._mapping.Add("InfCodeSecurite", this._headers.IndexOf("CD_SECUR_INF__TYPE"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_SENSIBLE"))
+                {                  
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodeSensible.Code", this._headers.IndexOf("CD_SENSIBLE_INF__CODE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_TALUS"))
+                {
+             
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodeTalus.Code", this._headers.IndexOf("CD_TALUS_INF__TYPE"));
+                    this._mapping.Add("Hauteur", this._headers.IndexOf("HAUT"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_TPC"))
+                {                    
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodeTpc.Code", this._headers.IndexOf("CD_TPC_INF__CODE"));
+                    this._mapping.Add("Largeur", this._headers.IndexOf("LARGEUR"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_TR_DEC"))
+                {
+                   
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodeDec.InfFamDec.Code", this._headers.IndexOf("FAM_DEC_INF__FAM_DEC"));
+                    this._mapping.Add("InfCodeDec.Code", this._headers.IndexOf("CD_DEC_INF__CD_DEC"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_ACCIDENT"))
+                {
+ 
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("Mois", this._headers.IndexOf("MOIS"));
+                    this._mapping.Add("Annee", this._headers.IndexOf("ANNEE"));
+                    this._mapping.Add("Nb", this._headers.IndexOf("NBR_ACC"));
+                    this._mapping.Add("NbMois", this._headers.IndexOf("NBR_ACC_MOIS"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_AMENAGEMENT"))
+                {                 
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("AbsFin", this._headers.IndexOf("ABS_FIN"));
+                    this._mapping.Add("InfCodeAmenagement.Code", this._headers.IndexOf("CD_AMENAG_INF__TYPE_AMENAG"));
+                    this._mapping.Add("DateDeb", this._headers.IndexOf("DATE_DEB"));
+                    this._mapping.Add("DateFin", this._headers.IndexOf("DATE_FIN"));
+                    this._mapping.Add("Cout", this._headers.IndexOf("COUT"));
+                    this._mapping.Add("Info", this._headers.IndexOf("OBSERV"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_PR_OLD"))
+                {
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsCum", this._headers.IndexOf("ABS_CUM"));
+                    this._mapping.Add("Inter", this._headers.IndexOf("INTER"));
+                    this._mapping.Add("Num", this._headers.IndexOf("NUM"));
+                    this.Import = true;
+
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_BIFURCATION"))
+                {
+                  
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("InfCodeBifurcation.Code", this._headers.IndexOf("CD_BIF_INF__TYPE"));
+                    this._mapping.Add("Nom", this._headers.IndexOf("NOM"));
+                    this._mapping.Add("DateFin", this._headers.IndexOf("DATE_FIN"));
+                    this._mapping.Add("DateMs", this._headers.IndexOf("DATE_MS"));
+                    this._mapping.Add("Info", this._headers.IndexOf("OBSERV"));
+                    this._mapping.Add("NumExploit", this._headers.IndexOf("NUM_EXPLOIT"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_BRETELLE"))
+                {
+                  
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("Extremite", this._headers.IndexOf("EXTREMITE"));
+                    this._mapping.Add("NumExploit", this._headers.IndexOf("NUM_EXPLOIT"));
+                    this._mapping.Add("Num", this._headers.IndexOf("NUM_BRETELLE"));
+                    this._mapping.Add("Nom", this._headers.IndexOf("NOM_BRETELLE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
+                    this._mapping.Add("Type", this._headers.IndexOf("TYPE"));
+                    
                     this.Import = true;
                 }
             }

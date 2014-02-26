@@ -120,6 +120,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         private void ImportFile(List<DataFileViewModel> vms)
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            dataService.DataContext.Configuration.AutoDetectChangesEnabled = false;
+            dataService.DataContext.Configuration.ValidateOnSaveEnabled = false;
             foreach (DataFileViewModel vm in vms)
             {
                 if (vm.Import)
@@ -234,15 +236,26 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                             
                            
                         }
-                        vm.StateMessage = "Import lignes "+index.ToString () +" / " +total.ToString () ;
+                        if (index % 10 == 0)
+                        { vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString(); }
+                        
                         dbSet.Add(item);
                        // IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> result = dataService.DataContext.GetValidationErrors();
-                        dataService.DataContext.SaveChanges();
+                       
+                       
                     }
-                 
-                    
+
+                    vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString();
+                    try { dataService.DataContext.SaveChanges(); }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+             
                 }
             }
+            dataService.DataContext.Configuration.AutoDetectChangesEnabled = true;
+            dataService.DataContext.Configuration.ValidateOnSaveEnabled = true;
         }
         /*
         private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath,)
@@ -338,6 +351,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                             camelCaseItems.Add(camelCaseItem);
                         }
                         entityName = String.Join("", camelCaseItems);
+                        if (entityName.Equals("InfCodeBif"))
+                        { 
+                            entityName = "InfCodeBifurcation"; 
+                        }
                         entityTableInfo = dataService.GetEntityTableInfo(entityName);
                         if (entityTableInfo != null)
                         {
