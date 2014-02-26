@@ -58,7 +58,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
                 
             }
 
-            Console.WriteLine(this.SchemaName + "." + this.TableName);
+      
         }
     }
 }

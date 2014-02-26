@@ -162,7 +162,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                             String path = this.GetPath(parentColumnInfo.TableInfo, entityTableInfo) + "." + parentColumnInfo.PropertyName;
                             fieldPaths.Add(path);
                         }
-                        Console.WriteLine(parentColumnInfos);
+                    
                     }
                     else if (columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.None)
                     {

@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
+using Emash.GeoPatNet.Atom.Infrastructure.Services;
 
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
@@ -47,7 +48,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
-                Console.WriteLine("RaisePropertyChanged " + name);
+            
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
@@ -168,40 +169,57 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         public void LoadFromModel(List<String> fieldPaths)
         {
+            IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
             foreach (String fieldPath in fieldPaths)
             {
                 EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), fieldPath);
                 if (fieldPath.IndexOf(".") == -1)
                 {
-                    if (columnInfo.PropertyType.Equals(typeof(String)))
-                    {
+                    
                         if (!this._values.ContainsKey(fieldPath))
                         { this._values.Add(fieldPath, null); }
                         Object value = this.Model.GetType().GetProperty(fieldPath).GetValue(this.Model);
                         if (value == null)
-                        { this._values[fieldPath] = ""; }
+                        { this._values[fieldPath] = null; }
                         else
-                        { this._values[fieldPath] = value.ToString(); }
-                       
-                    }
+                        {
+                            if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr && columnInfo.PrChausseeColumnName != null)
+                            {
+                                EntityColumnInfo columnChausseeIdInfo = (from c in columnInfo.TableInfo.ColumnInfos where c.ColumnName .Equals( columnInfo.PrChausseeColumnName) && c.ControlType == Presentation.Infrastructure.Attributes.ControlType.None select c).FirstOrDefault();
+                                Int64 valueIdChaussee = (Int64)columnChausseeIdInfo.Property.GetValue(this.Model);
+                                Nullable<Int64> valueAbs = (Nullable<Int64>) value;
+                                String pr = reperageService.AbsToPr(valueIdChaussee, valueAbs);
+                                this._values[fieldPath] = pr;
+                            }
+                            else
+                            {
+                                Object formattedValue = Formatter.FormatValue(columnInfo.PropertyType, value);
+                                this._values[fieldPath] = formattedValue;
+                            }
+                            
+                        }
                 }
                 else
                 {
+                    
                     String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                     Type baseType = typeof(M);
                     object baseValue = this.Model;
+                    PropertyInfo baseProp = null;
                     for(int i = 0 ; i < items .Length ;i++)
                     {
                         PropertyInfo prop = baseType.GetProperty(items[i]);
+                        baseProp = prop;
                         baseValue = prop.GetValue(baseValue);
                         if (baseValue == null)
                         {break;}
                         baseType = baseValue.GetType();
                     }
                     if (baseValue != null)
-                    { this._values[fieldPath] = baseValue.ToString (); }
+                    { this._values[fieldPath] = Formatter.FormatValue(baseProp.PropertyType, baseValue); }
                     else
                     { this._values[fieldPath] = CultureConfiguration.ListNullString; }
+                    
                 }
             }
             this._comboItemsSource.Values = this._values;
@@ -213,6 +231,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo (typeof(M));
             List<EntityColumnInfo> navigationProperties = new List<EntityColumnInfo>();
+            String message = null;
+            Object valueValidated = null;
             foreach (String fieldPath in fieldPaths)
             {
                 EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), fieldPath);
@@ -220,14 +240,17 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 {
                     if (columnInfo.PropertyType.Equals(typeof(String)))
                     {
-                        this.Model.GetType().GetProperty(fieldPath).SetValue(this.Model, this[fieldPath]);
+                        
+                        if (Validator.ValidateObject(this[fieldPath], columnInfo, out message, out valueValidated))
+                        { this.Model.GetType().GetProperty(fieldPath).SetValue(this.Model, valueValidated); }
+                        
                     }
                 }
                 else
                 {
                  
                     String[] fieldPathItems = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                    EntityColumnInfo bottomProp = (from p in tableInfo.ColumnInfos where p.PropertyName.Equals (fieldPathItems[0]) select p).FirstOrDefault();
+                    EntityColumnInfo bottomProp = (from p in tableInfo.ColumnInfos where p.PropertyName.Equals (fieldPathItems[0]) select p).FirstOrDefault();                 
                     navigationProperties.Add(bottomProp);
                 }
             }
@@ -302,6 +325,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 List<Object> values = new List<object>();
                 foreach (Object obj in queryable)
                 {
+
                     this.Model.GetType().GetProperty(navigationProperty.PropertyName).SetValue(this.Model, obj);
                 }
             }
@@ -354,7 +378,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 Object result = null;
                 if (this.Model != null && !columnName.EndsWith (".ItemsSource"))
                 {
-                    Console.WriteLine("Search Error for " + columnName);
+               
                     if (columnName.StartsWith("[") && columnName.EndsWith("]"))
                     {
                         String path = columnName.Substring(1);
@@ -377,7 +401,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                             Object valueObject = this._values[path];
                             if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
                             {
-                                Console.WriteLine("Find Error for " + columnName);
+                           
                                 return "valeur vide non autorisée";
                             }
                         }

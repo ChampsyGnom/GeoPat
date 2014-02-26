@@ -34,7 +34,7 @@ namespace Emash.GeoPatNet.Engine.Implementation
         private Task _moduleInitializerTask;
         public EngineBootstrapper()
         {
-            this.MaxIntializeTimeout = 1000;
+            this.MaxIntializeTimeout = 200;
         }
         protected override void ConfigureModuleCatalog()
         {
@@ -87,14 +87,20 @@ namespace Emash.GeoPatNet.Engine.Implementation
             base.InitializeModules();
             this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
             IDataService dataService = this.Container.TryResolve<IDataService>();
+            IReperageService reperageService = this.Container.TryResolve<IReperageService>();
             IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();            
             if (dataService != null)
             {
                 _moduleInitializerTask = new Task(new Action(delegate()
                 {
-                    dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
+                    dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
                     if (dashBoardService != null)
                     { dashBoardService.Initialize(); }
+
+                    if (reperageService != null)
+                    { reperageService.Initialize(); }
+
+
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
                 }));
                 _moduleInitializerTask.Start();

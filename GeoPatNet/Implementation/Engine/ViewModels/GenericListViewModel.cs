@@ -220,11 +220,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     GenericListItemViewModel<M> vm = new GenericListItemViewModel<M>(this, model);
                     vm.LoadFromModel(this.FieldPaths.ToList());
                     this.Items.Add(vm);
-                    this.State = GenericDataListState.Display;
-                    this.ItemsView.MoveCurrentToFirst();
-                    this.RaiseStateChange();
-
                 }
+                this.State = GenericDataListState.Display;
+                this.ItemsView.MoveCurrentToFirst();
+                this.RaiseStateChange();
             }
           
         }

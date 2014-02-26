@@ -68,18 +68,28 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
             }
             else if (dataType.Equals(typeof(Int64)))
             {
-                Int64 valInt64 = 0;
-                if (Validator.ValidateInt64(valueString, out message, out valInt64))
+                if (dbProp.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr)
                 {
-                    value = valInt64;
+                    value = valueString;
                     message = null;
                     return true;
                 }
                 else
                 {
-                    value = null;
-                    return false;
+                    Int64 valInt64 = 0;
+                    if (Validator.ValidateInt64(valueString, out message, out valInt64))
+                    {
+                        value = valInt64;
+                        message = null;
+                        return true;
+                    }
+                    else
+                    {
+                        value = null;
+                        return false;
+                    }
                 }
+                
             }
             else if (dataType.Equals(typeof(DateTime)))
             {
@@ -128,18 +138,28 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
             }
             else if (dataType.Equals(typeof(Nullable<Int64>)))
             {
-                Nullable<Int64> valInt64 = 0;
-                if (Validator.ValidateNullableInt64(valueString, out message, out valInt64))
+                if (dbProp.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr)
                 {
-                    value = valInt64;
+                    value = valueString;
                     message = null;
                     return true;
                 }
                 else
                 {
-                    value = null;
-                    return false;
+                    Nullable<Int64> valInt64 = 0;
+                    if (Validator.ValidateNullableInt64(valueString, out message, out valInt64))
+                    {
+                        value = valInt64;
+                        message = null;
+                        return true;
+                    }
+                    else
+                    {
+                        value = null;
+                        return false;
+                    }
                 }
+               
             }
             else if (dataType.Equals(typeof(Nullable<DateTime>)))
             {

@@ -49,7 +49,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Début")]
         [ColumnName("INF_REPARTITION_TRAFIC__ABS_DEB")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [RulePr("INF_CHAUSSEE__ID")]
+        [ControlType(ControlType.Pr)]
         [AllowNull(false)]
         public Int64 AbsDeb
         {
@@ -59,7 +60,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Fin")]
         [ColumnName("INF_REPARTITION_TRAFIC__ABS_FIN")]
         [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Integer)]
+        [RulePr("INF_CHAUSSEE__ID")]
+        [ControlType(ControlType.Pr)]
         [AllowNull(true)]
         public Nullable<Int64> AbsFin
         {

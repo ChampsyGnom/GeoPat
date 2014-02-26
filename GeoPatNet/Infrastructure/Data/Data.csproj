@@ -145,6 +145,7 @@
     <Compile Include="Reflection\EntityTableInfo.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Validations\CultureConfiguration.cs" />
+    <Compile Include="Validations\Formatter.cs" />
     <Compile Include="Validations\Validator.cs" />
   </ItemGroup>
   <ItemGroup>

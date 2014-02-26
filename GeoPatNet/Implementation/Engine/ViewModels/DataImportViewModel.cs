@@ -38,7 +38,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
-                Console.WriteLine("RaisePropertyChanged " + name);
+             
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
@@ -152,6 +152,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                                 {
                                     List<EntityColumnInfo> fkParentColumnsInfos = dataService.FindParentForeignColumnInfos(columnInfo);
                                     Boolean allValuePresent = true;
+                                    if (allValuePresent)
+                                    { }
                                     foreach (EntityColumnInfo fkParentColumnsInfo in fkParentColumnsInfos)
                                     {
                                         String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
@@ -257,61 +259,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             dataService.DataContext.Configuration.AutoDetectChangesEnabled = true;
             dataService.DataContext.Configuration.ValidateOnSaveEnabled = true;
         }
-        /*
-        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath,)
-        {
-            //  Console.Write("Try apply filter for " + fieldPath);
-            String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            EntityTableInfo listTableInfo = this.DataService.GetEntityTableInfo(items[0]);
-            EntityColumnInfo listColumnInfo = (from c in listTableInfo.ColumnInfos where c.PropertyName.Equals(items[1]) select c).FirstOrDefault();
-            EntityTableInfo baseTableInfo = this.DataService.GetEntityTableInfo(typeof(M));
-            String basePropertyName = this.DataService.GetPath(listTableInfo, baseTableInfo) + "." + items[1];
-            EntityColumnInfo baseProperty = this.DataService.GetBottomProperty(typeof(M), basePropertyName);
-            List<EntityColumnInfo> parentfkProperties = this.DataService.FindParentForeignColumnInfos(baseProperty);
-            int index = parentfkProperties.IndexOf(listColumnInfo);
-            ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");
-            List<Expression> expressions = new List<Expression>();
-            for (int i = 0; i < index; i++)
-            {
-                EntityColumnInfo parentfkProperty = parentfkProperties[i];
-                String parentfkPropertyPath = this.DataService.GetPath(parentfkProperty.TableInfo, baseTableInfo) + "." + parentfkProperty.PropertyName;
-                if (this._values.ContainsKey(parentfkPropertyPath))
-                {
-                    String listPropertyPath = this.DataService.GetPath(parentfkProperty.TableInfo, listTableInfo) + "." + parentfkProperty.PropertyName;
-                    String[] listPropertyPathItems = listPropertyPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-                    Expression expression = null;
-                    foreach (String listPropertyPathItem in listPropertyPathItems)
-                    {
-                        if (expression == null)
-                        {
-                            expression = Expression.Property(expressionBase, listPropertyPathItem);
-                        }
-                        else
-                        { expression = Expression.Property(expression, listPropertyPathItem); }
-                    }
-                    expression = Expression.Equal(expression, Expression.Constant(this._values[parentfkPropertyPath]));
-                    expressions.Add(expression);
-                }
-
-            }
-
-            if (expressions.Count > 0)
-            {
-                Expression expressionAnd = expressions.First();
-                for (int i = 1; i < expressions.Count; i++)
-                { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
-                MethodCallExpression whereCallExpression = Expression.Call(
-                typeof(Queryable),
-                "Where",
-                new Type[] { itemsSourceQueryable.ElementType },
-                itemsSourceQueryable.Expression,
-                Expression.Lambda(expressionAnd, expressionBase));
-                itemsSourceQueryable = itemsSourceQueryable.Provider.CreateQuery(whereCallExpression);
-            }
-            return itemsSourceQueryable;
-        }
-        */
+       
         private void StartDirectoryScan()
         {
             Task task = new Task(DirectoryScan);
@@ -358,7 +306,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         entityTableInfo = dataService.GetEntityTableInfo(entityName);
                         if (entityTableInfo != null)
                         {
-                            Console.WriteLine("legacy");
+                          
                             this.Dispatcher.Invoke(new Action(delegate() {
                                 DataFileViewModel vm = new DataFileViewModel(file, entityTableInfo, true);
                                 this._files.Add(vm);

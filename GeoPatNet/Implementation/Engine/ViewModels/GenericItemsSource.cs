@@ -23,7 +23,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
-                Console.WriteLine("RaisePropertyChanged " + name);
+               
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
@@ -87,7 +87,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 this._comboItemsSource[fieldPath].Clear();
                 IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
                 String[] items = fieldPath.Split(".".ToArray(), StringSplitOptions.RemoveEmptyEntries);
-               // Console.WriteLine("Load ItemsSource for path " + items[0] + "." + items[1]);
+             
                 EntityTableInfo itemsSourceTableInfo = dataService.GetEntityTableInfo(items[0]);
                 DbSet itemsSourceDbSet = dataService.GetDbSet(itemsSourceTableInfo.EntityType);
                 IQueryable itemsSourceQueryable = itemsSourceDbSet.AsQueryable();
@@ -110,7 +110,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath)
         {
-          //  Console.Write("Try apply filter for " + fieldPath);
+         
             String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             EntityTableInfo listTableInfo = this.DataService.GetEntityTableInfo (items[0]);
             EntityColumnInfo listColumnInfo = (from c in listTableInfo.ColumnInfos where c.PropertyName.Equals (items[1]) select c).FirstOrDefault();

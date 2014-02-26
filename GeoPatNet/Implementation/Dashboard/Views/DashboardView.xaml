@@ -22,7 +22,7 @@
                     <ContextMenu.ItemContainerStyle>
                         <Style TargetType="MenuItem">
                             <Setter Property="Command" Value="{Binding Path=Command}"></Setter>
-                            <Setter Property="CommandParameter" Value="{Binding}"></Setter>
+                          
                         </Style>
                     </ContextMenu.ItemContainerStyle>
                     <ContextMenu.Resources>
@@ -45,7 +45,7 @@
                                 <ContextMenu.ItemContainerStyle>
                                     <Style TargetType="MenuItem">
                                         <Setter Property="Command" Value="{Binding Path=Command}"></Setter>
-                                        <Setter Property="CommandParameter" Value="{Binding}"></Setter>
+                                      
                                     </Style>
                                 </ContextMenu.ItemContainerStyle>
                                 <ContextMenu.Resources>

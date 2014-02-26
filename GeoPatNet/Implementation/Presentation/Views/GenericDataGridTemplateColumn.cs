@@ -134,7 +134,8 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
 
             DataTemplate tpl = new DataTemplate();
             FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBlock));
-   
+            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
             textBox.SetBinding(TextBlock.TextProperty, this.CreateBindingOneWay(this._fieldPath));
             tpl.VisualTree = textBox;
             contentControlStyle.Setters.Add (new Setter (ContentControl.ContentTemplateProperty, tpl));            
@@ -192,33 +193,39 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
                
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                        if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                        { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.InsertingEmpty)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                      
+                        if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                        { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.Display)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                   
+                        if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                        { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.Updating)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
- 
+                        if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                        { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }
                     else if (state == GenericDataListState.InsertingDisplay)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-   
+                        if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                        { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         dataTemplate.VisualTree = textBox;
                     }

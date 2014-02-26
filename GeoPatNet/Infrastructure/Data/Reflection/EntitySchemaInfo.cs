@@ -37,11 +37,8 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
             }
             this.RecurseFillDependencies(leveledTables,1);
             this.TableInfos = (from t in this.TableInfos orderby t.Level select t).ToList();
-            Console.WriteLine("------------------------ Level -----------------");
-            foreach (EntityTableInfo tableInfo in this.TableInfos)
-            {
-                Console.WriteLine(tableInfo.EntityType.Name + " : " + tableInfo.Level);
-            }
+         
+           
         }
 
         private void RecurseFillDependencies(List<EntityTableInfo> leveledTables,int level)

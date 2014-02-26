@@ -84,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IAvailableService.cs" />
     <Compile Include="Services\IDashboardService.cs" />
+    <Compile Include="Services\IReperageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -5,12 +5,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
 {
     public abstract class DashboardItemViewModel : INotifyPropertyChanged
     {
-
+        public ObservableCollection<ContextMenuItem> TreeContextMenuItems { get; protected  set; }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {

@@ -28,7 +28,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public List<String> ForeignKeyNames { get; private set; }
         public List<String> UniqueKeyNames { get; private set; }
         public ControlType ControlType { get; private set; }
-       
+      
         public String DisplayName { get; private set; }
         public EntityColumnInfo(EntityTableInfo entityTableInfo, PropertyInfo property)
         {

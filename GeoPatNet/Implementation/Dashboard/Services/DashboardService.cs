@@ -81,11 +81,65 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
             this.TreeContextMenuItems = new ObservableCollection<ContextMenuItem>();
             ContextMenuItem contextMenuItemAddFolder = new ContextMenuItem();
             contextMenuItemAddFolder.DisplayName = "Ajouter un dossier";
-            contextMenuItemAddFolder.Command = new DelegateCommand<object>(AddFolder);
+            contextMenuItemAddFolder.Command = new DelegateCommand(AddFolder);
             contextMenuItemAddFolder.DashboardItem = null;
             this.TreeContextMenuItems.Add(contextMenuItemAddFolder);
+
+
+            
+             
+          
+
+
         }
-        public void AddFolder(Object parent)
+
+        public void AddTable(Object parentVm, Object entityTableInfoObj)
+        {
+            if (entityTableInfoObj != null && entityTableInfoObj is EntityTableInfo)
+            {
+                EntityTableInfo entityTableInfo = (entityTableInfoObj as EntityTableInfo);
+
+                DbSet<InfCodeDashboard> datasCodeDashboard = _dataService.GetDbSet<InfCodeDashboard>();
+                DbSet<InfDashboard> datasDashboard = _dataService.GetDbSet<InfDashboard>();
+                InfDashboard dashboardTable = new InfDashboard();
+                dashboardTable.Code = entityTableInfo.SchemaName+"."+entityTableInfo.TableName;
+                dashboardTable.Libelle = entityTableInfo.DisplayName;
+                if (parentVm != null && parentVm is DashboardFolderViewModel)
+                {
+                    DashboardFolderViewModel folder = parentVm as DashboardFolderViewModel;
+                    dashboardTable.IdParent = folder.Model.Id;
+                }
+                else
+                { dashboardTable.IdParent = -1; }
+               
+                dashboardTable.InfCodeDashboard = (from c in datasCodeDashboard where c.Code.Equals("TABLE") select c).FirstOrDefault();
+                dashboardTable.Ordre = this.Items.Count + 1;
+                datasDashboard.Add(dashboardTable);
+                IEnumerable<DbEntityValidationResult> results = _dataService.DataContext.GetValidationErrors();
+                _dataService.DataContext.SaveChanges();
+
+                DashboardTableViewModel tableVm = new DashboardTableViewModel();
+                tableVm.DisplayName = entityTableInfo.DisplayName;
+                tableVm.Model = dashboardTable;
+                if (parentVm != null && parentVm is DashboardFolderViewModel)
+                {
+                    DashboardFolderViewModel folder = parentVm as DashboardFolderViewModel;
+                    folder.Items.Add(tableVm);
+                    folder.IsExpanded = true;
+                    tableVm.IsSelected = true;
+                }
+                else
+                {
+                    this.Items.Add(tableVm);
+                    tableVm.IsSelected = true;
+                }
+               
+                this.FillOrder();
+            }
+           
+        }
+
+        public void AddFolder()
         {
                           
             DbSet<InfCodeDashboard> datasCodeDashboard = _dataService.GetDbSet<InfCodeDashboard>();
@@ -111,6 +165,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                 folder.DisplayName = vm.FolderName;
                 folder.Model = dashboardFolder;
                 this.Items.Add(folder);
+                this.FillOrder();
             }
                 
             
@@ -132,83 +187,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
                 }
             }
         }
-        /*
-        private void AddItem()
-        {
-            DashboardItemViewModel selectedItem = this.SelectedItem;
-            DashboardDialogFolderViewModel vm = new DashboardDialogFolderViewModel(null);
-            DashboardDialogFolderView view = new DashboardDialogFolderView();
-            view.DataContext = vm;
-            view.Owner = System.Windows.Application.Current.MainWindow;
-            Nullable<Boolean> result =   view.ShowDialog();
-            DbSet<InfCodeDashboard> datasCodeDashboard = _dataService.GetDbSet<InfCodeDashboard>();
-             DbSet<InfDashboard> datasDashboard = _dataService.GetDbSet<InfDashboard>();
-            if (result.HasValue && result.Value == true)
-            {
-                long idParent = -1;
-                if (selectedItem != null)
-                { idParent = selectedItem.Model.Id; }
-                long order = 0;
-
-                if ((from i in datasDashboard where i.IdParent == idParent select i.Ordre).Count() > 0)
-                { order = (from i in datasDashboard where i.IdParent == idParent select i.Ordre).Max()+1; }
-                
-                if (vm.IsFolder)
-                {
-                   
-                    InfDashboard dashboardFolder = new InfDashboard();
-                    dashboardFolder.InfCodeDashboard = (from c in datasCodeDashboard where c.Code .Equals ("FOLDER") select c).FirstOrDefault();
-                    dashboardFolder.IdParent = idParent;
-                    dashboardFolder.Ordre = order ;
-                    dashboardFolder.Libelle = vm.FolderName;
-                    dashboardFolder.Code = vm.FolderName;
-                    datasDashboard.Add(dashboardFolder);
-                    DashboardFolderViewModel folder = new DashboardFolderViewModel();
-                    folder.Model = dashboardFolder;
-                    folder.DisplayName = dashboardFolder.Libelle;
-                    if (idParent == -1)
-                    {this.Items.Add(folder);}
-                    else
-                    {
-                        (selectedItem as DashboardFolderViewModel).Items.Add(folder);
-                        selectedItem.IsExpanded = true;                        
-                        folder.IsSelected = true;
-                       
-                    }
-                    _dataService.DataContext.SaveChanges();
-                }
-
-
-                if (vm.IsTable )
-                {
-
-                    InfDashboard dashboardTable = new InfDashboard();
-                    dashboardTable.InfCodeDashboard = (from c in datasCodeDashboard where c.Code.Equals("TABLE") select c).FirstOrDefault();
-                    dashboardTable.IdParent = idParent;
-                    dashboardTable.Ordre = order;
-                    dashboardTable.Code = vm.SelectedTableInfo.SchemaName + "." + vm.SelectedTableInfo.TableName;
-                    dashboardTable.Libelle = vm.SelectedTableInfo.DisplayName;
-                    datasDashboard.Add(dashboardTable);
-                    DashboardTableViewModel table = new DashboardTableViewModel();
-                    table.Model = dashboardTable;
-
-                    table.DisplayName = dashboardTable.Libelle;
-                    if (idParent == -1)
-                    { this.Items.Add(table); }
-                    else
-                    {
-                        (selectedItem as DashboardFolderViewModel).Items.Add(table);
-                        selectedItem.IsExpanded = true;
-                        table.IsSelected = true;
-
-                    }
-                    _dataService.DataContext.SaveChanges();
-                }
-            }
-        }
-
-       */
-
+        
         private void RemoveItem()
         {
             if (this.SelectedItem != null)
@@ -257,7 +236,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
             
             DbSet<InfCodeDashboard> datasCodeDashboard = _dataService.GetDbSet<InfCodeDashboard>();
             IQueryable<InfCodeDashboard> query = (from d in datasCodeDashboard where d.Code == "TABLE" select d);
-            Console.WriteLine(query);
+          
 
             if (query.Count() == 0)
             {
@@ -278,11 +257,37 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
            _dispatcher.Invoke(new Action(delegate()
             {
                 this.LoadDashboard();
+                ContextMenuItem contextMenuItemAddTable = new ContextMenuItem();
+                contextMenuItemAddTable.DisplayName = "Ajouter une table";
+                contextMenuItemAddTable.DashboardItem = null;
+                this.TreeContextMenuItems.Add(contextMenuItemAddTable);
+
+
+                foreach (EntitySchemaInfo schema in _dataService.SchemaInfos)
+                {
+                    ContextMenuItem contextMenuItemSchema = new ContextMenuItem();
+                    contextMenuItemSchema.DisplayName = schema.SchemaName;
+                    contextMenuItemSchema.DashboardItem = null;
+                    contextMenuItemAddTable.Items.Add(contextMenuItemSchema);
+                    List<EntityTableInfo> tbls = (from t in schema.TableInfos orderby t.DisplayName  select t).ToList();
+                    foreach (EntityTableInfo table in tbls)
+                    {
+                        ContextMenuItem contextMenuItemTable = new ContextMenuItem();
+                        contextMenuItemTable.DisplayName = table.DisplayName;
+                        contextMenuItemTable.DashboardItem = null;
+                        contextMenuItemTable.Command = new DelegateCommand(new Action(delegate() {
+                            this.AddTable(null, table);
+                        }));
+                        contextMenuItemSchema.Items.Add(contextMenuItemTable);
+                    }
+
+                }
             }));
            
          
         }
 
+        
         private void LoadDashboard()
         {
             IQueryable<InfDashboard> datasDashboard = _dataService.GetDbSet<InfDashboard>();
@@ -290,7 +295,7 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
            
             this.Items.Clear();
             this.RecurseLoadDashboard(items, this.Items, -1);
-            Console.WriteLine(datasDashboard.ToString());
+       
         }
 
         private void RecurseLoadDashboard(List<InfDashboard> items, ObservableCollection<DashboardItemViewModel> parentList, long parentId)
@@ -319,6 +324,104 @@ namespace Emash.GeoPatNet.Dashboard.Implementation.Services
             }
         }
 
+
+        public void RemoveTable(object table)
+        {
+            if (table != null && table is DashboardTableViewModel)
+            {
+                DashboardTableViewModel tableVm = (table as DashboardTableViewModel);
+                DashboardFolderViewModel folderVmParent = this.FindParentFolder(null, this.Items, tableVm);
+                DbSet<InfDashboard> set = _dataService.GetDbSet<InfDashboard>();
+                set.Remove(tableVm.Model);
+                _dataService.DataContext.SaveChanges();
+                if (folderVmParent == null)
+                { this.Items.Remove(tableVm); }
+                else
+                { folderVmParent.Items.Remove(tableVm); }
+                this.FillOrder();
+            }
+        }
+
+        public void RemoveFolder(object folder)
+        {
+            if (folder != null && folder is DashboardFolderViewModel)
+            {
+                DashboardFolderViewModel folderVm = folder as DashboardFolderViewModel;
+                DashboardFolderViewModel folderVmParent = this.FindParentFolder(null,this.Items ,folderVm);
+
+
+                List<InfDashboard> itemsToRemove = new List<InfDashboard>();
+                this.CollectItemToRemove(folderVm.Model, itemsToRemove);
+                itemsToRemove.Add(folderVm.Model);
+
+                DbSet<InfDashboard> set = _dataService.GetDbSet<InfDashboard>();
+                foreach (InfDashboard item in itemsToRemove)
+                { set.Remove(item); }
+                _dataService.DataContext.SaveChanges();
+                if (folderVmParent == null)
+                { this.Items.Remove(folderVm); }
+                else
+                { folderVmParent.Items.Remove(folderVm); }
+               
+
+            }
+        }
+
+        private void CollectItemToRemove(InfDashboard infDashboard, List<InfDashboard> itemsToRemove)
+        {
+            IQueryable<InfDashboard> query = _dataService.GetDbSet<InfDashboard>().AsQueryable<InfDashboard>();
+            List<InfDashboard> childItems = (from i in query where i.IdParent == infDashboard.Id select i).ToList();
+            foreach (InfDashboard childItem in childItems)
+            {
+                itemsToRemove.Add(childItem);
+                this.CollectItemToRemove(childItem, itemsToRemove);
+            }
+        }
+
+        private DashboardFolderViewModel FindParentFolder(DashboardFolderViewModel parent, ObservableCollection<DashboardItemViewModel> observableCollection, DashboardItemViewModel folderVm)
+        {
+            foreach (DashboardItemViewModel item in observableCollection)
+            {
+                if (item.Equals(folderVm))
+                { return parent; }
+                else
+                {
+                    if (item is DashboardFolderViewModel )
+                    {
+                        DashboardFolderViewModel subFolder = (item as DashboardFolderViewModel );
+                        DashboardFolderViewModel result = this.FindParentFolder(subFolder, subFolder.Items, folderVm);
+                        if (result != null) return result;
+                    }
+                  
+                }
+            }
+            return null;
         
+        }
+
+
+
+
+        public void FillOrder()
+        {
+            this.RecurseFillOrder(this.Items);
+            _dataService.DataContext.SaveChanges();
+        }
+
+        private void RecurseFillOrder(ObservableCollection<DashboardItemViewModel> observableCollection)
+        {
+            for (int i = 0; i < observableCollection.Count; i++)
+            {
+                observableCollection[i].Model.Ordre = i;
+                if (observableCollection[i] is DashboardFolderViewModel)
+                {
+                    DashboardFolderViewModel folder = (observableCollection[i] as DashboardFolderViewModel);
+                    this.RecurseFillOrder(folder.Items);
+                }
+            }
+        }
+
+
+      
     }
 }

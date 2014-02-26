@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Atom.Infrastructure.Services
 {
-    public interface IDashboardService
+    public interface IReperageService
     {
         void Initialize();
 
-        void RemoveFolder(Object folder);
-        void FillOrder();
-        void RemoveTable(Object  table);
-
-        void AddTable(Object parentVm, Object entityTableInfo);
+        string AbsToPr(long valueIdChaussee, long? valueAbs);
     }
 }
