@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
@@ -120,12 +121,18 @@
     <Compile Include="Views\DataToolbar.xaml.cs">
       <DependentUpon>DataToolbar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenericDataControl.xaml.cs">
+      <DependentUpon>GenericDataControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GenericDataFormView.xaml.cs">
       <DependentUpon>GenericDataFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GenericDataGridTemplateColumn.cs" />
     <Compile Include="Views\GenericDataGridView.xaml.cs">
       <DependentUpon>GenericDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericDataLabel.xaml.cs">
+      <DependentUpon>GenericDataLabel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegionDialog.xaml.cs">
       <DependentUpon>RegionDialog.xaml</DependentUpon>
@@ -161,11 +168,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\GenericDataControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GenericDataFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GenericDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenericDataLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,7 +208,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Presentation\Presentation.csproj">
       <Project>{7364ea64-5842-4f1a-a0c8-44c15d6d4dc6}</Project>
-      <Name>Presentation %28Infrastructure\Presentation%29</Name>
+      <Name>Presentation %28GeoPat\Infrastructure\Presentation%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

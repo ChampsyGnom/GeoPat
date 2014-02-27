@@ -19,12 +19,18 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
     {
         private EntityTableInfo _entityTableInfo;
         private string _fieldPath;
+
+        public string FieldPath
+        {
+            get { return _fieldPath; }           
+        }
         private Boolean _templateCreated;
         public GenericDataGridTemplateColumn(EntityTableInfo entityTableInfo, string fieldPath)
         {
             this._entityTableInfo = entityTableInfo;
             this._fieldPath = fieldPath;
             this._templateCreated = false;
+           
         }
 
         protected override System.Windows.FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
@@ -46,7 +52,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
 
             this._templateCreated = true;
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
-            EntityColumnInfo topProperty = dataService.GetTopParentProperty(_entityTableInfo.EntityType, _fieldPath);
+            EntityColumnInfo topProperty = dataService.GetTopColumnInfo(_entityTableInfo.EntityType, _fieldPath);
             this.CellTemplate =CreateTemplateCell(dataService, topProperty);
             this.CellEditingTemplate = CreateTemplateCellEditing(dataService, topProperty);
            
@@ -226,7 +232,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     dataTemplate.VisualTree = grid;
 
                 }
-                if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)))
+                if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
                 {
                     if (state == GenericDataListState.Search)
                     {

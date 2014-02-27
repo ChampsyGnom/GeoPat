@@ -24,6 +24,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         public DelegateCommand ImportDataCommand { get; protected set; }
         public DelegateCommand ExportConfigurationCommand { get; protected set; }
         public DelegateCommand ImportConfigurationDataCommand { get; protected set; }
+        public DelegateCommand SwapActiveViewCommand { get; protected set; }
         public Object ActiveContent { get; set; }
    
         private IEventAggregator _eventAggregator;
@@ -37,6 +38,15 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this._container = container;
             this._eventAggregator.GetEvent<OpenEntityEvent>().Subscribe(OpenEntityTable);
             this.ImportDataCommand = new DelegateCommand(ImportDataExecute);
+            this.SwapActiveViewCommand = new DelegateCommand(SwapActiveView);
+        }
+
+        private void SwapActiveView()
+        {
+            if (this.ActiveContent != null && ActiveContent is SwapRegionView)
+            {
+                (ActiveContent as SwapRegionView).SwapView();
+            }
         }
 
         private void OpenEntityTable(EntityTableInfo tableInfo)

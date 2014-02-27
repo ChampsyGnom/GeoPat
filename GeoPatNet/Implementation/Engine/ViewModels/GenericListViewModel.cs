@@ -17,11 +17,17 @@ using Emash.GeoPatNet.Engine.Infrastructure.ComponentModel;
 using System.Windows;
 using Emash.GeoPatNet.Data.Infrastructure.Validations;
 using Emash.GeoPatNet.Data.Infrastructure.Utils;
+using Emash.GeoPatNet.Presentation.Infrastructure.Behaviors;
+using Emash.GeoPatNet.Presentation.Infrastructure.Extensions;
+using System.Windows.Input;
+using System.Windows.Controls;
+using Emash.GeoPatNet.Presentation.Implementation.Views;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList
         where M : class, new()
     {
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
@@ -35,6 +41,32 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         #endregion
 
         #region Propriétées
+
+        private Dictionary<String, Nullable<ListSortDirection>> sorters;
+
+
+
+        public Nullable<ListSortDirection> GetSort(String filedPath)
+        { 
+            if (this.sorters == null)
+            { this.sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
+            if (this.sorters.ContainsKey(filedPath))
+            {return this.sorters[filedPath];}
+            else return null;
+        }
+
+        public void SetSort(String filedPath, Nullable<ListSortDirection> direction)
+        {
+            if (this.sorters == null)
+            { this.sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
+            if (!this.sorters.ContainsKey(filedPath))
+            { this.sorters.Add(filedPath, direction); }
+            else
+            { this.sorters[filedPath] = direction; }
+          
+        }
+
+        
         /// <summary>
         /// Libellé de l'entité M
         /// </summary>
@@ -95,6 +127,9 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         /// Commande quitter
         /// </summary>
         public DelegateCommand QuitCommand { get; private set; }
+
+
+        public DelegateCommand<DataGridContextMenuOpeningBehaviorEventArg> DataGridContextMenuOpeningCommand { get; private set; }
         /// <summary>
         /// Liste des champs à afficher
         /// Si il s'agit d'une propriété de l'entité M c'est le nom de la propriété
@@ -153,6 +188,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.ClearCommand = new DelegateCommand(ClearExecute, CanClearExecute);
             this.SearchCommand = new DelegateCommand(SearchExecute, CanSearchExecute);
             this.QuitCommand = new DelegateCommand(QuitExecute, CanQuitExecute);
+            this.DataGridContextMenuOpeningCommand = new DelegateCommand<DataGridContextMenuOpeningBehaviorEventArg>(DataGridContextMenuOpeningExecute);
             
             // On instancie la liste d'élement et sa vue
             this.Items = new ObservableCollection<GenericListItemViewModel<M>>();
@@ -172,6 +208,137 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
             // On ecoute le changement de l'élément courant pour mettre à jour l'enregistrement courant
             this.ItemsView.CurrentChanged += ItemsView_CurrentChanged;
+            this.sorters = new Dictionary<string, ListSortDirection?>();
+        }
+
+        //@TODO Finir les menus contextuel
+        private void DataGridContextMenuOpeningExecute(DataGridContextMenuOpeningBehaviorEventArg arg)
+        {
+            if (this.State != GenericDataListState.Display)
+            {
+                arg.ContextMenuEventArgs.Handled = true;
+                return;
+            }
+            Point pos = Mouse.GetPosition(arg.DataGrid);
+            IInputElement hit = arg.DataGrid.InputHitTest(pos);
+            DependencyObject hitDependencyObject = hit as DependencyObject;
+            if (hitDependencyObject != null)
+            {
+                arg.ContextMenu.Items.Clear();
+                MenuItem menuFilter = new MenuItem();
+                menuFilter.Header = "Filtrer";
+
+                MenuItem menuSorter = new MenuItem();
+                menuSorter.Header = "Trier";
+
+                arg.ContextMenu.Items.Add(menuFilter);
+                arg.ContextMenu.Items.Add(menuSorter);
+
+
+                DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
+               
+                if (cell != null)
+                {
+                    Console.WriteLine(cell);
+                    if (cell.Column is GenericDataGridTemplateColumn)
+                    {
+                        GenericDataGridTemplateColumn column = (cell.Column as GenericDataGridTemplateColumn);
+                        EntityColumnInfo columnInfo = this.DataService.GetTopColumnInfo(typeof(M),column.FieldPath);
+                        String fieldDisplayName = columnInfo.DisplayName;
+                        if (column.FieldPath.IndexOf(".") != -1)
+                        { fieldDisplayName = columnInfo.TableInfo.DisplayName; }
+                        MenuItem menuSorterAscending = new MenuItem();
+                        menuSorterAscending.Header = "Trie croissant sur " + fieldDisplayName;
+                        menuSorterAscending.Command = new DelegateCommand(new Action(delegate() {
+                            this.SetSort(column.FieldPath, ListSortDirection.Ascending);
+                            this.SearchExecute();
+                        }));
+
+                        
+                        MenuItem menuSorterDescending= new MenuItem();
+                        menuSorterDescending.Header = "Trie décroissant sur " + fieldDisplayName;
+                        menuSorterDescending.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            this.SetSort(column.FieldPath, ListSortDirection.Descending);
+                            this.SearchExecute();
+                        }));
+
+                        MenuItem menuSorterNone = new MenuItem();
+                        menuSorterNone.Header = "Aucun trie";
+                        menuSorterNone.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            this.SetSort(column.FieldPath, null);
+                            this.SearchExecute();
+                        }));
+
+                        menuSorter.Items.Add(menuSorterAscending);
+                        menuSorter.Items.Add(menuSorterDescending);
+                        menuSorter.Items.Add(menuSorterNone);
+
+                        if (cell.DataContext is GenericListItemViewModel<M>)
+                        {
+                            GenericListItemViewModel<M> vm = (cell.DataContext as GenericListItemViewModel<M>);
+                            String valueString =  vm.Values[column.FieldPath];
+                            
+                            if (columnInfo.PropertyType.Equals(typeof(String)))
+                            {
+                                
+                                MenuItem menuEquals = new MenuItem();
+                                menuEquals.Header = fieldDisplayName + " égale à " + valueString;
+                                menuEquals.Command = new DelegateCommand(new Action(delegate()
+                                {
+                                    this.SearchItem.Values[column.FieldPath] = valueString;
+                                    this.SearchExecute();
+                                }));
+                                menuFilter.Items.Add(menuEquals);
+
+
+                                MenuItem menuNotEquals = new MenuItem();
+                                menuNotEquals.Header = fieldDisplayName + " différent de " + valueString;
+                                menuNotEquals.Command = new DelegateCommand(new Action(delegate()
+                                {
+                                    this.SearchItem.Values[column.FieldPath] = "<>"+valueString;
+                                    this.SearchExecute();
+                                }));
+                                menuFilter.Items.Add(menuNotEquals);
+                            }
+
+
+                            if (columnInfo.AllowNull)
+                            {
+                                menuFilter.Items.Add(new Separator());
+                                MenuItem menuNotNull = new MenuItem();
+                                menuNotNull.Header = fieldDisplayName + " est renseigné";
+                                menuNotNull.Command = new DelegateCommand(new Action(delegate()
+                                {
+                                    this.SearchItem.Values[column.FieldPath] = "+";
+                                    this.SearchExecute();
+                                }));
+                                menuFilter.Items.Add(menuNotNull);
+
+
+
+                                MenuItem menuNull = new MenuItem();
+                                menuNull.Header = fieldDisplayName + " n'est pas renseigné";
+                                menuNull.Command = new DelegateCommand(new Action(delegate()
+                                {
+                                    this.SearchItem.Values[column.FieldPath] = "-";
+                                    this.SearchExecute();
+                                }));
+
+                                menuFilter.Items.Add(menuNull);
+                               
+
+
+                            }
+
+                        }
+                        
+
+                        
+                    }
+                }
+            }
         }
 
         void ItemsView_CurrentChanged(object sender, EventArgs e)
@@ -184,8 +351,11 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         }
 
         private void UpdateDisplayRecordCount()
-        { 
-            this.DisplayRecordCount = (from c in DbSet select c).Count().ToString();
+        {
+            IQueryable<M> queryable = this.DbSet.AsQueryable<M>();
+            System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(typeof(M), "item");
+            queryable = this.TryApplyFilter(queryable, expressionBase);
+            this.DisplayRecordCount = (from c in queryable select c).Count().ToString();
             this.RaisePropertyChanged("DisplayRecordCount");
         }
 
@@ -209,9 +379,11 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         private void SearchExecute()
         {
             this.Items.Clear();
+            System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(typeof(M), "item");
             DbSet<M> dbSet = DataService.GetDbSet<M>();
             IQueryable<M> queryable = dbSet.AsQueryable<M>();
-            queryable = this.TryApplyFilter(queryable);
+            queryable = this.TryApplyFilter(queryable, expressionBase);
+            queryable = this.TryApplySort(queryable, expressionBase);
             if (queryable.Count() == 0)
             {
                 MessageBox.Show("Aucune donnée à afficher, retour au mode recherche", "Plus de donnée à afficher", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -228,14 +400,61 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 }
                 this.State = GenericDataListState.Display;
                 this.ItemsView.MoveCurrentToFirst();
+                this.UpdateDisplayRecordCount();
                 this.RaiseStateChange();
             }
           
         }
 
-        private IQueryable<M> TryApplyFilter(IQueryable<M> queryable)
+        private IQueryable<M> TryApplySort(IQueryable<M> queryable, System.Linq.Expressions.ParameterExpression expressionBase)
         {
-            System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(typeof (M), "item");
+            foreach (String fieldPath in this.sorters.Keys)
+            {
+                if (this.sorters[fieldPath].HasValue)
+                {
+                    var property = this.DataService.GetTopColumnInfo(typeof(M), fieldPath).Property;
+                   
+                    System.Linq.Expressions.Expression propertyAccess = null;
+                    if (fieldPath.IndexOf(".") != -1)
+                    {
+                        String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                        foreach (String item in items)
+                        {
+                            if (propertyAccess == null)
+                            { propertyAccess = System.Linq.Expressions.Expression.Property(expressionBase,item); }
+                            else
+                            { propertyAccess = System.Linq.Expressions.Expression.Property(propertyAccess, item); }
+                        }
+                    }
+                    else
+                    {
+                        propertyAccess = System.Linq.Expressions.Expression.Property(expressionBase, property);
+                    }
+                    var orderByExp = System.Linq.Expressions.Expression.Lambda(propertyAccess, expressionBase);
+                    if (this.sorters[fieldPath].Value == ListSortDirection.Ascending)
+                    {
+                        System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderBy", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
+
+
+                        queryable = queryable.Provider.CreateQuery<M>(resultExp);
+                    }
+                    else if (this.sorters[fieldPath].Value == ListSortDirection.Descending )
+                    {
+                        System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderByDescending", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
+
+
+                        queryable = queryable.Provider.CreateQuery<M>(resultExp);
+                        
+                    }
+                   
+                }
+            }
+            return queryable;
+        }
+
+        private IQueryable<M> TryApplyFilter(IQueryable<M> queryable, System.Linq.Expressions.ParameterExpression expressionBase)
+        {
+            
             List<System.Linq.Expressions.Expression> expressions = new List<System.Linq.Expressions.Expression>();
             foreach (String key in this.SearchItem.Values.Keys)
             {
@@ -267,16 +486,45 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         private void ClearExecute()
         {
-            this.Items.Clear();
-            this.Items.Add(this.SearchItem);
-            this.State = GenericDataListState.Search;
-            this.RaiseStateChange();
-            this.UpdateDisplayRecordCount();
-            this.ItemsView.MoveCurrentToFirst();
+            if (this.State == GenericDataListState.Display)
+            {
+                this.Items.Clear();
+                this.Items.Add(this.SearchItem);
+                this.State = GenericDataListState.Search;
+                this.RaiseStateChange();
+                this.UpdateDisplayRecordCount();
+                this.ItemsView.MoveCurrentToFirst();
+            }
+            else if (this.State == GenericDataListState.Search)
+            {
+                this.SearchItem.Reset();
+                
+                this.SearchItem.RaiseValuesChanges();
+                this.RaiseStateChange();
+            }
+           
         }
 
         private Boolean CanClearExecute()
-        { return this.State == GenericDataListState.Display; }
+        {
+            if (this.State == GenericDataListState.Display)
+            {
+                return true;
+            }
+            else if (this.State == GenericDataListState.Search)
+            {
+                bool hasCriteria = false;
+                foreach (String key in this.SearchItem.Values.Keys)
+                {
+                    if (!String.IsNullOrEmpty(this.SearchItem.Values[key]))
+                    {hasCriteria = true;}
+
+                }
+                return hasCriteria;
+            }
+            else return false;
+            
+        }
 
 
         private void CommitExecute()        

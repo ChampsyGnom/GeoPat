@@ -18,6 +18,7 @@ using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Data.Infrastructure.Reflection;
 using Emash.GeoPatNet.Engine.Infrastructure.ComponentModel;
+using Emash.GeoPatNet.Presentation.Infrastructure.Extensions;
 namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
     /// <summary>
@@ -49,6 +50,35 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             this.dataToolBar.cancelButton.Click += cancelButton_Click;
             this.dataToolBar.commitbutton.Click += commitbutton_Click;
             this.dataGrid.PreviewKeyDown += dataGrid_PreviewKeyDown;
+
+            
+        }
+
+        void dataGrid_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            Point pos =  Mouse.GetPosition(this.dataGrid);
+            IInputElement hit =   dataGrid.InputHitTest(pos);
+            DependencyObject hitDependencyObject = hit as DependencyObject;
+            if (hitDependencyObject != null)
+            {
+                DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
+                if (cell != null)
+                {
+                    Console.WriteLine(cell);
+
+                }
+            }
+          
+            
+        }
+
+        private void DebugTree(DependencyObject obj)
+        {
+            Console.WriteLine(obj);
+            DependencyObject  parent = VisualTreeHelper.GetParent(obj);
+            if (parent != null)
+            { this.DebugTree(parent); }
+           
         }
 
         void dataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -202,11 +232,11 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     else
                     {
                         
-                        EntityColumnInfo parentProperty = dataService.GetTopParentProperty(modelType, fieldPath);
+                        EntityColumnInfo parentProperty = dataService.GetTopColumnInfo(modelType, fieldPath);
                         if (parentProperty != null)
                         {
                             GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
-                            column.Header = parentProperty.TableInfo.DisplayName + " " + parentProperty.DisplayName;
+                            column.Header = parentProperty.TableInfo.DisplayName ;
                             dataGrid.Columns.Add(column);
                         }
                     }

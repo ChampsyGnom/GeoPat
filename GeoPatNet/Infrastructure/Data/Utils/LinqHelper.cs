@@ -26,9 +26,9 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Utils
                 valueString = valueString.TrimStart().TrimEnd();
                 EntityColumnInfo columnInfo = dataService.GetBottomColumnInfo(typeof(M), path);
                 switch (columnInfo.ControlType)
-                { 
+                {
                     case Presentation.Infrastructure.Attributes.ControlType.Decimal:
-                        return CreateFilterExpressionDecimal(valueString,path, expressionBase, columnInfo);
+                        return CreateFilterExpressionDecimal(valueString, path, expressionBase, columnInfo);
 
                     case Presentation.Infrastructure.Attributes.ControlType.Integer:
                         return CreateFilterExpressionInteger(valueString, path, expressionBase, columnInfo);
@@ -41,20 +41,61 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Utils
 
                 }
 
-               
-            }
 
+            }
+            else
+            {
+                EntityColumnInfo columnInfoTop = dataService.GetTopColumnInfo(typeof(M), path);
+                String[] items = path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                Expression expression = null;
+                for (int i = 0; i < (items.Length-1); i++)
+                {
+                    if (expression == null)
+                    {
+                        expression = Expression.Property(expressionBase, items[i]);
+                    }
+                    else
+                    { expression = Expression.Property(expression, items[i]); }
+                }
+                switch (columnInfoTop.ControlType)
+                {
+                    case Presentation.Infrastructure.Attributes.ControlType.Decimal:
+                        return CreateFilterExpressionDecimal(valueString, items[items.Length -1], expression, columnInfoTop);
+
+                    case Presentation.Infrastructure.Attributes.ControlType.Integer:
+                        return CreateFilterExpressionInteger(valueString, items[items.Length - 1], expression, columnInfoTop);
+
+                    case Presentation.Infrastructure.Attributes.ControlType.Text:
+                        return CreateFilterExpressionText(valueString, items[items.Length - 1], expression, columnInfoTop);
+
+                    case Presentation.Infrastructure.Attributes.ControlType.Date:
+                        return CreateFilterExpressionDate(valueString, items[items.Length - 1], expression, columnInfoTop);
+
+                }
+
+            }
             return null;
         }
 
-        private static Expression CreateFilterExpressionDate(string valueString, string path, ParameterExpression expressionBase, EntityColumnInfo columnInfo)
+        private static Expression CreateFilterExpressionDate(string valueString, string path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
             String message = null;
             DateTime date = DateTime.Now;
             DatePart part = DatePart.None;
             List<DateTime> validDateTime = new List<DateTime>();
             List<DatePart> validDatePart = new List<DatePart>();
-            if (valueString.IndexOf(";") > 0)
+            if (valueString.Equals("+") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.NotEqual(exp, Expression.Constant(null));
+            }
+            else if (valueString.Equals("-") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.Equal(exp, Expression.Constant(null));
+            }
+            // contient
+            else if (valueString.IndexOf(";") > 0)
             {
                 String[] items = valueString.Split(";".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 if (items.Length > 1)
@@ -192,10 +233,20 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Utils
             return null;
         }
 
-        private static Expression CreateFilterExpressionText(string valueString, string path, ParameterExpression expressionBase, EntityColumnInfo columnInfo)
+        private static Expression CreateFilterExpressionText(string valueString, string path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
+            if (valueString.Equals("+") && columnInfo.AllowNull)
+            { 
+                  Expression exp = Expression.Property(expressionBase, path);
+                  return exp = Expression.NotEqual(exp, Expression.Constant(null));
+            }
+            else if (valueString.Equals("-") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.Equal(exp, Expression.Constant(null)); 
+            }
             // contient
-            if (valueString.StartsWith("*") && valueString.EndsWith("*"))
+            else if (valueString.StartsWith("*") && valueString.EndsWith("*"))
             {
                 valueString = valueString.Substring(1);
                 valueString = valueString.Substring(0, valueString.Length - 1);
@@ -249,9 +300,20 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Utils
             return null;
         }
 
-        private static Expression CreateFilterExpressionInteger(string valueString, string path, ParameterExpression expressionBase, EntityColumnInfo columnInfo)
+        private static Expression CreateFilterExpressionInteger(string valueString, string path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
-            if (valueString.IndexOf(";") > 0)
+            if (valueString.Equals("+") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.NotEqual(exp, Expression.Constant(null));
+            }
+            else if (valueString.Equals("-") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.Equal(exp, Expression.Constant(null));
+            }
+            
+            else    if (valueString.IndexOf(";") > 0)
             {
                 if (columnInfo.AllowNull)
                 {
@@ -432,8 +494,19 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Utils
             return null;
         }
 
-        private static Expression CreateFilterExpressionDecimal(string valueString,String path, ParameterExpression expressionBase, EntityColumnInfo columnInfo)
+        private static Expression CreateFilterExpressionDecimal(string valueString, String path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
+            if (valueString.Equals("+") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.NotEqual(exp, Expression.Constant(null));
+            }
+            else if (valueString.Equals("-") && columnInfo.AllowNull)
+            {
+                Expression exp = Expression.Property(expressionBase, path);
+                return exp = Expression.Equal(exp, Expression.Constant(null));
+            }
+            else
             if (valueString.IndexOf(";") > 0)
             {
                 if (columnInfo.AllowNull)

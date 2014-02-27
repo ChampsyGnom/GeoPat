@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Atom.Infrastructure.Services;
 
+
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem,IDataErrorInfo
@@ -69,6 +70,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.Manager = manager;
             this._values = new Dictionary<string, String>();            
             this._comboItemsSource = new GenericItemsSource<M>();
+          
         }
      
         /// <summary>
@@ -180,7 +182,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
             foreach (String fieldPath in fieldPaths)
             {
-                EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), fieldPath);
+                EntityColumnInfo columnInfo = this.Manager.DataService.GetTopColumnInfo(typeof(M), fieldPath);
                 if (fieldPath.IndexOf(".") == -1)
                 {
                     
@@ -243,7 +245,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             Object valueValidated = null;
             foreach (String fieldPath in fieldPaths)
             {
-                EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), fieldPath);
+                EntityColumnInfo columnInfo = this.Manager.DataService.GetTopColumnInfo(typeof(M), fieldPath);
 
                 if (fieldPath.IndexOf(".") == -1)
                 {
@@ -457,7 +459,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     if (((IDataErrorInfo ) this)["["+key+"]"] != null)
                     {
                       
-                        EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), key);
+                        EntityColumnInfo columnInfo = this.Manager.DataService.GetTopColumnInfo(typeof(M), key);
                         String displayName = columnInfo.DisplayName;
                         if (key.IndexOf(".") != -1)
                         {displayName = columnInfo.TableInfo.DisplayName + " " + columnInfo.DisplayName;}
@@ -485,7 +487,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 {
                     String path = columnName.Substring(1);
                     path = path.Substring(0, path.Length - 1);
-                    EntityColumnInfo topColumn = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
+                    EntityColumnInfo topColumn = this.Manager.DataService.GetTopColumnInfo(typeof(M), path);
                     if (path.IndexOf(".") == -1)
                     {
 
@@ -496,7 +498,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     {
                         String[] items = path.Split (".".ToCharArray (),StringSplitOptions .RemoveEmptyEntries );
                         EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
-                        EntityColumnInfo topProperty = this.Manager.DataService.GetTopParentProperty(typeof(M), path);
+                        EntityColumnInfo topProperty = this.Manager.DataService.GetTopColumnInfo(typeof(M), path);
                         EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (items[0]) select c).FirstOrDefault();
                         Object valueObject = this._values[path];
                         if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
@@ -507,6 +509,15 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                
                 return null;
             }
+        }
+
+        internal void Reset()
+        {
+            List<String> keys = (from k in this._values.Keys select k).ToList ();
+            this._values = new Dictionary<string, string>();
+            foreach (String key in keys)
+            {this._values.Add (key,"");}
+           
         }
     }
 }

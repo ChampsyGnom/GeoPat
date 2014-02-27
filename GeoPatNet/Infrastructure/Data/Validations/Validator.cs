@@ -32,7 +32,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
             Object result = null;
             foreach (String path in valueStrings.Keys)
             {
-                EntityColumnInfo columnInfo = ServiceLocator.Current.GetInstance<IDataService>().GetTopParentProperty(tableInfo.EntityType, path);
+                EntityColumnInfo columnInfo = ServiceLocator.Current.GetInstance<IDataService>().GetTopColumnInfo(tableInfo.EntityType, path);
                 if (!ValidateEntityColumn(valueStrings[path], columnInfo, out messageColumn, out result))
                 {
                     if (path.IndexOf (".") == -1)
@@ -55,7 +55,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
 
 
                     // Regle emprise
-                    EntityColumnInfo columnInfo = ServiceLocator.Current.GetInstance<IDataService>().GetTopParentProperty(tableInfo.EntityType, path);
+                    EntityColumnInfo columnInfo = ServiceLocator.Current.GetInstance<IDataService>().GetTopColumnInfo(tableInfo.EntityType, path);
 
                     if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr && columnInfo.HasChausseeEmpriseRule)
                     {

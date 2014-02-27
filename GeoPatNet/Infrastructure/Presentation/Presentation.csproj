@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Attributes\ControlTypeAttribute.cs" />
     <Compile Include="Behaviors\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Behaviors\DataGridContextMenuOpeningBehavior.cs" />
     <Compile Include="Behaviors\MouseDoubleClickBehavior.cs" />
     <Compile Include="Events\SplashEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -111,6 +112,7 @@
     <Compile Include="RegionAdapters\DockingManagerRegionAdapter.cs" />
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\ISplashService.cs" />
+    <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Views\SwapRegionView.xaml.cs">
       <DependentUpon>SwapRegionView.xaml</DependentUpon>
     </Compile>

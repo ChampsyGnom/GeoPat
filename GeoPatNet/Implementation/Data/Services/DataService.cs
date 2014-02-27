@@ -303,7 +303,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
 
 
 
-        public EntityColumnInfo GetTopParentProperty(Type sourceType, string fieldPath)
+        public EntityColumnInfo GetTopColumnInfo(Type sourceType, string fieldPath)
         {
             EntityTableInfo sourceTableInfo = this.GetEntityTableInfo(sourceType);
             if (fieldPath.IndexOf(".") == -1)
