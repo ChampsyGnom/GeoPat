@@ -1170,7 +1170,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                         else if (value2 > 1000 && value1 <= 12 && value2 > 0)
                         {
                             valueYear = value2;
-                            valueMonth = value2;
+                            valueMonth = value1;
                         }
                         datePart = DatePart.Month;
                         date = new DateTime((int)valueYear, (int)valueMonth, 1);
