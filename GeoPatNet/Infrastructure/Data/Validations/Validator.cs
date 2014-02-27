@@ -25,6 +25,8 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
     {
         public static Boolean ValidateEntity(Dictionary<String, String> valueStrings, EntityTableInfo tableInfo, out String message)
         {
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            String parseMessage = null;
             List<String> errors = new List<string>();
             String messageColumn = null;
             Object result = null;
@@ -47,14 +49,17 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
             }
             else
             {
-                IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
                 foreach (String path in valueStrings.Keys)
                 {
+                    
+
+
+                    // Regle emprise
                     EntityColumnInfo columnInfo = ServiceLocator.Current.GetInstance<IDataService>().GetTopParentProperty(tableInfo.EntityType, path);
+
                     if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr && columnInfo.HasChausseeEmpriseRule)
                     {
                         EntityColumnInfo chausseeNavigationProperty = (from c in columnInfo.TableInfo.ColumnInfos where c.ColumnName.Equals (columnInfo.EmpriseChausseeColumnName ) && c.ControlType == Presentation.Infrastructure.Attributes.ControlType.Combo select c).FirstOrDefault();
-
                         EntityTableInfo parentTableInfo = dataService.GetEntityTableInfo(chausseeNavigationProperty.PropertyType);
                         DbSet set = dataService.GetDbSet(parentTableInfo.EntityType);
                         IQueryable queryable = set.AsQueryable();
@@ -73,8 +78,6 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                                 String pathToProp = pathToChild + "." + column.PropertyName;
                                 parentNavPropsPaths.Add(pathToProp);
                             }
-
-
                         }
 
                         ParameterExpression expressionBase = Expression.Parameter(parentTableInfo.EntityType, "item");
@@ -152,7 +155,6 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                         }
                         
                     }
-                
                 }
 
                
@@ -164,9 +166,194 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
             }
             else
             {
-                // validé les uk rules
-                message = null;
-                return true;
+                Dictionary<String, List<EntityColumnInfo>> ukColumnsByUkNames = dataService.GetUks(tableInfo);
+                foreach (String ukName in ukColumnsByUkNames.Keys)
+                {
+                    ParameterExpression expressionBase = Expression.Parameter(tableInfo.EntityType, "item");
+                    DbSet set = dataService.GetDbSet(tableInfo.EntityType);
+                    IQueryable queryable = set.AsQueryable();
+                    List<Expression> expressions = new List<Expression>();
+                    Console.WriteLine("controle clé unique " + ukName);
+
+                    // On ignore volontairement les colonne nullable car sa n'as pas de sens de déclarer une clé unique dont l'une des colonnes est null.
+                    // Même si certain sgbd l'autorise
+                    foreach (EntityColumnInfo ukColumnInfo in ukColumnsByUkNames[ukName])
+                    {
+
+                        if (ukColumnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Text)
+                        {
+                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                            expression = Expression.Equal(expression, Expression.Constant(valueStrings[ukColumnInfo.PropertyName]));
+                            expressions.Add(expression);
+                        }
+                        if (ukColumnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Integer)
+                        {
+                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                            Int64 valueInt64 = 0;
+                            ValidateInt64(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueInt64);
+                            expression = Expression.Equal(expression, Expression.Constant(valueInt64));
+                            expressions.Add(expression);
+                        }
+                        if (ukColumnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Decimal)
+                        {
+                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                            Double valueDouble = 0;
+                            ValidateDouble(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueDouble);
+                            expression = Expression.Equal(expression, Expression.Constant(valueDouble));
+                            expressions.Add(expression);
+                        }
+                        if (ukColumnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Date)
+                        {
+                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                            DateTime valueDateTime = DateTime.Now;
+                            ValidateDateTime(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueDateTime);
+                            expression = Expression.Equal(expression, Expression.Constant(valueDateTime));
+                            expressions.Add(expression);
+                        }
+
+                        if (ukColumnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Check)
+                        {
+                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                            Boolean valueBoolean =false;
+                            ValidateBoolean(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueBoolean);
+                            expression = Expression.Equal(expression, Expression.Constant(valueBoolean));
+                            expressions.Add(expression);
+                        }
+                        if (ukColumnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr)
+                        {
+                            EntityColumnInfo chausseeNavigationProperty = (from c in tableInfo.ColumnInfos where c.ColumnName.Equals(ukColumnInfo.PrChausseeColumnName) && c.ControlType == Presentation.Infrastructure.Attributes.ControlType.Combo select c).FirstOrDefault();
+                            EntityTableInfo parentTableInfo = dataService.GetEntityTableInfo(chausseeNavigationProperty.PropertyType);
+                            DbSet parentTableSet = dataService.GetDbSet(parentTableInfo.EntityType);
+                            IQueryable parentQueryable = parentTableSet.AsQueryable();
+                            List<EntityColumnInfo> parentNavProps = dataService.FindParentForeignColumnInfos(chausseeNavigationProperty);
+                            List<String> parentNavPropsPaths = new List<string>();
+                            foreach (EntityColumnInfo column in parentNavProps)
+                            {
+                                String pathToChild = dataService.GetPath(column.TableInfo, parentTableInfo);
+                                if (String.IsNullOrEmpty(pathToChild))
+                                {
+                                    String pathToProp = column.PropertyName;
+                                    parentNavPropsPaths.Add(pathToProp);
+                                }
+                                else
+                                {
+                                    String pathToProp = pathToChild + "." + column.PropertyName;
+                                    parentNavPropsPaths.Add(pathToProp);
+                                }
+                            }
+
+                            ParameterExpression parentExpressionBase = Expression.Parameter(parentTableInfo.EntityType, "item");
+                            List<Expression> parentExpressions = new List<Expression>();
+
+                            foreach (String parentNavPropsPath in parentNavPropsPaths)
+                            {
+
+                                String[] items = parentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                EntityTableInfo navPropEntity = null;
+
+                                if (items.Length > 1)
+                                { navPropEntity = dataService.GetEntityTableInfo(items[items.Length - 2]); }
+                                else
+                                { navPropEntity = parentTableInfo; }
+
+                                Expression propertyMember = null;
+                                for (int i = 0; i < items.Length; i++)
+                                {
+                                    if (propertyMember == null)
+                                    { propertyMember = Expression.Property(parentExpressionBase, items[i]); }
+                                    else
+                                    { propertyMember = Expression.Property(propertyMember, items[i]); }
+                                }
+                                String pathTo = dataService.GetPath(navPropEntity, tableInfo);
+                                String valuePath = pathTo + "." + items[items.Length - 1];
+                                if (String.IsNullOrEmpty(pathTo))
+                                { pathTo = items[items.Length - 1]; }
+
+
+                                Object value = valueStrings[valuePath];
+                                Expression expressionParent = Expression.Equal(propertyMember, Expression.Constant(value));
+                                parentExpressions.Add(expressionParent);
+                            }
+
+
+                            if (parentExpressions.Count > 0)
+                            {
+                                Expression expressionAnd = parentExpressions.First();
+                                for (int i = 1; i < parentExpressions.Count; i++)
+                                { expressionAnd = Expression.And(expressionAnd, parentExpressions[i]); }
+                                MethodCallExpression whereCallExpression = Expression.Call(
+                                typeof(Queryable),
+                                "Where",
+                                new Type[] { parentQueryable.ElementType },
+                                parentQueryable.Expression,
+                                Expression.Lambda(expressionAnd, parentExpressionBase));
+                                parentQueryable = parentQueryable.Provider.CreateQuery(whereCallExpression);
+                            }
+
+                            List<Object> values = new List<object>();
+                            Int64 chausseeId = -1;
+                            Int64 chausseeDeb = 0;
+                            Int64 chausseeFin = 0;
+                            foreach (Object obj in parentQueryable)
+                            {
+                                PropertyInfo idProp = obj.GetType().GetProperty("Id");
+                                PropertyInfo debProp = obj.GetType().GetProperty("AbsDeb");
+                                PropertyInfo finProp = obj.GetType().GetProperty("AbsFin");
+                                chausseeId = (Int64)idProp.GetValue(obj);
+                                chausseeDeb = (Int64)debProp.GetValue(obj);
+                                chausseeFin = (Int64)finProp.GetValue(obj);
+                            }
+                            IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
+                            Int64 abs = reperageService.PrToAbs(chausseeId, valueStrings[ukColumnInfo.PropertyName]).Value;
+                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                            expression = Expression.Equal(expression, Expression.Constant(abs));
+                            expressions.Add(expression);
+
+                        }
+                        Console.WriteLine("\t" + ukColumnInfo.ColumnName);
+                    }
+                    if (expressions.Count > 0)
+                    {
+                        Expression expressionAnd = expressions.First();
+                        for (int i = 1; i < expressions.Count; i++)
+                        { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
+                        MethodCallExpression whereCallExpression = Expression.Call(
+                        typeof(Queryable),
+                        "Where",
+                        new Type[] { queryable.ElementType },
+                        queryable.Expression,
+                        Expression.Lambda(expressionAnd, expressionBase));
+                        queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                    }
+                    bool hasSameRow = false;
+                    foreach (Object o in queryable)
+                    { hasSameRow = true; break; }
+                    if (hasSameRow)
+                    {
+                        if (ukColumnsByUkNames[ukName].Count == 1)
+                        {
+                            String ukError = "il existe déja une donnée avec le même " + String.Join(",", (from c in ukColumnsByUkNames[ukName] select c.DisplayName).ToList());
+                            errors.Add(ukError);
+                        }
+                        else
+                        {
+                            String ukError = "il existe déja une donnée avec les mêmes " + String.Join(",", (from c in ukColumnsByUkNames[ukName] select c.DisplayName).ToList());
+                            errors.Add(ukError);
+                        }
+                       
+                    }
+                }
+                if (errors.Count > 0)
+                {
+                    message = String.Join("\r\n", errors);
+                    return false;
+                }
+                else
+                {
+                    message = null;
+                    return true;
+                }
+              
             }
           
         }

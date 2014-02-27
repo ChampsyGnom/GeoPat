@@ -58,6 +58,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_GARE__ABS_DEB")]
+        [UniqueKey("INF_GARE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]

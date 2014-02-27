@@ -22,6 +22,9 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Reflection
         public Int32 Level { get; set; }
         public EntitySchemaInfo SchemaInfo { get;   set; }
         public List<EntityColumnInfo> ColumnInfos { get; private set; }
+
+
+
         public EntityTableInfo(Type entityType)
         {
             this.Level = -1;

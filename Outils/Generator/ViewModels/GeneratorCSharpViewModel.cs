@@ -239,13 +239,16 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             }
                             DbRulePr rulePr = (from r in column.Rules where r is DbRulePr select r as DbRulePr).FirstOrDefault();
                             DbRuleEmprise ruleEmprise = (from r in column.Rules where r is DbRuleEmprise select r as DbRuleEmprise).FirstOrDefault();
+                            bool isFk = column.Name.ToLower().EndsWith("id") && column.Name.Length > 2;
                             if (column.AllowNull)
                             {
                                 TemplateProperty prop = writer.AddProperty("public Nullable<Int64>", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
 
-                                if (childColumn == null)
+
+                                // sauf que les colonne qui ne sont pas des id parent ne sont pas non plus ajouté à la unique key
+                                if (!isFk)
                                 {
                                     foreach (DbUniqueKey uk in uks)
                                     { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }
@@ -281,7 +284,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
 
 
-                                if (childColumn == null)
+                                if (!isFk)
                                 {
                                     foreach (DbUniqueKey uk in uks)
                                     { prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); }

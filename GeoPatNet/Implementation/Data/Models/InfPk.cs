@@ -29,6 +29,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Abscisse")]
         [ColumnName("INF_PK__ABS_CUM")]
+        [UniqueKey("INF_PK_PK_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -70,6 +71,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("N° de PR")]
         [ColumnName("INF_PK__NUM")]
+        [UniqueKey("INF_PK_PK_UK1")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

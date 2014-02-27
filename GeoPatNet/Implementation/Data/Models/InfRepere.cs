@@ -69,6 +69,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("N° de PR")]
         [ColumnName("INF_REPERE__NUM")]
+        [UniqueKey("INF_REPERE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]

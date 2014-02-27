@@ -48,6 +48,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_PAVE_VOIE__ABS_DEB")]
+        [UniqueKey("INF_PAVE_VOIE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]

@@ -361,46 +361,25 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
 
 
 
-        /*
-        public List<string> ValidateEntity(Type type, Dictionary<string, String> values)
+        
+
+
+        public Dictionary<string, List<EntityColumnInfo>> GetUks(EntityTableInfo tableInfo)
         {
-            // On commence par validé les données
-            String message = null;
-            Object result = null;
-            List<String> errors = new List<string>();
-            EntityTableInfo tableInfo = this.GetEntityTableInfo(type);
-            foreach (String path in values.Keys)
+            Dictionary<string, List<EntityColumnInfo>> uks = new Dictionary<string, List<EntityColumnInfo>>();
+            foreach (EntityColumnInfo columnInfo in tableInfo.ColumnInfos)
             {
-                EntityColumnInfo topColumn = this.GetTopParentProperty(type, path);
-                String displayName = topColumn.DisplayName;
-                if (path.IndexOf(".") != -1)
-                { displayName = topColumn.TableInfo.DisplayName + " " + topColumn.DisplayName; }
-
-
-                if (path.IndexOf(".") == -1)
+                if (columnInfo.UniqueKeyNames.Count > 0)
                 {
-                    if (!Validator.ValidateObject(values[path], topColumn, out message, out result))
-                    { errors.Add(displayName+" : "+message); ; }
-                }
-                else
-                {
-                    String[] items = path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-                    EntityColumnInfo topProperty = this.GetTopParentProperty(type, path);
-                    EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals(items[0]) select c).FirstOrDefault();
-                    Object valueObject = values[path];
-                    if (!bottomProp.AllowNull && (values[path] == null || String.IsNullOrEmpty(values[path].ToString()) || values[path].Equals(CultureConfiguration.ListNullString)))
-                    { errors.Add (displayName+  " : valeur vide non autorisée"); }
+                    foreach (String ukName in columnInfo.UniqueKeyNames)
+                    {
+                        if (!uks.ContainsKey(ukName))
+                        {uks.Add(ukName, new List<EntityColumnInfo>());}
+                        uks[ukName].Add(columnInfo);
+                    }
                 }
             }
-            if (errors.Count == 0)
-            { 
-                
-            
-            }
-            return errors;
-
+            return uks;
         }
-         */
     }
 }

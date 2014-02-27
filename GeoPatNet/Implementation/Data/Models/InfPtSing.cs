@@ -49,6 +49,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_PT_SING__ABS_DEB")]
+        [UniqueKey("INF_PT_SING_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]

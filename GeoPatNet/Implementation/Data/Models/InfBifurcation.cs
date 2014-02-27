@@ -59,6 +59,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_BIFURCATION__ABS_DEB")]
+        [UniqueKey("INF_BIFURCATION_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]

@@ -38,6 +38,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Année")]
         [ColumnName("INF_REPARTITION_TRAFIC__ANNEE")]
+        [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -48,6 +49,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_REPARTITION_TRAFIC__ABS_DEB")]
+        [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
