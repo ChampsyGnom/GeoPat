@@ -116,7 +116,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             EntityColumnInfo listColumnInfo = (from c in listTableInfo.ColumnInfos where c.PropertyName.Equals (items[1]) select c).FirstOrDefault();
             EntityTableInfo baseTableInfo = this.DataService.GetEntityTableInfo (typeof (M));
             String basePropertyName =   this.DataService.GetPath (listTableInfo,baseTableInfo)+"."+items[1];
-            EntityColumnInfo baseProperty = this.DataService.GetBottomProperty(typeof(M), basePropertyName);
+            EntityColumnInfo baseProperty = this.DataService.GetBottomColumnInfo(typeof(M), basePropertyName);
             List<EntityColumnInfo> parentfkProperties = this.DataService.FindParentForeignColumnInfos(baseProperty);
             int index = parentfkProperties.IndexOf(listColumnInfo);
             ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");

@@ -343,7 +343,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
       
 
 
-        public EntityColumnInfo GetBottomProperty(Type type, string fieldPath)
+        public EntityColumnInfo GetBottomColumnInfo(Type type, string fieldPath)
         {
             EntityTableInfo tableInfo = this.GetEntityTableInfo(type);
             if (fieldPath.IndexOf(".") == -1)

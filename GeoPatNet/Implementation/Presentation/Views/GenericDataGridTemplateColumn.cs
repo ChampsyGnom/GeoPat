@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using Emash.GeoPatNet.Presentation.Implementation.Converters;
 
 namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
@@ -94,8 +95,8 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 ComboBox combo = this.FindChild<ComboBox>(obj);
                 if (combo != null)
                 {
-                    combo.Focus();
-                    combo.IsDropDownOpen = true;
+                   // combo.Focus();
+                   // combo.IsDropDownOpen = true;
                 }
             }
             
@@ -169,7 +170,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             {
                 String[] items = this._fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
-
+                if (state == GenericDataListState.Search)
+                {
+                    comboBox.SetValue(ComboBox.IsEditableProperty, true);
+                }
                 String comboListPath = "ComboItemsSource[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
                 Binding bindingList = new Binding(comboListPath);
                 bindingList.Mode = BindingMode.OneWay;
@@ -186,6 +190,40 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             }
             else
             {
+                if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
+                {
+                    FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
+
+                    var column1 = new FrameworkElementFactory(typeof(ColumnDefinition));
+                    column1.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Star));
+                    var column2 = new FrameworkElementFactory(typeof(ColumnDefinition));
+                    column2.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Auto));
+
+                    grid.AppendChild(column1);
+                    grid.AppendChild(column2);
+                    
+                   // grid.AppendChild(colDefs);
+
+
+                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
+                    textBox.SetValue(Grid.ColumnProperty, 0);
+                    grid.AppendChild(textBox);
+
+                    FrameworkElementFactory datePicker = new FrameworkElementFactory(typeof(DatePicker));
+                    datePicker.SetValue(DatePicker.WidthProperty, 28D);
+                    datePicker.SetValue(Grid.ColumnProperty, 1);
+                    grid.AppendChild(datePicker);
+                  
+                    datePicker.AddHandler(DatePicker.SelectedDateChangedEvent, new EventHandler<SelectionChangedEventArgs>(OnDateChange));
+
+                   // datePicker.AddHandler(DatePicker.SelectedDateChangedEvent, new  RoutedEventArgs(new RoutedEvent ()));
+
+
+
+                    dataTemplate.VisualTree = grid;
+
+                }
                 if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)))
                 {
                     if (state == GenericDataListState.Search)
@@ -236,6 +274,9 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             return dataTemplate;
         }
 
+
+        private void OnDateChange(object sender, SelectionChangedEventArgs e)
+        { }
         
         private Binding CreateBindingTwoWay(String path)
         {

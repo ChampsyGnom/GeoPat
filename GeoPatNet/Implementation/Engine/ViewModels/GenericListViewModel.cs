@@ -16,6 +16,7 @@ using System.ComponentModel;
 using Emash.GeoPatNet.Engine.Infrastructure.ComponentModel;
 using System.Windows;
 using Emash.GeoPatNet.Data.Infrastructure.Validations;
+using Emash.GeoPatNet.Data.Infrastructure.Utils;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList
@@ -209,14 +210,17 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             this.Items.Clear();
             DbSet<M> dbSet = DataService.GetDbSet<M>();
-            if (dbSet.Count() == 0)
+            IQueryable<M> queryable = dbSet.AsQueryable<M>();
+            queryable = this.TryApplyFilter(queryable);
+            if (queryable.Count() == 0)
             {
                 MessageBox.Show("Aucune donnée à afficher, retour au mode recherche", "Plus de donnée à afficher", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.ClearExecute();
             }
             else
             {
-                foreach (M model in dbSet)
+                
+                foreach (M model in queryable)
                 {
                     GenericListItemViewModel<M> vm = new GenericListItemViewModel<M>(this, model);
                     vm.LoadFromModel(this.FieldPaths.ToList());
@@ -227,6 +231,35 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 this.RaiseStateChange();
             }
           
+        }
+
+        private IQueryable<M> TryApplyFilter(IQueryable<M> queryable)
+        {
+            System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(typeof (M), "item");
+            List<System.Linq.Expressions.Expression> expressions = new List<System.Linq.Expressions.Expression>();
+            foreach (String key in this.SearchItem.Values.Keys)
+            {
+                if (!String.IsNullOrEmpty(SearchItem.Values[key]))
+                {
+                    System.Linq.Expressions.Expression expression = LinqHelper.CreateFilterExpression<M>(this.SearchItem.Values, key, expressionBase);
+                   if (expression != null)
+                   { expressions.Add(expression); }
+                }
+            }
+            if (expressions.Count > 0)
+            {
+                System.Linq.Expressions.Expression expressionAnd = expressions.First();
+                for (int i = 1; i < expressions.Count; i++)
+                { expressionAnd = System.Linq.Expressions.Expression.And(expressionAnd, expressions[i]); }
+                System.Linq.Expressions.MethodCallExpression whereCallExpression = System.Linq.Expressions.Expression.Call(
+                typeof(Queryable),
+                "Where",
+                new Type[] { queryable.ElementType },
+                queryable.Expression,
+                System.Linq.Expressions.Expression.Lambda(expressionAnd, expressionBase));
+                queryable = queryable.Provider.CreateQuery<M>(whereCallExpression);
+            }
+            return queryable;
         }
 
         private Boolean CanSearchExecute()
@@ -251,7 +284,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             if (this.State == GenericDataListState.InsertingEmpty)
             {
                 String message = null;
-                if (!Validator.ValidateEntity(this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
+                if (!Validator.ValidateEntity<M>(this.InsertingItem.Model, this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -293,7 +326,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             else if (this.State == GenericDataListState.Updating)
             {
                 String message = null;
-                if (!Validator.ValidateEntity(this.UpdatingItem.Values,this.DataService.GetEntityTableInfo (typeof(M)), out message))
+                if (!Validator.ValidateEntity<M>(this.UpdatingItem.Model, this.UpdatingItem.Values,this.DataService.GetEntityTableInfo (typeof(M)), out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -312,7 +345,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             else if (this.State == GenericDataListState.InsertingDisplay)
             {
                 String message = null;
-                if (!Validator.ValidateEntity(this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
+                if (!Validator.ValidateEntity<M>(this.UpdatingItem.Model, this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }

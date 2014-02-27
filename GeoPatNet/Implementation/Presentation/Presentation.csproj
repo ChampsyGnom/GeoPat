@@ -94,6 +94,7 @@
     <Compile Include="Controls\SelectDirectoryBox.xaml.cs">
       <DependentUpon>SelectDirectoryBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\StringToDateConverter.cs" />
     <Compile Include="PresentationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

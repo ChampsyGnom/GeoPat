@@ -23,7 +23,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
     }
     public class Validator
     {
-        public static Boolean ValidateEntity(Dictionary<String, String> valueStrings, EntityTableInfo tableInfo, out String message)
+        public static Boolean ValidateEntity<M>(M model, Dictionary<String, String> valueStrings, EntityTableInfo tableInfo, out String message)
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             String parseMessage = null;
@@ -394,6 +394,14 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                         }
                         Console.WriteLine("\t" + ukColumnInfo.ColumnName);
                     }
+
+                    Expression expIdModel = Expression.Constant(model, typeof(M));
+                    expIdModel = Expression.Property(expIdModel, "Id");
+                    Expression expIdBase = Expression.Property(expressionBase, "Id");
+                    Expression expNotIdEquals = Expression.NotEqual(expIdModel, expIdBase);
+                    expressions.Add(expNotIdEquals);
+
+
                     if (expressions.Count > 0)
                     {
                         Expression expressionAnd = expressions.First();
@@ -528,8 +536,34 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
 
                     }
                     else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Date)
-                    { 
+                    {
                         
+                        if (columnInfo.AllowNull)
+                        {
+                            Nullable<DateTime> valNullableDateTime = null;
+                            if (!ValidateNullableDateTime(valueString, out message, out valNullableDateTime))
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                message = null;
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            DateTime valDateTime = DateTime.Now;
+                            if (!ValidateDateTime(valueString, out message, out valDateTime))
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                message = null;
+                                return true;
+                            }
+                        }
                     }
                     else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr)
                     {
