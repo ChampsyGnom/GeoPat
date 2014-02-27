@@ -99,7 +99,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
                 
                 this._values[fieldPath] = value;
-               
+                
 
                
 
@@ -110,6 +110,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 if (fieldPath.IndexOf(".") == -1)
                 {
                     this.RaisePropertyChanged("[" + fieldPath + "]");
+                    this.RaisePropertyChanged("Item[]");
+                    
                 }
                 else
                 {
@@ -242,13 +244,16 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             foreach (String fieldPath in fieldPaths)
             {
                 EntityColumnInfo columnInfo = this.Manager.DataService.GetTopParentProperty(typeof(M), fieldPath);
+
                 if (fieldPath.IndexOf(".") == -1)
                 {
                     if (columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.Pr)
                     {
 
                         if (Validator.ValidateEntityColumn(this[fieldPath], columnInfo, out message, out valueValidated))
-                        { this.Model.GetType().GetProperty(fieldPath).SetValue(this.Model, valueValidated); }
+                        { 
+                            this.Model.GetType().GetProperty(fieldPath).SetValue(this.Model, valueValidated); 
+                        }
 
                     }
                     else

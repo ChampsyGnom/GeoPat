@@ -48,7 +48,16 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             this.dataToolBar.GotFocus += dataToolBar_GotFocus;
             this.dataToolBar.cancelButton.Click += cancelButton_Click;
             this.dataToolBar.commitbutton.Click += commitbutton_Click;
+            this.dataGrid.PreviewKeyDown += dataGrid_PreviewKeyDown;
         }
+
+        void dataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            { this.dataGrid.CommitEdit(); }
+        }
+
+        
 
         void commitbutton_Click(object sender, RoutedEventArgs e)
         {

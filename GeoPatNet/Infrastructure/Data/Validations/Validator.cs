@@ -543,10 +543,13 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                             Nullable<DateTime> valNullableDateTime = null;
                             if (!ValidateNullableDateTime(valueString, out message, out valNullableDateTime))
                             {
+                                value = null;
+                                message = null;
                                 return false;
                             }
                             else
                             {
+                                value = valNullableDateTime;
                                 message = null;
                                 return true;
                             }
@@ -556,10 +559,12 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                             DateTime valDateTime = DateTime.Now;
                             if (!ValidateDateTime(valueString, out message, out valDateTime))
                             {
+                                message = valueString + " n'est pas une date au format " + CultureConfiguration.DateFormatString;
                                 return false;
                             }
                             else
                             {
+                                value = valDateTime;
                                 message = null;
                                 return true;
                             }

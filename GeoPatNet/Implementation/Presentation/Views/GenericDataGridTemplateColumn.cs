@@ -214,13 +214,15 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     datePicker.SetValue(DatePicker.WidthProperty, 28D);
                     datePicker.SetValue(Grid.ColumnProperty, 1);
                     grid.AppendChild(datePicker);
+
+                    Binding bindingSelectedDate = new Binding("["+ this._fieldPath+"]");
+                    bindingSelectedDate.Mode = BindingMode.TwoWay;
+                    bindingSelectedDate.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                    bindingSelectedDate.Converter = new StringToDateConverter();
+                    datePicker.SetBinding(DatePicker.SelectedDateProperty, bindingSelectedDate);
+
                   
-                    datePicker.AddHandler(DatePicker.SelectedDateChangedEvent, new EventHandler<SelectionChangedEventArgs>(OnDateChange));
-
-                   // datePicker.AddHandler(DatePicker.SelectedDateChangedEvent, new  RoutedEventArgs(new RoutedEvent ()));
-
-
-
+                   // datePicker.AddHandler (DatePicker.se
                     dataTemplate.VisualTree = grid;
 
                 }
@@ -274,9 +276,13 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             return dataTemplate;
         }
 
+        void DatePickerCalendarClosed(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
-        private void OnDateChange(object sender, SelectionChangedEventArgs e)
-        { }
+
+       
         
         private Binding CreateBindingTwoWay(String path)
         {

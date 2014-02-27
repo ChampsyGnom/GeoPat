@@ -27,10 +27,19 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value != null && value is DateTime)
+            if (value != null && value is Nullable<DateTime>)
             {
-                DateTime dt =(DateTime) value;
-                return dt.ToString(CultureConfiguration.DateFormatString);
+                Nullable<DateTime> val = (Nullable<DateTime>)value;
+                if (val.HasValue)
+                {
+                    String valueString = val.Value.ToString(CultureConfiguration.DateFormatString);
+                    return valueString;
+                }
+                else
+                {
+                    return null;
+                }
+               
             }
             else return null;
            
