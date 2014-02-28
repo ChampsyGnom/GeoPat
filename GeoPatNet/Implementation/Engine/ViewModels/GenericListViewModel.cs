@@ -65,7 +65,18 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             { this.sorters[filedPath] = direction; }
           
         }
+        public Int32 SliderMinimum { get; set; }
+        public Int32 SliderMaximum { get; set; }
+        public Boolean CanSlide { get; set; }
+        private Int32 _sliderValue;
 
+        public Int32 SliderValue
+        {
+            get { return _sliderValue; }
+            set { _sliderValue = value; this.RaisePropertyChanged("SliderValue"); this.ItemsView.MoveCurrentToPosition(_sliderValue); }
+        }
+        public DelegateCommand<DataGridContextMenuOpeningBehaviorEventArg> DataGridContextMenuOpeningCommand { get; private set; }
+       
         
         /// <summary>
         /// Libellé de l'entité M
@@ -127,9 +138,6 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         /// Commande quitter
         /// </summary>
         public DelegateCommand QuitCommand { get; private set; }
-
-
-        public DelegateCommand<DataGridContextMenuOpeningBehaviorEventArg> DataGridContextMenuOpeningCommand { get; private set; }
         /// <summary>
         /// Liste des champs à afficher
         /// Si il s'agit d'une propriété de l'entité M c'est le nom de la propriété
@@ -209,6 +217,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             // On ecoute le changement de l'élément courant pour mettre à jour l'enregistrement courant
             this.ItemsView.CurrentChanged += ItemsView_CurrentChanged;
             this.sorters = new Dictionary<string, ListSortDirection?>();
+            this.CanSlide = false;
+            this.SliderMinimum = 0;
+            this.SliderMaximum = 0;
+            this.SliderValue = 0;
         }
 
         //@TODO Finir les menus contextuel
@@ -348,6 +360,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             else
             { this.DisplayRecordIndex = (this.ItemsView.CurrentPosition+1).ToString(); }
             this.RaisePropertyChanged("DisplayRecordIndex");
+            this._sliderValue = this.ItemsView.CurrentPosition;
+            this.RaisePropertyChanged("SliderValue");
         }
 
         private void UpdateDisplayRecordCount()
@@ -355,8 +369,14 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             IQueryable<M> queryable = this.DbSet.AsQueryable<M>();
             System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(typeof(M), "item");
             queryable = this.TryApplyFilter(queryable, expressionBase);
-            this.DisplayRecordCount = (from c in queryable select c).Count().ToString();
+            int count = (from c in queryable select c).Count();
+            this.DisplayRecordCount = count.ToString();
             this.RaisePropertyChanged("DisplayRecordCount");
+            this.SliderMinimum = 0;
+            this.SliderMaximum = count - 1;
+            this.RaisePropertyChanged("SliderMinimum");
+            this.RaisePropertyChanged("SliderMaximum");
+            
         }
 
         public void BeginEdit(object obj)
@@ -677,9 +697,12 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         public void RaiseStateChange()
         {
-            
+            if (this.State == GenericDataListState.Display)
+            { this.CanSlide = true; }
+            else this.CanSlide = false;
             this.RaiseCommandChange();
             this.RaisePropertyChanged("State");
+            this.RaisePropertyChanged("CanSlide");
             this.RaisePropertyChanged("IsLocked");
             this.UpdateDisplayRecordCount();
      

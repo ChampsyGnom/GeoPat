@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="Emash.GeoPatNet.Presentation.Implementation.Views.GenericDataFormView"
+﻿<UserControl x:Class="Emash.GeoPatNet.Presentation.Implementation.Views.GenericDataPropertyGridView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Implementation.Views"
+             xmlns:t="clr-namespace:Xceed.Wpf.Toolkit.PropertyGrid;assembly=Xceed.Wpf.Toolkit"
+               xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Implementation.Views"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -12,13 +13,14 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="gridControls"></Grid>
+        <t:PropertyGrid MouseDoubleClick="propertyGrid_MouseDoubleClick" SelectedObject="{Binding Path=ItemsView.CurrentItem}" Grid.Row="0" x:Name="propertyGrid"></t:PropertyGrid>
         <v:DataToolbar Grid.Row="2"></v:DataToolbar>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
             <v:DataRecordPosition Grid.Column="0"></v:DataRecordPosition>
             <Slider
                 IsEnabled="{Binding Path=CanSlide,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
@@ -26,6 +28,6 @@
                 Maximum="{Binding Path=SliderMaximum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                 Minimum="{Binding Path=SliderMinimum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"></Slider>
         </Grid>
-       
+
     </Grid>
 </UserControl>

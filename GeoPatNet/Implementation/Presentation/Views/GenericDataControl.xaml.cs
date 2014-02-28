@@ -74,157 +74,298 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             EntityColumnInfo topProperty = dataService.GetTopColumnInfo(modelType, fieldPath);
             Style contentControlStyle = new Style();
 
-            contentControlStyle.Triggers.Add(CreateTrigger(fieldPath,dataService, topProperty, GenericDataListState.Search));
-
-
-            DataTemplate tpl = new DataTemplate();
-            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingOneWay(this.FieldPath));
-            textBox.SetValue(TextBox.IsReadOnlyProperty, true);
-            tpl.VisualTree = textBox;
+            contentControlStyle.Triggers.Add(CreateTrigger(fieldPath,dataService, topProperty, GenericDataListState.Search,null));
+            contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.Display, true));
+            contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.Display, false));
 
            
+           
 
-            contentControlStyle.Setters.Add(new Setter(ContentControl.ContentTemplateProperty, tpl));
             contentControl.SetValue(ContentControl.StyleProperty, contentControlStyle);
         }
 
-        private TriggerBase CreateTrigger(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state)
+        private TriggerBase CreateTrigger(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state, Nullable<Boolean> isLocked)
         {
-            DataTrigger dataTrigger = new DataTrigger();
-            dataTrigger.Binding = this.CreateBindingState();
-            dataTrigger.Value = state;
-            dataTrigger.Setters.Add(this.CreateSetter(fieldPath,dataService, topProperty, state));
-
-            return dataTrigger;
-        }
-
-        private SetterBase CreateSetter(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state)
-        {
-            Setter setter = new Setter();
-            setter.Property = ContentControl.ContentTemplateProperty;
-            setter.Value = this.CreateTemplate(fieldPath,dataService, topProperty, state);
-            return setter;
-        }
-
-        private DataTemplate CreateTemplate(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state)
-        {
-            DataTemplate dataTemplate = new DataTemplate();
-            if (fieldPath.IndexOf(".") != -1)
+            TriggerBase trigger = null;
+            if (isLocked.HasValue)
             {
-                if (state == GenericDataListState.Search)
-                {
-                    String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                    FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
-                    comboBox.SetValue(ComboBox.IsEditableProperty, true);
-                    String comboListPath = "ItemsView.CurrentItem.ComboItemsSource[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
-                    Binding bindingList = new Binding(comboListPath);
-                    bindingList.Mode = BindingMode.OneWay;
-                    bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-                    comboBox.SetBinding(ComboBox.ItemsSourceProperty, bindingList);
-                    Binding binding = new Binding();
-                    binding.Path = new PropertyPath("ItemsView.CurrentItem[" + fieldPath + "]");
-                    binding.Mode = BindingMode.TwoWay;
-                    binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-                    binding.ValidatesOnDataErrors = true;
-                    comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);
-                    dataTemplate.VisualTree = comboBox;
-                }
-              
+                MultiDataTrigger multiDataTrigger = new MultiDataTrigger();
+                Condition conditionState = new Condition();
+                conditionState.Binding = this.CreateBindingState();
+                conditionState.Value = state;
+                multiDataTrigger.Conditions.Add(conditionState);
+                Condition conditionIsLocked = new Condition();
+                conditionIsLocked.Binding = this.CreateBindingIsLocked();
+                conditionIsLocked.Value = isLocked.Value;
+                multiDataTrigger.Conditions.Add(conditionIsLocked);
+                multiDataTrigger.Setters.Add(this.CreateSetter(fieldPath, dataService, topProperty, state, isLocked));
+                trigger = multiDataTrigger;
             }
             else
             {
-               
-                
-                    if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
-                    {
-                        if (state == GenericDataListState.Search)
-                        {
-                            FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
-
-                            var column1 = new FrameworkElementFactory(typeof(ColumnDefinition));
-                            column1.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Star));
-                            var column2 = new FrameworkElementFactory(typeof(ColumnDefinition));
-                            column2.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Auto));
-
-                            grid.AppendChild(column1);
-                            grid.AppendChild(column2);
-
-                            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                            textBox.SetValue(Grid.ColumnProperty, 0);
-                            grid.AppendChild(textBox);
-
-                            FrameworkElementFactory datePicker = new FrameworkElementFactory(typeof(DatePicker));
-                            datePicker.SetValue(DatePicker.WidthProperty, 28D);
-                            datePicker.SetValue(Grid.ColumnProperty, 1);
-                            grid.AppendChild(datePicker);
-
-                            Binding bindingSelectedDate = new Binding("ItemsView.CurrentItem[" + fieldPath + "]");
-                            bindingSelectedDate.Mode = BindingMode.TwoWay;
-                            bindingSelectedDate.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-                            bindingSelectedDate.Converter = new StringToDateConverter();
-                            datePicker.SetBinding(DatePicker.SelectedDateProperty, bindingSelectedDate);
-
-
-                            
-                            dataTemplate.VisualTree = grid;
-                        }
-                        
-
-                    }
-                    else if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
-                    {
-                        if (state == GenericDataListState.Search)
-                        {
-                            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-
-                            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-                            dataTemplate.VisualTree = textBox;
-                        }
-                        else if (state == GenericDataListState.InsertingEmpty)
-                        {
-                            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-                            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                            dataTemplate.VisualTree = textBox;
-                        }
-                        else if (state == GenericDataListState.Display)
-                        {
-                            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-                            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                            dataTemplate.VisualTree = textBox;
-                        }
-                        else if (state == GenericDataListState.Updating)
-                        {
-                            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-                            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                            dataTemplate.VisualTree = textBox;
-                        }
-                        else if (state == GenericDataListState.InsertingDisplay)
-                        {
-                            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-                            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                            dataTemplate.VisualTree = textBox;
-                        }
-
-                    }
-                
-
+                DataTrigger dataTrigger = new DataTrigger();
+                dataTrigger.Binding = this.CreateBindingState();
+                dataTrigger.Value = state;
+                dataTrigger.Setters.Add(this.CreateSetter(fieldPath, dataService, topProperty, state, isLocked));
+                trigger = dataTrigger;
             }
 
-            return dataTemplate;
+
+            return trigger;
+        }
+
+        private SetterBase CreateSetter(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state, Nullable<Boolean> isLocked)
+        {
+            Setter setter = new Setter();
+            setter.Property = ContentControl.ContentTemplateProperty;
+            setter.Value = this.CreateTemplate(fieldPath, dataService, topProperty, state, isLocked);
+            return setter;
+        }
+
+        private DataTemplate CreateTemplate(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state, Nullable<Boolean> isLocked)
+        {
+           
+            if (isLocked.HasValue)
+            {
+                if (isLocked.Value == true)
+                {
+                    if (state == GenericDataListState.Deleting)
+                    {
+                        return this.CreateTemplateDisplay(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.Display)
+                    {
+                        return this.CreateTemplateDisplay(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.InsertingDisplay)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.InsertingEmpty)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.Search)
+                    {
+                        return this.CreateTemplateSearch(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.Updating)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                }
+                else
+                {
+                    if (state == GenericDataListState.Deleting)
+                    {
+                        return this.CreateTemplateDisplay(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.Display)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.InsertingDisplay)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.InsertingEmpty)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.Search)
+                    {
+                        return this.CreateTemplateSearch(fieldPath, dataService, topProperty);
+                    }
+                    else if (state == GenericDataListState.Updating)
+                    {
+                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    }
+                }
+            }
+            else
+            {
+                if (state == GenericDataListState.Deleting)
+                {
+                    return this.CreateTemplateDisplay(fieldPath, dataService, topProperty);
+                }
+                else if (state == GenericDataListState.Display)
+                {
+                    return this.CreateTemplateDisplay(fieldPath, dataService, topProperty);
+                }
+                else if (state == GenericDataListState.InsertingDisplay)
+                {
+                    return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                }
+                else if (state == GenericDataListState.InsertingEmpty)
+                {
+                    return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                }
+                else if (state == GenericDataListState.Search)
+                {
+                    return this.CreateTemplateSearch(fieldPath, dataService, topProperty);
+                }
+                else if (state == GenericDataListState.Updating)
+                {
+                    return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                }
+            }
+
+
+            return null;
 
         }
+
+        private DataTemplate CreateTemplateSearch(string fieldPath, IDataService dataService, EntityColumnInfo topProperty)
+        {
+            DataTemplate dataTemplate = new DataTemplate();
+            if (fieldPath.IndexOf(".") != -1)
+            {               
+                String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
+                comboBox.SetValue(ComboBox.HeightProperty, 22D);
+                String comboListPath = "ItemsView.CurrentItem.ComboItemsSource[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
+                Binding bindingList = new Binding(comboListPath);
+                bindingList.Mode = BindingMode.OneWay;
+                bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                comboBox.SetBinding(ComboBox.ItemsSourceProperty, bindingList);
+                comboBox.SetValue(ComboBox.IsEditableProperty, true);
+                Binding binding = new Binding();
+                binding.Path = new PropertyPath("ItemsView.CurrentItem[" + fieldPath + "]");
+                binding.Mode = BindingMode.TwoWay;
+                binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                binding.ValidatesOnDataErrors = true;
+                comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);
+                dataTemplate.VisualTree = comboBox;
+            }
+            else
+            {
+                
+
+                if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
+                {
+                     FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
+                     grid.SetValue(Grid.HeightProperty, 22D);
+                    var column1 = new FrameworkElementFactory(typeof(ColumnDefinition));
+                    column1.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Star));
+                    var column2 = new FrameworkElementFactory(typeof(ColumnDefinition));
+                    column2.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Auto));
+
+                    grid.AppendChild(column1);
+                    grid.AppendChild(column2);
+
+                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
+                    textBox.SetValue(Grid.ColumnProperty, 0);
+                    grid.AppendChild(textBox);
+
+                    FrameworkElementFactory datePicker = new FrameworkElementFactory(typeof(DatePicker));
+                    datePicker.SetValue(DatePicker.WidthProperty, 28D);
+                    datePicker.SetValue(Grid.ColumnProperty, 1);
+                    grid.AppendChild(datePicker);
+
+                    Binding bindingSelectedDate = new Binding("ItemsView.CurrentItem[" + fieldPath + "]");
+                    bindingSelectedDate.Mode = BindingMode.TwoWay;
+                    bindingSelectedDate.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                    bindingSelectedDate.Converter = new StringToDateConverter();
+                    datePicker.SetBinding(DatePicker.SelectedDateProperty, bindingSelectedDate);
+                    dataTemplate.VisualTree = grid;
+                    
+
+
+                }
+                else if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
+                {                    
+                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                    textBox.SetValue(TextBox.HeightProperty, 22D);
+                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
+                    if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                    { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
+                    dataTemplate.VisualTree = textBox;
+                }
+            }
+            return dataTemplate;
+        }
+
+        private DataTemplate CreateTemplateEdit(string fieldPath, IDataService dataService, EntityColumnInfo topProperty)
+        {
+
+            DataTemplate dataTemplate = new DataTemplate();
+            if (fieldPath.IndexOf(".") != -1)
+            {
+                String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
+                String comboListPath = "ItemsView.CurrentItem.ComboItemsSource[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
+                comboBox.SetValue(ComboBox.HeightProperty, 22D);
+                Binding bindingList = new Binding(comboListPath);
+                bindingList.Mode = BindingMode.OneWay;
+                bindingList.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                comboBox.SetBinding(ComboBox.ItemsSourceProperty, bindingList);                
+                Binding binding = new Binding();
+                binding.Path = new PropertyPath("ItemsView.CurrentItem[" + fieldPath + "]");
+                binding.Mode = BindingMode.TwoWay;
+                binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                binding.ValidatesOnDataErrors = true;
+                comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);
+                dataTemplate.VisualTree = comboBox;
+            }
+            else
+            { 
+                if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
+                {                    
+                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                    textBox.SetValue(TextBox.HeightProperty, 22D);
+                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
+                    if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                    { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
+                    dataTemplate.VisualTree = textBox;
+                    
+                }
+                else if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
+                {
+
+                    FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
+                    grid.SetValue(Grid.HeightProperty, 22D);
+                    var column1 = new FrameworkElementFactory(typeof(ColumnDefinition));
+                    column1.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Star));
+                    var column2 = new FrameworkElementFactory(typeof(ColumnDefinition));
+                    column2.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Auto));
+                    grid.AppendChild(column1);
+                    grid.AppendChild(column2);
+                    FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
+                    textBox.SetValue(Grid.ColumnProperty, 0);
+                    grid.AppendChild(textBox);
+                    FrameworkElementFactory datePicker = new FrameworkElementFactory(typeof(DatePicker));
+                    datePicker.SetValue(DatePicker.WidthProperty, 28D);
+                    datePicker.SetValue(Grid.ColumnProperty, 1);
+                    grid.AppendChild(datePicker);
+                    Binding bindingSelectedDate = new Binding("ItemsView.CurrentItem[" + fieldPath + "]");
+                    bindingSelectedDate.Mode = BindingMode.TwoWay;
+                    bindingSelectedDate.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                    bindingSelectedDate.Converter = new StringToDateConverter();
+                    datePicker.SetBinding(DatePicker.SelectedDateProperty, bindingSelectedDate);
+                    dataTemplate.VisualTree = grid;
+                }
+                    
+            }
+            return dataTemplate;
+        }
+
+        private DataTemplate CreateTemplateDisplay(string fieldPath, IDataService dataService, EntityColumnInfo topProperty)
+        {
+            DataTemplate dataTemplate = new DataTemplate();
+            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+            textBox.SetValue(TextBox.HeightProperty, 22D);
+            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingOneWay (fieldPath));
+            textBox.SetValue(TextBox.IsReadOnlyProperty, true);
+            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
+            dataTemplate.VisualTree = textBox;
+            return dataTemplate;
+        }
+
+       
+       
         private Binding CreateBindingTwoWay(String path)
         {
             Binding binding = new Binding("ItemsView.CurrentItem[" + path + "]");

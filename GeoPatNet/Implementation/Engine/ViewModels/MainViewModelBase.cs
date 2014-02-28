@@ -61,6 +61,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             List<Object> views = new List<object>();
             views.Add(new GenericDataGridView());
             views.Add(new GenericDataFormView());
+            views.Add(new GenericDataPropertyGridView());
             swapRegionView.Configure(detailsRegionManager, views.ToArray());
             region.Activate(swapRegionView);
             swapRegionView.SwapView();

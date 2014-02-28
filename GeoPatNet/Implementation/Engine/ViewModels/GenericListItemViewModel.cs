@@ -20,7 +20,7 @@ using Emash.GeoPatNet.Atom.Infrastructure.Services;
 
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
-    public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem,IDataErrorInfo
+    public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem, IDataErrorInfo, ICustomTypeDescriptor
     {
 
         private Dictionary<String, String> _values;
@@ -63,6 +63,13 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         /// Manager de la liste ... (on pourais s'en passer ...)
         /// </summary>
         public IGenericListViewModel Manager { get; private set; }
+
+        public String Name
+        {
+            get {
+                return this.Manager.DataService.GetEntityTableInfo(typeof(M)).DisplayName;
+            }
+        }
 
         public GenericListItemViewModel(IGenericListViewModel manager, M model)
         {
@@ -518,6 +525,75 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             foreach (String key in keys)
             {this._values.Add (key,"");}
            
+        }
+
+        public String GetClassName()
+        {
+            return TypeDescriptor.GetClassName(this, true);
+        }
+
+        public AttributeCollection GetAttributes()
+        {
+            return TypeDescriptor.GetAttributes(this, true);
+        }
+
+        public String GetComponentName()
+        {
+            return TypeDescriptor.GetComponentName(this, true);
+        }
+
+        public TypeConverter GetConverter()
+        {
+            return TypeDescriptor.GetConverter(this, true);
+        }
+
+        public EventDescriptor GetDefaultEvent()
+        {
+            return TypeDescriptor.GetDefaultEvent(this, true);
+        }
+
+        public PropertyDescriptor GetDefaultProperty()
+        {
+            return TypeDescriptor.GetDefaultProperty(this, true);
+        }
+
+        public object GetEditor(Type editorBaseType)
+        {
+            return TypeDescriptor.GetEditor(this, editorBaseType, true);
+        }
+
+        public EventDescriptorCollection GetEvents(Attribute[] attributes)
+        {
+            return TypeDescriptor.GetEvents(this, attributes, true);
+        }
+
+        public EventDescriptorCollection GetEvents()
+        {
+            return TypeDescriptor.GetEvents(this, true);
+        }
+
+        public object GetPropertyOwner(PropertyDescriptor pd)
+        {
+            return this;
+        }
+
+
+        public PropertyDescriptorCollection GetProperties(Attribute[] attributes)
+        {
+            return null;
+        }
+
+        public PropertyDescriptorCollection GetProperties()
+        {
+            List<GenericPropertyDescriptor<M>> props = new List<GenericPropertyDescriptor<M>>();
+            foreach (String fieldPath in this._values.Keys)
+            {
+                GenericPropertyDescriptor<M> prop = new GenericPropertyDescriptor<M>(fieldPath);
+                
+                props.Add(prop);
+            }         
+            PropertyDescriptorCollection lst = new PropertyDescriptorCollection(props.ToArray ());
+            return lst;
         }
     }
 }
