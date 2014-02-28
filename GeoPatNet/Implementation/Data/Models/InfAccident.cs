@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
+using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Accident")]

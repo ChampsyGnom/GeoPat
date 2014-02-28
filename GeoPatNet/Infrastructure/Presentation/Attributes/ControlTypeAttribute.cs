@@ -16,7 +16,8 @@ namespace Emash.GeoPatNet.Presentation.Infrastructure.Attributes
         Combo,
         Date,
         Pr,
-        None
+        None,
+        Color
     }
 
 

@@ -156,19 +156,28 @@ namespace Emash.GeoPatNet.Generator.IO
 
             foreach (XmlNode nodeRule in nodeRules)
             {
-                if (nodeRule.SelectSingleNode("Code").InnerText.StartsWith("PR"))
+                String serverExpression = nodeRule.SelectSingleNode("ServerExpression").InnerText;
+                if (serverExpression.StartsWith("@PR"))
                 {
                     DbRulePr rulePr = new DbRulePr();
                     rulePr.Id = nodeRule.Attributes["Id"].Value;
-                    rulePr.ChausseIdColumnName = nodeRule.SelectSingleNode("ServerExpression").InnerText;
+                    rulePr.ChausseIdColumnName = serverExpression.Replace("@PR", "").Replace("(", "").Replace(")", "");
                     schema.Rules.Add(rulePr);
                 }
-                if (nodeRule.SelectSingleNode("Code").InnerText.StartsWith("EMPRISE_CHAUSSEE"))
+
+                if (serverExpression.StartsWith("@EMPRISE_CHAUSSEE"))
                 {
                     DbRuleEmprise ruleEmprise = new DbRuleEmprise();
                     ruleEmprise.Id = nodeRule.Attributes["Id"].Value;
-                    ruleEmprise.ChausseIdColumnName = nodeRule.SelectSingleNode("ServerExpression").InnerText;
+                    ruleEmprise.ChausseIdColumnName = serverExpression.Replace("@EMPRISE_CHAUSSEE", "").Replace("(", "").Replace(")", "");
                     schema.Rules.Add(ruleEmprise);
+                }
+
+                if (serverExpression.StartsWith("@COLOR"))
+                {
+                    DbRuleColor ruleColor = new DbRuleColor();
+                    ruleColor.Id = nodeRule.Attributes["Id"].Value;
+                    schema.Rules.Add(ruleColor);
                 }
             }
 
@@ -176,10 +185,15 @@ namespace Emash.GeoPatNet.Generator.IO
             XmlNodeList nodes = doc.SelectNodes("/Model/RootObject/Children/Model/Tables/Table");
             foreach (XmlNode nodeTable in nodes)
             {
+
                 String id = nodeTable.Attributes["Id"].Value;
                 DbTable table = new DbTable();
                 table.Id = id;
                 table.Name = nodeTable.SelectSingleNode("Code").InnerText;
+                if (table.Name.Equals("INF_CD_SERVICE"))
+                {
+                    Console.WriteLine("Toto");
+                }
                 table.DisplayName = nodeTable.SelectSingleNode("Name").InnerText;
 
                 XmlNodeList nodeTableRules = nodeTable.SelectNodes("AttachedRules/BusinessRule");

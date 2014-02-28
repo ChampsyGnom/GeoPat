@@ -16,6 +16,11 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
             get;
             set;
         }
+        String Couleur
+        {
+            get;
+            set;
+        }
         Int64 Id
         {
             get;

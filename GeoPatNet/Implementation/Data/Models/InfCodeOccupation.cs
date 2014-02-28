@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
+using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Code occupation")]
@@ -36,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_OCCUPATION__ID")]
         [PrimaryKey("INF_CD_OCCUPATION_PK")]
-        [ForeignKeyAttribute("INF_CD_OCCUPATION__INF_OCCUPATION","JOIN_o800")]
+        [ForeignKeyAttribute("INF_CD_OCCUPATION__INF_OCCUPATION","JOIN_o947")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

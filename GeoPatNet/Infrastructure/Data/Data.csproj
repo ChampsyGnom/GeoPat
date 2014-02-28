@@ -99,11 +99,13 @@
     <Compile Include="Events\OpenEntityEvent.cs" />
     <Compile Include="IDataContext.cs" />
     <Compile Include="Models\IInfAccident.cs" />
+    <Compile Include="Models\IInfAire.cs" />
     <Compile Include="Models\IInfAmenagement.cs" />
     <Compile Include="Models\IInfBifurcation.cs" />
     <Compile Include="Models\IInfBretelle.cs" />
     <Compile Include="Models\IInfChaussee.cs" />
     <Compile Include="Models\IInfClimat.cs" />
+    <Compile Include="Models\IInfCodeAire.cs" />
     <Compile Include="Models\IInfCodeAmenagement.cs" />
     <Compile Include="Models\IInfCodeBifurcation.cs" />
     <Compile Include="Models\IInfCodeClimat.cs" />
@@ -114,10 +116,15 @@
     <Compile Include="Models\IInfCodeLiaison.cs" />
     <Compile Include="Models\IInfCodeOccupant.cs" />
     <Compile Include="Models\IInfCodeOccupation.cs" />
+    <Compile Include="Models\IInfCodeParkingInfAire.cs" />
+    <Compile Include="Models\IInfCodePlace.cs" />
     <Compile Include="Models\IInfCodePosit.cs" />
+    <Compile Include="Models\IInfCodePrestataire.cs" />
     <Compile Include="Models\IInfCodePtSing.cs" />
     <Compile Include="Models\IInfCodeSecurite.cs" />
     <Compile Include="Models\IInfCodeSensible.cs" />
+    <Compile Include="Models\IInfCodeService.cs" />
+    <Compile Include="Models\IInfCodeServiceInfAire.cs" />
     <Compile Include="Models\IInfCodeTalus.cs" />
     <Compile Include="Models\IInfCodeTpc.cs" />
     <Compile Include="Models\IInfCodeTrafic.cs" />
@@ -130,6 +137,8 @@
     <Compile Include="Models\IInfOccupation.cs" />
     <Compile Include="Models\IInfPaveVoie.cs" />
     <Compile Include="Models\IInfPk.cs" />
+    <Compile Include="Models\IInfPrestataire.cs" />
+    <Compile Include="Models\IInfPrestataireInfAire.cs" />
     <Compile Include="Models\IInfPrOld.cs" />
     <Compile Include="Models\IInfPtSing.cs" />
     <Compile Include="Models\IInfRepartitionTrafic.cs" />
@@ -164,6 +173,7 @@
       <Name>Presentation %28GeoPat\Infrastructure\Presentation%29</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

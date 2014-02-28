@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
+using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Type liaison")]
@@ -32,11 +33,21 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
+        [DisplayName("Couleur")]
+        [ColumnName("INF_CD_LIAISON__COULEUR")]
+        [MaxCharLength(15)]
+        [ControlType(ControlType.Color)]
+        [AllowNull(true)]
+        public String Couleur
+        {
+            get;
+            set;
+        }
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_LIAISON__ID")]
         [PrimaryKey("INF_CD_LIAISON_PK")]
-        [ForeignKeyAttribute("INF_CD_LIAISON__INF_LIAISON","JOIN_o788")]
+        [ForeignKeyAttribute("INF_CD_LIAISON__INF_LIAISON","JOIN_o935")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

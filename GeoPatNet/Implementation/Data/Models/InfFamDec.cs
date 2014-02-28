@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
+using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Famille découpage")]
@@ -36,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_FAM_DEC__ID")]
         [PrimaryKey("INF_FAM_DEC_PK")]
-        [ForeignKeyAttribute("INF_FAM_DEC__INF_CD_DEC","JOIN_o808")]
+        [ForeignKeyAttribute("INF_FAM_DEC__INF_CD_DEC","JOIN_o955")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

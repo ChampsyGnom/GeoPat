@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Emash.GeoPatNet.Data.Infrastructure.Models;
 using Emash.GeoPatNet.Data.Infrastructure.Attributes;
 using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
+using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
 	[DisplayName("Code point singulier")]
@@ -36,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_PT_SING__ID")]
         [PrimaryKey("INF_CD_PT_SING_PK")]
-        [ForeignKeyAttribute("INF_CD_PT_SING__INF_PT_SING","JOIN_o798")]
+        [ForeignKeyAttribute("INF_CD_PT_SING__INF_PT_SING","JOIN_o945")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

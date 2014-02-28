@@ -40,11 +40,11 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         public GeneratorCSharpViewModel(Project model)
         {
             this._model = model;
-            this.DataNamespace = model.DataNamespace;
-            this.DataPath = model.DataPath;
-          
-            this.DataInfraPath = model.DataInfraPath;
-            this.DataInfraNamespace = model.DataInfraNamespace;
+            this.DataNamespace = "Emash.GeoPatNet.Data.Implementation";
+            this.DataPath = @"C:\Users\Champ\Documents\GitHub\GeoPat\GeoPatNet\Implementation\Data";
+
+            this.DataInfraPath = @"C:\Users\Champ\Documents\GitHub\GeoPat\GeoPatNet\Infrastructure\Data";
+            this.DataInfraNamespace = "Emash.GeoPatNet.Data.Infrastructure";
     
 
             this.ChangeDataPathCommand = new DelegateCommand(ChangeDataPathExecute);
@@ -107,7 +107,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                         if (column.Name.StartsWith (table.Name +"__"))
                         {
-                            String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Substring(column.Name.IndexOf("__")));
+                            String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Substring(column.Name.LastIndexOf("__")));
                             writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ") .HasColumnName(\"" + column.Name.ToLower () + "\");");
                             if (!column.AllowNull)
                             { writer.ModelBuilders.Add("modelBuilder.Entity<" + className + ">().Property(t => t." + propertyName + ").IsRequired();"); }
@@ -228,6 +228,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         }
                         
                         String propertyName = NameConverter.ColumnNameToPropertyName(column.Name.Replace(table.Name, ""));
+                       
                         if (column.DataType.Equals("INT4"))
                         {
                             DbColumn childColumn = null;
@@ -341,9 +342,19 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             prop.Attributes.Add("[ControlType(ControlType.None)]");
                             prop.Attributes.Add("[AllowNull(false)]");
 
+
+                        }
+                        else if (column.DataType.StartsWith("VBIN"))
+                        {
+                            TemplateProperty prop = writer.AddProperty("public DbGeometry", propertyName);
+                            prop.Attributes.Add("[ControlType(ControlType.None)]");
+                            prop.Attributes.Add("[AllowNull(true)]");
+                            prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
+                            prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
                         }
                         else if (column.DataType.StartsWith("VARCHAR"))
                         {
+                            DbRuleColor ruleColor = (from r in column.Rules where r is DbRuleColor select r as DbRuleColor).FirstOrDefault();
 
                             TemplateProperty prop = writer.AddProperty("public String", propertyName);
                             prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
@@ -353,16 +364,24 @@ namespace Emash.GeoPatNet.Generator.ViewModels
 
                             foreach (DbUniqueKey uk in uks)
                             {
-                                prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]"); 
+                                prop.Attributes.Add("[UniqueKey(\"" + uk.Name + "\")]");
                             }
 
                             prop.Attributes.Add("[MaxCharLength(" + column.Length + ")]");
-                            prop.Attributes.Add("[ControlType(ControlType.Text)]");
+                            if (ruleColor != null)
+                            { prop.Attributes.Add("[ControlType(ControlType.Color)]"); }
+                            else
+                            { prop.Attributes.Add("[ControlType(ControlType.Text)]"); }
+
                             //MaxCharLengthAttribute
                             if (column.AllowNull)
                             { prop.Attributes.Add("[AllowNull(true)]"); }
                             else
                             { prop.Attributes.Add("[AllowNull(false)]"); }
+
+
+
+
 
                         }
                         else if (column.DataType.StartsWith("FLOAT8"))
@@ -448,7 +467,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                             else
                             {
                                 TemplateProperty prop = writer.AddProperty("public Boolean", propertyName);
-                                prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]"); 
+                                prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
                                 if (fkJoinColumn != null)
                                 { prop.Attributes.Add("[ForeignKey(\"" + fkTable.Name + "\",\"JOIN_" + fkJoinColumn.Id + "\")]"); }
