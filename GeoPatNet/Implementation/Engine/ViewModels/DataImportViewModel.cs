@@ -109,7 +109,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             List<DataFileViewModel> lst = new List<DataFileViewModel>();
             foreach (Object o in this.Files)
             { lst.Add (o as DataFileViewModel); }
-            this.ImportFile(lst);
+
+             this.ImportFile(lst); 
+            
+          
             this.Dispatcher.Invoke(new Action(delegate()
             {
                 this.IsEnabled = true;
@@ -126,6 +129,10 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             {
                 if (vm.Import)
                 {
+                     this.Dispatcher.Invoke(new Action(delegate()
+                    {
+                        this.Files.MoveCurrentTo(vm);
+                    }));
                     DbSet dbSet = dataService.GetDbSet(vm.TableInfo.EntityType);
                     dbSet.Load();
                     List<Object> oldObjs = new List<object>();
@@ -146,7 +153,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         Object item = Activator.CreateInstance(vm.TableInfo.EntityType);
                         foreach (EntityColumnInfo columnInfo in vm.TableInfo.ColumnInfos)
                         {
-                            if (columnInfo.PrimaryKeyName == null)
+                            if (columnInfo.PrimaryKeyName == null && columnInfo.PropertyType != typeof (Byte[]))
                             {
                                 if (columnInfo.ForeignKeyNames.Count > 0)
                                 {
@@ -226,10 +233,35 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
                                         PropertyInfo property = item.GetType().GetProperty(columnInfo.PropertyName);
                                         Object propertyValue = null;
-                                        if (Validator.ValidateEntityColumn(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
+                                        Nullable<Int64> valInt64 = 0;
+                                        if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Pr)
                                         {
-                                            property.SetValue(item, propertyValue);
+                                            if(datas[vm.Mapping[columnInfo.PropertyName]].IndexOf ("+") == -1)
+                                            {
+                                                if (Validator.ValidateNullableInt64(datas[vm.Mapping[columnInfo.PropertyName]], out message, out valInt64))
+                                                {
+                                                    property.SetValue(item, valInt64); 
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (Validator.ValidateEntityColumn(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
+                                                {
+                                                    property.SetValue(item, propertyValue);
+                                                }
+                                            }
+                                            
                                         }
+                                        else
+                                        {
+                                            if (Validator.ValidateEntityColumn(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
+                                            {
+                                                 property.SetValue(item, propertyValue); 
+                                                
+
+                                            }
+                                        }
+                                        
 
                                     }
                                 }

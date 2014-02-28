@@ -10,30 +10,41 @@ using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
-	[DisplayName("Parking aire")]
-    [TableName("INF_CD_PARKING__INF_AIRE")]
+	[DisplayName("Aire parking")]
+    [TableName("INF_AIRE_PARKING")]
     [SchemaName("INF")]
-    public class InfCodeParkingInfAire : IInfCodeParkingInfAire
+    public class InfAireParking : IInfAireParking
     {
     	
+        [DisplayName("Aires")]
+        [ColumnName("INF_AIRE__ID")]
+        [AllowNull(true)]
+        [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_AIRE__INF_AIRE_PARKING",null)]
+        [UniqueKey("INF_AIRE_PARKING_UK_REF")]
+        public virtual InfAire InfAire
+        {
+            get;
+            set;
+        }
         [DisplayName("Type parking")]
         [ColumnName("INF_CD_PLACE__ID")]
-        [AllowNull(false)]
+        [AllowNull(true)]
         [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_CD_PARKING__INF_AIRE2",null)]
-        [UniqueKey("INF_CD_PARKING__INF_AIRE_UK_REF")]
+        [ForeignKey("INF_CD_PARKING__INF_AIRE_PARKING",null)]
+        [UniqueKey("INF_AIRE_PARKING_UK_REF")]
         public virtual InfCodePlace InfCodePlace
         {
             get;
             set;
         }
-        [DisplayName("Aires")]
-        [ColumnName("INF_AIRE__ID")]
+        [Browsable(false)]
+        [DisplayName("Identifiant")]
+        [ColumnName("INF_AIRE_PARKING__ID")]
+        [PrimaryKey("INF_AIRE_PARKING_PK")]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
-        [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_CD_PARKING__INF_AIRE",null)]
-        [UniqueKey("INF_CD_PARKING__INF_AIRE_UK_REF")]
-        public virtual InfAire InfAire
+        public Int64 Id
         {
             get;
             set;
@@ -42,24 +53,24 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_AIRE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfAireId
+        [AllowNull(true)]
+        public Nullable<Int64> InfAireId
         {
             get;
             set;
         }
-        [DisplayName("Identifiant code parking")]
+        [DisplayName("Identifiant type parking")]
         [ColumnName("INF_CD_PLACE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfCodePlaceId
+        [AllowNull(true)]
+        public Nullable<Int64> InfCodePlaceId
         {
             get;
             set;
         }
         [DisplayName("Nombre de place")]
-        [ColumnName("INF_CD_PARKING__INF_AIRE__NB_PLACE")]
+        [ColumnName("INF_AIRE_PARKING__NB_PLACE")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(true)]

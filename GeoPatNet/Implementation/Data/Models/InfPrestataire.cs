@@ -16,8 +16,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     public class InfPrestataire : IInfPrestataire
     {
     	
-        [DisplayName("Prestataire Aires")]
-        public virtual ICollection<InfPrestataireInfAire> InfPrestataireInfAires
+        [DisplayName("Aire prestataires")]
+        public virtual ICollection<InfAirePrestataire> InfAirePrestataires
         {
             get;
             set;
@@ -48,7 +48,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_PRESTATAIRE__ID")]
         [PrimaryKey("INF_PRESTATAIRE_PK")]
-        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE","JOIN_o958")]
+        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE_PRESTATAIRE","JOIN_o890")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -56,7 +56,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Identifiant code prestataire")]
+        [DisplayName("Identifiant2")]
         [ColumnName("INF_CD_PRESTATAIRE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]

@@ -35,7 +35,14 @@ namespace Emash.GeoPatNet.Generator.Models
                 { return this.Name + " character varying("+this.Length+")"; }
                 else
                 { return this.Name + " character varying(" + this.Length + ") NOT NULL"; }
-          
+
+            }
+            else if (DataType.Equals("VBIN"))
+            {
+                if (AllowNull)
+                { return this.Name + " geometry"; }
+                else
+                { return this.Name + " geometry NOT NULL"; }
             }
             else if (DataType.Equals("INT4"))
             {
@@ -77,7 +84,7 @@ namespace Emash.GeoPatNet.Generator.Models
                 { return this.Name + " real NOT NULL"; }
 
             }
-           
+
             else Console.WriteLine(DataType);
 
      

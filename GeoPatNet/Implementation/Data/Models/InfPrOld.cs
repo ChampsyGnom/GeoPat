@@ -60,7 +60,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Identifiant chaussée")]
+        [DisplayName("Identifiant2")]
         [ColumnName("INF_CHAUSSEE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]

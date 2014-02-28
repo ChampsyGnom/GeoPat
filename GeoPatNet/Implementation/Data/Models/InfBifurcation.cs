@@ -82,22 +82,22 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Identifiant chaussée")]
-        [ColumnName("INF_CHAUSSEE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfChausseeId
-        {
-            get;
-            set;
-        }
         [DisplayName("Identifiant code bifurcation")]
         [ColumnName("INF_CD_BIFURCATION__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeBifurcationId
+        {
+            get;
+            set;
+        }
+        [DisplayName("Identifiant2")]
+        [ColumnName("INF_CHAUSSEE__ID")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfChausseeId
         {
             get;
             set;

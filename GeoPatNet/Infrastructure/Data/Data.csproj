@@ -100,6 +100,9 @@
     <Compile Include="IDataContext.cs" />
     <Compile Include="Models\IInfAccident.cs" />
     <Compile Include="Models\IInfAire.cs" />
+    <Compile Include="Models\IInfAireParking.cs" />
+    <Compile Include="Models\IInfAirePrestataire.cs" />
+    <Compile Include="Models\IInfAireService.cs" />
     <Compile Include="Models\IInfAmenagement.cs" />
     <Compile Include="Models\IInfBifurcation.cs" />
     <Compile Include="Models\IInfBretelle.cs" />
@@ -116,7 +119,6 @@
     <Compile Include="Models\IInfCodeLiaison.cs" />
     <Compile Include="Models\IInfCodeOccupant.cs" />
     <Compile Include="Models\IInfCodeOccupation.cs" />
-    <Compile Include="Models\IInfCodeParkingInfAire.cs" />
     <Compile Include="Models\IInfCodePlace.cs" />
     <Compile Include="Models\IInfCodePosit.cs" />
     <Compile Include="Models\IInfCodePrestataire.cs" />
@@ -124,7 +126,6 @@
     <Compile Include="Models\IInfCodeSecurite.cs" />
     <Compile Include="Models\IInfCodeSensible.cs" />
     <Compile Include="Models\IInfCodeService.cs" />
-    <Compile Include="Models\IInfCodeServiceInfAire.cs" />
     <Compile Include="Models\IInfCodeTalus.cs" />
     <Compile Include="Models\IInfCodeTpc.cs" />
     <Compile Include="Models\IInfCodeTrafic.cs" />
@@ -138,7 +139,6 @@
     <Compile Include="Models\IInfPaveVoie.cs" />
     <Compile Include="Models\IInfPk.cs" />
     <Compile Include="Models\IInfPrestataire.cs" />
-    <Compile Include="Models\IInfPrestataireInfAire.cs" />
     <Compile Include="Models\IInfPrOld.cs" />
     <Compile Include="Models\IInfPtSing.cs" />
     <Compile Include="Models\IInfRepartitionTrafic.cs" />

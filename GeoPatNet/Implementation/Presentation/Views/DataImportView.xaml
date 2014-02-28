@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" Margin="2" Text="Répertoire : "></TextBlock>
         <c:SelectDirectoryBox IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  SelectedDirectory="{Binding Path=ImportDirectory,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></c:SelectDirectoryBox>
-        <DataGrid IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="True" ItemsSource="{Binding Path=Files}" IsReadOnly="False" Grid.Row="1" Grid.ColumnSpan="2">
+        <DataGrid x:Name="dataGrid" SelectionChanged="DataGrid_SelectionChanged" IsSynchronizedWithCurrentItem="True" IsEnabled="{Binding Path=IsEnabled,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="True" ItemsSource="{Binding Path=Files}" IsReadOnly="False" Grid.Row="1" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Importer" Binding="{Binding Path=Import,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
                 <DataGridTextColumn IsReadOnly="True" Width="60" Header="Schéma" Binding="{Binding Path=TableInfo.SchemaName}"></DataGridTextColumn>

@@ -10,30 +10,41 @@ using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
-	[DisplayName("Service aire")]
-    [TableName("INF_CD_SERVICE__INF_AIRE")]
+	[DisplayName("Aire service")]
+    [TableName("INF_AIRE_SERVICE")]
     [SchemaName("INF")]
-    public class InfCodeServiceInfAire : IInfCodeServiceInfAire
+    public class InfAireService : IInfAireService
     {
     	
+        [DisplayName("Aires")]
+        [ColumnName("INF_AIRE__ID")]
+        [AllowNull(true)]
+        [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_AIRE__INF_AIRE_SERVICE",null)]
+        [UniqueKey("INF_AIRE_SERVICE_UK_REF")]
+        public virtual InfAire InfAire
+        {
+            get;
+            set;
+        }
         [DisplayName("Type Service")]
         [ColumnName("INF_CD_SERVICE__ID")]
-        [AllowNull(false)]
+        [AllowNull(true)]
         [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_CD_SERVICE__INF_AIRE2",null)]
-        [UniqueKey("INF_CD_SERVICE__INF_AIRE_UK_REF")]
+        [ForeignKey("INF_CD_SERVICE__INF_AIRE_SERVICE",null)]
+        [UniqueKey("INF_AIRE_SERVICE_UK_REF")]
         public virtual InfCodeService InfCodeService
         {
             get;
             set;
         }
-        [DisplayName("Aires")]
-        [ColumnName("INF_AIRE__ID")]
+        [Browsable(false)]
+        [DisplayName("Identifiant")]
+        [ColumnName("INF_AIRE_SERVICE__ID")]
+        [PrimaryKey("INF_AIRE_SERVICE_PK")]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
-        [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_CD_SERVICE__INF_AIRE",null)]
-        [UniqueKey("INF_CD_SERVICE__INF_AIRE_UK_REF")]
-        public virtual InfAire InfAire
+        public Int64 Id
         {
             get;
             set;
@@ -42,18 +53,18 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_AIRE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfAireId
+        [AllowNull(true)]
+        public Nullable<Int64> InfAireId
         {
             get;
             set;
         }
-        [DisplayName("Identifiant code service")]
+        [DisplayName("Identifiant type service")]
         [ColumnName("INF_CD_SERVICE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfCodeServiceId
+        [AllowNull(true)]
+        public Nullable<Int64> InfCodeServiceId
         {
             get;
             set;

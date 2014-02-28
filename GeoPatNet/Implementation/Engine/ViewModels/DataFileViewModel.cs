@@ -105,6 +105,61 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     this._mapping.Add("Libelle", this._headers.IndexOf("CODE"));
                     this.Import = true;
                 }
+
+
+
+
+                else if (this.TableInfo.TableName.Equals("INF_CD_SERVICE"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("SERVICE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("SERVICE"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_CD_PLACE"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("PARKING"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("PARKING"));
+                    this.Import = true;
+                }
+                else if (this.TableInfo.TableName.Equals("INF_CD_PRESTATAIRE"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("TYPE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("TYPE"));
+                    this.Import = true;
+                }
+
+                else if (this.TableInfo.TableName.Equals("INF_CD_AIRE"))
+                {
+                    this._mapping.Add("Code", this._headers.IndexOf("TYPE"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("TYPE"));
+                    this.Import = true;
+                }
+                    
+                else if (this.TableInfo.TableName.Equals("INF_PRESTATAIRE"))
+                {
+                    this._mapping.Add("InfCodePrestataire.Code", this._headers.IndexOf("CD_PRESTATAIRE_INF__TYPE"));
+                    this._mapping.Add("Code", this._headers.IndexOf("NOM"));
+                    this._mapping.Add("Libelle", this._headers.IndexOf("NOM"));
+                    this.Import = true;
+                }
+                //;;;;NUM_EXPLOIT;NOM;DATE_MS;DEMI_TOUR;BILATERALE;PASSERELLE;OBSERV
+                else if (this.TableInfo.TableName.Equals("INF_AIRE"))
+                {
+                    this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("InfCodeType.Code", this._headers.IndexOf("CD_AIRE_INF__TYPE"));
+                    this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
+                    this._mapping.Add("NumExploit", this._headers.IndexOf("NUM_EXPLOIT"));
+                    this._mapping.Add("Nom", this._headers.IndexOf("NOM"));
+                    this._mapping.Add("DemiTour", this._headers.IndexOf("DEMI_TOUR"));
+                    this._mapping.Add("Bilaterale", this._headers.IndexOf("BILATERALE"));
+                    this._mapping.Add("Passerelle", this._headers.IndexOf("PASSERELLE"));
+                    this._mapping.Add("Observ", this._headers.IndexOf("OBSERV"));
+
+                    this.Import = true;
+                }
+
+
                 else  if (this.TableInfo.TableName.Equals("INF_FAM_DEC"))
                 {
                     this._mapping.Add("Code", this._headers.IndexOf("FAM_DEC"));

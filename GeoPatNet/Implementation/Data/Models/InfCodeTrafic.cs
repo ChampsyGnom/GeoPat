@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_TRAFIC__ID")]
         [PrimaryKey("INF_CD_TRAFIC_PK")]
-        [ForeignKeyAttribute("INF_CD_TRAFIC__INF_SECTION_TRAFIC","JOIN_o936")]
+        [ForeignKeyAttribute("INF_CD_TRAFIC__INF_SECTION_TRAFIC","JOIN_o866")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

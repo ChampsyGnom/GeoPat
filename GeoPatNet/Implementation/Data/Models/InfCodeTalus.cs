@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_TALUS__ID")]
         [PrimaryKey("INF_CD_TALUS_PK")]
-        [ForeignKeyAttribute("INF_CD_TALUS__INF_TALUS","JOIN_o952")]
+        [ForeignKeyAttribute("INF_CD_TALUS__INF_TALUS","JOIN_o881")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

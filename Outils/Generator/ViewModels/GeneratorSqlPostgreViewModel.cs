@@ -36,6 +36,15 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             this._project.SqlPath = this.SqlPath;
             ServiceLocator.Current.GetInstance<MainViewModel>().SaveProjectExecute();
 
+
+            writer.WriteLine("DROP EXTENSION IF EXISTS postgis_topology;");
+            writer.WriteLine("DROP EXTENSION IF EXISTS postgis;");
+
+            writer.WriteLine("CREATE EXTENSION postgis;");
+            writer.WriteLine("CREATE EXTENSION postgis_topology;");
+
+            
+
             //DROP SCHEMA mystuff CASCADE;
             writer.WriteLine("-- Supression schemas");
             foreach (DbSchema schema in _project.Schemas)

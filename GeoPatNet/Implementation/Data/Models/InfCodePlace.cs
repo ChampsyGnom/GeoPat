@@ -16,8 +16,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     public class InfCodePlace : IInfCodePlace
     {
     	
-        [DisplayName("Parking aires")]
-        public virtual ICollection<InfCodeParkingInfAire> InfCodeParkingInfAires
+        [DisplayName("Aire parkings")]
+        public virtual ICollection<InfAireParking> InfAireParkings
         {
             get;
             set;
@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_PLACE__ID")]
         [PrimaryKey("INF_CD_PLACE_PK")]
-        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE2","JOIN_o956")]
+        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE_PARKING","JOIN_o888")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

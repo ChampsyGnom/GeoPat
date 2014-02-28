@@ -26,12 +26,12 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
             get;
             set;
         }
-        Int64 InfChausseeId
+        Int64 InfCodeSensibleId
         {
             get;
             set;
         }
-        Int64 InfCodeSensibleId
+        Int64 InfChausseeId
         {
             get;
             set;

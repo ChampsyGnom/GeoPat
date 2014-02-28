@@ -41,9 +41,9 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         {
             this._model = model;
             this.DataNamespace = "Emash.GeoPatNet.Data.Implementation";
-            this.DataPath = @"C:\Users\Champ\Documents\GitHub\GeoPat\GeoPatNet\Implementation\Data";
+            this.DataPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Implementation\Data";
 
-            this.DataInfraPath = @"C:\Users\Champ\Documents\GitHub\GeoPat\GeoPatNet\Infrastructure\Data";
+            this.DataInfraPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Infrastructure\Data";
             this.DataInfraNamespace = "Emash.GeoPatNet.Data.Infrastructure";
     
 
@@ -261,6 +261,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 prop.Attributes.Add("[RangeValue(-999999999999,999999999999)]");
                                 if (fkJoinColumn != null)
                                 { prop.Attributes.Add("[ControlType(ControlType.None)]"); }
+                                else
                                 {
                                     if (rulePr != null)
                                     {
@@ -268,12 +269,15 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                         prop.Attributes.Add("[ControlType(ControlType.Pr)]");
                                         if (ruleEmprise != null)
                                         {
-                                              prop.Attributes.Add("[RuleEmprise(\"" + rulePr.ChausseIdColumnName + "\")]");
+                                            prop.Attributes.Add("[RuleEmprise(\"" + rulePr.ChausseIdColumnName + "\")]");
                                         }
                                     }
                                     else
                                     { prop.Attributes.Add("[ControlType(ControlType.Integer)]"); }
                                 }
+                                
+                                   
+                                
                                
                                 prop.Attributes.Add("[AllowNull(true)]");
 
@@ -346,7 +350,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         }
                         else if (column.DataType.StartsWith("VBIN"))
                         {
-                            TemplateProperty prop = writer.AddProperty("public DbGeometry", propertyName);
+                            TemplateProperty prop = writer.AddProperty("public Byte[]", propertyName);
                             prop.Attributes.Add("[ControlType(ControlType.None)]");
                             prop.Attributes.Add("[AllowNull(true)]");
                             prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");

@@ -72,22 +72,22 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Identifiant chaussée")]
-        [ColumnName("INF_CHAUSSEE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfChausseeId
-        {
-            get;
-            set;
-        }
         [DisplayName("Identifiant code point singulier")]
         [ColumnName("INF_CD_PT_SING__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodePtSingId
+        {
+            get;
+            set;
+        }
+        [DisplayName("Identifiant2")]
+        [ColumnName("INF_CHAUSSEE__ID")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfChausseeId
         {
             get;
             set;

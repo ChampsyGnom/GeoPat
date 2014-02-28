@@ -113,16 +113,6 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
             get;
             set;
         }
-        [DisplayName("Identifiant chaussée")]
-        [ColumnName("INF_CHAUSSEE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfChausseeId
-        {
-            get;
-            set;
-        }
         [DisplayName("Identifiant code occupant")]
         [ColumnName("INF_CD_OCCUPANT__ID")]
         [RangeValue(-999999999999,999999999999)]
@@ -139,6 +129,16 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeOccupationId
+        {
+            get;
+            set;
+        }
+        [DisplayName("Identifiant4")]
+        [ColumnName("INF_CHAUSSEE__ID")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfChausseeId
         {
             get;
             set;

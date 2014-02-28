@@ -41,17 +41,17 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Models
             get;
             set;
         }
-        Int64 InfChausseeId
-        {
-            get;
-            set;
-        }
         Int64 InfCodeOccupantId
         {
             get;
             set;
         }
         Int64 InfCodeOccupationId
+        {
+            get;
+            set;
+        }
+        Int64 InfChausseeId
         {
             get;
             set;

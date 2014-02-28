@@ -76,7 +76,12 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             connection.ConnectionString = _connectionString;
             this.DataContext = new DataContext(connection);           
             Database.SetInitializer<DataContext>(null);
-            this.DataContext.Database.Initialize(false);
+            try { this.DataContext.Database.Initialize(false); }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+    
             this._isAvailable = true;
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Service de données initialisé");
             Thread.Sleep(100);

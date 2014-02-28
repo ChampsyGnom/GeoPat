@@ -16,8 +16,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     public class InfCodeService : IInfCodeService
     {
     	
-        [DisplayName("Service aires")]
-        public virtual ICollection<InfCodeServiceInfAire> InfCodeServiceInfAires
+        [DisplayName("Aire services")]
+        public virtual ICollection<InfAireService> InfAireServices
         {
             get;
             set;
@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_SERVICE__ID")]
         [PrimaryKey("INF_CD_SERVICE_PK")]
-        [ForeignKeyAttribute("INF_CD_SERVICE__INF_AIRE2","JOIN_o960")]
+        [ForeignKeyAttribute("INF_CD_SERVICE__INF_AIRE_SERVICE","JOIN_o892")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

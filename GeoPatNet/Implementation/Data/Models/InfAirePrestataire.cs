@@ -10,30 +10,41 @@ using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
 namespace Emash.GeoPatNet.Data.Implementation.Models
 {
-	[DisplayName("Prestataire Aire")]
-    [TableName("INF_PRESTATAIRE__INF_AIRE")]
+	[DisplayName("Aire prestataire")]
+    [TableName("INF_AIRE_PRESTATAIRE")]
     [SchemaName("INF")]
-    public class InfPrestataireInfAire : IInfPrestataireInfAire
+    public class InfAirePrestataire : IInfAirePrestataire
     {
     	
+        [DisplayName("Aires")]
+        [ColumnName("INF_AIRE__ID")]
+        [AllowNull(true)]
+        [ControlType(ControlType.Combo)]
+        [ForeignKey("INF_AIRE__INF_AIRE_PRESTATAIRE",null)]
+        [UniqueKey("INF_AIRE_PRESTATAIRE_UK_REF")]
+        public virtual InfAire InfAire
+        {
+            get;
+            set;
+        }
         [DisplayName("Prestataire")]
         [ColumnName("INF_PRESTATAIRE__ID")]
-        [AllowNull(false)]
+        [AllowNull(true)]
         [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_PRESTATAIRE__INF_AIRE",null)]
-        [UniqueKey("INF_PRESTATAIRE__INF_AIRE_UK_REF")]
+        [ForeignKey("INF_PRESTATAIRE__INF_AIRE_PRESTATAIRE",null)]
+        [UniqueKey("INF_AIRE_PRESTATAIRE_UK_REF")]
         public virtual InfPrestataire InfPrestataire
         {
             get;
             set;
         }
-        [DisplayName("Aires")]
-        [ColumnName("INF_AIRE__ID")]
+        [Browsable(false)]
+        [DisplayName("Identifiant")]
+        [ColumnName("INF_AIRE_PRESTATAIRE__ID")]
+        [PrimaryKey("INF_AIRE_PRESTATAIRE_PK")]
+        [ControlType(ControlType.None)]
         [AllowNull(false)]
-        [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_PRESTATAIRE__INF_AIRE2",null)]
-        [UniqueKey("INF_PRESTATAIRE__INF_AIRE_UK_REF")]
-        public virtual InfAire InfAire
+        public Int64 Id
         {
             get;
             set;
@@ -42,8 +53,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_AIRE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfAireId
+        [AllowNull(true)]
+        public Nullable<Int64> InfAireId
         {
             get;
             set;
@@ -52,8 +63,8 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ColumnName("INF_PRESTATAIRE__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfPrestataireId
+        [AllowNull(true)]
+        public Nullable<Int64> InfPrestataireId
         {
             get;
             set;

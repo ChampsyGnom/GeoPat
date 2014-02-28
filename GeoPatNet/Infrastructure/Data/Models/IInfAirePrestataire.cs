@@ -8,20 +8,20 @@ using System.ComponentModel;
 namespace Emash.GeoPatNet.Data.Infrastructure.Models
 {
 	
-    public interface IInfCodeParkingInfAire
+    public interface IInfAirePrestataire
     {
 
-        Int64 InfAireId
+        Int64 Id
         {
             get;
             set;
         }
-        Int64 InfCodePlaceId
+        Nullable<Int64> InfAireId
         {
             get;
             set;
         }
-        Nullable<Int64> NbPlace
+        Nullable<Int64> InfPrestataireId
         {
             get;
             set;

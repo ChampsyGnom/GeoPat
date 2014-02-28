@@ -16,20 +16,20 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
     public class InfAire : IInfAire
     {
     	
-        [DisplayName("Parking aires")]
-        public virtual ICollection<InfCodeParkingInfAire> InfCodeParkingInfAires
+        [DisplayName("Aire parkings")]
+        public virtual ICollection<InfAireParking> InfAireParkings
         {
             get;
             set;
         }
-        [DisplayName("Prestataire Aires")]
-        public virtual ICollection<InfPrestataireInfAire> InfPrestataireInfAires
+        [DisplayName("Aire prestataires")]
+        public virtual ICollection<InfAirePrestataire> InfAirePrestataires
         {
             get;
             set;
         }
-        [DisplayName("Service aires")]
-        public virtual ICollection<InfCodeServiceInfAire> InfCodeServiceInfAires
+        [DisplayName("Aire services")]
+        public virtual ICollection<InfAireService> InfAireServices
         {
             get;
             set;
@@ -50,6 +50,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_AIRE__INF_AIRE",null)]
+        [UniqueKey("INF_AIRE_UK_REF")]
         public virtual InfCodeAire InfCodeAire
         {
             get;
@@ -109,22 +110,12 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_AIRE__ID")]
         [PrimaryKey("INF_AIRE_PK")]
-        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE","JOIN_o961")]
-        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE2","JOIN_o959")]
-        [ForeignKeyAttribute("INF_CD_SERVICE__INF_AIRE","JOIN_o962")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PARKING","JOIN_o820")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PRESTATAIRE","JOIN_o822")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_SERVICE","JOIN_o818")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
-        {
-            get;
-            set;
-        }
-        [DisplayName("Identifiant aire")]
-        [ColumnName("INF_CD_AIRE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfCodeAireId
         {
             get;
             set;
@@ -135,6 +126,16 @@ namespace Emash.GeoPatNet.Data.Implementation.Models
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfChausseeId
+        {
+            get;
+            set;
+        }
+        [DisplayName("Identifiant type aire")]
+        [ColumnName("INF_CD_AIRE__ID")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfCodeAireId
         {
             get;
             set;

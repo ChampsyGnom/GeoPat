@@ -26,5 +26,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             this.DataContext = viewModel;
             InitializeComponent();
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dataGrid.ScrollIntoView(dataGrid.SelectedItem);
+        }
     }
 }
