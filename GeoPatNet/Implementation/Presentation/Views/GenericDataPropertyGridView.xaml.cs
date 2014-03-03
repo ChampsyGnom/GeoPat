@@ -24,6 +24,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         public GenericDataPropertyGridView()
         {
             InitializeComponent();
+         
             
         }
 

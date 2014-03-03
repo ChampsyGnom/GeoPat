@@ -559,7 +559,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         public object GetEditor(Type editorBaseType)
         {
-            return TypeDescriptor.GetEditor(this, editorBaseType, true);
+            Object editor = TypeDescriptor.GetEditor(this, editorBaseType, true);
+            return editor;
         }
 
         public EventDescriptorCollection GetEvents(Attribute[] attributes)
@@ -580,7 +581,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
         public PropertyDescriptorCollection GetProperties(Attribute[] attributes)
         {
-            return null;
+            return this.GetProperties ();
         }
 
         public PropertyDescriptorCollection GetProperties()
@@ -588,7 +589,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             List<GenericPropertyDescriptor<M>> props = new List<GenericPropertyDescriptor<M>>();
             foreach (String fieldPath in this._values.Keys)
             {
-                GenericPropertyDescriptor<M> prop = new GenericPropertyDescriptor<M>(fieldPath);
+                GenericPropertyDescriptor<M> prop = new GenericPropertyDescriptor<M>(fieldPath);        
                 
                 props.Add(prop);
             }         

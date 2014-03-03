@@ -40,7 +40,13 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this.MainTableInfo = dataService.GetEntityTableInfo(typeof(M));
             this.ColumnInfo = dataService.GetTopColumnInfo(typeof(M), fieldPath);
            
-        }  
+        }
+
+        public override object GetEditor(Type editorBaseType)
+        {
+            Object result = base.GetEditor(editorBaseType);
+            return result;
+        }
         public override bool CanResetValue(object component)
         {
             throw new NotImplementedException();

@@ -13,7 +13,18 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <t:PropertyGrid MouseDoubleClick="propertyGrid_MouseDoubleClick" SelectedObject="{Binding Path=ItemsView.CurrentItem}" Grid.Row="0" x:Name="propertyGrid"></t:PropertyGrid>
+        <t:PropertyGrid MouseDoubleClick="propertyGrid_MouseDoubleClick" SelectedObject="{Binding Path=ItemsView.CurrentItem}" Grid.Row="0" x:Name="propertyGrid">
+            <t:PropertyGrid.EditorDefinitions>
+                <t:EditorTemplateDefinition  >
+                    
+                    <t:EditorTemplateDefinition.EditingTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Toto"></TextBlock>
+                        </DataTemplate>
+                    </t:EditorTemplateDefinition.EditingTemplate>
+                </t:EditorTemplateDefinition>
+            </t:PropertyGrid.EditorDefinitions>
+        </t:PropertyGrid>
         <v:DataToolbar Grid.Row="2"></v:DataToolbar>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
