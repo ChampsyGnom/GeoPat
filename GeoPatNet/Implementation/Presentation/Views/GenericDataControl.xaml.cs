@@ -78,8 +78,8 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.Display, true));
             contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.Display, false));
 
-           
-           
+            contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.InsertingDisplay, false));
+            contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.InsertingEmpty, false));
 
             contentControl.SetValue(ContentControl.StyleProperty, contentControlStyle);
         }
