@@ -9,6 +9,11 @@ using Microsoft.Practices.Prism.Events;
 using Emash.GeoPatNet.Data.Infrastructure.Services;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using System.Windows.Controls;
+using Emash.GeoPatNet.Data.Infrastructure.Reflection;
+using Emash.GeoPatNet.Data.Implementation.Models;
+using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.App.Referentiel.Views;
 
 namespace Emash.GeoPatNet.App.Referentiel.ViewModels
 {
@@ -18,6 +23,21 @@ namespace Emash.GeoPatNet.App.Referentiel.ViewModels
             : base(eventAggregator, regionManager, container)
         { 
             
+
+
+        }
+
+        public override List<Control> GetEntityViews(EntityTableInfo tableInfo)
+        {
+            if (tableInfo.EntityType .Equals (typeof(InfAire)))
+            {
+                List<Control> views = new List<Control>();
+                views.Add(new FicheAireView());
+                views.Add(new GenericDataFormView());
+                views.Add(new GenericDataPropertyGridView());
+                return views;
+            }
+            return base.GetEntityViews(tableInfo);
         }
         
     }

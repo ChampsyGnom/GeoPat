@@ -272,7 +272,11 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                         }
                         if (index % 10 == 0)
                         { vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString(); }
-                        
+                        try { dataService.DataContext.SaveChanges(); }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                        }
                         dbSet.Add(item);
                        // IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> result = dataService.DataContext.GetValidationErrors();
                        
@@ -280,11 +284,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                     }
 
                     vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString();
-                    try { dataService.DataContext.SaveChanges(); }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex);
-                    }
+                    
              
                 }
             }

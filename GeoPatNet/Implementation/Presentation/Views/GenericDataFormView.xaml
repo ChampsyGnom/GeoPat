@@ -26,6 +26,7 @@
                 Maximum="{Binding Path=SliderMaximum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                 Minimum="{Binding Path=SliderMinimum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"></Slider>
         </Grid>
+        
        
     </Grid>
 </UserControl>

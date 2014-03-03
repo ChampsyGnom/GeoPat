@@ -123,6 +123,9 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\FicheAireView.xaml.cs">
+      <DependentUpon>FicheAireView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -166,15 +169,27 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\FicheAireView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Implementation\Data\Data.csproj">
+      <Project>{66d388df-dea6-4507-a54c-7bcde1057ba7}</Project>
+      <Name>Data %28GeoPat\Implementation\Data%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Implementation\Engine\Engine.csproj">
       <Project>{43b056ff-e33a-435e-b247-732e5546d526}</Project>
       <Name>Engine %28Implementation\Engine%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Implementation\Presentation\Presentation.csproj">
+      <Project>{55fb94d1-4420-4c91-9784-863545f39bc9}</Project>
+      <Name>Presentation %28GeoPat\Implementation\Presentation%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Atom\Atom.csproj">
       <Project>{d34ef644-add7-4273-99ca-848c62d9d3ae}</Project>

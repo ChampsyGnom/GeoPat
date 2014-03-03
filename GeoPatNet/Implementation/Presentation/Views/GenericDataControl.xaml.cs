@@ -276,7 +276,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 else if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
                 {                    
                     FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                    textBox.SetValue(TextBox.HeightProperty, 22D);
+                    textBox.SetValue(TextBox.MinHeightProperty, 22D);
                     textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
                     if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
                     { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
@@ -313,7 +313,8 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
                 {                    
                     FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-                    textBox.SetValue(TextBox.HeightProperty, 22D);
+                    textBox.SetValue(TextBox.MinHeightProperty, 22D);
+                   // textBox.SetValue(TextBox.VerticalAlignmentProperty, VerticalAlignment.Stretch);
                     textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
                     if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
                     { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
@@ -355,7 +356,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         {
             DataTemplate dataTemplate = new DataTemplate();
             FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-            textBox.SetValue(TextBox.HeightProperty, 22D);
+            textBox.SetValue(TextBox.MinHeightProperty, 22D);
             textBox.SetBinding(TextBox.TextProperty, this.CreateBindingOneWay (fieldPath));
             textBox.SetValue(TextBox.IsReadOnlyProperty, true);
             if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
@@ -404,6 +405,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         public GenericDataControl()
         {
             InitializeComponent();
+          
             this.DataContextChanged += GenericDataControl_DataContextChanged;
         }
 

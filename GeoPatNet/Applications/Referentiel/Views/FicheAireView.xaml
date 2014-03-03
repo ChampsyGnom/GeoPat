@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="Emash.GeoPatNet.App.Referentiel.Views.FicheAireView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Implementation.Views;assembly=Presentation.Implementation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <v:DataToolbar Grid.Row="2"></v:DataToolbar>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <v:DataRecordPosition Grid.Column="0"></v:DataRecordPosition>
+            <Slider
+                IsEnabled="{Binding Path=CanSlide,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                Value="{Binding Path=SliderValue,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                Maximum="{Binding Path=SliderMaximum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                Minimum="{Binding Path=SliderMinimum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"></Slider>
+        </Grid>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <GroupBox VerticalAlignment="Top" Margin="2" Header="Photo" Grid.Column="1" Grid.RowSpan="2" Width="120" Height="120"></GroupBox>
+            
+            
+            <GroupBox Grid.Column="0" Margin="2" Header="Localisation">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <v:GenericDataLabel Margin="2" Grid.Column="0" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.InfCodeLiaison.Code"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="1" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.InfCodeLiaison.Code"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="2" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.Code"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="3" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.Code"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="4" Grid.Row="0" FieldPath="InfChaussee.Code"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="5" Grid.Row="0" FieldPath="InfChaussee.Code"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="6" Grid.Row="0" FieldPath="AbsDeb"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="7" Grid.Row="0" FieldPath="AbsDeb"></v:GenericDataControl>
+
+
+
+                   
+
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Column="0" Grid.Row="1" Margin="2" Header="Indentification">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="0" Grid.Row="0" FieldPath="DateMs"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="1" Grid.Row="0" FieldPath="DateMs"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="2" Grid.Row="0" FieldPath="NumExploit"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="3" Grid.Row="0" FieldPath="NumExploit"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="4" Grid.Row="1" FieldPath="Nom"></v:GenericDataLabel>
+                    <v:GenericDataControl VerticalAlignment="Center" Margin="2" Grid.ColumnSpan="3" Grid.Column="5" Grid.Row="1" FieldPath="Nom"></v:GenericDataControl>
+
+
+
+                </Grid>
+            </GroupBox>
+
+
+            <GroupBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="2" Header="Spécificité">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    
+
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="0" Grid.Row="0" FieldPath="Bilaterale"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="1" Grid.Row="0" FieldPath="Bilaterale"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="2" Grid.Row="0" FieldPath="DemiTour"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="3" Grid.Row="0" FieldPath="DemiTour"></v:GenericDataControl>
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="4" Grid.Row="0" FieldPath="Passerelle"></v:GenericDataLabel>
+                    <v:GenericDataControl Margin="2" Grid.Column="5" Grid.Row="0" FieldPath="Passerelle"></v:GenericDataControl>
+
+
+                    <v:GenericDataLabel Margin="2" Grid.Column="0" Grid.Row="1" FieldPath="Observ"></v:GenericDataLabel>
+                    <v:GenericDataControl Height="120" VerticalAlignment="Stretch" Margin="2" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="1" FieldPath="Observ"></v:GenericDataControl>
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

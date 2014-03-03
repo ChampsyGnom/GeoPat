@@ -16,6 +16,7 @@ using Emash.GeoPatNet.Presentation.Implementation.Views;
 using Emash.GeoPatNet.Presentation.Infrastructure.Services;
 using Microsoft.Practices.Unity;
 using System.Windows;
+using System.Windows.Controls;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public abstract class MainViewModelBase : IMainViewModel
@@ -58,13 +59,19 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             IRegion region = this._regionManager.Regions["TabRegion"];
             IRegionManager detailsRegionManager = region.Add(swapRegionView, null, true);
             IRegion regionContent = detailsRegionManager.Regions["SwapableRegion"];
-            List<Object> views = new List<object>();
-            views.Add(new GenericDataGridView());
-            views.Add(new GenericDataFormView());
-            views.Add(new GenericDataPropertyGridView());
+            List<Control> views = this.GetEntityViews(tableInfo);          
             swapRegionView.Configure(detailsRegionManager, views.ToArray());
             region.Activate(swapRegionView);
             swapRegionView.SwapView();
+        }
+
+        public virtual List<Control> GetEntityViews(EntityTableInfo tableInfo)
+        {
+            List<Control> views = new List<Control>();
+            views.Add(new GenericDataGridView());
+            views.Add(new GenericDataFormView());
+            views.Add(new GenericDataPropertyGridView());
+            return views;
         }
 
         private void ImportDataExecute()
