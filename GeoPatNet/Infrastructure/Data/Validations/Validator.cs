@@ -458,6 +458,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
             { return false; }
             else
             {
+
                 if (String.IsNullOrEmpty(valueString))
                 {
                     if (!columnInfo.AllowNull)
@@ -475,7 +476,40 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                 }
                 else
                 {
-                    if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Text)
+                    if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Check)
+                    {
+                        if (!columnInfo.AllowNull && valueString.Equals(CultureConfiguration.BooleanNullString))
+                        {
+                            value = null;
+                            message = "valeur " + CultureConfiguration.BooleanNullString + " non autorisée";
+                            return false;
+                        }
+                        else if (valueString.Equals(CultureConfiguration.BooleanNullString))
+                        {
+                            value = null;
+                            message = null;
+                            return true;
+                        }
+                        else if (valueString.Equals(CultureConfiguration.BooleanTrueString))
+                        {
+                            value = true;
+                            message = null;
+                            return true;
+                        }
+                        else if (valueString.Equals(CultureConfiguration.BooleanFalseString))
+                        {
+                            value = false;
+                            message = null;
+                            return true;
+                        }
+                        else
+                        {
+                            value = null;
+                            message = null;
+                            return true;
+                        }
+                    }
+                    else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Text)
                     {
                         if (valueString.Length > columnInfo.MaxCharLength)
                         {
@@ -490,6 +524,12 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                             return true;
                         }
                        
+                    }
+                    else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Color)
+                    {
+                        value = valueString;
+                        message = null;
+                        return true;
                     }
                     else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Integer)
                     {
@@ -510,12 +550,12 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                             message = null;
                             return true;
                         }
-                       
+
 
                     }
                     else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Decimal)
                     {
-                        valueDouble = Double.Parse(valueString.Replace (",","."),NumberStyles.AllowDecimalPoint,System.Globalization.CultureInfo.InvariantCulture);
+                        valueDouble = Double.Parse(valueString.Replace(",", "."), NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
                         if (valueDouble > columnInfo.MaxNumericValue)
                         {
                             message = "la valeur doit être inférieur à  " + columnInfo.MaxNumericValue;
@@ -532,12 +572,12 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                             message = null;
                             return true;
                         }
-                       
+
 
                     }
                     else if (columnInfo.ControlType == Presentation.Infrastructure.Attributes.ControlType.Date)
                     {
-                        
+
                         if (columnInfo.AllowNull)
                         {
                             Nullable<DateTime> valNullableDateTime = null;
@@ -613,7 +653,7 @@ namespace Emash.GeoPatNet.Data.Infrastructure.Validations
                                 message = null;
                                 return true;
                             }
-                        } 
+                        }
                     }
                 }
                

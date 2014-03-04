@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-                xmlns:bb="clr-namespace:Emash.GeoPatNet.Presentation.Infrastructure.Behaviors;assembly=Presentation.Infrastructure"
+             xmlns:bb="clr-namespace:Emash.GeoPatNet.Presentation.Infrastructure.Behaviors;assembly=Presentation.Infrastructure"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Implementation.Views"
              d:DesignHeight="300" d:DesignWidth="300">

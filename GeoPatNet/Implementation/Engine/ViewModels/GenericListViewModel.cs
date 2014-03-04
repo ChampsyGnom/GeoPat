@@ -145,6 +145,8 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         /// Il peut y avoir plusieurs niveaux par example le code laision de la table des aires auras comme fieldPath InfChaussee.InfLiaison.InfCodeLiaison.Code
         /// </summary>
         public ObservableCollection<String> FieldPaths { get; private set; }
+        public ObservableCollection<String> BasicFieldPaths { get; private set; }
+        public ObservableCollection<String> AvailableFieldPaths { get; private set; }
         /// <summary>
         /// Liste des éléments 
         /// </summary>
@@ -204,9 +206,15 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
             // On instancie la lliste des champs à afficher
             this.FieldPaths = new ObservableCollection<string>();
+            this.BasicFieldPaths = new ObservableCollection<string>();
+            this.AvailableFieldPaths = new ObservableCollection<string>();
+
             List<String> fieldPaths = this.DataService.GetTableFieldPaths(EntityTableInfo);
             foreach (String fieldPath in fieldPaths)
-            {this.FieldPaths.Add(fieldPath);}
+            {
+                this.FieldPaths.Add(fieldPath);
+                this.BasicFieldPaths.Add(fieldPath);
+            }
 
             // On cré l'élément de recherche et on initialise le mode de la table à recherche
             this.SearchItem = new GenericListItemViewModel<M>(this,null);
@@ -243,9 +251,109 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
                 MenuItem menuSorter = new MenuItem();
                 menuSorter.Header = "Trier";
 
+                MenuItem menuShow = new MenuItem();
+                menuShow.Header = "Afficher";
+
+                MenuItem menuShowMainTable = new MenuItem();
+                menuShowMainTable.Header = this.EntityTableInfo.DisplayName;
+                menuShow.Items.Add(menuShowMainTable);
+                List<EntityTableInfo> parentTables = new List<EntityTableInfo>();
+                List<String> fieldPaths = this.DataService.GetTableFieldPaths(EntityTableInfo);
+                List<EntityColumnInfo> parentColumnInfos = new List<EntityColumnInfo>();
+                foreach (String fieldPath in fieldPaths)
+                {
+                    if (fieldPath.IndexOf(".") == -1)
+                    {
+                        EntityColumnInfo columnInfo = (from c in this.EntityTableInfo.ColumnInfos where c.PropertyName.Equals (fieldPath ) select c).FirstOrDefault();
+                        MenuItem menuShowColumn = new MenuItem();
+                        menuShowColumn.Header = columnInfo.DisplayName;
+                        menuShowColumn.IsEnabled = columnInfo.PrimaryKeyName == null && columnInfo.UniqueKeyNames.Count == 0;
+                        menuShowColumn.IsCheckable = true;
+                        menuShowColumn.IsChecked = this.FieldPaths.Contains(columnInfo.PropertyName);
+                        menuShowMainTable.Items.Add(menuShowColumn);
+                        menuShowColumn.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            if (menuShowColumn.IsChecked)
+                            {
+                                if (!this.FieldPaths.Contains(columnInfo.PropertyName))
+                                {
+                                    this.FieldPaths.Insert (0,columnInfo.PropertyName);
+                                    foreach (GenericListItemViewModel<M> item in this.Items)
+                                    { item.LoadFromModel(this.FieldPaths.ToArray().ToList()); }
+                                }
+                            }
+                            else
+                            { this.FieldPaths.Remove(columnInfo.PropertyName); }
+                        }));
+                    }
+                    else
+                    {
+                        EntityColumnInfo columnInfoBottom = this.DataService.GetBottomColumnInfo(typeof(M), fieldPath);
+                        EntityColumnInfo columnInfo = this.DataService.GetTopColumnInfo(typeof(M), fieldPath);
+                        parentColumnInfos.Add(columnInfo);
+                        parentTables.Add(columnInfo.TableInfo);
+                        MenuItem menuShowColumn = new MenuItem();
+                        menuShowColumn.Header = columnInfo.TableInfo.DisplayName;
+                        menuShowColumn.IsEnabled = columnInfoBottom.PrimaryKeyName == null && columnInfoBottom.UniqueKeyNames.Count == 0;
+                        menuShowColumn.IsCheckable = true;
+                        menuShowColumn.IsChecked = this.FieldPaths.Contains(columnInfo.PropertyName);
+                        menuShowMainTable.Items.Add(menuShowColumn);
+                        menuShowColumn.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            if (menuShowColumn.IsChecked)
+                            {
+                                if (!this.FieldPaths.Contains(columnInfo.PropertyName))
+                                { 
+                                    this.FieldPaths.Insert(0,columnInfo.PropertyName);
+                                    foreach (GenericListItemViewModel<M> item in this.Items)
+                                    { item.LoadFromModel(this.FieldPaths.ToArray().ToList()); }
+                                }
+                            }
+                            else
+                            { this.FieldPaths.Remove(columnInfo.PropertyName); }
+                        }));
+                    }
+                }
+                parentTables = (from t in parentTables orderby t.DisplayName select t).ToList();
+
+                foreach (EntityTableInfo parentTableInfo in parentTables)
+                {
+                    MenuItem menuShowParentTable = new MenuItem();
+                    menuShowParentTable.Header = parentTableInfo.DisplayName;
+                    menuShow.Items.Add(menuShowParentTable);
+                    foreach (EntityColumnInfo columnInfo in parentTableInfo.ColumnInfos)
+                    {
+                        if (!parentColumnInfos.Contains(columnInfo) && columnInfo.PrimaryKeyName == null && columnInfo.ControlType != Presentation.Infrastructure.Attributes.ControlType.None  )
+                        {
+                            String path = this.DataService.GetPath(parentTableInfo, this.EntityTableInfo) + "." + columnInfo.PropertyName;
+                            MenuItem menuShowColumn = new MenuItem();
+                            menuShowColumn.Header = columnInfo.DisplayName;
+                            menuShowColumn.IsEnabled = true;
+                            menuShowColumn.IsCheckable = true;
+                            menuShowColumn.IsChecked = this.FieldPaths.Contains(path);
+
+                            menuShowColumn.Command = new DelegateCommand(new Action(delegate()
+                            {
+                                if (menuShowColumn.IsChecked)
+                                {
+                                    if (!this.FieldPaths.Contains(path))
+                                    {
+                                        this.FieldPaths.Insert(0,path);
+                                        foreach (GenericListItemViewModel<M> item in this.Items)
+                                        {item.LoadFromModel(this.FieldPaths.ToArray ().ToList ());}
+                                    }
+                                }
+                                else
+                                { this.FieldPaths.Remove(path); }
+                            }));
+                            menuShowParentTable.Items.Add(menuShowColumn);
+                        }
+                    }
+                }
+
                 arg.ContextMenu.Items.Add(menuFilter);
                 arg.ContextMenu.Items.Add(menuSorter);
-
+                arg.ContextMenu.Items.Add(menuShow);
 
                 DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
                

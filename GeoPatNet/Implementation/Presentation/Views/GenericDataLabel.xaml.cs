@@ -23,6 +23,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
     /// </summary>
     public partial class GenericDataLabel : UserControl
     {
+        public Boolean _isParentColumn;
         public String FieldPath
         {
             get { return (String)GetValue(FieldPathProperty); }
@@ -69,16 +70,24 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
-            if (fieldPath.IndexOf(".") == -1)
+            List<String> basicPaths = dataService.GetTableFieldPaths(entityTableInfo);
+            this._isParentColumn = !basicPaths.Contains(fieldPath);
+
+            if (fieldPath.IndexOf(".") == -1 && !_isParentColumn)
             {
                EntityColumnInfo columnInfo =  dataService.GetTopColumnInfo(modelType, fieldPath);
                txtLabel.Text = columnInfo.DisplayName + " : ";
 
             }
+            else if (_isParentColumn)
+            {
+                EntityColumnInfo columnInfo = dataService.GetTopColumnInfo(modelType, fieldPath);
+                txtLabel.Text = columnInfo.TableInfo.DisplayName +" - "+columnInfo.DisplayName + " : ";
+            }
             else
             {
                 EntityColumnInfo columnInfo = dataService.GetTopColumnInfo(modelType, fieldPath);
-                txtLabel.Text = columnInfo.TableInfo.DisplayName  + " : ";
+                txtLabel.Text = columnInfo.TableInfo.DisplayName + " : ";
             }
         }
 

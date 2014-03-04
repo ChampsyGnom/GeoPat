@@ -49,7 +49,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             this.dataToolBar.GotFocus += dataToolBar_GotFocus;
             this.dataToolBar.cancelButton.Click += cancelButton_Click;
             this.dataToolBar.commitbutton.Click += commitbutton_Click;
-            this.dataGrid.PreviewKeyDown += dataGrid_PreviewKeyDown;
+          
 
             
         }
@@ -81,11 +81,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
            
         }
 
-        void dataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            { this.dataGrid.CommitEdit(); }
-        }
+       
 
         
 
@@ -217,6 +213,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             dataGrid.Columns.Clear();
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
+            List<String> basicFieldPath = dataService.GetTableFieldPaths(entityTableInfo);
             if (fieldPaths != null && modelType != null && entityTableInfo != null)
             {
                
@@ -224,9 +221,12 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 {
                     if (fieldPath.IndexOf(".") == -1)
                     {
+                        EntityColumnInfo topColumn = dataService.GetTopColumnInfo(modelType, fieldPath);
                         GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
                         EntityColumnInfo columnInfo = (from c in entityTableInfo.ColumnInfos where c.PropertyName.Equals (fieldPath ) select c).FirstOrDefault();
-                        column.Header = columnInfo.DisplayName;
+                        column.Header = topColumn.DisplayName;
+                      
+                   
                         dataGrid.Columns.Add(column);
                     }
                     else
@@ -236,7 +236,14 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                         if (parentProperty != null)
                         {
                             GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
-                            column.Header = parentProperty.TableInfo.DisplayName ;
+                            if (basicFieldPath.Contains(fieldPath))
+                            { column.Header = parentProperty.TableInfo.DisplayName; }
+                            else
+                            {
+                                column.Header = parentProperty.TableInfo.DisplayName + " - " + parentProperty.DisplayName;
+                               
+                            }
+                           
                             dataGrid.Columns.Add(column);
                         }
                     }

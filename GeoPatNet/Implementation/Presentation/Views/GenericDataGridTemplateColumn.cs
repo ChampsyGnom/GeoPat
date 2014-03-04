@@ -12,6 +12,9 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 using Emash.GeoPatNet.Presentation.Implementation.Converters;
+using Xceed.Wpf.Toolkit;
+using Emash.GeoPatNet.Data.Infrastructure.Validations;
+
 
 namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
@@ -25,12 +28,31 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             get { return _fieldPath; }           
         }
         private Boolean _templateCreated;
+        public Boolean _isParentColumn;
+
         public GenericDataGridTemplateColumn(EntityTableInfo entityTableInfo, string fieldPath)
         {
             this._entityTableInfo = entityTableInfo;
             this._fieldPath = fieldPath;
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            List<String> basicPaths = dataService.GetTableFieldPaths(_entityTableInfo);
+            this._isParentColumn = !basicPaths.Contains(fieldPath);
             this._templateCreated = false;
-           
+            Style style = new Style();
+            style.TargetType = typeof(DataGridCell);
+            if (this._isParentColumn)
+            {
+                Trigger trigger = new Trigger();
+                trigger.Property = DataGridCell.IsSelectedProperty;
+                trigger.Value = false;
+                Setter setter = new Setter();
+                setter.Property = DataGridCell.BackgroundProperty;
+                setter.Value = Brushes.LightGray;
+                trigger.Setters.Add(setter);
+                style.Triggers.Add(trigger);
+
+            }
+            this.CellStyle = style;
         }
 
         protected override System.Windows.FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
@@ -54,7 +76,9 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityColumnInfo topProperty = dataService.GetTopColumnInfo(_entityTableInfo.EntityType, _fieldPath);
             this.CellTemplate =CreateTemplateCell(dataService, topProperty);
-            this.CellEditingTemplate = CreateTemplateCellEditing(dataService, topProperty);
+            this.CellEditingTemplate = CreateTemplateCellEditing(dataService, topProperty); 
+
+            
            
         }
         private DataTemplate CreateTemplateCellEditing(IDataService dataService, EntityColumnInfo topProperty)
@@ -140,13 +164,27 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
 
 
             DataTemplate tpl = new DataTemplate();
-            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBlock));
-            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-            textBox.SetBinding(TextBlock.TextProperty, this.CreateBindingOneWay(this._fieldPath));
-            tpl.VisualTree = textBox;
-            contentControlStyle.Setters.Add (new Setter (ContentControl.ContentTemplateProperty, tpl));            
-            dataTemplate.VisualTree = contentControl;
+            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Color)
+            {
+                FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid ));
+                Binding binding = this.CreateBindingOneWay(this._fieldPath);
+                binding.Converter = new StringToBrushConverter();
+                grid.SetBinding(Grid.BackgroundProperty, binding);
+                tpl.VisualTree = grid;
+                contentControlStyle.Setters.Add(new Setter(ContentControl.ContentTemplateProperty, tpl));
+                dataTemplate.VisualTree = contentControl;
+            }
+            else
+            {
+                FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBlock));
+                if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
+                { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
+                textBox.SetBinding(TextBlock.TextProperty, this.CreateBindingOneWay(this._fieldPath));
+                tpl.VisualTree = textBox;
+                contentControlStyle.Setters.Add(new Setter(ContentControl.ContentTemplateProperty, tpl));
+                dataTemplate.VisualTree = contentControl;
+            }
+           
             return dataTemplate;
         }
 
@@ -172,14 +210,17 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         private DataTemplate CreateTemplate(IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state)
         {
             DataTemplate dataTemplate = new DataTemplate();
-            if (this._fieldPath.IndexOf(".") != -1)
+            if (this._isParentColumn && state != GenericDataListState.Search)
             {
+                return this.CreateTemplateCell(dataService, topProperty);
+            }
+            else if (this._fieldPath.IndexOf(".") != -1 && !_isParentColumn)
+            {
+
                 String[] items = this._fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
                 if (state == GenericDataListState.Search)
-                {
-                    comboBox.SetValue(ComboBox.IsEditableProperty, true);
-                }
+                {comboBox.SetValue(ComboBox.IsEditableProperty, true); }
                 String comboListPath = "ComboItemsSource[" + items[items.Length - 2] + "." + items[items.Length - 1] + "]";
                 Binding bindingList = new Binding(comboListPath);
                 bindingList.Mode = BindingMode.OneWay;
@@ -196,7 +237,37 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             }
             else
             {
-                if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
+               
+                if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Color)
+                {
+                    FrameworkElementFactory colorPicker = new FrameworkElementFactory(typeof(ColorPicker));
+                    Binding binding = this.CreateBindingTwoWay(this.FieldPath);
+                    binding.Converter = new StringToColorConverter();                  
+                    colorPicker.SetBinding(ColorPicker.SelectedColorProperty, binding);                              
+                    dataTemplate.VisualTree = colorPicker;
+                }
+                else if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Check)
+                {
+                    FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
+                    if (state == GenericDataListState.Search)
+                    {
+                        comboBox.SetValue(ComboBox.IsEditableProperty, true);
+                    }
+                    List<String> items = new List<string>();
+                    items.Add(CultureConfiguration.BooleanNullString);
+                    items.Add(CultureConfiguration.BooleanTrueString);
+                    items.Add(CultureConfiguration.BooleanFalseString);
+                    comboBox.SetValue(ComboBox.ItemsSourceProperty, items);
+                    Binding binding = new Binding();
+                    binding.Path = new PropertyPath("[" + this._fieldPath + "]");
+                    binding.Mode = BindingMode.TwoWay;
+                    binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                    binding.ValidatesOnDataErrors = true;
+                    comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);           
+                    dataTemplate.VisualTree = comboBox;
+                    
+                }
+                else if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
                 {
                     FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
 
@@ -207,8 +278,8 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
 
                     grid.AppendChild(column1);
                     grid.AppendChild(column2);
-                    
-                   // grid.AppendChild(colDefs);
+
+                    // grid.AppendChild(colDefs);
 
 
                     FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
@@ -221,23 +292,23 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     datePicker.SetValue(Grid.ColumnProperty, 1);
                     grid.AppendChild(datePicker);
 
-                    Binding bindingSelectedDate = new Binding("["+ this._fieldPath+"]");
+                    Binding bindingSelectedDate = new Binding("[" + this._fieldPath + "]");
                     bindingSelectedDate.Mode = BindingMode.TwoWay;
                     bindingSelectedDate.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
                     bindingSelectedDate.Converter = new StringToDateConverter();
                     datePicker.SetBinding(DatePicker.SelectedDateProperty, bindingSelectedDate);
 
-                  
-                   // datePicker.AddHandler (DatePicker.se
+
+                    // datePicker.AddHandler (DatePicker.se
                     dataTemplate.VisualTree = grid;
 
                 }
-                if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
+                else if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
                 {
                     if (state == GenericDataListState.Search)
                     {
                         FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-               
+
                         textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(this._fieldPath));
                         if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
                         { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
@@ -298,7 +369,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             binding.ValidatesOnDataErrors = true;
             return binding;
         }
-        private BindingBase CreateBindingOneWay(string path)
+        private Binding CreateBindingOneWay(string path)
         {
             Binding binding = new Binding("[" + path + "]");
             binding.Mode = BindingMode.OneWay;

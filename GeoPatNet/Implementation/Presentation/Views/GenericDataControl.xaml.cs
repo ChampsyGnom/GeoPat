@@ -18,6 +18,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
+using Xceed.Wpf.Toolkit;
+using Emash.GeoPatNet.Data.Infrastructure.Validations;
 
 namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
@@ -26,6 +28,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
     /// </summary>
     public partial class GenericDataControl : UserControl
     {
+        public Boolean _isParentColumn;
         public String FieldPath
         {
             get { return (String)GetValue(FieldPathProperty); }
@@ -74,6 +77,9 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
             EntityColumnInfo topProperty = dataService.GetTopColumnInfo(modelType, fieldPath);
             Style contentControlStyle = new Style();
+
+            List<String> basicPaths = dataService.GetTableFieldPaths(entityTableInfo);
+            this._isParentColumn = !basicPaths.Contains(fieldPath);
 
             contentControlStyle.Triggers.Add(CreateTrigger(fieldPath,dataService, topProperty, GenericDataListState.Search,null));
             contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.Display, true));
@@ -140,11 +146,18 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     }
                     else if (state == GenericDataListState.InsertingDisplay)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
+                        
                     }
                     else if (state == GenericDataListState.InsertingEmpty)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                     }
                     else if (state == GenericDataListState.Search)
                     {
@@ -152,7 +165,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     }
                     else if (state == GenericDataListState.Updating)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                     }
                 }
                 else
@@ -163,15 +179,24 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     }
                     else if (state == GenericDataListState.Display)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                     }
                     else if (state == GenericDataListState.InsertingDisplay)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                     }
                     else if (state == GenericDataListState.InsertingEmpty)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                     }
                     else if (state == GenericDataListState.Search)
                     {
@@ -179,7 +204,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                     }
                     else if (state == GenericDataListState.Updating)
                     {
-                        return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                        if (this._isParentColumn)
+                        { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                        else
+                        { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                     }
                 }
             }
@@ -195,11 +223,17 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 }
                 else if (state == GenericDataListState.InsertingDisplay)
                 {
-                    return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    if (this._isParentColumn)
+                    { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                    else
+                    { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                 }
                 else if (state == GenericDataListState.InsertingEmpty)
                 {
-                    return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    if (this._isParentColumn)
+                    { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                    else
+                    { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                 }
                 else if (state == GenericDataListState.Search)
                 {
@@ -207,7 +241,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 }
                 else if (state == GenericDataListState.Updating)
                 {
-                    return this.CreateTemplateEdit(fieldPath, dataService, topProperty);
+                    if (this._isParentColumn)
+                    { return this.CreateTemplateDisplay(fieldPath, dataService, topProperty); }
+                    else
+                    { return this.CreateTemplateEdit(fieldPath, dataService, topProperty); }
                 }
             }
 
@@ -219,7 +256,8 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         private DataTemplate CreateTemplateSearch(string fieldPath, IDataService dataService, EntityColumnInfo topProperty)
         {
             DataTemplate dataTemplate = new DataTemplate();
-            if (fieldPath.IndexOf(".") != -1)
+            
+            if (fieldPath.IndexOf(".") != -1 && !_isParentColumn)
             {               
                 String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
@@ -240,9 +278,36 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             }
             else
             {
-                
 
-                if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
+
+
+                if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Color)
+                {
+                    FrameworkElementFactory colorPicker = new FrameworkElementFactory(typeof(ColorPicker));
+                    Binding binding = this.CreateBindingTwoWay(this.FieldPath);
+                    colorPicker.SetValue(ColorPicker.MinHeightProperty, 22D);
+                    binding.Converter = new StringToColorConverter();
+                    colorPicker.SetBinding(ColorPicker.SelectedColorProperty, binding);
+                    dataTemplate.VisualTree = colorPicker;
+                }
+                else if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Check)
+                {
+                    FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));                    
+                    comboBox.SetValue(ComboBox.IsEditableProperty, true);                    
+                    List<String> items = new List<string>();
+                    items.Add(CultureConfiguration.BooleanNullString);
+                    items.Add(CultureConfiguration.BooleanTrueString);
+                    items.Add(CultureConfiguration.BooleanFalseString);
+                    comboBox.SetValue(ComboBox.ItemsSourceProperty, items);
+                    Binding binding = new Binding();
+                    binding.Path = new PropertyPath("[" + fieldPath + "]");
+                    binding.Mode = BindingMode.TwoWay;
+                    binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                    binding.ValidatesOnDataErrors = true;
+                    comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);
+                    dataTemplate.VisualTree = comboBox;
+                }
+                else if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
                 {
                      FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
                      grid.SetValue(Grid.HeightProperty, 22D);
@@ -278,9 +343,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 {                    
                     FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
                     textBox.SetValue(TextBox.MinHeightProperty, 22D);
-                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                    if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                    { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
+                    textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));                   
                     dataTemplate.VisualTree = textBox;
                 }
             }
@@ -310,17 +373,41 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
                 dataTemplate.VisualTree = comboBox;
             }
             else
-            { 
-                if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
-                {                    
+            {
+                if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Color)
+                {
+                    FrameworkElementFactory colorPicker = new FrameworkElementFactory(typeof(ColorPicker));
+                    Binding binding = this.CreateBindingTwoWay(this.FieldPath);
+                    colorPicker.SetValue(ColorPicker.MinHeightProperty, 22D);
+                    binding.Converter = new StringToColorConverter();
+                    colorPicker.SetBinding(ColorPicker.SelectedColorProperty, binding);
+                    dataTemplate.VisualTree = colorPicker;
+                }
+                else if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Check)
+                {
+                    FrameworkElementFactory comboBox = new FrameworkElementFactory(typeof(ComboBox));
+                    comboBox.SetValue(ComboBox.IsEditableProperty, false);
+                    List<String> items = new List<string>();
+                    items.Add(CultureConfiguration.BooleanNullString);
+                    items.Add(CultureConfiguration.BooleanTrueString);
+                    items.Add(CultureConfiguration.BooleanFalseString);
+                    comboBox.SetValue(ComboBox.ItemsSourceProperty, items);
+                    Binding binding = new Binding();
+                    binding.Path = new PropertyPath("ItemsView.CurrentItem[" + fieldPath + "]");
+                    binding.Mode = BindingMode.TwoWay;
+                    binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                    binding.ValidatesOnDataErrors = true;
+                    comboBox.SetBinding(ComboBox.SelectedItemProperty, binding);
+                    dataTemplate.VisualTree = comboBox;
+                }
+                else if (topProperty.PropertyType.Equals(typeof(String)) || topProperty.PropertyType.Equals(typeof(Int64)) || topProperty.PropertyType.Equals(typeof(Nullable<Int64>)) || topProperty.PropertyType.Equals(typeof(Double)) || topProperty.PropertyType.Equals(typeof(Nullable<Double>)))
+                {
                     FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
                     textBox.SetValue(TextBox.MinHeightProperty, 22D);
-                   // textBox.SetValue(TextBox.VerticalAlignmentProperty, VerticalAlignment.Stretch);
                     textBox.SetBinding(TextBox.TextProperty, this.CreateBindingTwoWay(fieldPath));
-                    if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-                    { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
+              
                     dataTemplate.VisualTree = textBox;
-                    
+
                 }
                 else if (topProperty.PropertyType.Equals(typeof(DateTime)) || topProperty.PropertyType.Equals(typeof(Nullable<DateTime>)))
                 {
@@ -355,15 +442,37 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
 
         private DataTemplate CreateTemplateDisplay(string fieldPath, IDataService dataService, EntityColumnInfo topProperty)
         {
-            DataTemplate dataTemplate = new DataTemplate();
-            FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
-            textBox.SetValue(TextBox.MinHeightProperty, 22D);
-            textBox.SetBinding(TextBox.TextProperty, this.CreateBindingOneWay (fieldPath));
-            textBox.SetValue(TextBox.IsReadOnlyProperty, true);
-            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Pr)
-            { textBox.SetValue(TextBlock.TextAlignmentProperty, TextAlignment.Right); }
-            dataTemplate.VisualTree = textBox;
-            return dataTemplate;
+            if (topProperty.ControlType == Infrastructure.Attributes.ControlType.Color)
+            {
+                DataTemplate dataTemplate = new DataTemplate();
+                FrameworkElementFactory grid = new FrameworkElementFactory(typeof(Grid));
+                grid.SetValue(TextBox.MinHeightProperty, 22D);
+                grid.SetValue(TextBox.MinWidthProperty, 64D);
+                Binding binding = this.CreateBindingOneWay(fieldPath );
+                binding.Converter = new StringToBrushConverter();
+                grid.SetBinding(Grid.BackgroundProperty, binding);
+             
+                //textBox.SetBinding(TextBox.TextProperty, this.CreateBindingOneWay(fieldPath));
+
+                dataTemplate.VisualTree = grid;
+                return dataTemplate;
+            }
+            else
+            {
+                DataTemplate dataTemplate = new DataTemplate();
+                FrameworkElementFactory textBox = new FrameworkElementFactory(typeof(TextBox));
+                textBox.SetValue(TextBox.MinHeightProperty, 22D);
+                textBox.SetBinding(TextBox.TextProperty, this.CreateBindingOneWay(fieldPath));
+                textBox.SetValue(TextBox.IsReadOnlyProperty, true);
+               
+                dataTemplate.VisualTree = textBox;
+                if (_isParentColumn)
+                {
+                    textBox.SetValue(TextBox.BackgroundProperty, Brushes.LightGray);
+                }
+                return dataTemplate;
+            }
+           
         }
 
        
@@ -394,7 +503,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
             return binding;
         }
 
-        private BindingBase CreateBindingOneWay(string fieldPath)
+        private Binding CreateBindingOneWay(string fieldPath)
         {
             Binding binding = new Binding("ItemsView.CurrentItem[" + fieldPath + "]");
             binding.Mode = BindingMode.OneWay;
