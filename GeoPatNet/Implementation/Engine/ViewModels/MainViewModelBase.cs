@@ -69,8 +69,7 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         {
             List<Control> views = new List<Control>();
             views.Add(new GenericDataGridView());
-            views.Add(new GenericDataFormView());
-            views.Add(new GenericDataPropertyGridView());
+            views.Add(new GenericDataFormView());         
             return views;
         }
 

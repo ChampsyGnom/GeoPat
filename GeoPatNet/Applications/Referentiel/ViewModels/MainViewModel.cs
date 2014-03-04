@@ -33,8 +33,7 @@ namespace Emash.GeoPatNet.App.Referentiel.ViewModels
             {
                 List<Control> views = new List<Control>();
                 views.Add(new FicheAireView());
-                views.Add(new GenericDataFormView());
-                views.Add(new GenericDataPropertyGridView());
+                views.Add(new GenericDataFormView());                
                 return views;
             }
             return base.GetEntityViews(tableInfo);

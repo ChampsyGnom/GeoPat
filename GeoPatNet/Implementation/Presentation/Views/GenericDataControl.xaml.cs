@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
 namespace Emash.GeoPatNet.Presentation.Implementation.Views
 {
@@ -413,5 +414,7 @@ namespace Emash.GeoPatNet.Presentation.Implementation.Views
         {
             this.UpdateTemplate();
         }
+
+       
     }
 }

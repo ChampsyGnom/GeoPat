@@ -134,9 +134,6 @@
     <Compile Include="Views\GenericDataLabel.xaml.cs">
       <DependentUpon>GenericDataLabel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GenericDataPropertyGridView.xaml.cs">
-      <DependentUpon>GenericDataPropertyGridView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RegionDialog.xaml.cs">
       <DependentUpon>RegionDialog.xaml</DependentUpon>
     </Compile>
@@ -184,10 +181,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GenericDataLabel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GenericDataPropertyGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
