@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using @NameSpaceInfrastructure.Models;
-using Emash.GeoPatNet.Data.Infrastructure.Attributes;
-using Emash.GeoPatNet.Presentation.Infrastructure.Attributes;
+using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
 namespace @NameSpace.Models
 {
 	[DisplayName("@DisplayName")]
 @ClassAttributes
-    public class @EntityName : I@EntityName
+    public class @EntityName 
     {
     	
 @Properties

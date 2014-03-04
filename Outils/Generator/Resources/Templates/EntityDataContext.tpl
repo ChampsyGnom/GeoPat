@@ -1,6 +1,4 @@
-﻿using @NameSpace.Models;
-using @NameSpaceInfrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,7 +7,8 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Emash.GeoPatNet.Data.Infrastructure.Attributes;
+using Emash.GeoPatNet.Data.Implementation.Models;
+using Emash.GeoPatNet.Infrastructure.Services;
 namespace @NameSpace
 {
     public class DataContext : IDataContext

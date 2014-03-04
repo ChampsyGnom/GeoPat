@@ -1,6 +1,6 @@
 ﻿using Emash.GeoPatNet.App.Referentiel.ViewModels;
 using Emash.GeoPatNet.App.Referentiel.Views;
-using Emash.GeoPatNet.Engine.Infrastructure;
+using Emash.GeoPatNet.Infrastructure;
 using Microsoft.Practices.Prism.UnityExtensions;
 using System;
 using System.Collections.Generic;

@@ -26,8 +26,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
   
 
 
-        public String DataInfraNamespace { get; set; }
-        public String DataInfraPath { get; set; }
+    
    
         public DelegateCommand ChangeDataInfraPathCommand { get; set; }
  
@@ -43,8 +42,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             this.DataNamespace = "Emash.GeoPatNet.Data.Implementation";
             this.DataPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Implementation\Data";
 
-            this.DataInfraPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Infrastructure\Data";
-            this.DataInfraNamespace = "Emash.GeoPatNet.Data.Infrastructure";
+         
     
 
             this.ChangeDataPathCommand = new DelegateCommand(ChangeDataPathExecute);
@@ -58,12 +56,11 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             this._model.DataNamespace = this.DataNamespace;
             this._model.DataPath = this.DataPath;        
             
-            this._model.DataInfraPath = this.DataInfraPath;
-            this._model.DataInfraNamespace = this.DataInfraNamespace;
+         
            
             ServiceLocator.Current.GetInstance<MainViewModel>().SaveProjectExecute();
 
-            this.GenerateDataInfra();
+           // this.GenerateDataInfra();
             this.GenerateData();
             this.GenerateDataContext();
            
@@ -78,7 +75,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
            
             String fileName = Path.Combine(this.DataPath, "DataContext.cs");
             TemplateFileWriter writer = new TemplateFileWriter(fileName, templateFileName);
-            writer.ReplaceTag("@NameSpaceInfrastructure", this.DataInfraNamespace);
+            writer.ReplaceTag("@NameSpaceInfrastructure", "");
           
             writer.ReplaceTag("@NameSpace", this.DataNamespace);
             foreach (DbSchema schema in this._model.Schemas)
@@ -211,7 +208,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     }
 
                     writer.ReplaceTag("@DisplayName", table.DisplayName);
-                    writer.ReplaceTag("@NameSpaceInfrastructure", this.DataInfraNamespace);
+                    writer.ReplaceTag("@NameSpaceInfrastructure", "");
                     writer.ReplaceTag("@NameSpace", this.DataNamespace);
                     writer.ReplaceTag("@EntityName", className);
                     foreach (DbColumn column in table.Columns)
@@ -490,7 +487,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                 }
             }
         }
-
+        /*
         private void GenerateDataInfra()
         {
             string modelPath = Path.Combine(this.DataInfraPath, "Models");
@@ -586,7 +583,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                 }
             }
         }
-
+        */
         private void ChangeDataPathExecute()
         {
             IntPtr mainWindowPtr = new WindowInteropHelper(System.Windows.Application.Current.MainWindow).Handle; 
@@ -611,7 +608,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
             dialog.SelectedPath = this.DataPath;
             if (dialog.ShowDialog(new Win32Window(mainWindowPtr)) == DialogResult.OK)
             {
-                this.DataInfraPath = dialog.SelectedPath;
+               // this.DataInfraPath = dialog.SelectedPath;
                 this.RaisePropertyChanged("DataInfraPath");
             }
 
