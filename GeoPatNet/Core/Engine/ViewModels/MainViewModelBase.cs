@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Presentation.Implementation.Views;
 using Microsoft.Practices.Unity;
 using System.Windows;
 using System.Windows.Controls;
+using Emash.GeoPatNet.Infrastructure.Capability;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
     public abstract class MainViewModelBase : IMainViewModel
@@ -26,7 +27,20 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
         public DelegateCommand ExportConfigurationCommand { get; protected set; }
         public DelegateCommand ImportConfigurationDataCommand { get; protected set; }
         public DelegateCommand SwapActiveViewCommand { get; protected set; }
-        public Object ActiveContent { get; set; }
+
+        public DelegateCommand CustomFilterActiveViewCommand { get; protected set; }
+        public DelegateCommand CustomSortActiveViewCommand { get; protected set; }
+        public DelegateCommand CustomDisplayActiveViewCommand { get; protected set; }
+
+
+
+        private Object _activeContent;
+
+        public Object ActiveContent
+        {
+            get { return _activeContent; }
+            set { _activeContent = value; this.RaiseCommandChanges(); }
+        }
    
         private IEventAggregator _eventAggregator;
         private IRegionManager _regionManager;
@@ -39,14 +53,67 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
             this._container = container;
             this._eventAggregator.GetEvent<OpenEntityEvent>().Subscribe(OpenEntityTable);
             this.ImportDataCommand = new DelegateCommand(ImportDataExecute);
-            this.SwapActiveViewCommand = new DelegateCommand(SwapActiveView);
+            this.SwapActiveViewCommand = new DelegateCommand(SwapActiveView, CanSwapActiveView);
+            this.CustomFilterActiveViewCommand = new DelegateCommand(CustomFilterActiveView, CanCustomFilterActiveView);
+            this.CustomSortActiveViewCommand = new DelegateCommand(CustomSortActiveView, CanCustomSortActiveView);
+            this.CustomDisplayActiveViewCommand = new DelegateCommand(CustomDisplayActiveView, CanCustomDisplayActiveView);
+        }
+
+        private Boolean CanCustomFilterActiveView()
+        { 
+            return (
+            this.ActiveContent != null && 
+            this.ActiveContent is FrameworkElement && 
+            (ActiveContent as FrameworkElement).DataContext != null && 
+            (ActiveContent as FrameworkElement).DataContext is ICustomFilterable);
+        }
+
+        private void CustomFilterActiveView()
+        {  ((ActiveContent as FrameworkElement).DataContext as ICustomFilterable).ShowCustomFilter(); }
+
+        private Boolean CanCustomSortActiveView()
+        {
+            return (
+               this.ActiveContent != null &&
+               this.ActiveContent is FrameworkElement &&
+               (ActiveContent as FrameworkElement).DataContext != null &&
+               (ActiveContent as FrameworkElement).DataContext is ICustomSortable);
+        }
+
+        private void CustomSortActiveView()
+        { ((ActiveContent as FrameworkElement).DataContext as ICustomSortable).ShowCustomSort(); }
+
+        private Boolean CanCustomDisplayActiveView()
+        {
+            return (
+              this.ActiveContent != null &&
+              this.ActiveContent is FrameworkElement &&
+              (ActiveContent as FrameworkElement).DataContext != null &&
+              (ActiveContent as FrameworkElement).DataContext is ICustomDisplay);
+        }
+
+        private void CustomDisplayActiveView()
+        { ((ActiveContent as FrameworkElement).DataContext as ICustomDisplay).ShowCustomDisplay(); }
+
+        protected virtual void RaiseCommandChanges()
+        {
+            this.SwapActiveViewCommand.RaiseCanExecuteChanged();
+            this.ImportDataCommand.RaiseCanExecuteChanged();
+            this.CustomDisplayActiveViewCommand.RaiseCanExecuteChanged();
+            this.CustomFilterActiveViewCommand.RaiseCanExecuteChanged();
+            this.CustomSortActiveViewCommand.RaiseCanExecuteChanged();
+
+        }
+        private Boolean CanSwapActiveView()
+        {
+            return (this.ActiveContent != null && ActiveContent is ISawpableView);
         }
 
         private void SwapActiveView()
         {
-            if (this.ActiveContent != null && ActiveContent is SwapRegionView)
+            if (this.ActiveContent != null && ActiveContent is ISawpableView)
             {
-                (ActiveContent as SwapRegionView).SwapView();
+                (ActiveContent as ISawpableView).SwapView();
             }
         }
 

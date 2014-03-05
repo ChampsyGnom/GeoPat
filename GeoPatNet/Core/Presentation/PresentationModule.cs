@@ -30,6 +30,10 @@ namespace Emash.GeoPatNet.Presentation.Implementation
             this._container.RegisterType<ISplashService, SplashService>(new ContainerControlledLifetimeManager());
             this._container.RegisterType<IDialogService, DialogService>(new ContainerControlledLifetimeManager());
             this._regionManager.RegisterViewWithRegion("DataImportRegion", typeof(DataImportView));
+
+            this._regionManager.RegisterViewWithRegion("CustomFilterRegion", typeof(CustomFilterView));
+            this._regionManager.RegisterViewWithRegion("CustomSortRegion", typeof(CustomSortView));
+            this._regionManager.RegisterViewWithRegion("CustomDisplayRegion", typeof(CustomDisplayView));
             
         }
         public void Initialize()

@@ -123,6 +123,15 @@
     </Compile>
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\SplashService.cs" />
+    <Compile Include="Views\CustomDisplayView.xaml.cs">
+      <DependentUpon>CustomDisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomFilterView.xaml.cs">
+      <DependentUpon>CustomFilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomSortView.xaml.cs">
+      <DependentUpon>CustomSortView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DataImportView.xaml.cs">
       <DependentUpon>DataImportView.xaml</DependentUpon>
     </Compile>
@@ -164,6 +173,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\SelectDirectoryBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomDisplayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomFilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomSortView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

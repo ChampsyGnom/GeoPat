@@ -49,10 +49,13 @@
             <ribbon:RibbonTab Header="Données">
                 <ribbon:RibbonGroup Header="Import/Export">
                     <ribbon:RibbonButton Command="{Binding Path=ImportDataCommand}"  Label="Importer"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding Path=ExportDataCommand}"  Label="Exporter"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding Path=ExportDataCommand}"  Label="Exporter"></ribbon:RibbonButton>                    
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Affichage">
-                    <ribbon:RibbonButton Command="{Binding SwapActiveViewCommand}" Label="Changer de vue"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding SwapActiveViewCommand}" Label="Tableau/Formulaire"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding CustomFilterActiveViewCommand}" Label="Filtrer"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding CustomSortActiveViewCommand}" Label="Trier"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding CustomDisplayActiveViewCommand}" Label="Personaliser"></ribbon:RibbonButton>
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Analyse">
                     <ribbon:RibbonButton Command="{Binding ShowStatCommand}" Label="Statistiques"></ribbon:RibbonButton>

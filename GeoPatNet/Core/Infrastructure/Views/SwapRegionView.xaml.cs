@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Practices.Prism.Regions;
+using Emash.GeoPatNet.Infrastructure.Capability;
 
 namespace Emash.GeoPatNet.Infrastructure.Views
 {
     /// <summary>
     /// Logique d'interaction pour SwapRegionView.xaml
     /// </summary>
-    public partial class SwapRegionView : UserControl
+    public partial class SwapRegionView : UserControl, ISawpableView
     {
         private List<Object> _views;
 

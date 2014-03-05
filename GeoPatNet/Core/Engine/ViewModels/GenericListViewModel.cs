@@ -23,9 +23,10 @@ using System.Windows.Input;
 using System.Windows.Controls;
 using Emash.GeoPatNet.Presentation.Implementation.Views;
 using Emash.GeoPatNet.Infrastructure.Attributes;
+using Emash.GeoPatNet.Infrastructure.Capability;
 namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 {
-    public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList
+    public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList, ICustomFilterable,ICustomSortable,ICustomDisplay
         where M : class, new()
     {
 
@@ -892,6 +893,33 @@ namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
 
 
 
-       
+
+
+        public void ShowCustomFilter()
+        {
+            IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
+            Window window =   dialogService.CreateDialog("CustomFilterRegion", "Filtre personalisé");
+            CustomFilterViewModel<M> vm =  new CustomFilterViewModel<M>();
+            window.DataContext = vm;
+            window.ShowDialog();
+        }
+
+        public void ShowCustomSort()
+        {
+            IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
+            Window window = dialogService.CreateDialog("CustomSortRegion", "Tri personalisé");
+            CustomSortViewModel<M> vm = new CustomSortViewModel<M>();
+            window.DataContext = vm;
+            window.ShowDialog();
+        }
+
+        public void ShowCustomDisplay()
+        {
+            IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
+            Window window = dialogService.CreateDialog("CustomDisplayRegion", "Affichage personalisé");
+            CustomDisplayViewModel<M> vm = new CustomDisplayViewModel<M>();
+            window.DataContext = vm;
+            window.ShowDialog();
+        }
     }
 }
