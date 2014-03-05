@@ -18,10 +18,23 @@ using Microsoft.Practices.Unity;
 using System.Windows;
 using System.Windows.Controls;
 using Emash.GeoPatNet.Infrastructure.Capability;
+using System.ComponentModel;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
-    public abstract class MainViewModelBase : IMainViewModel
+    public abstract class MainViewModelBase : IMainViewModel,INotifyPropertyChanged
     {
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        #endregion
+
         public DelegateCommand ExportDataCommand { get;protected set; }
         public DelegateCommand ImportDataCommand { get; protected set; }
         public DelegateCommand ExportConfigurationCommand { get; protected set; }

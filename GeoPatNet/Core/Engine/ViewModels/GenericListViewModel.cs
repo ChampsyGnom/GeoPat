@@ -44,27 +44,27 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         #region Propriétées
 
-        private Dictionary<String, Nullable<ListSortDirection>> sorters;
+        private Dictionary<String, Nullable<ListSortDirection>> _sorters;
 
 
 
         public Nullable<ListSortDirection> GetSort(String filedPath)
         { 
-            if (this.sorters == null)
-            { this.sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
-            if (this.sorters.ContainsKey(filedPath))
-            {return this.sorters[filedPath];}
+            if (this._sorters == null)
+            { this._sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
+            if (this._sorters.ContainsKey(filedPath))
+            {return this._sorters[filedPath];}
             else return null;
         }
 
         public void SetSort(String filedPath, Nullable<ListSortDirection> direction)
         {
-            if (this.sorters == null)
-            { this.sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
-            if (!this.sorters.ContainsKey(filedPath))
-            { this.sorters.Add(filedPath, direction); }
+            if (this._sorters == null)
+            { this._sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
+            if (!this._sorters.ContainsKey(filedPath))
+            { this._sorters.Add(filedPath, direction); }
             else
-            { this.sorters[filedPath] = direction; }
+            { this._sorters[filedPath] = direction; }
           
         }
         public Int32 SliderMinimum { get; set; }
@@ -226,7 +226,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
             // On ecoute le changement de l'élément courant pour mettre à jour l'enregistrement courant
             this.ItemsView.CurrentChanged += ItemsView_CurrentChanged;
-            this.sorters = new Dictionary<string, ListSortDirection?>();
+            this._sorters = new Dictionary<string, ListSortDirection?>();
             this.CanSlide = false;
             this.SliderMinimum = 0;
             this.SliderMaximum = 0;
@@ -538,9 +538,9 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private IQueryable<M> TryApplySort(IQueryable<M> queryable, System.Linq.Expressions.ParameterExpression expressionBase)
         {
-            foreach (String fieldPath in this.sorters.Keys)
+            foreach (String fieldPath in this._sorters.Keys)
             {
-                if (this.sorters[fieldPath].HasValue)
+                if (this._sorters[fieldPath].HasValue)
                 {
                     var property = this.DataService.GetTopColumnInfo(typeof(M), fieldPath).Property;
                    
@@ -561,14 +561,14 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                         propertyAccess = System.Linq.Expressions.Expression.Property(expressionBase, property);
                     }
                     var orderByExp = System.Linq.Expressions.Expression.Lambda(propertyAccess, expressionBase);
-                    if (this.sorters[fieldPath].Value == ListSortDirection.Ascending)
+                    if (this._sorters[fieldPath].Value == ListSortDirection.Ascending)
                     {
                         System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderBy", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
 
 
                         queryable = queryable.Provider.CreateQuery<M>(resultExp);
                     }
-                    else if (this.sorters[fieldPath].Value == ListSortDirection.Descending )
+                    else if (this._sorters[fieldPath].Value == ListSortDirection.Descending )
                     {
                         System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderByDescending", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
 
@@ -908,9 +908,16 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         {
             IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
             Window window = dialogService.CreateDialog("CustomSortRegion", "Tri personalisé");
-            CustomSortViewModel<M> vm = new CustomSortViewModel<M>();
+            Dictionary<String, Nullable<ListSortDirection>> sorters = new Dictionary<string, ListSortDirection?>();
+            foreach (String fieldpath in this.FieldPaths)
+            {sorters.Add(fieldpath, this.GetSort(fieldpath));}
+            CustomSortViewModel<M> vm = new CustomSortViewModel<M>(sorters);
             window.DataContext = vm;
-            window.ShowDialog();
+            Nullable<Boolean> result =  window.ShowDialog();
+            if (result.HasValue && result.Value == true)
+            { 
+                
+            }
         }
 
         public void ShowCustomDisplay()

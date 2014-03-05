@@ -5,9 +5,139 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
               MinWidth="600"
-             MinHeight="800"
+             MinHeight="400"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
+        <Color x:Key="SelectedUnfocusedColor">#FFDDDDDD</Color>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="4" IsCancel="True">
+                <TextBlock  Text="Annuler"></TextBlock>
+            </Button>
+            <Button Click="Button_Click" Grid.Column="1" Margin="4" IsCancel="True">
+                <TextBlock  Text="Valider"></TextBlock>
+            </Button>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button CommandParameter="{Binding ElementName=sortedPropertiesListBox,Path=SelectedItem}" Command="{Binding Path=MoveColumnToTopCommand}" Grid.Row="0" Margin="2" Content="En haut"></Button>
+                <Button CommandParameter="{Binding ElementName=sortedPropertiesListBox,Path=SelectedItem}"  Command="{Binding Path=MoveColumnToUpCommand}"  Grid.Row="1" Margin="2" Content="Monter"></Button>
+                <Button CommandParameter="{Binding ElementName=sortedPropertiesListBox,Path=SelectedItem}"  Command="{Binding Path=MoveColumnToDownCommand}"  Grid.Row="2" Margin="2" Content="Descendre"></Button>
+                <Button CommandParameter="{Binding ElementName=sortedPropertiesListBox,Path=SelectedItem}"  Command="{Binding Path=MoveColumnToBottomCommand}"  Grid.Row="3" Margin="2" Content="En bas"></Button>
+            </Grid>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0" Header="Colonnes excluses du tri">
+                    <ListBox ItemsSource="{Binding Path=UnsortedProperties}">
+                        <ListBox.Resources>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="0,1,0,0" BorderBrush="DarkGray" Margin="0,0,0,5">
+                                    <Grid  HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding DisplayName}" Margin="2" TextWrapping="Wrap" FontWeight="Bold" />
+                                        <Button CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=DataContext.AddColumnCommand}" Content="Ajouter" Margin="2" Grid.Column="1"></Button>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </GroupBox>
+                <GroupBox Grid.Column="1" Header="Colonnes incluses dans le tri">
+                    <ListBox SelectedItem="{Binding Path=SelectedSortableProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="sortedPropertiesListBox" ItemsSource="{Binding Path=SortedProperties}">
+                        <ListBox.Resources>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="0,1,0,0" BorderBrush="DarkGray" Margin="0,0,0,5">
+                                    <Grid HorizontalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.ColumnSpan="2" Grid.Row="0" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding DisplayName}" Margin="2" TextWrapping="Wrap" FontWeight="Bold" />
+                                            <Button CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=DataContext.RemoveColumnCommand}" Content="Retirer" Margin="2" Grid.Column="1"></Button>
+                                        </Grid>
+                                        <RadioButton CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=DataContext.SetSortModeAscendingCommand}" Margin="2" Grid.Row="1" Grid.Column="0" Content="Trie ascendent">
+                                            <RadioButton.Style>
+                                                <Style TargetType="RadioButton">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=SortDirection}" Value="Ascending">
+                                                            <Setter Property="IsChecked" Value="True"></Setter>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Path=SortDirection}" Value="Descending">
+                                                            <Setter Property="IsChecked" Value="False"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </RadioButton.Style>
+                                        </RadioButton>
+                                        <RadioButton CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=DataContext.SetSortModeDescendingCommand}"   Margin="2" Grid.Row="1" Grid.Column="1" Content="Trie descendent">
+                                            <RadioButton.Style>
+                                                <Style TargetType="RadioButton">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=SortDirection}" Value="Ascending">
+                                                            <Setter Property="IsChecked" Value="False"></Setter>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Path=SortDirection}" Value="Descending">
+                                                            <Setter Property="IsChecked" Value="True"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </RadioButton.Style>
+                                        </RadioButton>
+                                    </Grid>
+
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </GroupBox>
+            </Grid>
+        </Grid>
     </Grid>
+   
+    
 </UserControl>

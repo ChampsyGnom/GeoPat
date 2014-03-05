@@ -117,8 +117,11 @@
   <ItemGroup>
     <Compile Include="EngineBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CustomDisplayablePropertyViewModel.cs" />
     <Compile Include="ViewModels\CustomDisplayViewModel.cs" />
+    <Compile Include="ViewModels\CustomFilterablePropertyViewModel.cs" />
     <Compile Include="ViewModels\CustomFilterViewModel.cs" />
+    <Compile Include="ViewModels\CustomSortablePropertyViewModel.cs" />
     <Compile Include="ViewModels\CustomSortViewModel.cs" />
     <Compile Include="ViewModels\DataFileViewModel.cs" />
     <Compile Include="ViewModels\DataImportViewModel.cs" />

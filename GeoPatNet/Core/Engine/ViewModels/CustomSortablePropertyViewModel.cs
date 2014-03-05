@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
-    public class CustomFilterViewModel<M> : INotifyPropertyChanged
-        where M : new()
+    public class CustomSortablePropertyViewModel : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -22,10 +21,13 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         }
         #endregion
 
-        
-        public CustomFilterViewModel()
-        { 
 
-        }
+        public String FieldPath { get; set; }
+        public String DisplayName { get; set; }
+        public  Nullable<ListSortDirection> SortDirection { get; set; }
+
+
+
+
     }
 }
