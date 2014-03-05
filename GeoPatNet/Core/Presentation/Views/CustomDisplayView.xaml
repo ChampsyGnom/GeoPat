@@ -6,8 +6,12 @@
              mc:Ignorable="d" 
              MinWidth="600"
              MinHeight="400"
+             
+             MaxWidth="600"
+             MaxHeight="400"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -16,6 +20,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
+              
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Margin="4" IsCancel="True">
                 <TextBlock  Text="Annuler"></TextBlock>
@@ -28,15 +33,205 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button CommandParameter="{Binding ElementName=listBoxProperties,Path=SelectedItem}" Command="{Binding Path=MoveColumnToTopCommand}" Grid.Row="0" Margin="2" Content="En haut"></Button>
+                <Button CommandParameter="{Binding ElementName=listBoxProperties,Path=SelectedItem}"  Command="{Binding Path=MoveColumnToUpCommand}"  Grid.Row="1" Margin="2" Content="Monter"></Button>
+                <Button CommandParameter="{Binding ElementName=listBoxProperties,Path=SelectedItem}"  Command="{Binding Path=MoveColumnToDownCommand}"  Grid.Row="2" Margin="2" Content="Descendre"></Button>
+                <Button CommandParameter="{Binding ElementName=listBoxProperties,Path=SelectedItem}"  Command="{Binding Path=MoveColumnToBottomCommand}"  Grid.Row="3" Margin="2" Content="En bas"></Button>
+            </Grid>
             <GroupBox Grid.Column="0" Header="Colonnes masquées">
-                <TreeView ItemsSource="{Binding Path=Entities}">
+                <TreeView x:Name="treeEntities" ItemsSource="{Binding Path=Entities}">
+                    <TreeView.Resources>
+                        <Style TargetType="TreeViewItem"
+       BasedOn="{StaticResource {x:Type TreeViewItem}}">
+                            <Setter Property="HorizontalContentAlignment"
+          Value="Stretch" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TreeViewItem">
+                                        <StackPanel>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"
+                                MinWidth="19" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <!--
+                             Note that the following do not work, but I believe the top 2 should?!
+                             <ToggleButton IsChecked="{TemplateBinding IsExpanded}" ClickMode="Press" Name="Expander">
+                             <ToggleButton IsChecked="{TemplateBinding Property=IsExpanded}" ClickMode="Press" Name="Expander">
+                             <ToggleButton IsChecked="{TemplateBinding Path=IsExpanded}" ClickMode="Press" Name="Expander">
+                        -->
+                                                <ToggleButton IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                          ClickMode="Press"
+                          Name="Expander">
+                                                    <ToggleButton.Style>
+                                                        <Style TargetType="ToggleButton">
+                                                            <Setter Property="UIElement.Focusable"
+                          Value="false" />
+                                                            <Setter Property="FrameworkElement.Width"
+                          Value="16" />
+                                                            <Setter Property="FrameworkElement.Height"
+                          Value="16" />
+                                                            <Setter Property="Control.Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="ToggleButton">
+                                                                        <Border Padding="5,5,5,5"
+                                Background="#00FFFFFF"
+                                Width="16"
+                                Height="16">
+                                                                            <Path Fill="#00FFFFFF"
+                                Stroke="#FF989898"
+                                Name="ExpandPath">
+                                                                                <Path.Data>
+                                                                                    <PathGeometry Figures="M0,0L0,6L6,0z" />
+                                                                                </Path.Data>
+                                                                                <Path.RenderTransform>
+                                                                                    <RotateTransform Angle="135"
+                                               CenterX="3"
+                                               CenterY="3" />
+                                                                                </Path.RenderTransform>
+                                                                            </Path>
+                                                                        </Border>
+                                                                        <ControlTemplate.Triggers>
+                                                                            <Trigger Property="UIElement.IsMouseOver"
+                                   Value="True">
+                                                                                <Setter TargetName="ExpandPath"
+                                    Property="Shape.Stroke"
+                                    Value="#FF1BBBFA" />
+                                                                                <Setter TargetName="ExpandPath"
+                                    Property="Shape.Fill"
+                                    Value="#00FFFFFF" />
+                                                                            </Trigger>
+                                                                            <Trigger Property="ToggleButton.IsChecked"
+                                   Value="True">
+                                                                                <Setter TargetName="ExpandPath"
+                                    Property="UIElement.RenderTransform">
+                                                                                    <Setter.Value>
+                                                                                        <RotateTransform Angle="180"
+                                                 CenterX="3"
+                                                 CenterY="3" />
+                                                                                    </Setter.Value>
+                                                                                </Setter>
+                                                                                <Setter TargetName="ExpandPath"
+                                    Property="Shape.Fill"
+                                    Value="#FF595959" />
+                                                                                <Setter TargetName="ExpandPath"
+                                    Property="Shape.Stroke"
+                                    Value="#FF262626" />
+                                                                            </Trigger>
+                                                                        </ControlTemplate.Triggers>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </ToggleButton.Style>
+                                                </ToggleButton>
+                                                <Border x:Name="Bd"
+                    HorizontalAlignment="Stretch"
+                    BorderThickness="{TemplateBinding Border.BorderThickness}"
+                    BorderBrush="{TemplateBinding Border.BorderBrush}"
+                    Padding="{TemplateBinding Control.Padding}"
+                    Background="{TemplateBinding Panel.Background}"
+                    SnapsToDevicePixels="True"
+                    Grid.Column="1">
+                                                    <ContentPresenter x:Name="PART_Header"
+                                Content="{TemplateBinding HeaderedContentControl.Header}"
+                                ContentTemplate="{TemplateBinding HeaderedContentControl.HeaderTemplate}"
+                                ContentStringFormat="{TemplateBinding HeaderedItemsControl.HeaderStringFormat}"
+                                ContentTemplateSelector="{TemplateBinding HeaderedItemsControl.HeaderTemplateSelector}"
+                                ContentSource="Header"
+                                HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                                </Border>
+                                                <ItemsPresenter x:Name="ItemsHost"
+                            Grid.Column="1"
+                            Grid.Row="1" />
+                                            </Grid>
+                                        </StackPanel>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="TreeViewItem.IsExpanded"
+                   Value="False">
+                                                <Setter TargetName="ItemsHost"
+                    Property="UIElement.Visibility"
+                    Value="Collapsed" />
+                                            </Trigger>
+                                            <Trigger Property="ItemsControl.HasItems"
+                   Value="False">
+                                                <Setter TargetName="Expander"
+                    Property="UIElement.Visibility"
+                    Value="Hidden" />
+                                            </Trigger>
+                                            <Trigger Property="TreeViewItem.IsSelected"
+                   Value="True">
+                                                <Setter TargetName="Bd"
+                    Property="Panel.Background"
+                    Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                                <Setter Property="TextElement.Foreground"
+                    Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                                            </Trigger>
+                                            <MultiTrigger>
+                                                <MultiTrigger.Conditions>
+                                                    <Condition Property="TreeViewItem.IsSelected"
+                         Value="True" />
+                                                    <Condition Property="Selector.IsSelectionActive"
+                         Value="False" />
+                                                </MultiTrigger.Conditions>
+                                                <Setter TargetName="Bd"
+                    Property="Panel.Background"
+                    Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                                                <Setter Property="TextElement.Foreground"
+                    Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+                                            </MultiTrigger>
+                                            <Trigger Property="UIElement.IsEnabled"
+                   Value="False">
+                                                <Setter Property="TextElement.Foreground"
+                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TreeView.Resources>
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Path=Fields}">
-                            <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay}"></TextBlock>
+                            <Border BorderThickness="0,1,0,0" BorderBrush="DarkGray" Margin="0,0,0,0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Button CommandParameter="{Binding}" Command="{Binding ElementName=treeEntities,Path=DataContext.AddEntityPropertiesCommand}" Margin="2" Grid.Column="1" Content="Ajouter"></Button>
+                                    <TextBlock Grid.Column="0" Text="{Binding DisplayName}" Margin="2" TextWrapping="Wrap" FontWeight="Bold" />
+                                </Grid>
+                            </Border>
+                           
                             <HierarchicalDataTemplate.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay}"></TextBlock>
+                                    <Border BorderThickness="0,1,0,0" BorderBrush="DarkGray" Margin="0,0,0,0">
+                                        <Grid HorizontalAlignment="Stretch">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Button  CommandParameter="{Binding}" Command="{Binding ElementName=treeEntities,Path=DataContext.AddPropertyCommand}" Margin="2" Grid.Column="1" Content="Ajouter"></Button>
+                                            <TextBlock Grid.Column="0" Text="{Binding DisplayName}" Margin="2" TextWrapping="Wrap" FontWeight="Bold" />
+                                        </Grid>
+                                    </Border>
+                                     
                                 </DataTemplate>
                             </HierarchicalDataTemplate.ItemTemplate>
                         </HierarchicalDataTemplate>
@@ -44,7 +239,7 @@
                 </TreeView>
             </GroupBox>
             <GroupBox Grid.Column="1" Header="Colonnes affichées">
-                <ListBox ItemsSource="{Binding Path=VisibleFields}">
+                <ListBox SelectedItem="{Binding Path=SelectedVisibleProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="listBoxProperties" ItemsSource="{Binding Path=VisibleFields}">
                     <ListBox.Resources>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -52,13 +247,14 @@
                     </ListBox.Resources>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="0,1,0,0" BorderBrush="DarkGray" Margin="0,0,0,5">
+                            <Border BorderThickness="0,1,0,0" BorderBrush="DarkGray" Margin="0,0,0,0">
                                 <Grid HorizontalAlignment="Stretch">
-                                    
-                                    <TextBlock Grid.Column="0" Text="{Binding DisplayName}" Margin="2" TextWrapping="Wrap" FontWeight="Bold" />
-                                       
-                                  
-                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Button IsEnabled="{Binding Path=CanRemove,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  CommandParameter="{Binding}" Command="{Binding ElementName=listBoxProperties,Path=DataContext.RemovePropertyCommand}"  Margin="2" Grid.Column="1" Content="Retirer"></Button>
+                                    <TextBlock Grid.Column="0" Text="{Binding DisplayName}" Margin="2" TextWrapping="Wrap" FontWeight="Bold" />                                    
                                 </Grid>
 
                             </Border>

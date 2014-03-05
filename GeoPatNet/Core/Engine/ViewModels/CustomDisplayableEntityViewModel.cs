@@ -8,11 +8,11 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class CustomDisplayableEntityViewModel<M>
     {
-        public ObservableCollection<CustomDisplayablePropertyViewModel> Fields { get; set; }
+        public ObservableCollection<CustomDisplayablePropertyViewModel<M>> Fields { get; set; }
         public String DisplayName { get; set; }
         public CustomDisplayableEntityViewModel()
         {
-            this.Fields = new ObservableCollection<CustomDisplayablePropertyViewModel>();
+            this.Fields = new ObservableCollection<CustomDisplayablePropertyViewModel<M>>();
         }
     }
 }

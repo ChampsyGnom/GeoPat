@@ -389,5 +389,23 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             }
             return uks;
         }
+
+
+        public List<EntityTableInfo> GetAllParentEntityTableInfo(Type type)
+        {
+            List<EntityTableInfo> parentTables = new List<EntityTableInfo>();
+            EntityTableInfo tableInfo = this.GetEntityTableInfo(type);
+            List<String> tableFieldPaths = this.GetTableFieldPaths(tableInfo);
+            foreach (String tableFieldPath in tableFieldPaths)
+            {
+                if (tableFieldPath.IndexOf(".") != -1)
+                {
+                    EntityColumnInfo topColumn = this.GetTopColumnInfo(type, tableFieldPath);
+                    parentTables.Add(topColumn.TableInfo);
+                }
+            }
+            parentTables = (from t in parentTables orderby t.DisplayName select t).Distinct().ToList();
+            return parentTables;
+        }
     }
 }

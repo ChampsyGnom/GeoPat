@@ -489,12 +489,13 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 if (this.Manager.State == Infrastructure.Enums.GenericDataListState.Search) return null;
                 String message = null;
                 Object result = null;
-                
-               
+                List<String> basicFieldPath = this.Manager.DataService.GetTableFieldPaths (this.Manager.DataService.GetEntityTableInfo(typeof(M)));
+            
                 if (columnName.StartsWith("[") && columnName.EndsWith("]"))
                 {
                     String path = columnName.Substring(1);
                     path = path.Substring(0, path.Length - 1);
+                    if (!basicFieldPath.Contains(path)) return null;
                     EntityColumnInfo topColumn = this.Manager.DataService.GetTopColumnInfo(typeof(M), path);
                     if (path.IndexOf(".") == -1)
                     {

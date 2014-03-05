@@ -301,7 +301,7 @@ namespace Emash.GeoPatNet.Presentation.Views
                     items.Add(CultureConfiguration.BooleanFalseString);
                     comboBox.SetValue(ComboBox.ItemsSourceProperty, items);
                     Binding binding = new Binding();
-                    binding.Path = new PropertyPath("[" + fieldPath + "]");
+                    binding.Path = new PropertyPath("ItemsView.CurrentItem[" + fieldPath + "]");
                     binding.Mode = BindingMode.TwoWay;
                     binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
                     binding.ValidatesOnDataErrors = true;

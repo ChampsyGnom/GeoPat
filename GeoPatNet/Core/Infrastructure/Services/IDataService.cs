@@ -34,5 +34,7 @@ namespace Emash.GeoPatNet.Infrastructure.Services
 
 
         Dictionary<string, List<EntityColumnInfo>> GetUks(EntityTableInfo tableInfo);
+
+        List<EntityTableInfo> GetAllParentEntityTableInfo(Type type);
     }
 }

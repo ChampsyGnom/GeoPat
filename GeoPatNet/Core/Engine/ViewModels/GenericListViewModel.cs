@@ -959,7 +959,21 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             Window window = dialogService.CreateDialog("CustomDisplayRegion", "Affichage personalisé");
             CustomDisplayViewModel<M> vm = new CustomDisplayViewModel<M>(this.FieldPaths.ToArray ().ToList ());
             window.DataContext = vm;
-            window.ShowDialog();
+            Nullable<Boolean> result =   window.ShowDialog();
+            if (result.HasValue && result.Value == true)
+            {
+                
+                this.FieldPaths.Clear();
+                foreach (CustomDisplayablePropertyViewModel<M> vmField in vm.VisibleFields)
+                {
+                    this.FieldPaths.Add(vmField.FieldPath);
+                 
+                  
+                }
+                if (this.State == GenericDataListState.Display)
+                { this.SearchExecute(); }
+            }
+          
         }
     }
 }
