@@ -150,6 +150,13 @@
     <Compile Include="Models\InfTalus.cs" />
     <Compile Include="Models\InfTpc.cs" />
     <Compile Include="Models\InfTrDec.cs" />
+    <Compile Include="Models\PrfUser.cs" />
+    <Compile Include="Models\SigCodeLayer.cs" />
+    <Compile Include="Models\SigCodeNode.cs" />
+    <Compile Include="Models\SigCodeTemplate.cs" />
+    <Compile Include="Models\SigLayer.cs" />
+    <Compile Include="Models\SigNode.cs" />
+    <Compile Include="Models\SigTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataService.cs" />
   </ItemGroup>
@@ -163,6 +170,7 @@
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"

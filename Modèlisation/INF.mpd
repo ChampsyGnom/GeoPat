@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{E935CC64-EFB3-4890-B9EC-7D124A4E5BF7}" Label="" LastModificationDate="1393607481" Name="Référentiel" Objects="805" Symbols="95" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{E935CC64-EFB3-4890-B9EC-7D124A4E5BF7}" Label="" LastModificationDate="1394044566" Name="Référentiel" Objects="805" Symbols="95" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -2596,14 +2596,17 @@ PhysOpts=</a:ModelOptionsText>
 <c:PhysicalDiagrams>
 <o:PhysicalDiagram Id="o5">
 <a:ObjectID>681AF3B5-2DA0-4437-A024-D9401DC64751</a:ObjectID>
-<a:Name>MCD</a:Name>
-<a:Code>MCD</a:Code>
+<a:Name>MPD</a:Name>
+<a:Code>MPD</a:Code>
 <a:CreationDate>1392376325</a:CreationDate>
 <a:Creator>loic</a:Creator>
-<a:ModificationDate>1393607481</a:ModificationDate>
-<a:Modifier>loic</a:Modifier>
+<a:ModificationDate>1394044333</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
 <a:History>ORG {FA63A83E-D36B-435B-92FA-B5BDAA7C8843}
-DAT 1392376325</a:History>
+DAT 1392376325
+ATT DIAGNAME
+ATT DISPNAME
+ATT CODE</a:History>
 <a:DisplayPreferences>[DisplayPreferences]
 
 [DisplayPreferences\PDM]
@@ -16225,7 +16228,7 @@ ATT MAND</a:History>
 <a:Code>PGSQL80</a:Code>
 <a:CreationDate>1392376320</a:CreationDate>
 <a:Creator>loic</a:Creator>
-<a:ModificationDate>1393398735</a:ModificationDate>
+<a:ModificationDate>1394044566</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <a:TargetModelURL>file:///%_DBMS%/pgsql8.xdb</a:TargetModelURL>
 <a:TargetModelID>8AF15AEA-CCBC-4EDC-B468-7DB8DB5300B2</a:TargetModelID>
@@ -16240,9 +16243,9 @@ ATT MAND</a:History>
 <a:Code>INF</a:Code>
 <a:CreationDate>1393398836</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1393398836</a:ModificationDate>
+<a:ModificationDate>1394044566</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/loic.EMASH/Documents/GitHub/GeoPat/Modèlisation/INF.mcd</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/Champ/Documents/GitHub/GeoPat/Modèlisation/INF.mcd</a:TargetModelURL>
 <a:TargetModelID>C380AB8A-2C90-4A81-8567-777EE163E9BB</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
 <c:SessionShortcuts>

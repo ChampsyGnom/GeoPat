@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              MinWidth="600"
              MinHeight="400"
-             MaxWidth="1000"
-             MaxHeight="700"
+             
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid Visibility="{Binding Path=StepConfigurationVisiblity,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
