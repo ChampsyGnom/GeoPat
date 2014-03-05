@@ -55,7 +55,7 @@
                     <ribbon:RibbonButton Command="{Binding SwapActiveViewCommand}" Label="Tableau/Formulaire"></ribbon:RibbonButton>
                     <ribbon:RibbonButton Command="{Binding CustomFilterActiveViewCommand}" Label="Filtrer"></ribbon:RibbonButton>
                     <ribbon:RibbonButton Command="{Binding CustomSortActiveViewCommand}" Label="Trier"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding CustomDisplayActiveViewCommand}" Label="Personaliser"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding CustomDisplayActiveViewCommand}" Label="Champs"></ribbon:RibbonButton>
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Analyse">
                     <ribbon:RibbonButton Command="{Binding ShowStatCommand}" Label="Statistiques"></ribbon:RibbonButton>

@@ -24,6 +24,7 @@ using System.Windows.Controls;
 using Emash.GeoPatNet.Presentation.Views;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Capability;
+using Emash.GeoPatNet.Engine.Models;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList, ICustomFilterable,ICustomSortable,ICustomDisplay
@@ -44,27 +45,43 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         #region Propriétées
 
-        private Dictionary<String, Nullable<ListSortDirection>> _sorters;
-
-
+        private List<SortInfo> _sorters;
+       
 
         public Nullable<ListSortDirection> GetSort(String filedPath)
-        { 
-            if (this._sorters == null)
-            { this._sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
-            if (this._sorters.ContainsKey(filedPath))
-            {return this._sorters[filedPath];}
-            else return null;
+        {
+            SortInfo sorter = (from s in _sorters where s.FieldPath.Equals(filedPath) select s).FirstOrDefault();
+            if (sorter == null)
+            { return null; }
+
+            else return sorter.Direction;
         }
 
         public void SetSort(String filedPath, Nullable<ListSortDirection> direction)
         {
-            if (this._sorters == null)
-            { this._sorters = new Dictionary<string, Nullable<ListSortDirection>>(); }
-            if (!this._sorters.ContainsKey(filedPath))
-            { this._sorters.Add(filedPath, direction); }
+            SortInfo sorter = (from s in _sorters where s.FieldPath.Equals(filedPath) select s).FirstOrDefault();
+            if (direction.HasValue )
+            {
+                if (sorter == null)
+                {
+                    sorter = new SortInfo();
+                    sorter.FieldPath = filedPath;
+                    sorter.Order = -1;
+                    _sorters.Add(sorter);
+                    sorter.Order = (from s in _sorters select s.Order).Max() + 1;
+
+                    //  sorter.Direction = direction;
+                    //  sorter.Order = 
+                }
+                sorter.Direction = direction.Value;
+            }
             else
-            { this._sorters[filedPath] = direction; }
+            {
+                if (sorter != null)
+                {this._sorters.Remove(sorter); }
+            }
+           
+           
           
         }
         public Int32 SliderMinimum { get; set; }
@@ -226,7 +243,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
             // On ecoute le changement de l'élément courant pour mettre à jour l'enregistrement courant
             this.ItemsView.CurrentChanged += ItemsView_CurrentChanged;
-            this._sorters = new Dictionary<string, ListSortDirection?>();
+            this._sorters = new List<SortInfo>();
             this.CanSlide = false;
             this.SliderMinimum = 0;
             this.SliderMaximum = 0;
@@ -538,10 +555,10 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private IQueryable<M> TryApplySort(IQueryable<M> queryable, System.Linq.Expressions.ParameterExpression expressionBase)
         {
-            foreach (String fieldPath in this._sorters.Keys)
+            foreach (SortInfo sorter in this._sorters)
             {
-                if (this._sorters[fieldPath].HasValue)
-                {
+                String fieldPath = sorter.FieldPath;
+                
                     var property = this.DataService.GetTopColumnInfo(typeof(M), fieldPath).Property;
                    
                     System.Linq.Expressions.Expression propertyAccess = null;
@@ -561,14 +578,14 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                         propertyAccess = System.Linq.Expressions.Expression.Property(expressionBase, property);
                     }
                     var orderByExp = System.Linq.Expressions.Expression.Lambda(propertyAccess, expressionBase);
-                    if (this._sorters[fieldPath].Value == ListSortDirection.Ascending)
+                    if (sorter.Direction  == ListSortDirection.Ascending)
                     {
                         System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderBy", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
 
 
                         queryable = queryable.Provider.CreateQuery<M>(resultExp);
                     }
-                    else if (this._sorters[fieldPath].Value == ListSortDirection.Descending )
+                    else if (sorter.Direction == ListSortDirection.Descending)
                     {
                         System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderByDescending", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
 
@@ -577,7 +594,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                         
                     }
                    
-                }
+                
             }
             return queryable;
         }
@@ -914,9 +931,25 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             CustomSortViewModel<M> vm = new CustomSortViewModel<M>(sorters);
             window.DataContext = vm;
             Nullable<Boolean> result =  window.ShowDialog();
+
             if (result.HasValue && result.Value == true)
-            { 
-                
+            {
+                _sorters.Clear();
+                foreach (CustomSortablePropertyViewModel p in vm.SortedProperties)
+                {
+                    if ( p.SortDirection .HasValue )
+                    {
+                        SortInfo sorter = new SortInfo();
+                        sorter.Direction = p.SortDirection.Value;
+                        sorter.Order = vm.SortedProperties.IndexOf(p);
+                        sorter.FieldPath = p.FieldPath;
+                        _sorters.Add(sorter);
+
+                    }
+                   
+                }
+                if (this.State == GenericDataListState.Display)
+                { this.SearchExecute(); }
             }
         }
 
@@ -924,7 +957,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         {
             IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
             Window window = dialogService.CreateDialog("CustomDisplayRegion", "Affichage personalisé");
-            CustomDisplayViewModel<M> vm = new CustomDisplayViewModel<M>();
+            CustomDisplayViewModel<M> vm = new CustomDisplayViewModel<M>(this.FieldPaths.ToArray ().ToList ());
             window.DataContext = vm;
             window.ShowDialog();
         }
