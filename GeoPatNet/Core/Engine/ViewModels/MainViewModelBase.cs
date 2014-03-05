@@ -46,6 +46,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         public DelegateCommand CustomDisplayActiveViewCommand { get; protected set; }
 
 
+        public DelegateCommand ShowStatCommand { get; protected set; }
 
         private Object _activeContent;
 
@@ -70,6 +71,21 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.CustomFilterActiveViewCommand = new DelegateCommand(CustomFilterActiveView, CanCustomFilterActiveView);
             this.CustomSortActiveViewCommand = new DelegateCommand(CustomSortActiveView, CanCustomSortActiveView);
             this.CustomDisplayActiveViewCommand = new DelegateCommand(CustomDisplayActiveView, CanCustomDisplayActiveView);
+            this.ShowStatCommand = new DelegateCommand(ShowStatExecute, CanShowStat);
+        }
+
+        public void ShowStatExecute()
+        {
+            ((ActiveContent as FrameworkElement).DataContext as IStatable).ShowStat();
+        }
+
+        public Boolean  CanShowStat()
+        {
+            return (
+                  this.ActiveContent != null &&
+                  this.ActiveContent is FrameworkElement &&
+                  (ActiveContent as FrameworkElement).DataContext != null &&
+                  (ActiveContent as FrameworkElement).DataContext is IStatable);
         }
 
         private Boolean CanCustomFilterActiveView()
@@ -115,6 +131,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.CustomDisplayActiveViewCommand.RaiseCanExecuteChanged();
             this.CustomFilterActiveViewCommand.RaiseCanExecuteChanged();
             this.CustomSortActiveViewCommand.RaiseCanExecuteChanged();
+            this.ShowStatCommand.RaiseCanExecuteChanged();
 
         }
         private Boolean CanSwapActiveView()

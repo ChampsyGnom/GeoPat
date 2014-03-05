@@ -103,6 +103,7 @@
     <Compile Include="Capability\ICustomSortable.cs" />
     <Compile Include="Capability\ICustomFilterable.cs" />
     <Compile Include="Capability\ISawpableView.cs" />
+    <Compile Include="Capability\IStatable.cs" />
     <Compile Include="ComponentModel\IRowEditableItem.cs" />
     <Compile Include="ComponentModel\IRowEditableList.cs" />
     <Compile Include="Enums\GenericDataListState.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IReperageService.cs" />
     <Compile Include="Services\ISplashService.cs" />
+    <Compile Include="Services\IStatService.cs" />
     <Compile Include="Utils\LinqHelper.cs" />
     <Compile Include="Validations\CultureConfiguration.cs" />
     <Compile Include="Validations\Formatter.cs" />

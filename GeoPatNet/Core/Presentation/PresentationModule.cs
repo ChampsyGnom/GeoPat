@@ -34,6 +34,7 @@ namespace Emash.GeoPatNet.Presentation
             this._regionManager.RegisterViewWithRegion("CustomFilterRegion", typeof(CustomFilterView));
             this._regionManager.RegisterViewWithRegion("CustomSortRegion", typeof(CustomSortView));
             this._regionManager.RegisterViewWithRegion("CustomDisplayRegion", typeof(CustomDisplayView));
+            this._regionManager.RegisterViewWithRegion("StatWizzardRegion", typeof(StatWizzardView));
             
         }
         public void Initialize()

@@ -27,7 +27,14 @@ using Emash.GeoPatNet.Infrastructure.Capability;
 using Emash.GeoPatNet.Engine.Models;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
-    public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList, ICustomFilterable,ICustomSortable,ICustomDisplay
+    public class GenericListViewModel<M> : 
+        IGenericListViewModel,
+        INotifyPropertyChanged,
+        IRowEditableList, 
+        ICustomFilterable,
+        ICustomSortable,
+        ICustomDisplay,
+        IStatable
         where M : class, new()
     {
 
@@ -974,6 +981,12 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 { this.SearchExecute(); }
             }
           
+        }
+
+        public void ShowStat()
+        {
+            IStatService statService = ServiceLocator.Current.GetInstance<IStatService>();
+            statService.ShowStatWizzard(this.EntityTableInfo,this.FieldPaths.ToList ());
         }
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{EE0FDE6B-B457-4D88-8381-1508CCC3811F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Emash.GeoPatNet.Reperage</RootNamespace>
+    <RootNamespace>Emash.GeoPatNet.Modules.Reperage</RootNamespace>
     <AssemblyName>GeoPatNet.Reperage</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -316,6 +316,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             EntityTableInfo sourceTableInfo = this.GetEntityTableInfo(sourceType);
             if (fieldPath.IndexOf(".") == -1)
             {
+             
                 return this.GetEntityColumnInfo(sourceTableInfo, fieldPath);
             }
             else
