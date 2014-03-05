@@ -1,4 +1,4 @@
-﻿using Emash.GeoPatNet.Data.Implementation.Models;
+﻿using Emash.GeoPatNet.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
+namespace Emash.GeoPatNet.Modules.Dashboard.ViewModels
 {
     public abstract class DashboardItemViewModel : INotifyPropertyChanged
     {

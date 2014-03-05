@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.ComponentModel;
 
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class GenericItemsSource<M> : INotifyPropertyChanged
     {

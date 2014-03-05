@@ -8,9 +8,9 @@ using Emash.GeoPatNet.Infrastructure.Services;
 
 using Emash.GeoPatNet.Infrastructure.Events;
 using Microsoft.Practices.Prism.Events;
-using Emash.GeoPatNet.Data.Implementation.Models;
+using Emash.GeoPatNet.Data.Models;
 
-namespace Emash.GeoPatNet.Reperage.Implementation.Services
+namespace Emash.GeoPatNet.Modules.Reperage.Services
 {
     public class ReperageService : IReperageService
     {

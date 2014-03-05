@@ -1,4 +1,4 @@
-﻿using Emash.GeoPatNet.Engine.Implentation.ViewModels;
+﻿using Emash.GeoPatNet.Engine.ViewModels;
 using Emash.GeoPatNet.Infrastructure.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,8 @@ using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 using System.Windows.Controls;
 using Emash.GeoPatNet.Infrastructure.Reflection;
-using Emash.GeoPatNet.Data.Implementation.Models;
-using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Data.Models;
+using Emash.GeoPatNet.Presentation.Views;
 using Emash.GeoPatNet.App.Referentiel.Views;
 
 namespace Emash.GeoPatNet.App.Referentiel.ViewModels

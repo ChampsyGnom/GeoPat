@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Converters
+namespace Emash.GeoPatNet.Presentation.Converters
 {
     public class StringToColorConverter : IValueConverter
     {

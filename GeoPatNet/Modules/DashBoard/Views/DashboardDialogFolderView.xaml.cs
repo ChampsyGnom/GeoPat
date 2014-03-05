@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.Views
+namespace Emash.GeoPatNet.Modules.Dashboard.Views
 {
     /// <summary>
     /// Logique d'interaction pour DashboardDialogItemView.xaml

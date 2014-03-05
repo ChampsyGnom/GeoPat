@@ -1,7 +1,7 @@
 ﻿using Emash.GeoPatNet.Infrastructure.Services;
-using Emash.GeoPatNet.Dashboard.Implementation.ViewModels;
-using Emash.GeoPatNet.Dashboard.Implementation.Views;
-using Emash.GeoPatNet.Data.Implementation.Models;
+using Emash.GeoPatNet.Modules.Dashboard.ViewModels;
+using Emash.GeoPatNet.Modules.Dashboard.Views;
+using Emash.GeoPatNet.Data.Models;
 
 
 using Emash.GeoPatNet.Infrastructure.Events;
@@ -22,7 +22,7 @@ using Emash.GeoPatNet.Infrastructure.Reflection;
 
 using System.Data.Entity.Validation;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.Services
+namespace Emash.GeoPatNet.Modules.Dashboard.Services
 {
     public class DashboardService : IDashboardService, INotifyPropertyChanged
     {

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using Emash.GeoPatNet.Infrastructure.ViewModels;
 
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
     /// Logique d'interaction pour DataImportView.xaml

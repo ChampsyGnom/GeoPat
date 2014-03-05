@@ -11,7 +11,7 @@ using Emash.GeoPatNet.Infrastructure.Events;
 using Emash.GeoPatNet.Infrastructure.Services;
 
 
-namespace Emash.GeoPatNet.Data.Implementation
+namespace Emash.GeoPatNet.Data
 {
     [Module(ModuleName = "Data")]
     public class DataModule : IModule

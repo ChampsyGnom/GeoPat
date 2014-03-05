@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Properties {
+namespace Emash.GeoPatNet.Presentation.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

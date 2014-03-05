@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
     /// Logique d'interaction pour RegionDialog.xaml

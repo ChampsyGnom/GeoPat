@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using Emash.GeoPatNet.Data.Implementation.Models;
+using Emash.GeoPatNet.Data.Models;
 using Microsoft.Practices.Prism.Commands;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
-using Emash.GeoPatNet.Dashboard.Implementation.Views;
+using Emash.GeoPatNet.Modules.Dashboard.Views;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
+namespace Emash.GeoPatNet.Modules.Dashboard.ViewModels
 {
     public class DashboardFolderViewModel : DashboardItemViewModel
     {

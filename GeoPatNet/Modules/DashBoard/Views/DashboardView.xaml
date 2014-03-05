@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="Emash.GeoPatNet.Dashboard.Implementation.Views.DashboardView"
+﻿<UserControl x:Class="Emash.GeoPatNet.Modules.Dashboard.Views.DashboardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             xmlns:vm="clr-namespace:Emash.GeoPatNet.Dashboard.Implementation.ViewModels"
+             xmlns:vm="clr-namespace:Emash.GeoPatNet.Modules.Dashboard.ViewModels"
            xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              d:DesignHeight="300" d:DesignWidth="300">

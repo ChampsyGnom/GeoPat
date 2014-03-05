@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class DataFileViewModel : INotifyPropertyChanged
     {

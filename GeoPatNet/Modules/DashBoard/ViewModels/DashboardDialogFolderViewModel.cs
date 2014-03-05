@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
+namespace Emash.GeoPatNet.Modules.Dashboard.ViewModels
 {
     public class DashboardDialogFolderViewModel : INotifyPropertyChanged
     {

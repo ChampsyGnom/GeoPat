@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Emash.GeoPatNet.Data.Implementation.Models;
+using Emash.GeoPatNet.Data.Models;
 using Emash.GeoPatNet.Infrastructure.Services;
 namespace @NameSpace
 {

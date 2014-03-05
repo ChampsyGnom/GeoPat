@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
-namespace Emash.GeoPatNet.Data.Implementation.Models
+namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code talus")]
     [TableName("INF_CD_TALUS")]

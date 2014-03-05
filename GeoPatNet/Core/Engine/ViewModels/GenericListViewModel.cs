@@ -21,10 +21,10 @@ using Emash.GeoPatNet.Infrastructure.Behaviors;
 using Emash.GeoPatNet.Infrastructure.Extensions;
 using System.Windows.Input;
 using System.Windows.Controls;
-using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Views;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Capability;
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class GenericListViewModel<M> : IGenericListViewModel, INotifyPropertyChanged, IRowEditableList, ICustomFilterable,ICustomSortable,ICustomDisplay
         where M : class, new()

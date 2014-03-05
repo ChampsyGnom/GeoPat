@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class CustomFilterViewModel<M> where M : new()
     { 

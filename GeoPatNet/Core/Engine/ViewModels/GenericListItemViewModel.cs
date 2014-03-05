@@ -19,7 +19,7 @@ using Emash.GeoPatNet.Infrastructure.Attributes;
 
 
 
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class GenericListItemViewModel<M> : INotifyPropertyChanged, IRowEditableItem, IDataErrorInfo
     {

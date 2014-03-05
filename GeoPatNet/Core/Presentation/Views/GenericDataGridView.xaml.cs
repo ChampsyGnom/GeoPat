@@ -19,7 +19,7 @@ using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Extensions;
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
     /// Logique d'interaction pour GenericDataGridView.xaml

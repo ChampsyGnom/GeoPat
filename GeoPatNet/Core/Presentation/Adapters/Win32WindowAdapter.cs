@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Adapters
+namespace Emash.GeoPatNet.Presentation.Adapters
 {
     public class Win32WindowAdapter : System.Windows.Forms.IWin32Window
     {

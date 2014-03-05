@@ -1,4 +1,4 @@
-﻿using Emash.GeoPatNet.Dashboard.Implementation.Services;
+﻿using Emash.GeoPatNet.Modules.Dashboard.Services;
 using Emash.GeoPatNet.Infrastructure.Behaviors;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.Views
+namespace Emash.GeoPatNet.Modules.Dashboard.Views
 {
     /// <summary>
     /// Logique d'interaction pour DashboardView.xaml

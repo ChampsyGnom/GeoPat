@@ -19,7 +19,7 @@ using System.Reflection;
 using Emash.GeoPatNet.Infrastructure.Validations;
 using System.Linq.Expressions;
 using Emash.GeoPatNet.Infrastructure.Attributes;
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class DataImportViewModel : IDataImportViewModel,INotifyPropertyChanged
     {

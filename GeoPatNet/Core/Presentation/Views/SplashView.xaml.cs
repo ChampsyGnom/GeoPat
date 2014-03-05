@@ -18,7 +18,7 @@ using Emash.GeoPatNet.Infrastructure.Services;
 
 
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
     /// Logique d'interaction pour SplashView.xaml

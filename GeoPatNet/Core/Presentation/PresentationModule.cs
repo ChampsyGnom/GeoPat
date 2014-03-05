@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Emash.GeoPatNet.Infrastructure.Events;
 using Emash.GeoPatNet.Infrastructure.Services;
-using Emash.GeoPatNet.Presentation.Implementation.Services;
-using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Services;
+using Emash.GeoPatNet.Presentation.Views;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
-namespace Emash.GeoPatNet.Presentation.Implementation
+namespace Emash.GeoPatNet.Presentation
 {
     [Module(ModuleName="Presentation")]
     public class PresentationModule : IModule

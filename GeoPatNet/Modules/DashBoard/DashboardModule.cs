@@ -1,8 +1,8 @@
 ﻿
 using Emash.GeoPatNet.Infrastructure.Services;
-using Emash.GeoPatNet.Dashboard.Implementation.Services;
-using Emash.GeoPatNet.Dashboard.Implementation.ViewModels;
-using Emash.GeoPatNet.Dashboard.Implementation.Views;
+using Emash.GeoPatNet.Modules.Dashboard.Services;
+using Emash.GeoPatNet.Modules.Dashboard.ViewModels;
+using Emash.GeoPatNet.Modules.Dashboard.Views;
 using Emash.GeoPatNet.Infrastructure.Events;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation
+namespace Emash.GeoPatNet.Modules.Dashboard
 {
     [Module (ModuleName="Dashboard")]
     [ModuleDependency ("Data")]

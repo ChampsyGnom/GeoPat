@@ -7,7 +7,7 @@ using Emash.GeoPatNet.Infrastructure.Services;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.ServiceLocation;
 
-namespace Emash.GeoPatNet.Dashboard.Implementation.ViewModels
+namespace Emash.GeoPatNet.Modules.Dashboard.ViewModels
 {
     public class DashboardTableViewModel : DashboardItemViewModel
     {

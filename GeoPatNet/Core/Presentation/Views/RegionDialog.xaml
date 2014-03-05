@@ -1,4 +1,4 @@
-﻿<Window x:Class="Emash.GeoPatNet.Presentation.Implementation.Views.RegionDialog"
+﻿<Window x:Class="Emash.GeoPatNet.Presentation.Views.RegionDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStyle="ToolWindow"

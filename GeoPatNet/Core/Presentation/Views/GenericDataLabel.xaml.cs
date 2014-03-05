@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
     /// Logique d'interaction pour GenericDataLabel.xaml

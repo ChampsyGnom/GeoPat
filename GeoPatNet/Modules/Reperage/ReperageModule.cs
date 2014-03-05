@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Infrastructure.Events;
-using Emash.GeoPatNet.Reperage.Implementation.Services;
+using Emash.GeoPatNet.Modules.Reperage.Services;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
-namespace Emash.GeoPatNet.Reperage.Implementation
+namespace Emash.GeoPatNet.Modules.Reperage
 {
     [Module(ModuleName = "Reperage")]
     [ModuleDependency("Data")]

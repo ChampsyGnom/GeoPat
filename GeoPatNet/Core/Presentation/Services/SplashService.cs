@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Threading;
 using Emash.GeoPatNet.Infrastructure.Events;
 using Emash.GeoPatNet.Infrastructure.Services;
-using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Views;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Unity;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Services
+namespace Emash.GeoPatNet.Presentation.Services
 {
     public class SplashService : ISplashService, INotifyPropertyChanged
     {

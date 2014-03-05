@@ -1,7 +1,7 @@
 ﻿using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Infrastructure.Enums;
-using Emash.GeoPatNet.Presentation.Implementation.Converters;
+using Emash.GeoPatNet.Presentation.Converters;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ using Xceed.Wpf.Toolkit;
 using Emash.GeoPatNet.Infrastructure.Validations;
 
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
     /// Logique d'interaction pour GenericDataControl.xaml

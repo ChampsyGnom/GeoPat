@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using Emash.GeoPatNet.Infrastructure.Validations;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Converters
+namespace Emash.GeoPatNet.Presentation.Converters
 {
     public class StringToDateConverter : IValueConverter
     {

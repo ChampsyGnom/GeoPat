@@ -20,11 +20,11 @@ using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Infrastructure.RegionAdapters;
 using Xceed.Wpf.AvalonDock.Layout;
 
-using Emash.GeoPatNet.Engine.Implentation.ViewModels;
+using Emash.GeoPatNet.Engine.ViewModels;
 
 
 
-namespace Emash.GeoPatNet.Engine.Implementation
+namespace Emash.GeoPatNet.Engine
 {
     public class EngineBootstrapper<VM, V> : UnityBootstrapper
         where VM : IMainViewModel 
@@ -94,7 +94,7 @@ namespace Emash.GeoPatNet.Engine.Implementation
             {
                 _moduleInitializerTask = new Task(new Action(delegate()
                 {
-                    dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
+                    dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
                     if (dashBoardService != null)
                     { dashBoardService.Initialize(); }
 

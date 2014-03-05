@@ -7,8 +7,8 @@
     <ProjectGuid>{66D388DF-DEA6-4507-A54C-7BCDE1057BA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Emash.GeoPatNet.Data.Implementation</RootNamespace>
-    <AssemblyName>Data.Implementation</AssemblyName>
+    <RootNamespace>Emash.GeoPatNet.Data</RootNamespace>
+    <AssemblyName>GeoPatNet.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -166,7 +166,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
-copy "$(ProjectDir)bin\Debug\Data.Implementation.dll" "$(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"</PostBuildEvent>
+copy "$(ProjectDir)bin\Debug\GeoPatNet.Data.dll" "$(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

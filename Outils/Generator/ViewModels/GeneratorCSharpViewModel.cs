@@ -39,8 +39,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         public GeneratorCSharpViewModel(Project model)
         {
             this._model = model;
-            this.DataNamespace = "Emash.GeoPatNet.Data.Implementation";
-            this.DataPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Implementation\Data";
+            this.DataNamespace = "Emash.GeoPatNet.Data";
+            this.DataPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Core\Data";
 
          
     

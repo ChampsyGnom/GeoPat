@@ -11,13 +11,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
-using Emash.GeoPatNet.Presentation.Implementation.Converters;
+using Emash.GeoPatNet.Presentation.Converters;
 using Xceed.Wpf.Toolkit;
 using Emash.GeoPatNet.Infrastructure.Validations;
 
 
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Views
+namespace Emash.GeoPatNet.Presentation.Views
 {
     public class GenericDataGridTemplateColumn : DataGridTemplateColumn
     {

@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Emash.GeoPatNet.Infrastructure.Services;
-using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Views;
 
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Services
+namespace Emash.GeoPatNet.Presentation.Services
 {
     public class DialogService : IDialogService
     {

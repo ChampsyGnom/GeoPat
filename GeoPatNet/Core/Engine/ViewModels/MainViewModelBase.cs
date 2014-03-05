@@ -12,13 +12,13 @@ using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.Views;
 using Microsoft.Practices.Prism.Regions;
 using System.Reflection;
-using Emash.GeoPatNet.Presentation.Implementation.Views;
+using Emash.GeoPatNet.Presentation.Views;
 
 using Microsoft.Practices.Unity;
 using System.Windows;
 using System.Windows.Controls;
 using Emash.GeoPatNet.Infrastructure.Capability;
-namespace Emash.GeoPatNet.Engine.Implentation.ViewModels
+namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public abstract class MainViewModelBase : IMainViewModel
     {

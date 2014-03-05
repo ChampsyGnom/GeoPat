@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Emash.GeoPatNet.Engine.Implementation;
+using Emash.GeoPatNet.Engine;
 
 namespace Emash.GeoPatNet.App.Referentiel
 {

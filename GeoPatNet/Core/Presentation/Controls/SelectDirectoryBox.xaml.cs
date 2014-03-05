@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Emash.GeoPatNet.Presentation.Implementation.Adapters;
+using Emash.GeoPatNet.Presentation.Adapters;
 
-namespace Emash.GeoPatNet.Presentation.Implementation.Controls
+namespace Emash.GeoPatNet.Presentation.Controls
 {
     /// <summary>
     /// Logique d'interaction pour SelectDirectoryBox.xaml
