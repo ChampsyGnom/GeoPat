@@ -32,8 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BruTile">
+      <HintPath>..\..\Library\DotSpatial.Full\BruTile.dll</HintPath>
+    </Reference>
     <Reference Include="DotSpatial.Controls">
       <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Data, Version=1.6.0.0, Culture=neutral, PublicKeyToken=c29dbf30e059ca9d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Projections">
+      <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Projections.dll</HintPath>
     </Reference>
     <Reference Include="DotSpatial.Symbology">
       <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Symbology.dll</HintPath>
@@ -71,6 +81,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
@@ -90,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartoModule.cs" />
+    <Compile Include="Layers\BruTileLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,6 +120,7 @@
     <Compile Include="ViewModels\CartoNodeLayerViewModel.cs" />
     <Compile Include="ViewModels\CartoNodeViewModel.cs" />
     <Compile Include="ViewModels\CartoViewModel.cs" />
+    <Compile Include="ViewModels\MapLayerViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
     <Compile Include="Views\CartoControl.xaml.cs">
       <DependentUpon>CartoControl.xaml</DependentUpon>
@@ -147,7 +160,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"

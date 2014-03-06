@@ -51,6 +51,8 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             }
           
             region.Activate(view);
+            if (this._container.Resolve<CartoViewModel>().TemplatesView.CurrentItem == null && this._container.Resolve<CartoViewModel>().Templates.Count > 0)
+            { this._container.Resolve<CartoViewModel>().TemplatesView.MoveCurrentToFirst(); }
             
         }
 

@@ -5,26 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Services;
-using System.Data.Entity;
+
 using Emash.GeoPatNet.Data.Models;
 using Microsoft.Practices.Prism.Commands;
 using System.Windows.Data;
 using System.Windows.Threading;
+using System.Data.Entity;
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public class CartoViewModel
     {
+
         public ListCollectionView TemplatesView { get; private set; }
         public ObservableCollection<TemplateViewModel> Templates { get; private set; }
         public DelegateCommand CreateTemplateCommand { get; private set; }
         public DelegateCommand EditTemplateCommand { get; private set; }
         public DelegateCommand PublishTemplateCommand { get; private set; }
         public DelegateCommand<Object> AddFolderCommand { get; private set; }
-        public DelegateCommand<Object> AddLayerCommand { get; private set; }
+        public DelegateCommand<Object> RemoveFolderCommand { get; private set; }
+        public DelegateCommand<Object> RemoveLayerCommand { get; private set; }
+        public DelegateCommand<Object> AddLayerGoogleCommand { get; private set; }
         public DelegateCommand  DeleteTemplateCommand  { get; private set; }
         public IDataService DataService { get; private set; }
         public IEngineService EngineService { get; private set; }
         public Dispatcher Dispatcher { get; private set; }
+        public ObservableCollection<MapLayerViewModel> Layers { get; private set; }
         public CartoViewModel(IDataService dataService,IEngineService engineService)
         {
             this.DataService = dataService;
@@ -39,18 +44,82 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 this.Templates.Add(vm);
                     
             }
+            foreach (TemplateViewModel vm in this.Templates)
+            {
+                DbSet<SigNode> setNodes = this.DataService.GetDbSet<SigNode>();
+                List<SigNode> templateNodes = (from n in setNodes where n.SigTemplateId == vm.Model.Id select n).ToList();
+                this.RecurseBuildTemplateNodes(-1, vm.Nodes, templateNodes);
+            }
             this.CreateTemplateCommand = new DelegateCommand(CreateTemplateExecute);
             this.EditTemplateCommand = new DelegateCommand(EditTemplateExecute,CanEditTemplate );
             this.DeleteTemplateCommand = new DelegateCommand(DeleteTemplateExecute, CanDeleteTemplate);
             this.PublishTemplateCommand = new DelegateCommand(PublishTemplateExecute, CanPublishTemplate);
             this.AddFolderCommand = new DelegateCommand<object>(AddFolderExecute);
-            this.AddLayerCommand = new DelegateCommand<object>(AddLayerExecute);
+            this.AddLayerGoogleCommand = new DelegateCommand<object>(AddLayerGoogleExecute);
+            this.Layers = new ObservableCollection<MapLayerViewModel>();
            
             this.TemplatesView.CurrentChanged += TemplatesView_CurrentChanged;
         }
-        public void AddLayerExecute(Object parent)
-        { 
 
+        private void RecurseBuildTemplateNodes(long parentId, ObservableCollection<CartoNodeViewModel> parent, List<SigNode> allNodes)
+        {
+            List<SigNode> nodes = (from n in allNodes where n.ParentId == parentId orderby n.Order select n).ToList();
+            foreach (SigNode node in nodes)
+            {
+                if (node.SigCodeNode.Code.Equals("Folder"))
+                {
+                    CartoNodeFolderViewModel vm = new CartoNodeFolderViewModel(node);    
+                    parent.Add(vm);
+                    this.RecurseBuildTemplateNodes(node.Id, vm.Nodes, allNodes);
+
+                }
+                if (node.SigCodeNode.Code.Equals("Layer"))
+                {
+                    CartoNodeLayerViewModel vm = new CartoNodeLayerViewModel(node);
+                    parent.Add(vm);
+                }
+
+            }
+        }
+        public void AddLayerGoogleExecute(Object parent)
+        {
+            TemplateViewModel tpl = this.TemplatesView.CurrentItem as TemplateViewModel;
+            DbSet<SigCodeNode> codeNodes = this.DataService.GetDbSet<SigCodeNode>();
+            DbSet<SigCodeLayer> codeLayers = this.DataService.GetDbSet<SigCodeLayer>();
+
+            DbSet<SigLayer> layers = this.DataService.GetDbSet<SigLayer>();
+           
+
+            SigNode node = new SigNode();
+            if (parent != null && parent is CartoNodeFolderViewModel)
+            { node.ParentId = (parent as CartoNodeFolderViewModel).Model.Id; }
+            else { node.ParentId = -1; }
+            node.Libelle = "Google Map";
+            node.SigCodeNode = (from c in codeNodes where c.Code.Equals("Layer") select c).FirstOrDefault();
+            node.SigLayer = null;
+            node.SigTemplateId = tpl.Model.Id;
+            SigNode addedNode = this.EngineService.ShowAddDialog<SigNode>(node, new String[] { "Libelle" });
+            if (addedNode != null)
+            {
+                SigLayer layer = new SigLayer();
+                layer.Libelle = "Google Map";
+                layer.MapOrder = 0;
+                layer.SigCodeLayer = (from c in codeLayers where c.Code.Equals("Google") select c).FirstOrDefault();
+                layers.Add(layer);
+                this.DataService.DataContext.SaveChanges();
+                node.SigLayer = layer;
+                this.DataService.DataContext.SaveChanges();
+                CartoNodeLayerViewModel vm = new CartoNodeLayerViewModel(addedNode);
+                if (parent != null && parent is CartoNodeFolderViewModel)
+                {
+                    (parent as CartoNodeFolderViewModel).Nodes.Add(vm);
+                    (parent as CartoNodeFolderViewModel).IsExpanded = true;
+                }
+                else
+                {
+                    (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Add(vm);
+                }
+            }
         }
 
         public void AddFolderExecute(Object parent)
@@ -58,13 +127,28 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             TemplateViewModel tpl = this.TemplatesView.CurrentItem as TemplateViewModel;
             DbSet<SigCodeNode> codeNodes = this.DataService.GetDbSet<SigCodeNode>();
             SigNode node = new SigNode();
-            if (parent == null)
-            {node.ParentId = -1;}
+            if (parent != null && parent is CartoNodeFolderViewModel)
+            { node.ParentId = (parent as CartoNodeFolderViewModel).Model.Id; }
+            else { node.ParentId = -1; }
             node.Libelle = "Nouveau dossier";
             node.SigCodeNode = (from c in codeNodes where c.Code.Equals("Folder") select c).FirstOrDefault();
             node.SigLayer = null;
             node.SigTemplateId = tpl.Model.Id;
             SigNode addedNode =  this.EngineService.ShowAddDialog<SigNode>(node,new String[] {"Libelle"});
+            if (addedNode != null)
+            {
+                CartoNodeFolderViewModel vm = new CartoNodeFolderViewModel(addedNode);
+                if (parent != null && parent is CartoNodeFolderViewModel)
+                {
+                    (parent as CartoNodeFolderViewModel).Nodes.Add(vm);
+                    (parent as CartoNodeFolderViewModel).IsExpanded = true;
+                }
+                else
+                { 
+                    (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Add(vm);                   
+                }
+            }
+           
         }
 
         private void PublishTemplateExecute()
@@ -97,6 +181,45 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             this.EditTemplateCommand.RaiseCanExecuteChanged();
             this.DeleteTemplateCommand.RaiseCanExecuteChanged();
             this.PublishTemplateCommand.RaiseCanExecuteChanged();
+            this.LoadMap();
+        }
+
+        private void LoadMap()
+        {
+           
+            this.Layers.Clear();
+            List<SigLayer> layers= new List<SigLayer> ();
+            if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel)
+            {
+                TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel);
+                RecurseGetLayers(layers, templateViewModel.Nodes);
+                layers = (from l in layers orderby l.MapOrder select l).ToList();
+                foreach (SigLayer layer in layers)
+                {
+                    MapLayerViewModel vm = new MapLayerViewModel(layer);
+                    this.Layers.Add(vm);
+                }
+            }
+           //
+            /*
+           
+          
+           */
+        }
+
+        private void RecurseGetLayers(List<SigLayer> layers, ObservableCollection<CartoNodeViewModel> list)
+        {
+            foreach (CartoNodeViewModel n in list)
+            {
+                if (n is CartoNodeFolderViewModel)
+                {
+                    RecurseGetLayers(layers, (n as CartoNodeFolderViewModel).Nodes);
+                }
+                if (n is CartoNodeLayerViewModel)
+                {
+                    layers.Add((n as CartoNodeLayerViewModel).Model.SigLayer);
+                }
+            }
         }
 
         private Boolean CanEditTemplate()
