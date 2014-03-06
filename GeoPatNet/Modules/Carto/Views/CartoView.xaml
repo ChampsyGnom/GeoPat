@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:vm="clr-namespace:Emash.GeoPatNet.Modules.Carto.ViewModels"
              xmlns:v="clr-namespace:Emash.GeoPatNet.Modules.Carto.Views"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid x:Name="container">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -44,7 +45,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Modèle : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
-                <ComboBox x:Name="comboTemplates" ItemsSource="{Binding Path=TemplatesView,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="120" Grid.Column="1" Grid.Row="0" Margin="2">
+                <ComboBox IsSynchronizedWithCurrentItem="True" x:Name="comboTemplates" ItemsSource="{Binding Path=TemplatesView,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="120" Grid.Column="1" Grid.Row="0" Margin="2">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
@@ -57,7 +58,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button Command="{Binding Path=CreateTemplateCommand}" Grid.Column="0" Margin="2" Content="Nouveau"></Button>
-                    <Button CommandParameter="{Binding ElementName=comboTemplates,Path=SelectedItem,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Command="{Binding Path=EditTemplateCommand}"  Grid.Column="1" Margin="2" Content="Renommer"></Button>
+                    <Button Command="{Binding Path=EditTemplateCommand}"  Grid.Column="1" Margin="2" Content="Renommer"></Button>
                 </Grid>
                 <Grid Grid.ColumnSpan="2" Grid.Row="2">
                     <Grid.ColumnDefinitions>
@@ -67,7 +68,38 @@
                     <Button Command="{Binding Path=PublishTemplateCommand}"  Grid.Column="0" Margin="2" Content="Publier"></Button>
                     <Button Command="{Binding Path=DeleteTemplateCommand}"  Grid.Column="1" Margin="2" Content="Supprimer"></Button>
                 </Grid>
-                <TreeView Margin="2" Grid.ColumnSpan="2" Grid.Row="3"></TreeView>
+                <TreeView ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
+                    <!--
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" DataType="{x:Type vm:CartoNodeFolderViewModel}">
+                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                        </HierarchicalDataTemplate>
+                        <DataTemplate DataType="{x:Type vm:CartoNodeLayerViewModel}">
+                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                        </DataTemplate>
+                    </TreeView.Resources>
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="TreeViewItem">
+                            <Style.Setters>
+                                <Setter Property="ContextMenu">
+                                    <Setter.Value>
+                                        <ContextMenu>
+                                            <MenuItem CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=TreeView},Path=DataContext.AddFolderCommand}" Header="Nouveau dossier"></MenuItem>
+                                            <MenuItem CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=TreeView},Path=DataContext.AddLayerCommand}" Header="Nouvelle couche"></MenuItem>
+                                        </ContextMenu>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style.Setters>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                    -->
+                    <TreeView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem CommandParameter="{x:Null}" Command="{Binding Path=AddFolderCommand}" Header="Nouveau dossier"></MenuItem>
+                            <MenuItem CommandParameter="{x:Null}" Command="{Binding Path=AddLayerCommand}" Header="Nouvelle couche"></MenuItem>
+                        </ContextMenu>
+                    </TreeView.ContextMenu>
+                </TreeView>
                 
             </Grid>
         </Expander>

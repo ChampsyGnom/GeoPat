@@ -23,16 +23,6 @@ namespace Emash.GeoPatNet.Presentation.Services
         }
 
 
-        public bool? ShowDialog(Control view)
-        {
-            Window window = new Window();
-            window.Content = view;
-            window.Owner = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.IsActive);
-            window.DataContext = view.DataContext;
-            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            window.WindowStyle = WindowStyle.ToolWindow;
-            Nullable<Boolean> result = window.ShowDialog();
-            return result;
-        }
+       
     }
 }

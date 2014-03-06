@@ -26,21 +26,29 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
             {
                 valueString = valueString.TrimStart().TrimEnd();
                 EntityColumnInfo columnInfo = dataService.GetBottomColumnInfo(typeof(M), path);
-                switch (columnInfo.ControlType)
+                if (columnInfo.PropertyName.Equals("Id"))
                 {
-                    case ControlType.Decimal:
-                        return CreateFilterExpressionDecimal(valueString, path, expressionBase, columnInfo);
-
-                    case ControlType.Integer:
-                        return CreateFilterExpressionInteger(valueString, path, expressionBase, columnInfo);
-
-                    case ControlType.Text:
-                        return CreateFilterExpressionText(valueString, path, expressionBase, columnInfo);
-
-                    case ControlType.Date:
-                        return CreateFilterExpressionDate(valueString, path, expressionBase, columnInfo);
-
+                    return CreateFilterExpressionInteger(valueString, path, expressionBase, columnInfo);
                 }
+                else
+                {
+                    switch (columnInfo.ControlType)
+                    {
+                        case ControlType.Decimal:
+                            return CreateFilterExpressionDecimal(valueString, path, expressionBase, columnInfo);
+
+                        case ControlType.Integer:
+                            return CreateFilterExpressionInteger(valueString, path, expressionBase, columnInfo);
+
+                        case ControlType.Text:
+                            return CreateFilterExpressionText(valueString, path, expressionBase, columnInfo);
+
+                        case ControlType.Date:
+                            return CreateFilterExpressionDate(valueString, path, expressionBase, columnInfo);
+
+                    }
+                }
+               
 
 
             }

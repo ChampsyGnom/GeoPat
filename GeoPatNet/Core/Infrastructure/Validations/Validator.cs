@@ -180,220 +180,228 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                     // Même si certain sgbd l'autorise
                     foreach (EntityColumnInfo ukColumnInfo in ukColumnsByUkNames[ukName])
                     {
-
-                        if (ukColumnInfo.ControlType == ControlType.Text)
+                        EntityColumnInfo topColumn = dataService.GetTopColumnInfo(tableInfo.EntityType, ukColumnInfo.PropertyName);
+                        if (!valueStrings.ContainsKey(ukColumnInfo.PropertyName))
                         {
-                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
-                            expression = Expression.Equal(expression, Expression.Constant(valueStrings[ukColumnInfo.PropertyName]));
-                            expressions.Add(expression);
+                            errors.Add(ukColumnInfo.DisplayName + " valeur obligatoire ");
                         }
-                        if (ukColumnInfo.ControlType == ControlType.Integer)
+                        else
                         {
-                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
-                            Int64 valueInt64 = 0;
-                            ValidateInt64(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueInt64);
-                            expression = Expression.Equal(expression, Expression.Constant(valueInt64));
-                            expressions.Add(expression);
-                        }
-                        if (ukColumnInfo.ControlType == ControlType.Decimal)
-                        {
-                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
-                            Double valueDouble = 0;
-                            ValidateDouble(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueDouble);
-                            expression = Expression.Equal(expression, Expression.Constant(valueDouble));
-                            expressions.Add(expression);
-                        }
-                        if (ukColumnInfo.ControlType == ControlType.Date)
-                        {
-                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
-                            DateTime valueDateTime = DateTime.Now;
-                            ValidateDateTime(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueDateTime);
-                            expression = Expression.Equal(expression, Expression.Constant(valueDateTime));
-                            expressions.Add(expression);
-                        }
-
-                        if (ukColumnInfo.ControlType == ControlType.Check)
-                        {
-                            Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
-                            Boolean valueBoolean =false;
-                            ValidateBoolean(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueBoolean);
-                            expression = Expression.Equal(expression, Expression.Constant(valueBoolean));
-                            expressions.Add(expression);
-                        }
-                        if (ukColumnInfo.ControlType == ControlType.Pr)
-                        {
-                            EntityColumnInfo chausseeNavigationProperty = (from c in tableInfo.ColumnInfos where c.ColumnName.Equals(ukColumnInfo.PrChausseeColumnName) && c.ControlType == ControlType.Combo select c).FirstOrDefault();
-                            EntityTableInfo parentTableInfo = dataService.GetEntityTableInfo(chausseeNavigationProperty.PropertyType);
-                            DbSet parentTableSet = dataService.GetDbSet(parentTableInfo.EntityType);
-                            IQueryable parentQueryable = parentTableSet.AsQueryable();
-                            List<EntityColumnInfo> parentNavProps = dataService.FindParentForeignColumnInfos(chausseeNavigationProperty);
-                            List<String> parentNavPropsPaths = new List<string>();
-                            foreach (EntityColumnInfo column in parentNavProps)
+                            if (ukColumnInfo.ControlType == ControlType.Text)
                             {
-                                String pathToChild = dataService.GetPath(column.TableInfo, parentTableInfo);
-                                if (String.IsNullOrEmpty(pathToChild))
-                                {
-                                    String pathToProp = column.PropertyName;
-                                    parentNavPropsPaths.Add(pathToProp);
-                                }
-                                else
-                                {
-                                    String pathToProp = pathToChild + "." + column.PropertyName;
-                                    parentNavPropsPaths.Add(pathToProp);
-                                }
+                                Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                                expression = Expression.Equal(expression, Expression.Constant(valueStrings[ukColumnInfo.PropertyName]));
+                                expressions.Add(expression);
+                            }
+                            if (ukColumnInfo.ControlType == ControlType.Integer)
+                            {
+                                Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                                Int64 valueInt64 = 0;
+                                ValidateInt64(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueInt64);
+                                expression = Expression.Equal(expression, Expression.Constant(valueInt64));
+                                expressions.Add(expression);
+                            }
+                            if (ukColumnInfo.ControlType == ControlType.Decimal)
+                            {
+                                Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                                Double valueDouble = 0;
+                                ValidateDouble(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueDouble);
+                                expression = Expression.Equal(expression, Expression.Constant(valueDouble));
+                                expressions.Add(expression);
+                            }
+                            if (ukColumnInfo.ControlType == ControlType.Date)
+                            {
+                                Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                                DateTime valueDateTime = DateTime.Now;
+                                ValidateDateTime(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueDateTime);
+                                expression = Expression.Equal(expression, Expression.Constant(valueDateTime));
+                                expressions.Add(expression);
                             }
 
-                            ParameterExpression parentExpressionBase = Expression.Parameter(parentTableInfo.EntityType, "item");
-                            List<Expression> parentExpressions = new List<Expression>();
-
-                            foreach (String parentNavPropsPath in parentNavPropsPaths)
+                            if (ukColumnInfo.ControlType == ControlType.Check)
                             {
-
-                                String[] items = parentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                                EntityTableInfo navPropEntity = null;
-
-                                if (items.Length > 1)
-                                { navPropEntity = dataService.GetEntityTableInfo(items[items.Length - 2]); }
-                                else
-                                { navPropEntity = parentTableInfo; }
-
-                                Expression propertyMember = null;
-                                for (int i = 0; i < items.Length; i++)
+                                Expression expression = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                                Boolean valueBoolean = false;
+                                ValidateBoolean(valueStrings[ukColumnInfo.PropertyName], out parseMessage, out valueBoolean);
+                                expression = Expression.Equal(expression, Expression.Constant(valueBoolean));
+                                expressions.Add(expression);
+                            }
+                            if (ukColumnInfo.ControlType == ControlType.Pr)
+                            {
+                                EntityColumnInfo chausseeNavigationProperty = (from c in tableInfo.ColumnInfos where c.ColumnName.Equals(ukColumnInfo.PrChausseeColumnName) && c.ControlType == ControlType.Combo select c).FirstOrDefault();
+                                EntityTableInfo parentTableInfo = dataService.GetEntityTableInfo(chausseeNavigationProperty.PropertyType);
+                                DbSet parentTableSet = dataService.GetDbSet(parentTableInfo.EntityType);
+                                IQueryable parentQueryable = parentTableSet.AsQueryable();
+                                List<EntityColumnInfo> parentNavProps = dataService.FindParentForeignColumnInfos(chausseeNavigationProperty);
+                                List<String> parentNavPropsPaths = new List<string>();
+                                foreach (EntityColumnInfo column in parentNavProps)
                                 {
-                                    if (propertyMember == null)
-                                    { propertyMember = Expression.Property(parentExpressionBase, items[i]); }
+                                    String pathToChild = dataService.GetPath(column.TableInfo, parentTableInfo);
+                                    if (String.IsNullOrEmpty(pathToChild))
+                                    {
+                                        String pathToProp = column.PropertyName;
+                                        parentNavPropsPaths.Add(pathToProp);
+                                    }
                                     else
-                                    { propertyMember = Expression.Property(propertyMember, items[i]); }
-                                }
-                                String pathTo = dataService.GetPath(navPropEntity, tableInfo);
-                                String valuePath = pathTo + "." + items[items.Length - 1];
-                                if (String.IsNullOrEmpty(pathTo))
-                                { pathTo = items[items.Length - 1]; }
-
-
-                                Object value = valueStrings[valuePath];
-                                Expression expressionParent = Expression.Equal(propertyMember, Expression.Constant(value));
-                                parentExpressions.Add(expressionParent);
-                            }
-
-
-                            
-
-                            if (parentExpressions.Count > 0)
-                            {
-                                Expression expressionAnd = parentExpressions.First();
-                                for (int i = 1; i < parentExpressions.Count; i++)
-                                { expressionAnd = Expression.And(expressionAnd, parentExpressions[i]); }
-                                MethodCallExpression whereCallExpression = Expression.Call(
-                                typeof(Queryable),
-                                "Where",
-                                new Type[] { parentQueryable.ElementType },
-                                parentQueryable.Expression,
-                                Expression.Lambda(expressionAnd, parentExpressionBase));
-                                parentQueryable = parentQueryable.Provider.CreateQuery(whereCallExpression);
-                            }
-
-                            List<Object> values = new List<object>();
-                            Int64 chausseeId = -1;
-                            Int64 chausseeDeb = 0;
-                            Int64 chausseeFin = 0;
-                            foreach (Object obj in parentQueryable)
-                            {
-                                PropertyInfo idProp = obj.GetType().GetProperty("Id");
-                                PropertyInfo debProp = obj.GetType().GetProperty("AbsDeb");
-                                PropertyInfo finProp = obj.GetType().GetProperty("AbsFin");
-                                chausseeId = (Int64)idProp.GetValue(obj);
-                                chausseeDeb = (Int64)debProp.GetValue(obj);
-                                chausseeFin = (Int64)finProp.GetValue(obj);
-                            }
-                            IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
-                            Int64 abs = reperageService.PrToAbs(chausseeId, valueStrings[ukColumnInfo.PropertyName]).Value;
-                            Expression expressionPr = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
-                            expressionPr = Expression.Equal(expressionPr, Expression.Constant(abs));
-                            expressions.Add(expressionPr);
-
-                        }
-                        if (ukColumnInfo.ControlType == ControlType.Combo)
-                        {
-                            EntityTableInfo comboParentTableInfo = dataService.GetEntityTableInfo(ukColumnInfo.PropertyType);
-                            DbSet comboSet = dataService.GetDbSet(comboParentTableInfo.EntityType);
-                            IQueryable comboQueryable = comboSet.AsQueryable();
-                            List<EntityColumnInfo> comboParentNavProps = dataService.FindParentForeignColumnInfos(ukColumnInfo);
-                            List<String> comboParentNavPropsPaths = new List<string>();
-                            foreach (EntityColumnInfo column in comboParentNavProps)
-                            {
-                                String pathToChild = dataService.GetPath(column.TableInfo, comboParentTableInfo);
-                                if (String.IsNullOrEmpty(pathToChild))
-                                {
-                                    String pathToProp = column.PropertyName;
-                                    comboParentNavPropsPaths.Add(pathToProp);
-                                }
-                                else
-                                {
-                                    String pathToProp = pathToChild + "." + column.PropertyName;
-                                    comboParentNavPropsPaths.Add(pathToProp);
+                                    {
+                                        String pathToProp = pathToChild + "." + column.PropertyName;
+                                        parentNavPropsPaths.Add(pathToProp);
+                                    }
                                 }
 
+                                ParameterExpression parentExpressionBase = Expression.Parameter(parentTableInfo.EntityType, "item");
+                                List<Expression> parentExpressions = new List<Expression>();
 
-                            }
-
-                            ParameterExpression comboExpressionBase = Expression.Parameter(comboParentTableInfo.EntityType, "item");
-                            List<Expression> comboExpressions = new List<Expression>();
-
-                            foreach (String comboParentNavPropsPath in comboParentNavPropsPaths)
-                            {
-                                String[] items = comboParentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                                EntityTableInfo navPropEntity = null;
-
-                                if (items.Length > 1)
-                                { navPropEntity = dataService.GetEntityTableInfo(items[items.Length - 2]); }
-                                else
-                                { navPropEntity = comboParentTableInfo; }
-                                Expression propertyMember = null;
-                                for (int i = 0; i < items.Length; i++)
+                                foreach (String parentNavPropsPath in parentNavPropsPaths)
                                 {
-                                    if (propertyMember == null)
-                                    { propertyMember = Expression.Property(comboExpressionBase, items[i]); }
+
+                                    String[] items = parentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                    EntityTableInfo navPropEntity = null;
+
+                                    if (items.Length > 1)
+                                    { navPropEntity = dataService.GetEntityTableInfo(items[items.Length - 2]); }
                                     else
-                                    { propertyMember = Expression.Property(propertyMember, items[i]); }
+                                    { navPropEntity = parentTableInfo; }
+
+                                    Expression propertyMember = null;
+                                    for (int i = 0; i < items.Length; i++)
+                                    {
+                                        if (propertyMember == null)
+                                        { propertyMember = Expression.Property(parentExpressionBase, items[i]); }
+                                        else
+                                        { propertyMember = Expression.Property(propertyMember, items[i]); }
+                                    }
+                                    String pathTo = dataService.GetPath(navPropEntity, tableInfo);
+                                    String valuePath = pathTo + "." + items[items.Length - 1];
+                                    if (String.IsNullOrEmpty(pathTo))
+                                    { pathTo = items[items.Length - 1]; }
+
+
+                                    Object value = valueStrings[valuePath];
+                                    Expression expressionParent = Expression.Equal(propertyMember, Expression.Constant(value));
+                                    parentExpressions.Add(expressionParent);
                                 }
-                                String pathTo = dataService.GetPath(navPropEntity, tableInfo);
-                                String valuePath = pathTo + "." + items[items.Length - 1];
-                                if (String.IsNullOrEmpty(pathTo))
-                                { pathTo = items[items.Length - 1]; }
 
 
-                                Object value = valueStrings[valuePath];
-                                Expression expression = Expression.Equal(propertyMember, Expression.Constant(value));
-                                comboExpressions.Add(expression);
+
+
+                                if (parentExpressions.Count > 0)
+                                {
+                                    Expression expressionAnd = parentExpressions.First();
+                                    for (int i = 1; i < parentExpressions.Count; i++)
+                                    { expressionAnd = Expression.And(expressionAnd, parentExpressions[i]); }
+                                    MethodCallExpression whereCallExpression = Expression.Call(
+                                    typeof(Queryable),
+                                    "Where",
+                                    new Type[] { parentQueryable.ElementType },
+                                    parentQueryable.Expression,
+                                    Expression.Lambda(expressionAnd, parentExpressionBase));
+                                    parentQueryable = parentQueryable.Provider.CreateQuery(whereCallExpression);
+                                }
+
+                                List<Object> values = new List<object>();
+                                Int64 chausseeId = -1;
+                                Int64 chausseeDeb = 0;
+                                Int64 chausseeFin = 0;
+                                foreach (Object obj in parentQueryable)
+                                {
+                                    PropertyInfo idProp = obj.GetType().GetProperty("Id");
+                                    PropertyInfo debProp = obj.GetType().GetProperty("AbsDeb");
+                                    PropertyInfo finProp = obj.GetType().GetProperty("AbsFin");
+                                    chausseeId = (Int64)idProp.GetValue(obj);
+                                    chausseeDeb = (Int64)debProp.GetValue(obj);
+                                    chausseeFin = (Int64)finProp.GetValue(obj);
+                                }
+                                IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
+                                Int64 abs = reperageService.PrToAbs(chausseeId, valueStrings[ukColumnInfo.PropertyName]).Value;
+                                Expression expressionPr = Expression.Property(expressionBase, ukColumnInfo.PropertyName);
+                                expressionPr = Expression.Equal(expressionPr, Expression.Constant(abs));
+                                expressions.Add(expressionPr);
+
                             }
-
-
-                            if (comboExpressions.Count > 0)
+                            if (ukColumnInfo.ControlType == ControlType.Combo)
                             {
-                                Expression expressionAnd = comboExpressions.First();
-                                for (int i = 1; i < comboExpressions.Count; i++)
-                                { expressionAnd = Expression.And(expressionAnd, comboExpressions[i]); }
-                                MethodCallExpression whereCallExpression = Expression.Call(
-                                typeof(Queryable),
-                                "Where",
-                                new Type[] { comboQueryable.ElementType },
-                                comboQueryable.Expression,
-                                Expression.Lambda(expressionAnd, comboExpressionBase));
-                                comboQueryable = comboQueryable.Provider.CreateQuery(whereCallExpression);
+                                EntityTableInfo comboParentTableInfo = dataService.GetEntityTableInfo(ukColumnInfo.PropertyType);
+                                DbSet comboSet = dataService.GetDbSet(comboParentTableInfo.EntityType);
+                                IQueryable comboQueryable = comboSet.AsQueryable();
+                                List<EntityColumnInfo> comboParentNavProps = dataService.FindParentForeignColumnInfos(ukColumnInfo);
+                                List<String> comboParentNavPropsPaths = new List<string>();
+                                foreach (EntityColumnInfo column in comboParentNavProps)
+                                {
+                                    String pathToChild = dataService.GetPath(column.TableInfo, comboParentTableInfo);
+                                    if (String.IsNullOrEmpty(pathToChild))
+                                    {
+                                        String pathToProp = column.PropertyName;
+                                        comboParentNavPropsPaths.Add(pathToProp);
+                                    }
+                                    else
+                                    {
+                                        String pathToProp = pathToChild + "." + column.PropertyName;
+                                        comboParentNavPropsPaths.Add(pathToProp);
+                                    }
+
+
+                                }
+
+                                ParameterExpression comboExpressionBase = Expression.Parameter(comboParentTableInfo.EntityType, "item");
+                                List<Expression> comboExpressions = new List<Expression>();
+
+                                foreach (String comboParentNavPropsPath in comboParentNavPropsPaths)
+                                {
+                                    String[] items = comboParentNavPropsPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                    EntityTableInfo navPropEntity = null;
+
+                                    if (items.Length > 1)
+                                    { navPropEntity = dataService.GetEntityTableInfo(items[items.Length - 2]); }
+                                    else
+                                    { navPropEntity = comboParentTableInfo; }
+                                    Expression propertyMember = null;
+                                    for (int i = 0; i < items.Length; i++)
+                                    {
+                                        if (propertyMember == null)
+                                        { propertyMember = Expression.Property(comboExpressionBase, items[i]); }
+                                        else
+                                        { propertyMember = Expression.Property(propertyMember, items[i]); }
+                                    }
+                                    String pathTo = dataService.GetPath(navPropEntity, tableInfo);
+                                    String valuePath = pathTo + "." + items[items.Length - 1];
+                                    if (String.IsNullOrEmpty(pathTo))
+                                    { pathTo = items[items.Length - 1]; }
+
+
+                                    Object value = valueStrings[valuePath];
+                                    Expression expression = Expression.Equal(propertyMember, Expression.Constant(value));
+                                    comboExpressions.Add(expression);
+                                }
+
+
+                                if (comboExpressions.Count > 0)
+                                {
+                                    Expression expressionAnd = comboExpressions.First();
+                                    for (int i = 1; i < comboExpressions.Count; i++)
+                                    { expressionAnd = Expression.And(expressionAnd, comboExpressions[i]); }
+                                    MethodCallExpression whereCallExpression = Expression.Call(
+                                    typeof(Queryable),
+                                    "Where",
+                                    new Type[] { comboQueryable.ElementType },
+                                    comboQueryable.Expression,
+                                    Expression.Lambda(expressionAnd, comboExpressionBase));
+                                    comboQueryable = comboQueryable.Provider.CreateQuery(whereCallExpression);
+                                }
+                                Object comboValue = null;
+                                foreach (Object item in comboQueryable)
+                                { comboValue = item; break; }
+
+                                Expression expCombo = Expression.Property(expressionBase, ukColumnInfo.PropertyName + "Id");
+                                PropertyInfo comboValueIdProperty = comboValue.GetType().GetProperty("Id");
+                                Int64 valueId = (Int64)comboValueIdProperty.GetValue(comboValue);
+                                expCombo = Expression.Equal(expCombo, Expression.Constant(valueId));
+                                expressions.Add(expCombo);
+
                             }
-                            Object comboValue = null;
-                            foreach (Object item in comboQueryable)
-                            { comboValue = item; break; }
-
-                            Expression expCombo = Expression.Property(expressionBase, ukColumnInfo.PropertyName + "Id");
-                            PropertyInfo comboValueIdProperty = comboValue.GetType().GetProperty("Id");
-                            Int64 valueId = (Int64)  comboValueIdProperty.GetValue(comboValue);
-                            expCombo = Expression.Equal(expCombo, Expression.Constant(valueId));
-                            expressions.Add(expCombo);
-
+                            Console.WriteLine("\t" + ukColumnInfo.ColumnName);
                         }
-                        Console.WriteLine("\t" + ukColumnInfo.ColumnName);
+                        
                     }
 
                     Expression expIdModel = Expression.Constant(model, typeof(M));
@@ -610,6 +618,12 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                                 return true;
                             }
                         }
+                    }
+                    if (columnInfo.ControlType == ControlType.None)
+                    {
+                        value = valueString;
+                        message = null;
+                        return true;
                     }
                     else if (columnInfo.ControlType == ControlType.Pr)
                     {

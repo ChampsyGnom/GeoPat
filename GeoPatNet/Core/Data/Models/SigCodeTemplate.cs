@@ -22,6 +22,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Code")]
         [ColumnName("SIG_CD_TEMPLATE__CODE")]
+        [UniqueKey("SIG_CD_TEMPLATE_UK_REF")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
@@ -34,7 +35,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("SIG_CD_TEMPLATE__ID")]
         [PrimaryKey("SIG_CD_TEMPLATE_PK")]
-        [ForeignKeyAttribute("SIG_CD_TEMPLATE__SIG_TEMPLATE","JOIN_o97")]
+        [ForeignKeyAttribute("SIG_CD_TEMPLATE__SIG_TEMPLATE","JOIN_o99")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

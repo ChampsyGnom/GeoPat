@@ -11,5 +11,9 @@ namespace Emash.GeoPatNet.Infrastructure.Services
         T1 ShowAddDialog<T1>() where T1 : class, new();
 
         T1 ShowEditDialog<T1>(T1 model) where T1 : class, new();
+
+        T1 ShowAddDialog<T1>(T1 model) where T1 : class, new();
+
+        T1 ShowAddDialog<T1>(T1 node, string[] fieldPaths) where T1 : class, new();
     }
 }

@@ -243,7 +243,14 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this._comboItemsSource.Values = this._values;
         }
 
-
+        public void SetModel(M model)
+        {
+            this.Model = model;
+            EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo (typeof(M));
+            List<String > fieldPaths =  this.Manager.DataService.GetTableFieldPaths(tableInfo);           
+            this.LoadFromModel(fieldPaths);
+            Console.WriteLine(_values);
+        }
 
         public void SaveToModel(List<String> fieldPaths)
         {

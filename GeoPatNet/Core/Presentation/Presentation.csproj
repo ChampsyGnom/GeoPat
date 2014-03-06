@@ -147,6 +147,12 @@
     <Compile Include="Views\GenericDataControl.xaml.cs">
       <DependentUpon>GenericDataControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenericDataDialog.xaml.cs">
+      <DependentUpon>GenericDataDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericDataFormControl.xaml.cs">
+      <DependentUpon>GenericDataFormControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GenericDataFormView.xaml.cs">
       <DependentUpon>GenericDataFormView.xaml</DependentUpon>
     </Compile>
@@ -204,6 +210,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GenericDataControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenericDataDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenericDataFormControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

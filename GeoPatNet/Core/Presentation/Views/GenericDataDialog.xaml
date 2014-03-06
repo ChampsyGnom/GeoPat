@@ -1,0 +1,28 @@
+﻿<Window x:Class="Emash.GeoPatNet.Presentation.Views.GenericDataDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Views"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner"
+        
+        Title="{Binding Path=DisplayName,Mode=OneWay}" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <v:GenericDataFormControl Grid.Row="0"></v:GenericDataFormControl>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Click="Button_Click" Command="{Binding Path=CancelCommand}" MinHeight="24" MinWidth="120" Grid.Column="0" Margin="2" IsCancel="True">
+                <TextBlock Text="Annuler"></TextBlock>
+            </Button>
+            <Button Command="{Binding Path=CommitCommand}" MinHeight="24"  MinWidth="120"  Grid.Column="1" Margin="2" IsDefault="True" >
+                <TextBlock Text="Valider"></TextBlock>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -95,9 +95,9 @@ namespace Emash.GeoPatNet.Engine
             ICartoService cartoService = this.Container.TryResolve<ICartoService>();
             if (dataService != null)
             {
-                _moduleInitializerTask = new Task(new Action(delegate()
-                {
-                    dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
+               // _moduleInitializerTask = new Task(new Action(delegate()
+              //  {
+                    dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
                     if (dashBoardService != null)
                     { dashBoardService.Initialize(); }
 
@@ -109,8 +109,8 @@ namespace Emash.GeoPatNet.Engine
 
 
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
-                }));
-                _moduleInitializerTask.Start();
+              //  }));
+              //  _moduleInitializerTask.Start();
               
             }
            

@@ -104,6 +104,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\CartoService.cs" />
+    <Compile Include="ViewModels\CartoNodeFolderViewModel.cs" />
+    <Compile Include="ViewModels\CartoNodeLayerViewModel.cs" />
+    <Compile Include="ViewModels\CartoNodeViewModel.cs" />
     <Compile Include="ViewModels\CartoViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
     <Compile Include="Views\CartoControl.xaml.cs">

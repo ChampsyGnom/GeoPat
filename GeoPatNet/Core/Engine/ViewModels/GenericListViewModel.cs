@@ -25,6 +25,7 @@ using Emash.GeoPatNet.Presentation.Views;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Capability;
 using Emash.GeoPatNet.Engine.Models;
+using Emash.GeoPatNet.Infrastructure.Events;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class GenericListViewModel<M> : 
@@ -53,7 +54,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         #region Propriétées
 
         private List<SortInfo> _sorters;
-       
+        public event GenericListEventHandler<M> OnGenericListChange;
 
         public Nullable<ListSortDirection> GetSort(String filedPath)
         {
@@ -699,8 +700,14 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.State = GenericDataListState.Search;
                     this.Items.Clear();
                     this.Items.Add(this.SearchItem);
+                     M item = this.InsertingItem.Model ;
                     this.InsertingItem = null;
                     this.RaiseStateChange();
+                    if (this.OnGenericListChange != null)
+                    {
+                        GenericListCommitedEventArg<M> arg = new GenericListCommitedEventArg<M>(GenericCommitAction.Insert, item);
+                        this.OnGenericListChange(this, arg);
+                    }
                 }
                
 
@@ -737,8 +744,14 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.UpdatingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DataService.DataContext.SaveChanges();
                     this.State = GenericDataListState.Display;
+                    M item = this.UpdatingItem.Model;
                     this.UpdatingItem = null;
                     this.RaiseStateChange();
+                    if (this.OnGenericListChange != null)
+                    {
+                        GenericListCommitedEventArg<M> arg = new GenericListCommitedEventArg<M>(GenericCommitAction.Update, item);
+                        this.OnGenericListChange(this, arg);
+                    }
                 }
                
                   
@@ -865,6 +878,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 this.State = GenericDataListState.InsertingEmpty;
                 this.InsertingItem = vm;
                 this.InsertingItem.RaiseValuesChanges();
+                this.ItemsView.MoveCurrentTo(vm);
                 this.RaiseStateChange();
             } else if (this.State == GenericDataListState.Display)
             {

@@ -107,7 +107,9 @@
     <Compile Include="Capability\IStatable.cs" />
     <Compile Include="ComponentModel\IRowEditableItem.cs" />
     <Compile Include="ComponentModel\IRowEditableList.cs" />
+    <Compile Include="Enums\GenericCommitAction.cs" />
     <Compile Include="Enums\GenericDataListState.cs" />
+    <Compile Include="Events\GenericListEvent.cs" />
     <Compile Include="Events\OpenEntityEvent.cs" />
     <Compile Include="Events\ServiceLoadedEvent.cs" />
     <Compile Include="Events\ServiceLoadedEventArg.cs" />

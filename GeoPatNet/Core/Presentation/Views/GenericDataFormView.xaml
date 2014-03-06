@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="gridControls"></Grid>
+        <v:GenericDataFormControl Grid.Row="0"></v:GenericDataFormControl>
         <v:DataToolbar Grid.Row="2">
             <v:DataToolbar.Style>
                 <Style TargetType="{x:Type v:DataToolbar}">
