@@ -59,7 +59,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             DbSet<SigCodeNode> codeNodes = this.DataService.GetDbSet<SigCodeNode>();
             SigNode node = new SigNode();
             if (parent == null)
-            {node.ParentId = null;}
+            {node.ParentId = -1;}
             node.Libelle = "Nouveau dossier";
             node.SigCodeNode = (from c in codeNodes where c.Code.Equals("Folder") select c).FirstOrDefault();
             node.SigLayer = null;

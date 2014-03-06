@@ -41,7 +41,6 @@ namespace Emash.GeoPatNet.Data.Models
         [AllowNull(true)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("SIG_NODE__SIG_LAYER",null)]
-        [UniqueKey("SIG_NODE_UK_REF")]
         public virtual SigLayer SigLayer
         {
             get;
@@ -103,8 +102,8 @@ namespace Emash.GeoPatNet.Data.Models
         [ColumnName("SIG_NODE__PARENT_ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
-        [AllowNull(true)]
-        public Nullable<Int64> ParentId
+        [AllowNull(false)]
+        public Int64 ParentId
         {
             get;
             set;
