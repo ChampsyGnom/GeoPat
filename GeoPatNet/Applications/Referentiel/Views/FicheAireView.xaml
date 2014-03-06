@@ -103,8 +103,8 @@
                     <v:GenericDataLabel Margin="2" Grid.Column="2" Grid.Row="0" FieldPath="NumExploit"></v:GenericDataLabel>
                     <v:GenericDataControl Margin="2" Grid.Column="3" Grid.Row="0" FieldPath="NumExploit"></v:GenericDataControl>
 
-                    <v:GenericDataLabel Margin="2" Grid.Column="4" Grid.Row="1" FieldPath="Nom"></v:GenericDataLabel>
-                    <v:GenericDataControl VerticalAlignment="Center" Margin="2" Grid.ColumnSpan="3" Grid.Column="5" Grid.Row="1" FieldPath="Nom"></v:GenericDataControl>
+                    <v:GenericDataLabel Margin="2" Grid.Column="4" Grid.Row="0" FieldPath="Nom"></v:GenericDataLabel>
+                    <v:GenericDataControl VerticalAlignment="Center" Margin="2" Grid.ColumnSpan="3" Grid.Column="5" Grid.Row="0" FieldPath="Nom"></v:GenericDataControl>
 
 
 

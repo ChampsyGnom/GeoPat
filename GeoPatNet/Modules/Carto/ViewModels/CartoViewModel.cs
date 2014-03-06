@@ -193,7 +193,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             {
                 TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel);
                 RecurseGetLayers(layers, templateViewModel.Nodes);
-                layers = (from l in layers orderby l.Model.SigLayer.MapOrder select l).ToList();
+                layers = (from l in layers select l).ToList();
                 foreach (CartoNodeLayerViewModel layer in layers)
                 {
                     MapLayerViewModel vm = new MapLayerViewModel(layer);
