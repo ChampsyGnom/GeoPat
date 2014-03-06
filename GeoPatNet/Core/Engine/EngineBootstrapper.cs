@@ -21,6 +21,7 @@ using Emash.GeoPatNet.Infrastructure.RegionAdapters;
 using Xceed.Wpf.AvalonDock.Layout;
 
 using Emash.GeoPatNet.Engine.ViewModels;
+using Emash.GeoPatNet.Engine.Services;
 
 
 
@@ -62,6 +63,7 @@ namespace Emash.GeoPatNet.Engine
             this.Container.RegisterType<IMainViewModel, VM>(new ContainerControlledLifetimeManager());
             this.Container.RegisterType<IMainView,V>(new ContainerControlledLifetimeManager ());
             this.Container.RegisterType<IDataImportViewModel, DataImportViewModel>();
+            this.Container.RegisterType<IEngineService, EngineService>(new ContainerControlledLifetimeManager());
 
 
             
@@ -89,7 +91,8 @@ namespace Emash.GeoPatNet.Engine
             this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
             IDataService dataService = this.Container.TryResolve<IDataService>();
             IReperageService reperageService = this.Container.TryResolve<IReperageService>();
-            IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();            
+            IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();
+            ICartoService cartoService = this.Container.TryResolve<ICartoService>();
             if (dataService != null)
             {
                 _moduleInitializerTask = new Task(new Action(delegate()
@@ -100,6 +103,9 @@ namespace Emash.GeoPatNet.Engine
 
                     if (reperageService != null)
                     { reperageService.Initialize(); }
+
+                    if (cartoService != null)
+                    { cartoService.Initialize(); }
 
 
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);

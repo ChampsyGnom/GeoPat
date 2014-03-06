@@ -5,6 +5,8 @@
        xmlns:r="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
         WindowStartupLocation="CenterScreen"
         xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+         xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"            
         Title="Référentiel" Height="700" Width="1000">
     
     <Grid>
@@ -59,6 +61,7 @@
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup Header="Analyse">
                     <ribbon:RibbonButton Command="{Binding ShowStatCommand}" Label="Statistiques"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding ShowCartoCommand}" Label="Cartographie"></ribbon:RibbonButton>
                 </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
             <ribbon:RibbonTab Header="Suivis">
@@ -71,8 +74,12 @@
             </ribbon:RibbonTab>
 
         </ribbon:Ribbon>
-        <avalonDock:DockingManager Grid.Row="1" ActiveContent="{Binding Path=ActiveContent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" r:RegionManager.RegionName="TabRegion"   x:Name="dockingManager">
-            <avalonDock:DockingManager.DocumentHeaderTemplate>
+        <avalonDock:DockingManager  Grid.Row="1" ActiveContent="{Binding Path=ActiveContent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" r:RegionManager.RegionName="TabRegion"   x:Name="dockingManager">
+            <i:Interaction.Behaviors>
+                <b:AvalonDocumentClosingBehavior DocumentClosingCommand="{Binding Path=DocumentClosingCommand}"></b:AvalonDocumentClosingBehavior>
+                <b:AvalonDocumentClosingBehavior DocumentClosedCommand="{Binding Path=DocumentClosedCommand}"></b:AvalonDocumentClosingBehavior>
+            </i:Interaction.Behaviors>
+                <avalonDock:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=Content.DataContext.DisplayName}"></TextBlock>
                 </DataTemplate>
@@ -99,8 +106,8 @@
 
 
                     <avalonDock:LayoutDocumentPaneGroup>
-                        <avalonDock:LayoutDocumentPane >
-
+                        <avalonDock:LayoutDocumentPane  >
+                            
                         </avalonDock:LayoutDocumentPane>
 
                     </avalonDock:LayoutDocumentPaneGroup>

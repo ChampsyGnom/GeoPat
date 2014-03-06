@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Modules.Dashboard.ViewModels
 {
-    public  class ContextMenuItem
+    public class ContextMenuItem
     {
         public List<ContextMenuItem> Items { get;private  set; }
         public DashboardItemViewModel DashboardItem { get; set; }

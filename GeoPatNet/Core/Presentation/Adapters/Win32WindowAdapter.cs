@@ -8,7 +8,7 @@ using System.Windows.Interop;
 
 namespace Emash.GeoPatNet.Presentation.Adapters
 {
-    public class Win32WindowAdapter : System.Windows.Forms.IWin32Window
+    public sealed class Win32WindowAdapter : System.Windows.Forms.IWin32Window
     {
         IntPtr _handle;
 

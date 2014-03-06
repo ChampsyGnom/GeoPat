@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Emash.GeoPatNet.Infrastructure.Services
 {
@@ -11,5 +12,7 @@ namespace Emash.GeoPatNet.Infrastructure.Services
     {
 
         Window CreateDialog(String regionName, String title);
+
+        bool? ShowDialog(Control view);
     }
 }

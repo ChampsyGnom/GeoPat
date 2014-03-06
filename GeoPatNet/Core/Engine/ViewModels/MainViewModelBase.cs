@@ -19,6 +19,8 @@ using System.Windows;
 using System.Windows.Controls;
 using Emash.GeoPatNet.Infrastructure.Capability;
 using System.ComponentModel;
+using Xceed.Wpf.AvalonDock;
+using Xceed.Wpf.AvalonDock.Layout;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public abstract class MainViewModelBase : IMainViewModel,INotifyPropertyChanged
@@ -44,8 +46,11 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         public DelegateCommand CustomFilterActiveViewCommand { get; protected set; }
         public DelegateCommand CustomSortActiveViewCommand { get; protected set; }
         public DelegateCommand CustomDisplayActiveViewCommand { get; protected set; }
+        public DelegateCommand ShowCartoCommand { get; protected set; }
+        public DelegateCommand<DocumentClosingEventArgs> DocumentClosingCommand { get; protected set; }
+        public DelegateCommand<DocumentClosedEventArgs> DocumentClosedCommand { get; protected set; }
 
-
+        
         public DelegateCommand ShowStatCommand { get; protected set; }
 
         private Object _activeContent;
@@ -72,8 +77,40 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.CustomSortActiveViewCommand = new DelegateCommand(CustomSortActiveView, CanCustomSortActiveView);
             this.CustomDisplayActiveViewCommand = new DelegateCommand(CustomDisplayActiveView, CanCustomDisplayActiveView);
             this.ShowStatCommand = new DelegateCommand(ShowStatExecute, CanShowStat);
+            this.ShowCartoCommand = new DelegateCommand(ShowCartoExecute);
+            this.DocumentClosingCommand = new DelegateCommand<DocumentClosingEventArgs>(DocumentClosingExecute);
+            this.DocumentClosedCommand = new DelegateCommand<DocumentClosedEventArgs>(DocumentClosedExecute);
         }
 
+        private void DocumentClosedExecute(DocumentClosedEventArgs arg)
+        {
+            // Avalon Dock desactive les view quand on les ferme mais ne les retire pas du région manager .... 
+            // certainement pour les recycler
+            if (arg.Document != null && arg.Document is LayoutDocument)
+            {
+                LayoutDocument document = arg.Document as LayoutDocument;
+                if (document.Content != null)
+                {
+                    IRegion region = this._regionManager.Regions["TabRegion"];
+                    if (region.Views.Contains(document.Content))
+                    {region.Remove(document.Content);}
+                    if (document.Content is IDisposable)
+                    {(document.Content as IDisposable).Dispose(); }
+                    GC.SuppressFinalize(document.Content);
+                }
+            }
+        }
+
+
+        private void DocumentClosingExecute(DocumentClosingEventArgs arg)
+        {
+            // eventuellement des cancel
+        }
+
+        private void ShowCartoExecute()
+        {
+            this._container.Resolve<ICartoService>().ShowCarto();
+        }
         public void ShowStatExecute()
         {
             ((ActiveContent as FrameworkElement).DataContext as IStatable).ShowStat();

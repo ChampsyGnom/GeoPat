@@ -16,7 +16,7 @@ using Microsoft.Practices.Unity;
 
 namespace Emash.GeoPatNet.Presentation.Services
 {
-    public class SplashService : ISplashService, INotifyPropertyChanged
+    public class SplashService : ISplashService, INotifyPropertyChanged,IDisposable
     {
         public ManualResetEvent _splashResetEvent;
         public String Message { get; set; }
@@ -127,6 +127,17 @@ namespace Emash.GeoPatNet.Presentation.Services
                     if (this.AfterSplashClose != null)
                     { this.AfterSplashClose(); }
                 }));
+        }
+        
+       
+
+        public void Dispose()
+        {
+            if (this._splashTask != null)
+            { this._splashTask.Dispose(); }
+            if (this._splashResetEvent != null)
+            { _splashResetEvent.Dispose(); }
+            GC.SuppressFinalize(this);
         }
     }
 }

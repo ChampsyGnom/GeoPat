@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Emash.GeoPatNet.Presentation.Views
+namespace Emash.GeoPatNet.Modules.Stat.Views
 {
     /// <summary>
     /// Logique d'interaction pour StatWizzardView.xaml

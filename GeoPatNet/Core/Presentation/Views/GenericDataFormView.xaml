@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             x:Name="genericDataFormView"
              xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Views"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -13,18 +14,60 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="gridControls"></Grid>
-        <v:DataToolbar Grid.Row="2"></v:DataToolbar>
+        <v:DataToolbar Grid.Row="2">
+            <v:DataToolbar.Style>
+                <Style TargetType="{x:Type v:DataToolbar}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=genericDataFormView,Path=ShowDataToolBar,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding ElementName=genericDataFormView,Path=ShowDataToolBar,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </v:DataToolbar.Style>
+        </v:DataToolbar>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <v:DataRecordPosition Grid.Column="0"></v:DataRecordPosition>
+            <v:DataRecordPosition Grid.Column="0">
+                <v:DataRecordPosition.Style>
+                    <Style TargetType="{x:Type v:DataRecordPosition}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=genericDataFormView,Path=ShowRecordPosition,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding ElementName=genericDataFormView,Path=ShowRecordPosition,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                <Setter Property="Visibility" Value="Hidden"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </v:DataRecordPosition.Style>
+            </v:DataRecordPosition>
             <Slider
                 IsEnabled="{Binding Path=CanSlide,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                 Value="{Binding Path=SliderValue,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                 Maximum="{Binding Path=SliderMaximum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
-                Minimum="{Binding Path=SliderMinimum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"></Slider>
+                Minimum="{Binding Path=SliderMinimum,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1">
+                <Slider.Style>
+                    <Style TargetType="{x:Type Slider}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=genericDataFormView,Path=ShowSlider,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding ElementName=genericDataFormView,Path=ShowSlider,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                <Setter Property="Visibility" Value="Hidden"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Slider.Style>
+            </Slider>
         </Grid>
         
        

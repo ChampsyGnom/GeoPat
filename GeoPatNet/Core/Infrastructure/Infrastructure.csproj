@@ -96,6 +96,7 @@
     <Compile Include="Attributes\SchemaNameAttribute.cs" />
     <Compile Include="Attributes\TableNameAttribute.cs" />
     <Compile Include="Attributes\UniqueKeyAttribute.cs" />
+    <Compile Include="Behaviors\AvalonDocumentClosingBehavior.cs" />
     <Compile Include="Behaviors\BindableSelectedItemBehavior.cs" />
     <Compile Include="Behaviors\DataGridContextMenuOpeningBehavior.cs" />
     <Compile Include="Behaviors\MouseDoubleClickBehavior.cs" />
@@ -132,10 +133,12 @@
     <Compile Include="RegionAdapters\DockingManagerDocumentsSourceSyncBehavior.cs" />
     <Compile Include="RegionAdapters\DockingManagerRegionAdapter.cs" />
     <Compile Include="Services\IAvailableService.cs" />
+    <Compile Include="Services\ICartoService.cs" />
     <Compile Include="Services\IDashBoardService.cs" />
     <Compile Include="Services\IDataContext.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\IEngineService.cs" />
     <Compile Include="Services\IReperageService.cs" />
     <Compile Include="Services\ISplashService.cs" />
     <Compile Include="Services\IStatService.cs" />

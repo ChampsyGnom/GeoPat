@@ -134,14 +134,11 @@ namespace Emash.GeoPatNet.Infrastructure.RegionAdapters
                 {
                     object activeContent = _dockingManager.ActiveContent;
                     foreach (var item in this.Region.ActiveViews.Where(it => it != activeContent))
-                    {
-                        this.Region.Deactivate(item);
-                    }
+                    {this.Region.Deactivate(item);}
 
 
                     if (this.Region.Views.Contains(activeContent) && !this.Region.ActiveViews.Contains(activeContent))
-                    {
-                        this.Region.Activate(activeContent);
+                    {this.Region.Activate(activeContent);
                     }
                 }
             }

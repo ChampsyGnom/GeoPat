@@ -10,12 +10,15 @@ using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using Emash.GeoPatNet.Modules.Stat.Views;
 
 namespace Emash.GeoPatNet.Modules.Stat
 {
+    [Module(ModuleName = "Stat")]
+    [ModuleDependency("Data")]
     public class StatModule : IModule
     {
-          private IEventAggregator _eventAggregator;
+        private IEventAggregator _eventAggregator;
         private IUnityContainer _container;
         private IRegionManager _regionManager;
 
@@ -26,7 +29,7 @@ namespace Emash.GeoPatNet.Modules.Stat
             this._eventAggregator = eventAggregator;
             this._container = container;
             this._regionManager = regionManager;
-            
+            this._regionManager.RegisterViewWithRegion("StatWizzardRegion", typeof(StatWizzardView));
            
            
         }

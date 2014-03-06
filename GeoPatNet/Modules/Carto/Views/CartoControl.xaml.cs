@@ -1,6 +1,4 @@
-﻿using Emash.GeoPatNet.Infrastructure.Views;
-using Microsoft.Windows.Controls.Ribbon;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Emash.GeoPatNet.App.Referentiel.ViewModels;
 
-namespace Emash.GeoPatNet.App.Referentiel.Views
+namespace Emash.GeoPatNet.Modules.Carto.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainView.xaml
+    /// Logique d'interaction pour CartoControl.xaml
     /// </summary>
-    public partial class MainView : RibbonWindow, IMainView
+    public partial class CartoControl : UserControl
     {
-        public MainView(MainViewModel vm)
+        public CartoControl()
         {
-            this.DataContext = vm;
             InitializeComponent();
         }
-
-     
-
-        
     }
 }
