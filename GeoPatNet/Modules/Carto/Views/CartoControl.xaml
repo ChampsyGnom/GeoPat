@@ -6,20 +6,20 @@
              mc:Ignorable="d" 
              xmlns:dsctrl="clr-namespace:DotSpatial.Controls;assembly=DotSpatial.Controls"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid PreviewMouseWheel="Grid_PreviewMouseWheel">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0">
-            <Button Click="btZoomOut_Click" x:Name="btZoomOut">
-                <TextBlock Text="Zoom -"></TextBlock>
+            <Button Click="btModeZoom_Click" x:Name="btModeZoom">
+                <TextBlock Text="Mode Zoom"></TextBlock>
             </Button>
-            <Button Click="btZoomIn_Click"  x:Name="btZoomIn">
-                <TextBlock Text="Zoom +"></TextBlock>
+            <Button Click="btModeMove_Click"  x:Name="btModeMove">
+                <TextBlock Text="Mode déplacement"></TextBlock>
             </Button>
         </ToolBar>
-        <WindowsFormsHost Grid.Row="1" IsHitTestVisible="False"  SizeChanged="mapHost_SizeChanged"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
+        <WindowsFormsHost FocusManager.IsFocusScope="True" Focusable="True"  Grid.Row="1" IsHitTestVisible="False"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
             <dsctrl:Map  BackColor="AliceBlue" x:Name="map">
                 
             </dsctrl:Map>

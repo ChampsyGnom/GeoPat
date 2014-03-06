@@ -188,13 +188,13 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         {
            
             this.Layers.Clear();
-            List<SigLayer> layers= new List<SigLayer> ();
+            List<CartoNodeLayerViewModel> layers = new List<CartoNodeLayerViewModel>();
             if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel)
             {
                 TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel);
                 RecurseGetLayers(layers, templateViewModel.Nodes);
-                layers = (from l in layers orderby l.MapOrder select l).ToList();
-                foreach (SigLayer layer in layers)
+                layers = (from l in layers orderby l.Model.SigLayer.MapOrder select l).ToList();
+                foreach (CartoNodeLayerViewModel layer in layers)
                 {
                     MapLayerViewModel vm = new MapLayerViewModel(layer);
                     this.Layers.Add(vm);
@@ -207,7 +207,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
            */
         }
 
-        private void RecurseGetLayers(List<SigLayer> layers, ObservableCollection<CartoNodeViewModel> list)
+        private void RecurseGetLayers(List<CartoNodeLayerViewModel> layers, ObservableCollection<CartoNodeViewModel> list)
         {
             foreach (CartoNodeViewModel n in list)
             {
@@ -217,7 +217,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 }
                 if (n is CartoNodeLayerViewModel)
                 {
-                    layers.Add((n as CartoNodeLayerViewModel).Model.SigLayer);
+                    layers.Add((n as CartoNodeLayerViewModel));
                 }
             }
         }

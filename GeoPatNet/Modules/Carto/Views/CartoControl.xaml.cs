@@ -18,6 +18,7 @@ using DotSpatial.Controls;
 using Emash.GeoPatNet.Modules.Carto.Layers;
 using DotSpatial.Data;
 using DotSpatial.Projections;
+using DotSpatial.Topology;
 namespace Emash.GeoPatNet.Modules.Carto.Views
 {
     /// <summary>
@@ -74,23 +75,28 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
             {
                 DotSpatial.Controls.Map map = this.mapHost.Child as DotSpatial.Controls.Map;
                 this._map = map;
-               
+              
+                this._map.FunctionMode = FunctionMode.ZoomIn;
+           
                 Console.WriteLine("Width : " + this._map.Width + ", Height : " + this._map.Height);
                 foreach (MapLayerViewModel layerVm in this.Layers)
                 {
-                    double[] xy = new double[] { 1.84864D, 45.7736D, 7.60549, 48.37909 };
-                    double[] z = new double[] { 0D, 0D };
-                    this.map.Projection = ProjectionInfo.FromEpsgCode(3785);
-                    ProjectionInfo dst =   ProjectionInfo.FromEpsgCode(3785);
-                    ProjectionInfo source = KnownCoordinateSystems.Geographic.World.WGS1984;
-                    DotSpatial.Projections.Reproject.ReprojectPoints(xy, z, source, dst, 0, 2);
-                    this.map.ViewExtents = new Extent(xy);
+                    //double[] xy = new double[] { 1.84864D, 45.7736D, 7.60549, 48.37909 };
+                  //  double[] z = new double[] { 0D, 0D };
+                   // this.map.Projection = ProjectionInfo.FromEpsgCode(3785);
+                  //  ProjectionInfo dst =   ProjectionInfo.FromEpsgCode(3785);
+                  //  ProjectionInfo source = KnownCoordinateSystems.Geographic.World.WGS1984;
+                  //  DotSpatial.Projections.Reproject.ReprojectPoints(xy, z, source, dst, 0, 2);
+                 //   this.map.ViewExtents = new Extent(xy);
                     this.map.MapFrame.SuspendEvents();
-                    if (layerVm.Model.SigCodeLayer.Code == "Google")
+                    if (layerVm.Node.Model.SigLayer.SigCodeLayer.Code == "Google")
                     {
-                        BruTileLayer bruTileLayer = BruTileLayer.CreateOsmLayer();
+                        BruTileLayer bruTileLayer = BruTileLayer.CreateGoogleMapLayer();
+                        layerVm.Node.Layer = bruTileLayer;
+                        layerVm.Node.Map = map;
                         this.map.Layers.Add(bruTileLayer);
                         this.map.MapFrame.ResumeEvents();
+                        this.map.ZoomToMaxExtent();
                         this.map.RedrawLayersWhileResizing = false;
                         
 
@@ -100,55 +106,40 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
             }
         }
 
-     
-        
+       
+       
+
+
+
         public CartoControl()
         {
-            InitializeComponent();
-            this.IsHitTestVisible = true;
-          
-            
-            
-            
+            InitializeComponent();            
         }
+
+        private void btModeZoom_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Layers != null && this.mapHost != null && this.mapHost.Child != null && this.mapHost.Child is DotSpatial.Controls.Map)
+            {
+                DotSpatial.Controls.Map map = this.mapHost.Child as DotSpatial.Controls.Map;
+                map.FunctionMode = FunctionMode.ZoomIn;
+            }
+        }
+
+        private void btModeMove_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Layers != null && this.mapHost != null && this.mapHost.Child != null && this.mapHost.Child is DotSpatial.Controls.Map)
+            {
+                DotSpatial.Controls.Map map = this.mapHost.Child as DotSpatial.Controls.Map;
+                map.FunctionMode = FunctionMode.Pan;
+            }
+        }
+
         
       
 
-        private void mapHost_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (this.mapHost != null && this.mapHost.Child != null && this.mapHost.Child is DotSpatial.Controls.Map)
-            {
-                DotSpatial.Controls.Map map = this.mapHost.Child as DotSpatial.Controls.Map;
-                map.MapFrame.SuspendEvents();
-                map.Width =(int) this.mapHost.ActualWidth;
-                map.Height = (int)this.mapHost.ActualHeight;
-                map.MapFrame.ResumeEvents();
-            }
-        }
+      
 
-        private void Grid_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            Console.WriteLine("Grid_PreviewMouseWheel : " + e.Delta);
-        }
-
-        private void btZoomOut_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.mapHost != null && this.mapHost.Child != null && this.mapHost.Child is DotSpatial.Controls.Map)
-            {
-                DotSpatial.Controls.Map map = this.mapHost.Child as DotSpatial.Controls.Map;
-                map.ZoomOut();
-            }
-        }
-
-        private void btZoomIn_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.mapHost != null && this.mapHost.Child != null && this.mapHost.Child is DotSpatial.Controls.Map)
-            {
-                DotSpatial.Controls.Map map = this.mapHost.Child as DotSpatial.Controls.Map;
-                map.ZoomIn();
-            }
-        }
-
+       
        
     }
 }

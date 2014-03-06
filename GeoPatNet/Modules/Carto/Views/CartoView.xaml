@@ -72,10 +72,14 @@
                   
                     <TreeView.Resources>
                         <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" DataType="{x:Type vm:CartoNodeFolderViewModel}">
-                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                            <TextBlock Margin="2" VerticalAlignment="Center" Text="{Binding Path=DisplayName}"></TextBlock>
                         </HierarchicalDataTemplate>
                         <DataTemplate DataType="{x:Type vm:CartoNodeLayerViewModel}">
-                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox VerticalAlignment="Center" Margin="2" IsChecked="{Binding Path=IsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                                <TextBlock VerticalAlignment="Center"  Margin="2"  Text="{Binding Path=DisplayName}"></TextBlock>
+                            </StackPanel>
+                         
                         </DataTemplate>
                     </TreeView.Resources>
                     <TreeView.ItemContainerStyle>
