@@ -112,7 +112,7 @@
                 
             </Grid>
         </Expander>
-        <v:CartoControl Layers="{Binding Path=Layers,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1">
+        <v:CartoControl  Grid.Column="1">
             
         </v:CartoControl>
     </Grid>

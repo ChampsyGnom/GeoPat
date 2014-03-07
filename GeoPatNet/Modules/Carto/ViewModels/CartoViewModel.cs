@@ -11,11 +11,12 @@ using Microsoft.Practices.Prism.Commands;
 using System.Windows.Data;
 using System.Windows.Threading;
 using System.Data.Entity;
+using DotSpatial.Controls;
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public class CartoViewModel
     {
-
+        public Map Map { get; private set; }
         public ListCollectionView TemplatesView { get; private set; }
         public ObservableCollection<TemplateViewModel> Templates { get; private set; }
         public DelegateCommand CreateTemplateCommand { get; private set; }
@@ -29,9 +30,10 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         public IDataService DataService { get; private set; }
         public IEngineService EngineService { get; private set; }
         public Dispatcher Dispatcher { get; private set; }
-        public ObservableCollection<MapLayerViewModel> Layers { get; private set; }
+        
         public CartoViewModel(IDataService dataService,IEngineService engineService)
         {
+            this.Map = new Map();
             this.DataService = dataService;
             this.Dispatcher = System.Windows.Application.Current.Dispatcher;
             this.EngineService = engineService;
@@ -55,10 +57,56 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             this.DeleteTemplateCommand = new DelegateCommand(DeleteTemplateExecute, CanDeleteTemplate);
             this.PublishTemplateCommand = new DelegateCommand(PublishTemplateExecute, CanPublishTemplate);
             this.AddFolderCommand = new DelegateCommand<object>(AddFolderExecute);
-            this.AddLayerGoogleCommand = new DelegateCommand<object>(AddLayerGoogleExecute);
-            this.Layers = new ObservableCollection<MapLayerViewModel>();
-           
+            this.AddLayerGoogleCommand = new DelegateCommand<object>(AddLayerGoogleExecute);           
+            this.RemoveLayerCommand = new DelegateCommand<object>(RemoveLayerExecute);
             this.TemplatesView.CurrentChanged += TemplatesView_CurrentChanged;
+        }
+
+        void TemplatesView_CurrentChanged(object sender, EventArgs e)
+        {
+            this.EditTemplateCommand.RaiseCanExecuteChanged();
+            this.DeleteTemplateCommand.RaiseCanExecuteChanged();
+            this.PublishTemplateCommand.RaiseCanExecuteChanged();
+            this.LoadMap();
+        }
+
+        private void LoadMap()
+        {
+            this.Map.Layers.Clear();
+            if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel )
+            {
+                TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel );
+                List<CartoNodeLayerViewModel> layers = new List<CartoNodeLayerViewModel>();
+                this.RecurseGetLayers(layers, templateViewModel.Nodes);
+                this.Map.MapFrame.SuspendEvents();
+                foreach (CartoNodeLayerViewModel layer in layers)
+                {layer.CreateLayer(this.Map);}
+                this.Map.MapFrame.ResumeEvents();
+                this.Map.Refresh();
+            }
+            
+        }
+
+        private void RecurseGetLayers(List<CartoNodeLayerViewModel> layers, ObservableCollection<CartoNodeViewModel> list)
+        {
+            foreach (CartoNodeViewModel n in list)
+            {
+                if (n is CartoNodeFolderViewModel)
+                {
+                    RecurseGetLayers(layers, (n as CartoNodeFolderViewModel).Nodes);
+                }
+                if (n is CartoNodeLayerViewModel)
+                {
+                    layers.Add((n as CartoNodeLayerViewModel));
+                }
+            }
+        }
+        private void RemoveLayerExecute(Object obj)        
+        {
+            if (obj != null && obj is CartoNodeLayerViewModel)
+            {
+                CartoNodeLayerViewModel layerNode = (obj as CartoNodeLayerViewModel);
+            }
         }
 
         private void RecurseBuildTemplateNodes(long parentId, ObservableCollection<CartoNodeViewModel> parent, List<SigNode> allNodes)
@@ -176,51 +224,11 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             return this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel;
         }
 
-        void TemplatesView_CurrentChanged(object sender, EventArgs e)
-        {
-            this.EditTemplateCommand.RaiseCanExecuteChanged();
-            this.DeleteTemplateCommand.RaiseCanExecuteChanged();
-            this.PublishTemplateCommand.RaiseCanExecuteChanged();
-            this.LoadMap();
-        }
+       
 
-        private void LoadMap()
-        {
-           
-            this.Layers.Clear();
-            List<CartoNodeLayerViewModel> layers = new List<CartoNodeLayerViewModel>();
-            if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel)
-            {
-                TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel);
-                RecurseGetLayers(layers, templateViewModel.Nodes);
-                layers = (from l in layers select l).ToList();
-                foreach (CartoNodeLayerViewModel layer in layers)
-                {
-                    MapLayerViewModel vm = new MapLayerViewModel(layer);
-                    this.Layers.Add(vm);
-                }
-            }
-           //
-            /*
-           
-          
-           */
-        }
+      
 
-        private void RecurseGetLayers(List<CartoNodeLayerViewModel> layers, ObservableCollection<CartoNodeViewModel> list)
-        {
-            foreach (CartoNodeViewModel n in list)
-            {
-                if (n is CartoNodeFolderViewModel)
-                {
-                    RecurseGetLayers(layers, (n as CartoNodeFolderViewModel).Nodes);
-                }
-                if (n is CartoNodeLayerViewModel)
-                {
-                    layers.Add((n as CartoNodeLayerViewModel));
-                }
-            }
-        }
+       
 
         private Boolean CanEditTemplate()
         {

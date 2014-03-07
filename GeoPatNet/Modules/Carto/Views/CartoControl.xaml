@@ -12,17 +12,15 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0">
-            <Button Click="btModeZoom_Click" x:Name="btModeZoom">
+            <Button >
                 <TextBlock Text="Mode Zoom"></TextBlock>
             </Button>
-            <Button Click="btModeMove_Click"  x:Name="btModeMove">
+            <Button>
                 <TextBlock Text="Mode déplacement"></TextBlock>
             </Button>
         </ToolBar>
-        <WindowsFormsHost FocusManager.IsFocusScope="True" Focusable="True"  Grid.Row="1" IsHitTestVisible="False"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
-            <dsctrl:Map  BackColor="AliceBlue" x:Name="map">
-                
-            </dsctrl:Map>
+        <WindowsFormsHost Loaded="mapHost_Loaded"  Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
+         
         </WindowsFormsHost>
     </Grid>
 </UserControl>

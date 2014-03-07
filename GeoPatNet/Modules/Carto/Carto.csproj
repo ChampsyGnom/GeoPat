@@ -120,7 +120,6 @@
     <Compile Include="ViewModels\CartoNodeLayerViewModel.cs" />
     <Compile Include="ViewModels\CartoNodeViewModel.cs" />
     <Compile Include="ViewModels\CartoViewModel.cs" />
-    <Compile Include="ViewModels\MapLayerViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
     <Compile Include="Views\CartoControl.xaml.cs">
       <DependentUpon>CartoControl.xaml</DependentUpon>
