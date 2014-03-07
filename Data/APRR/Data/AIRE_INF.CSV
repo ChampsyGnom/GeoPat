@@ -1,0 +1,398 @@
+CD_AIRE_INF__TYPE;LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;NUM_EXPLOIT;NOM;DATE_MS;DEMI_TOUR;BILATERALE;PASSERELLE;OBSERV
+AR;A6;2;419400;A6-2-419.400;Aire de Boitray;;VIDE;VIDE;VIDE;1 panneau RIS APRR + 1 point RELAX
+PB;A6;2;427200;A6-2-427.200;Aire de Villefranche Limas est;;VIDE;VIDE;VIDE;
+AS;A6;2;435800;A6-2-435.800;Aire des Chères Est;;VIDE;VIDE;OUI;Point RELAX + Animation imagerie d''Epinal
+AS;A6;2;445700;A6-2-445.700;Aire des Bruyères - Paisy;;VIDE;VIDE;VIDE;1 Point RELAX + 1 RIS + 2 bancs
+AR;A6;1;116700;A6-1-116.700;Aire des Châtaigniers;;VIDE;VIDE;VIDE;
+AS;A6;1;122900;A6-1-122.900;Aire de La Réserve;;VIDE;VIDE;VIDE;1 Point RELAX
+AR;A77;1;64210;A77-1-64.210;Aire du Gingko;;VIDE;VIDE;VIDE;
+AR;A77;1;88310;A77-1-88.310;Aire du Caule;;VIDE;VIDE;VIDE;2 Points RELAX
+PB;A77;1;97410;A77-1-97.410;Aire de Myennes Ouest;;VIDE;VIDE;VIDE;2 Points RELAX
+PB;A77;2;5660;A77-2-5.660;Aire de Val-de-Loing Barrière (est);;VIDE;VIDE;VIDE;2 Points RELAX
+AR;A77;2;12290;A77-2-12.290;Aire du Sophora;;VIDE;VIDE;VIDE;2 Points RELAX
+AR;A77;2;30320;A77-2-30.320;Aire du Liquidambar;;VIDE;VIDE;VIDE;Poste de Gendarmerie
+AR;A77;2;64290;A77-2-64.290;Aire du Tulipier;;VIDE;VIDE;VIDE;A.S unilatérale accessible aux 2 sens de circulation (1/2 tour possible)
+AR;A77;2;88700;A77-2-88.700;Aire du Séquoia;;VIDE;VIDE;VIDE;Accès Aire sens Bourges/Clermont Fd  1/2 tour possible 1 SIGA
+PB;A77;2;97410;A77-2-97.410;Aire de Myennes Est;;VIDE;VIDE;VIDE;AS unilatérale accessible aux 2 sens (1/2 tour possible)
+AD;A77;2;45000;A77-2-45.000;Aire du Jardin des Arbres;;VIDE;VIDE;OUI;Eclairage + RIS + Point RELAX
+AD;A71;2;355000;A71-2-355.000;Acces à l''Aire des Volcans d''Auvergne;;VIDE;VIDE;OUI;Eclairage + Espace Clients + station de gonflage poste de gendarmerie
+AD;A39;1;79000;A39-1-79.000;Accès à l''Aire du Jura;;VIDE;VIDE;OUI;RIS
+Sortie;A77;1;6000;A77-1-6.000;Sortie 17;;VIDE;VIDE;VIDE;Relais Liber-t 
+Sortie;A6;1;154000;A6-1-154.000;Sortie 19;;VIDE;VIDE;VIDE;Relais clients
+Sortie;A36;2;124000;A36-2-124.000;Sortie 4;;VIDE;VIDE;VIDE;Espace clients
+Sortie;A31;1;28000;A31-1-28.000;Echangeur A31 - A311;;VIDE;VIDE;VIDE;Espace clients
+Sortie;A31;1;100000;A31-1-100.000;Sortie 6;;VIDE;VIDE;VIDE;Parking Sécurisé
+Sortie;A5;2;208000;A5-2-208.000;Sortie 24;;VIDE;VIDE;VIDE;Espace clients
+AR;A6;1;158500;A6-1-158.500;Aire des Bois Impériaux;;VIDE;VIDE;VIDE;1 panneau APRR - Œuvre 9 colonnes de verre
+AS;A6;1;167000;A6-1-167.000;Aire de Venoy Grosse Pierre;;VIDE;VIDE;OUI;Point RELAX
+AR;A6;1;173800;A6-1-173.800;Aire de La Grosse Tour;;VIDE;VIDE;VIDE;dont 68 station service - 5 restaurant + RIS
+AR;A6;1;186900;A6-1-186.900;Aire de La Couée;;VIDE;VIDE;VIDE;Point RELAX - Eclairage Public + RIS
+AR;A6;1;198100;A6-1-198.100;Aire de Montmorency;;VIDE;VIDE;VIDE;Point RELAX + RIS
+AS;A6;1;212900;A6-1-212.900;Aire de La Chaponne;;VIDE;VIDE;VIDE;RIS  + Point RELAX
+AR;A6;1;222600;A6-1-222.600;Aire d''Époisses;;VIDE;VIDE;VIDE;dont 48 hôtel - 27 Station service - 23 Restaurant
+AR;A6;1;232700;A6-1-232.700;Aire de Ruffey;;VIDE;VIDE;VIDE;Eclairage Public + Point RELAX + RIS
+AR;A6;1;242100;A6-1-242.100;Aire de Fermenot;;VIDE;VIDE;VIDE;11 bancs
+AS;A6;1;255400;A6-1-255.400;Aire du Chien Blanc;;VIDE;VIDE;VIDE; RIS + Point RELAX + 5 bancs + 1 Oeuvre FÊTE PAïENNE
+AR;A6;1;269000;A6-1-269.000;Aire du Chaignot;;VIDE;VIDE;VIDE;Relais Liber-t
+AR;A6;1;280300;A6-1-280.300;Aire de La Garenne;;VIDE;VIDE;VIDE;RIS + 1 Panneau RIS CG Yonne
+AS;A6;1;286400;A6-1-286.400;Aire de La Forêt;;VIDE;VIDE;VIDE;5 bancs
+AR;A6;1;295600;A6-1-295.600;Aire du Rossignol;;VIDE;VIDE;VIDE;
+AS;A6;2;122900;A6-2-122.900;Aire de La Couline;;VIDE;VIDE;VIDE; 1 ensemble hexagonal +  1 point RELAX + 1 RIS + 1 panneau Sucette + sentier découverte
+AR;A6;2;132200;A6-2-132.200;Aire de La Loupière;;VIDE;VIDE;VIDE; + 15 parkings station + 3 bancs
+AR;A6;2;144700;A6-2-144.700;Aire des Pâtures;;VIDE;VIDE;VIDE;1 point RELAX + 1 RIS - Œuvre Murs Mirre
+AR;A6;2;158600;A6-2-158.600;Aire du Thureau;;VIDE;VIDE;VIDE;Requalification 2007
+AS;A6;2;167000;A6-2-167.000;Aire de Venoy Soleil Levant;;VIDE;VIDE;OUI;
+AR;A6;2;179000;A6-2-179.000;Aire du Buisson Rond;;VIDE;VIDE;VIDE;
+AR;A6;2;184600;A6-2-184.600;Aire du Chevreuil;;VIDE;VIDE;VIDE;
+AR;A6;2;199100;A6-2-199.100;Aire d''Hervaux;;VIDE;VIDE;VIDE;
+Sortie;A6;2;209000;A6-2-209.000;Sortie 22;;VIDE;VIDE;VIDE;Station de gonflage ¤r¤n¤+ Espace Clients
+AS;A6;2;213000;A6-2-213.000;Aire de Maison-Dieu;;VIDE;VIDE;VIDE;
+AR;A6;2;219600;A6-2-219.600;Aire de Genetoy;;VIDE;VIDE;VIDE;
+PB;A71;1;381000;A71-1-381.000;Aire de Clermont-Barrière Ouest;;VIDE;VIDE;VIDE;1 Point RELAX + 1 SIGA
+AR;A71;2;213490;A71-2-213.490;Aire du Bois des Dames;;VIDE;VIDE;VIDE;Espace Clients (après péage) +  2 postes de gonflage
+AD;A71;2;246200;A71-2-246.200;Aire du Centre de la France Bruère Allichamps;;VIDE;VIDE;OUI;à confirmer
+AR;A71;2;276430;A71-2-276.430;Aire de Vallon;;VIDE;VIDE;VIDE;RIS
+AS;A71;2;304390;A71-2-304.390;Aire de l''Allier Saulzet;;VIDE;VIDE;OUI;1 Point RELAX + 1 banc
+AR;A71;2;333420;A71-2-333.420;Aire de Chantelle en Bourbonnais;;VIDE;VIDE;VIDE;RIS
+AR;A71;2;371690;A71-2-371.690;Aire de Pessat-Villeneuve;;VIDE;VIDE;VIDE;
+PB;A71;2;381000;A71-2-381.000;Aire de Clermont-Barrière Est (Nord+Sud);;VIDE;VIDE;VIDE;2 Points RELAX
+PB;A719;1;1010;A719-1-1.010;Aire de Gannat;;VIDE;VIDE;VIDE;2 Points RELAX
+PB;A719;2;1010;A719-2-1.010;Aire de Gannat;;VIDE;VIDE;VIDE;AS unilatérale accessible aux 2 sens de circulation (1/2 tour possible) + 2 Points RELAX
+PB;A77;1;5660;A77-1-5.660;Aire de Val-de-Loing;;VIDE;VIDE;VIDE;2 Points RELAX
+AR;A77;1;11330;A77-1-11.330;Aire du Hêtre Poupre;;VIDE;VIDE;VIDE;2 Points RELAX
+AR;A6;2;232800;A6-2-232.800;Aire de La Côme;;VIDE;VIDE;VIDE;Passerrelle pietons restaurant
+AR;A6;2;242200;A6-2-242.200;Aire de Marcigny;;VIDE;VIDE;VIDE;
+AS;A6;2;256000;A6-2-256.000;Aire des Lochères;;VIDE;VIDE;VIDE;
+AR;A6;2;269100;A6-2-269.100;Aire de La Repotte;;VIDE;VIDE;VIDE;
+AS;A6;2;285500;A6-2-285.500;Aire du Creux Moreau;;VIDE;VIDE;VIDE;
+AR;A6;2;294000;A6-2-294.000;Aire du Bois des Corbeaux;;VIDE;VIDE;VIDE;Ouverture barrière dans les 2 sens en continue
+AR;A6;2;298400;A6-2-298.400;Aire de Savigny Les Beaune;;VIDE;VIDE;VIDE;PAU - RIS
+AS;A6;1;29000;A6-1-29;Aire de Lisses;;VIDE;VIDE;VIDE;RIS
+AR;A6;1;50250;A6-1-50.250;Aire de Fleury;;VIDE;VIDE;OUI;
+AS;A6;1;58000;A6-1-58.000;Aire d''Achères la Forêt;;VIDE;VIDE;VIDE;Point RELAX - PAU - RIS Passerelle pour piétons/Restaurant
+AR;A6;1;65500;A6-1-65.500;Aire de Villiers;;VIDE;VIDE;VIDE;RIS
+AS;A6;1;74100;A6-1-74.100;Aire de Nemours;;VIDE;VIDE;VIDE;Point RELAX + RIS
+AR;A6;1;85600;A6-1-85.600;Aire de Sonville;;VIDE;VIDE;VIDE;RIS
+AR;A6;1;90800;A6-1-90.800;Aire de Liard;;VIDE;VIDE;VIDE;1 Point RELAX + 1 SIGA
+AR;A6;1;102700;A6-1-102.700;Aire du Parc Thierry;;VIDE;VIDE;VIDE;1 SIGA - AS unilatérale accès 2 sens 
+AS;A6;2;29000;A6-2-29;Aire de Villabé;;VIDE;VIDE;VIDE; 1 Point RELAX  - 1 SIGA - Oeuvre d''art : Livre du Grand Meaulnes
+AR;A6;2;50250;A6-2-50.250;Aire de Fleury II + I;;VIDE;VIDE;OUI;
+AR;A6;2;51800;A6-2-51.800;Aire d''Arbonne;;VIDE;VIDE;VIDE;1 SIGA
+AS;A6;2;58000;A6-2-58.000;Aire d''Achères;;VIDE;VIDE;VIDE;Jeu d''animation (4 éoliennes + 2  jeux musicaux) 1 Point RELAX - 1 SIGA
+AS;A6;2;74100;A6-2-74.100;Aire de Darvault;;VIDE;VIDE;VIDE;Belvédère, Panorama chaînes des Volcans, AS unilatérale accès 2 sens (1/2 tour possible) 1 SIGA
+AR;A6;2;85700;A6-2-85.700;Aire de Floée;;VIDE;VIDE;VIDE;1 Point RELAX + 1 SIGA
+AR;A6;2;90800;A6-2-90.800;Aire d''Égreville;;VIDE;VIDE;VIDE;
+AR;A6;2;102900;A6-2-102.900;Aire de la Roche;;VIDE;VIDE;VIDE;2 Points RELAX + 1 SIGA
+AR;A71;1;219200;A71-1-219.200;Aire du Gîte aux Loups;;VIDE;VIDE;VIDE;2 Points RELAX + 1 SIGA
+AS;A71;1;245990;A71-1-245.990;Aire du Centre de la France Farges Allichamps;;VIDE;OUI;OUI;
+AR;A71;1;276610;A71-1-276.610;Aire du Grand Meaulnes;;VIDE;VIDE;VIDE;1 Point RELAX + 1 SIGA
+AS;A71;1;304300;A71-1-304.300;Aire de l''Allier Doyet;;VIDE;VIDE;OUI;
+AR;A71;1;333330;A71-1-333.330;Aire de la Bouble;;VIDE;VIDE;VIDE;1 SIGA
+AS;A71;1;354890;A71-1-354.890;Aire des Volcans d''Auvergne;;OUI;OUI;OUI;à confirmer
+Sortie;A39;1;40000;A39-1-40.000;Sortie 6;;VIDE;VIDE;VIDE;Espace clients
+Sortie;A31;2;215000;A31-2-215.000;Sortie 11;;VIDE;VIDE;VIDE;Espace clients
+Sortie;A6;1;307000;A6-1-307.000;Sortie 24.1;;VIDE;VIDE;VIDE;Relais clients
+Sortie;A6;2;329000;A6-2-329.000;Sortie 25;;VIDE;VIDE;VIDE;Espace clients
+Sortie;A6;2;381000;A6-2-381.000;Sortie 28;;VIDE;VIDE;VIDE;Espace clients
+AR;A71;1;371730;A71-1-371.730;Aire de Montpertuis;;VIDE;VIDE;VIDE;1 SIGA
+AD;A105;1;5000;A105-1-5.000;Centre routier Paris Sud-Est;;VIDE;VIDE;OUI;Centre Centaure (03 80 34 17 77)  les centres Centaure aident le conducteur à se sensibiliser aux principaux risques d’accidents. Des véhicules spéciaux sont mis à sa disposition, lui permettant de simuler les situations critiques.
+AS;A105;2;5000;A105-2-5.000;Aire de Galande la Mare-Laroche;;VIDE;OUI;OUI;
+AS;A19;1;15620;A19-1-15.620;Aire de Villeroy;;OUI;VIDE;OUI;Accessible aux deux sens + 2 points RELAX
+AR;A6;1;149600;A6-1-149.600;Aire de La Biche;;VIDE;VIDE;VIDE; + 47 places VL station + 1 publiphone station
+AR;A77;1;30360;A77-1-30.360;Aire du Cèdre;;VIDE;VIDE;VIDE;
+AS;A77;1;45190;A77-1-45.190;Aire du Jardin des Arbres;;OUI;OUI;OUI;Eclairage + Point RELAX + PAU + RIS
+AS;A31;2;232000;A31-2-232;Aire de Toul - Dommartin;;VIDE;VIDE;OUI;Accessible aux deux sens
+PB;A311;1;30800;A311-1-30.800;Dijon-Sud  (est);;VIDE;VIDE;VIDE;Eclairage+RIS
+PB;A311;2;30800;A311-2-30.800;Dijon-Sud (ouest);;VIDE;VIDE;VIDE;
+AS;A36;1;11100;A36-1-11.100;Aire de La Porte d''Alsace (nord);;VIDE;VIDE;VIDE;
+AR;A36;1;20600;A36-1-20.600;Aire d''Angeot;;VIDE;VIDE;VIDE;
+AR;A36;1;24300;A36-1-24.300;Aire de Fontaine (nord);;VIDE;VIDE;VIDE;1  Point RELAX
+AR;A36;1;28800;A36-1-28.800;Aire des Grands Prés;;VIDE;VIDE;VIDE;Exposition d''un voussoir + Point RELAX + RIS
+AR;A36;1;44620;A36-1-44.620;Aire de Dambenois;;VIDE;VIDE;VIDE;1 Point RELAX - Tél. dans édicule
+AD;A36;1;60000;A36-1-60.000;Aire d''Ecot (La Combe-Ronde);;VIDE;VIDE;OUI;
+AR;A36;1;65810;A36-1-65.810;Aire de Saint-Maurice (nord);;VIDE;VIDE;VIDE;1 Point RELAX - Tél. dans édicule
+AR;A36;1;75000;A36-1-75.000;Aire du Galiot;;VIDE;VIDE;VIDE;1  Point RELAX
+AR;A36;1;84000;A36-1-84.000;Aire du Boulet;;VIDE;VIDE;VIDE;AS unilatérale accessible aux 2 sens (1/2 tour possible)
+AR;A36;1;101600;A36-1-101.600;Aire des Grands Brocards;;VIDE;VIDE;VIDE;1  Point RELAX
+AS;A36;1;111600;A36-1-111.600;Aire de Besançon Champoux;;VIDE;VIDE;OUI;
+AR;A36;1;128600;A36-1-128.600;Aire de Pelousey;;VIDE;VIDE;VIDE;Pose de Gendarmerie
+AR;A36;1;146300;A36-1-146.300;Aire d''Hyombre;;VIDE;VIDE;VIDE;1  Point RELAX
+AS;A36;1;160400;A36-1-160.400;Aire de Dole-Romange;;VIDE;VIDE;VIDE;Kiosque d''informations - Point RELAX
+AR;A36;1;172100;A36-1-172.100;Aire du Bois des Potets;;VIDE;VIDE;VIDE;1 Point RELAX - Tél. dans édicule
+AR;A36;1;185100;A36-1-185.100;Aire de Saint-Jean-de-Losne;;VIDE;VIDE;VIDE;1 Point RELAX - Tél. dans édicule
+AS;A36;1;200700;A36-1-200.700;Aire de Glanon;;VIDE;VIDE;VIDE;AS unilatérale accessible aux 2 sens (1/2 tour possible)
+AR;A36;1;208700;A36-1-208.700;Aire d''Argilly;;VIDE;VIDE;VIDE;1  Point RELAX
+AS;A36;2;11100;A36-2-11.100;Aire de La Porte d''Alsace (sud);;VIDE;VIDE;VIDE;AS unilatérale accessible aux 2 sens (1/2 tour possible)
+AR;A36;2;20200;A36-2-20.200;Aire du Haut Bois;;VIDE;VIDE;VIDE;1  Point RELAX
+AD;A19;2;16000;A19-2-16.000;Aire de Villeroy;;OUI;OUI;OUI;
+AR;A26;1;382900;A26-1-382.900;Aire de Villechétif;;VIDE;VIDE;VIDE;
+AR;A26;2;382500;A26-2-382.500;Aire des Crocs de la Terre;;VIDE;VIDE;VIDE;Eclairage + Point RELAX + Borne PAU + RIS
+AR;A31;1;7200;A31-1-7.200;Aire de Corgoloin;;VIDE;VIDE;VIDE;Eclairage + RIS + PAU
+AR;A31;1;16900;A31-1-16.900;Aire de Boncourt le Bois;;VIDE;VIDE;VIDE;Eclairage + RIS
+AS;A31;1;25700;A31-1-25.700;Aire de Gevrey-Chambertin;;VIDE;VIDE;VIDE;Eclairage + Point RELAX + RIS + borne RAU
+AR;A31;1;45100;A31-1-45.100;Aire du Pré dAzur;;VIDE;VIDE;VIDE;Eclairage + borne PAU + RIS
+AD;A31;1;56100;A31-1-56.100;Aire de Dijon Spoy;;VIDE;VIDE;OUI;Uniphone¤r¤n¤AR ou AS à confirmer 
+AR;A31;1;75800;A31-1-75.800;Aire de la Villa des Thuillières;;VIDE;VIDE;VIDE;Eclairage + Point RELAX + RIS
+AR;A31;1;87900;A31-1-87.900;Aire de Combe Suzon;;VIDE;VIDE;VIDE;Eclairage + Point RELAX + RIS
+AS;A31;1;102900;A31-1-102.900;Aire de Langres - Noidant;;VIDE;VIDE;VIDE;Eclairage. Interdit aux P.L. + P.A.U. + RIS
+AR;A31;1;121700;A31-1-121.700;Aire du Val de Gris;;VIDE;VIDE;VIDE;Eclairage + Point RELAX + P.A.U. + RIS
+AS;A31;1;137700;A31-1-137.700;Aire du Val de Meuse;;VIDE;VIDE;VIDE;Eclairage + PAU + RIS + Point RELAX
+AR;A31;1;162100;A31-1-162.100;Aire du Bois de Chaumont;;VIDE;VIDE;VIDE;Eclairage + P.A.U. + RIS
+AS;A31;1;182300;A31-1-182.300;Aire de Lorraine Sandaucourt les Rappes;;VIDE;VIDE;OUI;Parking Sécurisé
+AR;A31;1;200900;A31-1-200.900;Aire du Val Au Renard;;VIDE;VIDE;VIDE;
+AR;A31;1;211300;A31-1-211.300;Aire de Malvaux;;VIDE;VIDE;VIDE;
+AR;A31;1;225500;A31-1-225.500;Aire de Gye (Est);;VIDE;VIDE;VIDE;Eclairage + Point RELAX + PAU + RIS
+AS;A31;1;232000;A31-1-232;Aire de Toul - Chaudeney;;VIDE;VIDE;OUI;Centre Centaure
+AR;A31;2;7800;A31-2-7.800;Aire de Serrigny;;VIDE;VIDE;VIDE;Eclairage + RIS
+AR;A31;2;17400;A31-2-17.400;Aire de Flagey-Echézeaux;;VIDE;VIDE;VIDE;
+AS;A31;2;25600;A31-2-25.600;Aire de Gevrey-Chambertin;;VIDE;VIDE;VIDE;Eclairage + RIS
+AR;A31;2;45100;A31-2-45.100;Aire de la Tille;;VIDE;VIDE;VIDE;Eclairage + borne PAU + Point RELAX + RIS
+AS;A31;2;56100;A31-2-56.100;Aire de Dijon Brognon;;VIDE;OUI;OUI;Point RELAX
+AR;A31;2;75800;A31-2-75.800;Aire de Sainte-Gertrude;;VIDE;VIDE;VIDE;Eclairage + PAU + RIS, poste de gendarmerie
+AR;A31;2;87900;A31-2-87.900;Aire de Fontenelle;;VIDE;VIDE;VIDE;Eclairage + RIS + borne RAU
+AS;A31;2;102900;A31-2-102.900;Aire de Langres - Perrogney;;VIDE;VIDE;VIDE;Eclairage + RIS + borne RAU + Point RELAX
+AR;A31;2;121700;A31-2-121.700;Aire de Côté Robert;;VIDE;VIDE;VIDE;Eclairage + borne PAU
+AS;A31;2;137700;A31-2-137.700;Aire de Montigny le Roi;;VIDE;VIDE;VIDE;Eclairage + Point RELAX
+AR;A31;2;162100;A31-2-162.100;Aire du Grand Repenti;;VIDE;VIDE;VIDE;Eclairage + RIS
+AS;A31;2;182300;A31-2-182.300;Aire de Lorraine Sandaucourt la Trelle;;VIDE;VIDE;OUI;RIS
+AR;A31;2;200900;A31-2-200.900;Aire du Grand Chêne;;VIDE;VIDE;VIDE;Eclairage
+AR;A31;2;211300;A31-2-211.300;Aire de Faverosse;;VIDE;VIDE;VIDE;Eclairage + Point RELAX + P.A.U.+RIS
+AR;A31;2;225500;A31-2-225.500;Aire de Gye (Ouest);;VIDE;VIDE;VIDE;Eclairage+RIS
+AP;A40;3;198630;A40-3-198.63;Replonges avant entrée;;VIDE;VIDE;VIDE;
+AP avant entrée;A19;3;4770;A19-3-4.77;St. Denis-les Sens;;VIDE;VIDE;VIDE;
+AP après sortie;A19;3;4770;A19-3-4.77;St. Denis-les Sens;;VIDE;VIDE;VIDE;
+AP;A19;3;17780;A19-3-17.78;Villeneuve- la-Dondagre;;VIDE;VIDE;VIDE;
+AP avant entrée;A26;3;387140;A26-3-387.14;Thennelières;;VIDE;VIDE;VIDE;
+AP après sortie;A26;3;387140;A26-3-387.14;Thennelières;;VIDE;VIDE;VIDE;
+AP avant entrée;A31;3;47360;A31-3-47.36;Dijon - Arc-sur-Tille;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;47360;A31-3-47.36;Dijon - Arc-sur-Tille;;VIDE;VIDE;VIDE;
+AP avant entrée;A31;3;70200;A31-3-70.2;Til-Châtel;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;70200;A31-3-70.2;Til-Châtel;;VIDE;VIDE;VIDE;
+AP avant entrée;A31;3;97820;A31-3-97.82;Langres-Sud;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;100250;A31-3-100.25;Langres-Sud;;VIDE;VIDE;VIDE;
+AP;A31;3;119900;A31-3-119.9;Langres-Nord;;VIDE;VIDE;VIDE;
+AP avant entrée;A31;3;140000;A31-3-140;Montigny-le-Roi;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;140000;A31-3-140;Montigny-le-Roi;;VIDE;VIDE;VIDE;
+AP avant entrée;A31;3;175950;A31-3-175.95;Bulgnéville;;VIDE;VIDE;VIDE;
+AP après entrée;A31;3;175950;A31-3-175.95;Bulgnéville;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;175950;A31-3-175.95;Bulgnéville;;VIDE;VIDE;VIDE;
+AP après entrée;A31;3;186100;A31-3-186.1;Chatenois;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;186100;A31-3-186.1;Chatenois;;VIDE;VIDE;VIDE;
+AP après entrée;A31;3;214800;A31-3-214.8;Colombey-Les-Belles;;VIDE;VIDE;VIDE;
+AP après sortie;A31;3;214800;A31-3-214.8;Colombey-Les-Belles;;VIDE;VIDE;VIDE;
+AP après entrée;A36;3;73200;A36-3-73.2;L''Isle-sur-Le-Doubs;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;73200;A36-3-73.2;L''Isle-sur-Le-Doubs;;VIDE;VIDE;VIDE;
+AP après entrée;A36;3;90500;A36-3-90.5;Baume-Les-Dames;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;90500;A36-3-90.5;Baume-Les-Dames;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;109580;A36-3-109.58;Besançon-Est;;VIDE;VIDE;VIDE;
+AP avant entrée;A36;3;124200;A36-3-124.2;Besançon-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A36;3;124200;A36-3-124.2;Besançon-Nord;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;124200;A36-3-124.2;Besançon-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A36;3;133600;A36-3-133.6;Besançon-Ouest;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;133600;A36-3-133.6;Besançon-Ouest;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;149620;A36-3-149.62;Gendrey;;VIDE;VIDE;VIDE;
+AP après entrée;A36;3;166200;A36-3-166.2;Dole;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;166200;A36-3-166.2;Dole;;VIDE;VIDE;VIDE;
+AP après entrée;A36;3;195900;A36-3-195.9;Seurre;;VIDE;VIDE;VIDE;
+AP après sortie;A36;3;195900;A36-3-195.9;Seurre;;VIDE;VIDE;VIDE;
+AP;A39;3;21600;A39-3-21.6;Soirans;;VIDE;VIDE;VIDE;
+AP;A39;3;40410;A39-3-40.41;Choisey;;VIDE;VIDE;VIDE;
+AP;A39;3;93700;A39-3-93.7;Beaurepaire-en-Bresse;;VIDE;VIDE;VIDE;
+AP;A39;3;108840;A39-3-108.84;Le Miroir;;VIDE;VIDE;VIDE;
+AP;A39;3;122000;A39-3-122;Beaupont;;VIDE;VIDE;VIDE;
+AP après entrée;A40;3;115850;A40-3-115.85;Sylans;;VIDE;VIDE;VIDE;
+AP après sortie;A40;3;115850;A40-3-115.85;Sylans;;VIDE;VIDE;VIDE;
+AP;A40;3;125420;A40-3-125.42;St.Martin-du-Fresne;;VIDE;VIDE;VIDE;
+AP;A40;3;156560;A40-3-156.56;Bourg-Sud;;VIDE;VIDE;VIDE;
+AP après entrée;A40;3;156560;A40-3-156.56;Bourg-Sud;;VIDE;VIDE;VIDE;
+AP;A40;3;166960;A40-3-166.96;Viriat;;VIDE;VIDE;VIDE;
+AP;A40;3;176990;A40-3-176.99;Bourg-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A40;3;176990;A40-3-176.99;Bourg-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A40;2;188600;A40-2-188.6;St.Genis-sur-Menthon;;VIDE;VIDE;VIDE;
+AP après sortie;A40;1;188600;A40-1-188.6;St.Genis-sur-Menthon;;VIDE;VIDE;VIDE;
+AP après sortie;A40;3;198630;A40-3-198.63;Replonges;;VIDE;VIDE;VIDE;
+AP avant entrée;A40;3;201900;A40-3-201.9;Feillens;;VIDE;VIDE;VIDE;
+AP après sortie;A40;3;201900;A40-3-201.9;Feillens;;VIDE;VIDE;VIDE;
+AP après entrée;A40;3;204630;A40-3-204.63;Mâcon-Centre;;VIDE;VIDE;VIDE;
+AP après sortie;A40;3;204630;A40-3-204.63;Mâcon-Centre;;VIDE;VIDE;VIDE;
+AP;A404;3;5970;A404-3-5.97;Croix-Chalon;;VIDE;VIDE;VIDE;
+AP après entrée;A42;3;18510;A42-3-18.51;Balan;;VIDE;VIDE;VIDE;
+AP après sortie;A42;3;18510;A42-3-18.51;Balan;;VIDE;VIDE;VIDE;
+AP avant entrée;A42;3;25080;A42-3-25.08;Pérouges;;VIDE;VIDE;VIDE;
+AP après sortie;A42;3;25080;A42-3-25.08;Pérouges;;VIDE;VIDE;VIDE;
+AP avant entrée;A42;3;42540;A42-3-42.54;Ambérieu;;VIDE;VIDE;VIDE;
+AP après sortie;A42;3;42540;A42-3-42.54;Ambérieu;;VIDE;VIDE;VIDE;
+AP avant entrée;A42;3;49900;A42-3-49.9;Pont-d''Ain;;VIDE;VIDE;VIDE;
+AP après sortie;A42;3;49900;A42-3-49.9;Pont-d''Ain;;VIDE;VIDE;VIDE;
+AP avant entrée;A46;3;9090;A46-3-9.09;Genay;;VIDE;VIDE;VIDE;
+AP après sortie;A46;2;9090;A46-2-9.09;Genay;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;6940;A5-3-6.94;St.Germain Laxis;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;6940;A5-3-6.94;St.Germain Laxis;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;14200;A5-3-14.2;Châtillon la Borde;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;14200;A5-3-14.2;Châtillon la Borde;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;31470;A5-3-31.47;Forges;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;31470;A5-3-31.47;Forges;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;38990;A5-3-38.99;Marolles-sur-Seine;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;38990;A5-3-38.99;Marolles-sur-Seine;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;88080;A5-3-88.08;Vulaines;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;88080;A5-3-88.08;Vulaines;;VIDE;VIDE;VIDE;
+AP;A5;3;115120;A5-3-115.12;Torvilliers;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;131200;A5-3-131.2;St.Thibault;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;131200;A5-3-131.2;St.Thibault;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;157430;A5-3-157.43;Magnant;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;157430;A5-3-157.43;Magnant;;VIDE;VIDE;VIDE;
+AP avant entrée;A5;3;185100;A5-3-185.1;Ville-sous-La Ferté;;VIDE;VIDE;VIDE;
+AP après sortie;A5;3;185100;A5-3-185.1;Ville-sous-La Ferté;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;60990;A6-3-60.99;Ury;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;60990;A6-3-60.99;Ury;;VIDE;VIDE;VIDE;
+AP après sortie;A6;2;69870;A6-2-69.87;Fontainebleau;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;72820;A6-3-72.82;Nemours;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;110870;A6-3-110.87;Courtenay;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;110870;A6-3-110.87;Courtenay;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;2;127800;A6-2-127.8;Joigny;;VIDE;VIDE;VIDE;
+AP après sortie;A6;1;127800;A6-1-127.8;Joigny;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;1;127800;A6-1-127.8;Joigny Sépeaux;;VIDE;VIDE;VIDE;
+AP après sortie;A6;2;127800;A6-2-127.8;Joigny Sépeaux;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;3;153600;A6-3-153.6;Auxerre-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;153600;A6-3-153.6;Auxerre-Nord;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;153600;A6-3-153.6;Auxerre-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;165300;A6-3-165.3;Auxerre-Sud;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;165300;A6-3-165.3;Auxerre-Sud;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;190100;A6-3-190.1;Nitry;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;209400;A6-3-209.4;Avallon;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;209400;A6-3-209.4;Avallon;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;233310;A6-3-233.31;Bierre-les-Semur;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;233310;A6-3-233.31;Bierre-les-Semur;;VIDE;VIDE;VIDE;
+AP;A6;3;301050;A6-3-301.05;Beaune-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;306800;A6-3-306.8;Beaune ;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;3;328900;A6-3-328.9;Chalon-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;328900;A6-3-328.9;Chalon-Nord;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;328900;A6-3-328.9;Chalon-Nord;;VIDE;VIDE;VIDE;
+AP;A6;3;335100;A6-3-335.1;Chalon-Sud;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;355400;A6-3-355.4;Tournus;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;3;380900;A6-3-380.9;Mâcon-Nord;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;380900;A6-3-380.9;Mâcon-Nord;;VIDE;VIDE;VIDE;
+AP;A6;3;391230;A6-3-391.23;Mâcon-Sud;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;3;412500;A6-3-412.5;Belleville;;VIDE;VIDE;VIDE;
+AP après entrée;A6;3;412500;A6-3-412.5;Belleville;;VIDE;VIDE;VIDE;
+AP après sortie;A6;3;412500;A6-3-412.5;Belleville;;VIDE;VIDE;VIDE;
+AP après sortie;A6;1;426750;A6-1-426.75;Villefranche;;VIDE;VIDE;VIDE;
+AP avant entrée;A6;2;426750;A6-2-426.75;Villefranche;;VIDE;VIDE;VIDE;
+AP après sortie;A6;2;426750;A6-2-426.75;Villefranche;;VIDE;VIDE;VIDE;
+AP avant entrée;A71;3;251230;A71-3-251.23;St.Amand-Montrond;;VIDE;VIDE;VIDE;
+AP après sortie;A71;3;251230;A71-3-251.23;St.Amand-Montrond;;VIDE;VIDE;VIDE;
+AP avant entrée;A71;3;280430;A71-3-280.43;Forêt de Tronçais;;VIDE;VIDE;VIDE;
+AP après sortie;A71;3;280430;A71-3-280.43;Forêt de Tronçais;;VIDE;VIDE;VIDE;
+AP avant entrée;A71;3;294950;A71-3-294.95;Montluçon;;VIDE;VIDE;VIDE;
+AP après sortie;A71;3;294950;A71-3-294.95;Montluçon;;VIDE;VIDE;VIDE;
+AP avant entrée;A71;3;317960;A71-3-317.96;Montmarault;;VIDE;VIDE;VIDE;
+AP après entrée;A71;3;317960;A71-3-317.96;Montmarault;;VIDE;VIDE;VIDE;
+AP après sortie;A71;3;317960;A71-3-317.96;Montmarault;;VIDE;VIDE;VIDE;
+AP;A71;3;362040;A71-3-362.04;Combronde;;VIDE;VIDE;VIDE;
+AP avant entrée;A71;3;374880;A71-3-374.88;Riom;;VIDE;VIDE;VIDE;
+AP après sortie;A71;3;374880;A71-3-374.88;Riom;;VIDE;VIDE;VIDE;
+AP après sortie;A77;1;5660;A77-1-5.66;Val de Loing-Souppes ;;VIDE;VIDE;VIDE;
+AP après sortie;A77;3;28110;A77-3-28.11;Le Tourneau;;VIDE;VIDE;VIDE;
+AR;A40;2;103000;A40-2-103.000;Aire de La Semine;;VIDE;VIDE;VIDE;
+AR;A40;2;115500;A40-2-115.500;Aire du Lac;;VIDE;VIDE;VIDE;
+AS;A40;2;130900;A40-2-130.900;Aire de Ceignes-Cerdon;;VIDE;VIDE;VIDE;
+AR;A40;2;152600;A40-2-152.600;Aire de Certines;;VIDE;VIDE;VIDE;Poste de Gendarmerie et CRS
+AS;A40;2;163400;A40-2-163.400;Aire de Bourg-Teyssonge;;VIDE;VIDE;OUI;
+AR;A40;2;191150;A40-2-191.150;Aire des Planons;;VIDE;VIDE;VIDE;Sécurodrome ?
+PB;A404;1;12550;A404-1-12.550;Aire de Groissiat;;VIDE;VIDE;VIDE;
+PB;A404;2;12550;A404-2-12.550;Aire de Groissiat;;VIDE;VIDE;VIDE;
+AS;A42;1;16300;A42-1-16.300;Aire de Lyon-Dagneux;;VIDE;VIDE;VIDE;
+AR;A42;1;32600;A42-1-32.600;Aire de Chazey sur Ain;;VIDE;VIDE;VIDE;
+AR;A42;2;9600;A42-2-9.600;Aire de Beynost-nord;;VIDE;VIDE;VIDE;
+AS;A42;2;16300;A42-2-16.300;Aire de Lyon-Montluel;;VIDE;VIDE;VIDE;
+AR;A42;2;32600;A42-2-32.600;Aire de Brotteaux;;VIDE;VIDE;VIDE;
+AR;A42;1;9800;A42-1-9.800;Aire de Beynost-sud;;VIDE;VIDE;VIDE;Accessible aux deux sens
+PB;A432;1;12360;A432-1-12.360;Aire La Boisse (ouest);;VIDE;VIDE;VIDE;
+PB;A432;2;12360;A432-2-12.360;Aire La Boisse (est);;VIDE;VIDE;VIDE;Stationnement gens du voyage ???
+AS;A46;1;16000;A46-1-16.000;Aire de Mionnay-Saint-Galmier;;VIDE;VIDE;OUI;
+AS;A46;2;16000;A46-2-16.000;Aire de Mionnay-Chatanay;;VIDE;VIDE;OUI;
+PB;A5;1;1490;A5-1-1.490;Aire des Eprunes Ouest;;VIDE;VIDE;VIDE;2 panneaux RIS + 1 panneau Sucette
+AS;A5;1;30100;A5-1-30.100;Aire des Jonchets La Grande Paroisse;;VIDE;VIDE;VIDE;Mémorial 31.07.1984 + 4 bancs + 1 parcours de santé
+AR;A36;2;24300;A36-2-24.300;Aire de Fontaine (sud);;VIDE;VIDE;VIDE;
+AR;A6;1;133200;A6-1-133.200;Aire de La Racheuse;;VIDE;VIDE;VIDE;
+AR;A36;2;26600;A36-2-26.600;Aire de la Forêt;;VIDE;VIDE;VIDE;
+AS;A36;2;60400;A36-2-60.400;Aire d''Ecot;;VIDE;VIDE;OUI;
+AR;A36;2;65810;A36-2-65.810;Aire de Saint-Maurice (sud);;VIDE;VIDE;VIDE;
+AR;A36;2;75600;A36-2-75.600;Aire du Charme;;VIDE;VIDE;VIDE;
+AR;A36;2;84000;A36-2-84.000;Aire de La Combe de Fougère;;VIDE;VIDE;VIDE;(1) VL : + 20 places sur zone de pique-nique¤r¤n¤(*) 10 VL avec remorque + 7 places non goudronnées¤r¤n¤pour VL avec remorque
+AR;A36;2;101600;A36-2-101.600;Aire de Chevaney;;VIDE;VIDE;VIDE;
+AS;A36;2;112100;A36-2-112.100;Aire de Marchaux;;VIDE;VIDE;OUI;
+AR;A36;2;128600;A36-2-128.600;Aire du Bois de Frachère;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AR;A36;2;137500;A36-2-137.500;Aire du Bois de Servole;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AS;A36;2;160600;A36-2-160.600;Aire de Dole-Audelange;;VIDE;VIDE;VIDE;
+AR;A36;2;172100;A36-2-172.100;Aire de Sampans;;VIDE;VIDE;VIDE;
+AR;A36;2;185300;A36-2-185.300;Aire des Noues;;VIDE;VIDE;VIDE;Places caravanes utilisables par les PL
+AS;A36;2;200400;A36-2-200.400;Aire du Bois Guillerot;;VIDE;VIDE;VIDE;12 VL avec remorque + 6 places non goudronnées pour VL avec remorque
+AR;A36;2;208800;A36-2-208.800;Aire de Villy-le-Moutier;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AR;A39;1;5900;A39-1-5.900;Aire de Crimolois (sud);;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AR;A39;1;15200;A39-1-15.200;Aire du Bois Défendu;;VIDE;VIDE;VIDE;
+AS;A39;1;24930;A39-1-24.930;Aire de Pont Chêne d''Argent;;VIDE;VIDE;VIDE;Relais Liber-t
+AR;A39;1;51390;A39-1-51.390;Aire de La Vouivre;;VIDE;VIDE;VIDE;
+AR;A39;1;66730;A39-1-66.730;Aire de La Jument Verte;;VIDE;VIDE;VIDE;
+AR;A39;1;100080;A39-1-100.080;Aire de la Vallière;;VIDE;VIDE;VIDE;
+AS;A39;1;114970;A39-1-114.970;Aire du Poulet de Bresse;;OUI;OUI;OUI;
+AR;A39;1;137650;A39-1-137.650;Aire de Marmont;;VIDE;VIDE;VIDE;Espace Clients
+AR;A39;2;5900;A39-2-5.900;Aire de Crimolois (nord);;VIDE;VIDE;VIDE;
+AR;A39;2;16300;A39-2-16.300;Aire de Beire le Fort;;VIDE;VIDE;VIDE;
+AS;A39;2;24460;A39-2-24.460;Aire de Pont Val de Saône;;VIDE;VIDE;VIDE;Station de gonflage
+AR;A39;2;51310;A39-2-51.310;Aire Louis Pasteur;;VIDE;VIDE;VIDE;à confirmer avec mises en service 2011
+AR;A39;2;66730;A39-2-66.730;Aire du Chat Perché;;VIDE;VIDE;VIDE;à confirmer avec mises en service 2011
+AS;A39;2;78300;A39-2-78.300;Aire du Jura;;OUI;OUI;OUI;Point RELAX
+AR;A39;2;100080;A39-2-100.080;Aire de Savigny;;VIDE;VIDE;VIDE;
+AD;A39;2;114970;A39-2-114.970;Accès à l''Aire du Poulet de Bresse;;VIDE;VIDE;OUI;Point RELAX
+AR;A39;2;137650;A39-2-137.650;Aire de Bény;;VIDE;VIDE;VIDE;Station de gonflage gratuit
+PB;A391;1;920;A391-1-0.920;Aire de BERSAILLIN SUD;;VIDE;VIDE;VIDE;Espace clients
+PB;A391;2;920;A391-2-0.920;Aire de BERSAILLIN NORD;;VIDE;VIDE;VIDE;
+AR;A40;1;103000;A40-1-103.000;Aire de La Michaille;;VIDE;VIDE;VIDE;
+AR;A40;1;115500;A40-1-115.500;Aire des Neyrolles;;VIDE;VIDE;VIDE;
+AS;A40;1;130700;A40-1-130.700;Aire de Ceignes-Haut-Bugey;;VIDE;VIDE;VIDE;
+AR;A40;1;140300;A40-1-140.300;Aire de Neuville-sur-Ain;;VIDE;VIDE;VIDE;
+AR;A5;1;46920;A5-1-46.920;Aire de Rasets;;VIDE;VIDE;VIDE;
+AR;A5;1;68000;A5-1-68.000;Aire de Montbard;;VIDE;VIDE;VIDE; Carpophores + 1 panneau APRR 
+AS;A5;1;84980;A5-1-84.980;Aire de Villeneuve l''Archevêque;;VIDE;VIDE;VIDE;6 VL avec remorque + 11 places non goudronnées
+AR;A5;1;109300;A5-1-109.300;Aire de Tomelles;;VIDE;VIDE;VIDE;1 fax pièces PMR + jeux + Wifi
+AR;A5;1;123400;A5-1-123.400;Aire de Saint-Pouange;;VIDE;VIDE;VIDE;7 VL avec remorque + 7 places non goudronnées
+AS;A5;1;140200;A5-1-140.200;Aire de Troyes Fresnoy le Château;;VIDE;VIDE;OUI;Accessible aux deux sens + 2 points RELAX
+AR;A5;1;174810;A5-1-174.810;Aire de Mondeville;;VIDE;VIDE;VIDE;
+AD;A5;1;200070;A5-1-200.070;Aire de Châteauvillain Val Marnay;;VIDE;VIDE;OUI;Point RELAX
+AR;A5;1;219420;A5-1-219.420;Aire du Bois Moyen;;VIDE;VIDE;VIDE;
+PB;A5;2;1490;A5-2-1.490;Aire des Eprunes Est;;VIDE;VIDE;VIDE;Espace clients + CRS
+AS;A5;2;30030;A5-2-30.030;Aire des Jonchets les Récompenses;;VIDE;VIDE;VIDE; 7 VL avec remorque + 14 places non goudronnées
+AR;A5;2;46800;A5-2-46.800;Aire de Gravon;;VIDE;VIDE;VIDE;
+AR;A5;2;67000;A5-2-67.000;Aire de Montaphilant;;VIDE;VIDE;VIDE;RIS
+AS;A5;2;85000;A5-2-85.000;Aire de Villeneuve Vauluisant;;VIDE;VIDE;VIDE;4 bancs
+AR;A5;2;109400;A5-2-109.400;Aire de Fontvannes;;VIDE;VIDE;VIDE;
+AR;A5;2;124600;A5-2-124.600;Aire de La Coloterie;;VIDE;VIDE;VIDE;2 bancs
+AS;A5;2;140200;A5-2-140.200;Aire de Troyes le Plessis;;VIDE;VIDE;OUI;
+AR;A5;2;174810;A5-2-174.810;Aire de Champignol;;VIDE;VIDE;VIDE;
+AS;A5;2;200070;A5-2-200.070;Aire de Châteauvillain Orges;;VIDE;OUI;OUI;Pose de Gendarmerie
+AR;A5;2;219420;A5-2-219.420;Aire de Champs à la croix;;VIDE;VIDE;VIDE;Wifi
+AS;A5A;1;5985;A5A-1-5.985;Aire du Plessis-Picard-Ourdy;;VIDE;VIDE;VIDE; + 196 mètres linéaires de places PL non délimitées
+AS;A6;1;311300;A6-1-311.300;Aire de Beaune Tailly;;VIDE;VIDE;OUI;Parcours santé - Point RELAX
+AR;A6;1;322700;A6-1-322.700;Aire du Curney;;VIDE;VIDE;VIDE;1 Distributeur de Billets
+AS;A6;1;341700;A6-1-341.700;Aire de la Ferté;;VIDE;VIDE;VIDE;8 VL avec remorque + 17 places non goudronnées
+AR;A6;1;351900;A6-1-351.900;Aire de Jugy;;VIDE;VIDE;VIDE;Station de gonflage
+AR;A6;1;363700;A6-1-363.700;Aire de Farges;;VIDE;VIDE;VIDE;16 VL avec remorque + 8 places non goudronnées
+AS;A6;1;374800;A6-1-374.800;Aire de Mâcon Saint-Albain;;VIDE;VIDE;OUI;Parcours santé
+AR;A6;1;397000;A6-1-397.000;Aire de Crèches;;VIDE;VIDE;VIDE;
+AS;A6;1;407800;A6-1-407.800;Aire de Dracé;;VIDE;VIDE;VIDE;
+AR;A6;1;419500;A6-1-419.500;Aire de Patural;;VIDE;VIDE;VIDE;
+PB;A6;1;427400;A6-1-427.400;Aire de Villefranche Limas ouest;;VIDE;VIDE;VIDE;Eclairage public
+AS;A6;1;435600;A6-1-435.600;Aire des Chères Ouest;;VIDE;VIDE;OUI;
+AS;A6;1;450089;A6-1-450;Aire de Dardilly;;VIDE;VIDE;VIDE;Eclairage public
+AS;A6;2;311300;A6-2-311.300;Aire de Beaune Merceuil;;VIDE;VIDE;OUI;
+AR;A6;2;322900;A6-2-322.900;Aire de La Loyère;;VIDE;VIDE;VIDE;
+AS;A6;2;341700;A6-2-341.700;Aire de Saint-Ambreuil;;VIDE;VIDE;VIDE;Eclairage public
+AR;A6;2;351900;A6-2-351.900;Aire de Boyer;;VIDE;VIDE;VIDE;
+AR;A40;1;152630;A40-1-152.630;Aire de Tossiat;;VIDE;VIDE;VIDE;
+AS;A40;1;163240;A40-1-163.240;Aire de Bourg-Jasseron;;VIDE;VIDE;OUI;
+AR;A40;1;191180;A40-1-191.180;Aire du Musée de la Bresse ;;VIDE;VIDE;VIDE;
+AR;A6;2;364700;A6-2-364.700;Aire d''Uchizy;;VIDE;VIDE;VIDE;2 panneaux RIS : CG Yonne + APRR
+AS;A6;2;374800;A6-2-374.800;Aire de Mâcon La Salle;;VIDE;VIDE;OUI;Point RELAX
+AR;A6;2;397000;A6-2-397.000;Aire des Sablons;;VIDE;VIDE;VIDE;Jeu Wicky-vol (en accord Dist-DREX: jeux dangereux)
+AS;A6;2;408400;A6-2-408.400;Aire de Taponas;;VIDE;VIDE;VIDE;1 panneau Sucette - 1 panneau APRR

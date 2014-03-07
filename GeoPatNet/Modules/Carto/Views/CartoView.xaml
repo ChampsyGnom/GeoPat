@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+              xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:vm="clr-namespace:Emash.GeoPatNet.Modules.Carto.ViewModels"
              xmlns:v="clr-namespace:Emash.GeoPatNet.Modules.Carto.Views"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -68,9 +70,11 @@
                     <Button Command="{Binding Path=PublishTemplateCommand}"  Grid.Column="0" Margin="2" Content="Publier"></Button>
                     <Button Command="{Binding Path=DeleteTemplateCommand}"  Grid.Column="1" Margin="2" Content="Supprimer"></Button>
                 </Grid>
-                <TreeView x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
-                  
-                    <TreeView.Resources>
+                <TreeView  x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
+                    <i:Interaction.Behaviors>
+                        <b:TreeViewContextMenuOpeningBehavior Command="{Binding Path=TreeViewContextMenuOpeningCommand}" ></b:TreeViewContextMenuOpeningBehavior>
+                    </i:Interaction.Behaviors>
+                        <TreeView.Resources>
                         <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" DataType="{x:Type vm:CartoNodeFolderViewModel}">
                             <TextBlock Margin="2" VerticalAlignment="Center" Text="{Binding Path=DisplayName}"></TextBlock>
                         </HierarchicalDataTemplate>
@@ -82,49 +86,8 @@
                          
                         </DataTemplate>
                     </TreeView.Resources>
-                    <TreeView.ItemContainerStyle>
-                        <Style TargetType="TreeViewItem">
-                            
-                            <Style.Setters>
-                                <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></Setter>
-                                <Setter Property="IsSelected" Value="{Binding Path=IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></Setter>
-                                <Setter Property="ContextMenu">
-                                    <Setter.Value>
-                                        <ContextMenu>
-                                            <MenuItem Visibility="{Binding Path=RemoveLayerVisibility}" CommandParameter="{Binding}" Command="{Binding Path=RemoveLayerCommand}" Header="Supprimer cete couche"></MenuItem>
-                                            <MenuItem Visibility="{Binding Path=RemoveFolderVisibility}" CommandParameter="{Binding}" Command="{Binding Path=RemoveFolderCommand}" Header="Supprimer ce dossier"></MenuItem>
-                                            <MenuItem Visibility="{Binding Path=AddFolderVisibility}" CommandParameter="{Binding}" Command="{Binding Path=AddFolderCommand}" Header="Nouveau dossier"></MenuItem>
-                                            <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  Header="Nouvelle couche web">
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleMapCommand}" Header="Google map"></MenuItem>
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleSateliteCommand}" Header="Google satelite"></MenuItem>
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleTerrainCommand}" Header="Google terrain"></MenuItem>
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerBingRoadCommand}" Header="Bing road"></MenuItem>
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerBingHybridCommand}" Header="Bing hybrid"></MenuItem>
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerBingAerialCommand}" Header="Bing aérien"></MenuItem>
-                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerOsmCommand}" Header="Open Street Map"></MenuItem>
-                                            </MenuItem>
-                                           
-                                        </ContextMenu>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style.Setters>
-                        </Style>
-                    </TreeView.ItemContainerStyle>
-              
-                    <TreeView.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem CommandParameter="{x:Null}" Command="{Binding Path=AddFolderCommand}" Header="Nouveau dossier"></MenuItem>
-                            <MenuItem   Header="Nouvelle couche web">
-                                <MenuItem   CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerGoogleMapCommand}" Header="Google map"></MenuItem>
-                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerGoogleSateliteCommand}" Header="Google satelite"></MenuItem>
-                                <MenuItem   CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerGoogleTerrainCommand}" Header="Google terrain"></MenuItem>
-                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerBingRoadCommand}" Header="Bing road"></MenuItem>
-                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerBingHybridCommand}" Header="Bing hybrid"></MenuItem>
-                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerBingAerialCommand}" Header="Bing aérien"></MenuItem>
-                                <MenuItem   CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerOsmCommand}" Header="Open Street Map"></MenuItem>
-                            </MenuItem>
-                        </ContextMenu>
-                    </TreeView.ContextMenu>
+                
+                   
                 </TreeView>
                 
             </Grid>

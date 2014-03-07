@@ -1,0 +1,493 @@
+LIAISON;CD_LIAISON_INF__CD_LIAISON;LIBELLE
+A5-1-1.5;AIRE;Aire des Eprunes Ouest
+A5-1-109;AIRE;Aire de Tomelles
+A5-1-124;AIRE;Aire de Saint-Pouange
+A5-1-140;AIRE;Aire de Troyes Fresnoy le Château
+A5-1-175;AIRE;Aire de Mondeville
+A5-1-200;AIRE;Aire de Châteauvillain Val Marnay
+A5-1-219;AIRE;Aire du Bois Moyen
+A5-1-30;AIRE;Aire des Jonchets La Grande Paroisse
+A5-1-47;AIRE;Aire de Rasets
+A5-15;DIF;n°15 St.Germain Laxis
+A5-16;DIF;n°16 Châtillon la Borde
+A5-1-68;AIRE;Aire de Montbard
+A5-17;DIF;n°17 Forges
+A5-18;DIF;n°18 Marolles-sur-Seine
+A5-1-85;AIRE;Aire de Villeneuve l''Archevêque
+A5-19;DIF;n°19 Vulaines
+A5-20;DIF;n°20 Torvilliers
+A5-21;DIF;n°21 St.Thibault
+A5-2-1.5;AIRE;Aire des Eprunes Est
+A5-2-109;AIRE;Aire de Fontvannes
+A5-2-124;AIRE;Aire de La Coloterie
+A5-2-140;AIRE;Aire de Troyes le Plessis
+A5-2-175;AIRE;Aire de Champignol
+A5-22;DIF;n°22 Magnant
+A5-2-200;AIRE;Aire de Châteauvillain Orges
+A5-2-208;AIRE;Sortie 24
+A5-2-219;AIRE;Aire de Champs à la croix
+A5-23;DIF;n°23 Ville-sous- La Ferté
+A5-2-30;AIRE;Aire des Jonchets les Récompenses
+A5-24;DIF;n°24 Chaumont-Semoutiers
+A5-2-47;AIRE;Aire de Gravon
+A5-2-68;AIRE;Aire de Montaphilant
+A5-2-85;AIRE;Aire de Villeneuve Vauluisant
+A5A;AUTO;Paris - Les Eprunes
+A5A_N104;ECH;Noeud de la Justice
+A5A-10;DIF;n°10 Servigny
+A5-A10;ECH;Noeud des Eprunes
+A5A-10.a;DIF;n°10.a (Carré-Senart)
+A5A-10.A;DIF;n°10.a Carré-Senart
+A5A-10.b;DIF;n°10 b (Senart-Savigny)
+A5A-10.c;DIF;n°10.c (Lieusaint)
+A5A-11;DIF;n°11 (Savigny-Le-Temple)
+A5A-12;DIF;n°12 (Arvigny)
+A5A-13;DIF;n°13 (Plessis-Picard)
+A5A-1-6.4;AIRE;Aire du Plessis-Picard-Ourdy
+A5-A19;ECH;Noeud de la Chapelle-sur-Oreus
+A5-A26;ECH;A5 (noeud de Clérey)
+A5-A31;ECH;A5-A31 Noeud de Beauchemin
+A5A-N104;ECH;N104 (noeud de La Justice) DDE
+A6;AUTO;Paris - Lyon
+A6-;DIF;Pouilly-en -Auxois (n°24 sur A38)
+A6_A38;ECH;Noeud A6_A38
+A6_A77;ECH;Noeud du Puys
+A6-1-103;AIRE;Aire du Parc Thierry
+A6-1-117;AIRE;Aire des Châtaigniers
+A6-1-123;AIRE;Aire de La Réserve
+A6-1-132;AIRE;Aire de La Racheuse
+A6-1-150;AIRE;Aire de La Biche
+A6-1-154;AIRE;Sortie 19
+A6-1-158;AIRE;Aire des Bois Impériaux
+A6-1-167;AIRE;Aire de Venoy Grosse Pierre
+A6-1-174;AIRE;Aire de La Grosse Tour
+A6-1-187;AIRE;Aire de La Couée
+A6-1-198;AIRE;Aire de Montmorency
+A6-1-213;AIRE;Aire de La Chaponne
+A6-1-223;AIRE;Aire d''Époisses
+A6-1-233;AIRE;Aire de Ruffey
+A6-1-242;AIRE;Aire de Fermenot
+A6-1-255;AIRE;Aire du Chien Blanc
+A6-1-269;AIRE;Aire du Chaignot
+A6-1-280;AIRE;Aire de La Garenne
+A6-1-286;AIRE;Aire de La Forêt
+A6-1-29;AIRE;Aire de Lisses
+A6-1-296;AIRE;Aire du Rossignol
+A6-13;DIF;n°13 Cély
+A6-1-307;AIRE;Sortie 24.1
+A6-1-311;AIRE;Aire de Beaune Tailly
+A6-1-323;AIRE;Aire du Curney
+A6-1-342;AIRE;Aire de la Ferté
+A6-1-352;AIRE;Aire de Jugy
+A6-1-364;AIRE;Aire de Farges
+A6-1-375;AIRE;Aire de Mâcon Saint-Albain
+A6-1-397;AIRE;Aire de Crèches
+A6-14;DIF;n°14 Ury
+A6-1-408;AIRE;Aire de Dracé
+A6-1-419;AIRE;Aire de Patural
+A6-1-427;AIRE;Aire de Villefranche Limas ouest
+A6-1-436;AIRE;Aire des Chères Ouest
+A6-1-450;AIRE;Aire de Dardilly
+A6-15;DIF;n°15 Fontainebleau
+A6-1-50;AIRE;Aire de Fleury
+A6-1-57;AIRE;Aire d''Achères la Forêt
+A6-16;DIF;n°16 Nemours
+A6-1-65;AIRE;Aire de Villiers
+A6-17;DIF;n°17 Courtenay
+A6-1-74;AIRE;Aire de Nemours
+A6-18;DIF;n°18 Joigny
+A6-1-86;AIRE;Aire de Sonville
+A6-19;DIF;n°19 Auxerre-Nord
+A6-1-91;AIRE;Aire de Liard
+A6-20;DIF;n°20 Auxerre-Sud
+A6-21;DIF;n°21 Nitry
+A6-2-103;AIRE;Aire de la Roche
+A6-2-123;AIRE;Aire de La Couline
+A6-2-132;AIRE;Aire de La Loupière
+A6-2-145;AIRE;Aire des Pâtures
+A6-2-158;AIRE;Aire du Thureau
+A6-2-167;AIRE;Aire de Venoy Soleil Levant
+A6-2-178;AIRE;Aire du Buisson Rond
+A6-2-185;AIRE;Aire du Chevreuil
+A6-2-193;AIRE;Aire d''Hervaux
+A6-22;DIF;n°22 Avallon
+A6-2-209;AIRE;Sortie 22
+A6-2-213;AIRE;Aire de Maison-Dieu
+A6-2-219;AIRE;Aire de Genetoy
+A71-7;DIF;n°7 (Bourges)
+A71-8;DIF;n°8 (St.Amand-Montrond)
+A719;AUTO;A71 - Ganat
+A71-9;DIF;n°9 (Forêt de Tronçais)
+A719-1-0;AIRE;Aire de Gannat
+A719-13;DIF;n°13 (RD998-Ebreuil)
+A719-14;DIF;n°14 (RN9)
+A719-2-0;AIRE;Aire de Gannat
+A71-A710;ECH;a71-A710(ouest)-A710(ASF)
+A71-A711;ECH;A71-A711(DDE)
+A71-A714;ECH;A71-A714 (Montluçon)
+A71-A719;ECH;A71-A719 (noeud de Gannat)
+A71-A89;ECH;A71-A89 (ASF)
+A77;AUTO;Dordives - Cosne sur Loire
+A77-1-11;AIRE;Aire du Hêtre Poupre
+A77-1-30;AIRE;Aire du Cèdre
+A77-1-45;AIRE;Aire du Jardin des Arbres
+A77-1-6;AIRE;Sortie 17
+A77-1-64;AIRE;Aire du Gingko
+A77-17;DIF;n°17 (Dordives)
+A77-18;DIF;n°18 (Le Tourneau)
+A77-18.1;DIF;n°18.1 (Varennes-Changy)
+A77-1-89;AIRE;Aire du Caule
+A77-19;DIF;n°19 (Boismorand)
+A77-1-97;AIRE;Aire de Myennes Ouest
+A77-20;DIF;n°20 (Briare)
+A77-21;DIF;n°21 (Bonny-sur-Loire)
+A77-2-11;AIRE;Aire du Sophora
+A77-22;DIF;n°22 (Cosne-Nord)
+A77-22.1;DIF;n°22.1 (Cosne-Centre)
+A77-2-30;AIRE;Aire du Liquidambar
+A77-2-45;AIRE;Aire du Jardin des Arbres
+A77-2-6;AIRE;Aire de Val-de-Loing Barrière (est)
+A77-2-64;AIRE;Aire du Tulipier
+A77-2-89;AIRE;Aire du Séquoia
+A77-2-97;AIRE;Aire de Myennes Est
+TML;TUN;Tunne Maurice Lemaire
+A105;AUTO;N104-A5
+A105_A5A_A5;ECH;Noeud des Eprunes
+A105_N104;ECH;N104 Noeud du Val Ganisse
+A105-11;DIF;n°11 Evry-Grégy
+A105-12;DIF;n°12 Moissy-Cramayel
+A105-12.a;DIF;n°12.a Moissy-Cramayel
+A105-12.A;DIF;n°12 a Moissy-Cramayel
+A105-12.b;DIF;n°12.b Moissy-Cramayel
+A105-12.B;DIF;n°12 b Moissy-Cramayel
+A105-13;DIF;n°13 Réau
+A105-14;DIF;n°14 Vert-St.Denis
+A105-1-5;AIRE;Centre routier Paris Sud-Est
+A105-2-5;AIRE;Aire de Galande la Mare-Laroche
+A105-Est;DIF;N104 Noeud du Val Ganisse
+A19;AUTO;Sens - Courtenay
+A19_A5;ECH;Noeud de la Chapelle-sur-Oreuse
+A19_A6;ECH;Noeud A19_A6
+A19-1;DIF;n°1 St. Denis-les Sens
+A19-1-16;AIRE;Aire de Villeroy
+A19-2;DIF;n°2 Villeneuve- la-Dondagre
+A19-2-16;AIRE;Aire de Villeroy
+A19-A77;ECH;A19 (noeud d''Arcour)
+A26;AUTO;Troyes Nord - Troyes Est
+A26_A5;ECH;Noeud de Clérey
+A26-1-383;AIRE;Aire de Villechétif
+A26-22;DIF;n°22 Charmont-s/s-Barbuise
+A26-23;DIF;n°23 Thennelières
+A26-2-383;AIRE;Aire des Crocs de la Terre
+A31;AUTO;Toul - Beaune
+A31_A311;ECH;Noeud de Gevrey
+A31_A36;ECH;Noeud de Serrigny
+A31_A39;ECH;Noeud de Fauverney
+A31_A5;ECH;Noeud de Bauchemin
+A31_A6;ECH;Noeud de Beaune
+A311;AUTO;A31 - Dijon Sud
+A31-1;DIF;n°1 Nuits-St.Georges
+A31-10;DIF;n°10 (Chatenois)
+A31-11;DIF;n°11 (Colombey-Les-Belles)
+A31-1-100;AIRE;Sortie 6
+A31-1-103;AIRE;Aire de Langres - Noidant
+A31-1-122;AIRE;Aire du Val de Gris
+A311-1-30;AIRE;Dijon-Sud  (est)
+A31-1-138;AIRE;Aire du Val de Meuse
+A31-1-162;AIRE;Aire du Bois de Chaumont
+A31-1-17;AIRE;Aire de Boncourt le Bois
+A31-1-182;AIRE;Aire de Lorraine Sandaucourt les Rappes
+A31-12;DIF;n°12 (RN 4 - Toul)
+A31-1-201;AIRE;Aire du Val Au Renard
+A31-1-211;AIRE;Aire de Malvaux
+A31-1-225;AIRE;Aire de Gye (Est)
+A311-2-30;AIRE;Dijon-Sud (ouest)
+A31-1-232;AIRE;Aire de Toul - Chaudeney
+A31-1-26;AIRE;Aire de Gevrey-Chambertin
+A31-1-28;AIRE;Echangeur A31 - A311
+A31-1-45;AIRE;Aire du Pré dAzur
+A31-1-56;AIRE;Aire de Dijon Spoy
+A31-1-76;AIRE;Aire de la Villa des Thuillières
+A31-1-8;AIRE;Aire de Corgoloin
+A31-1-88;AIRE;Aire de Combe Suzon
+A311-NN-1;DIF;n°? RD108
+A311-NN-2;DIF;n°? RD122A
+A31-2-103;AIRE;Aire de Langres - Perrogney
+A31-2-122;AIRE;Aire de Côté Robert
+A31-2-138;AIRE;Aire de Montigny le Roi
+A31-2-162;AIRE;Aire du Grand Repenti
+A31-2-17;AIRE;Aire de Flagey-Echézeaux
+A31-2-182;AIRE;Aire de Lorraine Sandaucourt la Trelle
+A31-2-201;AIRE;Aire du Grand Chêne
+A31-2-211;AIRE;Aire de Faverosse
+A31-2-215;AIRE;Sortie 11
+A31-2-225;AIRE;Aire de Gye (Ouest)
+A31-2-232;AIRE;Aire de Toul - Dommartin
+A31-2-26;AIRE;Aire de Gevrey-Chambertin
+A31-2-45;AIRE;Aire de la Tille
+A31-2-56;AIRE;Aire de Dijon Brognon
+A6-2-233;AIRE;Aire de La Côme
+A6-2-242;AIRE;Aire de Marcigny
+A6-2-255;AIRE;Aire des Lochères
+A6-2-269;AIRE;Aire de La Repotte
+A6-2-286;AIRE;Aire du Creux Moreau
+A6-2-29;AIRE;Aire de Villabé
+A6-2-294;AIRE;Aire du Bois des Corbeaux
+A6-2-298;AIRE;Aire de Savigny Les Beaune
+A6-23;DIF;n°23 Bierre-les-Semur
+A6-2-311;AIRE;Aire de Beaune Merceuil
+A6-2-323;AIRE;Aire de La Loyère
+A6-2-329;AIRE;Sortie 25
+A6-2-342;AIRE;Aire de Saint-Ambreuil
+A6-2-352;AIRE;Aire de Boyer
+A6-2-364;AIRE;Aire d''Uchizy
+A6-2-375;AIRE;Aire de Mâcon La Salle
+A6-2-381;AIRE;Sortie 28
+A6-2-397;AIRE;Aire des Sablons
+A6-24;DIF;n°24 Beaune-Nord
+A6-24.1;DIF;n°24.1 Beaune
+A6-2-408;AIRE;Aire de Taponas
+A6-2-419;AIRE;Aire de Boitray
+A6-2-427;AIRE;Aire de Villefranche Limas est
+A6-2-436;AIRE;Aire des Chères Est
+A6-2-446;AIRE;Aire des Bruyères - Paisy
+A6-25;DIF;n°25 Chalon-Nord
+A6-2-50;AIRE;Aire de Fleury II + I
+A6-2-52;AIRE;Aire d''Arbonne
+A6-2-57;AIRE;Aire d''Achères
+A6-26;DIF;n°26 Chalon-Sud
+A6-27;DIF;n°27 Tournus
+A6-2-74;AIRE;Aire de Darvault
+A6-28;DIF;n°28 Mâcon-Nord
+A6-2-86;AIRE;Aire de Floée
+A6-29;DIF;n°29 Mâcon-Sud
+A6-2-91;AIRE;Aire d''Égreville
+A6-30;DIF;n°30 Belleville
+A6-31;DIF;n°31 Villefranche
+A6-32;DIF;n°32 Anse
+A6-33;DIF;n°33 Limonest
+A6-A19;ECH;Noeud A6-A19
+A6-A31;ECH;A6 (noeud de Beaune)
+A71;AUTO;Bourges - Clermond Ferrand
+A71_710W_710;ECH;Noeud A71_A710W_A710
+A71_711_75;ECH;Noeud A71_A711_A75
+A71_A714;ECH;Noeud de Montluçon
+A71_A719;ECH;Noeud de Gannat
+A710-15;DIF;n°15 Clermont-Nord
+A710W;AUTO;A710 ouest
+A710W-15;DIF;n°15 (Clermont-Nord)
+A71-10;DIF;n°10 Montluçon
+A71-11;DIF;n°11 (Montmarault)
+A71-12.1;DIF;n°12.1 (Combronde)
+A71-1-219;AIRE;Aire du Gîte aux Loups
+A71-1-246;AIRE;Aire du Centre de la France Farges Allichamps
+A71-1-276;AIRE;Aire du Grand Meaulnes
+A71-13;DIF;n°13 (Riom)
+A71-1-304;AIRE;Aire de l''Allier Doyet
+A71-1-333;AIRE;Aire de la Bouble
+A71-1-355;AIRE;Aire des Volcans d''Auvergne
+A71-1-372;AIRE;Aire de Montpertuis
+A71-1-381;AIRE;Aire de Clermont-Barrière Ouest
+A71-14;DIF;n°14 Gerzat-est
+A71-14-1;DIF;n°14 Gerzat-est
+A71-14-2;DIF;n°14 Gerzat-ouest
+A71-16;DIF;n°16 (Le Brézet)
+A71-2-214;AIRE;Aire du Bois des Dames
+A71-2-246;AIRE;Aire du Centre de la France Bruère Allichamps
+A71-2-276;AIRE;Aire de Vallon
+A71-2-304;AIRE;Aire de l''Allier Saulzet
+A71-2-333;AIRE;Aire de Chantelle en Bourbonnais
+A71-2-355;AIRE;Acces à l''Aire des Volcans d''Auvergne
+A71-2-372;AIRE;Aire de Pessat-Villeneuve
+A71-2-381;AIRE;Aire de Clermont-Barrière Est (Nord+Sud)
+A714;AUTO;A71 - Montluçon
+A714-35;DIF;n°35 (Le Pont des Nautes)
+A714-36;DIF;n°36 (La Croix de Fragne)
+A39;AUTO;Dijon - Bourg en Bresse
+A39_A391;ECH;Noeud de Bersaillin
+A39_A40;ECH;Noeud de Viriat
+A391;AUTO;Poligny - Bourg en Bresse
+A39-1;DIF;n°1 (Dijon RN 974)
+A39-10;DIF;n°10 (Beaupont)
+A39-1-100;AIRE;Aire de la Vallière
+A391-1-1;AIRE;Aire de BERSAILLIN SUD
+A39-1-115;AIRE;Aire du Poulet de Bresse
+A39-1-138;AIRE;Aire de Marmont
+A39-1-16;AIRE;Aire du Bois Défendu
+A391-2-1;AIRE;Aire de BERSAILLIN NORD
+A39-1-25;AIRE;Aire de Pont Chêne d''Argent
+A39-1-40;AIRE;Sortie 6
+A39-1-51;AIRE;Aire de La Vouivre
+A39-1-6;AIRE;Aire de Crimolois (sud)
+A39-1-67;AIRE;Aire de La Jument Verte
+A391-7;DIF;n°7 (RD192-Sellières)
+A39-1-79;AIRE;Accès à l''Aire du Jura
+A391-NN;DIF;n°? RD192-Sellières
+A39-2;DIF;n°2 (Neuilly-les-Dijon)
+A39-2-100;AIRE;Aire de Savigny
+A39-2-115;AIRE;Accès à l''Aire du Poulet de Bresse
+A39-2-138;AIRE;Aire de Bény
+A39-2-16;AIRE;Aire de Beire le Fort
+A39-2-25;AIRE;Aire de Pont Val de Saône
+A39-2-51;AIRE;Aire Louis Pasteur
+A39-2-6;AIRE;Aire de Crimolois (nord)
+A39-2-67;AIRE;Aire du Chat Perché
+A39-2-79;AIRE;Aire du Jura
+A39-3;DIF;n°3 (Chevigny-St.Sauveur - Crimolois)
+A39-5;DIF;n°5 (Soirans)
+A39-6;DIF;n°6 (Choisey)
+A39-7.1;DIF;n°7.1 (Arlay)
+A39-8;DIF;n°8 (Beaurepaire-en-Bresse)
+A39-9;DIF;n°9 (Le Miroir)
+A39-A391;ECH;A39 (noeud de Bersaillin)
+A39-A40;ECH;A39-A40 (noeud de Viriat)
+A40;AUTO;Mâcon - Bellegarde
+A40_A404;ECH;Noeud de Maillat
+A40_A406;ECH;Nœud de  ?
+A40_A42;ECH;Noeud de Pont d''Ain
+A40_A6;ECH;Noeud de Sennecé
+A40-1;DIF;n°1 (Mâcon-Centre)
+A40-1-103;AIRE;Aire de La Michaille
+A40-1-116;AIRE;Aire des Neyrolles
+A40-1-130;AIRE;Aire de Ceignes-Haut-Bugey
+A40-1-140;AIRE;Aire de Neuville-sur-Ain
+A40-1-152;AIRE;Aire de Tossiat
+A40-1-163;AIRE;Aire de Bourg-Jasseron
+A40-1-191;AIRE;Aire du Musée de la Bresse 
+A40-2;DIF;n°2 (Feillens)
+A40-2-103;AIRE;Aire de La Semine
+A40-2-116;AIRE;Aire du Lac
+A40-2-130;AIRE;Aire de Ceignes-Cerdon
+A40-2-152;AIRE;Aire de Certines
+A40-2-163;AIRE;Aire de Bourg-Teyssonge
+A40-2-191;AIRE;Aire des Planons
+A40-3;DIF;n°3 (Replonges)
+A404;AUTO;Saint Matin du Fresne - Oyonnax
+A40-4;DIF;n°4 (St.Genis-sur-Menthon)
+A404-10;DIF;n°10 (Oyonnax-Sud, RD11)
+A404-11;DIF;n°11 (Oyonnax-Ouest, RD13)
+A404-1-13;AIRE;Aire de Groissiat
+A404-12;DIF;n°12 (Oyonnax-Nord, ZI)
+A404-2-13;AIRE;Aire de Groissiat
+A404-9;DIF;n°9 (Croix-Chalon)
+A40-5;DIF;n°5 (Bourg-Nord)
+A406;AUTO;Contournement de Mâcon
+A40-6;DIF;n°6 (Viriat)
+A406-1;DIF;n°1 (Crottet - RD933)
+A406-2;DIF;n°2 ( Varennes Les Mâcon)
+A40-7;DIF;n°7 (Bourg-Sud)
+A40-8;DIF;n°8 (St.Martin-du-Fresne)
+A40-9;DIF;n°9 (Sylans)
+A40-A404;ECH;A40-A404 (noeud de Maillat)
+A40-A42;ECH;A40-A42 (noeud de Pont-d''Ain)
+A42;AUTO;Pont d''Ain-Lyon
+A42-A46;ECH;A42 (noeud des Iles)
+A42_A432;ECH;Noeud de la Boisse
+A42-11-10;AIRE;Aire de Beynost-sud
+A42-1-16;AIRE;Aire de Lyon-Dagneux
+A42-1-33;AIRE;Aire de Chazey sur Ain
+A42-2-10;AIRE;Aire de Beynost-nord
+A42-2-16;AIRE;Aire de Lyon-Montluel
+A42-2-33;AIRE;Aire de Brotteaux
+A42-4;DIF;n°4 (Miribel-Jonage)
+A42-5;DIF;n°5 (St.Maurice-de-Beynost)
+A42-5.1;DIF;n° 5.1 ( Montluel-RD61)
+A42-6;DIF;n°6 (Balan)
+A42-7;DIF;n°7 (Pérouges)
+A42-8;DIF;n°8 (Ambérieu)
+A42-9;DIF;n°9 (Pont-d''Ain)
+A42-A432;ECH;A42-A432 (noeud de La Boisse)
+A432;AUTO;La Boisse - Saint Exupery
+A432-1-12.36;AIRE;Aire La Boisse (ouest)
+A432-2-12.36;AIRE;Aire La Boisse (est)
+A432-3;DIF;n°3 (RD 517)
+A432-4;DIF;n°4 (RD 29)
+A432-5;DIF;n°5 bretelle de Satolas
+A46;AUTO;Anse - Neyron
+A46_A42;ECH;Noeud des Iles
+A46_A432;ECH;Nœud de  ?
+A46_A6;ECH;Noeud d''Anse
+A46-1;DIF;n°1 (Quincieux)
+A46-1-1;DIF;n°1 Ambérieux-d''Azergues
+A46-1-16;AIRE;Aire de Mionnay-Saint-Galmier
+A46-1-2;DIF;n°1 Quincieux
+A46-2;DIF;n°2 (Genay)
+A46-2.1;DIF;n°2.1 (Mionnay)
+A46-2-16;AIRE;Aire de Mionnay-Chatanay
+A46-3;DIF;n°3 (Les Echets)
+A46-4;DIF;n°4 (Rillieux)
+A5;AUTO;Paris - Langres
+A31-2-76;AIRE;Aire de Sainte-Gertrude
+A31-2-8;AIRE;Aire de Serrigny
+A31-2-88;AIRE;Aire de Fontenelle
+A31-4;DIF;n°4 Dijon - Arc-sur-Tille
+A31-5;DIF;n°5 Til-Châtel
+A31-6;DIF;n°6 Langres-Sud
+A31-7;DIF;n°7 (Langres-Nord)
+A31-8;DIF;n°8 (Montigny-Le-Roi)
+A31-8.1;DIF;n°8.1 (Robécourt)
+A31-9;DIF;n°9 (Bulgnéville)
+A31-A311;ECH;A31-A311 (biffur. de Gevrey)
+A31-A36;ECH;A31-A36 (biffur. de Serrigny)
+A31-A39;ECH;A31-A39 (noeud de Fauverney)
+A36;AUTO;Mulhouse - Beaune
+A36_A39;ECH;Noeud de Ste Seine en Bâche
+A36-1;DIF;n°1 (Seurre)
+A36-10;DIF;n°10 (Brognard/Grand-Charmont)
+A36-11;DIF;n°11 (Sévenans/Héricourt)
+A36-1-101;AIRE;Aire des Grands Brocards
+A36-1-11;AIRE;Aire de La Porte d''Alsace (nord)
+A36-1-112;AIRE;Aire de Besançon Champoux
+A36-1-129;AIRE;Aire de Pelousey
+A36-1-146;AIRE;Aire d''Hyombre
+A36-1-160;AIRE;Aire de Dole-Romange
+A36-1-172;AIRE;Aire du Bois des Potets
+A36-1-185;AIRE;Aire de Saint-Jean-de-Losne
+A36-12;DIF;n°12 (Belfort-Sud)
+A36-1-20;AIRE;Aire d''Angeot
+A36-1-201;AIRE;Aire de Glanon
+A36-1-219;AIRE;Aire d''Argilly
+A36-1-24;AIRE;Aire de Fontaine (nord)
+A36-1-28;AIRE;Aire des Grands Prés
+A36-13;DIF;n°13 (Belfort-Centre)
+A36-14;DIF;n°14 (Belfort-Nord)
+A36-14.1;DIF;n°14-1 (Fontaine)
+A36-1-44;AIRE;Aire de Dambenois
+A36-15;DIF;n°15 (Burnhaupt)
+A36-16;DIF;n°16 ( Lutterbarch-Dornach)
+A36-1-60;AIRE;Aire d''Ecot (La Combe-Ronde)
+A36-1-66;AIRE;Aire de Saint-Maurice (nord)
+A36-1-75;AIRE;Aire du Galiot
+A36-1-84;AIRE;Aire du Boulet
+A36-2;DIF;n°2 (Dole)
+A36-2.1;DIF;n°2.1 (Gendrey)
+A36-2-101;AIRE;Aire de Chevaney
+A36-2-11;AIRE;Aire de La Porte d''Alsace (sud)
+A36-2-112;AIRE;Aire de Marchaux
+A36-2-124;AIRE;Sortie 4
+A36-2-129;AIRE;Aire du Bois de Frachère
+A36-2-138;AIRE;Aire du Bois de Servole
+A36-2-160;AIRE;Aire de Dole-Audelange
+A36-2-172;AIRE;Aire de Sampans
+A36-2-185;AIRE;Aire des Noues
+A36-2-20;AIRE;Aire du Haut Bois
+A36-2-201;AIRE;Aire du Bois Guillerot
+A36-2-219;AIRE;Aire de Villy-le-Moutier
+A36-2-24;AIRE;Aire de Fontaine (sud)
+A36-2-28;AIRE;Aire de la Forêt
+A36-2-60;AIRE;Aire d''Ecot
+A36-2-66;AIRE;Aire de Saint-Maurice (sud)
+A36-2-75;AIRE;Aire du Charme
+A36-2-84;AIRE;Aire de La Combe de Fougère
+A36-3;DIF;n°3 (Besançon-Ouest)
+A36-4;DIF;n°4 (Besançon-Nord)
+A36-4.1;DIF;n°4.1 (Besançon-Est)
+A36-5;DIF;n°5 (Baume-Les-Dames)
+A36-6;DIF;n°6 (L''Isle-sur-Le-Doubs)
+A36-6.1;DIF;n°6.1 (Voujeaucourt)
+A36-7;DIF;n°7 (Montbéliard-Sud/Valentigney)
+A36-7-1;DIF;n°7 Montbéliard-Sud/Valentigney
+A36-7-2;DIF;n°7 Montbéliard-Sud/Valentigney
+A36-8;DIF;n°8 (Montbéliard-Centre)
+A36-9;DIF;n°9 (Sochaux-Exincourt)
+A36-A39;ECH;A36-A39 (noeud de Ste.Seine-en-Bâche)

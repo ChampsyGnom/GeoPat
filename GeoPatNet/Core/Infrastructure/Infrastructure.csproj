@@ -98,6 +98,7 @@
     <Compile Include="Attributes\UniqueKeyAttribute.cs" />
     <Compile Include="Behaviors\AvalonDocumentClosingBehavior.cs" />
     <Compile Include="Behaviors\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Behaviors\TreeViewContextMenuOpeningBehavior.cs" />
     <Compile Include="Behaviors\DataGridContextMenuOpeningBehavior.cs" />
     <Compile Include="Behaviors\MouseDoubleClickBehavior.cs" />
     <Compile Include="Capability\ICustomDisplay.cs" />

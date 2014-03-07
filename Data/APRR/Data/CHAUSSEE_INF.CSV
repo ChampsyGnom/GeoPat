@@ -1,0 +1,517 @@
+LIAISON_INF__LIAISON;SENS;ABS_DEB;ABS_FIN;LIBELLE;TENANT;ABOUT
+A42-A432;S2;0;1690;A42-A432 (noeud de La Boisse);A42;A432
+A42-A432;S4;0;740;A42-A432 (noeud de La Boisse);A42;A432
+A5-A10;E1;0;1855;Noeud des Eprunes;A5;A105
+A5-A10;S2;0;844;Noeud des Eprunes;A5;A105
+A5-A19;E1;0;958;Noeud de la Chapelle-sur-Oreus;A5;A19
+A105-12.a;E1;0;429;n°12.a Moissy-Cramayel;A105;
+A105-11;E2;0;370;n°11 Evry-Grégy;A105;
+A105-11;S1;0;580;n°11 Evry-Grégy;A105;
+A105-12.a;S1;0;617;n°12.a Moissy-Cramayel;A105;
+A105-12.b;S1;0;478;n°12.b Moissy-Cramayel;A105;
+A105-12;E2;0;293;n°12 Moissy-Cramayel;A105;
+A105-12;S2;0;383;n°12 Moissy-Cramayel;A105;
+A105-13;E1;0;455;n°13 Réau;A105;
+A105-13;E2;0;442;n°13 Réau;A105;
+A105-13;S1;0;325;n°13 Réau;A105;
+A105-13;S2;0;509;n°13 Réau;A105;
+A105-14;E1;0;698;n°14 Vert-St.Denis;A105;
+A105-14;E2;0;474;n°14 Vert-St.Denis;A105;
+A105-14;S1;0;556;n°14 Vert-St.Denis;A105;
+A105-14;S2;0;502;n°14 Vert-St.Denis;A105;
+A105-Est;S2;0;869;N104 Noeud du Val Ganisse;A105;
+A19-1;E1;0;820;n°1 St. Denis-les Sens;A19;
+A19-1;E2;0;689;n°1 St. Denis-les Sens;A19;
+A19-1;S1;0;755;n°1 St. Denis-les Sens;A19;
+A19-1;S2;0;633;n°1 St. Denis-les Sens;A19;
+A19-2;E1;0;877;n°2 Villeneuve- la-Dondagre;A19;
+A19-2;E2;0;689;n°2 Villeneuve- la-Dondagre;A19;
+A19-2;S1;0;1064;n°2 Villeneuve- la-Dondagre;A19;
+A26-23;E1;0;823;n°23 Thennelières;A26;
+A26-23;E2;0;819;n°23 Thennelières;A26;
+A26-23;S1;0;891;n°23 Thennelières;A26;
+A26-23;S2;0;858;n°23 Thennelières;A26;
+A31-6;E1;0;853;n°6 Langres-Sud;A31;
+A31-6;E2;0;725;n°6 Langres-Sud;A31;
+A31-6;S1;0;802;n°6 Langres-Sud;A31;
+A31-6;S2;0;843;n°6 Langres-Sud;A31;
+A31-1;E1;0;761;n°1 Nuits-St.Georges;A31;
+A31-1;E2;0;334;n°1 Nuits-St.Georges;A31;
+A31-1;S1;0;1019;n°1 Nuits-St.Georges;A31;
+A31-1;S2;0;406;n°1 Nuits-St.Georges;A31;
+A5A-13;E1;0;470;n°13 (Plessis-Picard);A5A;
+A5A-13;S2;0;163;n°13 (Plessis-Picard);A5A;
+A71-11;E1;0;325;n°11 (Montmarault);A71;
+A71-11;E2;0;976;n°11 (Montmarault);A71;
+A71-11;S1;0;748;n°11 (Montmarault);A71;
+A71-11;S2;0;800;n°11 (Montmarault);A71;
+A71-12.1;E1;0;527;n°12.1 (Combronde);A71;
+A71-12.1;E2;0;823;n°12.1 (Combronde);A71;
+A71-12.1;S1;0;334;n°12.1 (Combronde);A71;
+A71-12.1;S2;0;934;n°12.1 (Combronde);A71;
+A71-13;E1;0;424;n°13 (Riom);A71;
+A71-13;E2;0;1320;n°13 (Riom);A71;
+A71-13;S1;0;550;n°13 (Riom);A71;
+A71-13;S2;0;1476;n°13 (Riom);A71;
+A71-16;E1;0;383;n°16 (Le Brézet);A71;
+A71-16;E2;0;410;n°16 (Le Brézet);A71;
+A71-16;S1;0;302;n°16 (Le Brézet);A71;
+A71-16;S2;0;300;n°16 (Le Brézet);A71;
+A714-35;E1;0;58;n°35 (Le Pont des Nautes);A714;
+A714-35;E2;0;374;n°35 (Le Pont des Nautes);A714;
+A714-35;S1;0;420;n°35 (Le Pont des Nautes);A714;
+A714-35;S2;0;65;n°35 (Le Pont des Nautes);A714;
+A714-36;E1;0;428;n°36 (La Croix de Fragne);A714;
+A714-36;E2;0;462;n°36 (La Croix de Fragne);A714;
+A714-36;S1;0;468;n°36 (La Croix de Fragne);A714;
+A714-36;S2;0;494;n°36 (La Croix de Fragne);A714;
+A71-7;E1;0;1000;n°7 (Bourges);A71;
+A71-7;E2;0;560;n°7 (Bourges COFIROUTE);A71;
+A71-7;S1;0;769;n°7 (Bourges COFIROUTE);A71;
+A71-7;S2;0;609;n°7 (Bourges);A71;
+A71-8;E1;0;1044;n°8 (St.Amand-Montrond);A71;
+A71-8;E2;0;476;n°8 (St.Amand-Montrond);A71;
+A71-8;S1;0;994;n°8 (St.Amand-Montrond);A71;
+A71-8;S2;0;351;n°8 (St.Amand-Montrond);A71;
+A71-9;E1;0;428;n°9 (Forêt de Tronçais);A71;
+A71-9;E2;0;836;n°9 (Forêt de Tronçais);A71;
+A71-9;S1;0;397;n°9 (Forêt de Tronçais);A71;
+A71-9;S2;0;1034;n°9 (Forêt de Tronçais);A71;
+A719-13;E2;0;147;n°13 (RD998-Ebreuil);A719;
+A719-13;S1;0;385;n°13 (RD998-Ebreuil);A719;
+A719-14;E2;0;429;n°14 (RN9);A719;
+A719-14;S2;0;712;n°14 (RN9);A719;
+A77-17;E1;0;312;n°17 (Dordives);A77;
+A77-17;E2;0;629;n°17 (Dordives);A77;
+A77-17;S1;0;749;n°17 (Dordives);A77;
+A77-17;S2;0;408;n°17 (Dordives);A77;
+A77-18;E1;0;1175;n°18 (Le Tourneau);A77;
+A77-18;E2;0;413;n°18 (Le Tourneau);A77;
+A77-18;S1;0;575;n°18 (Le Tourneau);A77;
+A77-18;S2;0;760;n°18 (Le Tourneau);A77;
+A77-18.1;E2;0;616;n°18.1 (Varennes-Changy);A77;
+A77-18.1;S1;0;1063;n°18.1 (Varennes-Changy);A77;
+A77-19;E1;0;278;n°19 (Boismorand);A77;
+A77-19;E2;0;349;n°19 (Boismorand);A77;
+A77-19;S1;0;348;n°19 (Boismorand);A77;
+A77-19;S2;0;303;n°19 (Boismorand);A77;
+A77-20;E1;0;249;n°20 (Briare);A77;
+A77-20;E2;0;928;n°20 (Briare);A77;
+A77-20;S1;0;305;n°20 (Briare);A77;
+A77-20;S2;0;952;n°20 (Briare);A77;
+A77-21;E1;0;325;n°21 (Bonny-sur-Loire);A77;
+A77-21;E2;0;364;n°21 (Bonny-sur-Loire);A77;
+A77-21;S1;0;384;n°21 (Bonny-sur-Loire);A77;
+A77-21;S2;0;422;n°21 (Bonny-sur-Loire);A77;
+A77-22;E1;0;327;n°22 (Cosne-Nord);A77;
+A77-22;E2;0;317;n°22 (Cosne-Nord);A77;
+A77-22;S1;0;348;n°22 (Cosne-Nord);A77;
+A77-22;S2;0;328;n°22 (Cosne-Nord);A77;
+A77-22.1;E2;0;307;n°22.1 (Cosne-Centre);A77;
+A77-22.1;S1;0;283;n°22.1 (Cosne-Centre);A77;
+A26-22;E1;0;810;n°22 Charmont-s/s-Barbuise;A26;
+A26-22;E2;0;1214;n°22 Charmont-s/s-Barbuise;A26;
+A26-22;S1;0;1021;n°22 Charmont-s/s-Barbuise;A26;
+A26-22;S2;0;1407;n°22 Charmont-s/s-Barbuise;A26;
+A710W-15;E2;0;258;n°15 (Clermont-Nord);A710W;
+A710W-15;S1;0;212;n°15 (Clermont-Nord);A710W;
+A31-A311;E2;0;1013;A31-A311 (biffur. de Gevrey);A31;A311
+A31-A311;S1;0;1989;A31-A311 (biffur. de Gevrey);A31;A311
+A31-A36;E2;0;1431;A31-A36 (biffur. de Serrigny);A36;A31
+A31-A36;S1;0;1111;A31-A36 (biffur. de Serrigny);A 36;A31
+A31-A39;E1;0;452;A31-A39 (noeud de Fauverney);A31;A39
+A31-A39;E2;0;324;A31-A39 (noeud de Fauverney);A31;A39
+A31-A39;E3;0;767;A31-A39 (noeud de Fauverney);A31;A39
+A31-A39;S1;0;888;A31-A39 (noeud de Fauverney);A31;A39
+A31-A39;S2;0;1398;A31-A39 (noeud de Fauverney);A31;A39
+A31-A39;S4;0;489;A31-A39 (noeud de Fauverney);A31;A39
+A36-A39;E1;0;399;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;E2;0;536;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;E3;0;540;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;E4;0;1658;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;S1;0;1696;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;S2;0;376;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;S3;0;407;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A36-A39;S4;0;431;A36-A39 (noeud de Ste.Seine-en-Bâche);A36;A39
+A39-A391;E1;0;725;A39 (noeud de Bersaillin);A39;A391
+A39-A391;S2;0;288;A39 (noeud de Bersaillin);A39;A391
+A39-A40;E2;0;1379;A39-A40 (noeud de Viriat);A39;A40
+A39-A40;S1;0;826;A39-A40 (noeud de Viriat);A39;A40
+A40-A404;E1;0;259;A40-A404 (noeud de Maillat);A404;A40
+A40-A404;E3;0;757;A40-A404 (noeud de Maillat);A404;A40
+A40-A404;S2;0;329;A40-A404 (noeud de Maillat);A404;A40
+A40-A42;E2;0;679;A40-A42 (noeud de Pont-d''Ain);A40;A42
+A40-A42;S1;0;1637;A40-A42 (noeud de Pont-d''Ain);A40;A42
+A42-A432;E1;0;1037;A42-A432 (noeud de La Boisse);A42;A432
+A42-A432;E2;0;1342;A42-A432 (noeud de La Boisse);A42;A432
+A42-A432;E3;0;1921;A42-A432 (noeud de La Boisse);A42;A432
+A42-A432;S1;0;1266;A42-A432 (noeud de La Boisse);A42;A432
+A31-10;E2;0;371;n°10 (Chatenois);A31;
+A31-10;S1;0;501;n°10 (Chatenois);A31;
+A31-10;S2;0;443;n°10 (Chatenois);A31;
+A31-11;E1;0;501;n°11 (Colombey-Les-Belles);A31;
+A31-11;E2;0;929;n°11 (Colombey-Les-Belles);A31;
+A31-11;S1;0;745;n°11 (Colombey-Les-Belles);A31;
+A31-11;S2;0;821;n°11 (Colombey-Les-Belles);A31;
+A31-12;E2;0;486;n°12 (RN 4 - Toul);A31;
+A31-12;S1;0;1137;n°12 (RN 4 - Toul);A31;
+A31-4;E1;0;1666;n°4 Dijon - Arc-sur-Tille;A31;
+A31-4;E2;0;572;n°4 Dijon - Arc-sur-Tille;A31;
+A31-4;S1;0;744;n°4 Dijon - Arc-sur-Tille;A31;
+A31-4;S2;0;1065;n°4 Dijon - Arc-sur-Tille;A31;
+A31-5;E1;0;889;n°5 Til-Châtel;A31;
+A31-5;E2;0;1100;n°5 Til-Châtel;A31;
+A31-5;S1;0;913;n°5 Til-Châtel;A31;
+A31-5;S2;0;1079;n°5 Til-Châtel;A31;
+A31-7;E1;0;732;n°7 (Langres-Nord);A31;
+A31-7;E2;0;1113;n°7 (Langres-Nord);A31;
+A31-7;S1;0;1559;n°7 (Langres-Nord);A31;
+A31-7;S2;0;491;n°7 (Langres-Nord);A31;
+A31-8;E1;0;1088;n°8 (Montigny-Le-Roi);A31;
+A31-8;E2;0;334;n°8 (Montigny-Le-Roi);A31;
+A31-8;S1;0;1247;n°8 (Montigny-Le-Roi);A31;
+A31-8;S2;0;440;n°8 (Montigny-Le-Roi);A31;
+A31-8.1;E1;0;738;n°8.1 (Robécourt);A31;
+A31-8.1;E2;0;685;n°8.1 (Robécourt);A31;
+A31-8.1;S1;0;502;n°8.1 (Robécourt);A31;
+A31-8.1;S2;0;673;n°8.1 (Robécourt);A31;
+A31-9;E1;0;480;n°9 (Bulgnéville);A31;
+A31-9;E2;0;811;n°9 (Bulgnéville);A31;
+A31-9;S1;0;628;n°9 (Bulgnéville);A31;
+A31-9;S2;0;850;n°9 (Bulgnéville);A31;
+A36-1;E1;0;756;n°1 (Seurre);A36;
+A36-9;E1;0;956;n°9 (Sochaux-Exincourt);A36;
+A36-9;E2;0;488;n°9 (Sochaux-Exincourt);A36;
+A36-1;E2;0;291;n°1 (Seurre);A36;
+A36-9;S1;0;597;n°9 (Sochaux-Exincourt);A36;
+A36-1;S1;0;848;n°1 (Seurre);A36;
+A36-1;S2;0;346;n°1 (Seurre);A36;
+A36-9;S2;0;748;n°9 (Sochaux-Exincourt);A36;
+A36-10;E1;0;194;n°10 (Brognard/Grand-Charmont);A36;
+A31-10;E1;0;411;n°10 (Chatenois);A31;
+A36-10;E2;0;227;n°10 (Brognard/Grand-Charmont);A36;
+A36-10;S1;0;352;n°10 (Brognard/Grand-Charmont);A36;
+A36-10;S2;0;328;n°10 (Brognard/Grand-Charmont);A36;
+A36-11;E1;0;347;n°11 (Sévenans/Héricourt);A36;
+A36-11;E2;0;331;n°11 (Sévenans/Héricourt);A36;
+A36-11;S1;0;389;n°11 (Sévenans/Héricourt);A36;
+A36-11;S2;0;200;n°11 (Sévenans/Héricourt);A36;
+A36-12;E1;0;230;n°12 (Belfort-Sud);A36;
+A36-12;E2;0;386;n°12 (Belfort-Sud);A36;
+A36-12;S1;0;310;n°12 (Belfort-Sud);A36;
+A36-12;S2;0;542;n°12 (Belfort-Sud);A36;
+A36-12;S4;0;455;n°12 (Belfort-Sud);A36;
+A36-13;E1;0;346;n°13 (Belfort-Centre);A36;
+A36-13;E2;0;331;n°13 (Belfort-Centre);A36;
+A36-13;S1;0;475;n°13 (Belfort-Centre);A36;
+A36-13;S2;0;239;n°13 (Belfort-Centre);A36;
+A36-14;E1;0;354;n°14 (Belfort-Nord);A36;
+A36-14;E2;0;355;n°14 (Belfort-Nord);A36;
+A36-14;E3;0;412;n°14 (Belfort-Nord);A36;
+A36-14;E4;0;543;n°14 (Belfort-Nord);A36;
+A36-14;S1;0;456;n°14 (Belfort-Nord);A36;
+A36-14;S2;0;378;n°14 (Belfort-Nord);A36;
+A36-14.1;E1;0;214;n°14-1 (Fontaine);A36;
+A36-14.1;E2;0;664;n°14-1 (Fontaine);A36;
+A36-14.1;S1;0;429;n°14-1 (Fontaine);A36;
+A36-14.1;S2;0;251;n°14-1 (Fontaine);A36;
+A36-15;E1;0;439;n°15 (Burnhaupt);A36;
+A36-15;E2;0;731;n°15 (Burnhaupt);A36;
+A36-15;S1;0;790;n°15 (Burnhaupt);A36;
+A36-15;S2;0;208;n°15 (Burnhaupt);A36;
+A36-16;E1;0;539;n°16 ( Lutterbarch-Dornach);A36;
+A36-16;S2;0;488;n°16 ( Lutterbarch-Dornach);A36;
+A36-2;E1;0;1009;n°2 (Dole);A36;
+A36-2;E2;0;699;n°2 (Dole);A36;
+A36-2;S1;0;1094;n°2 (Dole);A36;
+A36-2;S2;0;464;n°2 (Dole);A36;
+A36-2.1;E1;0;1013;n°2.1 (Gendrey);A36;
+A36-2.1;E2;0;221;n°2.1 (Gendrey);A36;
+A36-2.1;S1;0;1173;n°2.1 (Gendrey);A36;
+A36-2.1;S2;0;503;n°2.1 (Gendrey);A36;
+A36-3;E1;0;713;n°3 (Besançon-Ouest);A36;
+A36-3;E2;0;234;n°3 (Besançon-Ouest);A36;
+A36-3;S1;0;672;n°3 (Besançon-Ouest);A36;
+A36-3;S2;0;555;n°3 (Besançon-Ouest);A36;
+A36-4;E1;0;982;n°4 (Besançon-Nord);A36;
+A36-4;E2;0;420;n°4 (Besançon-Nord);A36;
+A36-4;S1;0;951;n°4 (Besançon-Nord);A36;
+A36-4;S2;0;688;n°4 (Besançon-Nord);A36;
+A36-4.1;E1;0;911;n°4.1 (Besançon-Est);A36;
+A36-4.1;E2;0;368;n°4.1 (Besançon-Est);A36;
+A36-4.1;S1;0;980;n°4.1 (Besançon-Est);A36;
+A36-4.1;S2;0;402;n°4.1 (Besançon-Est);A36;
+A36-5;E1;0;581;n°5 (Baume-Les-Dames);A36;
+A36-5;E2;0;511;n°5 (Baume-Les-Dames);A36;
+A36-5;S1;0;676;n°5 (Baume-Les-Dames);A36;
+A36-5;S2;0;451;n°5 (Baume-Les-Dames);A36;
+A36-6;E1;0;957;n°6 (L''Isle-sur-Le-Doubs);A36;
+A36-6;E2;0;293;n°6 (L''Isle-sur-Le-Doubs);A36;
+A36-6;S1;0;606;n°6 (L''Isle-sur-Le-Doubs);A36;
+A36-6;S2;0;681;n°6 (L''Isle-sur-Le-Doubs);A36;
+A36-6.1;E1;0;337;n°6.1 (Voujeaucourt);A36;
+A36-6.1;E2;0;359;n°6.1 (Voujeaucourt);A36;
+A36-6.1;S1;0;343;n°6.1 (Voujeaucourt);A36;
+A36-6.1;S2;0;474;n°6.1 (Voujeaucourt);A36;
+A36-7;E1;0;343;n°7 (Montbéliard-Sud/Valentigney);A36;
+A36-7;E2;0;115;n°7 (Montbéliard-Sud/Valentigney);A36;
+A36-7;S1;0;314;n°7 (Montbéliard-Sud/Valentigney);A36;
+A36-7;S2;0;226;n°7 (Montbéliard-Sud/Valentigney);A36;
+A36-8;E1;0;494;n°8 (Montbéliard-Centre);A36;
+A36-8;E2;0;746;n°8 (Montbéliard-Centre);A36;
+A36-8;S1;0;499;n°8 (Montbéliard-Centre);A36;
+A36-8;S2;0;821;n°8 (Montbéliard-Centre);A36;
+A39-1;E1;0;584;n°1 (Dijon RN 974);A39;
+A39-1;S2;0;408;n°1 (Dijon RN 974);A39;
+A39-10;E1;0;360;n°10 (Beaupont);A39;
+A39-10;E2;0;631;n°10 (Beaupont);A39;
+A39-10;S1;0;680;n°10 (Beaupont);A39;
+A39-10;S2;0;824;n°10 (Beaupont);A39;
+A391-7;E2;0;403;n°7 (RD192-Sellières);A391;
+A391-7;S1;0;282;n°7 (RD192-Sellières);A391;
+A39-2;E2;0;498;n°2 (Neuilly-les-Dijon);A39;
+A105;1;0;9510;N104-A5;;
+A19;1;0;28590;Sens - Courtenay;;
+A26;1;373350;395150;Troyes Nord - Troyes Est;;
+A31;1;0;228410;Toul - Beaune;;
+A311;1;27900;32300;A31 - Dijon Sud;;
+A36;1;0;216900;Mulhouse - Beaune;;
+A39;1;0;144800;Dijon - Bourg en Bresse;;
+A391;1;0;4810;Poligny - Bourg en Bresse;;
+A40;1;102850;207330;Mâcon - Bellegarde;;
+A404;1;0;20570;Saint Matin du Fresne - Oyonnax;;
+A406;1;120;9370;Contournement de Mâcon;;
+A42;1;4350;53400;Pont d''Ain - Lyon;;
+A432;1;0;31400;La Boisse - Saint Exupery;;
+A46;1;0;25740;Anse - Neyron;;
+A5;1;0;228100;Paris - Langres;;
+A5A;1;0;9400;Paris - Les Eprunes;;
+A6;1;44440;445700;Paris - Lyon;;
+A71;1;209780;388550;Bourges - Clermond Ferrand;;
+A710W;1;10970;12490;A710 ouest;;
+A714;1;0;10410;A71 - Montluçon;;
+A719;1;0;9730;A71 - Ganat;;
+A77;1;0;100550;Dordives - Cosne sur Loire;;
+TML;1;70;11230;Tunnel Sainte Marie Vosges-Alsace;;
+A105;2;0;9510;A5 - N104;;
+A19;2;0;28590;Courtenay - Sens ;;
+A26;2;373350;395150;Troyes Est - Troyes Nord ;;
+A31;2;0;228410;Beaune - Toul ;;
+A311;2;27900;32300;Dijon Sud - A31 ;;
+A36;2;0;216900;Beaune - Mulhouse ;;
+A39;2;0;144800;Bourg en Bresse - Dijon ;;
+A391;2;0;4810;Bourg en Bresse - Poligny ;;
+A40;2;102850;207330;Bellegarde - Mâcon ;;
+A404;2;0;20570;Oyonnax - Saint Matin du Fresne ;;
+A406;2;120;9370;Contournement de Mâcon;;
+A42;2;4350;53400;Lyon - Pont d''Ain ;;
+A432;2;0;31400;Saint Exupery - La Boisse ;;
+A46;2;0;25740;Neyron - Anse ;;
+A5;2;0;228100;Langres - Paris ;;
+A5A;2;0;9400;Les Eprunes - Paris ;;
+A6;2;44440;445700;Lyon - Paris ;;
+A71;2;209780;388550;Clermond Ferrand - Bourges ;;
+A710W;2;10970;12490;A710 ouest;;
+A714;2;0;10410;Montluçon - A71 ;;
+A719;2;0;9730;Ganat - A71 ;;
+A77;2;0;100550;Cosne sur Loire - Dordives ;;
+TML;2;70;11230;Tunnel Sainte Marie Alsace-Vosges;;
+A105;3;0;9510;N104-A5;;
+A19;3;0;28590;Sens - Courtenay;;
+A26;3;373350;395150;Troyes Nord - Troyes Est;;
+A31;3;0;228410;Toul - Beaune;;
+A311;3;27900;32300;A31 - Dijon Sud;;
+A36;3;0;216900;Mulhouse - Beaune;;
+A39;3;0;144800;Dijon - Bourg en Bresse;;
+A391;3;0;4810;Poligny - Bourg en Bresse;;
+A40;3;102850;207330;Mâcon - Bellegarde;;
+A404;3;0;20570;Saint Matin du Fresne - Oyonnax;;
+A406;3;120;9370;Contournement de Mâcon;;
+A42;3;4350;53400;Pont d''Ain - Lyon;;
+A432;3;0;31400;La Boisse - Saint Exupery;;
+A46;3;0;25740;Anse - Neyron;;
+A5;3;0;228100;Paris - Langres;;
+A5A;3;0;9400;Paris - Les Eprunes;;
+A6;3;44440;445700;Paris - Lyon;;
+A71;3;209780;388550;Bourges - Clermond Ferrand;;
+A710W;3;10970;12490;A710 ouest;;
+A714;3;0;10410;A71 - Montluçon;;
+A719;3;0;9730;A71 - Ganat;;
+A77;3;0;100550;Dordives - Cosne sur Loire;;
+TML;3;70;11230;Tunnel Sainte Marie;;
+A39-2;S1;0;331;n°2 (Neuilly-les-Dijon);A39;
+A39-3;E1;0;378;n°3 (Chevigny-St.Sauveur - Crimolois);A39;
+A39-3;E2;0;344;n°3 (Chevigny-St.Sauveur - Crimolois);A39;
+A39-3;S1;0;478;n°3 (Chevigny-St.Sauveur - Crimolois);A39;
+A39-3;S2;0;351;n°3 (Chevigny-St.Sauveur - Crimolois);A39;
+A39-5;E1;0;671;n°5 (Soirans);A39;
+A39-5;E2;0;382;n°5 (Soirans);A39;
+A39-5;S1;0;619;n°5 (Soirans);A39;
+A39-5;S2;0;326;n°5 (Soirans);A39;
+A39-6;E1;0;1288;n°6 (Choisey);A39;
+A39-6;E2;0;347;n°6 (Choisey);A39;
+A39-6;S1;0;636;n°6 (Choisey);A39;
+A39-6;S2;0;1082;n°6 (Choisey);A39;
+A39-7.1;E1;0;687;n°7.1 (Arlay);A39;
+A39-7.1;E2;0;310;n°7.1 (Arlay);A39;
+A39-7.1;S1;0;375;n°7.1 (Arlay);A39;
+A39-7.1;S2;0;643;n°7.1 (Arlay);A39;
+A42-A46;E1;0;863;A42 (noeud des Iles);A42;A46
+A42-A46;S2;0;588;A42 (noeud des Iles);A42;A46
+A19-A77;E1;0;358;A19 (noeud d''Arcour);A77;A19
+A19-A77;E2;0;372;A19 (noeud d''Arcour);A77;A19
+A19-A77;S1;0;329;A19 (noeud d''Arcour);A77;A19
+A19-A77;S2;0;410;A19 (noeud d''Arcour);A77;A19
+A432-3;E1;0;329;n°3 (RD 517);A432;
+A432-3;E2;0;243;n°3 (RD 517);A432;
+A432-3;S1;0;563;n°3 (RD 517);A432;
+A432-3;S2;0;448;n°3 (RD 517);A432;
+A432-4;E2;0;337;n°4 (RD 29);A432;
+A432-4;S1;0;584;n°4 (RD 29);A432;
+A46-1;E2;0;340;n°1 (Quincieux);A46;
+A46-1;S1;0;335;Xn°1 (Ambérieux-d''Azergues);A46;
+A46-2;E1;0;948;n°2 (Genay);A46;
+A46-2;E2;0;558;n°2 (Genay);A46;
+A46-2;S1;0;661;n°2 (Genay);A46;
+A46-2;S2;0;1206;n°2 (Genay);A46;
+A46-2.1;E1;0;938;n°2.1 (Mionnay);A46;
+A46-2.1;S2;0;437;n°2.1 (Mionnay);A46;
+A46-3;E1;0;499;n°3 (Les Echets);A46;
+A46-3;E2;0;320;n°3 (Les Echets);A46;
+A46-3;S1;0;498;n°3 (Les Echets);A46;
+A46-3;S2;0;760;n°3 (Les Echets);A46;
+A46-4;E1;0;628;n°4 (Rillieux);A46;
+A46-4;E2;0;247;n°4 (Rillieux);A46;
+A46-4;S1;0;363;n°4 (Rillieux);A46;
+A46-4;S2;0;349;n°4 (Rillieux);A46;
+A5A-10.a;E2;0;580;n°10.a (Carré-Senart);A5A;
+A5A-10.a;S1;0;479;n°10.a (Carré-Senart);A5A;
+A5A-10.b;COL;0;1354;n°10 b (Senart-Savigny);A5A;
+A5A-10.b;E1;0;465;n°10 b (Senart-Savigny);A5A;
+A5A-10.b;E2;0;256;n°10 b (Senart-Savigny);A5A;
+A5A-10.b;S1;0;488;n°10 b (Senart-Savigny);A5A;
+A5A-10.b;S2;0;258;n°10 b (Senart-Savigny);A5A;
+A5A-10.c;E1;0;267;n°10.c (Lieusaint);A5A;
+A5A-10.c;E2;0;468;n°10.c (Lieusaint);A5A;
+A5A-10.c;S1;0;274;n°10.c (Lieusaint);A5A;
+A5A-10.c;S2;0;847;n°10.c (Lieusaint);A5A;
+A5A-11;E2;0;410;n°11 (Savigny-Le-Temple);A5A;
+A5A-11;S1;0;783;n°11 (Savigny-Le-Temple);A5A;
+A5A-12;E2;0;769;n°12 (Arvigny);A5A;
+A5A-12;S1;0;731;n°12 (Arvigny);A5A;
+A39-8;E1;0;459;n°8 (Beaurepaire-en-Bresse);A39;
+A39-8;E2;0;778;n°8 (Beaurepaire-en-Bresse);A39;
+A39-8;S1;0;507;n°8 (Beaurepaire-en-Bresse);A39;
+A39-8;S2;0;1002;n°8 (Beaurepaire-en-Bresse);A39;
+A39-9;E1;0;794;n°9 (Le Miroir);A39;
+A39-9;E2;0;641;n°9 (Le Miroir);A39;
+A39-9;S1;0;1001;n°9 (Le Miroir);A39;
+A39-9;S2;0;794;n°9 (Le Miroir);A39;
+A40-1;E2;0;481;n°1 (Mâcon-Centre);A40;
+A40-1;S1;0;428;n°1 (Mâcon-Centre);A40;
+A40-2;E1;0;378;n°2 (Feillens);A40;
+A40-2;E2;0;807;n°2 (Feillens);A40;
+A40-2;S1;0;220;n°2 (Feillens);A40;
+A40-2;S2;0;946;n°2 (Feillens);A40;
+A40-3;E1;0;627;n°3 (Replonges);A40;
+A40-3;E2;0;598;n°3 (Replonges);A40;
+A40-3;S1;0;906;n°3 (Replonges);A40;
+A40-3;S2;0;486;n°3 (Replonges);A40;
+A404-11;E1;0;363;n°11 (Oyonnax-Ouest, RD13);A404;
+A404-11;E2;0;132;n°11 (Oyonnax-Ouest, RD13);A404;
+A404-11;S1;0;259;n°11 (Oyonnax-Ouest, RD13);A404;
+A404-11;S2;0;344;n°11 (Oyonnax-Ouest, RD13);A404;
+A40-4;E2;0;1194;n°4 (St.Genis-sur-Menthon);A40;
+A40-4;S1;0;1096;n°4 (St.Genis-sur-Menthon);A40;
+A404-10;E1;0;180;n°10 (Oyonnax-Sud, RD11);A404;
+A404-10;E2;0;426;n°10 (Oyonnax-Sud, RD11);A404;
+A404-10;S1;0;617;n°10 (Oyonnax-Sud, RD11);A404;
+A404-10;S2;0;202;n°10 (Oyonnax-Sud, RD11);A404;
+A404-12;E2;0;392;n°12 (Oyonnax-Nord, ZI);A404;
+A404-12;S1;0;328;n°12 (Oyonnax-Nord, ZI);A 404;
+A404-9;E1;0;581;n°9 (Croix-Chalon);A404;
+A404-9;E2;0;399;n°9 (Croix-Chalon);A404;
+A404-9;S1;0;491;n°9 (Croix-Chalon);A404;
+A404-9;S2;0;603;n°9 (Croix-Chalon);A404;
+A40-5;E1;0;890;n°5 (Bourg-Nord);A40;
+A40-5;E2;0;464;n°5 (Bourg-Nord);A40;
+A40-5;S1;0;1081;n°5 (Bourg-Nord);A40;
+A40-5;S2;0;564;n°5 (Bourg-Nord);A40;
+A40-6;E1;0;820;n°6 (Viriat);A40;
+A40-6;E2;0;792;n°6 (Viriat);A40;
+A40-6;S1;0;1049;n°6 (Viriat);A40;
+A40-6;S2;0;479;n°6 (Viriat);A40;
+A406-1;E2;0;911;n°1 (Crottet - RD933);A406;
+A406-1;S1;0;1002;n°1 (Crottet - RD933);A406;
+A406-2;E1;0;438;n°2 ( Varennes Les Mâcon);A406;
+A406-2;S2;0;820;n°2 ( Varennes Les Mâcon);A406;
+A40-7;E1;0;846;n°7 (Bourg-Sud);A40;
+A40-7;E2;0;806;n°7 (Bourg-Sud);A40;
+A40-7;S1;0;1231;n°7 (Bourg-Sud);A40;
+A40-7;S2;0;550;n°7 (Bourg-Sud);A40;
+A40-8;E1;0;516;n°8 (St.Martin-du-Fresne);A40;
+A40-8;E2;0;952;n°8 (St.Martin-du-Fresne);A40;
+A40-8;S1;0;1400;n°8 (St.Martin-du-Fresne);A40;
+A40-8;S2;0;409;n°8 (St.Martin-du-Fresne);A40;
+A40-9;E1;0;1037;n°9 (Sylans);A40;
+A40-9;E2;0;1310;n°9 (Sylans);A40;
+A40-9;S1;0;556;n°9 (Sylans);A40;
+A40-9;S2;0;668;n°9 (Sylans);A40;
+A42-4;E1;0;383;n°4 (Miribel-Jonage);A42;
+A42-4;E2;0;371;n°4 (Miribel-Jonage);A42;
+A42-4;S1;0;343;n°4 (Miribel-Jonage);A42;
+A42-4;S2;0;487;n°4 (Miribel-Jonage);A42;
+A42-5;E1;0;1001;n°5 (St.Maurice-de-Beynost);A42;
+A42-5;E2;0;520;n°5 (St.Maurice-de-Beynost);A42;
+A42-5;S1;0;983;n°5 (St.Maurice-de-Beynost);A42;
+A42-5;S2;0;366;n°5 (St.Maurice-de-Beynost);A42;
+A42-5.1;E1;0;495;n° 5.1 ( Montluel-RD61);A42;
+A42-5.1;E2;0;494;n° 5.1 ( Montluel-RD61);A42;
+A42-5.1;S1;0;1096;n° 5.1 ( Montluel-RD61);A42;
+A42-5.1;S2;0;389;n° 5.1 ( Montluel-RD61);A42;
+A42-6;E1;0;595;n°6 (Balan);A42;
+A42-6;E2;0;578;n°6 (Balan);A42;
+A42-6;S1;0;847;n°6 (Balan);A42;
+A42-6;S2;0;845;n°6 (Balan);A42;
+A42-7;E1;0;604;n°7 (Pérouges);A42;
+A42-7;E2;0;786;n°7 (Pérouges);A42;
+A42-7;S1;0;906;n°7 (Pérouges);A42;
+A42-7;S2;0;754;n°7 (Pérouges);A42;
+A42-8;E1;0;674;n°8 (Ambérieu);A42;
+A42-8;E2;0;693;n°8 (Ambérieu);A42;
+A42-8;S1;0;482;n°8 (Ambérieu);A42;
+A42-8;S2;0;845;n°8 (Ambérieu);A42;
+A42-9;E1;0;609;n°9 (Pont-d''Ain);A42;
+A42-9;E2;0;604;n°9 (Pont-d''Ain);A42;
+A42-9;S1;0;524;n°9 (Pont-d''Ain);A42;
+A42-9;S2;0;943;n°9 (Pont-d''Ain);A42;
+A5-A19;S2;0;1935;Noeud de la Chapelle-sur-Oreus;A5;A19
+A5-A26;E2;0;917;A5 (noeud de Clérey);A5;A26
+A5-A26;S2;0;876;A5 (noeud de Clérey);A5;A26
+A5-A31;E2;0;844;A5-A31 Noeud de Beauchemin;A5;A31
+A5-A31;S2;0;2592;A5-A31 Noeud de Beauchemin;A5;A31
+A5A-N104;E1;0;862;N104 (noeud de La Justice) DDE;A5A;
+A5A-N104;S2;0;1404;N104 (noeud de La Justice) DDE;A5A;
+A6-A31;E2;0;1155;A6 (noeud de Beaune);A6;A31
+A6-A19;S1;0;1437;Noeud A6-A19;A6;A19
+A6-A19;S2;0;2794;Noeud A6-A19;A6;A19
+A6-A31;S1;0;1963;A6 (noeud de Beaune);A6;A31
+A71-A714;E2;0;632;A71-A714 (Montluçon);A71;A714
+A71-A714;S1;0;371;A71-A714 (Montluçon);A71;A714
+A71-A719;E2;0;731;A71-A719 (noeud de Gannat);A71;A719
+A71-A719;S1;0;582;A71-A719 (noeud de Gannat);A71;A719
+A71-A89;E1;0;776;A71-A89 (ASF);A71;A89
+A71-A89;E2;0;1273;A71-A89 (ASF);A71;A89
+A71-A89;S1;0;809;A71-A89 (ASF);A71;A89
+A71-A89;S2;0;1378;A71-A89 (ASF);A71;A89
+A71-A711;E1;0;663;A71-A711(DDE);A71;
+A71-A711;E2;0;492;A71-A711(DDE);A71;
+A71-A711;S1;0;828;A71-A711(DDE);A71;
+A71-A711;S2;0;403;A71-A711(DDE);A71;
+A71-A710;E1;0;516;a71-A710(ouest)-A710(ASF);A71;A710W
+A71-A710;E2;0;1194;a71-A710(ouest)-A710(ASF);A71;A710
+A71-A710;E4;0;1150;a71-A710(ouest)-A710(ASF);A71;A710
+A71-A710;S1;0;1952;a71-A710(ouest)-A710(ASF);A71;A710
+A71-A710;S2;0;457;a71-A710(ouest)-A710(ASF);A71;A710W
+A71-A710;S3;0;720;a71-A710(ouest)-A710(ASF);A71;A710W
+A105-Est;E1;0;508;N104 Noeud du Val Ganisse;A105;

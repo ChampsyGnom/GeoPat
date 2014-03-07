@@ -1,0 +1,15 @@
+VOIE;POSIT;LIBELLE;ROULABLE
+BAU;0;Bande Arrêt Urgence;NON
+COL;5;Collectrice;OUI
+BPV;10;Barrière Péage pleine voie;OUI
+VD;15;Voie dé célération;OUI
+VA;20;Voie d''accélération;OUI
+VS;25;Voie Supplémentaire Poids Lourd;OUI
+EE;30;Elargissement extérieur;OUI
+VL;40;Voie lente;OUI
+VM1;50;Voie médiane 1;OUI
+VM2;55;Voie médiane 2;OUI
+VM3;60;Voie médiane 3;OUI
+VR;70;Voie rapide;OUI
+EI;80;Elargissement intérieur;OUI
+BDG;90;Bande dérasé de gauche;NON

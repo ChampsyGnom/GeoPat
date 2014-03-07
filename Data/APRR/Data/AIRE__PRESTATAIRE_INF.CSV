@@ -1,0 +1,221 @@
+LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;AIRE_INF__ABS_DEB;CD_AIRE_INF__TYPE;CD_PRESTATAIRE_INF__TYPE;PRESTATAIRE_INF__NOM
+A105;1;5000;AD;Restaurant;Restaurant indépendant
+A105;1;5000;AD;Restauration légère;Arcotel
+A105;2;5000;AS;Pétrolier;Total
+A19;1;15620;AS;Pétrolier;Esso
+A19;1;15620;AS;Restaurant;Autogrill
+A19;1;15620;AS;Restauration légère;Cafétéria indépendante
+A31;1;225500;AR;Gendarmerie;gendarmerie
+A31;2;225500;AR;Gendarmerie;gendarmerie
+A31;2;87900;AR;Pétrolier;Leclerc
+A31;2;87900;AR;Restaurant;Côté France
+A31;2;87900;AR;Restauration légère;Cafétéria indépendante
+A31;1;232000;AS;Hôtel;Hôtel indépendant
+A31;2;232000;AS;Hôtel;Hôtel indépendant
+A31;1;25700;AS;Pétrolier;Shell
+A31;1;102900;AS;Pétrolier;Esso
+A31;1;137700;AS;Pétrolier;Total
+A31;1;182300;AS;Pétrolier;BP
+A31;1;232000;AS;Pétrolier;Total
+A31;2;25600;AS;Pétrolier;Esso
+A31;2;102900;AS;Pétrolier;Avia
+A31;2;137700;AS;Pétrolier;Total
+A31;2;182300;AS;Pétrolier;Shell
+A31;2;232000;AS;Pétrolier;BP
+A31;1;102900;AS;Restaurant;Autogrill
+A31;1;182300;AS;Restaurant;L''Arche
+A31;1;232000;AS;Restaurant;Autogrill
+A31;2;25600;AS;Restaurant;L''Arche
+A31;2;56100;AS;Restaurant;Côté France
+A31;2;102900;AS;Restaurant;Autogrill
+A31;2;182300;AS;Restaurant;L''Arche
+A31;2;232000;AS;Restaurant;Autogrill
+A31;1;25700;AS;Restauration légère;Cafétéria indépendante
+A31;1;102900;AS;Restauration légère;Cafétéria indépendante
+A31;2;25600;AS;Restauration légère;Paul
+A31;2;56100;AS;Restauration légère;Cafétéria indépendante
+A31;2;102900;AS;Restauration légère;Cafétéria indépendante
+A31;2;137700;AS;Restauration légère;Café Route
+A31;2;137700;AS;Restauration légère;Cafétéria indépendante
+A31;2;182300;AS;Restauration légère;Cafétéria indépendante
+A31;2;232000;AS;Restauration légère;Cafétéria indépendante
+A36;1;24300;AR;Gendarmerie;gendarmerie
+A36;2;65810;AR;Gendarmerie;gendarmerie
+A36;2;112100;AS;Hôtel;IBIS
+A36;2;112100;AS;Hôtel;Mercure
+A36;1;11100;AS;Pétrolier;Total
+A36;1;111600;AS;Pétrolier;Esso
+A36;1;160400;AS;Pétrolier;Total
+A36;1;200700;AS;Pétrolier;Avia
+A36;2;11100;AS;Pétrolier;Agip
+A36;2;60400;AS;Pétrolier;Avia
+A36;2;112100;AS;Pétrolier;Total
+A36;2;160600;AS;Pétrolier;Shell
+A36;2;200400;AS;Pétrolier;Agip
+A36;1;200700;AS;Restaurant;Restaurant indépendant
+A36;2;11100;AS;Restaurant;Autogrill
+A36;2;60400;AS;Restaurant;Eris AVIA
+A36;2;112100;AS;Restaurant;L''Arche
+A36;2;160600;AS;Restaurant;Restaurant indépendant
+A36;1;200700;AS;Restauration légère;Cafétéria indépendante
+A36;2;60400;AS;Restauration légère;Bert''s
+A36;2;112100;AS;Restauration légère;Cafétéria indépendante
+A36;2;160600;AS;Restauration légère;Cafétéria indépendante
+A36;2;200400;AS;Restauration légère;Cafétéria indépendante
+A39;2;5900;AR;Gendarmerie;gendarmerie
+A39;1;114970;AS;Hôtel;Etap Hôtel
+A39;1;24930;AS;Pétrolier;Esso
+A39;1;114970;AS;Pétrolier;Avia
+A39;2;24460;AS;Pétrolier;Shell
+A39;2;78300;AS;Pétrolier;Agip
+A39;1;114970;AS;Restaurant;L''Arche
+A39;2;78300;AS;Restaurant;L''Arche
+A39;2;78300;AS;Restaurant;Restaurant indépendant
+A39;1;24930;AS;Restauration légère;Cafétéria indépendante
+A39;1;114970;AS;Restauration légère;Pomme de Pain
+A39;2;24460;AS;Restauration légère;Cafétéria indépendante
+A39;2;78300;AS;Restauration légère;Pomme de Pain
+A40;1;163240;AS;Hôtel;IBIS
+A40;1;130700;AS;Pétrolier;Agip
+A40;1;163240;AS;Pétrolier;Total
+A40;2;130900;AS;Pétrolier;Total
+A40;2;163400;AS;Pétrolier;BP
+A40;1;163240;AS;Restaurant;Restaurant indépendant
+A40;2;130900;AS;Restaurant;L''Arche
+A40;1;163240;AS;Restauration légère;Cafétéria indépendante
+A40;2;130900;AS;Restauration légère;Cafétéria indépendante
+A40;2;163400;AS;Restauration légère;Cafétéria indépendante
+A404;1;12550;PB;Gendarmerie;gendarmerie
+A42;2;9600;AR;Gendarmerie;gendarmerie + CRS
+A42;1;16300;AS;Pétrolier;BP
+A42;2;16300;AS;Pétrolier;Total
+A42;1;16300;AS;Restauration légère;Cafétéria indépendante
+A42;2;16300;AS;Restauration légère;Cafétéria indépendante
+A46;2;16000;AS;Hôtel;Etap Hôtel
+A46;1;16000;AS;Pétrolier;Agip
+A46;2;16000;AS;Pétrolier;Agip
+A46;2;16000;AS;Restaurant;L''Arche
+A46;1;16000;AS;Restauration légère;Cafétéria indépendante
+A46;2;16000;AS;Restauration légère;L''Arche Café
+A5;1;30100;AS;Pétrolier;Carrefour
+A5;1;84980;AS;Pétrolier;Esso
+A5;1;140200;AS;Pétrolier;Total
+A5;2;30030;AS;Pétrolier;Carrefour
+A5;2;85000;AS;Pétrolier;BP
+A5;2;140200;AS;Pétrolier;Total
+A5;2;200070;AS;Pétrolier;BP
+A5;1;140200;AS;Restaurant;Autogrill
+A5;2;200070;AS;Restaurant;Restaurant indépendant
+A5;1;84980;AS;Restauration légère;Cafétéria indépendante
+A5;1;140200;AS;Restauration légère;Cafétéria indépendante
+A5;2;85000;AS;Restauration légère;Cafétéria indépendante
+A5;2;200070;AS;Restauration légère;Cafétéria indépendante
+A5;2;200070;AS;Restauration légère;L''Arche Café
+A5;2;1490;PB;Gendarmerie;gendarmerie + CRS
+A5A;1;5985;AS;Pétrolier;Total
+A6;2;50250;AR;Gendarmerie;gendarmerie
+A6;1;116700;AR;Restaurant;Autogrill
+A6;2;419400;AR;Restauration légère;Cafétéria indépendante
+A6;1;74100;AS;Hôtel;Kyriad
+A6;1;311300;AS;Hôtel;Côté France
+A6;1;374800;AS;Hôtel;Mercure
+A6;2;74100;AS;Hôtel;Kyriad
+A6;2;167000;AS;Hôtel;IBIS
+A6;2;311300;AS;Hôtel;Côté France
+A6;2;374800;AS;Hôtel;Formule1
+A6;1;29000;AS;Pétrolier;Total
+A6;1;58000;AS;Pétrolier;Leclerc
+A6;1;74100;AS;Pétrolier;Carrefour
+A6;1;122900;AS;Pétrolier;Shell
+A6;1;167000;AS;Pétrolier;Total
+A6;1;212900;AS;Pétrolier;BP
+A6;1;255400;AS;Pétrolier;Avia
+A6;1;286400;AS;Pétrolier;Esso
+A6;1;311300;AS;Pétrolier;Total
+A6;1;341700;AS;Pétrolier;Carrefour
+A6;1;374800;AS;Pétrolier;Shell
+A6;1;407800;AS;Pétrolier;Total
+A6;1;435600;AS;Pétrolier;Total
+A6;1;450089;AS;Pétrolier;Agip
+A6;2;29000;AS;Pétrolier;Total
+A6;2;58000;AS;Pétrolier;Leclerc
+A6;2;74100;AS;Pétrolier;Esso
+A6;2;122900;AS;Pétrolier;Total
+A6;2;167000;AS;Pétrolier;Shell
+A6;2;213000;AS;Pétrolier;Avia
+A6;2;256000;AS;Pétrolier;BP
+A6;2;285500;AS;Pétrolier;Total
+A6;2;311300;AS;Pétrolier;Carrefour
+A6;2;341700;AS;Pétrolier;BP
+A6;2;374800;AS;Pétrolier;Total
+A6;2;408400;AS;Pétrolier;Shell
+A6;2;435800;AS;Pétrolier;Total
+A6;2;445700;AS;Pétrolier;Carrefour
+A6;1;29000;AS;Restaurant;Autogrill
+A6;1;74100;AS;Restaurant;Autogrill
+A6;1;74100;AS;Restaurant;Côté France
+A6;1;122900;AS;Restaurant;Autogrill
+A6;1;167000;AS;Restaurant;L''Arche
+A6;1;212900;AS;Restaurant;Autogrill
+A6;1;255400;AS;Restaurant;Autogrill
+A6;1;311300;AS;Restaurant;Autogrill
+A6;1;311300;AS;Restaurant;Truckstore
+A6;1;341700;AS;Restaurant;L''Arche
+A6;1;374800;AS;Restaurant;L''Arche
+A6;1;374800;AS;Restaurant;Le Boeuf Jardinier
+A6;1;374800;AS;Restaurant;Quick
+A6;1;407800;AS;Restaurant;Autogrill
+A6;2;29000;AS;Restaurant;McDonald''s
+A6;2;74100;AS;Restaurant;Autogrill
+A6;2;74100;AS;Restaurant;Côté France
+A6;2;122900;AS;Restaurant;Autogrill
+A6;2;167000;AS;Restaurant;L''Arche
+A6;2;213000;AS;Restaurant;L''Arche
+A6;2;256000;AS;Restaurant;Autogrill
+A6;2;311300;AS;Restaurant;Autogrill
+A6;2;341700;AS;Restaurant;L''Arche
+A6;2;374800;AS;Restaurant;L''Arche
+A6;2;374800;AS;Restaurant;Le Boeuf Jardinier
+A6;2;374800;AS;Restaurant;Quick
+A6;2;408400;AS;Restaurant;Autogrill
+A6;1;29000;AS;Restauration légère;Cafétéria indépendante
+A6;1;58000;AS;Restauration légère;La Croissanterie
+A6;1;74100;AS;Restauration légère;Cafétéria indépendante
+A6;1;122900;AS;Restauration légère;Cafétéria indépendante
+A6;1;167000;AS;Restauration légère;Pomme de Pain
+A6;1;212900;AS;Restauration légère;Cafétéria indépendante
+A6;1;255400;AS;Restauration légère;Café Route
+A6;1;255400;AS;Restauration légère;Cafétéria indépendante
+A6;1;374800;AS;Restauration légère;Café Route
+A6;1;374800;AS;Restauration légère;Cafétéria indépendante
+A6;1;407800;AS;Restauration légère;Cafétéria indépendante
+A6;1;435600;AS;Restauration légère;Cafétéria indépendante
+A6;2;74100;AS;Restauration légère;Cafétéria indépendante
+A6;2;122900;AS;Restauration légère;Cafétéria indépendante
+A6;2;167000;AS;Restauration légère;Pomme de Pain
+A6;2;213000;AS;Restauration légère;Cafétéria indépendante
+A6;2;256000;AS;Restauration légère;Cafétéria indépendante
+A6;2;311300;AS;Restauration légère;Brioche dorée
+A6;2;341700;AS;Restauration légère;Paul
+A6;2;374800;AS;Restauration légère;L''Arche Café
+A6;2;408400;AS;Restauration légère;Cafétéria indépendante
+A6;2;435800;AS;Restauration légère;Cafétéria indépendante
+A71;1;354890;AS;Hôtel;Hôtel indépendant
+A71;1;245990;AS;Pétrolier;Esso
+A71;1;304300;AS;Pétrolier;Avia
+A71;1;354890;AS;Pétrolier;Total
+A71;2;304390;AS;Pétrolier;Avia
+A71;1;245990;AS;Restaurant;Autogrill
+A71;1;354890;AS;Restaurant;Autogrill
+A71;1;354890;AS;Restaurant;Restaurant indépendant
+A71;2;304390;AS;Restaurant;Restaurant indépendant
+A71;1;245990;AS;Restauration légère;Cafétéria indépendante
+A71;1;354890;AS;Restauration légère;Cafétéria indépendante
+A71;2;304390;AS;Restauration légère;Cafétéria indépendante
+A71;1;381000;PB;Gendarmerie;gendarmerie
+A77;1;45190;AS;Pétrolier;BP
+A77;1;45190;AS;Restaurant;Autogrill
+A77;1;45190;AS;Restauration légère;Cafétéria indépendante
+A77;1;5660;PB;Gendarmerie;gendarmerie
+A77;2;97410;PB;Gendarmerie;gendarmerie
+A77;1;97410;PB;Restauration légère;Cafétéria indépendante

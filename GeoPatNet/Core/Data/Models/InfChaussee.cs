@@ -198,7 +198,7 @@ namespace Emash.GeoPatNet.Data.Models
         [AllowNull(true)]
         [DisplayName("Géométrie")]
         [ColumnName("INF_CHAUSSEE__GEOM")]
-        public Byte[] Geom
+        public String Geom
         {
             get;
             set;

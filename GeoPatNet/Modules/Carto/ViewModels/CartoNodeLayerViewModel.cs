@@ -7,67 +7,55 @@ using Emash.GeoPatNet.Data.Models;
 using DotSpatial.Controls;
 using Emash.GeoPatNet.Modules.Carto.Layers;
 using DotSpatial.Projections;
+using Microsoft.Practices.ServiceLocation;
+using Emash.GeoPatNet.Infrastructure.Reflection;
+using Emash.GeoPatNet.Infrastructure.Services;
+using DotSpatial.Data;
+using DotSpatial.Topology;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
-    public class CartoNodeLayerViewModel : CartoNodeViewModel
+    public abstract class CartoNodeLayerViewModel : CartoNodeViewModel
     {
         public DotSpatial.Controls.Map Map { get; set; }
-        public IMapLayer Layer { get;private  set; }
+        public List< IMapLayer> Layers { get;private  set; }
 
 
-        public void CreateLayer(DotSpatial.Controls.Map map)
-        {
-           
-            if (this.Model.SigLayer.SigCodeLayer.Code.Equals("GoogleMap"))
-            {
-                this.Map = map;
-                this.Map.Projection = KnownCoordinateSystems.Projected.World.WebMercator;
-                this.Layer = BruTileLayer.CreateGoogleMapLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-            else if (this.Model.SigLayer.SigCodeLayer.Code.Equals("GoogleSatellite"))
-            {
-                this.Map = map;
-                this.Map.Projection = KnownCoordinateSystems.Projected.World.WebMercator;
-                this.Layer = BruTileLayer.CreateGoogleSatelliteLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-            else if (this.Model.SigLayer.SigCodeLayer.Code.Equals("GoogleTerrain"))
-            {
-                this.Map = map;
-                this.Map.Projection = KnownCoordinateSystems.Projected.World.WebMercator;
-                this.Layer = BruTileLayer.CreateGoogleTerrainLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-            else if (this.Model.SigLayer.SigCodeLayer.Code.Equals("BingRoads"))
-            {
-                this.Map = map;               
-                this.Layer = BruTileLayer.CreateBingRoadsLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-            else if (this.Model.SigLayer.SigCodeLayer.Code.Equals("BingHybrid"))
-            {
-                this.Map = map;
-                this.Layer = BruTileLayer.CreateBingHybridLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-            else if (this.Model.SigLayer.SigCodeLayer.Code.Equals("BingAerial"))
-            {
-                this.Map = map;
-                this.Layer = BruTileLayer.CreateBingAerialLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-            else if (this.Model.SigLayer.SigCodeLayer.Code.Equals("Osm"))
-            {
-                this.Map = map;
-                this.Layer = BruTileLayer.CreateOsmLayer();
-                this.Map.Layers.Add(this.Layer);
-            }
-          
+        public abstract void CreateLayer(DotSpatial.Controls.Map map);
+       
               
-        }
+        
+        /*
+         public FeatureSet(DataTable wkbTable, int wkbColumnIndex, bool indexed, FeatureType type)
+            : this()
+        {
+            if (IndexMode)
+            {
+                // Assume this DataTable has WKB in column[0] and the rest of the columns are attributes.
+                FeatureSetPack result = new FeatureSetPack();
+                foreach (DataRow row in wkbTable.Rows)
+                {
+                    byte[] data = (byte[])row[0];
+                    MemoryStream ms = new MemoryStream(data);
+                    WkbFeatureReader.ReadFeature(ms, result);
+                }
 
+                // convert lists of arrays into a single vertex array for each shape type.
+                result.StopEditing();
+
+                // Make sure all the same columns exist in the same order
+                result.Polygons.CopyTableSchema(wkbTable);
+
+                // Assume that all the features happened to be polygons
+                foreach (DataRow row in wkbTable.Rows)
+                {
+                    // Create a new row
+                    DataRow dest = result.Polygons.DataTable.NewRow();
+                    dest.ItemArray = row.ItemArray;
+                }
+            }
+        }
+         * */
         private Boolean _isChecked = true;
 
         public Boolean IsChecked
@@ -76,16 +64,20 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             set 
             { 
                 _isChecked = value;
-                if (this.Map != null && this.Layer != null)
+                if (this.Map != null && this.Layers != null)
                 {
                     this.Map.MapFrame.SuspendEvents();
-                    if (_isChecked && !this.Map.Layers.Contains (this.Layer ))
-                    {this.Map.Layers.Add(this.Layer);  }
-                    else if (!_isChecked && this.Map.Layers.Contains (this.Layer ))
-                    { this.Map.Layers.Remove(this.Layer); }
+                    foreach (IMapLayer layer in this.Layers)
+                    {
+                        if (_isChecked && !this.Map.Layers.Contains(layer))
+                        { this.Map.Layers.Add(layer); }
+                        else if (!_isChecked && this.Map.Layers.Contains(layer))
+                        { this.Map.Layers.Remove(layer); }
+                    }
+                   
                     this.Map.MapFrame.ResumeEvents();
                 }
-                this.Layer.IsVisible = _isChecked;
+               
                 this.RaisePropertyChanged("IsChecked");
                 
                 
@@ -94,7 +86,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         public CartoNodeLayerViewModel(SigNode model)
             : base(model)
         {
-           
+            this.Layers = new List<IMapLayer>();
         }
     }
 }
