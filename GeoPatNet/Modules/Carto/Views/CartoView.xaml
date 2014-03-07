@@ -94,7 +94,16 @@
                                             <MenuItem Visibility="{Binding Path=RemoveLayerVisibility}" CommandParameter="{Binding}" Command="{Binding Path=RemoveLayerCommand}" Header="Supprimer cete couche"></MenuItem>
                                             <MenuItem Visibility="{Binding Path=RemoveFolderVisibility}" CommandParameter="{Binding}" Command="{Binding Path=RemoveFolderCommand}" Header="Supprimer ce dossier"></MenuItem>
                                             <MenuItem Visibility="{Binding Path=AddFolderVisibility}" CommandParameter="{Binding}" Command="{Binding Path=AddFolderCommand}" Header="Nouveau dossier"></MenuItem>
-                                            <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleCommand}" Header="Nouvelle couche google"></MenuItem>
+                                            <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  Header="Nouvelle couche web">
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleMapCommand}" Header="Google map"></MenuItem>
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleSateliteCommand}" Header="Google satelite"></MenuItem>
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerGoogleTerrainCommand}" Header="Google terrain"></MenuItem>
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerBingRoadCommand}" Header="Bing road"></MenuItem>
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerBingHybridCommand}" Header="Bing hybrid"></MenuItem>
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerBingAerialCommand}" Header="Bing aérien"></MenuItem>
+                                                <MenuItem Visibility="{Binding Path=AddLayerVisibility}"  CommandParameter="{Binding}" Command="{Binding Path=AddLayerOsmCommand}" Header="Open Street Map"></MenuItem>
+                                            </MenuItem>
+                                           
                                         </ContextMenu>
                                     </Setter.Value>
                                 </Setter>
@@ -105,14 +114,22 @@
                     <TreeView.ContextMenu>
                         <ContextMenu>
                             <MenuItem CommandParameter="{x:Null}" Command="{Binding Path=AddFolderCommand}" Header="Nouveau dossier"></MenuItem>
-                            <MenuItem CommandParameter="{x:Null}" Command="{Binding Path=AddLayerGoogleCommand}" Header="Nouvelle couche google"></MenuItem>
+                            <MenuItem   Header="Nouvelle couche web">
+                                <MenuItem   CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerGoogleMapCommand}" Header="Google map"></MenuItem>
+                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerGoogleSateliteCommand}" Header="Google satelite"></MenuItem>
+                                <MenuItem   CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerGoogleTerrainCommand}" Header="Google terrain"></MenuItem>
+                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerBingRoadCommand}" Header="Bing road"></MenuItem>
+                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerBingHybridCommand}" Header="Bing hybrid"></MenuItem>
+                                <MenuItem  CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerBingAerialCommand}" Header="Bing aérien"></MenuItem>
+                                <MenuItem   CommandParameter="{x:Null}"  Command="{Binding Path=AddLayerOsmCommand}" Header="Open Street Map"></MenuItem>
+                            </MenuItem>
                         </ContextMenu>
                     </TreeView.ContextMenu>
                 </TreeView>
                 
             </Grid>
         </Expander>
-        <v:CartoControl  Grid.Column="1">
+        <v:CartoControl x:Name="cartoControl"  Grid.Column="1">
             
         </v:CartoControl>
     </Grid>

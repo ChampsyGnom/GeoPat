@@ -26,20 +26,21 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
         {
             this._regionManager = regionManager;
             this._eventAggregator = eventAggregator;
-            this._container = container;
-           
+            this._container = container;           
             this._container.RegisterType<CartoView>();
+            this._container.RegisterType<CartoViewModel>(new ContainerControlledLifetimeManager());
+          
         
              
            
         }
         public void ShowCarto()
         {
+            this._container.Resolve<CartoViewModel>();
             IRegion region = this._regionManager.Regions["TabRegion"];
             CartoView view = null;
             foreach (Object o in region.Views)
-            {
-           
+            {           
                 if (o is CartoView)
                 { view = o as CartoView; }
                 Console.WriteLine(o);
@@ -49,73 +50,85 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
                 view = this._container.Resolve<CartoView>();
                 region.Add(view);
             }
-          
+            CartoViewModel vm = this._container.Resolve<CartoViewModel>();  
             region.Activate(view);
-           if (this._container.Resolve<CartoViewModel>().TemplatesView.CurrentItem == null && this._container.Resolve<CartoViewModel>().Templates.Count > 0)
-           { this._container.Resolve<CartoViewModel>().TemplatesView.MoveCurrentToFirst(); }
+            view.DataContext = vm;
+            DotSpatial.Controls.Map map = (view.cartoControl.mapHost.Child as DotSpatial.Controls.Map);
+            vm.Map = map;
+          // if (this._container.Resolve<CartoViewModel>().TemplatesView.CurrentItem == null && this._container.Resolve<CartoViewModel>().Templates.Count > 0)
+         //  { this._container.Resolve<CartoViewModel>().TemplatesView.MoveCurrentToFirst(); }
             
         }
 
 
         public void Initialize()
         {
+
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du module cartographie ...");
             IDataService dataService = this._container.Resolve<IDataService>();
-            DbSet<SigCodeLayer> codeLayers  =dataService.GetDbSet<SigCodeLayer> ();
+            DbSet<SigCodeLayer> codeLayers = dataService.GetDbSet<SigCodeLayer>();
             DbSet<SigCodeNode> codeNodes = dataService.GetDbSet<SigCodeNode>();
-
             DbSet<SigCodeTemplate> codeTemplates = dataService.GetDbSet<SigCodeTemplate>();
+            this.Seed(dataService, codeTemplates, codeNodes, codeLayers);
+           
+           
+         
+        }
 
-            if ((from c in codeTemplates where c.Code.Equals("Detail") select c).Any() == false)
+        private void Seed(IDataService dataService, DbSet<SigCodeTemplate> codeTemplates, DbSet<SigCodeNode> codeNodes, DbSet<SigCodeLayer> codeLayers)
+        {
+            this.CreateCodeTemplateIfNeeded(dataService, codeTemplates, "Detail", "Détail");
+            this.CreateCodeNodeIfNeeded(dataService, codeNodes, "Folder", "Dossier");
+            this.CreateCodeNodeIfNeeded(dataService, codeNodes, "Layer", "Couche");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "BingRoads");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "BingHybrid");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "BingAerial");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "Osm");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "GoogleMap");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "GoogleSatellite");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "GoogleTerrain");
+        }
+
+       
+
+        private void CreateCodeTemplateIfNeeded(IDataService dataService, DbSet<SigCodeTemplate> codeTemplates, string codeTemplateValue, string codeTemplateDisplayeName)
+        {
+            if ((from c in codeTemplates where c.Code.Equals(codeTemplateValue) select c).Any() == false)
             {
                 SigCodeTemplate codeNodeTemplate = new SigCodeTemplate();
-                codeNodeTemplate.Code = "Detail";
-                codeNodeTemplate.Libelle = "Detail";
+                codeNodeTemplate.Code = codeTemplateValue;
+                codeNodeTemplate.Libelle = codeTemplateDisplayeName;
                 codeTemplates.Add(codeNodeTemplate);
                 dataService.DataContext.SaveChanges();
 
             }
+        }
 
-            if ((from c in codeNodes where c.Code.Equals("Folder") select c).Any() == false)
-            {
-                SigCodeNode codeNodeFolder = new SigCodeNode();
-                codeNodeFolder.Code = "Folder";
-                codeNodeFolder.Libelle = "Dossier";
-                codeNodes.Add(codeNodeFolder);
-                dataService.DataContext.SaveChanges();
-
-            }
-            if ((from c in codeNodes where c.Code.Equals("Layer") select c).Any() == false)
+        private void CreateCodeNodeIfNeeded(IDataService dataService, DbSet<SigCodeNode> codeNodes, string codeNodeValue, string codeNodeDisplayeName)
+        {
+            if ((from c in codeNodes where c.Code.Equals(codeNodeValue) select c).Any() == false)
             {
                 SigCodeNode codeNodeLayer = new SigCodeNode();
-                codeNodeLayer.Code = "Layer";
-                codeNodeLayer.Libelle = "Couche";
+                codeNodeLayer.Code = codeNodeValue;
+                codeNodeLayer.Libelle = codeNodeDisplayeName;
                 codeNodes.Add(codeNodeLayer);
                 dataService.DataContext.SaveChanges();
-
             }
+          
 
+        }
 
-            if ((from c in codeLayers where c.Code.Equals ("Google") select c).Any() == false)
+        private void CreateCodeLayerIfNeeded(IDataService dataService, DbSet<SigCodeLayer> codeLayers, string codeLayerValue)
+        {
+            if ((from c in codeLayers where c.Code.Equals(codeLayerValue) select c).Any() == false)
             {
                 SigCodeLayer codeLayerGoogle = new SigCodeLayer();
-                codeLayerGoogle.Code = "Google";
-                codeLayerGoogle.Libelle = "Google";
+                codeLayerGoogle.Code = codeLayerValue;
+                codeLayerGoogle.Libelle = codeLayerValue;
                 codeLayers.Add(codeLayerGoogle);
                 dataService.DataContext.SaveChanges();
-
             }
-            if ((from c in codeLayers where c.Code.Equals("BingAerial") select c).Any() == false)
-            {
-                SigCodeLayer codeLayerBingAerial = new SigCodeLayer();
-                codeLayerBingAerial.Code = "BingAerial";
-                codeLayerBingAerial.Libelle = "BingAerial";
-                codeLayers.Add(codeLayerBingAerial);
-                dataService.DataContext.SaveChanges();
-
-            }
-            this._container.RegisterType<CartoViewModel>(new ContainerControlledLifetimeManager());
-            this._container.Resolve<CartoViewModel>();
         }
+      
     }
 }

@@ -19,7 +19,6 @@ namespace Emash.GeoPatNet.Data.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("SIG_CD_NODE__SIG_NODE",null)]
-        [UniqueKey("SIG_NODE_UK_REF")]
         public virtual SigCodeNode SigCodeNode
         {
             get;
@@ -30,7 +29,6 @@ namespace Emash.GeoPatNet.Data.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("SIG_TEMPLATE__SIG_NODE",null)]
-        [UniqueKey("SIG_NODE_UK_REF")]
         public virtual SigTemplate SigTemplate
         {
             get;
@@ -89,7 +87,6 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Libellé")]
         [ColumnName("SIG_NODE__LIBELLE")]
-        [UniqueKey("SIG_NODE_UK_REF")]
         [MaxCharLength(200)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]

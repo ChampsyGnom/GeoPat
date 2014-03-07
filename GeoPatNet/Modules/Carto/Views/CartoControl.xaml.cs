@@ -33,40 +33,12 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
         public CartoControl()
         {
             InitializeComponent();
-            this.mapHost.SizeChanged += mapHost_SizeChanged;
-            this.DataContextChanged += CartoControl_DataContextChanged;
+           
         }
 
-        void mapHost_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (this.DataContext != null && this.DataContext is CartoViewModel)
-            {
-                CartoViewModel cartoViewModel = this.DataContext as CartoViewModel;
-                cartoViewModel.Map.Size = new System.Drawing.Size((int)mapHost.ActualWidth, (int)mapHost.ActualHeight);
-            }
-        }
+       
 
-        void CartoControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            this.SetMap();
-            
-        }
-
-        private void SetMap()
-        {
-            if (this.mapHost != null &&  this.DataContext != null && this.DataContext is CartoViewModel && this.mapHost.Child == null)
-            {
-                
-                CartoViewModel cartoViewModel = this.DataContext as CartoViewModel;
-                this.mapHost.Child = cartoViewModel.Map;
-            }
-        }
-
-        private void mapHost_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.SetMap();
-        }
-
+       
         
       
 

@@ -19,8 +19,8 @@
                 <TextBlock Text="Mode déplacement"></TextBlock>
             </Button>
         </ToolBar>
-        <WindowsFormsHost Loaded="mapHost_Loaded"  Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
-         
+        <WindowsFormsHost   Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
+            <dsctrl:Map x:Name="map"></dsctrl:Map>
         </WindowsFormsHost>
     </Grid>
 </UserControl>

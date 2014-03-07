@@ -19,6 +19,41 @@ namespace Emash.GeoPatNet.Data
             get { return _modelBuilder; }
         }
 
+        public DbSet<SigLayer>  SigLayers
+        {
+            get;
+            set;
+        }
+        public DbSet<SigNode>  SigNodes
+        {
+            get;
+            set;
+        }
+        public DbSet<SigTemplate>  SigTemplates
+        {
+            get;
+            set;
+        }
+        public DbSet<SigCodeLayer>  SigCodeLayers
+        {
+            get;
+            set;
+        }
+        public DbSet<SigCodeNode>  SigCodeNodes
+        {
+            get;
+            set;
+        }
+        public DbSet<SigCodeTemplate>  SigCodeTemplates
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfUser>  PrfUsers
+        {
+            get;
+            set;
+        }
         public DbSet<InfAccident>  InfAccidents
         {
             get;
@@ -274,41 +309,6 @@ namespace Emash.GeoPatNet.Data
             get;
             set;
         }
-        public DbSet<PrfUser>  PrfUsers
-        {
-            get;
-            set;
-        }
-        public DbSet<SigLayer>  SigLayers
-        {
-            get;
-            set;
-        }
-        public DbSet<SigNode>  SigNodes
-        {
-            get;
-            set;
-        }
-        public DbSet<SigTemplate>  SigTemplates
-        {
-            get;
-            set;
-        }
-        public DbSet<SigCodeLayer>  SigCodeLayers
-        {
-            get;
-            set;
-        }
-        public DbSet<SigCodeNode>  SigCodeNodes
-        {
-            get;
-            set;
-        }
-        public DbSet<SigCodeTemplate>  SigCodeTemplates
-        {
-            get;
-            set;
-        }
 	   
         
 	    public DataContext(DbConnection connection)
@@ -324,6 +324,96 @@ namespace Emash.GeoPatNet.Data
             base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             this._modelBuilder = modelBuilder;
+            modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
+            modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
+            modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");
+            modelBuilder.Entity<SigLayer>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId) .HasColumnName("sig_cd_layer__id");
+            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId).IsRequired();
+            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle) .HasColumnName("sig_layer__libelle");
+            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).IsRequired();
+            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder) .HasColumnName("sig_layer__map_order");
+            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder).IsRequired();
+            modelBuilder.Entity<SigLayer>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigNode>().HasRequired<SigCodeNode>(c => c.SigCodeNode).WithMany(t => t.SigNodes);
+            modelBuilder.Entity<SigNode>().HasRequired<SigTemplate>(c => c.SigTemplate).WithMany(t => t.SigNodes);
+            modelBuilder.Entity<SigNode>().HasRequired<SigLayer>(c => c.SigLayer).WithMany(t => t.SigNodes);
+            modelBuilder.Entity<SigNode>().ToTable("sig_node", "sig");
+            modelBuilder.Entity<SigNode>().Property(t => t.Id) .HasColumnName("sig_node__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.SigLayerId) .HasColumnName("sig_layer__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId) .HasColumnName("sig_template__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId) .HasColumnName("sig_cd_node__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.Libelle) .HasColumnName("sig_node__libelle");
+            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigNode>().Property(t => t.ParentId) .HasColumnName("sig_node__parent_id");
+            modelBuilder.Entity<SigNode>().Property(t => t.ParentId).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.Order) .HasColumnName("sig_node__order");
+            modelBuilder.Entity<SigNode>().Property(t => t.Order).IsRequired();
+            modelBuilder.Entity<SigNode>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigTemplate>().HasRequired<SigCodeTemplate>(c => c.SigCodeTemplate).WithMany(t => t.SigTemplates);
+            modelBuilder.Entity<SigTemplate>().ToTable("sig_template", "sig");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Id) .HasColumnName("sig_template__id");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId) .HasColumnName("sig_cd_template__id");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId).IsRequired();
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle) .HasColumnName("sig_template__libelle");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).IsRequired();
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigTemplate>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigCodeLayer>().ToTable("sig_cd_layer", "sig");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code) .HasColumnName("sig_cd_layer__code");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id) .HasColumnName("sig_cd_layer__id");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle) .HasColumnName("sig_cd_layer__libelle");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle).HasMaxLength(500);
+            modelBuilder.Entity<SigCodeLayer>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigCodeNode>().ToTable("sig_cd_node", "sig");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code) .HasColumnName("sig_cd_node__code");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id) .HasColumnName("sig_cd_node__id");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle) .HasColumnName("sig_cd_node__libelle");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigCodeNode>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigCodeTemplate>().ToTable("sig_cd_template", "sig");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code) .HasColumnName("sig_cd_template__code");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id) .HasColumnName("sig_cd_template__id");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle) .HasColumnName("sig_cd_template__libelle");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigCodeTemplate>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfAccident>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfAccidents);
             modelBuilder.Entity<InfAccident>().ToTable("inf_accident", "inf");
             modelBuilder.Entity<InfAccident>().Property(t => t.Annee) .HasColumnName("inf_accident__annee");
@@ -1028,96 +1118,6 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeService>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeService>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeService>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
-            modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
-            modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");
-            modelBuilder.Entity<SigLayer>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId) .HasColumnName("sig_cd_layer__id");
-            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId).IsRequired();
-            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle) .HasColumnName("sig_layer__libelle");
-            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).IsRequired();
-            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder) .HasColumnName("sig_layer__map_order");
-            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder).IsRequired();
-            modelBuilder.Entity<SigLayer>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigNode>().HasRequired<SigCodeNode>(c => c.SigCodeNode).WithMany(t => t.SigNodes);
-            modelBuilder.Entity<SigNode>().HasRequired<SigTemplate>(c => c.SigTemplate).WithMany(t => t.SigNodes);
-            modelBuilder.Entity<SigNode>().HasRequired<SigLayer>(c => c.SigLayer).WithMany(t => t.SigNodes);
-            modelBuilder.Entity<SigNode>().ToTable("sig_node", "sig");
-            modelBuilder.Entity<SigNode>().Property(t => t.Id) .HasColumnName("sig_node__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.SigLayerId) .HasColumnName("sig_layer__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId) .HasColumnName("sig_template__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId) .HasColumnName("sig_cd_node__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.Libelle) .HasColumnName("sig_node__libelle");
-            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigNode>().Property(t => t.ParentId) .HasColumnName("sig_node__parent_id");
-            modelBuilder.Entity<SigNode>().Property(t => t.ParentId).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.Order) .HasColumnName("sig_node__order");
-            modelBuilder.Entity<SigNode>().Property(t => t.Order).IsRequired();
-            modelBuilder.Entity<SigNode>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigTemplate>().HasRequired<SigCodeTemplate>(c => c.SigCodeTemplate).WithMany(t => t.SigTemplates);
-            modelBuilder.Entity<SigTemplate>().ToTable("sig_template", "sig");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Id) .HasColumnName("sig_template__id");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId) .HasColumnName("sig_cd_template__id");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId).IsRequired();
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle) .HasColumnName("sig_template__libelle");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).IsRequired();
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigTemplate>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigCodeLayer>().ToTable("sig_cd_layer", "sig");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code) .HasColumnName("sig_cd_layer__code");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id) .HasColumnName("sig_cd_layer__id");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle) .HasColumnName("sig_cd_layer__libelle");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle).HasMaxLength(500);
-            modelBuilder.Entity<SigCodeLayer>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigCodeNode>().ToTable("sig_cd_node", "sig");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code) .HasColumnName("sig_cd_node__code");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id) .HasColumnName("sig_cd_node__id");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle) .HasColumnName("sig_cd_node__libelle");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigCodeNode>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigCodeTemplate>().ToTable("sig_cd_template", "sig");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code) .HasColumnName("sig_cd_template__code");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id) .HasColumnName("sig_cd_template__id");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle) .HasColumnName("sig_cd_template__libelle");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigCodeTemplate>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
 
 

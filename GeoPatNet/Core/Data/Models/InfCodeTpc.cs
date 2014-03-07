@@ -35,7 +35,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_TPC__ID")]
         [PrimaryKey("INF_CD_TPC_PK")]
-        [ForeignKeyAttribute("INF_CD_TPC__INF_TPC","JOIN_o884")]
+        [ForeignKeyAttribute("INF_CD_TPC__INF_TPC","JOIN_o885")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

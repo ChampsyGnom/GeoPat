@@ -21,9 +21,9 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
     /// </summary>
     public partial class CartoView : UserControl
     {
-        public CartoView(CartoViewModel viewModel)
+        public CartoView()
         {
-            this.DataContext = viewModel;
+            
             InitializeComponent();
         }
     }
