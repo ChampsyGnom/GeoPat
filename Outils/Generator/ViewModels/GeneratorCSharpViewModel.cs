@@ -40,7 +40,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         {
             this._model = model;
             this.DataNamespace = "Emash.GeoPatNet.Data";
-            this.DataPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Core\Data";
+            this.DataPath = @"C:\Users\Champ\Documents\GitHub\GeoPat\GeoPatNet\Core\Data";
 
          
     
@@ -235,6 +235,10 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 { childColumn = (from c in table.Columns where (from j in parentFk.Joins select j.ChildColumnId).Contains(c.Id) select c).FirstOrDefault(); }
                       
                             }
+                            DbRuleLocationRef ruleLocationRef = (from r in column.Rules where r is DbRuleLocationRef select r as DbRuleLocationRef).FirstOrDefault();
+                            DbRuleLocationDeb ruleLocationDeb = (from r in column.Rules where r is DbRuleLocationDeb select r as DbRuleLocationDeb).FirstOrDefault();
+                            DbRuleLocationFin ruleLocationFin = (from r in column.Rules where r is DbRuleLocationFin select r as DbRuleLocationFin).FirstOrDefault();
+                            
                             DbRulePr rulePr = (from r in column.Rules where r is DbRulePr select r as DbRulePr).FirstOrDefault();
                             DbRuleEmprise ruleEmprise = (from r in column.Rules where r is DbRuleEmprise select r as DbRuleEmprise).FirstOrDefault();
                             bool isFk = column.Name.ToLower().EndsWith("id") && column.Name.Length > 2;
@@ -244,6 +248,19 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
 
+                                if (ruleLocationRef != null)
+                                {
+                                    prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceId)]");
+
+                                }
+                                if (ruleLocationDeb  != null)
+                                {
+                                    prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceDeb)]");
+                                }
+                                if (ruleLocationFin != null)
+                                {
+                                    prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceFin)]");
+                                }
 
                                 // sauf que les colonne qui ne sont pas des id parent ne sont pas non plus ajouté à la unique key
                                 if (!isFk)
@@ -284,7 +301,19 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                                 TemplateProperty prop = writer.AddProperty("public Int64", propertyName);
                                 prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");
                                 prop.Attributes.Add("[ColumnName(\"" + column.Name + "\")]");
+                                if (ruleLocationRef != null)
+                                {
+                                    prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceId)]");
 
+                                }
+                                if (ruleLocationDeb != null)
+                                {
+                                    prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceDeb)]");
+                                }
+                                if (ruleLocationFin != null)
+                                {
+                                    prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceFin)]");
+                                }
 
                                 if (!isFk)
                                 {
@@ -347,7 +376,15 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         }
                         else if (column.DataType.StartsWith("VBIN"))
                         {
+                            DbRuleLocationRefGeom ruleLocationRefGeom = (from r in column.Rules where r is DbRuleLocationRefGeom select r as DbRuleLocationRefGeom).FirstOrDefault();
+                           
                             TemplateProperty prop = writer.AddProperty("public Byte[]", propertyName);
+                            if (ruleLocationRefGeom != null)
+                            {
+                                prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceGeometry)]");
+
+                            }
+                            
                             prop.Attributes.Add("[ControlType(ControlType.None)]");
                             prop.Attributes.Add("[AllowNull(true)]");
                             prop.Attributes.Add("[DisplayName(\"" + column.DisplayName + "\")]");

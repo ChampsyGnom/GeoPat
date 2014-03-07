@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Aménagement")]
@@ -77,6 +78,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_AMENAGEMENT__ABS_DEB")]
+        [LocationAttribute(LocationAttributeType.ReferenceDeb)]
         [UniqueKey("INF_AMENAGEMENT_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
@@ -90,6 +92,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_AMENAGEMENT__ABS_FIN")]
+        [LocationAttribute(LocationAttributeType.ReferenceFin)]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
@@ -111,22 +114,23 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Identifiant chaussée")]
+        [ColumnName("INF_CHAUSSEE__ID")]
+        [LocationAttribute(LocationAttributeType.ReferenceId)]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfChausseeId
+        {
+            get;
+            set;
+        }
         [DisplayName("Identifiant code aménagement")]
         [ColumnName("INF_CD_AMENAGEMENT__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeAmenagementId
-        {
-            get;
-            set;
-        }
-        [DisplayName("Identifiant3")]
-        [ColumnName("INF_CHAUSSEE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfChausseeId
         {
             get;
             set;

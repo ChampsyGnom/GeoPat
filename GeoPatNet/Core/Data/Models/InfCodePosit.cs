@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code position")]
@@ -30,8 +31,8 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_POSIT__ID")]
         [PrimaryKey("INF_CD_POSIT_PK")]
-        [ForeignKeyAttribute("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o878")]
-        [ForeignKeyAttribute("INF_CD_POSIT__INF_SECURITE","JOIN_o880")]
+        [ForeignKeyAttribute("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o882")]
+        [ForeignKeyAttribute("INF_CD_POSIT__INF_SECURITE","JOIN_o884")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

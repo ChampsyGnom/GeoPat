@@ -19,36 +19,6 @@ namespace Emash.GeoPatNet.Data
             get { return _modelBuilder; }
         }
 
-        public DbSet<SigLayer>  SigLayers
-        {
-            get;
-            set;
-        }
-        public DbSet<SigNode>  SigNodes
-        {
-            get;
-            set;
-        }
-        public DbSet<SigTemplate>  SigTemplates
-        {
-            get;
-            set;
-        }
-        public DbSet<SigCodeLayer>  SigCodeLayers
-        {
-            get;
-            set;
-        }
-        public DbSet<SigCodeNode>  SigCodeNodes
-        {
-            get;
-            set;
-        }
-        public DbSet<SigCodeTemplate>  SigCodeTemplates
-        {
-            get;
-            set;
-        }
         public DbSet<PrfUser>  PrfUsers
         {
             get;
@@ -309,6 +279,36 @@ namespace Emash.GeoPatNet.Data
             get;
             set;
         }
+        public DbSet<SigLayer>  SigLayers
+        {
+            get;
+            set;
+        }
+        public DbSet<SigNode>  SigNodes
+        {
+            get;
+            set;
+        }
+        public DbSet<SigTemplate>  SigTemplates
+        {
+            get;
+            set;
+        }
+        public DbSet<SigCodeLayer>  SigCodeLayers
+        {
+            get;
+            set;
+        }
+        public DbSet<SigCodeNode>  SigCodeNodes
+        {
+            get;
+            set;
+        }
+        public DbSet<SigCodeTemplate>  SigCodeTemplates
+        {
+            get;
+            set;
+        }
 	   
         
 	    public DataContext(DbConnection connection)
@@ -324,80 +324,6 @@ namespace Emash.GeoPatNet.Data
             base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             this._modelBuilder = modelBuilder;
-            modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
-            modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
-            modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");
-            modelBuilder.Entity<SigLayer>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId) .HasColumnName("sig_cd_layer__id");
-            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId).IsRequired();
-            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle) .HasColumnName("sig_layer__libelle");
-            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).IsRequired();
-            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder) .HasColumnName("sig_layer__map_order");
-            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder).IsRequired();
-            modelBuilder.Entity<SigLayer>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigNode>().HasRequired<SigCodeNode>(c => c.SigCodeNode).WithMany(t => t.SigNodes);
-            modelBuilder.Entity<SigNode>().HasRequired<SigTemplate>(c => c.SigTemplate).WithMany(t => t.SigNodes);
-            modelBuilder.Entity<SigNode>().HasRequired<SigLayer>(c => c.SigLayer).WithMany(t => t.SigNodes);
-            modelBuilder.Entity<SigNode>().ToTable("sig_node", "sig");
-            modelBuilder.Entity<SigNode>().Property(t => t.Id) .HasColumnName("sig_node__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.SigLayerId) .HasColumnName("sig_layer__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId) .HasColumnName("sig_template__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId) .HasColumnName("sig_cd_node__id");
-            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.Libelle) .HasColumnName("sig_node__libelle");
-            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigNode>().Property(t => t.ParentId) .HasColumnName("sig_node__parent_id");
-            modelBuilder.Entity<SigNode>().Property(t => t.ParentId).IsRequired();
-            modelBuilder.Entity<SigNode>().Property(t => t.Order) .HasColumnName("sig_node__order");
-            modelBuilder.Entity<SigNode>().Property(t => t.Order).IsRequired();
-            modelBuilder.Entity<SigNode>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigTemplate>().HasRequired<SigCodeTemplate>(c => c.SigCodeTemplate).WithMany(t => t.SigTemplates);
-            modelBuilder.Entity<SigTemplate>().ToTable("sig_template", "sig");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Id) .HasColumnName("sig_template__id");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId) .HasColumnName("sig_cd_template__id");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId).IsRequired();
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle) .HasColumnName("sig_template__libelle");
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).IsRequired();
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigTemplate>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigCodeLayer>().ToTable("sig_cd_layer", "sig");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code) .HasColumnName("sig_cd_layer__code");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id) .HasColumnName("sig_cd_layer__id");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle) .HasColumnName("sig_cd_layer__libelle");
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle).HasMaxLength(500);
-            modelBuilder.Entity<SigCodeLayer>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigCodeNode>().ToTable("sig_cd_node", "sig");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code) .HasColumnName("sig_cd_node__code");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id) .HasColumnName("sig_cd_node__id");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle) .HasColumnName("sig_cd_node__libelle");
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigCodeNode>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SigCodeTemplate>().ToTable("sig_cd_template", "sig");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code) .HasColumnName("sig_cd_template__code");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id) .HasColumnName("sig_cd_template__id");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle) .HasColumnName("sig_cd_template__libelle");
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<SigCodeTemplate>().HasKey(t => t.Id);
-            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
             modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
             modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
@@ -496,10 +422,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfAmenagement>().Property(t => t.AbsFin) .HasColumnName("inf_amenagement__abs_fin");
             modelBuilder.Entity<InfAmenagement>().Property(t => t.Id) .HasColumnName("inf_amenagement__id");
             modelBuilder.Entity<InfAmenagement>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfAmenagement>().Property(t => t.InfCodeAmenagementId) .HasColumnName("inf_cd_amenagement__id");
-            modelBuilder.Entity<InfAmenagement>().Property(t => t.InfCodeAmenagementId).IsRequired();
             modelBuilder.Entity<InfAmenagement>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfAmenagement>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfAmenagement>().Property(t => t.InfCodeAmenagementId) .HasColumnName("inf_cd_amenagement__id");
+            modelBuilder.Entity<InfAmenagement>().Property(t => t.InfCodeAmenagementId).IsRequired();
             modelBuilder.Entity<InfAmenagement>().HasKey(t => t.Id);
             modelBuilder.Entity<InfAmenagement>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfPrOld>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfPrOlds);
@@ -526,10 +452,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfBifurcation>().Property(t => t.AbsDeb).IsRequired();
             modelBuilder.Entity<InfBifurcation>().Property(t => t.Id) .HasColumnName("inf_bifurcation__id");
             modelBuilder.Entity<InfBifurcation>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfBifurcation>().Property(t => t.InfCodeBifurcationId) .HasColumnName("inf_cd_bifurcation__id");
-            modelBuilder.Entity<InfBifurcation>().Property(t => t.InfCodeBifurcationId).IsRequired();
             modelBuilder.Entity<InfBifurcation>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfBifurcation>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfBifurcation>().Property(t => t.InfCodeBifurcationId) .HasColumnName("inf_cd_bifurcation__id");
+            modelBuilder.Entity<InfBifurcation>().Property(t => t.InfCodeBifurcationId).IsRequired();
             modelBuilder.Entity<InfBifurcation>().Property(t => t.NumExploit) .HasColumnName("inf_bifurcation__num_exploit");
             modelBuilder.Entity<InfBifurcation>().Property(t => t.NumExploit).HasMaxLength(50);
             modelBuilder.Entity<InfBifurcation>().Property(t => t.Nom) .HasColumnName("inf_bifurcation__nom");
@@ -782,12 +708,12 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfEclairage>().Property(t => t.AbsDeb).IsRequired();
             modelBuilder.Entity<InfEclairage>().Property(t => t.Id) .HasColumnName("inf_eclairage__id");
             modelBuilder.Entity<InfEclairage>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfEclairage>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
+            modelBuilder.Entity<InfEclairage>().Property(t => t.InfChausseeId).IsRequired();
             modelBuilder.Entity<InfEclairage>().Property(t => t.InfCodeEclairageId) .HasColumnName("inf_cd_eclairage__id");
             modelBuilder.Entity<InfEclairage>().Property(t => t.InfCodeEclairageId).IsRequired();
             modelBuilder.Entity<InfEclairage>().Property(t => t.InfCodePositId) .HasColumnName("inf_cd_posit__id");
             modelBuilder.Entity<InfEclairage>().Property(t => t.InfCodePositId).IsRequired();
-            modelBuilder.Entity<InfEclairage>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
-            modelBuilder.Entity<InfEclairage>().Property(t => t.InfChausseeId).IsRequired();
             modelBuilder.Entity<InfEclairage>().HasKey(t => t.Id);
             modelBuilder.Entity<InfEclairage>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfFamDec>().ToTable("inf_fam_dec", "inf");
@@ -810,10 +736,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfGare>().Property(t => t.AbsDeb).IsRequired();
             modelBuilder.Entity<InfGare>().Property(t => t.Id) .HasColumnName("inf_gare__id");
             modelBuilder.Entity<InfGare>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfGare>().Property(t => t.InfCodeGareId) .HasColumnName("inf_cd_gare__id");
-            modelBuilder.Entity<InfGare>().Property(t => t.InfCodeGareId).IsRequired();
             modelBuilder.Entity<InfGare>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfGare>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfGare>().Property(t => t.InfCodeGareId) .HasColumnName("inf_cd_gare__id");
+            modelBuilder.Entity<InfGare>().Property(t => t.InfCodeGareId).IsRequired();
             modelBuilder.Entity<InfGare>().Property(t => t.NumExploit) .HasColumnName("inf_gare__num_exploit");
             modelBuilder.Entity<InfGare>().Property(t => t.NumExploit).HasMaxLength(50);
             modelBuilder.Entity<InfGare>().Property(t => t.NbSortie) .HasColumnName("inf_gare__nb_sortie");
@@ -850,12 +776,12 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfOccupation>().Property(t => t.AbsFin) .HasColumnName("inf_occupation__abs_fin");
             modelBuilder.Entity<InfOccupation>().Property(t => t.Id) .HasColumnName("inf_occupation__id");
             modelBuilder.Entity<InfOccupation>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfOccupation>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
+            modelBuilder.Entity<InfOccupation>().Property(t => t.InfChausseeId).IsRequired();
             modelBuilder.Entity<InfOccupation>().Property(t => t.InfCodeOccupantId) .HasColumnName("inf_cd_occupant__id");
             modelBuilder.Entity<InfOccupation>().Property(t => t.InfCodeOccupantId).IsRequired();
             modelBuilder.Entity<InfOccupation>().Property(t => t.InfCodeOccupationId) .HasColumnName("inf_cd_occupation__id");
             modelBuilder.Entity<InfOccupation>().Property(t => t.InfCodeOccupationId).IsRequired();
-            modelBuilder.Entity<InfOccupation>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
-            modelBuilder.Entity<InfOccupation>().Property(t => t.InfChausseeId).IsRequired();
             modelBuilder.Entity<InfOccupation>().Property(t => t.Traverse) .HasColumnName("inf_occupation__traverse");
             modelBuilder.Entity<InfOccupation>().HasKey(t => t.Id);
             modelBuilder.Entity<InfOccupation>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -870,10 +796,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.AbsFin).IsRequired();
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.Id) .HasColumnName("inf_pave_voie__id");
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfPaveVoie>().Property(t => t.InfCodeVoieId) .HasColumnName("inf_cd_voie__id");
-            modelBuilder.Entity<InfPaveVoie>().Property(t => t.InfCodeVoieId).IsRequired();
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfPaveVoie>().Property(t => t.InfCodeVoieId) .HasColumnName("inf_cd_voie__id");
+            modelBuilder.Entity<InfPaveVoie>().Property(t => t.InfCodeVoieId).IsRequired();
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.Largeur) .HasColumnName("inf_pave_voie__largeur");
             modelBuilder.Entity<InfPaveVoie>().Property(t => t.Largeur).IsRequired();
             modelBuilder.Entity<InfPaveVoie>().HasKey(t => t.Id);
@@ -901,10 +827,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfPtSing>().Property(t => t.AbsDeb).IsRequired();
             modelBuilder.Entity<InfPtSing>().Property(t => t.Id) .HasColumnName("inf_pt_sing__id");
             modelBuilder.Entity<InfPtSing>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfPtSing>().Property(t => t.InfCodePtSingId) .HasColumnName("inf_cd_pt_sing__id");
-            modelBuilder.Entity<InfPtSing>().Property(t => t.InfCodePtSingId).IsRequired();
             modelBuilder.Entity<InfPtSing>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfPtSing>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfPtSing>().Property(t => t.InfCodePtSingId) .HasColumnName("inf_cd_pt_sing__id");
+            modelBuilder.Entity<InfPtSing>().Property(t => t.InfCodePtSingId).IsRequired();
             modelBuilder.Entity<InfPtSing>().Property(t => t.Libelle) .HasColumnName("inf_pt_sing__libelle");
             modelBuilder.Entity<InfPtSing>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfPtSing>().Property(t => t.Nom) .HasColumnName("inf_pt_sing__nom");
@@ -962,10 +888,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.AbsFin) .HasColumnName("inf_section_trafic__abs_fin");
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.Id) .HasColumnName("inf_section_trafic__id");
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfSectionTrafic>().Property(t => t.InfCodeTraficId) .HasColumnName("inf_cd_trafic__id");
-            modelBuilder.Entity<InfSectionTrafic>().Property(t => t.InfCodeTraficId).IsRequired();
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfSectionTrafic>().Property(t => t.InfCodeTraficId) .HasColumnName("inf_cd_trafic__id");
+            modelBuilder.Entity<InfSectionTrafic>().Property(t => t.InfCodeTraficId).IsRequired();
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.Tenant) .HasColumnName("inf_section_trafic__tenant");
             modelBuilder.Entity<InfSectionTrafic>().Property(t => t.Tenant).HasMaxLength(200);
             modelBuilder.Entity<InfSectionTrafic>().HasKey(t => t.Id);
@@ -979,12 +905,12 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfSecurite>().Property(t => t.AbsFin) .HasColumnName("inf_securite__abs_fin");
             modelBuilder.Entity<InfSecurite>().Property(t => t.Id) .HasColumnName("inf_securite__id");
             modelBuilder.Entity<InfSecurite>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfSecurite>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
+            modelBuilder.Entity<InfSecurite>().Property(t => t.InfChausseeId).IsRequired();
             modelBuilder.Entity<InfSecurite>().Property(t => t.InfCodePositId) .HasColumnName("inf_cd_posit__id");
             modelBuilder.Entity<InfSecurite>().Property(t => t.InfCodePositId).IsRequired();
             modelBuilder.Entity<InfSecurite>().Property(t => t.InfCodeSecuriteId) .HasColumnName("inf_cd_securite__id");
             modelBuilder.Entity<InfSecurite>().Property(t => t.InfCodeSecuriteId).IsRequired();
-            modelBuilder.Entity<InfSecurite>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
-            modelBuilder.Entity<InfSecurite>().Property(t => t.InfChausseeId).IsRequired();
             modelBuilder.Entity<InfSecurite>().HasKey(t => t.Id);
             modelBuilder.Entity<InfSecurite>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfSensible>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfSensibles);
@@ -995,10 +921,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfSensible>().Property(t => t.AbsFin) .HasColumnName("inf_sensible__abs_fin");
             modelBuilder.Entity<InfSensible>().Property(t => t.Id) .HasColumnName("inf_sensible__id");
             modelBuilder.Entity<InfSensible>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfSensible>().Property(t => t.InfCodeSensibleId) .HasColumnName("inf_cd_sensible__id");
-            modelBuilder.Entity<InfSensible>().Property(t => t.InfCodeSensibleId).IsRequired();
             modelBuilder.Entity<InfSensible>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfSensible>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfSensible>().Property(t => t.InfCodeSensibleId) .HasColumnName("inf_cd_sensible__id");
+            modelBuilder.Entity<InfSensible>().Property(t => t.InfCodeSensibleId).IsRequired();
             modelBuilder.Entity<InfSensible>().Property(t => t.Libelle) .HasColumnName("inf_sensible__libelle");
             modelBuilder.Entity<InfSensible>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfSensible>().HasKey(t => t.Id);
@@ -1029,10 +955,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfTalus>().Property(t => t.Hauteur) .HasColumnName("inf_talus__hauteur");
             modelBuilder.Entity<InfTalus>().Property(t => t.Id) .HasColumnName("inf_talus__id");
             modelBuilder.Entity<InfTalus>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfTalus>().Property(t => t.InfCodeTalusId) .HasColumnName("inf_cd_talus__id");
-            modelBuilder.Entity<InfTalus>().Property(t => t.InfCodeTalusId).IsRequired();
             modelBuilder.Entity<InfTalus>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfTalus>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfTalus>().Property(t => t.InfCodeTalusId) .HasColumnName("inf_cd_talus__id");
+            modelBuilder.Entity<InfTalus>().Property(t => t.InfCodeTalusId).IsRequired();
             modelBuilder.Entity<InfTalus>().HasKey(t => t.Id);
             modelBuilder.Entity<InfTalus>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfTpc>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfTpcs);
@@ -1044,10 +970,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfTpc>().Property(t => t.AbsFin).IsRequired();
             modelBuilder.Entity<InfTpc>().Property(t => t.Id) .HasColumnName("inf_tpc__id");
             modelBuilder.Entity<InfTpc>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfTpc>().Property(t => t.InfCodeTpcId) .HasColumnName("inf_cd_tpc__id");
-            modelBuilder.Entity<InfTpc>().Property(t => t.InfCodeTpcId).IsRequired();
             modelBuilder.Entity<InfTpc>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfTpc>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfTpc>().Property(t => t.InfCodeTpcId) .HasColumnName("inf_cd_tpc__id");
+            modelBuilder.Entity<InfTpc>().Property(t => t.InfCodeTpcId).IsRequired();
             modelBuilder.Entity<InfTpc>().Property(t => t.Largeur) .HasColumnName("inf_tpc__largeur");
             modelBuilder.Entity<InfTpc>().HasKey(t => t.Id);
             modelBuilder.Entity<InfTpc>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -1060,10 +986,10 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfTrDec>().Property(t => t.AbsFin).IsRequired();
             modelBuilder.Entity<InfTrDec>().Property(t => t.Id) .HasColumnName("inf_tr_dec__id");
             modelBuilder.Entity<InfTrDec>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<InfTrDec>().Property(t => t.InfCodeDecId) .HasColumnName("inf_cd_dec__id");
-            modelBuilder.Entity<InfTrDec>().Property(t => t.InfCodeDecId).IsRequired();
             modelBuilder.Entity<InfTrDec>().Property(t => t.InfChausseeId) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfTrDec>().Property(t => t.InfChausseeId).IsRequired();
+            modelBuilder.Entity<InfTrDec>().Property(t => t.InfCodeDecId) .HasColumnName("inf_cd_dec__id");
+            modelBuilder.Entity<InfTrDec>().Property(t => t.InfCodeDecId).IsRequired();
             modelBuilder.Entity<InfTrDec>().HasKey(t => t.Id);
             modelBuilder.Entity<InfTrDec>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfCodeAire>().ToTable("inf_cd_aire", "inf");
@@ -1118,6 +1044,80 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeService>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeService>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeService>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
+            modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
+            modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");
+            modelBuilder.Entity<SigLayer>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId) .HasColumnName("sig_cd_layer__id");
+            modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId).IsRequired();
+            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle) .HasColumnName("sig_layer__libelle");
+            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).IsRequired();
+            modelBuilder.Entity<SigLayer>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder) .HasColumnName("sig_layer__map_order");
+            modelBuilder.Entity<SigLayer>().Property(t => t.MapOrder).IsRequired();
+            modelBuilder.Entity<SigLayer>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigNode>().HasRequired<SigCodeNode>(c => c.SigCodeNode).WithMany(t => t.SigNodes);
+            modelBuilder.Entity<SigNode>().HasRequired<SigTemplate>(c => c.SigTemplate).WithMany(t => t.SigNodes);
+            modelBuilder.Entity<SigNode>().HasRequired<SigLayer>(c => c.SigLayer).WithMany(t => t.SigNodes);
+            modelBuilder.Entity<SigNode>().ToTable("sig_node", "sig");
+            modelBuilder.Entity<SigNode>().Property(t => t.Id) .HasColumnName("sig_node__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.SigLayerId) .HasColumnName("sig_layer__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId) .HasColumnName("sig_template__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.SigTemplateId).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId) .HasColumnName("sig_cd_node__id");
+            modelBuilder.Entity<SigNode>().Property(t => t.SigCodeNodeId).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.Libelle) .HasColumnName("sig_node__libelle");
+            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigNode>().Property(t => t.ParentId) .HasColumnName("sig_node__parent_id");
+            modelBuilder.Entity<SigNode>().Property(t => t.ParentId).IsRequired();
+            modelBuilder.Entity<SigNode>().Property(t => t.Order) .HasColumnName("sig_node__order");
+            modelBuilder.Entity<SigNode>().Property(t => t.Order).IsRequired();
+            modelBuilder.Entity<SigNode>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigTemplate>().HasRequired<SigCodeTemplate>(c => c.SigCodeTemplate).WithMany(t => t.SigTemplates);
+            modelBuilder.Entity<SigTemplate>().ToTable("sig_template", "sig");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Id) .HasColumnName("sig_template__id");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId) .HasColumnName("sig_cd_template__id");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.SigCodeTemplateId).IsRequired();
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle) .HasColumnName("sig_template__libelle");
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).IsRequired();
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigTemplate>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigCodeLayer>().ToTable("sig_cd_layer", "sig");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code) .HasColumnName("sig_cd_layer__code");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id) .HasColumnName("sig_cd_layer__id");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle) .HasColumnName("sig_cd_layer__libelle");
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Libelle).HasMaxLength(500);
+            modelBuilder.Entity<SigCodeLayer>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigCodeLayer>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigCodeNode>().ToTable("sig_cd_node", "sig");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code) .HasColumnName("sig_cd_node__code");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id) .HasColumnName("sig_cd_node__id");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle) .HasColumnName("sig_cd_node__libelle");
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigCodeNode>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigCodeNode>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<SigCodeTemplate>().ToTable("sig_cd_template", "sig");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code) .HasColumnName("sig_cd_template__code");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id) .HasColumnName("sig_cd_template__id");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle) .HasColumnName("sig_cd_template__libelle");
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<SigCodeTemplate>().HasKey(t => t.Id);
+            modelBuilder.Entity<SigCodeTemplate>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
 
 

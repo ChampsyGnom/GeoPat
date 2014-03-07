@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Prestataire")]
@@ -46,7 +47,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_PRESTATAIRE__ID")]
         [PrimaryKey("INF_PRESTATAIRE_PK")]
-        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE_PRESTATAIRE","JOIN_o893")]
+        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE_PRESTATAIRE","JOIN_o897")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code voie")]
@@ -45,7 +46,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_VOIE__ID")]
         [PrimaryKey("INF_CD_VOIE_PK")]
-        [ForeignKeyAttribute("INF_CD_VOIE__INF_PAVE_VOIE","JOIN_o886")]
+        [ForeignKeyAttribute("INF_CD_VOIE__INF_PAVE_VOIE","JOIN_o890")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

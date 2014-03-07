@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Repère")]
@@ -27,6 +28,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Abscisse")]
         [ColumnName("INF_REPERE__ABS_CUM")]
+        [LocationAttribute(LocationAttributeType.ReferenceDeb)]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Integer)]
         [AllowNull(false)]
@@ -56,8 +58,9 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Identifiant2")]
+        [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [LocationAttribute(LocationAttributeType.ReferenceId)]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

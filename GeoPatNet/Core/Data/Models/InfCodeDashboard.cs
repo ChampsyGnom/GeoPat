@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code tableau de bord")]
@@ -34,7 +35,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
         [PrimaryKey("IDENTIFIANT_1")]
-        [ForeignKeyAttribute("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o882")]
+        [ForeignKeyAttribute("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o886")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

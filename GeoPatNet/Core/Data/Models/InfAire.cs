@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Aires")]
@@ -84,6 +85,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_AIRE__ABS_DEB")]
+        [LocationAttribute(LocationAttributeType.ReferenceDeb)]
         [UniqueKey("INF_AIRE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
@@ -108,9 +110,9 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_AIRE__ID")]
         [PrimaryKey("INF_AIRE_PK")]
-        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PARKING","JOIN_o823")]
-        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PRESTATAIRE","JOIN_o825")]
-        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_SERVICE","JOIN_o821")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PARKING","JOIN_o827")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PRESTATAIRE","JOIN_o829")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_SERVICE","JOIN_o825")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -120,6 +122,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [LocationAttribute(LocationAttributeType.ReferenceId)]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

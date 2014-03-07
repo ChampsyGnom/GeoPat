@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code gare")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_GARE__ID")]
         [PrimaryKey("INF_CD_GARE_PK")]
-        [ForeignKeyAttribute("INF_CD_GARE__INF_GARE","JOIN_o875")]
+        [ForeignKeyAttribute("INF_CD_GARE__INF_GARE","JOIN_o879")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

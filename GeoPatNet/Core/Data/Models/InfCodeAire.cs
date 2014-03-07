@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Type Aires")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_AIRE__ID")]
         [PrimaryKey("INF_CD_AIRE_PK")]
-        [ForeignKeyAttribute("INF_CD_AIRE__INF_AIRE","JOIN_o897")]
+        [ForeignKeyAttribute("INF_CD_AIRE__INF_AIRE","JOIN_o901")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

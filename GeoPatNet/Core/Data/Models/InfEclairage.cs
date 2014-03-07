@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Eclairage")]
@@ -49,6 +50,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_ECLAIRAGE__ABS_DEB")]
+        [LocationAttribute(LocationAttributeType.ReferenceDeb)]
         [UniqueKey("INF_ECLAIRAGE_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
@@ -71,6 +73,17 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Identifiant chassée")]
+        [ColumnName("INF_CHAUSSEE__ID")]
+        [LocationAttribute(LocationAttributeType.ReferenceId)]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfChausseeId
+        {
+            get;
+            set;
+        }
         [DisplayName("Identifiant code éclairage")]
         [ColumnName("INF_CD_ECLAIRAGE__ID")]
         [RangeValue(-999999999999,999999999999)]
@@ -87,16 +100,6 @@ namespace Emash.GeoPatNet.Data.Models
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodePositId
-        {
-            get;
-            set;
-        }
-        [DisplayName("Identifiant2")]
-        [ColumnName("INF_CHAUSSEE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfChausseeId
         {
             get;
             set;

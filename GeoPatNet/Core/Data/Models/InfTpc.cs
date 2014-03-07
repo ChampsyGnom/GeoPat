@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Terre plein central")]
@@ -38,6 +39,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_TPC__ABS_DEB")]
+        [LocationAttribute(LocationAttributeType.ReferenceDeb)]
         [UniqueKey("INF_TPC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
@@ -51,6 +53,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_TPC__ABS_FIN")]
+        [LocationAttribute(LocationAttributeType.ReferenceFin)]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
@@ -72,22 +75,23 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Identifiant chaussée")]
+        [ColumnName("INF_CHAUSSEE__ID")]
+        [LocationAttribute(LocationAttributeType.ReferenceId)]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 InfChausseeId
+        {
+            get;
+            set;
+        }
         [DisplayName("Identifiant code TPC")]
         [ColumnName("INF_CD_TPC__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfCodeTpcId
-        {
-            get;
-            set;
-        }
-        [DisplayName("Identifiant2")]
-        [ColumnName("INF_CHAUSSEE__ID")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.None)]
-        [AllowNull(false)]
-        public Int64 InfChausseeId
         {
             get;
             set;

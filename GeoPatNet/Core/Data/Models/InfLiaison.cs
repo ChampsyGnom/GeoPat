@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Liaison")]
@@ -46,7 +47,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_LIAISON__ID")]
         [PrimaryKey("INF_LIAISON_PK")]
-        [ForeignKeyAttribute("INF_LIAISON__CHAUSSEE_INF","JOIN_o889")]
+        [ForeignKeyAttribute("INF_LIAISON__CHAUSSEE_INF","JOIN_o893")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

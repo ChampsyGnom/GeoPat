@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code découpage")]
@@ -46,7 +47,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_DEC__ID")]
         [PrimaryKey("INF_CD_DEC_PK")]
-        [ForeignKeyAttribute("INF_CD_DEC__INF_TR_DEC","JOIN_o873")]
+        [ForeignKeyAttribute("INF_CD_DEC__INF_TR_DEC","JOIN_o877")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

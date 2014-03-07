@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code éclairage")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_ECLAIRAGE__ID")]
         [PrimaryKey("INF_CD_ECLAIRAGE_PK")]
-        [ForeignKeyAttribute("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o874")]
+        [ForeignKeyAttribute("INF_CD_ECLAIRAGE__INF_ECLAIRAGE","JOIN_o878")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

@@ -179,6 +179,31 @@ namespace Emash.GeoPatNet.Generator.IO
                     ruleColor.Id = nodeRule.Attributes["Id"].Value;
                     schema.Rules.Add(ruleColor);
                 }
+                if (serverExpression.StartsWith("@LOCATION_REF"))
+                {
+                    DbRuleLocationRef ruleLocation = new DbRuleLocationRef();
+                 
+                    ruleLocation.Id = nodeRule.Attributes["Id"].Value;
+                    schema.Rules.Add(ruleLocation);
+                }
+                if (serverExpression.StartsWith("@LOCATION_REF_GEOM"))
+                {
+                    DbRuleLocationRefGeom ruleLocation = new DbRuleLocationRefGeom();
+                     ruleLocation.Id = nodeRule.Attributes["Id"].Value;
+                    schema.Rules.Add(ruleLocation);
+                }
+                if (serverExpression.StartsWith("@LOCATION_DEB"))
+                {
+                    DbRuleLocationDeb ruleLocation = new DbRuleLocationDeb();
+                    ruleLocation.Id = nodeRule.Attributes["Id"].Value;
+                    schema.Rules.Add(ruleLocation);
+                }
+                if (serverExpression.StartsWith("@LOCATION_FIN"))
+                {
+                    DbRuleLocationFin ruleLocation = new DbRuleLocationFin();
+                   ruleLocation.Id = nodeRule.Attributes["Id"].Value;
+                    schema.Rules.Add(ruleLocation);
+                }
             }
 
 
@@ -233,7 +258,9 @@ namespace Emash.GeoPatNet.Generator.IO
                         String ruleId = nodeColumnRule.Attributes["Ref"].Value;
                         DbRule rule = (from s in schema.Rules where s.Id.Equals (ruleId ) select s).FirstOrDefault();
                         if (rule != null)
-                        {column.Rules.Add(rule);}
+                        {
+                             column.Rules.Add(rule);
+                        }
 
 
                     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Répartition trafic")]
@@ -48,6 +49,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Début")]
         [ColumnName("INF_REPARTITION_TRAFIC__ABS_DEB")]
+        [LocationAttribute(LocationAttributeType.ReferenceDeb)]
         [UniqueKey("INF_REPARTITION_TRAFIC_UK_REF")]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
@@ -61,6 +63,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Fin")]
         [ColumnName("INF_REPARTITION_TRAFIC__ABS_FIN")]
+        [LocationAttribute(LocationAttributeType.ReferenceFin)]
         [RangeValue(-999999999999,999999999999)]
         [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
@@ -82,8 +85,9 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Identifiant2")]
+        [DisplayName("Identifiant chaussée")]
         [ColumnName("INF_CHAUSSEE__ID")]
+        [LocationAttribute(LocationAttributeType.ReferenceId)]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]

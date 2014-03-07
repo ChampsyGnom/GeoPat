@@ -121,9 +121,13 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="IO\TemplateFileWriter.cs" />
     <Compile Include="IO\TemplateProperty.cs" />
+    <Compile Include="Models\DbRuleLocationDeb.cs" />
+    <Compile Include="Models\DbRuleLocationFin.cs" />
+    <Compile Include="Models\DbRuleLocationRefGeom.cs" />
     <Compile Include="Models\DbRuleColor.cs" />
     <Compile Include="Models\DbRuleEmprise.cs" />
     <Compile Include="Models\DbRule.cs" />
+    <Compile Include="Models\DbRuleLocationRef.cs" />
     <Compile Include="Models\DbRulePr.cs" />
     <Compile Include="Services\SerializationService.cs" />
     <Compile Include="Utils\NameConverter.cs" />

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Type parking")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_PLACE__ID")]
         [PrimaryKey("INF_CD_PLACE_PK")]
-        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE_PARKING","JOIN_o891")]
+        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE_PARKING","JOIN_o895")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

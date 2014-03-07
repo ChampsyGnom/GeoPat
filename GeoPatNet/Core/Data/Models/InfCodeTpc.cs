@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code TPC")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_TPC__ID")]
         [PrimaryKey("INF_CD_TPC_PK")]
-        [ForeignKeyAttribute("INF_CD_TPC__INF_TPC","JOIN_o885")]
+        [ForeignKeyAttribute("INF_CD_TPC__INF_TPC","JOIN_o889")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Type liaison")]
@@ -45,7 +46,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_LIAISON__ID")]
         [PrimaryKey("INF_CD_LIAISON_PK")]
-        [ForeignKeyAttribute("INF_CD_LIAISON__INF_LIAISON","JOIN_o868")]
+        [ForeignKeyAttribute("INF_CD_LIAISON__INF_LIAISON","JOIN_o872")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

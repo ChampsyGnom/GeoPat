@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code aménagement")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_AMENAGEMENT__ID")]
         [PrimaryKey("INF_CD_AMENAGEMENT_PK")]
-        [ForeignKeyAttribute("INF_CD_AMENAGEMENT__INF_AMENAGEMENT","JOIN_o870")]
+        [ForeignKeyAttribute("INF_CD_AMENAGEMENT__INF_AMENAGEMENT","JOIN_o874")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

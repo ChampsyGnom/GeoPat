@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code sensibilité")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_SENSIBLE__ID")]
         [PrimaryKey("INF_CD_SENSIBLE_PK")]
-        [ForeignKeyAttribute("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o883")]
+        [ForeignKeyAttribute("INF_CD_SENSIBLE__INF_SENSIBLE","JOIN_o887")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

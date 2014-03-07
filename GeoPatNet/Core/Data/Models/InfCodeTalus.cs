@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Code talus")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_TALUS__ID")]
         [PrimaryKey("INF_CD_TALUS_PK")]
-        [ForeignKeyAttribute("INF_CD_TALUS__INF_TALUS","JOIN_o884")]
+        [ForeignKeyAttribute("INF_CD_TALUS__INF_TALUS","JOIN_o888")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

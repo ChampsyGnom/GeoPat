@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
 	[DisplayName("Type Service")]
@@ -35,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_SERVICE__ID")]
         [PrimaryKey("INF_CD_SERVICE_PK")]
-        [ForeignKeyAttribute("INF_CD_SERVICE__INF_AIRE_SERVICE","JOIN_o895")]
+        [ForeignKeyAttribute("INF_CD_SERVICE__INF_AIRE_SERVICE","JOIN_o899")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
