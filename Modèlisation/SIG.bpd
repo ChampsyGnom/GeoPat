@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{C902BFCC-927D-441B-ACB8-27C2EE83BD63}" Label="" LastModificationDate="1394107440" Name="Système d&#39;information géographique" Objects="91" Symbols="11" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{C902BFCC-927D-441B-ACB8-27C2EE83BD63}" Label="" LastModificationDate="1394189979" Name="Système d&#39;information géographique" Objects="90" Symbols="11" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -3907,8 +3907,8 @@ DAT 1394044071</a:History>
 <a:Code>SIG_NODE</a:Code>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394044204</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
+<a:ModificationDate>1394189979</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
 <a:History>ORG {CBF33048-346E-4571-8F31-BF1DD03DF055}
 DAT 1394044071</a:History>
 <a:TotalSavingCurrency/>
@@ -4127,50 +4127,6 @@ DAT 1394044071</a:History>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o82">
-<a:ObjectID>5D550EF7-7DFF-4C92-ABEC-E8C6BC12119B</a:ObjectID>
-<a:Name>SIG_NODE_UK_REF</a:Name>
-<a:Code>SIG_NODE_UK_REF</a:Code>
-<a:CreationDate>1394044186</a:CreationDate>
-<a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394107379</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
-<a:Unique>1</a:Unique>
-<c:IndexColumns>
-<o:IndexColumn Id="o83">
-<a:ObjectID>5E4A686D-2F0E-4F73-928D-B3328F78EAEA</a:ObjectID>
-<a:CreationDate>1394044204</a:CreationDate>
-<a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394107440</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
-<a:IndexColumn.Expression>SIG_CD_NODE__ID</a:IndexColumn.Expression>
-</o:IndexColumn>
-<o:IndexColumn Id="o84">
-<a:ObjectID>D048AA74-1D7D-4269-8CC9-8CD087029A14</a:ObjectID>
-<a:CreationDate>1394044204</a:CreationDate>
-<a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394107440</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
-<a:IndexColumn.Expression>SIG_TEMPLATE__ID</a:IndexColumn.Expression>
-</o:IndexColumn>
-<o:IndexColumn Id="o85">
-<a:ObjectID>030147A4-039C-42E0-BDFD-DB5F53AB75EF</a:ObjectID>
-<a:CreationDate>1394044204</a:CreationDate>
-<a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394107440</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
-<a:IndexColumn.Expression>SIG_NODE__LIBELLE</a:IndexColumn.Expression>
-</o:IndexColumn>
-<o:IndexColumn Id="o86">
-<a:ObjectID>B7650534-3F82-4BDC-B1FB-FDF2AA4CEA9D</a:ObjectID>
-<a:CreationDate>1394107359</a:CreationDate>
-<a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394107379</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
-<a:IndexColumn.Expression>SIG_NODE__PARENT_ID</a:IndexColumn.Expression>
-</o:IndexColumn>
-</c:IndexColumns>
-</o:Index>
 </c:Indexes>
 <c:PrimaryKey>
 <o:Key Ref="o73"/>
@@ -4188,7 +4144,7 @@ DAT 1394044071</a:History>
 DAT 1394044071</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o87">
+<o:Column Id="o82">
 <a:ObjectID>1B08DCCD-6231-4B69-9C52-5183EC30EB60</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>SIG_CD_TEMPLATE__ID</a:Code>
@@ -4201,7 +4157,7 @@ DAT 1394044071</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o88">
+<o:Column Id="o83">
 <a:ObjectID>682E4444-F90F-4C3E-A285-32ACE16FAA26</a:ObjectID>
 <a:Name>Code</a:Name>
 <a:Code>SIG_CD_TEMPLATE__CODE</a:Code>
@@ -4215,7 +4171,7 @@ DAT 1394044071</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o89">
+<o:Column Id="o84">
 <a:ObjectID>C58CAB9F-8103-4084-A761-C21BBE701B15</a:ObjectID>
 <a:Name>Libellé</a:Name>
 <a:Code>SIG_CD_TEMPLATE__LIBELLE</a:Code>
@@ -4230,7 +4186,7 @@ DAT 1394044071</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o90">
+<o:Key Id="o85">
 <a:ObjectID>C0A66243-F0EA-4330-B63F-BDF1C236FB19</a:ObjectID>
 <a:Name>SIG_CD_TEMPLATE_PK</a:Name>
 <a:Code>SIG_CD_TEMPLATE_PK</a:Code>
@@ -4241,12 +4197,12 @@ DAT 1394044071</a:History>
 <a:History>ORG {0F7C9B7F-ECA4-4E27-A0AD-C4D74846788D}
 DAT 1394044071</a:History>
 <c:Key.Columns>
-<o:Column Ref="o87"/>
+<o:Column Ref="o82"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o91">
+<o:Index Id="o86">
 <a:ObjectID>B62118D3-9C5C-4633-BB47-21CD4338CD24</a:ObjectID>
 <a:Name>SIG_CD_TEMPLATE_PK</a:Name>
 <a:Code>SIG_CD_TEMPLATE_PK</a:Code>
@@ -4256,22 +4212,22 @@ DAT 1394044071</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o90"/>
+<o:Key Ref="o85"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o92">
+<o:IndexColumn Id="o87">
 <a:ObjectID>DE0D6463-1921-4C07-80F6-1612D04D9B7A</a:ObjectID>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394044071</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o87"/>
+<o:Column Ref="o82"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o93">
+<o:Index Id="o88">
 <a:ObjectID>9E2BF00A-A63D-465A-8E9D-D997B67E4ED5</a:ObjectID>
 <a:Name>SIG_CD_TEMPLATE_UK_REF</a:Name>
 <a:Code>SIG_CD_TEMPLATE_UK_REF</a:Code>
@@ -4281,7 +4237,7 @@ DAT 1394044071</a:History>
 <a:Modifier>loic</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:IndexColumns>
-<o:IndexColumn Id="o94">
+<o:IndexColumn Id="o89">
 <a:ObjectID>0C4984A0-CDBD-46CB-A42A-D26782B15A77</a:ObjectID>
 <a:CreationDate>1394099167</a:CreationDate>
 <a:Creator>loic</a:Creator>
@@ -4293,7 +4249,7 @@ DAT 1394044071</a:History>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o90"/>
+<o:Key Ref="o85"/>
 </c:PrimaryKey>
 </o:Table>
 </c:Tables>
@@ -4321,7 +4277,7 @@ DAT 1394044071</a:History>
 <o:Key Ref="o61"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o95">
+<o:ReferenceJoin Id="o90">
 <a:ObjectID>6D4A5C2D-9921-4130-981F-B37D35865106</a:ObjectID>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -4359,7 +4315,7 @@ DAT 1394044071</a:History>
 <o:Key Ref="o51"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o96">
+<o:ReferenceJoin Id="o91">
 <a:ObjectID>0154E7FB-5997-4E05-A1BA-56DB44DCF9E0</a:ObjectID>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -4397,7 +4353,7 @@ DAT 1394044071</a:History>
 <o:Key Ref="o31"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o97">
+<o:ReferenceJoin Id="o92">
 <a:ObjectID>539107F2-BDCB-46AC-9A06-14D5C6CAE028</a:ObjectID>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -4435,7 +4391,7 @@ DAT 1394044071</a:History>
 <o:Key Ref="o40"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o98">
+<o:ReferenceJoin Id="o93">
 <a:ObjectID>FD50735D-C192-4520-AC26-FCA2CF60E064</a:ObjectID>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -4470,17 +4426,17 @@ DAT 1394044071</a:History>
 <o:Table Ref="o24"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o90"/>
+<o:Key Ref="o85"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o99">
+<o:ReferenceJoin Id="o94">
 <a:ObjectID>4AD5FF1B-3CC8-4803-8702-157CB2C95B9C</a:ObjectID>
 <a:CreationDate>1394044071</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394044071</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o87"/>
+<o:Column Ref="o82"/>
 </c:Object1>
 <c:Object2>
 <o:Column Ref="o49"/>
@@ -4490,7 +4446,7 @@ DAT 1394044071</a:History>
 </o:Reference>
 </c:References>
 <c:DefaultGroups>
-<o:Group Id="o100">
+<o:Group Id="o95">
 <a:ObjectID>90340677-2C31-4CE6-BAFF-F06D0C166493</a:ObjectID>
 <a:Name>PUBLIC</a:Name>
 <a:Code>PUBLIC</a:Code>
@@ -4501,7 +4457,7 @@ DAT 1394044071</a:History>
 </o:Group>
 </c:DefaultGroups>
 <c:TargetModels>
-<o:TargetModel Id="o101">
+<o:TargetModel Id="o96">
 <a:ObjectID>4CC4D051-6E62-46FC-81DF-4132B31A7593</a:ObjectID>
 <a:Name>PostgreSQL 8</a:Name>
 <a:Code>PGSQL80</a:Code>
@@ -4516,7 +4472,7 @@ DAT 1394044071</a:History>
 <o:Shortcut Ref="o4"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o102">
+<o:TargetModel Id="o97">
 <a:ObjectID>C01F9E2C-21E5-4A8D-923D-DBC1258A3167</a:ObjectID>
 <a:Name>Système d&#39;information géographique</a:Name>
 <a:Code>SIG</a:Code>
@@ -4524,7 +4480,7 @@ DAT 1394044071</a:History>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394044828</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/Champ/Documents/GitHub/GeoPat/Modèlisation/SIG.mcd</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/loic.EMASH/Documents/GitHub/GeoPat/Modèlisation/SIG.mcd</a:TargetModelURL>
 <a:TargetModelID>C380AB8A-2C90-4A81-8567-777EE163E9BB</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
 <c:SessionShortcuts>

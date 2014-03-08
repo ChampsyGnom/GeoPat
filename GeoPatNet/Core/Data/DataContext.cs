@@ -19,11 +19,6 @@ namespace Emash.GeoPatNet.Data
             get { return _modelBuilder; }
         }
 
-        public DbSet<PrfUser>  PrfUsers
-        {
-            get;
-            set;
-        }
         public DbSet<InfAccident>  InfAccidents
         {
             get;
@@ -279,6 +274,11 @@ namespace Emash.GeoPatNet.Data
             get;
             set;
         }
+        public DbSet<PrfUser>  PrfUsers
+        {
+            get;
+            set;
+        }
         public DbSet<SigLayer>  SigLayers
         {
             get;
@@ -324,22 +324,6 @@ namespace Emash.GeoPatNet.Data
             base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             this._modelBuilder = modelBuilder;
-            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfAccident>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfAccidents);
             modelBuilder.Entity<InfAccident>().ToTable("inf_accident", "inf");
             modelBuilder.Entity<InfAccident>().Property(t => t.Annee) .HasColumnName("inf_accident__annee");
@@ -1044,6 +1028,22 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeService>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeService>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeService>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
             modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
             modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");

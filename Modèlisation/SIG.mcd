@@ -1376,7 +1376,7 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o33">
 <a:CreationDate>1394044024</a:CreationDate>
 <a:ModificationDate>1394044053</a:ModificationDate>
-<a:Rect>((-16675,25537), (-14441,33412))</a:Rect>
+<a:Rect>((-18437,25537), (-14441,33412))</a:Rect>
 <a:ListOfPoints>((-16675,25537),(-16675,29562),(-14441,29562),(-14441,33412))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -4225,7 +4225,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394044803</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/loic.EMASH/Documents/GitHub/GeoPat/Modèlisation/SIG.mpd</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/Champ/Documents/GitHub/GeoPat/Modèlisation/SIG.mpd</a:TargetModelURL>
 <a:TargetModelID>C902BFCC-927D-441B-ACB8-27C2EE83BD63</a:TargetModelID>
 <a:TargetModelClassID>CDE44E21-9669-11D1-9914-006097355D9B</a:TargetModelClassID>
 <c:SessionShortcuts>

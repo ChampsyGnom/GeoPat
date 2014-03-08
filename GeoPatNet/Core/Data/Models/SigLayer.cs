@@ -26,7 +26,6 @@ namespace Emash.GeoPatNet.Data.Models
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("SIG_CD_LAYER__SIG_LAYER",null)]
-        [UniqueKey("SIG_LAYER_UK_REF")]
         public virtual SigCodeLayer SigCodeLayer
         {
             get;
@@ -36,7 +35,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("SIG_LAYER__ID")]
         [PrimaryKey("SIG_LAYER_PK")]
-        [ForeignKeyAttribute("SIG_NODE__SIG_LAYER","JOIN_o93")]
+        [ForeignKeyAttribute("SIG_NODE__SIG_LAYER","JOIN_o90")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -56,7 +55,6 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Libellé")]
         [ColumnName("SIG_LAYER__LIBELLE")]
-        [UniqueKey("SIG_LAYER_UK_REF")]
         [MaxCharLength(200)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]

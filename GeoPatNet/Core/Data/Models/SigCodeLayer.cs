@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("SIG_CD_LAYER__ID")]
         [PrimaryKey("SIG_CD_LAYER_PK")]
-        [ForeignKeyAttribute("SIG_CD_LAYER__SIG_LAYER","JOIN_o92")]
+        [ForeignKeyAttribute("SIG_CD_LAYER__SIG_LAYER","JOIN_o89")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

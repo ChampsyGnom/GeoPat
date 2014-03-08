@@ -1,0 +1,9 @@
+!table
+!version 300
+!charset WindowsLatin1
+
+Definition Table
+  File "wgs_inf.csv"
+  Type ASCII Delimiter "," Titles Charset "WindowsLatin1"
+  Fields 1
+    LINE_INDEX_LAYER_NAME_LIAISON_S Char (84) ;
