@@ -59,8 +59,66 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                         Expression expression = expressionBase;
                         foreach (String item in items)
                         { expression = Expression.Property(expression, item); }
-                        expression = Expression.Equal(expression, Expression.Constant(value));
-                        expressions.Add(expression);
+                        if (ukFieldInfo.ControlType == Attributes.ControlType.Pr)
+                        {
+                            // On est jamais sur chaussé !!! :) ouf
+
+                            // On récupère la colonne chausséé de l'entité
+                            // Il faut récupérer la clé unique de la table chausséé
+                            EntityColumnInfo columnInfoChaussee = (from c in tableInfo.ColumnInfos where 
+                                                                       c.ControlType == Attributes.ControlType.Combo && 
+                                                                       c.ColumnName.Equals("INF_CHAUSSEE__ID") select c).FirstOrDefault();
+
+                            List<EntityColumnInfo> columnInfoChausseeUks = dataService.GetAllParentUniqueKeyColumnInfos(columnInfoChaussee);
+                            Console.WriteLine(columnInfoChausseeUks);
+
+
+                            List<EntityFieldInfo> ukFieldChausseeInfos = new List<EntityFieldInfo>();
+                            Boolean allChausseeValuePresent = true;
+                            foreach (EntityColumnInfo columnInfoChausseeUk in columnInfoChausseeUks)
+                            {
+                                EntityFieldInfo fieldInfo = (from f in tableInfo .FieldInfos
+                                                             where
+                                                                 f.ParentColumnInfo != null &&
+                                                                 f.ParentColumnInfo.Equals(columnInfoChausseeUk)
+                                                             select f).FirstOrDefault();
+                                ukFieldInfos.Add(fieldInfo);
+                                if (!valueStrings.ContainsKey(fieldInfo.Path))
+                                { allChausseeValuePresent = false; }
+
+                            }
+                            if (allChausseeValuePresent == true)
+                            {
+                                // il faut créer la requete sur la table chaussée avec les values de l'entité
+
+                            } throw new Exception("Impossible de récupérer toutes les valeurs de la clé unique chaussé, veuillé vérifier le modèle de donnée");
+                            /*
+                             IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
+                             EntityColumnInfo columnChaussee = (from c in tableInfo.ColumnInfos
+                                                                 where
+                                                                     c.ColumnName.Equals("INF_CHAUSSEE__ID")
+                                                                 select c).FirstOrDefault();
+                              Int64 chausseeId = (Int64)columnChaussee.Property.GetValue(entityObject);
+                              Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, valueStrings[ukFieldInfo.Path]);
+                              if (ukFieldInfo.ColumnInfo.AllowNull)
+                              {
+                                  expression = Expression.Equal(expression, Expression.Constant(abs,typeof(Nullable<Int64>)));
+                                  expressions.Add(expression);
+                              }
+                              else
+                              {
+                                  expression = Expression.Equal(expression, Expression.Constant(abs.Value));
+                                  expressions.Add(expression);
+                              }
+                            
+                          */
+                        }
+                        else
+                        {
+                            expression = Expression.Equal(expression, Expression.Constant(value));
+                            expressions.Add(expression);
+                        }
+                       
 
                     }
                 }

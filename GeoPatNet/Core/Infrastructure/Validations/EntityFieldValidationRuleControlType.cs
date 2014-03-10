@@ -23,13 +23,13 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 
                     if (columnInfo.ControlType == ControlType.Check)
                     {
-                        if (!columnInfo.AllowNull && valueString.Equals(CultureConfiguration.BooleanNullString))
+                        if (!columnInfo.AllowNull && (valueString == null || valueString.Equals(CultureConfiguration.BooleanNullString)))
                         {
                             value = null;
                             message = "valeur " + CultureConfiguration.BooleanNullString + " non autorisée";
                             return false;
                         }
-                        else if (valueString.Equals(CultureConfiguration.BooleanNullString))
+                        else if (valueString == null || valueString.Equals(CultureConfiguration.BooleanNullString))
                         {
                             value = null;
                             message = null;
@@ -170,7 +170,7 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                             }
                         }
                     }
-                    if (columnInfo.ControlType == ControlType.None)
+                    else if (columnInfo.ControlType == ControlType.None)
                     {
                         value = valueString;
                         message = null;

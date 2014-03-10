@@ -13,26 +13,70 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
         {
             if (fieldInfo.ParentColumnInfo == null)
             {
-                if (Validator.ValidateDataType(valueString, fieldInfo.ColumnInfo.PropertyType, out message, out result))
+                if (fieldInfo.ControlType == Attributes.ControlType.Pr)
                 {
-                    return true;
+                    if (Validator.ValidateDataType(valueString, typeof (String), out message, out result))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
-                    return false;
+                    if (fieldInfo.ControlType == Attributes.ControlType.Pr)
+                    {
+                        if (Validator.ValidateDataType(valueString, typeof(String), out message, out result))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (Validator.ValidateDataType(valueString, fieldInfo.ColumnInfo.PropertyType, out message, out result))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                   
                 }
+               
             }
             else
             {
-               
-                if (Validator.ValidateDataType(valueString, fieldInfo.ParentColumnInfo.PropertyType, out message, out result))
+                if (fieldInfo.ControlType == Attributes.ControlType.Pr)
                 {
-                    return true;
+                    if (Validator.ValidateDataType(valueString, typeof(string), out message, out result))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
-                    return false;
+                    if (Validator.ValidateDataType(valueString, fieldInfo.ParentColumnInfo.PropertyType, out message, out result))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+               
                 
             }
             

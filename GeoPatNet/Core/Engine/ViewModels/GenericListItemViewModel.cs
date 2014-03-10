@@ -165,6 +165,9 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     
                 }
                 * */
+                this.RaisePropertyChanged("[" + fieldPath + "]");
+                this.RaisePropertyChanged( fieldPath);
+                this.RaisePropertyChanged("Item[]");
                 this.RaisePropertyChanged("Error");
                 
 

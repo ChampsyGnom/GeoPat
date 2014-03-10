@@ -199,12 +199,24 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
                 { valueItem = o; break; }
                 foreignColumnInfo.Property.SetValue(entityObject, valueItem);
             }
-
-            foreach (EntityFieldInfo fieldInfoPr in fieldInfoPrs)
+            if (fieldInfoPrs.Count > 0)
             {
-
+                IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
+                foreach (EntityFieldInfo fieldInfoPr in fieldInfoPrs)
+                {
+                    EntityColumnInfo columnChaussee = (from c in this.ColumnInfos where
+                                                            c.ColumnName.Equals ("INF_CHAUSSEE__ID")
+                                                           select c).FirstOrDefault();
+                    Int64 chausseeId = (Int64)columnChaussee.Property.GetValue(entityObject);
+                    Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
+                    fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
+                    
+                }
             }
+           
         }
+
+       
 
         public Dictionary<string, string> LoadFromModel(object entityObject, List<string> fieldPaths)
         {
