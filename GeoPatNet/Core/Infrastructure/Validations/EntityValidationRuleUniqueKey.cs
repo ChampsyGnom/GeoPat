@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Emash.GeoPatNet.Infrastructure.Validations
 {
@@ -82,16 +83,73 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                                                                  f.ParentColumnInfo != null &&
                                                                  f.ParentColumnInfo.Equals(columnInfoChausseeUk)
                                                              select f).FirstOrDefault();
-                                ukFieldInfos.Add(fieldInfo);
+                                ukFieldChausseeInfos.Add(fieldInfo);
                                 if (!valueStrings.ContainsKey(fieldInfo.Path))
                                 { allChausseeValuePresent = false; }
 
                             }
                             if (allChausseeValuePresent == true)
                             {
+                                EntityTableInfo tableInfoChaussee = dataService.GetEntityTableInfo("InfChaussee");
+                                DbSet dbSetChaussee = dataService.GetDbSet(tableInfoChaussee.EntityType);
+                                ParameterExpression expressionBaseChaussee = Expression.Parameter(tableInfoChaussee.EntityType, "item");
+                                List<Expression> expressionsChaussees = new List<Expression>();
+                                foreach (EntityFieldInfo ukFieldChausseeInfo in ukFieldChausseeInfos)
+                                {
+                                    if (ukFieldChausseeInfo.ValidateString(valueStrings[ukFieldChausseeInfo.Path], out messageString, out value))
+                                    {
+                                        String chausseePath = ukFieldChausseeInfo.Path.Substring("InfChaussee.".Length);
+                                        String[] chausseePathItems = chausseePath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                        Expression expressionChaussee = null;
+                                        foreach (String chausseePathItem in chausseePathItems)
+                                        {
+                                            if (expressionChaussee == null)
+                                            { expressionChaussee = Expression.Property(expressionBaseChaussee, chausseePathItem); }
+                                            else
+                                            { expressionChaussee = Expression.Property(expressionChaussee, chausseePathItem); }
+                                        }
+
+                                        expressionChaussee = Expression.Equal(expressionChaussee, Expression.Constant(value));
+                                        expressionsChaussees.Add(expressionChaussee);
+                                    }
+                                }
+
+                                IQueryable queryableChaussee = dbSetChaussee;
+                                if (expressionsChaussees.Count > 0)
+                                {
+                                    Expression expressionAnd = expressionsChaussees.First();
+                                    for (int i = 1; i < expressionsChaussees.Count; i++)
+                                    { expressionAnd = Expression.And(expressionAnd, expressionsChaussees[i]); }
+                                    MethodCallExpression whereCallExpression = Expression.Call(
+                                    typeof(Queryable),
+                                    "Where",
+                                    new Type[] { queryableChaussee.ElementType },
+                                    queryableChaussee.Expression,
+                                    Expression.Lambda(expressionAnd, expressionBaseChaussee));
+                                    queryableChaussee = queryableChaussee.Provider.CreateQuery(whereCallExpression);
+                                }
+                                Object chausseeItem = null;
+                                foreach (Object item in queryableChaussee)
+                                {chausseeItem = item; break;}
+                                if (chausseeItem != null)
+                                {
+                                    Int64 chausseId =(Int64) chausseeItem.GetType().GetProperty("Id").GetValue(chausseeItem);
+                                    IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
+                                   Nullable<Int64> abs =   reperageService.PrToAbs(chausseId, valueStrings[ukFieldInfo.Path]);
+                                   if (ukFieldInfo.ColumnInfo.AllowNull)
+                                   {
+                                       expression = Expression.Equal(expression, Expression.Constant(abs, typeof(Nullable<Int64>)));
+                                       expressions.Add(expression);
+                                   }
+                                   else
+                                   {
+                                       expression = Expression.Equal(expression, Expression.Constant(abs.Value));
+                                       expressions.Add(expression);
+                                   }
+                                }
                                 // il faut créer la requete sur la table chaussée avec les values de l'entité
 
-                            } throw new Exception("Impossible de récupérer toutes les valeurs de la clé unique chaussé, veuillé vérifier le modèle de donnée");
+                            } else throw new Exception("Impossible de récupérer toutes les valeurs de la clé unique chaussé, veuillé vérifier le modèle de donnée");
                             /*
                              IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
                              EntityColumnInfo columnChaussee = (from c in tableInfo.ColumnInfos

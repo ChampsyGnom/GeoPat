@@ -204,13 +204,13 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
                 IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
                 foreach (EntityFieldInfo fieldInfoPr in fieldInfoPrs)
                 {
-                    EntityColumnInfo columnChaussee = (from c in this.ColumnInfos where
+                    EntityColumnInfo columnChaussee = (from c in this.ColumnInfos where c.ControlType == ControlType.Combo && 
                                                             c.ColumnName.Equals ("INF_CHAUSSEE__ID")
                                                            select c).FirstOrDefault();
-                    Int64 chausseeId = (Int64)columnChaussee.Property.GetValue(entityObject);
+                    Object  chausseeObj = columnChaussee.Property.GetValue(entityObject);
+                    Int64 chausseeId =(Int64 ) chausseeObj.GetType().GetProperty("Id").GetValue(chausseeObj);
                     Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
                     fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
-                    
                 }
             }
            

@@ -1,31 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Windows;
+using System.Data.Entity;
+using System.ComponentModel;
 using System.Threading.Tasks;
-using Emash.GeoPatNet.Infrastructure.Reflection;
-using Emash.GeoPatNet.Infrastructure.Services;
+using System.Windows.Data;
+using System.Windows.Input;
+using System.Windows.Controls;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.ServiceLocation;
-using System.Collections.ObjectModel;
-using Emash.GeoPatNet.Infrastructure.ViewModels;
-using System.Windows.Data;
-using Emash.GeoPatNet.Infrastructure.Enums;
-using System.ComponentModel;
-using Emash.GeoPatNet.Infrastructure.ComponentModel;
-using System.Windows;
+using Emash.GeoPatNet.Engine.Models;
+using Emash.GeoPatNet.Engine.Builders;
+using Emash.GeoPatNet.Presentation.Views;
 using Emash.GeoPatNet.Infrastructure.Validations;
 using Emash.GeoPatNet.Infrastructure.Utils;
 using Emash.GeoPatNet.Infrastructure.Behaviors;
 using Emash.GeoPatNet.Infrastructure.Extensions;
-using System.Windows.Input;
-using System.Windows.Controls;
-using Emash.GeoPatNet.Presentation.Views;
+using Emash.GeoPatNet.Infrastructure.ComponentModel;
+using Emash.GeoPatNet.Infrastructure.Enums;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Capability;
-using Emash.GeoPatNet.Engine.Models;
+using Emash.GeoPatNet.Infrastructure.ViewModels;
 using Emash.GeoPatNet.Infrastructure.Events;
+using Emash.GeoPatNet.Infrastructure.Reflection;
+using Emash.GeoPatNet.Infrastructure.Services;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class GenericListViewModel<M> : 
@@ -77,9 +78,6 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     sorter.Order = -1;
                     _sorters.Add(sorter);
                     sorter.Order = (from s in _sorters select s.Order).Max() + 1;
-
-                    //  sorter.Direction = direction;
-                    //  sorter.Order = 
                 }
                 sorter.Direction = direction.Value;
             }
@@ -260,233 +258,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         //@TODO Finir les menus contextuel
         private void DataGridContextMenuOpeningExecute(DataGridContextMenuOpeningBehaviorEventArg arg)
         {
-            /*
-            if (this.State != GenericDataListState.Display)
-            {
-                arg.ContextMenuEventArgs.Handled = true;
-                return;
-            }
-            Point pos = Mouse.GetPosition(arg.DataGrid);
-            IInputElement hit = arg.DataGrid.InputHitTest(pos);
-            DependencyObject hitDependencyObject = hit as DependencyObject;
-            if (hitDependencyObject != null)
-            {
-                arg.ContextMenu.Items.Clear();
-                MenuItem menuFilter = new MenuItem();
-                menuFilter.Header = "Filtrer";
-
-                MenuItem menuSorter = new MenuItem();
-                menuSorter.Header = "Trier";
-
-                MenuItem menuShow = new MenuItem();
-                menuShow.Header = "Afficher";
-
-                MenuItem menuShowMainTable = new MenuItem();
-                menuShowMainTable.Header = this.EntityTableInfo.DisplayName;
-                menuShow.Items.Add(menuShowMainTable);
-                List<EntityTableInfo> parentTables = new List<EntityTableInfo>();
-                List<String> fieldPaths = this.DataService.GetTableFieldPaths(EntityTableInfo);
-                List<EntityColumnInfo> parentColumnInfos = new List<EntityColumnInfo>();
-                foreach (String fieldPath in fieldPaths)
-                {
-                    if (fieldPath.IndexOf(".") == -1)
-                    {
-                        EntityColumnInfo columnInfo = (from c in this.EntityTableInfo.ColumnInfos where c.PropertyName.Equals (fieldPath ) select c).FirstOrDefault();
-                        MenuItem menuShowColumn = new MenuItem();
-                        menuShowColumn.Header = columnInfo.DisplayName;
-                        menuShowColumn.IsEnabled = columnInfo.PrimaryKeyName == null && columnInfo.UniqueKeyNames.Count == 0;
-                        menuShowColumn.IsCheckable = true;
-                        menuShowColumn.IsChecked = this.FieldPaths.Contains(columnInfo.PropertyName);
-                        menuShowMainTable.Items.Add(menuShowColumn);
-                        menuShowColumn.Command = new DelegateCommand(new Action(delegate()
-                        {
-                            if (menuShowColumn.IsChecked)
-                            {
-                                if (!this.FieldPaths.Contains(columnInfo.PropertyName))
-                                {
-                                    this.FieldPaths.Insert (0,columnInfo.PropertyName);
-                                    foreach (GenericListItemViewModel<M> item in this.Items)
-                                    { item.LoadFromModel(this.FieldPaths.ToArray().ToList()); }
-                                }
-                            }
-                            else
-                            { this.FieldPaths.Remove(columnInfo.PropertyName); }
-                        }));
-                    }
-                    else
-                    {
-                        EntityColumnInfo columnInfoBottom = this.DataService.GetBottomColumnInfo(typeof(M), fieldPath);
-                        EntityColumnInfo columnInfo = this.DataService.GetTopColumnInfo(typeof(M), fieldPath);
-                        parentColumnInfos.Add(columnInfo);
-                        parentTables.Add(columnInfo.TableInfo);
-                        MenuItem menuShowColumn = new MenuItem();
-                        menuShowColumn.Header = columnInfo.TableInfo.DisplayName;
-                        menuShowColumn.IsEnabled = columnInfoBottom.PrimaryKeyName == null && columnInfoBottom.UniqueKeyNames.Count == 0;
-                        menuShowColumn.IsCheckable = true;
-                        menuShowColumn.IsChecked = this.FieldPaths.Contains(columnInfo.PropertyName);
-                        menuShowMainTable.Items.Add(menuShowColumn);
-                        menuShowColumn.Command = new DelegateCommand(new Action(delegate()
-                        {
-                            if (menuShowColumn.IsChecked)
-                            {
-                                if (!this.FieldPaths.Contains(columnInfo.PropertyName))
-                                { 
-                                    this.FieldPaths.Insert(0,columnInfo.PropertyName);
-                                    foreach (GenericListItemViewModel<M> item in this.Items)
-                                    { item.LoadFromModel(this.FieldPaths.ToArray().ToList()); }
-                                }
-                            }
-                            else
-                            { this.FieldPaths.Remove(columnInfo.PropertyName); }
-                        }));
-                    }
-                }
-                parentTables = (from t in parentTables orderby t.DisplayName select t).ToList();
-
-                foreach (EntityTableInfo parentTableInfo in parentTables)
-                {
-                    MenuItem menuShowParentTable = new MenuItem();
-                    menuShowParentTable.Header = parentTableInfo.DisplayName;
-                    menuShow.Items.Add(menuShowParentTable);
-                    foreach (EntityColumnInfo columnInfo in parentTableInfo.ColumnInfos)
-                    {
-                        if (!parentColumnInfos.Contains(columnInfo) && columnInfo.PrimaryKeyName == null && columnInfo.ControlType != ControlType.None  )
-                        {
-                            String path = this.DataService.GetPath(parentTableInfo, this.EntityTableInfo) + "." + columnInfo.PropertyName;
-                            MenuItem menuShowColumn = new MenuItem();
-                            menuShowColumn.Header = columnInfo.DisplayName;
-                            menuShowColumn.IsEnabled = true;
-                            menuShowColumn.IsCheckable = true;
-                            menuShowColumn.IsChecked = this.FieldPaths.Contains(path);
-
-                            menuShowColumn.Command = new DelegateCommand(new Action(delegate()
-                            {
-                                if (menuShowColumn.IsChecked)
-                                {
-                                    if (!this.FieldPaths.Contains(path))
-                                    {
-                                        this.FieldPaths.Insert(0,path);
-                                        foreach (GenericListItemViewModel<M> item in this.Items)
-                                        {item.LoadFromModel(this.FieldPaths.ToArray ().ToList ());}
-                                    }
-                                }
-                                else
-                                { this.FieldPaths.Remove(path); }
-                            }));
-                            menuShowParentTable.Items.Add(menuShowColumn);
-                        }
-                    }
-                }
-
-                arg.ContextMenu.Items.Add(menuFilter);
-                arg.ContextMenu.Items.Add(menuSorter);
-                arg.ContextMenu.Items.Add(menuShow);
-
-                DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
-               
-                if (cell != null)
-                {
-                    Console.WriteLine(cell);
-                    if (cell.Column is GenericDataGridTemplateColumn)
-                    {
-                        GenericDataGridTemplateColumn column = (cell.Column as GenericDataGridTemplateColumn);
-                        EntityColumnInfo columnInfo = this.DataService.GetTopColumnInfo(typeof(M),column.FieldPath);
-                        String fieldDisplayName = columnInfo.DisplayName;
-                        if (column.FieldPath.IndexOf(".") != -1)
-                        { fieldDisplayName = columnInfo.TableInfo.DisplayName; }
-                        MenuItem menuSorterAscending = new MenuItem();
-                        menuSorterAscending.Header = "Trie croissant sur " + fieldDisplayName;
-                        menuSorterAscending.Command = new DelegateCommand(new Action(delegate() {
-                            this.SetSort(column.FieldPath, ListSortDirection.Ascending);
-                            this.SearchExecute();
-                        }));
-
-                        
-                        MenuItem menuSorterDescending= new MenuItem();
-                        menuSorterDescending.Header = "Trie décroissant sur " + fieldDisplayName;
-                        menuSorterDescending.Command = new DelegateCommand(new Action(delegate()
-                        {
-                            this.SetSort(column.FieldPath, ListSortDirection.Descending);
-                            this.SearchExecute();
-                        }));
-
-                        MenuItem menuSorterNone = new MenuItem();
-                        menuSorterNone.Header = "Aucun trie";
-                        menuSorterNone.Command = new DelegateCommand(new Action(delegate()
-                        {
-                            this.SetSort(column.FieldPath, null);
-                            this.SearchExecute();
-                        }));
-
-                        menuSorter.Items.Add(menuSorterAscending);
-                        menuSorter.Items.Add(menuSorterDescending);
-                        menuSorter.Items.Add(menuSorterNone);
-
-                        if (cell.DataContext is GenericListItemViewModel<M>)
-                        {
-                            GenericListItemViewModel<M> vm = (cell.DataContext as GenericListItemViewModel<M>);
-                            String valueString =  vm.Values[column.FieldPath];
-                            
-                            if (columnInfo.PropertyType.Equals(typeof(String)))
-                            {
-                                
-                                MenuItem menuEquals = new MenuItem();
-                                menuEquals.Header = fieldDisplayName + " égale à " + valueString;
-                                menuEquals.Command = new DelegateCommand(new Action(delegate()
-                                {
-                                    this.SearchItem.Values[column.FieldPath] = valueString;
-                                    this.SearchExecute();
-                                }));
-                                menuFilter.Items.Add(menuEquals);
-
-
-                                MenuItem menuNotEquals = new MenuItem();
-                                menuNotEquals.Header = fieldDisplayName + " différent de " + valueString;
-                                menuNotEquals.Command = new DelegateCommand(new Action(delegate()
-                                {
-                                    this.SearchItem.Values[column.FieldPath] = "<>"+valueString;
-                                    this.SearchExecute();
-                                }));
-                                menuFilter.Items.Add(menuNotEquals);
-                            }
-
-
-                            if (columnInfo.AllowNull)
-                            {
-                                menuFilter.Items.Add(new Separator());
-                                MenuItem menuNotNull = new MenuItem();
-                                menuNotNull.Header = fieldDisplayName + " est renseigné";
-                                menuNotNull.Command = new DelegateCommand(new Action(delegate()
-                                {
-                                    this.SearchItem.Values[column.FieldPath] = "+";
-                                    this.SearchExecute();
-                                }));
-                                menuFilter.Items.Add(menuNotNull);
-
-
-
-                                MenuItem menuNull = new MenuItem();
-                                menuNull.Header = fieldDisplayName + " n'est pas renseigné";
-                                menuNull.Command = new DelegateCommand(new Action(delegate()
-                                {
-                                    this.SearchItem.Values[column.FieldPath] = "-";
-                                    this.SearchExecute();
-                                }));
-
-                                menuFilter.Items.Add(menuNull);
-                               
-
-
-                            }
-
-                        }
-                        
-
-                        
-                    }
-                }
-            }
-             * */
+            GenericDataGridContextMenuBuilder.CreateContextMenu<M>(arg, this);
         }
 
         void ItemsView_CurrentChanged(object sender, EventArgs e)
@@ -532,7 +304,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         private Boolean CanQuitExecute()
         { return false; }
 
-        private void SearchExecute()
+        public void SearchExecute()
         {
             this.Items.Clear();
             System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(typeof(M), "item");
@@ -564,17 +336,17 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private IQueryable<M> TryApplySort(IQueryable<M> queryable, System.Linq.Expressions.ParameterExpression expressionBase)
         {
-            /*
+            int sorterCount = 0;
             foreach (SortInfo sorter in this._sorters)
             {
-                String fieldPath = sorter.FieldPath;
-                
-                    var property = this.DataService.GetTopColumnInfo(typeof(M), fieldPath).Property;
+                Console.WriteLine("Try apply sort " + sorter.FieldPath + " " + sorter.Direction);
+                    EntityFieldInfo fieldInfo = (from f in this.EntityTableInfo.FieldInfos where f.Path.Equals (sorter.FieldPath) select f).FirstOrDefault();
                    
                     System.Linq.Expressions.Expression propertyAccess = null;
-                    if (fieldPath.IndexOf(".") != -1)
+                    Type propertyType = null;
+                    if (fieldInfo.Path.IndexOf(".") != -1)
                     {
-                        String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                        String[] items = fieldInfo.Path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                         foreach (String item in items)
                         {
                             if (propertyAccess == null)
@@ -582,32 +354,38 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                             else
                             { propertyAccess = System.Linq.Expressions.Expression.Property(propertyAccess, item); }
                         }
+                        propertyType = fieldInfo.ParentColumnInfo.PropertyType;
                     }
                     else
                     {
-                        propertyAccess = System.Linq.Expressions.Expression.Property(expressionBase, property);
+                        propertyAccess = System.Linq.Expressions.Expression.Property(expressionBase, fieldInfo.Path);
+                        propertyType = fieldInfo.ColumnInfo.PropertyType;
                     }
                     var orderByExp = System.Linq.Expressions.Expression.Lambda(propertyAccess, expressionBase);
-                    if (sorter.Direction  == ListSortDirection.Ascending)
+                    String memberName = "OrderBy";
+                    if (sorterCount == 0)
                     {
-                        System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderBy", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
-
-
-                        queryable = queryable.Provider.CreateQuery<M>(resultExp);
+                        if (sorter.Direction == ListSortDirection.Ascending)
+                        { memberName = "OrderBy"; }
+                        else if (sorter.Direction == ListSortDirection.Descending)
+                        { memberName = "OrderByDescending"; }
                     }
-                    else if (sorter.Direction == ListSortDirection.Descending)
+                    else
                     {
-                        System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), "OrderByDescending", new Type[] { queryable.ElementType, property.PropertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
-
-
-                        queryable = queryable.Provider.CreateQuery<M>(resultExp);
-                        
+                        if (sorter.Direction == ListSortDirection.Ascending)
+                        { memberName = "ThenBy"; }
+                        else if (sorter.Direction == ListSortDirection.Descending)
+                        { memberName = "ThenByDescending"; }
                     }
+                    
+                    System.Linq.Expressions.MethodCallExpression resultExp = System.Linq.Expressions.Expression.Call(typeof(Queryable), memberName, new Type[] { queryable.ElementType, propertyType }, queryable.Expression, System.Linq.Expressions.Expression.Quote(orderByExp));
+                    queryable = queryable.Provider.CreateQuery<M>(resultExp);
                    
+                    sorterCount++;
                 
             }
-           
-             * */
+
+            Console.WriteLine(queryable.ToString());
             return queryable;
         }
 

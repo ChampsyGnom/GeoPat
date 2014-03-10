@@ -115,6 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\GenericDataGridContextMenuBuilder.cs" />
     <Compile Include="EngineBootstrapper.cs" />
     <Compile Include="Models\SortDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

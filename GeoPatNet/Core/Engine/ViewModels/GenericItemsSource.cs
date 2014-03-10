@@ -81,72 +81,77 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this._comboItemsSource.Remove(itemSourceName);
         }
 
-        public  void LoadList(string fieldPath)
+        public  void LoadList(string itemSourceName)
         {
-           
-                this._comboItemsSource[fieldPath].Clear();
-                IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
-                String[] items = fieldPath.Split(".".ToArray(), StringSplitOptions.RemoveEmptyEntries);
+            if (!this._comboItemsSource.ContainsKey(itemSourceName))
+            {this._comboItemsSource.Add(itemSourceName, new ObservableCollection<object>());}
+            this._comboItemsSource[itemSourceName].Clear();
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            String[] items = itemSourceName.Split(".".ToArray(), StringSplitOptions.RemoveEmptyEntries);
              
-                EntityTableInfo itemsSourceTableInfo = dataService.GetEntityTableInfo(items[0]);
-                DbSet itemsSourceDbSet = dataService.GetDbSet(itemsSourceTableInfo.EntityType);
-                IQueryable itemsSourceQueryable = itemsSourceDbSet.AsQueryable();
-                itemsSourceQueryable = this.TryApplyListFilters(itemsSourceQueryable, fieldPath);
-                PropertyInfo itemsSourcePropertyInfo = itemsSourceTableInfo.EntityType.GetProperty(items[1]);                
-                List<Object> datas = new List<object>();
-                foreach (Object data in itemsSourceQueryable)
-                {
-                    Object value = itemsSourcePropertyInfo.GetValue(data);
-                    if (value != null)
-                    { datas.Add(value); }
-                }
-                datas = (from d in datas orderby d select d).Distinct().ToList();
-                foreach (Object d in datas)
-                { this._comboItemsSource[fieldPath].Add(d); }
-                this._comboItemsSource[fieldPath].Insert(0, CultureConfiguration.ListNullString);
+            EntityTableInfo itemsSourceTableInfo = dataService.GetEntityTableInfo(items[0]);
+            DbSet itemsSourceDbSet = dataService.GetDbSet(itemsSourceTableInfo.EntityType);
+            IQueryable itemsSourceQueryable = itemsSourceDbSet.AsQueryable();
+            itemsSourceQueryable = this.TryApplyListFilters(itemsSourceQueryable, itemSourceName);
+            PropertyInfo itemsSourcePropertyInfo = itemsSourceTableInfo.EntityType.GetProperty(items[1]);                
+            List<Object> datas = new List<object>();
+            foreach (Object data in itemsSourceQueryable)
+            {
+                Object value = itemsSourcePropertyInfo.GetValue(data);
+                if (value != null)
+                { datas.Add(value); }
+            }
+            datas = (from d in datas orderby d select d).Distinct().ToList();
+            foreach (Object d in datas)
+            { this._comboItemsSource[itemSourceName].Add(d); }
+            this._comboItemsSource[itemSourceName].Insert(0, CultureConfiguration.ListNullString);
             
 
         }
 
-        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath)
+        private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string itemSourceName)
         {
-         
-            /*
-            String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            EntityTableInfo listTableInfo = this.DataService.GetEntityTableInfo (items[0]);
-            EntityColumnInfo listColumnInfo = (from c in listTableInfo.ColumnInfos where c.PropertyName.Equals (items[1]) select c).FirstOrDefault();
-            EntityTableInfo baseTableInfo = this.DataService.GetEntityTableInfo (typeof (M));
-            String basePropertyName =   this.DataService.GetPath (listTableInfo,baseTableInfo)+"."+items[1];
-            EntityColumnInfo baseProperty = this.DataService.GetBottomColumnInfo(typeof(M), basePropertyName);
-            List<EntityColumnInfo> parentfkProperties = this.DataService.FindParentForeignColumnInfos(baseProperty);
-            int index = parentfkProperties.IndexOf(listColumnInfo);
-            ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            String[] itemSourceNameItems = itemSourceName.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            EntityTableInfo itemSourceTableInfo = this.DataService.GetEntityTableInfo(itemSourceNameItems[0]);
+            ParameterExpression itemSourceExpressionBase = Expression.Parameter(itemSourceTableInfo.EntityType, "item");           
+            EntityTableInfo tableInfo = dataService.GetEntityTableInfo(typeof(M));
+            EntityFieldInfo fieldInfo = (from f in tableInfo.FieldInfos where f.Path.EndsWith (itemSourceName) select f).FirstOrDefault();
+             List<EntityFieldInfo> fieldInfoUks = new List<EntityFieldInfo>();
+            List<EntityColumnInfo> columnInfoUks = DataService.GetAllParentUniqueKeyColumnInfos(fieldInfo.ColumnInfo);
             List<Expression> expressions = new List<Expression>();
-            for (int i = 0; i < index; i++)
+            foreach (EntityColumnInfo columnInfoUk in columnInfoUks)
             {
-                EntityColumnInfo parentfkProperty = parentfkProperties[i];
-                String parentfkPropertyPath = this.DataService.GetPath(parentfkProperty.TableInfo,baseTableInfo)+"."+parentfkProperty.PropertyName;
-                if (this._values != null && this._values.ContainsKey(parentfkPropertyPath))
-                {
-                    String listPropertyPath = this.DataService.GetPath (parentfkProperty.TableInfo, listTableInfo)+"."+parentfkProperty.PropertyName;
-                    String[] listPropertyPathItems = listPropertyPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                 
-                    Expression expression = null;
-                    foreach (String listPropertyPathItem in listPropertyPathItems)
-                    {
-                        if (expression == null)
-                        {
-                            expression = Expression.Property(expressionBase, listPropertyPathItem);
-                        }
-                        else
-                        { expression = Expression.Property(expression, listPropertyPathItem); }
-                    }
-                    expression = Expression.Equal(expression, Expression.Constant(this._values[parentfkPropertyPath]));
-                    expressions.Add(expression);
-                }
-               
+                EntityFieldInfo fieldInfoUk = (from f in tableInfo.FieldInfos where f.ParentColumnInfo.Equals(columnInfoUk) select f).FirstOrDefault();
+                fieldInfoUks.Add(fieldInfoUk);
             }
-
+            fieldInfoUks = (from f in fieldInfoUks orderby f.ParentColumnInfo.TableInfo.Level select f).ToList();
+            Console.WriteLine(fieldInfoUks);
+            foreach (EntityFieldInfo fieldInfoUk in fieldInfoUks)
+            {
+                if (fieldInfoUks.IndexOf(fieldInfo) > fieldInfoUks.IndexOf(fieldInfoUk) && _values.ContainsKey (fieldInfoUk.Path ))
+                {
+                    Object result  = null;
+                    String message = null;
+                    if (fieldInfoUk.ValidateString(_values[fieldInfoUk.Path], out message, out result))
+                    {
+                       List<String> fieldInfoUkItems = fieldInfoUk.Path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList ();
+                       int indexItemSourceTable = fieldInfoUkItems.IndexOf(itemSourceNameItems[0]);
+                       Expression expression = null;
+                       for (int i = (indexItemSourceTable + 1); i < fieldInfoUkItems.Count; i++)
+                       {
+                           if (expression == null)
+                           {
+                               expression = Expression.Property(itemSourceExpressionBase, fieldInfoUkItems[i]);
+                           }
+                           else expression = Expression.Property(expression, fieldInfoUkItems[i]);
+                       }
+                       expression = Expression.Equal(expression, Expression.Constant(result));
+                       expressions.Add(expression);
+                    }
+                }
+                
+            }
             if (expressions.Count > 0)
             {
                 Expression expressionAnd = expressions.First();
@@ -157,11 +162,9 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 "Where",
                 new Type[] { itemsSourceQueryable.ElementType },
                 itemsSourceQueryable.Expression,
-                Expression.Lambda(expressionAnd, expressionBase));
+                Expression.Lambda(expressionAnd, itemSourceExpressionBase));
                 itemsSourceQueryable = itemsSourceQueryable.Provider.CreateQuery(whereCallExpression);
             }
-           
-             * */
             return itemsSourceQueryable;
         }
 
