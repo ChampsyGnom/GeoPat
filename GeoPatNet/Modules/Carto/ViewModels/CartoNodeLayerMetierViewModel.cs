@@ -73,7 +73,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                         }
 
                     }
-                    break; 
+                    
                 }
             }
             Console.WriteLine("oki : " + featureCount);

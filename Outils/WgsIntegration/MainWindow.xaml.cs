@@ -29,9 +29,9 @@ namespace WgsIntegration
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.WgsRows = new List<WgsRow>();
-            NpgsqlConnection connection = new NpgsqlConnection("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+            NpgsqlConnection connection = new NpgsqlConnection("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
             connection.Open();
-            FileStream stream = new FileStream(@"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\Data\APRR\Data\WGS_INF.CSV", FileMode.Open);
+            FileStream stream = new FileStream(@"C:\Users\Champ\Documents\GitHub\GeoPat\Data\APRR\Data\WGS_INF.CSV", FileMode.Open);
             StreamReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding(1252));
             reader.ReadLine();
             String line = null;
@@ -84,7 +84,7 @@ namespace WgsIntegration
                         readerData.Dispose();
                         if (idChaussee.HasValue)
                         {
-                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom=ST_GeometryFromText('" + wktString + "',4326) where inf_chaussee__id="+idChaussee.Value;
+                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom=ST_GeomFromText('" + wktString + "',4326) where inf_chaussee__id=" + idChaussee.Value;
                             command = new NpgsqlCommand(sqlUpdateGem, connection);
                             command.ExecuteNonQuery();
                         }
@@ -116,7 +116,7 @@ namespace WgsIntegration
                         readerData.Dispose();
                         if (idChaussee.HasValue)
                         {
-                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom=ST_GeometryFromText('" + wktString + "',4326) where inf_chaussee__id=" + idChaussee.Value;
+                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom=ST_GeomFromText('" + wktString + "',4326) where inf_chaussee__id=" + idChaussee.Value;
                             command = new NpgsqlCommand(sqlUpdateGem, connection);
                             command.ExecuteNonQuery();
                         }

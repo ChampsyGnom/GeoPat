@@ -36,58 +36,75 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
 
         internal Geometry GetGeometry(object obj)
         {
-           object data = this.PropertyGeom.GetValue(obj);
+           byte[] data =(byte[]) this.PropertyGeom.GetValue(obj);
             if (data != null)
             {
-                String strData = data.ToString();
-                if (!String.IsNullOrEmpty(strData))
-                {
-                   // Console.WriteLine("Load geom taille chaine HEX : " + strData.Length);
+            
 
-                    Byte[] bytes = StringToByteArray(strData);
-                    MemoryStream stream = new MemoryStream (bytes);
-                    if (bytes.Length > 0)
+                   
+                    FeatureSetPack result = new FeatureSetPack();
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(data);
+                    while(ms.Position < ms.Length)
                     {
-                        Shape shape =   WkbFeatureReader.ReadShape (stream);
-                        Geometry resultGeometry = shape.ToGeometry() as Geometry;
-                        stream.Close();
-                        stream.Dispose();
-                        if (resultGeometry is LineString)
+                       
+                        Shape shape  =  WkbFeatureReader.ReadShape(ms);
+                        IGeometry geometry=  shape.ToGeometry();
+                        if (geometry is LineString)
                         {
-                            LineString ls = (resultGeometry as LineString);
-                            IList<Coordinate> coordsSimple =   DouglasPeuckerLineSimplifier.Simplify(ls.Coordinates, 100D);
-                            resultGeometry = new LineString(coordsSimple);
-                           
-                        }
-                        if (resultGeometry is MultiLineString)
-                        {
-                            List<LineString> simpleLineStrings = new List<LineString>();
-                            MultiLineString mls = (resultGeometry as MultiLineString);
-                            foreach (LineString ls in mls.Geometries)
+                            LineString lineString = geometry as LineString;
+                            List<Coordinate> coordinates = new List<Coordinate>();
+                            for (int i = 0; i < lineString.Coordinates.Count; i+=2)
+                            {coordinates.Add(lineString.Coordinates[i + 1]);}
+                            if (coordinates.Count > 1)
                             {
-                                IList<Coordinate> coordsSimple = DouglasPeuckerLineSimplifier.Simplify(ls.Coordinates, 100D);
-                                simpleLineStrings.Add (new LineString (coordsSimple));
+                                lineString = new LineString(coordinates);
+                                return lineString;
                             }
-                            resultGeometry = new MultiLineString (simpleLineStrings);
-                        }
-                        return resultGeometry;
+                            else
+                            { return null; }
+
+                         
                            
+                        }
+                        if (geometry is MultiLineString)
+                        {
+                            /*
+                            List<LineString> correctLineStrings = new List<LineString>();
+                            MultiLineString multiLineString = geometry as MultiLineString;
+                            foreach (LineString lineString in multiLineString.Geometries)
+                            {
+                                List<Coordinate> coordinates = new List<Coordinate>();
+                                for (int i = 0; i < lineString.Coordinates.Count; i += 2)
+                                { coordinates.Add(lineString.Coordinates[i + 1]); }
+                                if (coordinates.Count > 1)
+                                {
+                                    LineString corecLlineString = new LineString(coordinates);
+                                    correctLineStrings.Add(corecLlineString);
+                                }
+                                
+                            }
+                            if (correctLineStrings.Count > 0)
+                            {
+                                multiLineString = new MultiLineString(correctLineStrings);
+                                return multiLineString;
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                             * */
+                          
+                        }
+                       
                     }
-                    stream.Close();
-                    stream.Dispose();
-                }
-                strData = null;
+                
+                
+              
             }
              
             return null; 
             
         }
-        public static byte[] StringToByteArray(string hex)
-        {
-            return Enumerable.Range(0, hex.Length)
-                             .Where(x => x % 2 == 0)
-                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
-                             .ToArray();
-        }
+        
     }
 }

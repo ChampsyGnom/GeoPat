@@ -9,6 +9,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Emash.GeoPatNet.Data.Models;
 using Emash.GeoPatNet.Infrastructure.Services;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
 namespace Emash.GeoPatNet.Data
 {
     public class DataContext : IDataContext
@@ -324,6 +326,21 @@ namespace Emash.GeoPatNet.Data
             base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             this._modelBuilder = modelBuilder;
+            /*
+            DbModel model = modelBuilder.Build(this.Database.Connection);
+            EdmModel store = model.GetStoreModel();
+            EdmFunctionPayload payload = new EdmFunctionPayload();
+            payload.IsComposable = true;
+            payload.Schema = "topology";
+            payload.StoreFunctionName = "GetLiquidDate";
+            payload.ReturnParameters = new FunctionParameter[]
+            {
+                FunctionParameter.Create("ReturnValue", PrimitiveType.GetEdmPrimitiveType(PrimitiveTypeKind.DateTime), ParameterMode.ReturnValue)
+            };
+            EdmFunction function = EdmFunction.Create("GetLiquidDate", "CodeFirstDatabaseSchema", DataSpace.SSpace, payload, new MetadataProperty[] { });
+            store.AddItem(function);
+            DbCompiledModel compiled = model.Compile();
+            */
             modelBuilder.Entity<InfAccident>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfAccidents);
             modelBuilder.Entity<InfAccident>().ToTable("inf_accident", "inf");
             modelBuilder.Entity<InfAccident>().Property(t => t.Annee) .HasColumnName("inf_accident__annee");
@@ -479,7 +496,7 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfChaussee>().Property(t => t.AbsDeb).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.AbsFin) .HasColumnName("inf_chaussee__abs_fin");
             modelBuilder.Entity<InfChaussee>().Property(t => t.AbsFin).IsRequired();
-            modelBuilder.Entity<InfChaussee>().Property(t => t.Geom) .HasColumnName("inf_chaussee__geom");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.Geom).HasColumnName("inf_chaussee__geom");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.InfLiaisonId) .HasColumnName("inf_liaison__id");
