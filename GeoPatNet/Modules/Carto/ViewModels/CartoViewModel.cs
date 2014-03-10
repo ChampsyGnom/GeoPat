@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Modules.Carto.Adapters;
 using Emash.GeoPatNet.Infrastructure.Behaviors;
 using System.Windows;
 using System.Windows.Controls;
+using DotSpatial.Projections;
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public class CartoViewModel
@@ -451,6 +452,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         private void LoadMap()
         {
             this.Map.Layers.Clear();
+            this.Map.Projection = KnownCoordinateSystems.Projected.World.WebMercator;
             if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel )
             {
                 TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel );

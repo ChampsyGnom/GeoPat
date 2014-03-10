@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using DotSpatial.Data;
 using DotSpatial.Topology;
+using DotSpatial.Topology.Simplify;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 
 namespace Emash.GeoPatNet.Modules.Carto.Adapters
@@ -37,38 +39,48 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
            object data = this.PropertyGeom.GetValue(obj);
             if (data != null)
             {
-                Byte [] bytes = StringToByteArray(data.ToString ());           
- 
-                FeatureSetPack pk = WkbFeatureReader.GetFeatureSets(bytes);
-
-                // To read a single feature at a time:
-                FeatureSetPack result = new FeatureSetPack();
-                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
-                while (ms.Position < ms.Length)
+                String strData = data.ToString();
+                if (!String.IsNullOrEmpty(strData))
                 {
-                    WkbFeatureReader.ReadFeature(ms, result);
-                }
+                   // Console.WriteLine("Load geom taille chaine HEX : " + strData.Length);
 
-               
-                // To add the line, point and polygon shapefiles that are not empty:
-                foreach (IFeatureSet set in pk)
-                {
-
-                    
-                      
-                    IFeature feature = set.GetFeature(0);
-                    Geometry resultGeometry = feature.BasicGeometry as Geometry;
-                    return resultGeometry;
-                    
-                   
-                 
+                    Byte[] bytes = StringToByteArray(strData);
+                    MemoryStream stream = new MemoryStream (bytes);
+                    if (bytes.Length > 0)
+                    {
+                        Shape shape =   WkbFeatureReader.ReadShape (stream);
+                        Geometry resultGeometry = shape.ToGeometry() as Geometry;
+                        stream.Close();
+                        stream.Dispose();
+                        if (resultGeometry is LineString)
+                        {
+                            LineString ls = (resultGeometry as LineString);
+                            IList<Coordinate> coordsSimple =   DouglasPeuckerLineSimplifier.Simplify(ls.Coordinates, 100D);
+                            resultGeometry = new LineString(coordsSimple);
+                           
+                        }
+                        if (resultGeometry is MultiLineString)
+                        {
+                            List<LineString> simpleLineStrings = new List<LineString>();
+                            MultiLineString mls = (resultGeometry as MultiLineString);
+                            foreach (LineString ls in mls.Geometries)
+                            {
+                                IList<Coordinate> coordsSimple = DouglasPeuckerLineSimplifier.Simplify(ls.Coordinates, 100D);
+                                simpleLineStrings.Add (new LineString (coordsSimple));
+                            }
+                            resultGeometry = new MultiLineString (simpleLineStrings);
+                        }
+                        return resultGeometry;
+                           
+                    }
+                    stream.Close();
+                    stream.Dispose();
                 }
-                return null;
+                strData = null;
             }
-            else
-            { 
-                return null; 
-            }
+             
+            return null; 
+            
         }
         public static byte[] StringToByteArray(string hex)
         {

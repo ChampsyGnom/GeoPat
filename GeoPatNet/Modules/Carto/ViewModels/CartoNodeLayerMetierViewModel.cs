@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using DotSpatial.Controls;
 using DotSpatial.Data;
 using DotSpatial.Projections;
 using DotSpatial.Topology;
+using DotSpatial.Topology.Simplify;
 using Emash.GeoPatNet.Data.Models;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.Services;
@@ -36,24 +38,45 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo tableInfo = dataService.GetEntityTableInfo(entityName);
             GeocodableAdapter geocodableAdapter = GeocodableAdapter.TryAdpat(tableInfo);
+            int featureCount = 0;
             if (geocodableAdapter != null)
             {
+                
                 DbSet set = dataService.GetDbSet(tableInfo.EntityType);
+                
+                 
                 foreach (Object obj in set)
                 {
+                    Int64 id =(Int64 ) tableInfo.EntityType.GetProperty("Id").GetValue(obj);
+                    //Console.WriteLine("Création gémétrie " + entityName + " id " + id);
                     Geometry geometry = geocodableAdapter.GetGeometry(obj);
                     if (geometry != null)
                     {
 
-                        Feature feature = new Feature();
-                        feature.BasicGeometry = geometry;
+                       // Feature feature = new Feature();
+                       // feature.BasicGeometry = geometry;
                         if (geometry is LineString || geometry is MultiLineString)
                         {
-                            this.FeatureSetLine.AddFeature(feature);
+                            
+                            this.FeatureSetLine.AddFeature(geometry);
+                            featureCount++;
                         }
+                        else if (geometry is Point  )
+                        {
+                            this.FeatureSetPoint.AddFeature(geometry);
+                            featureCount++;
+                        }
+                        else if (geometry is Polygon)
+                        {
+                            this.FeatureSetPolygon.AddFeature(geometry);
+                            featureCount++;
+                        }
+
                     }
+                    break; 
                 }
             }
+            Console.WriteLine("oki : " + featureCount);
             this.Map.ViewExtents = this.LayerLine.Extent;
         }
 
@@ -65,7 +88,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
             this.FeatureSetPoint =  new FeatureSet(FeatureType.Point);
             this.FeatureSetLine = new FeatureSet(FeatureType.Line);
-            this.FeatureSetPolygon = new FeatureSet(FeatureType.Polygon);         
+            this.FeatureSetPolygon = new FeatureSet(FeatureType.Polygon);          
+            
             this.LayerPoint = new MapPointLayer(this.FeatureSetPoint);
             this.LayerLine = new MapLineLayer(this.FeatureSetLine);
             this.LayerPolygon = new MapPolygonLayer(this.FeatureSetPolygon);
