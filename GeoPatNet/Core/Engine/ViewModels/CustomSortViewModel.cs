@@ -48,7 +48,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         {
             this.SortedProperties = new ObservableCollection<CustomSortablePropertyViewModel>();
             this.UnsortedProperties = new ObservableCollection<CustomSortablePropertyViewModel>();
-            
+            /*
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo tableInfo = dataService.GetEntityTableInfo(typeof(M));
              List<String> basicFieldPaths =   dataService.GetTableFieldPaths(tableInfo);
@@ -84,7 +84,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.MoveColumnToBottomCommand = new DelegateCommand<CustomSortablePropertyViewModel>(MoveColumnToBottomExecute);
             this.MoveColumnToDownCommand = new DelegateCommand<CustomSortablePropertyViewModel>(MoveColumnToDownExecute);
             this.MoveColumnToTopCommand = new DelegateCommand<CustomSortablePropertyViewModel>(MoveColumnToTopExecute);
-            this.MoveColumnToUpCommand = new DelegateCommand<CustomSortablePropertyViewModel>(MoveColumnToUpExecute);            
+            this.MoveColumnToUpCommand = new DelegateCommand<CustomSortablePropertyViewModel>(MoveColumnToUpExecute);      
+             * */
         }
 
         private void MoveColumnToTopExecute(CustomSortablePropertyViewModel prop)

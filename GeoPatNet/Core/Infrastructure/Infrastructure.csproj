@@ -132,6 +132,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Reflection\EntityColumnInfo.cs" />
+    <Compile Include="Reflection\EntityFieldInfo.cs" />
     <Compile Include="Reflection\EntitySchemaInfo.cs" />
     <Compile Include="Reflection\EntityTableInfo.cs" />
     <Compile Include="RegionAdapters\AnchorableRegionAdapter.cs" />
@@ -148,7 +149,15 @@
     <Compile Include="Services\ISplashService.cs" />
     <Compile Include="Services\IStatService.cs" />
     <Compile Include="Utils\LinqHelper.cs" />
+    <Compile Include="Utils\VisualTreeHelper.cs" />
+    <Compile Include="Validations\EntityValidationRuleUniqueKey.cs" />
+    <Compile Include="Validations\EntityValidationRuleEmpriseChaussee.cs" />
+    <Compile Include="Validations\EntityFieldValidationRuleControlType.cs" />
+    <Compile Include="Validations\EntityFieldValidationRuleDataType.cs" />
+    <Compile Include="Validations\EntityFieldValidationRuleNotEmpty.cs" />
     <Compile Include="Validations\CultureConfiguration.cs" />
+    <Compile Include="Validations\EntityFieldValidationRule.cs" />
+    <Compile Include="Validations\EntityValidationRule.cs" />
     <Compile Include="Validations\Formatter.cs" />
     <Compile Include="Validations\Validator.cs" />
     <Compile Include="ViewModels\IDataImportViewModel.cs" />

@@ -176,7 +176,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Debut")]
         [ColumnName("INF_CHAUSSEE__ABS_DEB")]
         [RangeValue(-999999999999,999999999999)]
-        [RulePr("ID")]
+        [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
         [AllowNull(false)]
         public Int64 AbsDeb
@@ -187,7 +187,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Fin")]
         [ColumnName("INF_CHAUSSEE__ABS_FIN")]
         [RangeValue(-999999999999,999999999999)]
-        [RulePr("ID")]
+        [RulePr("INF_CHAUSSEE__ID")]
         [ControlType(ControlType.Pr)]
         [AllowNull(false)]
         public Int64 AbsFin
@@ -199,7 +199,7 @@ namespace Emash.GeoPatNet.Data.Models
         [AllowNull(true)]
         [DisplayName("Géométrie")]
         [ColumnName("INF_CHAUSSEE__GEOM")]
-        public Byte[] Geom
+        public String Geom
         {
             get;
             set;

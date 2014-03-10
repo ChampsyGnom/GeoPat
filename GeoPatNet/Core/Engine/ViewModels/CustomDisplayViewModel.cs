@@ -114,6 +114,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         public CustomDisplayViewModel(List<String> fieldPaths)
         {
+            /*
             this.VisibleFields = new ObservableCollection<CustomDisplayablePropertyViewModel<M>>();
             this.Entities = new ObservableCollection<CustomDisplayableEntityViewModel<M>>();
             this.AddPropertyCommand = new DelegateCommand<CustomDisplayablePropertyViewModel<M>>(AddPropertyExecute);
@@ -211,6 +212,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 if (vm.Entity == null) vm.Entity = mainCustomDisplayableEntityViewModel;
                 vm.RaiseChange();
             }
+             * */
         }
     }
 }

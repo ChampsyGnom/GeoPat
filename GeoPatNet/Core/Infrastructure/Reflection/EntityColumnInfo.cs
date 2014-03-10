@@ -9,13 +9,16 @@ using Emash.GeoPatNet.Infrastructure.Attributes;
 
 namespace Emash.GeoPatNet.Infrastructure.Reflection
 {
+    /// <summary>
+    /// Information sur un colonne de la base de donné <-> un propriété de l'entity
+    /// </summary>
     public class EntityColumnInfo
     {
+        public List<EntityFieldInfo> FieldInfos { get; private set; }
         public EntityTableInfo TableInfo { get; private set; }
         public PropertyInfo Property { get; private set; }
         public String PropertyName { get; private set; }
         public Type PropertyType { get; private set; }
-
         public String ColumnName { get; private set; }
         public Boolean AllowNull { get; private set; }
         public Int32  MaxCharLength { get; private set; }
@@ -29,14 +32,20 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
         public List<String> ForeignKeyNames { get; private set; }
         public List<String> UniqueKeyNames { get; private set; }
         public ControlType ControlType { get; private set; }
+        public Boolean IsLocalisationReferenceId { get; private set; }
+        public Boolean IsLocalisationReferenceGeom { get; private set; }
+        public Boolean IsLocalisationDeb { get; private set; }
+        public Boolean IsLocalisationFin { get; private set; }
 
       
         public String DisplayName { get; private set; }
         public EntityColumnInfo(EntityTableInfo entityTableInfo, PropertyInfo property)
         {
+
             // TODO: Complete member initialization
             this.TableInfo = entityTableInfo;
             this.ForeignKeyNames = new List<string>();
+            this.FieldInfos = new List<EntityFieldInfo>();
             this.Property = property;
             this.HasChausseeEmpriseRule = false;
             this.PropertyName = property.Name;
@@ -46,6 +55,24 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
           
             foreach (Attribute att in atts)
             {
+                if (att is LocationAttribute)
+                {
+                    LocationAttribute locationAttribute = att as LocationAttribute;
+                    if (locationAttribute.LocationAttributeType == Enums.LocationAttributeType.ReferenceDeb)
+                    { this.IsLocalisationDeb = true; }
+
+                    if (locationAttribute.LocationAttributeType == Enums.LocationAttributeType.ReferenceFin)
+                    { this.IsLocalisationFin = true; }
+
+                    if (locationAttribute.LocationAttributeType == Enums.LocationAttributeType.ReferenceId)
+                    { this.IsLocalisationReferenceId = true; }
+
+                    if (locationAttribute.LocationAttributeType == Enums.LocationAttributeType.ReferenceGeometry)
+                    { this.IsLocalisationReferenceGeom = true; }
+                   
+                }
+
+
                 if (att is AllowNullAttribute)
                 {
                     this.AllowNull = (att as AllowNullAttribute).AllowNull;

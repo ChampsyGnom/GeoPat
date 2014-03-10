@@ -69,6 +69,7 @@ namespace Emash.GeoPatNet.Presentation.Views
 
         private void UpdateLabel(string fieldPath, Type modelType)
         {
+            /*
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
             List<String> basicPaths = dataService.GetTableFieldPaths(entityTableInfo);
@@ -90,6 +91,7 @@ namespace Emash.GeoPatNet.Presentation.Views
                 EntityColumnInfo columnInfo = dataService.GetTopColumnInfo(modelType, fieldPath);
                 txtLabel.Text = columnInfo.TableInfo.DisplayName + " : ";
             }
+             * */
         }
 
         public GenericDataLabel()

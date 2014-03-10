@@ -74,6 +74,7 @@ namespace Emash.GeoPatNet.Presentation.Views
         // Il faut pouvoir céer des multi triggers 
         private void UpdateTemplate(string fieldPath, Type modelType)
         {
+            /*
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
             EntityColumnInfo topProperty = dataService.GetTopColumnInfo(modelType, fieldPath);
@@ -90,6 +91,7 @@ namespace Emash.GeoPatNet.Presentation.Views
             contentControlStyle.Triggers.Add(CreateTrigger(fieldPath, dataService, topProperty, GenericDataListState.InsertingEmpty, false));
 
             contentControl.SetValue(ContentControl.StyleProperty, contentControlStyle);
+             * */
         }
 
         private TriggerBase CreateTrigger(string fieldPath, IDataService dataService, EntityColumnInfo topProperty, GenericDataListState state, Nullable<Boolean> isLocked)

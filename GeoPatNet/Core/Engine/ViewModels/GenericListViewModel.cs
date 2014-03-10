@@ -172,8 +172,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         /// Il peut y avoir plusieurs niveaux par example le code laision de la table des aires auras comme fieldPath InfChaussee.InfLiaison.InfCodeLiaison.Code
         /// </summary>
         public ObservableCollection<String> FieldPaths { get; private set; }
-        public ObservableCollection<String> BasicFieldPaths { get; private set; }
-        public ObservableCollection<String> AvailableFieldPaths { get; private set; }
+       
         /// <summary>
         /// Liste des éléments 
         /// </summary>
@@ -233,16 +232,16 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
             // On instancie la lliste des champs à afficher
             this.FieldPaths = new ObservableCollection<string>();
-            this.BasicFieldPaths = new ObservableCollection<string>();
-            this.AvailableFieldPaths = new ObservableCollection<string>();
-
-            List<String> fieldPaths = this.DataService.GetTableFieldPaths(EntityTableInfo);
-            foreach (String fieldPath in fieldPaths)
+            
+          
+            foreach (EntityFieldInfo entityFieldInfo in EntityTableInfo.FieldInfos)
             {
-                this.FieldPaths.Add(fieldPath);
-                this.BasicFieldPaths.Add(fieldPath);
+                if (entityFieldInfo.IsMainTableField || entityFieldInfo.IsNeeded)
+                { this.FieldPaths.Add(entityFieldInfo.Path); }
+               
+               
             }
-
+            
             // On cré l'élément de recherche et on initialise le mode de la table à recherche
             this.SearchItem = new GenericListItemViewModel<M>(this,null);
             this.Items.Add(this.SearchItem);
@@ -261,6 +260,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         //@TODO Finir les menus contextuel
         private void DataGridContextMenuOpeningExecute(DataGridContextMenuOpeningBehaviorEventArg arg)
         {
+            /*
             if (this.State != GenericDataListState.Display)
             {
                 arg.ContextMenuEventArgs.Handled = true;
@@ -486,6 +486,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     }
                 }
             }
+             * */
         }
 
         void ItemsView_CurrentChanged(object sender, EventArgs e)
@@ -563,6 +564,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private IQueryable<M> TryApplySort(IQueryable<M> queryable, System.Linq.Expressions.ParameterExpression expressionBase)
         {
+            /*
             foreach (SortInfo sorter in this._sorters)
             {
                 String fieldPath = sorter.FieldPath;
@@ -604,6 +606,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                    
                 
             }
+           
+             * */
             return queryable;
         }
 
@@ -687,7 +691,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             if (this.State == GenericDataListState.InsertingEmpty)
             {
                 String message = null;
-                if (!Validator.ValidateEntity<M>(this.InsertingItem.Model, this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
+
+                if (!this.EntityTableInfo.Validate(this.InsertingItem.Model, this.InsertingItem.Values, out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -735,7 +740,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             else if (this.State == GenericDataListState.Updating)
             {
                 String message = null;
-                if (!Validator.ValidateEntity<M>(this.UpdatingItem.Model, this.UpdatingItem.Values,this.DataService.GetEntityTableInfo (typeof(M)), out message))
+                if (!this.EntityTableInfo.Validate(this.UpdatingItem.Model, this.UpdatingItem.Values, out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -760,7 +765,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             else if (this.State == GenericDataListState.InsertingDisplay)
             {
                 String message = null;
-                if (!Validator.ValidateEntity<M>(this.UpdatingItem.Model, this.InsertingItem.Values, this.DataService.GetEntityTableInfo(typeof(M)), out message))
+                if (!this.EntityTableInfo.Validate(this.UpdatingItem.Model, this.InsertingItem.Values,  out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }

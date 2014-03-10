@@ -123,6 +123,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private void ImportFile(List<DataFileViewModel> vms)
         {
+            /*
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             dataService.DataContext.Configuration.AutoDetectChangesEnabled = false;
             dataService.DataContext.Configuration.ValidateOnSaveEnabled = false;
@@ -291,6 +292,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             }
             dataService.DataContext.Configuration.AutoDetectChangesEnabled = true;
             dataService.DataContext.Configuration.ValidateOnSaveEnabled = true;
+             * */
         }
        
         private void StartDirectoryScan()

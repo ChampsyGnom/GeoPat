@@ -210,45 +210,28 @@ namespace Emash.GeoPatNet.Presentation.Views
 
         private void CreateColumns(IEnumerable<string> fieldPaths, Type modelType)
         {
+            
             dataGrid.Columns.Clear();
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
-            List<String> basicFieldPath = dataService.GetTableFieldPaths(entityTableInfo);
             if (fieldPaths != null && modelType != null && entityTableInfo != null)
             {
                
                 foreach (String fieldPath in fieldPaths)
                 {
-                    if (fieldPath.IndexOf(".") == -1)
+                    EntityFieldInfo fieldInfo = (from f in entityTableInfo.FieldInfos where f.Path.Equals(fieldPath) select f).FirstOrDefault();
+                    if (fieldInfo != null)
                     {
-                        EntityColumnInfo topColumn = dataService.GetTopColumnInfo(modelType, fieldPath);
-                        GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
-                        EntityColumnInfo columnInfo = (from c in entityTableInfo.ColumnInfos where c.PropertyName.Equals (fieldPath ) select c).FirstOrDefault();
-                        column.Header = topColumn.DisplayName;
-                      
-                   
+                        GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(fieldInfo, dataGrid);
                         dataGrid.Columns.Add(column);
-                    }
-                    else
-                    {
-                        
-                        EntityColumnInfo parentProperty = dataService.GetTopColumnInfo(modelType, fieldPath);
-                        if (parentProperty != null)
-                        {
-                            GenericDataGridTemplateColumn column = new GenericDataGridTemplateColumn(entityTableInfo, fieldPath);
-                            if (basicFieldPath.Contains(fieldPath))
-                            { column.Header = parentProperty.TableInfo.DisplayName; }
-                            else
-                            {
-                                column.Header = parentProperty.TableInfo.DisplayName + " - " + parentProperty.DisplayName;
-                               
-                            }
-                           
-                            dataGrid.Columns.Add(column);
-                        }
                     }
                 }
             }
+          
+           
+            
+            
         }
        
     }

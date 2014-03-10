@@ -377,8 +377,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         else if (column.DataType.StartsWith("VBIN"))
                         {
                             DbRuleLocationRefGeom ruleLocationRefGeom = (from r in column.Rules where r is DbRuleLocationRefGeom select r as DbRuleLocationRefGeom).FirstOrDefault();
-                           
-                            TemplateProperty prop = writer.AddProperty("public Byte[]", propertyName);
+
+                            TemplateProperty prop = writer.AddProperty("public String", propertyName);
                             if (ruleLocationRefGeom != null)
                             {
                                 prop.Attributes.Add("[LocationAttribute(LocationAttributeType.ReferenceGeometry)]");

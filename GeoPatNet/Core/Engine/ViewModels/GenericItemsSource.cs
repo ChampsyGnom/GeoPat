@@ -111,6 +111,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string fieldPath)
         {
          
+            /*
             String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             EntityTableInfo listTableInfo = this.DataService.GetEntityTableInfo (items[0]);
             EntityColumnInfo listColumnInfo = (from c in listTableInfo.ColumnInfos where c.PropertyName.Equals (items[1]) select c).FirstOrDefault();
@@ -159,6 +160,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 Expression.Lambda(expressionAnd, expressionBase));
                 itemsSourceQueryable = itemsSourceQueryable.Provider.CreateQuery(whereCallExpression);
             }
+           
+             * */
             return itemsSourceQueryable;
         }
 

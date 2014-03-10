@@ -54,7 +54,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-
+        public EntityTableInfo TableInfo { get; private set; }
+        public IDataService DataService { get; private set; }
         /// <summary>
         /// Modèle sous-jacent , entité
         /// </summary>
@@ -78,6 +79,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.Manager = manager;
             this._values = new Dictionary<string, String>();            
             this._comboItemsSource = new GenericItemsSource<M>();
+            this.DataService = manager.DataService;
+            this.TableInfo = this.DataService.GetEntityTableInfo(typeof(M));
           
         }
      
@@ -106,15 +109,14 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             {
                 if (!this._values.ContainsKey(fieldPath))
                 { this._values.Add(fieldPath, null); }
-
-                
                 this._values[fieldPath] = value;
-                
-
-               
 
                 if (this.Manager.State == Infrastructure.Enums.GenericDataListState.Display && !this.Manager.IsLocked)
-                {this.Manager.BeginEdit(this);}
+                { this.Manager.BeginEdit(this); }
+
+               /*
+
+            
 
                 // Si il n'y as pas de point dans le path c'est une propriété normal
                 if (fieldPath.IndexOf(".") == -1)
@@ -162,6 +164,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     
                     
                 }
+                * */
                 this.RaisePropertyChanged("Error");
                 
 
@@ -187,73 +190,27 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         public void LoadFromModel(List<String> fieldPaths)
         {
-            IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
-            foreach (String fieldPath in fieldPaths)
-            {
-                EntityColumnInfo columnInfo = this.Manager.DataService.GetTopColumnInfo(typeof(M), fieldPath);
-                if (fieldPath.IndexOf(".") == -1)
-                {
-                    
-                        if (!this._values.ContainsKey(fieldPath))
-                        { this._values.Add(fieldPath, null); }
-                        Object value = this.Model.GetType().GetProperty(fieldPath).GetValue(this.Model);
-                        if (value == null)
-                        { this._values[fieldPath] = null; }
-                        else
-                        {
-                            if (columnInfo.ControlType == ControlType.Pr && columnInfo.PrChausseeColumnName != null)
-                            {
-                                EntityColumnInfo columnChausseeIdInfo = (from c in columnInfo.TableInfo.ColumnInfos where c.ColumnName .Equals( columnInfo.PrChausseeColumnName) && c.ControlType == ControlType.None select c).FirstOrDefault();
-                                Int64 valueIdChaussee = (Int64)columnChausseeIdInfo.Property.GetValue(this.Model);
-                                Nullable<Int64> valueAbs = (Nullable<Int64>) value;
-                                String pr = reperageService.AbsToPr(valueIdChaussee, valueAbs);
-                                this._values[fieldPath] = pr;
-                            }
-                            else
-                            {
-                                String formattedValue = Formatter.FormatValue(columnInfo.PropertyType, value);
-                                this._values[fieldPath] = formattedValue;
-                            }
-                            
-                        }
-                }
-                else
-                {
-                    
-                    String[] items = fieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                    Type baseType = typeof(M);
-                    object baseValue = this.Model;
-                    PropertyInfo baseProp = null;
-                    for(int i = 0 ; i < items .Length ;i++)
-                    {
-                        PropertyInfo prop = baseType.GetProperty(items[i]);
-                        baseProp = prop;
-                        baseValue = prop.GetValue(baseValue);
-                        if (baseValue == null)
-                        {break;}
-                        baseType = baseValue.GetType();
-                    }
-                    if (baseValue != null)
-                    { this._values[fieldPath] = Formatter.FormatValue(baseProp.PropertyType, baseValue); }
-                    else
-                    { this._values[fieldPath] = CultureConfiguration.ListNullString; }
-                    
-                }
-            }
+            this._values = TableInfo.LoadFromModel(this.Model, fieldPaths);
+           
             this._comboItemsSource.Values = this._values;
+            
         }
 
         public void SetModel(M model)
         {
+            /*
             this.Model = model;
             EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo (typeof(M));
             List<String > fieldPaths =  this.Manager.DataService.GetTableFieldPaths(tableInfo);           
             this.LoadFromModel(fieldPaths);
             Console.WriteLine(_values);
+             * */
         }
 
         public void SaveToModel(List<String> fieldPaths)
         {
+            TableInfo.SaveToModel(this.Model ,this.Values);
+            /*
             EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo (typeof(M));
             List<EntityColumnInfo> navigationProperties = new List<EntityColumnInfo>();
             String message = null;
@@ -450,6 +407,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.Model.GetType().GetProperty(navigationProperty.PropertyName).SetValue(this.Model, obj);
                 }
             }
+             * */
         }
 
         internal void RaiseValuesChanges()
@@ -467,25 +425,24 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         string IDataErrorInfo.Error
         {
             get {
+              
                 List<String> errors = new List<string>();
                 EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
                 foreach (String key in this._values.Keys)
                 { 
-                    if (((IDataErrorInfo ) this)["["+key+"]"] != null)
+                    String error = ((IDataErrorInfo ) this)["["+key+"]"] ;
+                    if (error != null)
                     {
-                      
-                        EntityColumnInfo columnInfo = this.Manager.DataService.GetTopColumnInfo(typeof(M), key);
-                        String displayName = columnInfo.DisplayName;
-                        if (key.IndexOf(".") != -1)
-                        {displayName = columnInfo.TableInfo.DisplayName + " " + columnInfo.DisplayName;}
-                        String error = displayName + " : " + ((IDataErrorInfo)this)["[" + key + "]"];
+
+                        EntityFieldInfo fieldInfo = (from f in this.TableInfo.FieldInfos where f.Path.Equals (key) select f).FirstOrDefault();                       
                         errors.Add(error);
                     }
                 }
                 if (errors.Count > 0)
                 { return String.Join("\r\n", errors); }
                 else
-                { return null; }
+                { return null; } 
+                return null;
            
             }
         }
@@ -493,35 +450,25 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         string IDataErrorInfo.this[string columnName]
         {
             get {
+                // @TODO Erreur sur validation des critères
                 if (this.Manager.State == Infrastructure.Enums.GenericDataListState.Search) return null;
                 String message = null;
                 Object result = null;
-                List<String> basicFieldPath = this.Manager.DataService.GetTableFieldPaths (this.Manager.DataService.GetEntityTableInfo(typeof(M)));
-            
+
                 if (columnName.StartsWith("[") && columnName.EndsWith("]"))
                 {
                     String path = columnName.Substring(1);
                     path = path.Substring(0, path.Length - 1);
-                    if (!basicFieldPath.Contains(path)) return null;
-                    EntityColumnInfo topColumn = this.Manager.DataService.GetTopColumnInfo(typeof(M), path);
-                    if (path.IndexOf(".") == -1)
+                    EntityFieldInfo fieldInfo = (from f in TableInfo.FieldInfos where f.Path.Equals (path) select f).FirstOrDefault();
+                    if (fieldInfo != null  )
                     {
-
-                        if (!Validator.ValidateEntityColumn(this._values[path], topColumn, out message, out result))
-                        {return message;}
-                    }
-                    else
-                    {
-                        String[] items = path.Split (".".ToCharArray (),StringSplitOptions .RemoveEmptyEntries );
-                        EntityTableInfo tableInfo = this.Manager.DataService.GetEntityTableInfo(typeof(M));
-                        EntityColumnInfo topProperty = this.Manager.DataService.GetTopColumnInfo(typeof(M), path);
-                        EntityColumnInfo bottomProp = (from c in tableInfo.ColumnInfos where c.PropertyName.Equals (items[0]) select c).FirstOrDefault();
-                        Object valueObject = this._values[path];
-                        if (!bottomProp.AllowNull && (this._values[path] == null || String.IsNullOrEmpty(this._values[path].ToString ()) || this._values[path].Equals(CultureConfiguration.ListNullString)))
-                        {return "valeur vide non autorisée";}
+                        if (fieldInfo.IsMainTableField || fieldInfo.IsNeeded)
+                        {
+                            if (!fieldInfo.ValidateString(this._values[path], out message, out result))
+                            {  return message;  }                           
+                        }                       
                     }
                 }
-                
                
                 return null;
             }
