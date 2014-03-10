@@ -99,11 +99,21 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 else
                 {
                     if (valueString.Equals(CultureConfiguration.BooleanTrueString))
-                    { valueString = "True"; }
+                    {
+                  
+                        value = true;
+                        message = null;
+                        return true;
+                    }
                     else if (valueString.Equals(CultureConfiguration.BooleanFalseString))
-                    { valueString = "False"; }
+                    {
+                        value = false;
+                        message = null;
+                        return true;
+                    }
                     if (Boolean.TryParse(valueString, out valueBoolean))
                     {
+                        value = valueBoolean;
                         message = null;
                         return true;
                     }
@@ -188,12 +198,21 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 else
                 {
                     if (valueString.Equals(CultureConfiguration.BooleanTrueString))
-                    { valueString = "True"; }
+                    {
+                        value = true;
+                        message = null;
+                        return true;
+                    }
                     else if (valueString.Equals(CultureConfiguration.BooleanFalseString))
-                    { valueString = "False"; }
+                    {
+                        value = false;
+                        message = null;
+                        return true;
+                    }
                     if (Boolean.TryParse(valueString, out valueBoolean))
                     {
                         message = null;
+                        value = valueBoolean;
                         return true;
                     }
                     else

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Emash.GeoPatNet.Infrastructure.Services;
+using Emash.GeoPatNet.Infrastructure.Attributes;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Emash.GeoPatNet.Infrastructure.Validations
 {
@@ -13,6 +16,33 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
         public EntityColumnInfo ColumnLocation { get; set; }
         public override  Boolean Validate(Object entityObject, Dictionary<String, String> valueStrings, EntityTableInfo tableInfo, out String message)
         {
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
+
+            EntityColumnInfo columnChaussee = (from c in tableInfo.ColumnInfos
+                                               where c.ControlType == ControlType.Combo &&
+                                                   c.ColumnName.Equals("INF_CHAUSSEE__ID")
+                                               select c).FirstOrDefault();
+            Object chausseeObj = columnChaussee.Property.GetValue(entityObject);
+            Int64 chausseeId = (Int64)chausseeObj.GetType().GetProperty("Id").GetValue(chausseeObj);
+            Int64 chausseeAbsDeb = (Int64)chausseeObj.GetType().GetProperty("AbsDeb").GetValue(chausseeObj);
+            Int64 chausseeAbsFin = (Int64)chausseeObj.GetType().GetProperty("AbsFin").GetValue(chausseeObj);
+            EntityFieldInfo fieldInfo = (from f in tableInfo.FieldInfos where  f.ColumnInfo.Equals (ColumnLocation ) select f).FirstOrDefault();
+            Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, valueStrings[fieldInfo.Path]);
+            if (abs.HasValue)
+            {
+                if (abs.Value > chausseeAbsFin || abs.Value < chausseeAbsDeb)
+                {
+                    message = fieldInfo.DisplayName + " ne peut pas être en dehors des bornes de la chaussée ( " + reperageService.AbsToPr(chausseeId, chausseeAbsDeb) + " <-> " + reperageService.AbsToPr(chausseeId, chausseeAbsFin);
+                    return false;
+                }
+            }
+            else
+            {
+                message = null;
+                return true;
+            }
+
             /*
              * // Regle emprise
                     EntityColumnInfo columnInfo = ServiceLocator.Current.GetInstance<IDataService>().GetTopColumnInfo(tableInfo.EntityType, path);

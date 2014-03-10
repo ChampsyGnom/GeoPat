@@ -148,6 +148,7 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                             case DatePart.Month:
                                 //@TODO à implémenter
                                
+                                /*
                                 List<String> strMonths = new List<string>();
                                 foreach (DateTime t in validDateTime)
                                 {strMonths.Add (t.Month.ToString ()+"/"+t.Year.ToString ()); }
@@ -170,7 +171,7 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                                     Expression result = Expression.AndAlso(expHasValue, Expression.Call(Expression.Constant(strMonths, typeof(List<String>)), typeof(List<String>).GetMethod("Contains", new Type[] { typeof(String) }), propValue));
 
                                     return result;
-                               
+                                */
                                 return null;
                             
                             case DatePart.Year:

@@ -23,36 +23,43 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 
                     if (columnInfo.ControlType == ControlType.Check)
                     {
-                        if (!columnInfo.AllowNull && (valueString == null || valueString.Equals(CultureConfiguration.BooleanNullString)))
+                        if (valueString == null || valueString.Equals(CultureConfiguration.BooleanNullString) || String.IsNullOrEmpty(valueString))
                         {
-                            value = null;
-                            message = "valeur " + CultureConfiguration.BooleanNullString + " non autorisée";
-                            return false;
-                        }
-                        else if (valueString == null || valueString.Equals(CultureConfiguration.BooleanNullString))
-                        {
-                            value = null;
-                            message = null;
-                            return true;
-                        }
-                        else if (valueString.Equals(CultureConfiguration.BooleanTrueString))
-                        {
-                            value = true;
-                            message = null;
-                            return true;
-                        }
-                        else if (valueString.Equals(CultureConfiguration.BooleanFalseString))
-                        {
-                            value = false;
-                            message = null;
-                            return true;
+                            if (columnInfo.AllowNull)
+                            {
+                                value = null;
+                                message = null;
+                                return true;
+                            }
+                            else
+                            {
+                                value = null;
+                                message = "valeur " + CultureConfiguration.BooleanNullString + " non autorisée";
+                                return false;
+                            }
                         }
                         else
                         {
-                            value = null;
-                            message = null;
-                            return true;
+                            if (valueString.Equals(CultureConfiguration.BooleanTrueString))
+                            {
+                                value = true;
+                                message = null;
+                                return true;
+                            }
+                            else if (valueString.Equals(CultureConfiguration.BooleanFalseString))
+                            {
+                                value = false;
+                                message = null;
+                                return true;
+                            }
+                            else
+                            {
+                                value = null;
+                                message = null;
+                                return true;
+                            }
                         }
+                        
                     }
                     else if (columnInfo.ControlType == ControlType.Text)
                     {

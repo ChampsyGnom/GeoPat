@@ -49,7 +49,11 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
             String messageString = null;
             Object value = null;
             List<Expression> expressions = new List<Expression>();
+            Int64 currentId =(Int64) entityObject.GetType ().GetProperty ("Id").GetValue (entityObject );
             ParameterExpression expressionBase = Expression.Parameter(tableInfo.EntityType, "item");
+            Expression expNotSameId = Expression.Property(expressionBase, "Id");
+            expNotSameId = Expression.NotEqual(expNotSameId, Expression.Constant(currentId));
+            expressions.Add(expNotSameId);
             foreach (EntityFieldInfo ukFieldInfo in ukFieldInfos)
             {
                 if (valueStrings.ContainsKey(ukFieldInfo.Path))

@@ -81,7 +81,7 @@ namespace Emash.GeoPatNet.Presentation.Views
         private void CreateControls(IEnumerable<string> fieldPaths, Type modelType)
         {
             int controlPerColumn = 10;
-            /*
+         
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo entityTableInfo = dataService.GetEntityTableInfo(modelType);
             if (fieldPaths != null && modelType != null && entityTableInfo != null)
@@ -137,7 +137,7 @@ namespace Emash.GeoPatNet.Presentation.Views
 
                 }
             }
-             * */
+        
         }
 
         public GenericDataFormControl()

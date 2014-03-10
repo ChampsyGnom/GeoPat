@@ -204,13 +204,25 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
                 IReperageService reperageService = ServiceLocator.Current.GetInstance<IReperageService>();
                 foreach (EntityFieldInfo fieldInfoPr in fieldInfoPrs)
                 {
-                    EntityColumnInfo columnChaussee = (from c in this.ColumnInfos where c.ControlType == ControlType.Combo && 
-                                                            c.ColumnName.Equals ("INF_CHAUSSEE__ID")
+                    if (this.EntityType.Name.Equals("InfChaussee"))
+                    {
+
+                        Int64 chausseeId = (Int64)entityObject.GetType().GetProperty("Id").GetValue(entityObject);
+                        Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
+                        fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
+                    }
+                    else
+                    {
+                        EntityColumnInfo columnChaussee = (from c in this.ColumnInfos
+                                                           where c.ControlType == ControlType.Combo &&
+                                                               c.ColumnName.Equals("INF_CHAUSSEE__ID")
                                                            select c).FirstOrDefault();
-                    Object  chausseeObj = columnChaussee.Property.GetValue(entityObject);
-                    Int64 chausseeId =(Int64 ) chausseeObj.GetType().GetProperty("Id").GetValue(chausseeObj);
-                    Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
-                    fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
+                        Object chausseeObj = columnChaussee.Property.GetValue(entityObject);
+                        Int64 chausseeId = (Int64)chausseeObj.GetType().GetProperty("Id").GetValue(chausseeObj);
+                        Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
+                        fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
+                    }
+                   
                 }
             }
            

@@ -196,6 +196,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
             this.StatTypes.Add(vmStateTypeCount);
             this.StatFields = new ObservableCollection<StatFieldViewModel>();
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            /*
             List<String> basicFieldPaths = dataService.GetTableFieldPaths(entityTableInfo);
 
             foreach (String fieldPath in fieldPaths)
@@ -220,6 +221,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 
                 this.AllFields.Add(vm);
             }
+             * */
         }
     }
 }

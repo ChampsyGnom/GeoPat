@@ -102,9 +102,10 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
         public bool ValidateString(string valueString, out string message, out object result)
         {
             List<String> errors = new List<string>();
+            Object subResult = null;
             foreach (EntityFieldValidationRule validationRule in this.ValidationRules)
             {
-                if (!validationRule.ValidateString(this,valueString, out  message, out result))
+                if (!validationRule.ValidateString(this, valueString, out  message, out subResult))
                 { errors.Add(message); break; }
             }
             if (errors.Count > 0)
@@ -116,7 +117,7 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
             else
             {
                 message = null;
-                result = valueString;
+                result = subResult;
                 return true ;
             }
                 

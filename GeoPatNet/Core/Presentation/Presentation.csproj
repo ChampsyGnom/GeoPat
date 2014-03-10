@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\Win32WindowAdapter.cs" />
+    <Compile Include="Builders\DataControlTemplateBuilder.cs" />
     <Compile Include="Builders\DataGridTemplateBuilder.cs" />
     <Compile Include="Controls\SelectDirectoryBox.xaml.cs">
       <DependentUpon>SelectDirectoryBox.xaml</DependentUpon>
