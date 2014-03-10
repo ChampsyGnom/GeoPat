@@ -30,23 +30,93 @@ namespace Emash.GeoPatNet.Engine.Builders
             Point pos = Mouse.GetPosition(arg.DataGrid);
             IInputElement hit = arg.DataGrid.InputHitTest(pos);
             DependencyObject hitDependencyObject = hit as DependencyObject;
+            DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
+            GenericDataGridTemplateColumn genericDataGridTemplateColumn = cell.Column as GenericDataGridTemplateColumn;
+           
             if (hitDependencyObject != null)
             {
                 arg.ContextMenu.Items.Clear();
                 MenuItem menuFilter = new MenuItem();
                 menuFilter.Header = "Filtrer";
                 arg.ContextMenu.Items.Add(menuFilter);
+                if (cell.DataContext is GenericListItemViewModel<M>)
+                {
+                    GenericListItemViewModel<M> vm = (cell.DataContext as GenericListItemViewModel<M>);
+                    Type propertyType = null;
+                    if (genericDataGridTemplateColumn.FieldInfo.ParentColumnInfo != null)
+                    {
+                        propertyType = genericDataGridTemplateColumn.FieldInfo.ParentColumnInfo.PropertyType;
+                    }
+                    else
+                    {
+                        propertyType = genericDataGridTemplateColumn.FieldInfo.ColumnInfo.PropertyType;
+                    }
+                    String valueString = vm.Values[genericDataGridTemplateColumn.FieldInfo.Path];
+
+                    if (propertyType.Equals(typeof(String)))
+                    {
+
+                        MenuItem menuEquals = new MenuItem();
+                        menuEquals.Header = genericDataGridTemplateColumn.FieldInfo.DisplayName  + " égale à " + valueString;
+                        menuEquals.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            genericListViewModel.SearchItem.Values[genericDataGridTemplateColumn.FieldInfo.Path] = valueString;
+                            genericListViewModel.SearchExecute();
+                        }));
+                        menuFilter.Items.Add(menuEquals);
+
+
+                        MenuItem menuNotEquals = new MenuItem();
+                        menuNotEquals.Header = genericDataGridTemplateColumn.FieldInfo.DisplayName + " différent de " + valueString;
+                        menuNotEquals.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            genericListViewModel.SearchItem.Values[genericDataGridTemplateColumn.FieldInfo.Path] = "<>" + valueString;
+                            genericListViewModel.SearchExecute();
+                        }));
+                        menuFilter.Items.Add(menuNotEquals);
+                    }
+
+
+                    if (genericDataGridTemplateColumn.FieldInfo.ColumnInfo.AllowNull)
+                    {
+                        menuFilter.Items.Add(new Separator());
+                        MenuItem menuNotNull = new MenuItem();
+                        menuNotNull.Header = genericDataGridTemplateColumn.FieldInfo.DisplayName + " est renseigné";
+                        menuNotNull.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            genericListViewModel.SearchItem.Values[genericDataGridTemplateColumn.FieldInfo.Path] = "+";
+                            genericListViewModel.SearchExecute();
+                        }));
+                        menuFilter.Items.Add(menuNotNull);
+
+
+
+                        MenuItem menuNull = new MenuItem();
+                        menuNull.Header = genericDataGridTemplateColumn.FieldInfo.DisplayName + " n'est pas renseigné";
+                        menuNull.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            genericListViewModel.SearchItem.Values[genericDataGridTemplateColumn.FieldInfo.Path] = "-";
+                            genericListViewModel.SearchExecute();
+                        }));
+
+                        menuFilter.Items.Add(menuNull);
+
+
+
+                    }
+
+                }
 
                 MenuItem menuSorter = new MenuItem();
                 menuSorter.Header = "Trier";
                 arg.ContextMenu.Items.Add(menuSorter);
-                DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
+             
                 if (cell != null)
                 {
                     Console.WriteLine(cell);
                     if (cell.Column is GenericDataGridTemplateColumn)
                     {
-                        GenericDataGridTemplateColumn genericDataGridTemplateColumn = cell.Column as GenericDataGridTemplateColumn;
+                       
                         EntityFieldInfo fieldInfo = genericDataGridTemplateColumn.FieldInfo;
                         Nullable<ListSortDirection> currentSort = genericListViewModel.GetSort(fieldInfo.Path);
                         MenuItem menuSorterAscending = new MenuItem();

@@ -15,52 +15,45 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
 {
     public class LinqHelper
     {
-   
-        public static Expression CreateFilterExpression<M>(Dictionary<string, string> values, string path, ParameterExpression expressionBase)
+        public static Expression CreateFilterExpression<M>(Dictionary<string, string> values, EntityFieldInfo fieldInfo, ParameterExpression expressionBase)
         {
-            /*
-          
-            if (!values.ContainsKey(path)) return null;
-            String valueString = values[path];
-            if (String.IsNullOrEmpty(valueString.TrimEnd ().TrimStart ())) return null;
+            if (!values.ContainsKey(fieldInfo.Path)) return null;
+            String valueString = values[fieldInfo.Path];
+            if (String.IsNullOrEmpty(valueString.TrimEnd().TrimStart())) return null;
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
-            EntityTableInfo tableInfo = dataService.GetEntityTableInfo(typeof(M));
-            if (path.IndexOf(".") == -1)
+
+            if (fieldInfo.ParentColumnInfo == null)
             {
                 valueString = valueString.TrimStart().TrimEnd();
-                EntityColumnInfo columnInfo = dataService.GetBottomColumnInfo(typeof(M), path);
-                if (columnInfo.PropertyName.Equals("Id"))
+                if (fieldInfo.ColumnInfo.PropertyName.Equals("Id"))
                 {
-                    return CreateFilterExpressionInteger(valueString, path, expressionBase, columnInfo);
+                    return CreateFilterExpressionInteger(valueString, fieldInfo.Path, expressionBase, fieldInfo.ColumnInfo);
                 }
                 else
                 {
-                    switch (columnInfo.ControlType)
+                    switch (fieldInfo.ColumnInfo.ControlType)
                     {
                         case ControlType.Decimal:
-                            return CreateFilterExpressionDecimal(valueString, path, expressionBase, columnInfo);
+                            return CreateFilterExpressionDecimal(valueString, fieldInfo.Path, expressionBase, fieldInfo.ColumnInfo);
 
                         case ControlType.Integer:
-                            return CreateFilterExpressionInteger(valueString, path, expressionBase, columnInfo);
+                            return CreateFilterExpressionInteger(valueString, fieldInfo.Path, expressionBase, fieldInfo.ColumnInfo);
 
                         case ControlType.Text:
-                            return CreateFilterExpressionText(valueString, path, expressionBase, columnInfo);
+                            return CreateFilterExpressionText(valueString, fieldInfo.Path, expressionBase, fieldInfo.ColumnInfo);
 
                         case ControlType.Date:
-                            return CreateFilterExpressionDate(valueString, path, expressionBase, columnInfo);
+                            return CreateFilterExpressionDate(valueString, fieldInfo.Path, expressionBase, fieldInfo.ColumnInfo);
 
                     }
                 }
-               
-
-
             }
             else
             {
-                EntityColumnInfo columnInfoTop = dataService.GetTopColumnInfo(typeof(M), path);
-                String[] items = path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            
+                String[] items = fieldInfo.Path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 Expression expression = null;
-                for (int i = 0; i < (items.Length-1); i++)
+                for (int i = 0; i < (items.Length - 1); i++)
                 {
                     if (expression == null)
                     {
@@ -69,31 +62,30 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                     else
                     { expression = Expression.Property(expression, items[i]); }
                 }
-                switch (columnInfoTop.ControlType)
+                switch (fieldInfo.ParentColumnInfo.ControlType)
                 {
                     case ControlType.Decimal:
-                        return CreateFilterExpressionDecimal(valueString, items[items.Length -1], expression, columnInfoTop);
+                        return CreateFilterExpressionDecimal(valueString, items[items.Length - 1], expression, fieldInfo.ParentColumnInfo);
 
                     case ControlType.Integer:
-                        return CreateFilterExpressionInteger(valueString, items[items.Length - 1], expression, columnInfoTop);
+                        return CreateFilterExpressionInteger(valueString, items[items.Length - 1], expression, fieldInfo.ParentColumnInfo);
 
                     case ControlType.Text:
-                        return CreateFilterExpressionText(valueString, items[items.Length - 1], expression, columnInfoTop);
+                        return CreateFilterExpressionText(valueString, items[items.Length - 1], expression, fieldInfo.ParentColumnInfo);
 
                     case ControlType.Date:
-                        return CreateFilterExpressionDate(valueString, items[items.Length - 1], expression, columnInfoTop);
+                        return CreateFilterExpressionDate(valueString, items[items.Length - 1], expression, fieldInfo.ParentColumnInfo);
 
                 }
-
             }
-             * */
             return null;
-            
         }
+
+       
 
         private static Expression CreateFilterExpressionDate(string valueString, string path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
-            /*
+      
             String message = null;
             DateTime date = DateTime.Now;
             DatePart part = DatePart.None;
@@ -246,13 +238,13 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                
             }
        
-             * */
+         
             return null;
         }
 
         private static Expression CreateFilterExpressionText(string valueString, string path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
-            /*
+          
             if (valueString.Equals("+") && columnInfo.AllowNull)
             { 
                   Expression exp = Expression.Property(expressionBase, path);
@@ -302,6 +294,12 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                     return Expression.Call(Expression.Constant(itemList, typeof(List<String>)), typeof(List<String>).GetMethod("Contains", new Type[] { typeof(String) }), prop);
                 }
             }
+            else if (valueString.StartsWith("<>"))
+            {
+                valueString = valueString.Substring(2);
+                Expression exp = Expression.Property(expressionBase, path);
+                return Expression.NotEqual(exp, Expression.Constant(valueString));
+            }
             // égale
             else if (valueString.StartsWith("="))
             {
@@ -316,13 +314,13 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                 return Expression.Equal(exp, Expression.Constant(valueString));
             }
             
-             * */
+          
             return null;
         }
 
         private static Expression CreateFilterExpressionInteger(string valueString, string path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
-            /*
+            
             if (valueString.Equals("+") && columnInfo.AllowNull)
             {
                 Expression exp = Expression.Property(expressionBase, path);
@@ -513,13 +511,13 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                 }
             }
         
-             * */
+           
             return null;
         }
 
         private static Expression CreateFilterExpressionDecimal(string valueString, String path, Expression expressionBase, EntityColumnInfo columnInfo)
         {
-            /*
+           
             if (valueString.Equals("+") && columnInfo.AllowNull)
             {
                 Expression exp = Expression.Property(expressionBase, path);
@@ -710,10 +708,12 @@ namespace Emash.GeoPatNet.Infrastructure.Utils
                 }
             }
             
-             * */
+         
             return null;
         }
 
-   
+
+
+       
     }
 }

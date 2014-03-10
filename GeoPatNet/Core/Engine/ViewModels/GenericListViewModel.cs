@@ -395,11 +395,12 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             List<System.Linq.Expressions.Expression> expressions = new List<System.Linq.Expressions.Expression>();
             foreach (String key in this.SearchItem.Values.Keys)
             {
+                EntityFieldInfo fieldInfo = (from f in EntityTableInfo.FieldInfos where f.Path .Equals (key) select f).FirstOrDefault();
                 if (!String.IsNullOrEmpty(SearchItem.Values[key]))
                 {
-                    System.Linq.Expressions.Expression expression = LinqHelper.CreateFilterExpression<M>(this.SearchItem.Values, key, expressionBase);
-                   if (expression != null)
-                   { expressions.Add(expression); }
+                    System.Linq.Expressions.Expression expression = LinqHelper.CreateFilterExpression<M>(this.SearchItem.Values, fieldInfo, expressionBase);
+                    if (expression != null)
+                    { expressions.Add(expression); }
                 }
             }
             if (expressions.Count > 0)

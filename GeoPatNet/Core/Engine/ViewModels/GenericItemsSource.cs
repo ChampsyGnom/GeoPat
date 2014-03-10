@@ -111,6 +111,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private IQueryable TryApplyListFilters(IQueryable itemsSourceQueryable, string itemSourceName)
         {
+            if (_values == null) return itemsSourceQueryable;
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             String[] itemSourceNameItems = itemSourceName.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             EntityTableInfo itemSourceTableInfo = this.DataService.GetEntityTableInfo(itemSourceNameItems[0]);
