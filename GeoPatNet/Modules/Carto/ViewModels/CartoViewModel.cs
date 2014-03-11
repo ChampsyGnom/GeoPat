@@ -18,11 +18,22 @@ using Emash.GeoPatNet.Infrastructure.Behaviors;
 using System.Windows;
 using System.Windows.Controls;
 using DotSpatial.Projections;
+using System.ComponentModel;
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
-    public class CartoViewModel
+    public class CartoViewModel : INotifyPropertyChanged
     {
-
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        #endregion
         public Map Map { get;  set; }
       
         public ListCollectionView TemplatesView { get; private set; }
@@ -38,7 +49,41 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         public IEngineService EngineService { get; private set; }
         public Dispatcher Dispatcher { get; private set; }
 
+        private Boolean _isModeZoom;
+        private Boolean _isModeMove;
 
+
+        public Boolean IsModeMove
+        {
+            get { return _isModeMove; }
+            set { 
+                _isModeMove = value;
+                if (_isModeMove)
+                {
+                    _isModeZoom = false;
+                    this.Map.FunctionMode = FunctionMode.Pan;
+                }               
+                this.RaisePropertyChanged("IsModeMove");
+                this.RaisePropertyChanged("IsModeZoom"); 
+            }
+        }
+
+
+        public Boolean IsModeZoom
+        {
+            get { return _isModeZoom; }
+            set 
+            { 
+                _isModeZoom = value;
+                if (_isModeZoom)
+                {
+                    _isModeMove = false;
+                    this.Map.FunctionMode = FunctionMode.ZoomIn;
+                }    
+                this.RaisePropertyChanged("IsModeZoom");
+                this.RaisePropertyChanged("IsModeMove");
+            }
+        }
 
      
         public CartoViewModel(IDataService dataService,IEngineService engineService)
@@ -47,7 +92,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             this.DataService = dataService;
             this.Dispatcher = System.Windows.Application.Current.Dispatcher;
             this.EngineService = engineService;
-
+            this._isModeMove = true;
+            this._isModeZoom = false;
             this.Templates = new ObservableCollection<TemplateViewModel>();
             this.TemplatesView = new ListCollectionView(this.Templates);
             DbSet<SigTemplate> set = this.DataService.GetDbSet<SigTemplate>();
@@ -183,16 +229,13 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 {
                     foreach (EntityTableInfo tableInfo in schemaInfo.TableInfos)
                     {
-                        GeocodableAdapter geocodableAdapter = GeocodableAdapter.TryAdpat(tableInfo);
-                        if (geocodableAdapter != null)
-                        {                           
+                        if (FeatureSetAdapter.CanAdapt(DataService.GetDbSet(tableInfo.EntityType)))
+                        {
                             MenuItem itemAddLayerMetier = new MenuItem();
                             itemAddLayerMetier.Header = tableInfo.DisplayName;
-                            itemAddLayerMetier.Command = new DelegateCommand(new Action(delegate() { AddLayerMetierExecute(contexMenuData, geocodableAdapter); }));
+                            itemAddLayerMetier.Command = new DelegateCommand(new Action(delegate() { AddLayerMetierExecute(contexMenuData, tableInfo); }));
                             itemAddLayersMetiers.Items.Add(itemAddLayerMetier);
-
                         }
-
                     }
                 }
 
@@ -259,15 +302,15 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 {
                     foreach (EntityTableInfo tableInfo in schemaInfo.TableInfos)
                     {
-                        GeocodableAdapter geocodableAdapter = GeocodableAdapter.TryAdpat(tableInfo);
-                        if (geocodableAdapter != null)
+
+                        if (FeatureSetAdapter.CanAdapt(DataService.GetDbSet(tableInfo.EntityType)))
                         {
                             MenuItem itemAddLayerMetier = new MenuItem();
                             itemAddLayerMetier.Header = tableInfo.DisplayName;
-                            itemAddLayerMetier.Command = new DelegateCommand(new Action(delegate() { AddLayerMetierExecute(contexMenuData, geocodableAdapter); }));
+                            itemAddLayerMetier.Command = new DelegateCommand(new Action(delegate() { AddLayerMetierExecute(contexMenuData, tableInfo); }));
                             itemAddLayersMetiers.Items.Add(itemAddLayerMetier);
-
                         }
+                       
 
                     }
                 }
@@ -303,16 +346,16 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             }
         }
 
-        private void AddLayerMetierExecute(CartoNodeViewModel contexMenuData, GeocodableAdapter geocodableAdapter)
+        private void AddLayerMetierExecute(CartoNodeViewModel contexMenuData, EntityTableInfo tableInfo)
         {
             DbSet<SigCodeLayer> codeLayers = this.DataService.GetDbSet<SigCodeLayer>();
             DbSet<SigCodeNode> codeNodes = this.DataService.GetDbSet<SigCodeNode>();
             DbSet<SigLayer> layers = this.DataService.GetDbSet<SigLayer>();
             DbSet<SigNode> nodes = this.DataService.GetDbSet<SigNode>();
-            string layerCode = "@Entity@" + geocodableAdapter.TableInfo.EntityType.Name;
+            string layerCode = "@Entity@" + tableInfo.EntityType.Name;
             this.CreateCodeLayerIfNeeded(layerCode);
             SigLayer layer = new SigLayer ();
-            layer.Libelle = geocodableAdapter.TableInfo.DisplayName ;
+            layer.Libelle = tableInfo.DisplayName;
             layer.SigCodeLayer = (from c in codeLayers where c.Code.Equals (layerCode) select c).FirstOrDefault();
             layers.Add(layer);
             this.DataService.DataContext.SaveChanges();
@@ -325,7 +368,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             { node.ParentId = (contexMenuData as CartoNodeFolderViewModel).Model.Id; }
             else
             { node.ParentId = -1; }
-            node.Libelle = geocodableAdapter.TableInfo.DisplayName;
+            node.Libelle = tableInfo.DisplayName;
             nodes.Add(node);
             this.DataService.DataContext.SaveChanges();
             CartoNodeLayerViewModel vm = new CartoNodeLayerMetierViewModel(node);
@@ -338,7 +381,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             {
                 (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Add(vm);
             }
-
+            this.LoadMap();
         }
         public void RemoveFolderExecute(Object obj)
         {
@@ -360,9 +403,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                     else
                     {templateViewModel.Nodes.Remove(cartoNodeFolderViewModel); }
                     this.LoadMap();
-                   
-                }
-                
+                }                
             }
         }
 
@@ -495,6 +536,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 else
                 { parentFolder.Nodes.Remove(layerNode); }
             }
+            this.LoadMap();
         }
 
         private void RecurseBuildTemplateNodes(long parentId, ObservableCollection<CartoNodeViewModel> parent, List<SigNode> allNodes)

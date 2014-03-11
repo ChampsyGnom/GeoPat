@@ -12,12 +12,12 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0">
-            <Button >
+            <ToggleButton IsChecked="{Binding Path=IsModeZoom,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  >
                 <TextBlock Text="Mode Zoom"></TextBlock>
-            </Button>
-            <Button>
+            </ToggleButton>
+            <ToggleButton  IsChecked="{Binding Path=IsModeMove,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
                 <TextBlock Text="Mode déplacement"></TextBlock>
-            </Button>
+            </ToggleButton>
         </ToolBar>
         <WindowsFormsHost   Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige" x:Name="mapHost">
             <dsctrl:Map x:Name="map"></dsctrl:Map>

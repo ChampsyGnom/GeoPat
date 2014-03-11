@@ -12,15 +12,25 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotSpatial.Data;
+using Emash.GeoPatNet.Modules.Carto.Adapters;
 
 namespace Emash.GeoPatNet.Modules.Carto.Services
 {
     public class CartoService : ICartoService
     {
+        
         private IEventAggregator _eventAggregator;
         private IUnityContainer _container;
         private IRegionManager _regionManager;
-       
+        private IFeatureSet _referenceFeatureSet;
+
+
+        public IFeatureSet ReferenceFeatureSet
+        {
+            get { return _referenceFeatureSet; }
+            
+        }
        
         public CartoService(IEventAggregator eventAggregator, IUnityContainer container, IRegionManager regionManager)
         {
@@ -29,7 +39,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             this._container = container;           
             this._container.RegisterType<CartoView>();
             this._container.RegisterType<CartoViewModel>(new ContainerControlledLifetimeManager());
-          
+            
         
              
            
@@ -54,6 +64,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             region.Activate(view);
             view.DataContext = vm;
             DotSpatial.Controls.Map map = (view.cartoControl.mapHost.Child as DotSpatial.Controls.Map);
+            map.FunctionMode = DotSpatial.Controls.FunctionMode.Pan;
             vm.Map = map;
           // if (this._container.Resolve<CartoViewModel>().TemplatesView.CurrentItem == null && this._container.Resolve<CartoViewModel>().Templates.Count > 0)
          //  { this._container.Resolve<CartoViewModel>().TemplatesView.MoveCurrentToFirst(); }
@@ -70,7 +81,8 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             DbSet<SigCodeNode> codeNodes = dataService.GetDbSet<SigCodeNode>();
             DbSet<SigCodeTemplate> codeTemplates = dataService.GetDbSet<SigCodeTemplate>();
             this.Seed(dataService, codeTemplates, codeNodes, codeLayers);
-           
+            this._eventAggregator.GetEvent<SplashEvent>().Publish("Chargement données cartographiques ...");
+            this._referenceFeatureSet = new FeatureSetAdapter(dataService.GetDbSet(typeof (InfChaussee ))).Lines;
            
          
         }
