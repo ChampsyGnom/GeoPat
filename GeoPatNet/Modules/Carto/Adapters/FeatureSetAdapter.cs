@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using DotSpatial.Data;
+using DotSpatial.Symbology;
 using DotSpatial.Topology;
 using Emash.GeoPatNet.Data.Models;
 using Emash.GeoPatNet.Infrastructure.Reflection;
@@ -17,30 +18,29 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
 {
     public class FeatureSetAdapter : FeatureSetPack
     {
+        public IDataService DataService { get; private set; }
+        public EntityTableInfo TableInfo { get; private set; }
+
+        public PropertyInfo PropertyGeom { get; private set; }
+        public PropertyInfo PropertyLocRef { get; private set; }
+        public PropertyInfo PropertyLocDeb { get; private set; }
+        public PropertyInfo PropertyLocFin { get; private set; }
+        public DbSet DbSet { get; private set; }
         public FeatureSetAdapter(DbSet dbSet)
         {
-            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
-            EntityTableInfo tableInfo = dataService.GetEntityTableInfo(dbSet.ElementType);
-            PropertyInfo propertyGeom = dbSet.ElementType.GetProperty("Geom");
-            if (propertyGeom != null)
-            {
-
-                this.LoadFeatureFromGeomProperty(dbSet, propertyGeom);
-            }
-            else
-            {
-                EntityColumnInfo columnInfoLocRef = (from c in tableInfo.ColumnInfos where c.IsLocalisationReferenceId select c).FirstOrDefault();
-                EntityColumnInfo columnInfoLocDeb = (from c in tableInfo.ColumnInfos where c.IsLocalisationDeb select c).FirstOrDefault();
-                EntityColumnInfo columnInfoLocFin = (from c in tableInfo.ColumnInfos where c.IsLocalisationFin select c).FirstOrDefault();
-                if (columnInfoLocRef != null && columnInfoLocDeb != null)
-                {
-                    this.GeocodeFeatureFromReference(dbSet, columnInfoLocRef, columnInfoLocDeb, columnInfoLocFin);
-                }
-
-            }
+            this.DbSet = dbSet;
+            this.DataService = ServiceLocator.Current.GetInstance<IDataService>();
+            this.TableInfo = this.DataService.GetEntityTableInfo(dbSet.ElementType);
+            this.PropertyGeom = dbSet.ElementType.GetProperty("Geom");
             
         }
-
+        public void Load()
+        {
+            if (this.PropertyGeom != null)
+            { this.LoadFeatureFromGeomProperty(this.DbSet, this.PropertyGeom); }
+            else if (this.PropertyLocRef != null && this.PropertyLocDeb != null)
+            { this.GeocodeFeatureFromReference(this.DbSet, PropertyLocRef, PropertyLocDeb, PropertyLocFin); }
+        }
         public static Boolean CanAdapt(DbSet dbSet)
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
@@ -54,7 +54,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             return false;
         }
 
-        private void GeocodeFeatureFromReference(DbSet dbSet, EntityColumnInfo columnInfoLocRef, EntityColumnInfo columnInfoLocDeb, EntityColumnInfo columnInfoLocFin)
+        private void GeocodeFeatureFromReference(DbSet dbSet, PropertyInfo columnInfoLocRef, PropertyInfo columnInfoLocDeb, PropertyInfo columnInfoLocFin)
         {
             Dispatcher dispatcher = System.Windows.Application.Current.Dispatcher;
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
@@ -67,8 +67,8 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             {
                 if (columnInfoLocFin == null)
                 {
-                    Nullable<Int64> valueAbs = (Nullable<Int64>)columnInfoLocDeb.Property.GetValue(obj);
-                    String propertyChausseeName = columnInfoLocRef.PropertyName.Substring(0, columnInfoLocRef.PropertyName.Length - 2);
+                    Nullable<Int64> valueAbs = (Nullable<Int64>)columnInfoLocDeb.GetValue(obj);
+                    String propertyChausseeName = columnInfoLocRef.Name.Substring(0, columnInfoLocRef.Name.Length - 2);
                     PropertyInfo propertyChaussee = obj.GetType().GetProperty(propertyChausseeName);
                     InfChaussee chaussee = (InfChaussee)propertyChaussee.GetValue(obj);
                     IFeature reference = (from f in cartoService.ReferenceFeatureSet.Features where f.DataRow["Source"] is InfChaussee && (f.DataRow["Source"] as InfChaussee).Id == chaussee.Id select f).FirstOrDefault();
@@ -104,11 +104,10 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                                         double posX = lineStringChaussee.Coordinates[i - 1].X + (deltaX * fractionSegment);
                                         double posY = lineStringChaussee.Coordinates[i - 1].Y + (deltaY * fractionSegment);
                                         Point point = new Point(posX, posY);
-                                        System.Drawing.PointF pos = WorldToTilePos(posX, posY, 10);
-                                        Console.WriteLine(pos);
                                         dispatcher.Invoke(new Action(delegate()
                                         {
-                                            IFeature feature = this.Points.AddFeature(point);
+                                            Feature feature = this.Points.AddFeature(point) as Feature;
+                                        
                                             System.Data.DataRow row = this.Points.DataTable.NewRow();
                                             row["Source"] = obj;
                                             feature.DataRow = row;
@@ -172,26 +171,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             }
                
         }
-        public System.Drawing.PointF WorldToTilePos(double lon, double lat, int zoom)
-        {
-            System.Drawing.PointF p = new System.Drawing.Point();
-            p.X = (float)((lon + 180.0) / 360.0 * (1 << zoom));
-            p.Y = (float)((1.0 - Math.Log(Math.Tan(lat * Math.PI / 180.0) +
-                1.0 / Math.Cos(lat * Math.PI / 180.0)) / Math.PI) / 2.0 * (1 << zoom));
-
-            return p;
-        }
-
-        public System.Drawing.PointF TileToWorldPos(double tile_x, double tile_y, int zoom)
-        {
-            System.Drawing.PointF p = new System.Drawing.Point();
-            double n = Math.PI - ((2.0 * Math.PI * tile_y) / Math.Pow(2.0, zoom));
-
-            p.X = (float)((tile_x / Math.Pow(2.0, zoom) * 360.0) - 180.0);
-            p.Y = (float)(180.0 / Math.PI * Math.Atan(Math.Sinh(n)));
-
-            return p;
-        }
+     
         private void LoadFeatureFromGeomProperty(DbSet dbSet, PropertyInfo propertyGeom)
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
@@ -199,8 +179,10 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             this.Lines.DataTable = this.CreateDataTable(dbSet.ElementType);
             this.Points.DataTable = this.CreateDataTable(dbSet.ElementType);
             this.Polygons.DataTable = this.CreateDataTable(dbSet.ElementType);
+            int index = 0;
             foreach (Object obj in dbSet)
             {
+                index++;
                 Object data = propertyGeom.GetValue(obj);
                 if (data != null)
                 {
@@ -211,26 +193,43 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                         if (geometry is LineString || geometry is MultiLineString)
                         {
                             IFeature feature = this.Lines.AddFeature(geometry);
-                            System.Data.DataRow row = this.Lines.DataTable.NewRow();                           
+                            System.Data.DataRow row = this.Lines.DataTable.NewRow();
+                            row.BeginEdit();
                             row["Source"] = obj;
+                            if (index % 2 == 0)
+                            { row["Analysis"] = -1; }
+                            else { row["Analysis"] = 0; }
+                            this.Lines.DataTable.Rows.Add(row);
                             feature.DataRow = row;
+                            row.EndEdit();
                         
                         }
                         else if (geometry is Point)
                         {
                             IFeature feature = this.Points.AddFeature(geometry);
                             System.Data.DataRow row = this.Points.DataTable.NewRow();
-                         
+                            row.BeginEdit();
+                            if (index % 2 == 0)
+                            { row["Analysis"] = -1; }
+                            else { row["Analysis"] = 0; }                            
                             row["Source"] = obj;
+                            this.Points.DataTable.Rows.Add(row);
                             feature.DataRow = row;
+                            row.EndEdit();
 
                         }
                         else if (geometry is Polygon)
                         {
                             IFeature feature = this.Polygons.AddFeature(geometry);
-                            System.Data.DataRow row = this.Polygons.DataTable.NewRow();                           
+                            System.Data.DataRow row = this.Polygons.DataTable.NewRow();
+                            row.BeginEdit();
+                            if (index % 2 == 0)
+                            { row["Analysis"] = -1; }
+                            else { row["Analysis"] = 0; }
                             row["Source"] = obj;
+                            this.Polygons.DataTable.Rows.Add(row);
                             feature.DataRow = row;
+                            row.EndEdit();
                         }
                     }
                     
@@ -248,18 +247,10 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             column.DataType = type;
             column.ColumnName = "Source";
             dataTable.Columns.Add(column);
-            /*
-            foreach (EntityColumnInfo columnInfo in tableInfo.ColumnInfos)
-            {
-                if (columnInfo.ControlType != Infrastructure.Attributes.ControlType.None && columnInfo.ForeignKeyNames.Count == 0 && columnInfo.PrimaryKeyName == null)
-                {
-                    column = new System.Data.DataColumn();
-                    column.DataType = columnInfo.PropertyType;
-                    column.ColumnName = columnInfo.PropertyName;                    
-                    dataTable.Columns.Add(column);
-                }
-            }
-            */
+            System.Data.DataColumn columnAnalysis = new System.Data.DataColumn();
+            columnAnalysis.DataType = typeof(Int32);
+            columnAnalysis.ColumnName = "Analysis";
+            dataTable.Columns.Add(columnAnalysis);           
             return dataTable;
         }
 

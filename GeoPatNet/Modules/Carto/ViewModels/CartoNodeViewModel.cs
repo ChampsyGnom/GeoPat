@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Emash.GeoPatNet.Data.Models;
+using Emash.GeoPatNet.Modules.Carto.Layers;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public abstract class CartoNodeViewModel : INotifyPropertyChanged
     {
+ 
         public Visibility RemoveLayerVisibility
         {
             get

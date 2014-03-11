@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 using DotSpatial.Controls;
 using DotSpatial.Data;
 using DotSpatial.Projections;
+using DotSpatial.Symbology;
 using DotSpatial.Topology;
 using DotSpatial.Topology.Simplify;
 using Emash.GeoPatNet.Data.Models;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Modules.Carto.Adapters;
+using Emash.GeoPatNet.Modules.Carto.Layers;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
@@ -30,8 +32,11 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
         public CartoNodeLayerMetierViewModel(SigNode node)
             : base(node)
-        { }
-
+        {
+            String entityName = this.Model.SigLayer.SigCodeLayer.Code.Substring(8);
+            this.LayerGroup  = new MetierLayerGroup(entityName);
+        }
+        /*
         public void Load()
         {
             String entityName =  this.Model.SigLayer.SigCodeLayer.Code.Substring(8);
@@ -45,6 +50,18 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             this.LayerPoint = new MapPointLayer(this.FeatureSetPoint);
             this.LayerLine = new MapLineLayer(this.FeatureSetLine);
             this.LayerPolygon = new MapPolygonLayer(this.FeatureSetPolygon);
+
+
+            LineSymbolizer lineSymbolizer = new LineSymbolizer();
+            lineSymbolizer.SetFillColor (System.Drawing.Color.LightGray) ;
+            lineSymbolizer.SetOutline(System.Drawing.Color.DarkGray, 1D);      
+            LineScheme myScheme = new LineScheme();
+            MetierCategory category = new MetierCategory();
+            category.Symbolizer = lineSymbolizer;
+            category.FilterExpression = "[Analysis]=-1";
+            myScheme.Categories.Add(category);
+            this.LayerLine.Symbology = myScheme;
+
             this.LayerPoint.Projection = KnownCoordinateSystems.Geographic.World.WGS1984;
             this.LayerLine.Projection = KnownCoordinateSystems.Geographic.World.WGS1984;
             this.LayerPolygon.Projection = KnownCoordinateSystems.Geographic.World.WGS1984;
@@ -52,6 +69,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             { this.Map.ViewExtents = this.LayerLine.Extent; }
            
         }
+
+      
 
         public override void CreateLayer(DotSpatial.Controls.Map map)
         {
@@ -65,6 +84,12 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             this.Map.Layers.Add(LayerLine);
             this.Layers.Add(LayerPolygon);
             this.Map.Layers.Add(LayerPolygon);
+        }
+        */
+        public override LayerGroup LayerGroup
+        {
+            get;
+            protected set;
         }
     }
 }

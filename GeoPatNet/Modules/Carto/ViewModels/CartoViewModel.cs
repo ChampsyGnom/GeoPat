@@ -19,6 +19,7 @@ using System.Windows;
 using System.Windows.Controls;
 using DotSpatial.Projections;
 using System.ComponentModel;
+using Emash.GeoPatNet.Modules.Carto.Layers;
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public class CartoViewModel : INotifyPropertyChanged
@@ -112,45 +113,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             this.CreateTemplateCommand = new DelegateCommand(CreateTemplateExecute);
             this.EditTemplateCommand = new DelegateCommand(EditTemplateExecute,CanEditTemplate );
             this.DeleteTemplateCommand = new DelegateCommand(DeleteTemplateExecute, CanDeleteTemplate);
-            this.PublishTemplateCommand = new DelegateCommand(PublishTemplateExecute, CanPublishTemplate);
-            /*
-            this.AddFolderCommand = new DelegateCommand<object>(AddFolderExecute);
-            this.AddLayerGoogleMapCommand = new DelegateCommand<object>(new Action <Object>(delegate (Object parent) {
-                AddLayerWebExecute(parent ,"GoogleMap");
-            }));
-
-            this.AddLayerGoogleSateliteCommand  = new DelegateCommand<object>(new Action<Object>(delegate(Object parent)
-            {
-                AddLayerWebExecute(parent, "GoogleSatelite");
-            }));
-
-            this.AddLayerGoogleTerrainCommand  = new DelegateCommand<object>(new Action<Object>(delegate(Object parent)
-            {
-                AddLayerWebExecute(parent, "GoogleTerrain");
-            }));
-
-            this.AddLayerBingAerialCommand = new DelegateCommand<object>(new Action<Object>(delegate(Object parent)
-            {
-                AddLayerWebExecute(parent, "BingAerial");
-            }));
-
-            this.AddLayerBingHybridCommand = new DelegateCommand<object>(new Action<Object>(delegate(Object parent)
-            {
-                AddLayerWebExecute(parent, "BingHybrid");
-            }));
-            this.AddLayerBingRoadCommand = new DelegateCommand<object>(new Action<Object>(delegate(Object parent)
-            {
-                AddLayerWebExecute(parent, "BingRoads");
-            }));
-            this.AddLayerOsmCommand = new DelegateCommand<object>(new Action<Object>(delegate(Object parent)
-            {
-                AddLayerWebExecute(parent, "Osm");
-            }));   
-            this.RemoveLayerCommand = new DelegateCommand<object>(RemoveLayerExecute);
-            this.RemoveFolderCommand = new DelegateCommand<object>(RemoveFolderExecute);
-             * */
-            this.TemplatesView.CurrentChanged += TemplatesView_CurrentChanged;
-           
+            this.PublishTemplateCommand = new DelegateCommand(PublishTemplateExecute, CanPublishTemplate);           
+            this.TemplatesView.CurrentChanged += TemplatesView_CurrentChanged;           
             this.TreeViewContextMenuOpeningCommand = new DelegateCommand<TreeViewContextMenuOpeningBehaviorEventArg>(OnTreeViewContextMenuOpening);
         }
         private void OnTreeViewContextMenuOpening(TreeViewContextMenuOpeningBehaviorEventArg arg)
@@ -322,8 +286,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
             }
             else if (contexMenuData is CartoNodeLayerViewModel )
-            {
-                arg.ContextMenu.Items.Add(new Separator());
+            {                
                 MenuItem itemRemoveLayer = new MenuItem();
                 itemRemoveLayer.Header = "Supprimer cete couche";
                 itemRemoveLayer.Command = new DelegateCommand(new Action(delegate() { RemoveLayerExecute(contexMenuData); }));
@@ -352,6 +315,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             DbSet<SigCodeNode> codeNodes = this.DataService.GetDbSet<SigCodeNode>();
             DbSet<SigLayer> layers = this.DataService.GetDbSet<SigLayer>();
             DbSet<SigNode> nodes = this.DataService.GetDbSet<SigNode>();
+
+
             string layerCode = "@Entity@" + tableInfo.EntityType.Name;
             this.CreateCodeLayerIfNeeded(layerCode);
             SigLayer layer = new SigLayer ();
@@ -364,23 +329,27 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             node.SigTemplate = (this.TemplatesView.CurrentItem as TemplateViewModel).Model;
             node.SigCodeNode = (from c in codeNodes where c.Code.Equals("Layer") select c).FirstOrDefault();
             node.SigLayer = layer;
+
+            ObservableCollection<CartoNodeViewModel> parentNodes = null;
             if (contexMenuData != null && contexMenuData is CartoNodeFolderViewModel)
-            { node.ParentId = (contexMenuData as CartoNodeFolderViewModel).Model.Id; }
+            {
+                parentNodes = (contexMenuData as CartoNodeFolderViewModel).Nodes;
+                node.ParentId = (contexMenuData as CartoNodeFolderViewModel).Model.Id;
+            }
             else
-            { node.ParentId = -1; }
+            {
+                node.ParentId = -1;
+                parentNodes = (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes;
+            }
+           
             node.Libelle = tableInfo.DisplayName;
             nodes.Add(node);
             this.DataService.DataContext.SaveChanges();
             CartoNodeLayerViewModel vm = new CartoNodeLayerMetierViewModel(node);
+            parentNodes.Add(vm);
             if (contexMenuData != null && contexMenuData is CartoNodeFolderViewModel)
-            {
-                (contexMenuData as CartoNodeFolderViewModel).Nodes.Add(vm);
-                (contexMenuData as CartoNodeFolderViewModel).IsExpanded = true;
-            }
-            else
-            {
-                (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Add(vm);
-            }
+            {(contexMenuData as CartoNodeFolderViewModel).IsExpanded = true;}            
+            this.FixNodeOrder(parentNodes);
             this.LoadMap();
         }
         public void RemoveFolderExecute(Object obj)
@@ -399,9 +368,15 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                     TemplateViewModel templateViewModel = this.TemplatesView.CurrentItem as TemplateViewModel;
                     CartoNodeFolderViewModel parentFolder = this.RecurseFindParentFolder(cartoNodeFolderViewModel,null, templateViewModel.Nodes);
                     if (parentFolder != null)
-                    {parentFolder.Nodes.Remove(cartoNodeFolderViewModel);}
+                    {
+                        parentFolder.Nodes.Remove(cartoNodeFolderViewModel);
+                        this.FixNodeOrder(parentFolder.Nodes);
+                    }
                     else
-                    {templateViewModel.Nodes.Remove(cartoNodeFolderViewModel); }
+                    {
+                        templateViewModel.Nodes.Remove(cartoNodeFolderViewModel);
+                        this.FixNodeOrder(templateViewModel.Nodes);
+                    }
                     this.LoadMap();
                 }                
             }
@@ -469,7 +444,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 else
                 { addedNode.ParentId = -1; }
                 this.DataService.DataContext.SaveChanges();
-                CartoNodeLayerViewModel vm = new CartoNodeLayerWebViewModel(addedNode);               
+                CartoNodeLayerViewModel vm = new CartoNodeLayerWebViewModel(addedNode,this.Map );               
                 if (parent != null && parent is CartoNodeFolderViewModel)
                 {
                     (parent as CartoNodeFolderViewModel).Nodes.Add(vm);
@@ -500,8 +475,27 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 List<CartoNodeLayerViewModel> layers = new List<CartoNodeLayerViewModel>();
                 this.RecurseGetLayers(layers, templateViewModel.Nodes);
                 this.Map.MapFrame.SuspendEvents();
-                foreach (CartoNodeLayerViewModel layer in layers)
-                {layer.CreateLayer(this.Map);}
+              
+                foreach (CartoNodeLayerViewModel layerVm in layers)
+                {
+                    foreach (IMapLayer layer in layerVm.LayerGroup)
+                    {
+                        this.Map.Layers.Remove(layer);
+                    
+                       
+                       
+                        
+                    }
+                    layerVm.LayerGroup.Load();
+                    foreach (IMapLayer layer in layerVm.LayerGroup)
+                    {
+                        
+                        this.Map.Layers.Add(layer);
+
+
+                    }
+
+                }
                 Console.WriteLine("Nombre de layer " + this.Map.Layers.Count);                
                 this.Map.MapFrame.ResumeEvents();
                 this.Map.Refresh();
@@ -532,9 +526,15 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 this.DataService.DataContext.SaveChanges();
                 CartoNodeFolderViewModel parentFolder=   this.RecurseFindParentFolder(layerNode,null,(this.TemplatesView.CurrentItem as TemplateViewModel ).Nodes);
                 if (parentFolder == null)
-                { (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Remove(layerNode); }
+                {
+                    (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Remove(layerNode);
+                    this.FixNodeOrder((this.TemplatesView.CurrentItem as TemplateViewModel).Nodes);
+                }
                 else
-                { parentFolder.Nodes.Remove(layerNode); }
+                { 
+                    parentFolder.Nodes.Remove(layerNode);
+                    this.FixNodeOrder(parentFolder.Nodes);
+                }
             }
             this.LoadMap();
         }
@@ -556,13 +556,13 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                     if (node.SigLayer.SigCodeLayer.Code.StartsWith("@Entity@"))
                     {
                         CartoNodeLayerViewModel vm = new CartoNodeLayerMetierViewModel(node);
-
+                       
                         parent.Add(vm);
                     }
                     else
                     {
-                        CartoNodeLayerViewModel vm = new CartoNodeLayerWebViewModel(node);
-
+                        CartoNodeLayerViewModel vm = new CartoNodeLayerWebViewModel(node, this.Map);
+                       
                         parent.Add(vm);
                     }
                    
@@ -577,30 +577,43 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             TemplateViewModel tpl = this.TemplatesView.CurrentItem as TemplateViewModel;
             DbSet<SigCodeNode> codeNodes = this.DataService.GetDbSet<SigCodeNode>();
             SigNode node = new SigNode();
+
+            ObservableCollection<CartoNodeViewModel> parentNodes = null;           
             if (parent != null && parent is CartoNodeFolderViewModel)
-            { node.ParentId = (parent as CartoNodeFolderViewModel).Model.Id; }
-            else { node.ParentId = -1; }
+            {
+                parentNodes = (parent as CartoNodeFolderViewModel).Nodes;
+                node.ParentId = (parent as CartoNodeFolderViewModel).Model.Id;             
+            }
+            else 
+            {
+                node.ParentId = -1;
+                parentNodes = (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes;              
+            }
+            node.Order = (from i in parentNodes select i).Count() + 1;
             node.Libelle = "Nouveau dossier";
             node.SigCodeNode = (from c in codeNodes where c.Code.Equals("Folder") select c).FirstOrDefault();
             node.SigLayer = null;
             node.SigTemplateId = tpl.Model.Id;
+            
             SigNode addedNode =  this.EngineService.ShowAddDialog<SigNode>(node,new String[] {"Libelle"});
             if (addedNode != null)
             {
                 CartoNodeFolderViewModel vm = new CartoNodeFolderViewModel(addedNode);
+                parentNodes.Add(vm);
                 if (parent != null && parent is CartoNodeFolderViewModel)
-                {
-                    (parent as CartoNodeFolderViewModel).Nodes.Add(vm);
-                    (parent as CartoNodeFolderViewModel).IsExpanded = true;
-                }
-                else
-                { 
-                    (this.TemplatesView.CurrentItem as TemplateViewModel).Nodes.Add(vm);                   
-                }
+                {(parent as CartoNodeFolderViewModel).IsExpanded = true; }
+                this.FixNodeOrder(parentNodes);
+                
             }
            
         }
-
+        private void FixNodeOrder(ObservableCollection<CartoNodeViewModel> nodes)
+        {
+            List<CartoNodeViewModel> orderedNodes = (from n in nodes orderby n.Model.Order select n).ToList();
+            for (int i = 0; i < orderedNodes.Count; i++)
+            {orderedNodes[i].Model.Order = i; }
+            this.DataService.DataContext.SaveChanges();
+        }
         private void PublishTemplateExecute()
         {
 

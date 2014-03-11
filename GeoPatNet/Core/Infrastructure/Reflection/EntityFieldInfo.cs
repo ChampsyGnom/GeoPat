@@ -90,10 +90,15 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
                 Object value = entityObject;
                 foreach (String item in items)
                 {
+                    if (value == null) return null;
                     PropertyInfo property = value.GetType().GetProperty(item);
                     value = property.GetValue(value);
                 }
-                return Formatter.FormatValue(this.ColumnInfo.PropertyType, value);
+                if (this.ColumnInfo == null && this.ParentColumnInfo != null)
+                { return Formatter.FormatValue(this.ParentColumnInfo.PropertyType, value); }
+                else
+                { return Formatter.FormatValue(this.ColumnInfo.PropertyType, value); }
+  
             }
             return null;
 

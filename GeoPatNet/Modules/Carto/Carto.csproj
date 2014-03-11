@@ -35,6 +35,9 @@
     <Reference Include="BruTile">
       <HintPath>..\..\Library\DotSpatial.Full\BruTile.dll</HintPath>
     </Reference>
+    <Reference Include="DotSpatial.Analysis">
+      <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Analysis.dll</HintPath>
+    </Reference>
     <Reference Include="DotSpatial.Controls">
       <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Controls.dll</HintPath>
     </Reference>
@@ -44,6 +47,10 @@
     </Reference>
     <Reference Include="DotSpatial.Projections">
       <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Projections.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Serialization, Version=1.6.0.0, Culture=neutral, PublicKeyToken=441f200f827611e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="DotSpatial.Symbology">
       <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Symbology.dll</HintPath>
@@ -101,11 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\FeatureSetAdapter.cs" />
-    <Compile Include="Adapters\IGeocodable.cs" />
     <Compile Include="CartoModule.cs" />
     <Compile Include="Layers\BruTileLayer.cs" />
-    <Compile Include="Layers\MetierLayer.cs" />
-    <Compile Include="Models\GeometryReference.cs" />
+    <Compile Include="Layers\LayerGroup.cs" />
+    <Compile Include="Layers\MetierCategory.cs" />
+    <Compile Include="Layers\MetierLayerGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

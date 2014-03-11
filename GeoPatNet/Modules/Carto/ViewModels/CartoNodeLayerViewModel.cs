@@ -18,10 +18,9 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
     public abstract class CartoNodeLayerViewModel : CartoNodeViewModel
     {
         public DotSpatial.Controls.Map Map { get; set; }
-        public List< IMapLayer> Layers { get;private  set; }
 
+        public abstract  LayerGroup LayerGroup { get; protected  set; }
 
-        public abstract void CreateLayer(DotSpatial.Controls.Map map);
        
               
         
@@ -36,10 +35,10 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 _isChecked = value;
                 if (!_isChecked)
                 {
-                    if (this.Map != null && this.Layers != null)
+                    if (this.Map != null && this.LayerGroup != null)
                     {
                         this.Map.MapFrame.SuspendEvents();
-                        foreach (IMapLayer layer in this.Layers)
+                        foreach (IMapLayer layer in this.LayerGroup)
                         {
                             if ( this.Map.Layers.Contains(layer))
                             { this.Map.Layers.Remove(layer); }
@@ -49,8 +48,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 }
                 else
                 {
-                    this.Map.MapFrame.SuspendEvents();
-                    this.CreateLayer(this.Map);
+                    this.Map.MapFrame.SuspendEvents();                  
                     this.Map.MapFrame.ResumeEvents();
                       
                 }
@@ -64,7 +62,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         public CartoNodeLayerViewModel(SigNode model)
             : base(model)
         {
-            this.Layers = new List<IMapLayer>();
+            
         }
     }
 }
