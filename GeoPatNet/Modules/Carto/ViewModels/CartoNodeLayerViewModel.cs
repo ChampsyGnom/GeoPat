@@ -25,37 +25,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
        
               
         
-        /*
-         public FeatureSet(DataTable wkbTable, int wkbColumnIndex, bool indexed, FeatureType type)
-            : this()
-        {
-            if (IndexMode)
-            {
-                // Assume this DataTable has WKB in column[0] and the rest of the columns are attributes.
-                FeatureSetPack result = new FeatureSetPack();
-                foreach (DataRow row in wkbTable.Rows)
-                {
-                    byte[] data = (byte[])row[0];
-                    MemoryStream ms = new MemoryStream(data);
-                    WkbFeatureReader.ReadFeature(ms, result);
-                }
-
-                // convert lists of arrays into a single vertex array for each shape type.
-                result.StopEditing();
-
-                // Make sure all the same columns exist in the same order
-                result.Polygons.CopyTableSchema(wkbTable);
-
-                // Assume that all the features happened to be polygons
-                foreach (DataRow row in wkbTable.Rows)
-                {
-                    // Create a new row
-                    DataRow dest = result.Polygons.DataTable.NewRow();
-                    dest.ItemArray = row.ItemArray;
-                }
-            }
-        }
-         * */
+        
         private Boolean _isChecked = true;
 
         public Boolean IsChecked
@@ -64,19 +34,27 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             set 
             { 
                 _isChecked = value;
-                if (this.Map != null && this.Layers != null)
+                if (!_isChecked)
+                {
+                    if (this.Map != null && this.Layers != null)
+                    {
+                        this.Map.MapFrame.SuspendEvents();
+                        foreach (IMapLayer layer in this.Layers)
+                        {
+                            if ( this.Map.Layers.Contains(layer))
+                            { this.Map.Layers.Remove(layer); }
+                        }
+                        this.Map.MapFrame.ResumeEvents();
+                    }
+                }
+                else
                 {
                     this.Map.MapFrame.SuspendEvents();
-                    foreach (IMapLayer layer in this.Layers)
-                    {
-                        if (_isChecked && !this.Map.Layers.Contains(layer))
-                        { this.Map.Layers.Add(layer); }
-                        else if (!_isChecked && this.Map.Layers.Contains(layer))
-                        { this.Map.Layers.Remove(layer); }
-                    }
-                   
+                    this.CreateLayer(this.Map);
                     this.Map.MapFrame.ResumeEvents();
+                      
                 }
+               
                
                 this.RaisePropertyChanged("IsChecked");
                 

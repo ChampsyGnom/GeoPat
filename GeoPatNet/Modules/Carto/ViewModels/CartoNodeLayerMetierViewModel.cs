@@ -88,8 +88,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
             this.FeatureSetPoint =  new FeatureSet(FeatureType.Point);
             this.FeatureSetLine = new FeatureSet(FeatureType.Line);
-            this.FeatureSetPolygon = new FeatureSet(FeatureType.Polygon);          
-            
+            this.FeatureSetPolygon = new FeatureSet(FeatureType.Polygon);
+
             this.LayerPoint = new MapPointLayer(this.FeatureSetPoint);
             this.LayerLine = new MapLineLayer(this.FeatureSetLine);
             this.LayerPolygon = new MapPolygonLayer(this.FeatureSetPolygon);

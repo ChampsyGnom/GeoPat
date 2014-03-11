@@ -43,10 +43,13 @@ namespace WgsIntegration
                 row.LayerName = strs[1];
                 row.Liaison = strs[2];
                 row.Sens = strs[3];
-                row.X1 = double.Parse(strs[4].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
-                row.Y1 = double.Parse(strs[5].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
-                row.X2 = double.Parse(strs[6].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
-                row.Y2 = double.Parse(strs[7].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+                row.AbsDeb = int.Parse(strs[4].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+                row.AbsFin = int.Parse(strs[5].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+               
+                row.X1 = double.Parse(strs[6].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+                row.Y1 = double.Parse(strs[7].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+                row.X2 = double.Parse(strs[8].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+                row.Y2 = double.Parse(strs[9].Replace(",", "."), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
                 this.WgsRows.Add(row);
             }
 
@@ -56,18 +59,18 @@ namespace WgsIntegration
             stream.Dispose();
 
             Console.WriteLine(this.WgsRows.Count + " lignes chargées");
-            List<String> liaisons = (from r in WgsRows select r.Liaison).Distinct().ToList();
+            List<String> liaisons = (from r in WgsRows where r.LayerName.Equals ("SIG_REF_DETAIL") select r.Liaison).Distinct().ToList();
             foreach (String liaison in liaisons)
             {
-                List<String> senss = (from r in WgsRows where r.Liaison.Equals(liaison) select r.Sens).Distinct().ToList();
+                List<String> senss = (from r in WgsRows where r.Liaison.Equals(liaison) && r.LayerName.Equals("SIG_REF_DETAIL") select r.Sens).Distinct().ToList();
                 foreach (String sens in senss)
                 {
-                    List<int> lineIndexes = (from r in WgsRows where r.Liaison.Equals(liaison) && r.Sens.Equals (sens ) select r.LineIndex).Distinct().ToList();
+                    List<int> lineIndexes = (from r in WgsRows where r.Liaison.Equals(liaison) && r.Sens.Equals(sens) && r.LayerName.Equals("SIG_REF_DETAIL") select r.LineIndex).Distinct().ToList();
                     if (lineIndexes.Count == 1)
                     {
                         List<String> strCoords = new List<string>();
                         //LINESTRING(3.45 4.23,10 50,20 25)
-                        List<WgsRow> rowLines = (from r in WgsRows where r.Liaison.Equals(liaison) && r.Sens.Equals(sens) && r.LineIndex == lineIndexes [0] orderby r.AbsDeb  select r).Distinct().ToList();
+                        List<WgsRow> rowLines = (from r in WgsRows where r.Liaison.Equals(liaison) && r.Sens.Equals(sens) && r.LineIndex == lineIndexes[0] && r.LayerName.Equals("SIG_REF_DETAIL") orderby r.LineIndex, r.AbsDeb select r).Distinct().ToList();
                         foreach (WgsRow rowLine in rowLines)
                         {
                             strCoords.Add(rowLine.X1.ToString().Replace(",", ".") + " " + rowLine.Y1.ToString().Replace(",", "."));
@@ -84,7 +87,7 @@ namespace WgsIntegration
                         readerData.Dispose();
                         if (idChaussee.HasValue)
                         {
-                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom=ST_GeomFromText('" + wktString + "',4326) where inf_chaussee__id=" + idChaussee.Value;
+                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom='" + wktString + "' where inf_chaussee__id=" + idChaussee.Value;
                             command = new NpgsqlCommand(sqlUpdateGem, connection);
                             command.ExecuteNonQuery();
                         }
@@ -96,7 +99,7 @@ namespace WgsIntegration
                         foreach (int lineIndex in lineIndexes)
                         {
                             List<String> strCoords = new List<string>();
-                            List<WgsRow> rowLines = (from r in WgsRows where r.Liaison.Equals(liaison) && r.Sens.Equals(sens) && r.LineIndex == lineIndex orderby r.AbsDeb select r).Distinct().ToList();
+                            List<WgsRow> rowLines = (from r in WgsRows where r.Liaison.Equals(liaison) && r.Sens.Equals(sens) && r.LineIndex == lineIndex && r.LayerName.Equals("SIG_REF_DETAIL") orderby r.LineIndex, r.AbsDeb select r).Distinct().ToList();
                             foreach (WgsRow rowLine in rowLines)
                             {
                                 strCoords.Add(rowLine.X1.ToString().Replace(",", ".") + " " + rowLine.Y1.ToString().Replace(",", "."));
@@ -116,7 +119,7 @@ namespace WgsIntegration
                         readerData.Dispose();
                         if (idChaussee.HasValue)
                         {
-                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom=ST_GeomFromText('" + wktString + "',4326) where inf_chaussee__id=" + idChaussee.Value;
+                            String sqlUpdateGem = "update inf.inf_chaussee set inf_chaussee__geom='" + wktString + "' where inf_chaussee__id=" + idChaussee.Value;
                             command = new NpgsqlCommand(sqlUpdateGem, connection);
                             command.ExecuteNonQuery();
                         }
