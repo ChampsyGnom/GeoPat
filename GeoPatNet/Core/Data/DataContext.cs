@@ -9,8 +9,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Emash.GeoPatNet.Data.Models;
 using Emash.GeoPatNet.Infrastructure.Services;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Data.Entity.Infrastructure;
 namespace Emash.GeoPatNet.Data
 {
     public class DataContext : IDataContext
@@ -21,6 +19,11 @@ namespace Emash.GeoPatNet.Data
             get { return _modelBuilder; }
         }
 
+        public DbSet<PrfUser>  PrfUsers
+        {
+            get;
+            set;
+        }
         public DbSet<InfAccident>  InfAccidents
         {
             get;
@@ -76,6 +79,21 @@ namespace Emash.GeoPatNet.Data
             get;
             set;
         }
+        public DbSet<InfClsInfContact>  InfClsInfContacts
+        {
+            get;
+            set;
+        }
+        public DbSet<InfCls>  InfClss
+        {
+            get;
+            set;
+        }
+        public DbSet<InfClsInfDoc>  InfClsInfDocs
+        {
+            get;
+            set;
+        }
         public DbSet<InfClimat>  InfClimats
         {
             get;
@@ -97,6 +115,11 @@ namespace Emash.GeoPatNet.Data
             set;
         }
         public DbSet<InfCodeDec>  InfCodeDecs
+        {
+            get;
+            set;
+        }
+        public DbSet<InfCodeDoc>  InfCodeDocs
         {
             get;
             set;
@@ -157,6 +180,16 @@ namespace Emash.GeoPatNet.Data
             set;
         }
         public DbSet<InfCodeVoie>  InfCodeVoies
+        {
+            get;
+            set;
+        }
+        public DbSet<InfContact>  InfContacts
+        {
+            get;
+            set;
+        }
+        public DbSet<InfDoc>  InfDocs
         {
             get;
             set;
@@ -276,11 +309,6 @@ namespace Emash.GeoPatNet.Data
             get;
             set;
         }
-        public DbSet<PrfUser>  PrfUsers
-        {
-            get;
-            set;
-        }
         public DbSet<SigLayer>  SigLayers
         {
             get;
@@ -326,21 +354,22 @@ namespace Emash.GeoPatNet.Data
             base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             this._modelBuilder = modelBuilder;
-            /*
-            DbModel model = modelBuilder.Build(this.Database.Connection);
-            EdmModel store = model.GetStoreModel();
-            EdmFunctionPayload payload = new EdmFunctionPayload();
-            payload.IsComposable = true;
-            payload.Schema = "topology";
-            payload.StoreFunctionName = "GetLiquidDate";
-            payload.ReturnParameters = new FunctionParameter[]
-            {
-                FunctionParameter.Create("ReturnValue", PrimitiveType.GetEdmPrimitiveType(PrimitiveTypeKind.DateTime), ParameterMode.ReturnValue)
-            };
-            EdmFunction function = EdmFunction.Create("GetLiquidDate", "CodeFirstDatabaseSchema", DataSpace.SSpace, payload, new MetadataProperty[] { });
-            store.AddItem(function);
-            DbCompiledModel compiled = model.Compile();
-            */
+            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfAccident>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfAccidents);
             modelBuilder.Entity<InfAccident>().ToTable("inf_accident", "inf");
             modelBuilder.Entity<InfAccident>().Property(t => t.Annee) .HasColumnName("inf_accident__annee");
@@ -496,7 +525,7 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfChaussee>().Property(t => t.AbsDeb).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.AbsFin) .HasColumnName("inf_chaussee__abs_fin");
             modelBuilder.Entity<InfChaussee>().Property(t => t.AbsFin).IsRequired();
-            modelBuilder.Entity<InfChaussee>().Property(t => t.Geom).HasColumnName("inf_chaussee__geom");
+            modelBuilder.Entity<InfChaussee>().Property(t => t.Geom) .HasColumnName("inf_chaussee__geom");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id) .HasColumnName("inf_chaussee__id");
             modelBuilder.Entity<InfChaussee>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<InfChaussee>().Property(t => t.InfLiaisonId) .HasColumnName("inf_liaison__id");
@@ -517,6 +546,31 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeTrafic>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeTrafic>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeTrafic>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfClsInfContact>().HasRequired<InfContact>(c => c.InfContact).WithMany(t => t.InfClsInfContacts);
+            modelBuilder.Entity<InfClsInfContact>().HasRequired<InfCls>(c => c.InfCls).WithMany(t => t.InfClsInfContacts);
+            modelBuilder.Entity<InfClsInfContact>().ToTable("inf_cls__inf_contact", "inf");
+            modelBuilder.Entity<InfClsInfContact>().Property(t => t.InfClsId) .HasColumnName("inf_cls__id");
+            modelBuilder.Entity<InfClsInfContact>().Property(t => t.InfClsId).IsRequired();
+            modelBuilder.Entity<InfClsInfContact>().Property(t => t.InfContactId) .HasColumnName("inf_contact__id");
+            modelBuilder.Entity<InfClsInfContact>().Property(t => t.InfContactId).IsRequired();
+            modelBuilder.Entity<InfCls>().ToTable("inf_cls", "inf");
+            modelBuilder.Entity<InfCls>().Property(t => t.Id) .HasColumnName("inf_cls__id");
+            modelBuilder.Entity<InfCls>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfCls>().Property(t => t.RowId) .HasColumnName("inf_cls__row_id");
+            modelBuilder.Entity<InfCls>().Property(t => t.TableName) .HasColumnName("inf_cls__table_name");
+            modelBuilder.Entity<InfCls>().Property(t => t.TableName).IsRequired();
+            modelBuilder.Entity<InfCls>().Property(t => t.TableName).HasMaxLength(50);
+            modelBuilder.Entity<InfCls>().HasKey(t => t.Id);
+            modelBuilder.Entity<InfCls>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfClsInfDoc>().HasRequired<InfDoc>(c => c.InfDoc).WithMany(t => t.InfClsInfDocs);
+            modelBuilder.Entity<InfClsInfDoc>().HasRequired<InfCls>(c => c.InfCls).WithMany(t => t.InfClsInfDocs);
+            modelBuilder.Entity<InfClsInfDoc>().ToTable("inf_cls__inf_doc", "inf");
+            modelBuilder.Entity<InfClsInfDoc>().Property(t => t.InfClsId) .HasColumnName("inf_cls__id");
+            modelBuilder.Entity<InfClsInfDoc>().Property(t => t.InfClsId).IsRequired();
+            modelBuilder.Entity<InfClsInfDoc>().Property(t => t.InfDocId) .HasColumnName("inf_doc__id");
+            modelBuilder.Entity<InfClsInfDoc>().Property(t => t.InfDocId).IsRequired();
+            modelBuilder.Entity<InfClsInfDoc>().Property(t => t.Photo) .HasColumnName("inf_cls__inf_doc__photo");
+            modelBuilder.Entity<InfClsInfDoc>().Property(t => t.Plan) .HasColumnName("inf_cls__inf_doc__plan");
             modelBuilder.Entity<InfClimat>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfClimats);
             modelBuilder.Entity<InfClimat>().HasRequired<InfCodeClimat>(c => c.InfCodeClimat).WithMany(t => t.InfClimats);
             modelBuilder.Entity<InfClimat>().ToTable("inf_climat", "inf");
@@ -577,6 +631,17 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeDec>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeDec>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeDec>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfCodeDoc>().ToTable("inf_cd_doc", "inf");
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Code) .HasColumnName("inf_cd_doc__code");
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Id) .HasColumnName("inf_cd_doc__id");
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Libelle) .HasColumnName("inf_cd_doc__libelle");
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Libelle).HasMaxLength(255);
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Path) .HasColumnName("inf_cd_doc__path");
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Path).IsRequired();
+            modelBuilder.Entity<InfCodeDoc>().Property(t => t.Path).HasMaxLength(255);
             modelBuilder.Entity<InfCodeEclairage>().ToTable("inf_cd_eclairage", "inf");
             modelBuilder.Entity<InfCodeEclairage>().Property(t => t.Code) .HasColumnName("inf_cd_eclairage__code");
             modelBuilder.Entity<InfCodeEclairage>().Property(t => t.Code).IsRequired();
@@ -701,6 +766,50 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeVoie>().Property(t => t.Roulable).IsRequired();
             modelBuilder.Entity<InfCodeVoie>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeVoie>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfContact>().ToTable("inf_contact", "inf");
+            modelBuilder.Entity<InfContact>().Property(t => t.Adresse) .HasColumnName("inf_contact__adresse");
+            modelBuilder.Entity<InfContact>().Property(t => t.Adresse).HasMaxLength(500);
+            modelBuilder.Entity<InfContact>().Property(t => t.CodePostal) .HasColumnName("inf_contact__code_postal");
+            modelBuilder.Entity<InfContact>().Property(t => t.CodePostal).HasMaxLength(10);
+            modelBuilder.Entity<InfContact>().Property(t => t.Id) .HasColumnName("inf_contact__id");
+            modelBuilder.Entity<InfContact>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfContact>().Property(t => t.Mail) .HasColumnName("inf_contact__mail");
+            modelBuilder.Entity<InfContact>().Property(t => t.Mail).HasMaxLength(200);
+            modelBuilder.Entity<InfContact>().Property(t => t.Nom) .HasColumnName("inf_contact__nom");
+            modelBuilder.Entity<InfContact>().Property(t => t.Nom).IsRequired();
+            modelBuilder.Entity<InfContact>().Property(t => t.Nom).HasMaxLength(200);
+            modelBuilder.Entity<InfContact>().Property(t => t.Prenom) .HasColumnName("inf_contact__prenom");
+            modelBuilder.Entity<InfContact>().Property(t => t.Prenom).IsRequired();
+            modelBuilder.Entity<InfContact>().Property(t => t.Prenom).HasMaxLength(200);
+            modelBuilder.Entity<InfContact>().Property(t => t.TelFixe) .HasColumnName("inf_contact__tel_fixe");
+            modelBuilder.Entity<InfContact>().Property(t => t.TelFixe).HasMaxLength(30);
+            modelBuilder.Entity<InfContact>().Property(t => t.TelMobile) .HasColumnName("inf_contact__tel_mobile");
+            modelBuilder.Entity<InfContact>().Property(t => t.TelMobile).HasMaxLength(30);
+            modelBuilder.Entity<InfContact>().Property(t => t.Ville) .HasColumnName("inf_contact__ville");
+            modelBuilder.Entity<InfContact>().Property(t => t.Ville).HasMaxLength(200);
+            modelBuilder.Entity<InfContact>().HasKey(t => t.Id);
+            modelBuilder.Entity<InfContact>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<InfDoc>().HasRequired<InfCodeDoc>(c => c.InfCodeDoc).WithMany(t => t.InfDocs);
+            modelBuilder.Entity<InfDoc>().ToTable("inf_doc", "inf");
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocCode) .HasColumnName("inf_cd_doc__code");
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocCode).IsRequired();
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocCode).HasMaxLength(50);
+            modelBuilder.Entity<InfDoc>().Property(t => t.Filename) .HasColumnName("inf_doc__filename");
+            modelBuilder.Entity<InfDoc>().Property(t => t.Filename).IsRequired();
+            modelBuilder.Entity<InfDoc>().Property(t => t.Filename).HasMaxLength(200);
+            modelBuilder.Entity<InfDoc>().Property(t => t.Id) .HasColumnName("inf_doc__id");
+            modelBuilder.Entity<InfDoc>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocId) .HasColumnName("inf_cd_doc__id");
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocId).IsRequired();
+            modelBuilder.Entity<InfDoc>().Property(t => t.Info) .HasColumnName("inf_doc__info");
+            modelBuilder.Entity<InfDoc>().Property(t => t.Info).HasMaxLength(500);
+            modelBuilder.Entity<InfDoc>().Property(t => t.Libelle) .HasColumnName("inf_doc__libelle");
+            modelBuilder.Entity<InfDoc>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocPath) .HasColumnName("inf_cd_doc__path");
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocPath).IsRequired();
+            modelBuilder.Entity<InfDoc>().Property(t => t.InfCodeDocPath).HasMaxLength(255);
+            modelBuilder.Entity<InfDoc>().HasKey(t => t.Id);
+            modelBuilder.Entity<InfDoc>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfEclairage>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfEclairages);
             modelBuilder.Entity<InfEclairage>().HasRequired<InfCodeEclairage>(c => c.InfCodeEclairage).WithMany(t => t.InfEclairages);
             modelBuilder.Entity<InfEclairage>().HasRequired<InfCodePosit>(c => c.InfCodePosit).WithMany(t => t.InfEclairages);
@@ -1045,22 +1154,6 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeService>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeService>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeService>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
             modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
             modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");

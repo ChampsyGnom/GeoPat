@@ -109,12 +109,16 @@
     <Compile Include="Models\InfBretelle.cs" />
     <Compile Include="Models\InfChaussee.cs" />
     <Compile Include="Models\InfClimat.cs" />
+    <Compile Include="Models\InfCls.cs" />
+    <Compile Include="Models\InfClsInfContact.cs" />
+    <Compile Include="Models\InfClsInfDoc.cs" />
     <Compile Include="Models\InfCodeAire.cs" />
     <Compile Include="Models\InfCodeAmenagement.cs" />
     <Compile Include="Models\InfCodeBifurcation.cs" />
     <Compile Include="Models\InfCodeClimat.cs" />
     <Compile Include="Models\InfCodeDashboard.cs" />
     <Compile Include="Models\InfCodeDec.cs" />
+    <Compile Include="Models\InfCodeDoc.cs" />
     <Compile Include="Models\InfCodeEclairage.cs" />
     <Compile Include="Models\InfCodeGare.cs" />
     <Compile Include="Models\InfCodeLiaison.cs" />
@@ -131,7 +135,9 @@
     <Compile Include="Models\InfCodeTpc.cs" />
     <Compile Include="Models\InfCodeTrafic.cs" />
     <Compile Include="Models\InfCodeVoie.cs" />
+    <Compile Include="Models\InfContact.cs" />
     <Compile Include="Models\InfDashboard.cs" />
+    <Compile Include="Models\InfDoc.cs" />
     <Compile Include="Models\InfEclairage.cs" />
     <Compile Include="Models\InfFamDec.cs" />
     <Compile Include="Models\InfGare.cs" />

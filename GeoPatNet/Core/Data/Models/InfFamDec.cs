@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_FAM_DEC__ID")]
         [PrimaryKey("INF_FAM_DEC_PK")]
-        [ForeignKeyAttribute("INF_FAM_DEC__INF_CD_DEC","JOIN_o891")]
+        [ForeignKeyAttribute("INF_FAM_DEC__INF_CD_DEC","JOIN_o982")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

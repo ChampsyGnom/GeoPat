@@ -9,21 +9,20 @@ using System.Data.Entity.Spatial;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
-	[DisplayName("Code climat")]
-    [TableName("INF_CD_CLIMAT")]
+	[DisplayName("Code document")]
+    [TableName("INF_CD_DOC")]
     [SchemaName("INF")]
-    public class InfCodeClimat 
+    public class InfCodeDoc 
     {
     	
-        [DisplayName("Climats")]
-        public virtual ICollection<InfClimat> InfClimats
+        [DisplayName("Documents")]
+        public virtual ICollection<InfDoc> InfDocs
         {
             get;
             set;
         }
         [DisplayName("Code")]
-        [ColumnName("INF_CD_CLIMAT__CODE")]
-        [UniqueKey("INF_CD_CLIMAT_UK_REF")]
+        [ColumnName("INF_CD_DOC__CODE")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
@@ -34,9 +33,9 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
-        [ColumnName("INF_CD_CLIMAT__ID")]
-        [PrimaryKey("INF_CD_CLIMAT_PK")]
-        [ForeignKeyAttribute("INF_CD_CLIMAT__INF_CLIMAT","JOIN_o964")]
+        [ColumnName("INF_CD_DOC__ID")]
+        [PrimaryKey("INF_CD_DOC_PK")]
+        [ForeignKeyAttribute("INF_CD_DOC__INF_DOC","JOIN_o967")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -45,11 +44,21 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
         [DisplayName("Libellé")]
-        [ColumnName("INF_CD_CLIMAT__LIBELLE")]
-        [MaxCharLength(200)]
+        [ColumnName("INF_CD_DOC__LIBELLE")]
+        [MaxCharLength(255)]
         [ControlType(ControlType.Text)]
         [AllowNull(true)]
         public String Libelle
+        {
+            get;
+            set;
+        }
+        [DisplayName("Répertoire")]
+        [ColumnName("INF_CD_DOC__PATH")]
+        [MaxCharLength(255)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(false)]
+        public String Path
         {
             get;
             set;
