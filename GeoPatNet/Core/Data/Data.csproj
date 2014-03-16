@@ -189,7 +189,10 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
-copy "$(ProjectDir)bin\Debug\GeoPatNet.Data.dll" "$(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"</PostBuildEvent>
+copy "$(ProjectDir)bin\Debug\GeoPatNet.Data.dll" "$(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
+
+mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
+copy "$(ProjectDir)bin\Debug\GeoPatNet.Data.dll" "$(SolutionDir)\Applications\Utilisateur\bin\debug\Resources\Modules"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

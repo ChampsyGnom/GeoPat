@@ -1,0 +1,9 @@
+﻿<ribbon:RibbonWindow x:Class="Emash.GeoPatNet.App.Utilisateur.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
+        Title="MainView" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</ribbon:RibbonWindow>

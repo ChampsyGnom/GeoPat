@@ -41,8 +41,11 @@ namespace Emash.GeoPatNet.Engine
         protected override void ConfigureModuleCatalog()
         {
             base.ConfigureModuleCatalog();
-            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-            this.ModuleCatalog = new DirectoryModuleCatalog() { ModulePath = System.IO.Path.Combine(appStartPath, "Resources\\Modules") };
+            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);            
+            String modulePath = System.IO.Path.Combine(appStartPath, "Resources\\Modules");
+            if (!System.IO.Directory.Exists(modulePath))
+            { System.IO.Directory.CreateDirectory(modulePath); }
+           this.ModuleCatalog = new DirectoryModuleCatalog() { ModulePath = System.IO.Path.Combine(appStartPath, "Resources\\Modules") };
            
             
         }
