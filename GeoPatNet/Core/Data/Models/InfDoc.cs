@@ -15,8 +15,8 @@ namespace Emash.GeoPatNet.Data.Models
     public class InfDoc 
     {
     	
-        [DisplayName("Classeurs > Documentss")]
-        public virtual ICollection<InfClsInfDoc> InfClsInfDocs
+        [DisplayName("Document des classeurss")]
+        public virtual ICollection<InfDocCls> InfDocClss
         {
             get;
             set;
@@ -33,7 +33,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Code")]
         [ColumnName("INF_CD_DOC__CODE")]
-        [ForeignKey("INF_CD_DOC__INF_DOC","JOIN_o968")]
+        [ForeignKey("INF_CD_DOC__INF_DOC","JOIN_o966")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
@@ -56,7 +56,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_DOC__ID")]
         [PrimaryKey("INF_DOC_PK")]
-        [ForeignKeyAttribute("INF_CLS__INF_DOC","JOIN_o959")]
+        [ForeignKeyAttribute("ASSOCIATION_54","JOIN_o914")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -96,7 +96,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Répertoire")]
         [ColumnName("INF_CD_DOC__PATH")]
-        [ForeignKey("INF_CD_DOC__INF_DOC","JOIN_o969")]
+        [ForeignKey("INF_CD_DOC__INF_DOC","JOIN_o967")]
         [MaxCharLength(255)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]

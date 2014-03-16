@@ -35,7 +35,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_DASHBOARD__ID")]
         [PrimaryKey("IDENTIFIANT_1")]
-        [ForeignKeyAttribute("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o977")]
+        [ForeignKeyAttribute("INF_CD_DASHBOARD__INF_DASHBOARD","JOIN_o975")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

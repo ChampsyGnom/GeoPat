@@ -15,14 +15,14 @@ namespace Emash.GeoPatNet.Data.Models
     public class InfCls 
     {
     	
-        [DisplayName("Classeur > Contacts")]
-        public virtual ICollection<InfClsInfContact> InfClsInfContacts
+        [DisplayName("Contact des classeurss")]
+        public virtual ICollection<InfContactCls> InfContactClss
         {
             get;
             set;
         }
-        [DisplayName("Classeurs > Documentss")]
-        public virtual ICollection<InfClsInfDoc> InfClsInfDocs
+        [DisplayName("Document des classeurss")]
+        public virtual ICollection<InfDocCls> InfDocClss
         {
             get;
             set;
@@ -31,8 +31,8 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CLS__ID")]
         [PrimaryKey("INF_CLS_PK")]
-        [ForeignKeyAttribute("INF_CLS__INF_CONTACT2","JOIN_o958")]
-        [ForeignKeyAttribute("INF_CLS__INF_DOC2","JOIN_o960")]
+        [ForeignKeyAttribute("INF_CLS__INF_CONTACT_CLS","JOIN_o959")]
+        [ForeignKeyAttribute("INF_CLS__INF_DOC_CLS","JOIN_o981")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

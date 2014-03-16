@@ -9,34 +9,36 @@ using System.Data.Entity.Spatial;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
-	[DisplayName("Code sécurité")]
-    [TableName("INF_CD_SECURITE")]
-    [SchemaName("INF")]
-    public class InfCodeSecurite 
+	[DisplayName("Langue")]
+    [TableName("PRF_LANG")]
+    [SchemaName("PRF")]
+    public class PrfLang 
     {
     	
-        [DisplayName("Sécurités")]
-        public virtual ICollection<InfSecurite> InfSecurites
+        [DisplayName("Clé")]
+        [ColumnName("PRF_LANG__KEY")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(false)]
+        public String Key
         {
             get;
             set;
         }
-        [DisplayName("Code")]
-        [ColumnName("INF_CD_SECURITE__CODE")]
-        [UniqueKey("INF_CD_SECURITE_UK_REF")]
-        [MaxCharLength(50)]
+        [DisplayName("Code ISO")]
+        [ColumnName("PRF_LANG__CODE_ISO")]
+        [MaxCharLength(3)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
-        public String Code
+        public String CodeIso
         {
             get;
             set;
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
-        [ColumnName("INF_CD_SECURITE__ID")]
-        [PrimaryKey("INF_CD_SECURITE_PK")]
-        [ForeignKeyAttribute("INF_CD_SECURITE__INF_SECURITE","JOIN_o974")]
+        [ColumnName("PRF_LANG__ID")]
+        [PrimaryKey("PRF_LANG_PK")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -44,12 +46,12 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Libellé")]
-        [ColumnName("INF_CD_SECURITE__LIBELLE")]
-        [MaxCharLength(200)]
+        [DisplayName("Valeur")]
+        [ColumnName("PRF_LANG__VALEUR")]
+        [MaxCharLength(1000)]
         [ControlType(ControlType.Text)]
-        [AllowNull(true)]
-        public String Libelle
+        [AllowNull(false)]
+        public String Valeur
         {
             get;
             set;

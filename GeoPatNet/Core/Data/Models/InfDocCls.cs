@@ -9,17 +9,17 @@ using System.Data.Entity.Spatial;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
-	[DisplayName("Classeurs > Documents")]
-    [TableName("INF_CLS__INF_DOC")]
+	[DisplayName("Document des classeurs")]
+    [TableName("INF_DOC_CLS")]
     [SchemaName("INF")]
-    public class InfClsInfDoc 
+    public class InfDocCls 
     {
     	
         [DisplayName("Document")]
         [ColumnName("INF_DOC__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_CLS__INF_DOC",null)]
+        [ForeignKey("ASSOCIATION_54",null)]
         public virtual InfDoc InfDoc
         {
             get;
@@ -29,13 +29,24 @@ namespace Emash.GeoPatNet.Data.Models
         [ColumnName("INF_CLS__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_CLS__INF_DOC2",null)]
+        [ForeignKey("INF_CLS__INF_DOC_CLS",null)]
         public virtual InfCls InfCls
         {
             get;
             set;
         }
+        [Browsable(false)]
         [DisplayName("Identifiant")]
+        [ColumnName("INF_DOC_CLS__ID")]
+        [PrimaryKey("INF_DOC_CLS_PK")]
+        [ControlType(ControlType.None)]
+        [AllowNull(false)]
+        public Int64 Id
+        {
+            get;
+            set;
+        }
+        [DisplayName("Identifiant classeur")]
         [ColumnName("INF_CLS__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
@@ -45,7 +56,7 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Identifiant2")]
+        [DisplayName("Identifiant document")]
         [ColumnName("INF_DOC__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
@@ -56,19 +67,19 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
         [DisplayName("Photo par défaut")]
-        [ColumnName("INF_CLS__INF_DOC__PHOTO")]
+        [ColumnName("INF_DOC_CLS__PHOTO")]
         [ControlType(ControlType.Check)]
-        [AllowNull(true)]
-        public Nullable<Boolean> Photo
+        [AllowNull(false)]
+        public Boolean Photo
         {
             get;
             set;
         }
         [DisplayName("Plan par défaut")]
-        [ColumnName("INF_CLS__INF_DOC__PLAN")]
+        [ColumnName("INF_DOC_CLS__PLAN")]
         [ControlType(ControlType.Check)]
-        [AllowNull(true)]
-        public Nullable<Boolean> Plan
+        [AllowNull(false)]
+        public Boolean Plan
         {
             get;
             set;

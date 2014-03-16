@@ -110,8 +110,6 @@
     <Compile Include="Models\InfChaussee.cs" />
     <Compile Include="Models\InfClimat.cs" />
     <Compile Include="Models\InfCls.cs" />
-    <Compile Include="Models\InfClsInfContact.cs" />
-    <Compile Include="Models\InfClsInfDoc.cs" />
     <Compile Include="Models\InfCodeAire.cs" />
     <Compile Include="Models\InfCodeAmenagement.cs" />
     <Compile Include="Models\InfCodeBifurcation.cs" />
@@ -136,8 +134,10 @@
     <Compile Include="Models\InfCodeTrafic.cs" />
     <Compile Include="Models\InfCodeVoie.cs" />
     <Compile Include="Models\InfContact.cs" />
+    <Compile Include="Models\InfContactCls.cs" />
     <Compile Include="Models\InfDashboard.cs" />
     <Compile Include="Models\InfDoc.cs" />
+    <Compile Include="Models\InfDocCls.cs" />
     <Compile Include="Models\InfEclairage.cs" />
     <Compile Include="Models\InfFamDec.cs" />
     <Compile Include="Models\InfGare.cs" />
@@ -156,7 +156,16 @@
     <Compile Include="Models\InfTalus.cs" />
     <Compile Include="Models\InfTpc.cs" />
     <Compile Include="Models\InfTrDec.cs" />
+    <Compile Include="Models\PrfLang.cs" />
+    <Compile Include="Models\PrfParam.cs" />
+    <Compile Include="Models\PrfProfil.cs" />
+    <Compile Include="Models\PrfProfilRight.cs" />
+    <Compile Include="Models\PrfProfilTable.cs" />
+    <Compile Include="Models\PrfRight.cs" />
+    <Compile Include="Models\PrfSchema.cs" />
+    <Compile Include="Models\PrfTable.cs" />
     <Compile Include="Models\PrfUser.cs" />
+    <Compile Include="Models\PrfUserProfil.cs" />
     <Compile Include="Models\SigCodeLayer.cs" />
     <Compile Include="Models\SigCodeNode.cs" />
     <Compile Include="Models\SigCodeTemplate.cs" />

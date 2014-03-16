@@ -9,21 +9,25 @@ using System.Data.Entity.Spatial;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
-	[DisplayName("Code document")]
-    [TableName("INF_CD_DOC")]
-    [SchemaName("INF")]
-    public class InfCodeDoc 
+	[DisplayName("Paramètres")]
+    [TableName("PRF_PARAM")]
+    [SchemaName("PRF")]
+    public class PrfParam 
     {
     	
-        [DisplayName("Documents")]
-        public virtual ICollection<InfDoc> InfDocs
+        [DisplayName("Schémas")]
+        [ColumnName("PRF_SCHEMA__ID")]
+        [AllowNull(true)]
+        [ControlType(ControlType.Combo)]
+        [ForeignKey("PRF_SCHEMA__PRF_PARAM",null)]
+        public virtual PrfSchema PrfSchema
         {
             get;
             set;
         }
         [DisplayName("Code")]
-        [ColumnName("INF_CD_DOC__CODE")]
-        [MaxCharLength(50)]
+        [ColumnName("PRF_PARAM__CODE")]
+        [MaxCharLength(100)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
         public String Code
@@ -33,9 +37,8 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
-        [ColumnName("INF_CD_DOC__ID")]
-        [PrimaryKey("INF_CD_DOC_PK")]
-        [ForeignKeyAttribute("INF_CD_DOC__INF_DOC","JOIN_o965")]
+        [ColumnName("PRF_PARAM__ID")]
+        [PrimaryKey("PRF_PARAM_PK")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -43,22 +46,22 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Libellé")]
-        [ColumnName("INF_CD_DOC__LIBELLE")]
-        [MaxCharLength(255)]
-        [ControlType(ControlType.Text)]
+        [DisplayName("Identifiant2")]
+        [ColumnName("PRF_SCHEMA__ID")]
+        [RangeValue(-999999999999,999999999999)]
+        [ControlType(ControlType.None)]
         [AllowNull(true)]
-        public String Libelle
+        public Nullable<Int64> PrfSchemaId
         {
             get;
             set;
         }
-        [DisplayName("Répertoire")]
-        [ColumnName("INF_CD_DOC__PATH")]
-        [MaxCharLength(255)]
+        [DisplayName("Valeur")]
+        [ColumnName("PRF_PARAM__VALEUR")]
+        [MaxCharLength(500)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
-        public String Path
+        public String Valeur
         {
             get;
             set;

@@ -15,10 +15,17 @@ namespace Emash.GeoPatNet.Data.Models
     public class PrfUser 
     {
     	
+        [DisplayName("Profil des utilisateurss")]
+        public virtual ICollection<PrfUserProfil> PrfUserProfils
+        {
+            get;
+            set;
+        }
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("PRF_USER__ID")]
         [PrimaryKey("PRF_USER_PK")]
+        [ForeignKeyAttribute("PRF_USER__PRF_USER_PROFIL","JOIN_o149")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

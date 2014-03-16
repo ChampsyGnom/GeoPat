@@ -9,32 +9,30 @@ using System.Data.Entity.Spatial;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
-	[DisplayName("Code découpage")]
-    [TableName("INF_CD_DEC")]
-    [SchemaName("INF")]
-    public class InfCodeDec 
+	[DisplayName("Privilèges")]
+    [TableName("PRF_RIGHT")]
+    [SchemaName("PRF")]
+    public class PrfRight 
     {
     	
-        [DisplayName("Tronçons découpages")]
-        public virtual ICollection<InfTrDec> InfTrDecs
+        [DisplayName("Privilège des profilss")]
+        public virtual ICollection<PrfProfilRight> PrfProfilRights
         {
             get;
             set;
         }
-        [DisplayName("Famille découpage")]
-        [ColumnName("INF_FAM_DEC__ID")]
+        [DisplayName("Schémas")]
+        [ColumnName("PRF_SCHEMA__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
-        [ForeignKey("INF_FAM_DEC__INF_CD_DEC",null)]
-        [UniqueKey("INF_CD_DEC_UK_REF")]
-        public virtual InfFamDec InfFamDec
+        [ForeignKey("PRF_SCHEMA__PRF_RIGHT",null)]
+        public virtual PrfSchema PrfSchema
         {
             get;
             set;
         }
         [DisplayName("Code")]
-        [ColumnName("INF_CD_DEC__CODE")]
-        [UniqueKey("INF_CD_DEC_UK_REF")]
+        [ColumnName("PRF_RIGHT__CODE")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
@@ -45,9 +43,9 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [Browsable(false)]
         [DisplayName("Identifiant")]
-        [ColumnName("INF_CD_DEC__ID")]
-        [PrimaryKey("INF_CD_DEC_PK")]
-        [ForeignKeyAttribute("INF_CD_DEC__INF_TR_DEC","JOIN_o963")]
+        [ColumnName("PRF_RIGHT__ID")]
+        [PrimaryKey("PRF_RIGHT_PK")]
+        [ForeignKeyAttribute("PRF_RIGHT__PRF_PROFIL_RIGHT","JOIN_o140")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -55,18 +53,18 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Identifiant famille découpage")]
-        [ColumnName("INF_FAM_DEC__ID")]
+        [DisplayName("Identifiant2")]
+        [ColumnName("PRF_SCHEMA__ID")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
-        public Int64 InfFamDecId
+        public Int64 PrfSchemaId
         {
             get;
             set;
         }
         [DisplayName("Libellé")]
-        [ColumnName("INF_CD_DEC__LIBELLE")]
+        [ColumnName("PRF_RIGHT__LIBELLE")]
         [MaxCharLength(200)]
         [ControlType(ControlType.Text)]
         [AllowNull(true)]
