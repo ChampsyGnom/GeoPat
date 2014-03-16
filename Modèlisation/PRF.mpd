@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{FD6A7794-6BE6-48F2-B63B-0D4E5BDB51F3}" Label="" LastModificationDate="1394045183" Name="Gestion des utilisateurs" Objects="21" Symbols="1" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{FD6A7794-6BE6-48F2-B63B-0D4E5BDB51F3}" Label="" LastModificationDate="1394963979" Name="Gestion des utilisateurs" Objects="131" Symbols="21" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,10 +12,10 @@
 <a:Code>PRF</a:Code>
 <a:CreationDate>1394044481</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394044485</a:ModificationDate>
+<a:ModificationDate>1394963979</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <a:History>ORG {C380AB8A-2C90-4A81-8567-777EE163E9BB}
-DAT 1394044485</a:History>
+DAT 1394963979</a:History>
 <a:PackageOptionsText>[FolderOptions]
 
 [FolderOptions\Physical Objects]
@@ -1148,9 +1148,9 @@ PhysOpts=</a:ModelOptionsText>
 <a:ObjectID>CC06164A-0A7A-466F-ABF6-E1A69C910379</a:ObjectID>
 <a:Name>Gestion des utilisateurs</a:Name>
 <a:Code>PRF</a:Code>
-<a:CreationDate>1394045183</a:CreationDate>
+<a:CreationDate>1394963979</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394045183</a:ModificationDate>
+<a:ModificationDate>1394963979</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <a:TargetStereotype/>
 <a:TargetID>C380AB8A-2C90-4A81-8567-777EE163E9BB</a:TargetID>
@@ -1178,7 +1178,7 @@ PhysOpts=</a:ModelOptionsText>
 <a:Code>MPD</a:Code>
 <a:CreationDate>1394044485</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394044491</a:ModificationDate>
+<a:ModificationDate>1394963979</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <a:History>ORG {FA63A83E-D36B-435B-92FA-B5BDAA7C8843}
 DAT 1394044485
@@ -1784,10 +1784,220 @@ Shadow=0
 <a:PageOrientation>1</a:PageOrientation>
 <a:PaperSource>7</a:PaperSource>
 <c:Symbols>
-<o:TableSymbol Id="o6">
-<a:ModificationDate>1394045181</a:ModificationDate>
+<o:ReferenceSymbol Id="o6">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((15077,2327), (36975,3798))</a:Rect>
+<a:ListOfPoints>((15077,2552),(36975,2552))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o7"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o8"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o9"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o10">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-9914,18728), (40023,20199))</a:Rect>
+<a:ListOfPoints>((-9914,18953),(40023,18953))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o11"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o8"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o12"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o13">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-6860,-6233), (47823,19048))</a:Rect>
+<a:ListOfPoints>((-6860,-4987),(40023,-4987),(40023,19048))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o14"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o8"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o15"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o16">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-14524,18461), (40023,52885))</a:Rect>
+<a:ListOfPoints>((-6649,52885),(-6649,19048),(40023,19048))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o17"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o8"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o18"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o19">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-10583,1501), (9698,2972))</a:Rect>
+<a:ListOfPoints>((-10583,1726),(9698,1726))</a:ListOfPoints>
+<a:CornerStyle>1</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o20"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o7"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o21"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o22">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-17916,2099), (-2542,19442))</a:Rect>
+<a:ListOfPoints>((-10229,2099),(-10229,19442))</a:ListOfPoints>
+<a:CornerStyle>1</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o20"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o11"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o23"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o24">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-18690,29289), (-3316,45492))</a:Rect>
+<a:ListOfPoints>((-9782,29289),(-9782,38334),(-12225,38334),(-12225,45492))</a:ListOfPoints>
+<a:CornerStyle>1</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o25"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o26"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o27"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o28">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-16046,18867), (-672,29379))</a:Rect>
+<a:ListOfPoints>((-9958,29379),(-9958,24554),(-6761,24554),(-6761,18867))</a:ListOfPoints>
+<a:CornerStyle>1</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o25"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o11"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o29"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o30">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-13697,5405), (1677,16613))</a:Rect>
+<a:ListOfPoints>((-6010,5405),(-6010,16613))</a:ListOfPoints>
+<a:CornerStyle>1</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o31"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o11"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o32"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o33">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Rect>((-13106,-5802), (2044,5405))</a:Rect>
+<a:ListOfPoints>((-5531,5405),(-5531,-5802))</a:ListOfPoints>
+<a:CornerStyle>1</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o31"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o14"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o34"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:TableSymbol Id="o26">
+<a:ModificationDate>1394963979</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-23782,28203), (-11166,34645))</a:Rect>
+<a:Rect>((-16657,43878), (-4041,50320))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1805,7 +2015,226 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Table Ref="o7"/>
+<o:Table Ref="o35"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o11">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-17728,16124), (-2100,21593))</a:Rect>
+<a:LineColor>11184640</a:LineColor>
+<a:FillColor>16777136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o36"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o8">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((33715,420), (46331,37676))</a:Rect>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
+<a:LineColor>11184640</a:LineColor>
+<a:FillColor>16777136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<a:ManuallyResized>1</a:ManuallyResized>
+<c:Object>
+<o:Table Ref="o37"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o7">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((7263,-406), (22891,5062))</a:Rect>
+<a:LineColor>11184640</a:LineColor>
+<a:FillColor>16777136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o38"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o20">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-16964,-635), (-4040,4833))</a:Rect>
+<a:LineColor>16744576</a:LineColor>
+<a:FillColor>16765136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o39"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o25">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-16709,27516), (-2858,31515))</a:Rect>
+<a:LineColor>16744576</a:LineColor>
+<a:FillColor>16765136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o40"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o14">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-13400,-7721), (-320,-2253))</a:Rect>
+<a:LineColor>11184640</a:LineColor>
+<a:FillColor>16777136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o41"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o31">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-11038,3405), (-508,7404))</a:Rect>
+<a:LineColor>16744576</a:LineColor>
+<a:FillColor>16765136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o42"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o17">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-13189,50151), (-109,55619))</a:Rect>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
+<a:LineColor>11184640</a:LineColor>
+<a:FillColor>16777136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o43"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o44">
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-41691,49694), (-29925,55162))</a:Rect>
+<a:LineColor>11184640</a:LineColor>
+<a:FillColor>16777136</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o45"/>
 </c:Object>
 </o:TableSymbol>
 </c:Symbols>
@@ -1815,7 +2244,869 @@ LABL 0 Arial,8,N</a:FontList>
 <o:PhysicalDiagram Ref="o5"/>
 </c:DefaultDiagram>
 <c:Tables>
-<o:Table Id="o7">
+<o:Table Id="o45">
+<a:ObjectID>05DE6714-DFA7-4100-804B-C0D7175D69DA</a:ObjectID>
+<a:Name>Langue</a:Name>
+<a:Code>PRF_LANG</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {4E3CD0AB-CBBD-4116-9199-BD90621C4709}
+DAT 1394963978</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o46">
+<a:ObjectID>0D240237-6B6C-4AFA-A3F4-61F46BC582DF</a:ObjectID>
+<a:Name>Identifiant</a:Name>
+<a:Code>PRF_LANG__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {41D50D83-74E1-4673-ABFF-E830D222BD0B}
+DAT 1394963978</a:History>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o47">
+<a:ObjectID>12CECFEA-6B7F-4EC3-BE38-7C7C1D868B1D</a:ObjectID>
+<a:Name>Code ISO</a:Name>
+<a:Code>PRF_LANG__CODE_ISO</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {BA674FE8-DD3B-47A8-AE15-FC8B757BB9D9}
+DAT 1394963978</a:History>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o48">
+<a:ObjectID>207D8ACF-6FC2-415B-BC15-D4175CDE3079</a:ObjectID>
+<a:Name>Valeur</a:Name>
+<a:Code>PRF_LANG__VALEUR</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9F7FEA29-C799-4FDF-A93A-DD44AB4D8576}
+DAT 1394963978</a:History>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o49">
+<a:ObjectID>35342DEA-0793-4392-A4D1-DDDA9E9227C3</a:ObjectID>
+<a:Name>Clé</a:Name>
+<a:Code>PRF_LANG__KEY</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {F27D8C51-E7A2-4328-A5F0-3D6A465BED18}
+DAT 1394963978</a:History>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o50">
+<a:ObjectID>133E8DE9-167C-4B7E-B40D-B846F2AC4FA5</a:ObjectID>
+<a:Name>PRF_LANG_PK</a:Name>
+<a:Code>PRF_LANG_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {04B7CFA0-A458-4A19-915F-71DF0981936B}
+DAT 1394963978
+INS COLNCOL {41D50D83-74E1-4673-ABFF-E830D222BD0B}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o46"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o51">
+<a:ObjectID>ADC10607-64EA-46C1-8AE2-A9334B962573</a:ObjectID>
+<a:Name>PRF_LANG_PK</a:Name>
+<a:Code>PRF_LANG_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o50"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o52">
+<a:ObjectID>2CE21186-5280-4530-8FA0-BC01D6FD53EF</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o46"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o50"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o43">
+<a:ObjectID>A27DB3E1-A2AA-4AE0-9069-2440D338FF17</a:ObjectID>
+<a:Name>Paramètres</a:Name>
+<a:Code>PRF_PARAM</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {8C217C62-FB5C-44BD-BA3B-8F62D2528D05}
+DAT 1394963978</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o53">
+<a:ObjectID>765C4D2F-7A4F-4446-835A-C483A4DA5C2F</a:ObjectID>
+<a:Name>Identifiant</a:Name>
+<a:Code>PRF_PARAM__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {2CA0A0AC-3703-4B4F-8121-7B7416900235}
+DAT 1394963978</a:History>
+<a:DataType>SERIAL</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o54">
+<a:ObjectID>00B1BA80-6EA3-420D-B1A7-DF58A28E8FF9</a:ObjectID>
+<a:Name>Identifiant2</a:Name>
+<a:Code>PRF_SCHEMA__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5},{AF37E509-ADCA-4285-99E4-019264BAF71D}
+DAT 1394963978</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+</o:Column>
+<o:Column Id="o55">
+<a:ObjectID>72C3965D-F992-45BC-B95A-DA5C1DD7F503</a:ObjectID>
+<a:Name>Code</a:Name>
+<a:Code>PRF_PARAM__CODE</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {D6C38F0C-9BFE-444E-BB24-41D3F727D9EA}
+DAT 1394963978</a:History>
+<a:DataType>VARCHAR(100)</a:DataType>
+<a:Length>100</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o56">
+<a:ObjectID>BC979BF3-95B5-462C-BFC3-20C09EC14D1D</a:ObjectID>
+<a:Name>Valeur</a:Name>
+<a:Code>PRF_PARAM__VALEUR</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {F8FB1A66-E545-4009-A665-A9C5D40C95EA}
+DAT 1394963978</a:History>
+<a:DataType>VARCHAR(500)</a:DataType>
+<a:Length>500</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o57">
+<a:ObjectID>5BFC6FB2-71BA-41FA-A6A0-8824A416EB5F</a:ObjectID>
+<a:Name>PRF_PARAM_PK</a:Name>
+<a:Code>PRF_PARAM_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {0212CEF2-E08C-4D38-A51E-C5C7516F4FEA}
+DAT 1394963978
+INS COLNCOL {2CA0A0AC-3703-4B4F-8121-7B7416900235}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o53"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o58">
+<a:ObjectID>7E40307A-93EB-4DB6-B982-9554098577CE</a:ObjectID>
+<a:Name>PRF_PARAM_PK</a:Name>
+<a:Code>PRF_PARAM_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o57"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o59">
+<a:ObjectID>EE52AF09-19EF-4D7D-AC79-035E7147B61A</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o53"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o60">
+<a:ObjectID>0F7284F5-BEC9-4BE7-8B5C-9EDB170A8996</a:ObjectID>
+<a:Name>PRF_SCHEMA__PRF_PARAM_FK</a:Name>
+<a:Code>PRF_SCHEMA__PRF_PARAM_FK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o18"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o61">
+<a:ObjectID>EA61A2B7-5682-4E1D-93B2-8E02CD0A13AC</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o54"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o57"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o41">
+<a:ObjectID>AD7B886E-6325-4C62-93C6-2477BCEC19C3</a:ObjectID>
+<a:Name>Privilèges</a:Name>
+<a:Code>PRF_RIGHT</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {F3E5C579-AC4D-4677-B39E-B9BE0229A2AE}
+DAT 1394963978</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o62">
+<a:ObjectID>219563E9-0ABA-4804-BE37-036E42E66501</a:ObjectID>
+<a:Name>Identifiant</a:Name>
+<a:Code>PRF_RIGHT__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {EE4ECE71-594C-4443-B901-3467FA438B66}
+DAT 1394963978</a:History>
+<a:DataType>SERIAL</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o63">
+<a:ObjectID>5F77A841-874E-4986-BF34-3AB550C78C0F</a:ObjectID>
+<a:Name>Identifiant2</a:Name>
+<a:Code>PRF_SCHEMA__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5},{B1E35F89-B755-43B5-8357-FA79FDA99709}
+DAT 1394963978</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o64">
+<a:ObjectID>C8BBC286-8C7E-4D25-BB20-D3A5A9FBD384</a:ObjectID>
+<a:Name>Code</a:Name>
+<a:Code>PRF_RIGHT__CODE</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {5BAEA4E7-97AE-48A2-8BEE-B668A621E241}
+DAT 1394963978</a:History>
+<a:DataType>VARCHAR(50)</a:DataType>
+<a:Length>50</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o65">
+<a:ObjectID>C129EFD9-6522-4C24-B564-508F9987EF89</a:ObjectID>
+<a:Name>Libellé</a:Name>
+<a:Code>PRF_RIGHT__LIBELLE</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {C43F0283-7B29-4E14-8331-69D6EC87B116}
+DAT 1394963978</a:History>
+<a:DataType>VARCHAR(200)</a:DataType>
+<a:Length>200</a:Length>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o66">
+<a:ObjectID>66104998-36EA-4693-B608-0E1F1FBA86AF</a:ObjectID>
+<a:Name>PRF_RIGHT_PK</a:Name>
+<a:Code>PRF_RIGHT_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {8E16C83B-407D-439D-81EB-E38707A85F4B}
+DAT 1394963978
+INS COLNCOL {EE4ECE71-594C-4443-B901-3467FA438B66}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o62"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o67">
+<a:ObjectID>9C30D049-4637-4BEF-BDAD-8C87D88390ED</a:ObjectID>
+<a:Name>PRF_RIGHT_PK</a:Name>
+<a:Code>PRF_RIGHT_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o66"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o68">
+<a:ObjectID>4F889481-A9D7-45C1-A5EA-9B89A1C2E6FF</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o62"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o69">
+<a:ObjectID>DD0AED02-9277-46D7-854C-F113CFF91046</a:ObjectID>
+<a:Name>PRF_SCHEMA__PRF_RIGHT_FK</a:Name>
+<a:Code>PRF_SCHEMA__PRF_RIGHT_FK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o15"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o70">
+<a:ObjectID>0A0B8AC3-3AA7-4B00-A940-C533FBE3E5CF</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o63"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o66"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o42">
+<a:ObjectID>5C1436A1-50ED-4849-94D5-15B5EA181775</a:ObjectID>
+<a:Name>Profil &gt; Privilège</a:Name>
+<a:Code>PRF_PROFIL__PRF_RIGHT</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {F4497798-230C-459E-BA26-E6136D48094E}
+DAT 1394963978</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o71">
+<a:ObjectID>4DE455E1-17B7-4C2D-B5AC-C48770221874</a:ObjectID>
+<a:Name>Identifiant</a:Name>
+<a:Code>PRF_PROFIL__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {21717FAB-AD1B-4731-B303-C1A7D93B3303},{2A7CAD53-0F14-4F2C-B59C-78C976F8186B}
+DAT 1394963978</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o72">
+<a:ObjectID>33AECC3B-5274-4840-9521-66F7B9BCC64A</a:ObjectID>
+<a:Name>Identifiant2</a:Name>
+<a:Code>PRF_RIGHT__ID</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {EE4ECE71-594C-4443-B901-3467FA438B66},{D09E13FC-23A7-40B7-83D4-D0C781D6AE4D}
+DAT 1394963978</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o73">
+<a:ObjectID>2639BEE3-EEEB-4A3E-9C13-E8E773FB3FA2</a:ObjectID>
+<a:Name>PRF_RIGHT_PK</a:Name>
+<a:Code>PRF_RIGHT_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {8E16C83B-407D-439D-81EB-E38707A85F4B}
+DAT 1394963978
+INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}
+INS COLNCOL {EE4ECE71-594C-4443-B901-3467FA438B66}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o71"/>
+<o:Column Ref="o72"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o74">
+<a:ObjectID>2B8A7D4A-8D31-487A-869C-4F7893122FB5</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_RIGHT_PK</a:Name>
+<a:Code>PRF_PROFIL__PRF_RIGHT_PK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o73"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o75">
+<a:ObjectID>33891C76-2ED0-40B1-8CDA-B4BBB0F8D95B</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o71"/>
+</c:Column>
+</o:IndexColumn>
+<o:IndexColumn Id="o76">
+<a:ObjectID>4DF5A219-DDDB-46AD-A3C2-22D076C88A1D</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o72"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o77">
+<a:ObjectID>48E79F28-494C-4DF7-BF6F-4ADFC75B03C4</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_RIGHT_FK</a:Name>
+<a:Code>PRF_PROFIL__PRF_RIGHT_FK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o32"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o78">
+<a:ObjectID>5EF260AA-3E9C-4899-AE14-5B951A933243</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o71"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o79">
+<a:ObjectID>9042E3ED-6AD2-4E52-830F-3FD205A8E081</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_RIGHT2_FK</a:Name>
+<a:Code>PRF_PROFIL__PRF_RIGHT2_FK</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o34"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o80">
+<a:ObjectID>529DADCD-F24D-4915-9B6E-80D0C6DE312D</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o72"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o73"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o39">
+<a:ObjectID>4E0F9DCE-1B7F-46D0-BBB0-93ECE2EA0173</a:ObjectID>
+<a:Name>Profil &gt; Table</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {ADA6ADB1-826B-4792-81CA-E73ADE28A117}
+DAT 1394963196</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o81">
+<a:ObjectID>0684B897-DD35-42DD-83CA-E06A0F80B4EF</a:ObjectID>
+<a:Name>Identifiant table</a:Name>
+<a:Code>PRF_TABLE__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963352</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {EA771A5D-37DD-450A-8ED9-EEF31F4BE230},{F9CA9F61-0C8D-4001-953A-3101C6CB2FAB}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o82">
+<a:ObjectID>B783FB66-4D5F-4330-99BF-94E58D5D6F26</a:ObjectID>
+<a:Name>Identifiant profil</a:Name>
+<a:Code>PRF_PROFIL__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963352</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {21717FAB-AD1B-4731-B303-C1A7D93B3303},{31FBCF77-6FB3-483A-8719-8F61074DC622}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o83">
+<a:ObjectID>29F34942-CAAF-4807-A5BE-557D2199BEAC</a:ObjectID>
+<a:Name>Autoriser écriture</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE__WRITE</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {B5385020-1E4B-4E5C-867F-43C9743E3F56}
+DAT 1394963978</a:History>
+<a:DataType>BOOL</a:DataType>
+</o:Column>
+<o:Column Id="o84">
+<a:ObjectID>21F21E89-F509-43E9-B369-53F265500C27</a:ObjectID>
+<a:Name>Autoriser import</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE__IMPORT</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {2B4CAB09-DDE7-42FD-87FD-CA809F5CA5FD}
+DAT 1394963978</a:History>
+<a:DataType>BOOL</a:DataType>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o85">
+<a:ObjectID>09EBF80C-288E-46FF-8E56-BCDF7287BCA8</a:ObjectID>
+<a:Name>PRF_PROFIL_PK</a:Name>
+<a:Code>PRF_PROFIL_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {59F4FAAE-08CD-435E-B036-0455E97D28E4}
+DAT 1394963196
+INS COLNCOL {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}
+INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o81"/>
+<o:Column Ref="o82"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o86">
+<a:ObjectID>E8237D5A-E262-40F0-934E-CC116DF2DE65</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_TABLE_PK</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o85"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o87">
+<a:ObjectID>CC3536BB-8831-4ED4-A110-7CB8910B99DC</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o81"/>
+</c:Column>
+</o:IndexColumn>
+<o:IndexColumn Id="o88">
+<a:ObjectID>7CD2C863-BD2E-49C4-AB46-C98268C45995</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o82"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o89">
+<a:ObjectID>57B10FD1-7518-44AD-B349-99A988EDB9AF</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_TABLE_FK</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE_FK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o21"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o90">
+<a:ObjectID>34D7C987-B001-4815-BCBE-7464E057D874</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o81"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o91">
+<a:ObjectID>6DD02883-B170-4C25-9EFE-75DE2506233E</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_TABLE2_FK</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE2_FK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o23"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o92">
+<a:ObjectID>5C765FE1-1C05-45EA-810A-79AFC6D07BA8</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o82"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o85"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o40">
+<a:ObjectID>CD0787EF-56D9-4893-A84F-43F64B910598</a:ObjectID>
+<a:Name>Profil &gt; Utilisateur</a:Name>
+<a:Code>PRF_PROFIL__PRF_USER</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {46E2B0B0-2277-4C80-B343-A18C51069E48}
+DAT 1394963196</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o93">
+<a:ObjectID>61B2E942-158D-4D78-88D3-E4FB0436BA5F</a:ObjectID>
+<a:Name>Identifiant utilisateur</a:Name>
+<a:Code>PRF_USER__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963362</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {78689FBC-6DC0-41B5-8033-AE3543D6F25B},{A1F31BF2-886D-4ECA-A76D-8AF57DE4DC05}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o94">
+<a:ObjectID>322A2253-AE61-423B-B1DD-C0063A5F14A5</a:ObjectID>
+<a:Name>Identifiant profil</a:Name>
+<a:Code>PRF_PROFIL__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963362</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {21717FAB-AD1B-4731-B303-C1A7D93B3303},{97E91BAF-82CA-49D5-B2C0-D80A94882A1A}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o95">
+<a:ObjectID>000520CC-08C3-4B75-98BA-6339C7F95188</a:ObjectID>
+<a:Name>PRF_PROFIL_PK</a:Name>
+<a:Code>PRF_PROFIL_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {59F4FAAE-08CD-435E-B036-0455E97D28E4}
+DAT 1394963196
+INS COLNCOL {78689FBC-6DC0-41B5-8033-AE3543D6F25B}
+INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o93"/>
+<o:Column Ref="o94"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o96">
+<a:ObjectID>35F1A1FD-C40C-4D08-90D4-DD01C2B91567</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_USER_PK</a:Name>
+<a:Code>PRF_PROFIL__PRF_USER_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o95"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o97">
+<a:ObjectID>66968663-4BB3-4327-9100-0BD3E477C766</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o93"/>
+</c:Column>
+</o:IndexColumn>
+<o:IndexColumn Id="o98">
+<a:ObjectID>76F01306-A87D-442D-A0D1-CB24A6EA6200</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o94"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o99">
+<a:ObjectID>5D801A5E-83A2-4A3B-B676-6B8A1B02F452</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_USER_FK</a:Name>
+<a:Code>PRF_PROFIL__PRF_USER_FK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o27"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o100">
+<a:ObjectID>1CF8C15D-FBD9-4577-A54A-B115E0B1DECB</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o93"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o101">
+<a:ObjectID>9BC5F0AE-3B47-4456-A1DE-3273D6BEA310</a:ObjectID>
+<a:Name>PRF_PROFIL__PRF_USER2_FK</a:Name>
+<a:Code>PRF_PROFIL__PRF_USER2_FK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o29"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o102">
+<a:ObjectID>84AC60B0-5FEA-4B18-A84F-CF45C422B96E</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o94"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o95"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o35">
 <a:ObjectID>59319EF0-DB8C-4524-8CCC-157497F5DDC1</a:ObjectID>
 <a:Name>Utilisateurs</a:Name>
 <a:Code>PRF_USER</a:Code>
@@ -1827,7 +3118,7 @@ LABL 0 Arial,8,N</a:FontList>
 DAT 1394044485</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o8">
+<o:Column Id="o103">
 <a:ObjectID>30ACFF5C-D5AE-42B1-9C9B-DF6A9AB6160F</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>PRF_USER__ID</a:Code>
@@ -1840,7 +3131,7 @@ DAT 1394044485</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o9">
+<o:Column Id="o104">
 <a:ObjectID>11F2FBEC-B76C-40FC-AE82-9D1C285AD0CB</a:ObjectID>
 <a:Name>Nom</a:Name>
 <a:Code>PRF_USER__NOM</a:Code>
@@ -1854,7 +3145,7 @@ DAT 1394044485</a:History>
 <a:Length>100</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o10">
+<o:Column Id="o105">
 <a:ObjectID>E9207299-6FB6-4AA9-8066-D6972FFD9947</a:ObjectID>
 <a:Name>Prénom</a:Name>
 <a:Code>PRF_USER__PRENOM</a:Code>
@@ -1868,7 +3159,7 @@ DAT 1394044485</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o11">
+<o:Column Id="o106">
 <a:ObjectID>4DCD9CBA-5AD9-48D7-94FF-8067B74F2DB9</a:ObjectID>
 <a:Name>Login</a:Name>
 <a:Code>PRF_USER__LOGIN</a:Code>
@@ -1882,7 +3173,7 @@ DAT 1394044485</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o12">
+<o:Column Id="o107">
 <a:ObjectID>70BB7BDA-8C2E-445B-A6FA-CB2781FA31A6</a:ObjectID>
 <a:Name>Passsword</a:Name>
 <a:Code>PRF_USER__PASSSWORD</a:Code>
@@ -1897,7 +3188,7 @@ DAT 1394044485</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o13">
+<o:Key Id="o108">
 <a:ObjectID>54BFEC8A-BB36-4EAA-BE77-BEF812C09CC6</a:ObjectID>
 <a:Name>PRF_USER_PK</a:Name>
 <a:Code>PRF_USER_PK</a:Code>
@@ -1908,12 +3199,12 @@ DAT 1394044485</a:History>
 <a:History>ORG {62C0F538-7946-4277-84AA-87F5395FD36C}
 DAT 1394044485</a:History>
 <c:Key.Columns>
-<o:Column Ref="o8"/>
+<o:Column Ref="o103"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o14">
+<o:Index Id="o109">
 <a:ObjectID>B5E86EBE-EC83-40DC-AE9E-C16D21E0B65A</a:ObjectID>
 <a:Name>PRF_USER_PK</a:Name>
 <a:Code>PRF_USER_PK</a:Code>
@@ -1923,22 +3214,22 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o13"/>
+<o:Key Ref="o108"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o15">
+<o:IndexColumn Id="o110">
 <a:ObjectID>2E4FE74F-B820-4530-A644-972F1449E221</a:ObjectID>
 <a:CreationDate>1394044485</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394044485</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o8"/>
+<o:Column Ref="o103"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o16">
+<o:Index Id="o111">
 <a:ObjectID>D2D22A37-3C37-4BFD-997F-85C09D719EE2</a:ObjectID>
 <a:Name>PRF_USER_UK_REF</a:Name>
 <a:Code>PRF_USER_UK_REF</a:Code>
@@ -1948,7 +3239,7 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:IndexColumns>
-<o:IndexColumn Id="o17">
+<o:IndexColumn Id="o112">
 <a:ObjectID>93503A71-D45B-46F1-BD0A-4830C32BD9B1</a:ObjectID>
 <a:CreationDate>1394045121</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -1958,7 +3249,7 @@ DAT 1394044485</a:History>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o18">
+<o:Index Id="o113">
 <a:ObjectID>1BBCF33D-84C3-491C-9E8B-EBDCA456314E</a:ObjectID>
 <a:Name>PRF_USER_UK_2</a:Name>
 <a:Code>PRF_USER_UK_2</a:Code>
@@ -1968,7 +3259,7 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:IndexColumns>
-<o:IndexColumn Id="o19">
+<o:IndexColumn Id="o114">
 <a:ObjectID>F02D857C-124F-40E6-B515-B94EF700DE80</a:ObjectID>
 <a:CreationDate>1394045142</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -1976,7 +3267,7 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:IndexColumn.Expression>PRF_USER__NOM</a:IndexColumn.Expression>
 </o:IndexColumn>
-<o:IndexColumn Id="o20">
+<o:IndexColumn Id="o115">
 <a:ObjectID>3C37E054-26BE-4DBD-942F-B16EE5D4597B</a:ObjectID>
 <a:CreationDate>1394045142</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -1988,12 +3279,776 @@ DAT 1394044485</a:History>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o13"/>
+<o:Key Ref="o108"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o36">
+<a:ObjectID>36E0F0BD-D685-463E-BA0C-51B819CB65CF</a:ObjectID>
+<a:Name>Profils</a:Name>
+<a:Code>PRF_PROFIL</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9170EEE7-D3DE-4A88-B388-64B3899603FC}
+DAT 1394963196</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o116">
+<a:ObjectID>BDCC160F-66C7-4C37-BBD0-192BF2A6A761</a:ObjectID>
+<a:Name>Identifiant profil</a:Name>
+<a:Code>PRF_PROFIL__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963401</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {21717FAB-AD1B-4731-B303-C1A7D93B3303}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>SERIAL</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o117">
+<a:ObjectID>070901A6-A626-4ED2-A0AB-C5D9C2E97FB7</a:ObjectID>
+<a:Name>Identifiant schéma</a:Name>
+<a:Code>PRF_SCHEMA__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963401</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5},{558D7BEC-503E-45F3-9BEF-DF3BBB6F2F65}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o118">
+<a:ObjectID>3CA1351D-DDDB-41E3-B9D5-C1D613BF6758</a:ObjectID>
+<a:Name>Code</a:Name>
+<a:Code>PRF_PROFIL__CODE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {B9E1D943-16DE-4A81-8B99-07F07AAF6D36}
+DAT 1394963196</a:History>
+<a:DataType>VARCHAR(50)</a:DataType>
+<a:Length>50</a:Length>
+</o:Column>
+<o:Column Id="o119">
+<a:ObjectID>2C1B7BB8-EBE6-4021-8618-672C0E9C5D10</a:ObjectID>
+<a:Name>Libellé</a:Name>
+<a:Code>PRF_PROFIL__LIBELLE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {0FA615CE-C8D0-4A93-AC9D-AC3190EF3ECA}
+DAT 1394963196</a:History>
+<a:DataType>VARCHAR(200)</a:DataType>
+<a:Length>200</a:Length>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o120">
+<a:ObjectID>56E2AFC8-D4EA-4E73-B44B-5B3D3BF03701</a:ObjectID>
+<a:Name>PRF_PROFIL_PK</a:Name>
+<a:Code>PRF_PROFIL_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {59F4FAAE-08CD-435E-B036-0455E97D28E4}
+DAT 1394963196
+INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o116"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o121">
+<a:ObjectID>9A69BD2B-BDC3-428C-AFA4-21E0CA51A265</a:ObjectID>
+<a:Name>PRF_PROFIL_PK</a:Name>
+<a:Code>PRF_PROFIL_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o120"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o122">
+<a:ObjectID>EDD1E561-7607-49A4-80C4-CCD5655F8EC2</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o116"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o123">
+<a:ObjectID>CF6C63A6-1AB4-4A40-A207-0C3A657A94AC</a:ObjectID>
+<a:Name>ASSOCIATION_2_FK</a:Name>
+<a:Code>ASSOCIATION_2_FK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o12"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o124">
+<a:ObjectID>8C450C0A-9D00-4B1B-A457-F654BFEBEE29</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o117"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o120"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o38">
+<a:ObjectID>C51FE6E7-9C87-4B1D-BC8A-B7AC6B0F2899</a:ObjectID>
+<a:Name>Tables</a:Name>
+<a:Code>PRF_TABLE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9820C433-C4FA-48EF-8E20-0691562B1E64}
+DAT 1394963196</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o125">
+<a:ObjectID>3F686140-0C40-4F5F-B38D-BAA3CFC5D8D0</a:ObjectID>
+<a:Name>Identifiant</a:Name>
+<a:Code>PRF_TABLE__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}
+DAT 1394963196</a:History>
+<a:DataType>SERIAL</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o126">
+<a:ObjectID>BC458388-9DDA-4D42-B291-A5A8BBBCEFAF</a:ObjectID>
+<a:Name>Identifiant schéma</a:Name>
+<a:Code>PRF_SCHEMA__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963340</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5},{53275E8F-3544-47A6-A572-5FFBB7A36267}
+DAT 1394963196
+ATT NAME</a:History>
+<a:DataType>INT4</a:DataType>
+<a:Length>4</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o127">
+<a:ObjectID>67283697-B8C9-4784-979C-C54804E7E9BC</a:ObjectID>
+<a:Name>Nom</a:Name>
+<a:Code>PRF_TABLE__NAME</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9D2828CF-EB4F-4C59-8614-F228D94B75E7}
+DAT 1394963196</a:History>
+<a:DataType>VARCHAR(50)</a:DataType>
+<a:Length>50</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o128">
+<a:ObjectID>2C66E735-E68B-4A63-A6E9-25969A5C1CFF</a:ObjectID>
+<a:Name>Libellé</a:Name>
+<a:Code>PRF_TABLE__LIBELLE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {AFE8E12F-6267-450A-B835-6E3EA5D4BCB0}
+DAT 1394963196</a:History>
+<a:DataType>VARCHAR(200)</a:DataType>
+<a:Length>200</a:Length>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o129">
+<a:ObjectID>C7D33F0D-0720-4A6C-9693-01271CE0D0F4</a:ObjectID>
+<a:Name>PRF_TABLE_PK</a:Name>
+<a:Code>PRF_TABLE_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {84E5C97A-BC9C-46FF-AA7D-A11A34682F04}
+DAT 1394963196
+INS COLNCOL {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o125"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o130">
+<a:ObjectID>FC371018-A1D8-47DE-BD4B-53285BA6988B</a:ObjectID>
+<a:Name>PRF_TABLE_PK</a:Name>
+<a:Code>PRF_TABLE_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o129"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o131">
+<a:ObjectID>BFED29EF-C462-441C-B3D4-EAEC4D715620</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o125"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o132">
+<a:ObjectID>B3F7FF5D-886E-4A6D-BC57-EE83ED1B89B7</a:ObjectID>
+<a:Name>PRF_SCHEMA__PRF_TABLE_FK</a:Name>
+<a:Code>PRF_SCHEMA__PRF_TABLE_FK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:LinkedObject>
+<o:Reference Ref="o9"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o133">
+<a:ObjectID>FAEE7A1E-8E70-4236-8384-AC542A80F1F2</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o126"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o129"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o37">
+<a:ObjectID>3F6581B6-59C0-46C0-AAA0-B041F2BDB891</a:ObjectID>
+<a:Name>Schémas</a:Name>
+<a:Code>PRF_SCHEMA</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {4574CE7D-061F-47A5-99FD-C2FC4D427757}
+DAT 1394963196</a:History>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o134">
+<a:ObjectID>2DEF69D9-9A45-4BAA-A857-623676CDE2F2</a:ObjectID>
+<a:Name>Identifiant</a:Name>
+<a:Code>PRF_SCHEMA__ID</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5}
+DAT 1394963196</a:History>
+<a:DataType>SERIAL</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o135">
+<a:ObjectID>FF5DAC88-9BA3-4841-AA30-93BAD24A82EB</a:ObjectID>
+<a:Name>Nom</a:Name>
+<a:Code>PRF_SCHEMA__NAME</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {5879F9FF-F0F0-4C9A-B070-D9CE039358F4}
+DAT 1394963196</a:History>
+<a:DataType>VARCHAR(50)</a:DataType>
+<a:Length>50</a:Length>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o136">
+<a:ObjectID>4CD1E673-6F19-445C-B620-48681C9C7587</a:ObjectID>
+<a:Name>Libellé</a:Name>
+<a:Code>PRF_SCHEMA__LIBELLE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {0E7F2539-BD16-4FCB-AE85-0D8F2371AA15}
+DAT 1394963196</a:History>
+<a:DataType>VARCHAR(200)</a:DataType>
+<a:Length>200</a:Length>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o137">
+<a:ObjectID>58D3623E-D162-4D96-81A6-255ED5687969</a:ObjectID>
+<a:Name>PRF_SCHEMA_PK</a:Name>
+<a:Code>PRF_SCHEMA_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {702CFE63-AB5B-4346-A8D4-70D5DA5966FA}
+DAT 1394963196
+INS COLNCOL {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5}</a:History>
+<c:Key.Columns>
+<o:Column Ref="o134"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:Indexes>
+<o:Index Id="o138">
+<a:ObjectID>8F8DDA44-7B5C-482E-BF68-1D049AD29172</a:ObjectID>
+<a:Name>PRF_SCHEMA_PK</a:Name>
+<a:Code>PRF_SCHEMA_PK</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:LinkedObject>
+<o:Key Ref="o137"/>
+</c:LinkedObject>
+<c:IndexColumns>
+<o:IndexColumn Id="o139">
+<a:ObjectID>9B4CD477-90A1-4999-A944-C95C5C86CCF9</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Column>
+<o:Column Ref="o134"/>
+</c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+</c:Indexes>
+<c:PrimaryKey>
+<o:Key Ref="o137"/>
 </c:PrimaryKey>
 </o:Table>
 </c:Tables>
+<c:References>
+<o:Reference Id="o32">
+<a:ObjectID>2470241A-DA76-4998-97F4-7D214D3651C6</a:ObjectID>
+<a:Name>Profil &gt; Privilège</a:Name>
+<a:Code>PRF_PROFIL__PRF_RIGHT</a:Code>
+<a:CreationDate>0</a:CreationDate>
+<a:Creator/>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {2A7CAD53-0F14-4F2C-B59C-78C976F8186B}
+DAT 1394963978</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o36"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o42"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o120"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o140">
+<a:ObjectID>4463D046-7077-481F-A462-4CC1B113D5C7</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o116"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o71"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o34">
+<a:ObjectID>11589CC1-1855-4672-B1A4-B17AB9EB0E76</a:ObjectID>
+<a:Name>Profil &gt; Privilège</a:Name>
+<a:Code>PRF_PROFIL__PRF_RIGHT2</a:Code>
+<a:CreationDate>0</a:CreationDate>
+<a:Creator/>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {D09E13FC-23A7-40B7-83D4-D0C781D6AE4D}
+DAT 1394963978</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o41"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o42"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o66"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o141">
+<a:ObjectID>90635B70-9D6E-419C-89E8-523997F293E6</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o62"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o72"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o23">
+<a:ObjectID>0942F79D-44AB-4D35-9EFF-54A4A31373F0</a:ObjectID>
+<a:Name>Profil &gt; Table</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE2</a:Code>
+<a:CreationDate>0</a:CreationDate>
+<a:Creator/>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {31FBCF77-6FB3-483A-8719-8F61074DC622}
+DAT 1394963196</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o36"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o39"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o120"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o142">
+<a:ObjectID>9B91BE8E-EFBE-47E9-9420-C3A2284F7704</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o116"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o82"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o9">
+<a:ObjectID>DF2A011F-B0C3-491D-A7D6-0E8D52B5FA19</a:ObjectID>
+<a:Name>Schéma &gt; Table</a:Name>
+<a:Code>PRF_SCHEMA__PRF_TABLE</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {53275E8F-3544-47A6-A572-5FFBB7A36267}
+DAT 1394963196</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o37"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o38"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o137"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o143">
+<a:ObjectID>85059B36-8405-4DEF-9F57-2FB86EDDB0B7</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o134"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o126"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o27">
+<a:ObjectID>8F5DAAA2-0688-4432-8CDC-530579DF7864</a:ObjectID>
+<a:Name>Profil &gt; Utilisateur</a:Name>
+<a:Code>PRF_PROFIL__PRF_USER</a:Code>
+<a:CreationDate>0</a:CreationDate>
+<a:Creator/>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {A1F31BF2-886D-4ECA-A76D-8AF57DE4DC05}
+DAT 1394963196</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o35"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o40"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o108"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o144">
+<a:ObjectID>F4B7596D-819E-46DE-9CE9-61C0FAA9659B</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o103"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o93"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o29">
+<a:ObjectID>1112EA43-27E4-43C1-B547-41830AB9F7AF</a:ObjectID>
+<a:Name>Profil &gt; Utilisateur</a:Name>
+<a:Code>PRF_PROFIL__PRF_USER2</a:Code>
+<a:CreationDate>0</a:CreationDate>
+<a:Creator/>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {97E91BAF-82CA-49D5-B2C0-D80A94882A1A}
+DAT 1394963196</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o36"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o40"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o120"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o145">
+<a:ObjectID>8AE39B5A-CDF4-41E7-96D0-CBE0D30A4E91</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o116"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o94"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o21">
+<a:ObjectID>046748DB-8462-4EF8-9F36-6367CE2CD826</a:ObjectID>
+<a:Name>Profil &gt; Table</a:Name>
+<a:Code>PRF_PROFIL__PRF_TABLE</a:Code>
+<a:CreationDate>0</a:CreationDate>
+<a:Creator/>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {F9CA9F61-0C8D-4001-953A-3101C6CB2FAB}
+DAT 1394963196</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o38"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o39"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o129"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o146">
+<a:ObjectID>71E060B1-7E0B-4624-9559-16DCFCFEF184</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o125"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o81"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o12">
+<a:ObjectID>A1537860-D481-41FB-84AF-533850D61E2D</a:ObjectID>
+<a:Name>Schéma &gt; Profils</a:Name>
+<a:Code>ASSOCIATION_2</a:Code>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {558D7BEC-503E-45F3-9BEF-DF3BBB6F2F65}
+DAT 1394963196</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o37"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o36"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o137"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o147">
+<a:ObjectID>CA6D8759-BE7C-4AB8-B52F-47BC030FF8C2</a:ObjectID>
+<a:CreationDate>1394963196</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963199</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o134"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o117"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o18">
+<a:ObjectID>F57F079A-7DAE-4F40-A80C-438D986879C7</a:ObjectID>
+<a:Name>Schéma &gt; Paramètre</a:Name>
+<a:Code>PRF_SCHEMA__PRF_PARAM</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {AF37E509-ADCA-4285-99E4-019264BAF71D}
+DAT 1394963978</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o37"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o43"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o137"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o148">
+<a:ObjectID>114587E9-4444-489A-97C3-60C5A3AC05CD</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o134"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o54"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o15">
+<a:ObjectID>3AC33ADC-F646-411F-BCEB-689A760F6B63</a:ObjectID>
+<a:Name>Schéma &gt; Privilège</a:Name>
+<a:Code>PRF_SCHEMA__PRF_RIGHT</a:Code>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<a:History>ORG {B1E35F89-B755-43B5-8357-FA79FDA99709}
+DAT 1394963978
+ATT MAND</a:History>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o37"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o41"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o137"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o149">
+<a:ObjectID>FDD0680A-B230-4D14-B819-10A0AA67F486</a:ObjectID>
+<a:CreationDate>1394963978</a:CreationDate>
+<a:Creator>Champ</a:Creator>
+<a:ModificationDate>1394963979</a:ModificationDate>
+<a:Modifier>Champ</a:Modifier>
+<c:Object1>
+<o:Column Ref="o134"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o63"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+</c:References>
 <c:DefaultGroups>
-<o:Group Id="o21">
+<o:Group Id="o150">
 <a:ObjectID>61080F51-2B9B-4400-B456-2CD7A3BD8A24</a:ObjectID>
 <a:Name>PUBLIC</a:Name>
 <a:Code>PUBLIC</a:Code>
@@ -2004,7 +4059,7 @@ DAT 1394044485</a:History>
 </o:Group>
 </c:DefaultGroups>
 <c:TargetModels>
-<o:TargetModel Id="o22">
+<o:TargetModel Id="o151">
 <a:ObjectID>56B65AC5-3879-4C0B-8E62-07727F471AA8</a:ObjectID>
 <a:Name>PostgreSQL 8</a:Name>
 <a:Code>PGSQL80</a:Code>
@@ -2019,7 +4074,7 @@ DAT 1394044485</a:History>
 <o:Shortcut Ref="o4"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o23">
+<o:TargetModel Id="o152">
 <a:ObjectID>4C7DB83D-ABE2-43EF-B422-EB6A600C0BF7</a:ObjectID>
 <a:Name>Gestion des utilisateurs</a:Name>
 <a:Code>PRF</a:Code>
