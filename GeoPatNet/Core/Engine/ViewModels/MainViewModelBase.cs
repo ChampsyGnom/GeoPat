@@ -58,7 +58,12 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         public Object ActiveContent
         {
             get { return _activeContent; }
-            set { _activeContent = value; this.RaiseCommandChanges(); }
+            set 
+            { 
+                _activeContent = value; 
+                this.RaiseCommandChanges(); 
+                this.RaisePropertyChanged("ActiveContent"); 
+            }
         }
    
         private IEventAggregator _eventAggregator;

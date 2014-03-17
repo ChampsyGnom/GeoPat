@@ -158,6 +158,9 @@
     <Compile Include="Views\GenericDataFormView.xaml.cs">
       <DependentUpon>GenericDataFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenericDataGridControl.xaml.cs">
+      <DependentUpon>GenericDataGridControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GenericDataGridTemplateColumn.cs" />
     <Compile Include="Views\GenericDataGridView.xaml.cs">
       <DependentUpon>GenericDataGridView.xaml</DependentUpon>
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GenericDataFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenericDataGridControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
