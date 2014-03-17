@@ -1,6 +1,6 @@
 ﻿using Emash.GeoPatNet.Infrastructure.ViewModels;
 using Emash.GeoPatNet.Infrastructure.Views;
-using Microsoft.Practices.Prism.UnityExtensions;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Prism.Modularity;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.UnityExtensions;
 using System.Diagnostics;
 
 using Emash.GeoPatNet.Infrastructure.Services;
 
 
-using Microsoft.Practices.Prism.Regions;
+
 using Xceed.Wpf.AvalonDock;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Infrastructure.RegionAdapters;

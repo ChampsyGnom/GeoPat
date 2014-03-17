@@ -109,9 +109,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ProfilViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilMasterDetailView.xaml.cs">
+      <DependentUpon>ProfilMasterDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserMatserDetailView.xaml.cs">
       <DependentUpon>UserMatserDetailView.xaml</DependentUpon>
@@ -167,6 +171,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfilMasterDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

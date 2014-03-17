@@ -435,8 +435,12 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             }
             else if (this.State == GenericDataListState.Search)
             {
-                this.SearchItem.Reset();
-                
+                if (!this.Items.Contains(this.SearchItem))
+                {
+                    this.Items.Add ( this.SearchItem);
+                    this.ItemsView.MoveCurrentToFirst();
+                }
+                this.SearchItem.Reset();              
                 this.SearchItem.RaiseValuesChanges();
                 this.RaiseStateChange();
             }

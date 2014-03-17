@@ -63,9 +63,10 @@ namespace Emash.GeoPatNet.Presentation.Views
         {
             if (this.DataContext != null)
             {
-                if (this.DataContext.GetType().IsGenericType)
+                Type genericType = this.ExctractGenericType(this.DataContext.GetType());
+                if (genericType != null)
                 {
-                    Type[] genericTypes = this.DataContext.GetType().GetGenericArguments();
+                    Type[] genericTypes = genericType.GetGenericArguments();
                     if (genericTypes.Length == 1)
                     {
                         Type modelType = genericTypes[0];
@@ -77,7 +78,15 @@ namespace Emash.GeoPatNet.Presentation.Views
             }
            
         }
-
+        public Type ExctractGenericType(Type type)
+        {
+            if (type.IsGenericType)
+            { return type; }
+            else if (type.Equals(typeof(Object)))
+            { return null; }
+            else
+            { return this.ExctractGenericType(type.BaseType); }
+        }
         private void CreateControls(IEnumerable<string> fieldPaths, Type modelType)
         {
             int controlPerColumn = 10;

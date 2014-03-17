@@ -54,15 +54,12 @@
             </ribbon:Ribbon.ApplicationMenu>
             <ribbon:RibbonTab Header="Utilisateurs">
                
-                <ribbon:RibbonGroup Header="Utilisateur">
-                    <ribbon:RibbonButton Command="{Binding ShowUserViewCommand}" Label="Gérer"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding ShowUserReportCommand}" Label="Rapport"></ribbon:RibbonButton>                    
-                </ribbon:RibbonGroup>
+              
 
-                <ribbon:RibbonGroup Header="Profils">
-                    <ribbon:RibbonButton Command="{Binding ShowProfilView}" Label="Gérer"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding ShowRapportProfil}" Label="Rapport"></ribbon:RibbonButton>
-                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab Header="Profils">
+
+                
 
             </ribbon:RibbonTab>
             <ribbon:RibbonTab Header="Configuration">

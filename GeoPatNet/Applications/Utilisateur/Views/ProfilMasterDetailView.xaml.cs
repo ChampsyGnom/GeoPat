@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace Emash.GeoPatNet.App.Utilisateur.Views
 {
     /// <summary>
-    /// Logique d'interaction pour UserMatserDetailView.xaml
+    /// Logique d'interaction pour ProfilMasterDetailView.xaml
     /// </summary>
-    public partial class UserMatserDetailView : UserControl
+    public partial class ProfilMasterDetailView : UserControl
     {
-        public UserMatserDetailView(UserViewModel vm)
+        public ProfilMasterDetailView(ProfilViewModel vm)
         {
             this.DataContext = vm;
             InitializeComponent();
