@@ -43,10 +43,10 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("PRF_SCHEMA__ID")]
         [PrimaryKey("PRF_SCHEMA_PK")]
-        [ForeignKeyAttribute("PRF_SCHEMA__PRF_PARAM","JOIN_o146")]
-        [ForeignKeyAttribute("PRF_SCHEMA__PRF_RIGHT","JOIN_o147")]
-        [ForeignKeyAttribute("ASSOCIATION_2","JOIN_o145")]
-        [ForeignKeyAttribute("PRF_SCHEMA__PRF_TABLE","JOIN_o144")]
+        [ForeignKeyAttribute("PRF_SCHEMA__PRF_PARAM","JOIN_o154")]
+        [ForeignKeyAttribute("PRF_SCHEMA__PRF_RIGHT","JOIN_o155")]
+        [ForeignKeyAttribute("ASSOCIATION_2","JOIN_o153")]
+        [ForeignKeyAttribute("PRF_SCHEMA__PRF_TABLE","JOIN_o152")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -66,6 +66,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Nom")]
         [ColumnName("PRF_SCHEMA__NAME")]
+        [UniqueKey("PRF_SCHEMA_UK_REF")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]

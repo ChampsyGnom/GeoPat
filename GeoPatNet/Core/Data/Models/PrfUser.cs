@@ -25,7 +25,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("PRF_USER__ID")]
         [PrimaryKey("PRF_USER_PK")]
-        [ForeignKeyAttribute("PRF_USER__PRF_USER_PROFIL","JOIN_o149")]
+        [ForeignKeyAttribute("PRF_USER__PRF_USER_PROFIL","JOIN_o157")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

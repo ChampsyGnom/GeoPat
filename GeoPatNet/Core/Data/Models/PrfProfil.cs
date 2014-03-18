@@ -45,6 +45,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Code")]
         [ColumnName("PRF_PROFIL__CODE")]
+        [UniqueKey("PRF_PROFIL_UK_REF")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(true)]
@@ -57,9 +58,9 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant profil")]
         [ColumnName("PRF_PROFIL__ID")]
         [PrimaryKey("PRF_PROFIL_PK")]
-        [ForeignKeyAttribute("PRF_PROFIL__PRF_PROFIL_RIGHT","JOIN_o143")]
-        [ForeignKeyAttribute("PRF_PROFIL__PRF_USER_PROFIL","JOIN_o142")]
-        [ForeignKeyAttribute("PRF_PROFIL__PRF_PROFIL_TABLE","JOIN_o141")]
+        [ForeignKeyAttribute("PRF_PROFIL__PRF_PROFIL_RIGHT","JOIN_o151")]
+        [ForeignKeyAttribute("PRF_PROFIL__PRF_USER_PROFIL","JOIN_o150")]
+        [ForeignKeyAttribute("PRF_PROFIL__PRF_PROFIL_TABLE","JOIN_o149")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

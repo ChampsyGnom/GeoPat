@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{FD6A7794-6BE6-48F2-B63B-0D4E5BDB51F3}" Label="" LastModificationDate="1394966232" Name="Gestion des utilisateurs" Objects="178" Symbols="29" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{FD6A7794-6BE6-48F2-B63B-0D4E5BDB51F3}" Label="" LastModificationDate="1395141070" Name="Gestion des utilisateurs" Objects="139" Symbols="20" Target="PostgreSQL 8" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1989,9 +1989,9 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o32">
-<a:ModificationDate>1394966232</a:ModificationDate>
-<a:Rect>((-49368,16828), (-10349,47763))</a:Rect>
-<a:ListOfPoints>((-41568,16828),(-41568,47176),(-10349,47176))</a:ListOfPoints>
+<a:ModificationDate>1395141070</a:ModificationDate>
+<a:Rect>((-49368,16828), (-12599,45438))</a:Rect>
+<a:ListOfPoints>((-41568,16828),(-41568,44851),(-12599,44851))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -2010,9 +2010,9 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:TableSymbol Id="o33">
-<a:ModificationDate>1394966232</a:ModificationDate>
+<a:ModificationDate>1395141070</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-16657,43878), (-4041,50320))</a:Rect>
+<a:Rect>((-18907,41553), (-6291,47995))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2671,8 +2671,8 @@ INS COLNCOL {9388C74F-9024-4A83-9DF2-F731A661EBA6}</a:History>
 <a:Code>PRF_RIGHT</a:Code>
 <a:CreationDate>1394963978</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394963979</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
+<a:ModificationDate>1395141053</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
 <a:History>ORG {F3E5C579-AC4D-4677-B39E-B9BE0229A2AE}
 DAT 1394963978</a:History>
 <a:TotalSavingCurrency/>
@@ -2799,6 +2799,26 @@ INS COLNCOL {EE4ECE71-594C-4443-B901-3467FA438B66}</a:History>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
+<o:Index Id="o81">
+<a:ObjectID>202FB22E-13E4-406C-BC67-BBE0EC62D761</a:ObjectID>
+<a:Name>PRF_RIGHT_UK_REF</a:Name>
+<a:Code>PRF_RIGHT_UK_REF</a:Code>
+<a:CreationDate>1395141040</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395141063</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:IndexColumns>
+<o:IndexColumn Id="o82">
+<a:ObjectID>AFDDA232-052C-4776-8DEF-B65E8B33B271</a:ObjectID>
+<a:CreationDate>1395141053</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395141063</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:IndexColumn.Expression>PRF_RIGHT__CODE</a:IndexColumn.Expression>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
 </c:Indexes>
 <c:PrimaryKey>
 <o:Key Ref="o76"/>
@@ -2816,7 +2836,7 @@ INS COLNCOL {EE4ECE71-594C-4443-B901-3467FA438B66}</a:History>
 DAT 1394966231</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o81">
+<o:Column Id="o83">
 <a:ObjectID>E2347417-D0A9-4E4A-8543-9ACA85399A9E</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>PRF_USER_PROFIL__ID</a:Code>
@@ -2829,7 +2849,7 @@ DAT 1394966231</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o82">
+<o:Column Id="o84">
 <a:ObjectID>16CE688E-5A3F-414E-A8D5-A1A1A7E5AD11</a:ObjectID>
 <a:Name>Identifiant2</a:Name>
 <a:Code>PRF_PROFIL__ID</a:Code>
@@ -2843,7 +2863,7 @@ DAT 1394966231</a:History>
 <a:Length>4</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o83">
+<o:Column Id="o85">
 <a:ObjectID>80170214-5E5F-464B-93E2-A95BCCA95658</a:ObjectID>
 <a:Name>Identifiant3</a:Name>
 <a:Code>PRF_USER__ID</a:Code>
@@ -2859,7 +2879,7 @@ DAT 1394966231</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o84">
+<o:Key Id="o86">
 <a:ObjectID>8DAF6205-05BE-497D-99CB-D87892917F8E</a:ObjectID>
 <a:Name>PRF_USER_PROFIL_PK</a:Name>
 <a:Code>PRF_USER_PROFIL_PK</a:Code>
@@ -2871,12 +2891,12 @@ DAT 1394966231</a:History>
 DAT 1394966231
 INS COLNCOL {6867134C-B416-4F14-B954-23E8A1429B3B}</a:History>
 <c:Key.Columns>
-<o:Column Ref="o81"/>
+<o:Column Ref="o83"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o85">
+<o:Index Id="o87">
 <a:ObjectID>72F3C732-B02A-4783-9EF9-91F939E91717</a:ObjectID>
 <a:Name>PRF_USER_PROFIL_PK</a:Name>
 <a:Code>PRF_USER_PROFIL_PK</a:Code>
@@ -2886,22 +2906,22 @@ INS COLNCOL {6867134C-B416-4F14-B954-23E8A1429B3B}</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o84"/>
+<o:Key Ref="o86"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o86">
+<o:IndexColumn Id="o88">
 <a:ObjectID>CC45FFB7-8DE8-43EA-A80C-33B4308162A7</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394966232</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o81"/>
+<o:Column Ref="o83"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o87">
+<o:Index Id="o89">
 <a:ObjectID>FE773021-BBFF-423E-A037-35A6E98D512D</a:ObjectID>
 <a:Name>PRF_PROFIL__PRF_USER_PROFIL_FK</a:Name>
 <a:Code>PRF_PROFIL__PRF_USER_PROFIL_FK</a:Code>
@@ -2913,19 +2933,19 @@ INS COLNCOL {6867134C-B416-4F14-B954-23E8A1429B3B}</a:History>
 <o:Reference Ref="o31"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o88">
+<o:IndexColumn Id="o90">
 <a:ObjectID>FA3E7B1D-0AB9-463D-9821-EEB4F4893712</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394966232</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o82"/>
+<o:Column Ref="o84"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o89">
+<o:Index Id="o91">
 <a:ObjectID>D3506851-1F48-43A4-9FF3-3C193EEAFB42</a:ObjectID>
 <a:Name>PRF_USER__PRF_USER_PROFIL_FK</a:Name>
 <a:Code>PRF_USER__PRF_USER_PROFIL_FK</a:Code>
@@ -2937,21 +2957,21 @@ INS COLNCOL {6867134C-B416-4F14-B954-23E8A1429B3B}</a:History>
 <o:Reference Ref="o34"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o90">
+<o:IndexColumn Id="o92">
 <a:ObjectID>1FA88A60-438C-48E0-8BFA-8DA99EB3F157</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394966232</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o83"/>
+<o:Column Ref="o85"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o84"/>
+<o:Key Ref="o86"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o35">
@@ -2966,7 +2986,7 @@ INS COLNCOL {6867134C-B416-4F14-B954-23E8A1429B3B}</a:History>
 DAT 1394044485</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o91">
+<o:Column Id="o93">
 <a:ObjectID>30ACFF5C-D5AE-42B1-9C9B-DF6A9AB6160F</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>PRF_USER__ID</a:Code>
@@ -2979,7 +2999,7 @@ DAT 1394044485</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o92">
+<o:Column Id="o94">
 <a:ObjectID>11F2FBEC-B76C-40FC-AE82-9D1C285AD0CB</a:ObjectID>
 <a:Name>Nom</a:Name>
 <a:Code>PRF_USER__NOM</a:Code>
@@ -2993,7 +3013,7 @@ DAT 1394044485</a:History>
 <a:Length>100</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o93">
+<o:Column Id="o95">
 <a:ObjectID>E9207299-6FB6-4AA9-8066-D6972FFD9947</a:ObjectID>
 <a:Name>Prénom</a:Name>
 <a:Code>PRF_USER__PRENOM</a:Code>
@@ -3007,7 +3027,7 @@ DAT 1394044485</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o94">
+<o:Column Id="o96">
 <a:ObjectID>4DCD9CBA-5AD9-48D7-94FF-8067B74F2DB9</a:ObjectID>
 <a:Name>Login</a:Name>
 <a:Code>PRF_USER__LOGIN</a:Code>
@@ -3021,7 +3041,7 @@ DAT 1394044485</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o95">
+<o:Column Id="o97">
 <a:ObjectID>70BB7BDA-8C2E-445B-A6FA-CB2781FA31A6</a:ObjectID>
 <a:Name>Passsword</a:Name>
 <a:Code>PRF_USER__PASSSWORD</a:Code>
@@ -3036,7 +3056,7 @@ DAT 1394044485</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o96">
+<o:Key Id="o98">
 <a:ObjectID>54BFEC8A-BB36-4EAA-BE77-BEF812C09CC6</a:ObjectID>
 <a:Name>PRF_USER_PK</a:Name>
 <a:Code>PRF_USER_PK</a:Code>
@@ -3047,12 +3067,12 @@ DAT 1394044485</a:History>
 <a:History>ORG {62C0F538-7946-4277-84AA-87F5395FD36C}
 DAT 1394044485</a:History>
 <c:Key.Columns>
-<o:Column Ref="o91"/>
+<o:Column Ref="o93"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o97">
+<o:Index Id="o99">
 <a:ObjectID>B5E86EBE-EC83-40DC-AE9E-C16D21E0B65A</a:ObjectID>
 <a:Name>PRF_USER_PK</a:Name>
 <a:Code>PRF_USER_PK</a:Code>
@@ -3062,22 +3082,22 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o96"/>
+<o:Key Ref="o98"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o98">
+<o:IndexColumn Id="o100">
 <a:ObjectID>2E4FE74F-B820-4530-A644-972F1449E221</a:ObjectID>
 <a:CreationDate>1394044485</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394044485</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o91"/>
+<o:Column Ref="o93"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o99">
+<o:Index Id="o101">
 <a:ObjectID>D2D22A37-3C37-4BFD-997F-85C09D719EE2</a:ObjectID>
 <a:Name>PRF_USER_UK_REF</a:Name>
 <a:Code>PRF_USER_UK_REF</a:Code>
@@ -3087,7 +3107,7 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:IndexColumns>
-<o:IndexColumn Id="o100">
+<o:IndexColumn Id="o102">
 <a:ObjectID>93503A71-D45B-46F1-BD0A-4830C32BD9B1</a:ObjectID>
 <a:CreationDate>1394045121</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -3097,7 +3117,7 @@ DAT 1394044485</a:History>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o101">
+<o:Index Id="o103">
 <a:ObjectID>1BBCF33D-84C3-491C-9E8B-EBDCA456314E</a:ObjectID>
 <a:Name>PRF_USER_UK_2</a:Name>
 <a:Code>PRF_USER_UK_2</a:Code>
@@ -3107,7 +3127,7 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:IndexColumns>
-<o:IndexColumn Id="o102">
+<o:IndexColumn Id="o104">
 <a:ObjectID>F02D857C-124F-40E6-B515-B94EF700DE80</a:ObjectID>
 <a:CreationDate>1394045142</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -3115,7 +3135,7 @@ DAT 1394044485</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:IndexColumn.Expression>PRF_USER__NOM</a:IndexColumn.Expression>
 </o:IndexColumn>
-<o:IndexColumn Id="o103">
+<o:IndexColumn Id="o105">
 <a:ObjectID>3C37E054-26BE-4DBD-942F-B16EE5D4597B</a:ObjectID>
 <a:CreationDate>1394045142</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -3127,7 +3147,7 @@ DAT 1394044485</a:History>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o96"/>
+<o:Key Ref="o98"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o36">
@@ -3136,13 +3156,13 @@ DAT 1394044485</a:History>
 <a:Code>PRF_PROFIL</a:Code>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394963199</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
+<a:ModificationDate>1395141002</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
 <a:History>ORG {9170EEE7-D3DE-4A88-B388-64B3899603FC}
 DAT 1394963196</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o104">
+<o:Column Id="o106">
 <a:ObjectID>BDCC160F-66C7-4C37-BBD0-192BF2A6A761</a:ObjectID>
 <a:Name>Identifiant profil</a:Name>
 <a:Code>PRF_PROFIL__ID</a:Code>
@@ -3156,7 +3176,7 @@ ATT NAME</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o105">
+<o:Column Id="o107">
 <a:ObjectID>070901A6-A626-4ED2-A0AB-C5D9C2E97FB7</a:ObjectID>
 <a:Name>Identifiant schéma</a:Name>
 <a:Code>PRF_SCHEMA__ID</a:Code>
@@ -3171,7 +3191,7 @@ ATT NAME</a:History>
 <a:Length>4</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o106">
+<o:Column Id="o108">
 <a:ObjectID>3CA1351D-DDDB-41E3-B9D5-C1D613BF6758</a:ObjectID>
 <a:Name>Code</a:Name>
 <a:Code>PRF_PROFIL__CODE</a:Code>
@@ -3184,7 +3204,7 @@ DAT 1394963196</a:History>
 <a:DataType>VARCHAR(50)</a:DataType>
 <a:Length>50</a:Length>
 </o:Column>
-<o:Column Id="o107">
+<o:Column Id="o109">
 <a:ObjectID>2C1B7BB8-EBE6-4021-8618-672C0E9C5D10</a:ObjectID>
 <a:Name>Libellé</a:Name>
 <a:Code>PRF_PROFIL__LIBELLE</a:Code>
@@ -3199,7 +3219,7 @@ DAT 1394963196</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o108">
+<o:Key Id="o110">
 <a:ObjectID>56E2AFC8-D4EA-4E73-B44B-5B3D3BF03701</a:ObjectID>
 <a:Name>PRF_PROFIL_PK</a:Name>
 <a:Code>PRF_PROFIL_PK</a:Code>
@@ -3211,12 +3231,12 @@ DAT 1394963196</a:History>
 DAT 1394963196
 INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
 <c:Key.Columns>
-<o:Column Ref="o104"/>
+<o:Column Ref="o106"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o109">
+<o:Index Id="o111">
 <a:ObjectID>9A69BD2B-BDC3-428C-AFA4-21E0CA51A265</a:ObjectID>
 <a:Name>PRF_PROFIL_PK</a:Name>
 <a:Code>PRF_PROFIL_PK</a:Code>
@@ -3226,22 +3246,22 @@ INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o108"/>
+<o:Key Ref="o110"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o110">
+<o:IndexColumn Id="o112">
 <a:ObjectID>EDD1E561-7607-49A4-80C4-CCD5655F8EC2</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o104"/>
+<o:Column Ref="o106"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o111">
+<o:Index Id="o113">
 <a:ObjectID>CF6C63A6-1AB4-4A40-A207-0C3A657A94AC</a:ObjectID>
 <a:Name>ASSOCIATION_2_FK</a:Name>
 <a:Code>ASSOCIATION_2_FK</a:Code>
@@ -3253,21 +3273,41 @@ INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
 <o:Reference Ref="o12"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o112">
+<o:IndexColumn Id="o114">
 <a:ObjectID>8C450C0A-9D00-4B1B-A457-F654BFEBEE29</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o105"/>
+<o:Column Ref="o107"/>
 </c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o115">
+<a:ObjectID>63D78A13-A9F3-4818-886D-13B51264554B</a:ObjectID>
+<a:Name>PRF_PROFIL_UK_REF</a:Name>
+<a:Code>PRF_PROFIL_UK_REF</a:Code>
+<a:CreationDate>1395140989</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395141008</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:IndexColumns>
+<o:IndexColumn Id="o116">
+<a:ObjectID>EC3B1E47-81F5-48FD-AAFB-7A8B21CEB05F</a:ObjectID>
+<a:CreationDate>1395141002</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395141008</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:IndexColumn.Expression>PRF_PROFIL__CODE</a:IndexColumn.Expression>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o108"/>
+<o:Key Ref="o110"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o43">
@@ -3282,7 +3322,7 @@ INS COLNCOL {21717FAB-AD1B-4731-B303-C1A7D93B3303}</a:History>
 DAT 1394965849</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o113">
+<o:Column Id="o117">
 <a:ObjectID>9D1287B6-5672-4DE9-B13C-EF116AEC6D04</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>PRF_PROFIL_TABLE__ID</a:Code>
@@ -3295,7 +3335,7 @@ DAT 1394965849</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o114">
+<o:Column Id="o118">
 <a:ObjectID>F2BA3C95-FB70-4EA3-9A19-89ED5210698C</a:ObjectID>
 <a:Name>Identifiant2</a:Name>
 <a:Code>PRF_PROFIL__ID</a:Code>
@@ -3309,7 +3349,7 @@ DAT 1394965849</a:History>
 <a:Length>4</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o115">
+<o:Column Id="o119">
 <a:ObjectID>87220681-BE40-4AC5-9925-817E6B1FC673</a:ObjectID>
 <a:Name>Identifiant3</a:Name>
 <a:Code>PRF_TABLE__ID</a:Code>
@@ -3323,7 +3363,7 @@ DAT 1394965849</a:History>
 <a:Length>4</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o116">
+<o:Column Id="o120">
 <a:ObjectID>38C27564-CE5C-4C6E-8348-92E24E516CA0</a:ObjectID>
 <a:Name>Autoriser écriture</a:Name>
 <a:Code>PRF_PROFIL_TABLE__WRITE</a:Code>
@@ -3336,7 +3376,7 @@ DAT 1394965849</a:History>
 <a:DataType>BOOL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o117">
+<o:Column Id="o121">
 <a:ObjectID>55BB6701-A0B2-4A2C-AFB8-E55D1A03166E</a:ObjectID>
 <a:Name>Autoriser import</a:Name>
 <a:Code>PRF_PROFIL_TABLE__IMPORT</a:Code>
@@ -3351,7 +3391,7 @@ DAT 1394965849</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o118">
+<o:Key Id="o122">
 <a:ObjectID>FB7E0ACC-3B34-420E-90DA-574CCCC07974</a:ObjectID>
 <a:Name>PRF_PROFIL_TABLE_PK</a:Name>
 <a:Code>PRF_PROFIL_TABLE_PK</a:Code>
@@ -3363,12 +3403,12 @@ DAT 1394965849</a:History>
 DAT 1394965849
 INS COLNCOL {ECFC1355-A391-48A0-9836-E6996BF65516}</a:History>
 <c:Key.Columns>
-<o:Column Ref="o113"/>
+<o:Column Ref="o117"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o119">
+<o:Index Id="o123">
 <a:ObjectID>617134BA-EFE9-4642-8B13-3A26C1C96F69</a:ObjectID>
 <a:Name>PRF_PROFIL_TABLE_PK</a:Name>
 <a:Code>PRF_PROFIL_TABLE_PK</a:Code>
@@ -3378,22 +3418,22 @@ INS COLNCOL {ECFC1355-A391-48A0-9836-E6996BF65516}</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o118"/>
+<o:Key Ref="o122"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o120">
+<o:IndexColumn Id="o124">
 <a:ObjectID>05E6056E-244C-4FF1-ACE0-B4D4C03F0240</a:ObjectID>
 <a:CreationDate>1394965849</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394965850</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o113"/>
+<o:Column Ref="o117"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o121">
+<o:Index Id="o125">
 <a:ObjectID>3904190B-1863-4535-8531-257EBCA7C1C8</a:ObjectID>
 <a:Name>PRF_TABLE__PRF_PROFIL_TABLE_FK</a:Name>
 <a:Code>PRF_TABLE__PRF_PROFIL_TABLE_FK</a:Code>
@@ -3405,19 +3445,19 @@ INS COLNCOL {ECFC1355-A391-48A0-9836-E6996BF65516}</a:History>
 <o:Reference Ref="o21"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o122">
+<o:IndexColumn Id="o126">
 <a:ObjectID>DBA6E431-B4FC-4679-821B-473373794734</a:ObjectID>
 <a:CreationDate>1394965849</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394965850</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o115"/>
+<o:Column Ref="o119"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o123">
+<o:Index Id="o127">
 <a:ObjectID>5FB04D16-BD52-42BD-A619-9342C24B4043</a:ObjectID>
 <a:Name>PRF_PROFIL__PRF_PROFIL_TABLE_FK</a:Name>
 <a:Code>PRF_PROFIL__PRF_PROFIL_TABLE_FK</a:Code>
@@ -3429,21 +3469,21 @@ INS COLNCOL {ECFC1355-A391-48A0-9836-E6996BF65516}</a:History>
 <o:Reference Ref="o23"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o124">
+<o:IndexColumn Id="o128">
 <a:ObjectID>1E08E599-1DE0-4548-A5E3-F3C4D3F635C2</a:ObjectID>
 <a:CreationDate>1394965849</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394965850</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o114"/>
+<o:Column Ref="o118"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o118"/>
+<o:Key Ref="o122"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o38">
@@ -3452,13 +3492,13 @@ INS COLNCOL {ECFC1355-A391-48A0-9836-E6996BF65516}</a:History>
 <a:Code>PRF_TABLE</a:Code>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394963199</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
+<a:ModificationDate>1395141028</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
 <a:History>ORG {9820C433-C4FA-48EF-8E20-0691562B1E64}
 DAT 1394963196</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o125">
+<o:Column Id="o129">
 <a:ObjectID>3F686140-0C40-4F5F-B38D-BAA3CFC5D8D0</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>PRF_TABLE__ID</a:Code>
@@ -3471,7 +3511,7 @@ DAT 1394963196</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o126">
+<o:Column Id="o130">
 <a:ObjectID>BC458388-9DDA-4D42-B291-A5A8BBBCEFAF</a:ObjectID>
 <a:Name>Identifiant schéma</a:Name>
 <a:Code>PRF_SCHEMA__ID</a:Code>
@@ -3486,7 +3526,7 @@ ATT NAME</a:History>
 <a:Length>4</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o127">
+<o:Column Id="o131">
 <a:ObjectID>67283697-B8C9-4784-979C-C54804E7E9BC</a:ObjectID>
 <a:Name>Nom</a:Name>
 <a:Code>PRF_TABLE__NAME</a:Code>
@@ -3500,7 +3540,7 @@ DAT 1394963196</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o128">
+<o:Column Id="o132">
 <a:ObjectID>2C66E735-E68B-4A63-A6E9-25969A5C1CFF</a:ObjectID>
 <a:Name>Libellé</a:Name>
 <a:Code>PRF_TABLE__LIBELLE</a:Code>
@@ -3515,7 +3555,7 @@ DAT 1394963196</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o129">
+<o:Key Id="o133">
 <a:ObjectID>C7D33F0D-0720-4A6C-9693-01271CE0D0F4</a:ObjectID>
 <a:Name>PRF_TABLE_PK</a:Name>
 <a:Code>PRF_TABLE_PK</a:Code>
@@ -3527,12 +3567,12 @@ DAT 1394963196</a:History>
 DAT 1394963196
 INS COLNCOL {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}</a:History>
 <c:Key.Columns>
-<o:Column Ref="o125"/>
+<o:Column Ref="o129"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o130">
+<o:Index Id="o134">
 <a:ObjectID>FC371018-A1D8-47DE-BD4B-53285BA6988B</a:ObjectID>
 <a:Name>PRF_TABLE_PK</a:Name>
 <a:Code>PRF_TABLE_PK</a:Code>
@@ -3542,22 +3582,22 @@ INS COLNCOL {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o129"/>
+<o:Key Ref="o133"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o131">
+<o:IndexColumn Id="o135">
 <a:ObjectID>BFED29EF-C462-441C-B3D4-EAEC4D715620</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o125"/>
+<o:Column Ref="o129"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o132">
+<o:Index Id="o136">
 <a:ObjectID>B3F7FF5D-886E-4A6D-BC57-EE83ED1B89B7</a:ObjectID>
 <a:Name>PRF_SCHEMA__PRF_TABLE_FK</a:Name>
 <a:Code>PRF_SCHEMA__PRF_TABLE_FK</a:Code>
@@ -3569,21 +3609,41 @@ INS COLNCOL {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}</a:History>
 <o:Reference Ref="o9"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o133">
+<o:IndexColumn Id="o137">
 <a:ObjectID>FAEE7A1E-8E70-4236-8384-AC542A80F1F2</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o126"/>
+<o:Column Ref="o130"/>
 </c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o138">
+<a:ObjectID>A6EDD877-390C-4F75-A996-4E3E252E1E65</a:ObjectID>
+<a:Name>PRF_TABLE_UK_REF</a:Name>
+<a:Code>PRF_TABLE_UK_REF</a:Code>
+<a:CreationDate>1395141016</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395141033</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:IndexColumns>
+<o:IndexColumn Id="o139">
+<a:ObjectID>E480CA2E-35C7-4746-80F8-A8F1ECC84071</a:ObjectID>
+<a:CreationDate>1395141028</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395141033</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:IndexColumn.Expression>PRF_TABLE__NAME</a:IndexColumn.Expression>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o129"/>
+<o:Key Ref="o133"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o37">
@@ -3592,13 +3652,13 @@ INS COLNCOL {EA771A5D-37DD-450A-8ED9-EEF31F4BE230}</a:History>
 <a:Code>PRF_SCHEMA</a:Code>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
-<a:ModificationDate>1394963199</a:ModificationDate>
-<a:Modifier>Champ</a:Modifier>
+<a:ModificationDate>1395140937</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
 <a:History>ORG {4574CE7D-061F-47A5-99FD-C2FC4D427757}
 DAT 1394963196</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o134">
+<o:Column Id="o140">
 <a:ObjectID>2DEF69D9-9A45-4BAA-A857-623676CDE2F2</a:ObjectID>
 <a:Name>Identifiant</a:Name>
 <a:Code>PRF_SCHEMA__ID</a:Code>
@@ -3611,7 +3671,7 @@ DAT 1394963196</a:History>
 <a:DataType>SERIAL</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o135">
+<o:Column Id="o141">
 <a:ObjectID>FF5DAC88-9BA3-4841-AA30-93BAD24A82EB</a:ObjectID>
 <a:Name>Nom</a:Name>
 <a:Code>PRF_SCHEMA__NAME</a:Code>
@@ -3625,7 +3685,7 @@ DAT 1394963196</a:History>
 <a:Length>50</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o136">
+<o:Column Id="o142">
 <a:ObjectID>4CD1E673-6F19-445C-B620-48681C9C7587</a:ObjectID>
 <a:Name>Libellé</a:Name>
 <a:Code>PRF_SCHEMA__LIBELLE</a:Code>
@@ -3640,7 +3700,7 @@ DAT 1394963196</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o137">
+<o:Key Id="o143">
 <a:ObjectID>58D3623E-D162-4D96-81A6-255ED5687969</a:ObjectID>
 <a:Name>PRF_SCHEMA_PK</a:Name>
 <a:Code>PRF_SCHEMA_PK</a:Code>
@@ -3652,12 +3712,12 @@ DAT 1394963196</a:History>
 DAT 1394963196
 INS COLNCOL {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5}</a:History>
 <c:Key.Columns>
-<o:Column Ref="o134"/>
+<o:Column Ref="o140"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o138">
+<o:Index Id="o144">
 <a:ObjectID>8F8DDA44-7B5C-482E-BF68-1D049AD29172</a:ObjectID>
 <a:Name>PRF_SCHEMA_PK</a:Name>
 <a:Code>PRF_SCHEMA_PK</a:Code>
@@ -3667,24 +3727,44 @@ INS COLNCOL {9C2F78C7-C3D5-4CB2-8897-E758EEF634C5}</a:History>
 <a:Modifier>Champ</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o137"/>
+<o:Key Ref="o143"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o139">
+<o:IndexColumn Id="o145">
 <a:ObjectID>9B4CD477-90A1-4999-A944-C95C5C86CCF9</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Column>
-<o:Column Ref="o134"/>
+<o:Column Ref="o140"/>
 </c:Column>
+</o:IndexColumn>
+</c:IndexColumns>
+</o:Index>
+<o:Index Id="o146">
+<a:ObjectID>903D539F-297C-4952-91DF-A278C28AF99D</a:ObjectID>
+<a:Name>PRF_SCHEMA_UK_REF</a:Name>
+<a:Code>PRF_SCHEMA_UK_REF</a:Code>
+<a:CreationDate>1395140925</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395140942</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:Unique>1</a:Unique>
+<c:IndexColumns>
+<o:IndexColumn Id="o147">
+<a:ObjectID>5693AB1E-D7AE-4E93-8687-96F74DC1878D</a:ObjectID>
+<a:CreationDate>1395140937</a:CreationDate>
+<a:Creator>loic</a:Creator>
+<a:ModificationDate>1395140942</a:ModificationDate>
+<a:Modifier>loic</a:Modifier>
+<a:IndexColumn.Expression>PRF_SCHEMA__NAME</a:IndexColumn.Expression>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o137"/>
+<o:Key Ref="o143"/>
 </c:PrimaryKey>
 </o:Table>
 </c:Tables>
@@ -3713,7 +3793,7 @@ ATT MAND</a:History>
 <o:Key Ref="o76"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o140">
+<o:ReferenceJoin Id="o148">
 <a:ObjectID>8168168A-264C-4576-83EB-5993689DA589</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
@@ -3748,20 +3828,20 @@ DAT 1394965849</a:History>
 <o:Table Ref="o43"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o108"/>
+<o:Key Ref="o110"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o141">
+<o:ReferenceJoin Id="o149">
 <a:ObjectID>0411B9AD-972C-41F7-BD70-416E691985CC</a:ObjectID>
 <a:CreationDate>1394965849</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394965850</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o104"/>
+<o:Column Ref="o106"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o114"/>
+<o:Column Ref="o118"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -3787,20 +3867,20 @@ ATT MAND</a:History>
 <o:Table Ref="o45"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o108"/>
+<o:Key Ref="o110"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o142">
+<o:ReferenceJoin Id="o150">
 <a:ObjectID>009E9E49-6DA3-48AD-9B72-A9AC6D26D04B</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394966232</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o104"/>
+<o:Column Ref="o106"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o82"/>
+<o:Column Ref="o84"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -3826,17 +3906,17 @@ ATT MAND</a:History>
 <o:Table Ref="o44"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o108"/>
+<o:Key Ref="o110"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o143">
+<o:ReferenceJoin Id="o151">
 <a:ObjectID>89426803-93A3-4260-9D9B-83A7C2397574</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394966232</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o104"/>
+<o:Column Ref="o106"/>
 </c:Object1>
 <c:Object2>
 <o:Column Ref="o64"/>
@@ -3864,20 +3944,20 @@ DAT 1394963196</a:History>
 <o:Table Ref="o38"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o137"/>
+<o:Key Ref="o143"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o144">
+<o:ReferenceJoin Id="o152">
 <a:ObjectID>85059B36-8405-4DEF-9F57-2FB86EDDB0B7</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o134"/>
+<o:Column Ref="o140"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o126"/>
+<o:Column Ref="o130"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -3902,20 +3982,20 @@ DAT 1394963196</a:History>
 <o:Table Ref="o36"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o137"/>
+<o:Key Ref="o143"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o145">
+<o:ReferenceJoin Id="o153">
 <a:ObjectID>CA6D8759-BE7C-4AB8-B52F-47BC030FF8C2</a:ObjectID>
 <a:CreationDate>1394963196</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963199</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o134"/>
+<o:Column Ref="o140"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o105"/>
+<o:Column Ref="o107"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -3940,17 +4020,17 @@ DAT 1394963978</a:History>
 <o:Table Ref="o40"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o137"/>
+<o:Key Ref="o143"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o146">
+<o:ReferenceJoin Id="o154">
 <a:ObjectID>114587E9-4444-489A-97C3-60C5A3AC05CD</a:ObjectID>
 <a:CreationDate>1394963978</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963979</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o134"/>
+<o:Column Ref="o140"/>
 </c:Object1>
 <c:Object2>
 <o:Column Ref="o54"/>
@@ -3978,17 +4058,17 @@ DAT 1394963978</a:History>
 <o:Table Ref="o39"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o137"/>
+<o:Key Ref="o143"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o147">
+<o:ReferenceJoin Id="o155">
 <a:ObjectID>FDD0680A-B230-4D14-B819-10A0AA67F486</a:ObjectID>
 <a:CreationDate>1394963978</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394963979</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o134"/>
+<o:Column Ref="o140"/>
 </c:Object1>
 <c:Object2>
 <o:Column Ref="o73"/>
@@ -4016,20 +4096,20 @@ DAT 1394965849</a:History>
 <o:Table Ref="o43"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o129"/>
+<o:Key Ref="o133"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o148">
+<o:ReferenceJoin Id="o156">
 <a:ObjectID>1AEFA952-C8EA-4B0E-ABF4-371865A35E7C</a:ObjectID>
 <a:CreationDate>1394965849</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394965850</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o125"/>
+<o:Column Ref="o129"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o115"/>
+<o:Column Ref="o119"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -4055,27 +4135,27 @@ ATT MAND</a:History>
 <o:Table Ref="o45"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o96"/>
+<o:Key Ref="o98"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o149">
+<o:ReferenceJoin Id="o157">
 <a:ObjectID>CD1C94B7-0089-4407-9C55-F20FC392C348</a:ObjectID>
 <a:CreationDate>1394966231</a:CreationDate>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394966232</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
 <c:Object1>
-<o:Column Ref="o91"/>
+<o:Column Ref="o93"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o83"/>
+<o:Column Ref="o85"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
 </o:Reference>
 </c:References>
 <c:DefaultGroups>
-<o:Group Id="o150">
+<o:Group Id="o158">
 <a:ObjectID>61080F51-2B9B-4400-B456-2CD7A3BD8A24</a:ObjectID>
 <a:Name>PUBLIC</a:Name>
 <a:Code>PUBLIC</a:Code>
@@ -4086,7 +4166,7 @@ ATT MAND</a:History>
 </o:Group>
 </c:DefaultGroups>
 <c:TargetModels>
-<o:TargetModel Id="o151">
+<o:TargetModel Id="o159">
 <a:ObjectID>56B65AC5-3879-4C0B-8E62-07727F471AA8</a:ObjectID>
 <a:Name>PostgreSQL 8</a:Name>
 <a:Code>PGSQL80</a:Code>
@@ -4101,7 +4181,7 @@ ATT MAND</a:History>
 <o:Shortcut Ref="o4"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o152">
+<o:TargetModel Id="o160">
 <a:ObjectID>4C7DB83D-ABE2-43EF-B422-EB6A600C0BF7</a:ObjectID>
 <a:Name>Gestion des utilisateurs</a:Name>
 <a:Code>PRF</a:Code>
@@ -4109,7 +4189,7 @@ ATT MAND</a:History>
 <a:Creator>Champ</a:Creator>
 <a:ModificationDate>1394045107</a:ModificationDate>
 <a:Modifier>Champ</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/Champ/Documents/GitHub/GeoPat/Modèlisation/PRF.mcd</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/loic.EMASH/Documents/GitHub/GeoPat/Modèlisation/PRF.mcd</a:TargetModelURL>
 <a:TargetModelID>C380AB8A-2C90-4A81-8567-777EE163E9BB</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
 <c:SessionShortcuts>

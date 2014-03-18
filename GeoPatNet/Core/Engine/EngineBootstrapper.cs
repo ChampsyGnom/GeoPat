@@ -88,7 +88,9 @@ namespace Emash.GeoPatNet.Engine
             V mainView = this.Container.Resolve<V>();
             return mainView;
         }
-
+        public virtual void InitializeApplication()
+        {
+        }
         protected override void InitializeModules()
         {
            
@@ -102,7 +104,7 @@ namespace Emash.GeoPatNet.Engine
             {
                // _moduleInitializerTask = new Task(new Action(delegate()
               //  {
-                dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
+                dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
                     if (dashBoardService != null)
                     { dashBoardService.Initialize(); }
 
@@ -112,10 +114,12 @@ namespace Emash.GeoPatNet.Engine
                     if (cartoService != null)
                     { cartoService.Initialize(); }
 
+                    this.InitializeApplication();
 
                     this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
               //  }));
               //  _moduleInitializerTask.Start();
+                   
               
             }
            

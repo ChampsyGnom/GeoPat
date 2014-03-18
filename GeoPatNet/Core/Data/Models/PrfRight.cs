@@ -33,6 +33,7 @@ namespace Emash.GeoPatNet.Data.Models
         }
         [DisplayName("Code")]
         [ColumnName("PRF_RIGHT__CODE")]
+        [UniqueKey("PRF_RIGHT_UK_REF")]
         [MaxCharLength(50)]
         [ControlType(ControlType.Text)]
         [AllowNull(false)]
@@ -45,7 +46,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("PRF_RIGHT__ID")]
         [PrimaryKey("PRF_RIGHT_PK")]
-        [ForeignKeyAttribute("PRF_RIGHT__PRF_PROFIL_RIGHT","JOIN_o140")]
+        [ForeignKeyAttribute("PRF_RIGHT__PRF_PROFIL_RIGHT","JOIN_o148")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

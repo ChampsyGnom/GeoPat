@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+               xmlns:bb="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Views;assembly=GeoPatNet.Presentation"
              d:DesignHeight="300" d:DesignWidth="300">
     <GroupBox Margin="4" Header="Gestion des profils">
@@ -14,11 +16,48 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition MinWidth="200" Width="Auto"></ColumnDefinition>
+                <ColumnDefinition MinWidth="300" Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <v:GenericDataGridControl ></v:GenericDataGridControl>
-            <v:GenericDataFormControl Grid.Column="1"></v:GenericDataFormControl>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <v:GenericDataFormControl Grid.Row="0"></v:GenericDataFormControl>
+                <TabControl Grid.Row="1">
+                    <TabItem Header="Droits sur les tables">
+                        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="False" ItemsSource="{Binding Path=ItemsView.CurrentItem.Model.PrfProfilTables,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                            <i:Interaction.Behaviors>
+                                <bb:DataGridCellEditEndingBehavior CellEditEndingCommand="{Binding Path=ProfilTableDataGridCellEditEndingCommand}"></bb:DataGridCellEditEndingBehavior>
+                            </i:Interaction.Behaviors>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn IsReadOnly="True" Header="Nom" Binding="{Binding Path=PrfTable.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn IsReadOnly="True" Header="Libellé" Binding="{Binding Path=PrfTable.Libelle}"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Ecrire">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Path=Write,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Importer">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox  HorizontalAlignment="Center" IsChecked="{Binding Path=Import,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        
+                    </TabItem>
+                    <TabItem Header="Privilèges"></TabItem>
+                </TabControl>
+            </Grid>
+            
             <v:DataToolbar Grid.Row="1" Grid.ColumnSpan="2"></v:DataToolbar>
         </Grid>
     </GroupBox>

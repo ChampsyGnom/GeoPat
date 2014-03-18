@@ -113,6 +113,7 @@
     <Compile Include="Attributes\UniqueKeyAttribute.cs" />
     <Compile Include="Behaviors\AvalonDocumentClosingBehavior.cs" />
     <Compile Include="Behaviors\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Behaviors\DataGridCellEditEndingBehavior.cs" />
     <Compile Include="Behaviors\RibbonTabSelectionChangeBehavior.cs" />
     <Compile Include="Behaviors\TreeViewContextMenuOpeningBehavior.cs" />
     <Compile Include="Behaviors\DataGridContextMenuOpeningBehavior.cs" />
