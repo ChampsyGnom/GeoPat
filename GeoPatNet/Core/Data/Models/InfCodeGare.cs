@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,7 +17,7 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Gares")]
-        public virtual ICollection<InfGare> InfGares
+        public virtual ObservableCollection<InfGare> InfGares
         {
             get;
             set;
@@ -55,6 +56,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfCodeGare ()
+		{
+            this.InfGares = new ObservableCollection<InfGare>();
+		}
 
     }
 }

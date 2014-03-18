@@ -170,6 +170,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                 allFks = (from fk in allFks select fk).Distinct().ToList();
                 foreach (DbTable table in schema.Tables)
                 {
+                    List<String> constructors = new List<string>();
                     String className = NameConverter.TableNameToEntityName(table.Name)+"";
                     String modelFileName = Path.Combine(modelPath, className + ".cs");
                     TemplateFileWriter writer = new TemplateFileWriter(modelFileName, templateFileName);
@@ -181,7 +182,8 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                     {
                         DbTable childTable = (from t in schema.Tables where t.Id.Equals(childFk.ChildTableId) select t).FirstOrDefault();
                         String childEntityName = NameConverter.TableNameToEntityName(childTable.Name);
-                        TemplateProperty prop = writer.AddProperty("public virtual ICollection<" + childEntityName + ">", childEntityName + "s");
+                        TemplateProperty prop = writer.AddProperty("public virtual ObservableCollection<" + childEntityName + ">", childEntityName + "s");
+                        constructors.Add ("            this."+childEntityName + "s = new ObservableCollection<" + childEntityName + ">();");
                         prop.Attributes.Add("[DisplayName(\"" + childTable.DisplayName + "s\")]");
                         
                     }
@@ -520,6 +522,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
                         }
                         else Console.WriteLine(column.DataType);
                     }
+                    writer.ReplaceTag("@Constructors", String.Join("\r\n", constructors));
                     writer.WriteContent();
                 }
             }

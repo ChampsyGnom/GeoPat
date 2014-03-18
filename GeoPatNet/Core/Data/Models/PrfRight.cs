@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,7 +17,7 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Privilège des profilss")]
-        public virtual ICollection<PrfProfilRight> PrfProfilRights
+        public virtual ObservableCollection<PrfProfilRight> PrfProfilRights
         {
             get;
             set;
@@ -75,6 +76,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public PrfRight ()
+		{
+            this.PrfProfilRights = new ObservableCollection<PrfProfilRight>();
+		}
 
     }
 }

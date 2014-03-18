@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,7 +17,7 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Contact des classeurss")]
-        public virtual ICollection<InfContactCls> InfContactClss
+        public virtual ObservableCollection<InfContactCls> InfContactClss
         {
             get;
             set;
@@ -114,6 +115,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfContact ()
+		{
+            this.InfContactClss = new ObservableCollection<InfContactCls>();
+		}
 
     }
 }

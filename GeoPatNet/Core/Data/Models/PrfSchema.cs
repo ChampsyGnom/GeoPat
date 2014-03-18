@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,25 +17,25 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Paramètress")]
-        public virtual ICollection<PrfParam> PrfParams
+        public virtual ObservableCollection<PrfParam> PrfParams
         {
             get;
             set;
         }
         [DisplayName("Privilègess")]
-        public virtual ICollection<PrfRight> PrfRights
+        public virtual ObservableCollection<PrfRight> PrfRights
         {
             get;
             set;
         }
         [DisplayName("Profilss")]
-        public virtual ICollection<PrfProfil> PrfProfils
+        public virtual ObservableCollection<PrfProfil> PrfProfils
         {
             get;
             set;
         }
         [DisplayName("Tabless")]
-        public virtual ICollection<PrfTable> PrfTables
+        public virtual ObservableCollection<PrfTable> PrfTables
         {
             get;
             set;
@@ -76,6 +77,14 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public PrfSchema ()
+		{
+            this.PrfParams = new ObservableCollection<PrfParam>();
+            this.PrfRights = new ObservableCollection<PrfRight>();
+            this.PrfProfils = new ObservableCollection<PrfProfil>();
+            this.PrfTables = new ObservableCollection<PrfTable>();
+		}
 
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,7 +17,7 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Tableau de bords")]
-        public virtual ICollection<InfDashboard> InfDashboards
+        public virtual ObservableCollection<InfDashboard> InfDashboards
         {
             get;
             set;
@@ -54,6 +55,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfCodeDashboard ()
+		{
+            this.InfDashboards = new ObservableCollection<InfDashboard>();
+		}
 
     }
 }

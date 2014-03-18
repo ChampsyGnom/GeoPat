@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,7 +17,7 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Table des profils")]
-        public virtual ICollection<PrfProfilTable> PrfProfilTables
+        public virtual ObservableCollection<PrfProfilTable> PrfProfilTables
         {
             get;
             set;
@@ -75,6 +76,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public PrfTable ()
+		{
+            this.PrfProfilTables = new ObservableCollection<PrfProfilTable>();
+		}
 
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,127 +17,127 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Accidents")]
-        public virtual ICollection<InfAccident> InfAccidents
+        public virtual ObservableCollection<InfAccident> InfAccidents
         {
             get;
             set;
         }
         [DisplayName("Airess")]
-        public virtual ICollection<InfAire> InfAires
+        public virtual ObservableCollection<InfAire> InfAires
         {
             get;
             set;
         }
         [DisplayName("Aménagements")]
-        public virtual ICollection<InfAmenagement> InfAmenagements
+        public virtual ObservableCollection<InfAmenagement> InfAmenagements
         {
             get;
             set;
         }
         [DisplayName("Ancien repérages")]
-        public virtual ICollection<InfPrOld> InfPrOlds
+        public virtual ObservableCollection<InfPrOld> InfPrOlds
         {
             get;
             set;
         }
         [DisplayName("Bifurcations")]
-        public virtual ICollection<InfBifurcation> InfBifurcations
+        public virtual ObservableCollection<InfBifurcation> InfBifurcations
         {
             get;
             set;
         }
         [DisplayName("Bretelles")]
-        public virtual ICollection<InfBretelle> InfBretelles
+        public virtual ObservableCollection<InfBretelle> InfBretelles
         {
             get;
             set;
         }
         [DisplayName("Climats")]
-        public virtual ICollection<InfClimat> InfClimats
+        public virtual ObservableCollection<InfClimat> InfClimats
         {
             get;
             set;
         }
         [DisplayName("Eclairages")]
-        public virtual ICollection<InfEclairage> InfEclairages
+        public virtual ObservableCollection<InfEclairage> InfEclairages
         {
             get;
             set;
         }
         [DisplayName("Gares")]
-        public virtual ICollection<InfGare> InfGares
+        public virtual ObservableCollection<InfGare> InfGares
         {
             get;
             set;
         }
         [DisplayName("Occupations")]
-        public virtual ICollection<InfOccupation> InfOccupations
+        public virtual ObservableCollection<InfOccupation> InfOccupations
         {
             get;
             set;
         }
         [DisplayName("Pavé voies")]
-        public virtual ICollection<InfPaveVoie> InfPaveVoies
+        public virtual ObservableCollection<InfPaveVoie> InfPaveVoies
         {
             get;
             set;
         }
         [DisplayName("PK Chantiers")]
-        public virtual ICollection<InfPk> InfPks
+        public virtual ObservableCollection<InfPk> InfPks
         {
             get;
             set;
         }
         [DisplayName("Point singuliers")]
-        public virtual ICollection<InfPtSing> InfPtSings
+        public virtual ObservableCollection<InfPtSing> InfPtSings
         {
             get;
             set;
         }
         [DisplayName("Répartition trafics")]
-        public virtual ICollection<InfRepartitionTrafic> InfRepartitionTrafics
+        public virtual ObservableCollection<InfRepartitionTrafic> InfRepartitionTrafics
         {
             get;
             set;
         }
         [DisplayName("Repères")]
-        public virtual ICollection<InfRepere> InfReperes
+        public virtual ObservableCollection<InfRepere> InfReperes
         {
             get;
             set;
         }
         [DisplayName("Section trafics")]
-        public virtual ICollection<InfSectionTrafic> InfSectionTrafics
+        public virtual ObservableCollection<InfSectionTrafic> InfSectionTrafics
         {
             get;
             set;
         }
         [DisplayName("Sécurités")]
-        public virtual ICollection<InfSecurite> InfSecurites
+        public virtual ObservableCollection<InfSecurite> InfSecurites
         {
             get;
             set;
         }
         [DisplayName("Sensibilités")]
-        public virtual ICollection<InfSensible> InfSensibles
+        public virtual ObservableCollection<InfSensible> InfSensibles
         {
             get;
             set;
         }
         [DisplayName("Taluss")]
-        public virtual ICollection<InfTalus> InfTaluss
+        public virtual ObservableCollection<InfTalus> InfTaluss
         {
             get;
             set;
         }
         [DisplayName("Terre plein centrals")]
-        public virtual ICollection<InfTpc> InfTpcs
+        public virtual ObservableCollection<InfTpc> InfTpcs
         {
             get;
             set;
         }
         [DisplayName("Tronçons découpages")]
-        public virtual ICollection<InfTrDec> InfTrDecs
+        public virtual ObservableCollection<InfTrDec> InfTrDecs
         {
             get;
             set;
@@ -267,6 +268,31 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfChaussee ()
+		{
+            this.InfAccidents = new ObservableCollection<InfAccident>();
+            this.InfAires = new ObservableCollection<InfAire>();
+            this.InfAmenagements = new ObservableCollection<InfAmenagement>();
+            this.InfPrOlds = new ObservableCollection<InfPrOld>();
+            this.InfBifurcations = new ObservableCollection<InfBifurcation>();
+            this.InfBretelles = new ObservableCollection<InfBretelle>();
+            this.InfClimats = new ObservableCollection<InfClimat>();
+            this.InfEclairages = new ObservableCollection<InfEclairage>();
+            this.InfGares = new ObservableCollection<InfGare>();
+            this.InfOccupations = new ObservableCollection<InfOccupation>();
+            this.InfPaveVoies = new ObservableCollection<InfPaveVoie>();
+            this.InfPks = new ObservableCollection<InfPk>();
+            this.InfPtSings = new ObservableCollection<InfPtSing>();
+            this.InfRepartitionTrafics = new ObservableCollection<InfRepartitionTrafic>();
+            this.InfReperes = new ObservableCollection<InfRepere>();
+            this.InfSectionTrafics = new ObservableCollection<InfSectionTrafic>();
+            this.InfSecurites = new ObservableCollection<InfSecurite>();
+            this.InfSensibles = new ObservableCollection<InfSensible>();
+            this.InfTaluss = new ObservableCollection<InfTalus>();
+            this.InfTpcs = new ObservableCollection<InfTpc>();
+            this.InfTrDecs = new ObservableCollection<InfTrDec>();
+		}
 
     }
 }

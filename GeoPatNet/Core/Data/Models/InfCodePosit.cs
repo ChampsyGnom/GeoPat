@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,13 +17,13 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Eclairages")]
-        public virtual ICollection<InfEclairage> InfEclairages
+        public virtual ObservableCollection<InfEclairage> InfEclairages
         {
             get;
             set;
         }
         [DisplayName("Sécurités")]
-        public virtual ICollection<InfSecurite> InfSecurites
+        public virtual ObservableCollection<InfSecurite> InfSecurites
         {
             get;
             set;
@@ -62,6 +63,12 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfCodePosit ()
+		{
+            this.InfEclairages = new ObservableCollection<InfEclairage>();
+            this.InfSecurites = new ObservableCollection<InfSecurite>();
+		}
 
     }
 }

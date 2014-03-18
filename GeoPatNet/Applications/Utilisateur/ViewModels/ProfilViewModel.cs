@@ -10,6 +10,8 @@ using Emash.GeoPatNet.Infrastructure.Enums;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 
 namespace Emash.GeoPatNet.App.Utilisateur.ViewModels
 {
@@ -37,6 +39,7 @@ namespace Emash.GeoPatNet.App.Utilisateur.ViewModels
             DbSet<PrfTable> tables = dataService.GetDbSet<PrfTable>();
             DbSet<PrfProfil> profils = dataService.GetDbSet<PrfProfil>();
             DbSet<PrfProfilTable> profilTables = dataService.GetDbSet<PrfProfilTable>();
+            ObjectContext objectContext = ((IObjectContextAdapter)dataService.DataContext).ObjectContext;
             if (state == GenericDataListState.InsertingEmpty || state == GenericDataListState.InsertingDisplay)
             {
                 foreach (PrfTable table in model.PrfSchema.PrfTables)
@@ -49,10 +52,11 @@ namespace Emash.GeoPatNet.App.Utilisateur.ViewModels
                         profilTable.PrfTableId = table.Id;
                         profilTable.Import = false;
                         profilTable.Write = false;
-                        profilTables.Add(profilTable);                        
+                        profilTables.Add(profilTable);
                     }
                 }
                 dataService.DataContext.SaveChanges();
+                objectContext.Refresh(RefreshMode.ClientWins, model);
                 
             }
         }

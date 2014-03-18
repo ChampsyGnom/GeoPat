@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             x:Name="userMatserDetailView"
              xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Views;assembly=GeoPatNet.Presentation"
              d:DesignHeight="300" d:DesignWidth="600">
     <GroupBox Margin="4" Header="Gestion des utilisateurs">
@@ -18,7 +19,58 @@
             </Grid.ColumnDefinitions>
 
             <v:GenericDataGridControl ></v:GenericDataGridControl>
-            <v:GenericDataFormControl Grid.Column="1"></v:GenericDataFormControl>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <v:GenericDataFormControl Grid.Row="0"></v:GenericDataFormControl>
+                <GroupBox Header="Profils de l'utilisateurs" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ItemsControl Grid.Row="0" ItemsSource="{Binding Path=ItemsView.CurrentItem.Model.PrfUserProfils,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="2" HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Margin="2" Grid.Column="0" Text="{Binding Path=PrfProfil.Code,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                        <Button  IsEnabled="{Binding ElementName=userMatserDetailView,Path=DataContext.CanAddProfil,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  CommandParameter="{Binding}" Command="{Binding ElementName=userMatserDetailView,Path=DataContext.RemoveProfilCommand}"  Margin="2" Grid.Column="1" Content="Retirer">
+                                            
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Margin="2" Text="Profil : " Grid.Column="0"></TextBlock>
+                            <ComboBox IsEnabled="{Binding Path=CanAddProfil,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" x:Name="comboProfil" VerticalAlignment="Center" ItemsSource="{Binding Path=ProfilList,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2"  Grid.Column="1">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=Code}"></TextBlock>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                                
+                            </ComboBox>
+                            <Button IsEnabled="{Binding Path=CanAddProfil,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  CommandParameter="{Binding ElementName=comboProfil,Path=SelectedItem}" Command="{Binding Path=AddProfilCommand}" VerticalAlignment="Center" Content="Ajouter" Grid.Column="2" Margin="2">
+                                
+                            </Button>
+                        </Grid>
+                    </Grid>
+                 
+                </GroupBox>
+            </Grid>
+          
             <v:DataToolbar Grid.Row="1" Grid.ColumnSpan="2"></v:DataToolbar>
         </Grid>
     </GroupBox>

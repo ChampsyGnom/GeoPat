@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,7 +17,7 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Chaussées")]
-        public virtual ICollection<InfChaussee> InfChaussees
+        public virtual ObservableCollection<InfChaussee> InfChaussees
         {
             get;
             set;
@@ -76,6 +77,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfLiaison ()
+		{
+            this.InfChaussees = new ObservableCollection<InfChaussee>();
+		}
 
     }
 }

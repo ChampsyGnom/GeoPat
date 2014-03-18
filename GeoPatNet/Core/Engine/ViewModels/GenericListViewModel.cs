@@ -487,7 +487,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DbSet.Add(this.InsertingItem.Model);
                     this.DataService.DataContext.SaveChanges();
-                   // this.State = GenericDataListState.Search;
+                    this.State = GenericDataListState.Search;
                     this.Items.Clear();
                     this.Items.Add(this.SearchItem);
                      M item = this.InsertingItem.Model ;
@@ -499,7 +499,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                         GenericListCommitedEventArg<M> arg = new GenericListCommitedEventArg<M>(GenericCommitAction.Insert, item);
                         this.OnGenericListChange(this, arg);
                     }
-                    this.ClearExecute();
+                    this.AfterCommit(GenericDataListState.InsertingEmpty, item);
                 }
                
 
@@ -643,7 +643,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         private Boolean CanLockUnlockExecute()
         { return this.State == GenericDataListState.Search || this.State == GenericDataListState.Display; }
 
-        public void RaiseStateChange()
+        public virtual void RaiseStateChange()
         {
             if (this.State == GenericDataListState.Display)
             { this.CanSlide = true; }

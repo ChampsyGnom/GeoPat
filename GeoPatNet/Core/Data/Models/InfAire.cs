@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using System.Data.Entity.Spatial;
+using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Data.Models
 {
@@ -16,19 +17,19 @@ namespace Emash.GeoPatNet.Data.Models
     {
     	
         [DisplayName("Aire parkings")]
-        public virtual ICollection<InfAireParking> InfAireParkings
+        public virtual ObservableCollection<InfAireParking> InfAireParkings
         {
             get;
             set;
         }
         [DisplayName("Aire prestataires")]
-        public virtual ICollection<InfAirePrestataire> InfAirePrestataires
+        public virtual ObservableCollection<InfAirePrestataire> InfAirePrestataires
         {
             get;
             set;
         }
         [DisplayName("Aire services")]
-        public virtual ICollection<InfAireService> InfAireServices
+        public virtual ObservableCollection<InfAireService> InfAireServices
         {
             get;
             set;
@@ -171,6 +172,13 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
 
+
+		public InfAire ()
+		{
+            this.InfAireParkings = new ObservableCollection<InfAireParking>();
+            this.InfAirePrestataires = new ObservableCollection<InfAirePrestataire>();
+            this.InfAireServices = new ObservableCollection<InfAireService>();
+		}
 
     }
 }
