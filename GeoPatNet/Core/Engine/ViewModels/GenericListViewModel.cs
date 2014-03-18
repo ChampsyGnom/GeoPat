@@ -468,6 +468,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             
         }
 
+        public virtual void AfterCommit(GenericDataListState state,M model)
+        { }
 
         private void CommitExecute()        
         {
@@ -485,10 +487,11 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DbSet.Add(this.InsertingItem.Model);
                     this.DataService.DataContext.SaveChanges();
-                    this.State = GenericDataListState.Search;
+                   // this.State = GenericDataListState.Search;
                     this.Items.Clear();
                     this.Items.Add(this.SearchItem);
                      M item = this.InsertingItem.Model ;
+                     GenericListItemViewModel<M> vm = this.InsertingItem;
                     this.InsertingItem = null;
                     this.RaiseStateChange();
                     if (this.OnGenericListChange != null)
@@ -496,6 +499,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                         GenericListCommitedEventArg<M> arg = new GenericListCommitedEventArg<M>(GenericCommitAction.Insert, item);
                         this.OnGenericListChange(this, arg);
                     }
+                    this.ClearExecute();
                 }
                
 
@@ -511,6 +515,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 this.Items.Remove(this.DeletingItem);
                 this.DataService.DataContext.SaveChanges();
                 this.State = GenericDataListState.Display;
+                M item = this.DeletingItem.Model;
                 this.DeletingItem = null;
                 if (this.Items.Count == 0)
                 {
@@ -518,6 +523,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.ClearExecute();
                 }
                 else { this.RaiseStateChange(); }
+                this.AfterCommit(GenericDataListState.Deleting, item);
        
             }
             else if (this.State == GenericDataListState.Updating)
@@ -533,6 +539,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.DataService.DataContext.SaveChanges();
                     this.State = GenericDataListState.Display;
                     M item = this.UpdatingItem.Model;
+                    GenericListItemViewModel<M> vm = this.UpdatingItem;
                     this.UpdatingItem = null;
                     this.RaiseStateChange();
                     if (this.OnGenericListChange != null)
@@ -540,6 +547,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                         GenericListCommitedEventArg<M> arg = new GenericListCommitedEventArg<M>(GenericCommitAction.Update, item);
                         this.OnGenericListChange(this, arg);
                     }
+                    this.AfterCommit(GenericDataListState.Updating, item);
+                    this.ItemsView.MoveCurrentTo(vm);
                 }
                
                   
@@ -548,7 +557,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             else if (this.State == GenericDataListState.InsertingDisplay)
             {
                 String message = null;
-                if (!this.EntityTableInfo.Validate(this.UpdatingItem.Model, this.InsertingItem.Values,  out message))
+                if (!this.EntityTableInfo.Validate(this.InsertingItem.Model, this.InsertingItem.Values,  out message))
                 {
                     MessageBox.Show("Veuillez corriger les erreurs suivantes avant de valider la saisie : \r\n\r\n" + message, "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -557,11 +566,15 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this.InsertingItem.SaveToModel(this.FieldPaths.ToList());
                     this.DbSet.Add(this.InsertingItem.Model);
                     this.DataService.DataContext.SaveChanges();
+                    GenericListItemViewModel<M> vm = this.InsertingItem;
+                    M item = this.InsertingItem.Model;
                     this.State = GenericDataListState.Display;
                     this.InsertingItem = null;
                     this.RaiseStateChange();
+                    this.AfterCommit(GenericDataListState.InsertingDisplay,item);
+                    this.ItemsView.MoveCurrentTo(vm);
                 }
-             
+              
                
             }
         }

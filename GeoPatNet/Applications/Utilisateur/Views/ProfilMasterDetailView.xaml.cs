@@ -26,5 +26,10 @@ namespace Emash.GeoPatNet.App.Utilisateur.Views
             this.DataContext = vm;
             InitializeComponent();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             x:Name="profilMasterDetailView"
                xmlns:bb="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                xmlns:v="clr-namespace:Emash.GeoPatNet.Presentation.Views;assembly=GeoPatNet.Presentation"
@@ -28,17 +29,32 @@
                 <v:GenericDataFormControl Grid.Row="0"></v:GenericDataFormControl>
                 <TabControl Grid.Row="1">
                     <TabItem Header="Droits sur les tables">
-                        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="False" ItemsSource="{Binding Path=ItemsView.CurrentItem.Model.PrfProfilTables,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
-                            <i:Interaction.Behaviors>
-                                <bb:DataGridCellEditEndingBehavior CellEditEndingCommand="{Binding Path=ProfilTableDataGridCellEditEndingCommand}"></bb:DataGridCellEditEndingBehavior>
-                            </i:Interaction.Behaviors>
+                        <DataGrid  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" CanUserResizeRows="False" CanUserSortColumns="False" ItemsSource="{Binding Path=ItemsView.CurrentItem.Model.PrfProfilTables,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                            <DataGrid.Style>
+                                <Style TargetType="DataGrid">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsLocked,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True" >
+                                            <Setter Property="IsEnabled" Value="False"></Setter>
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding Path=IsLocked,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False" >
+                                            <Setter Property="IsEnabled" Value="True"></Setter>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.Style>
                             <DataGrid.Columns>
                                 <DataGridTextColumn IsReadOnly="True" Header="Nom" Binding="{Binding Path=PrfTable.Name}"></DataGridTextColumn>
                                 <DataGridTextColumn IsReadOnly="True" Header="Libellé" Binding="{Binding Path=PrfTable.Libelle}"></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Ecrire">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Path=Write,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                                            <CheckBox Checked="CheckBox_Checked" HorizontalAlignment="Center" IsChecked="{Binding Path=Write,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <i:Interaction.Behaviors>
+                                                    <bb:CheckBoxChangeBehavior CheckBoxChangeCommand="{Binding ElementName=profilMasterDetailView,Path=DataContext.ProfilTableCheckChangeCommand}"></bb:CheckBoxChangeBehavior>
+                                                </i:Interaction.Behaviors>
+                                            </CheckBox>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -46,7 +62,11 @@
                                 <DataGridTemplateColumn Header="Importer">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <CheckBox  HorizontalAlignment="Center" IsChecked="{Binding Path=Import,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                                            <CheckBox  HorizontalAlignment="Center" IsChecked="{Binding Path=Import,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                                <i:Interaction.Behaviors>
+                                                    <bb:CheckBoxChangeBehavior CheckBoxChangeCommand="{Binding ElementName=profilMasterDetailView,Path=DataContext.ProfilTableCheckChangeCommand}"></bb:CheckBoxChangeBehavior>
+                                                </i:Interaction.Behaviors>
+                                            </CheckBox>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
