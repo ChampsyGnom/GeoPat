@@ -95,49 +95,87 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                     }
                     else if (columnInfo.ControlType == ControlType.Integer)
                     {
-                        valueInt32 = Int64.Parse(valueString);
-                        if (valueInt32 > columnInfo.MaxNumericValue)
+                        if (String.IsNullOrEmpty(valueString))
                         {
-                            message = "la valeur doit être inférieur à  " + columnInfo.MaxNumericValue;
-                            value = null;
-                            return false;
-                        }
-                        else if (valueInt32 < columnInfo.MinNumericValue)
-                        {
-                            message = "la valeur doit être supérieur à  " + columnInfo.MaxNumericValue;
-                            value = null;
-                            return false;
+                            if (columnInfo.AllowNull)
+                            {
+                                value = null;
+                                message = null;
+                                return true;
+                            }
+                            else
+                            {
+                                value = null;
+                                message = "valeur vide non autorisé";
+                                return false;
+                            }
                         }
                         else
                         {
-                            value = valueInt32;
-                            message = null;
-                            return true;
+                            valueInt32 = Int64.Parse(valueString);
+                            if (valueInt32 > columnInfo.MaxNumericValue)
+                            {
+                                message = "la valeur doit être inférieur à  " + columnInfo.MaxNumericValue;
+                                value = null;
+                                return false;
+                            }
+                            else if (valueInt32 < columnInfo.MinNumericValue)
+                            {
+                                message = "la valeur doit être supérieur à  " + columnInfo.MaxNumericValue;
+                                value = null;
+                                return false;
+                            }
+                            else
+                            {
+                                value = valueInt32;
+                                message = null;
+                                return true;
+                            }
                         }
+                        
 
 
                     }
                     else if (columnInfo.ControlType == ControlType.Decimal)
                     {
-                        valueDouble = Double.Parse(valueString.Replace(",", "."), NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
-                        if (valueDouble > columnInfo.MaxNumericValue)
+                        if (String.IsNullOrEmpty(valueString))
                         {
-                            message = "la valeur doit être inférieur à  " + columnInfo.MaxNumericValue;
-                            value = null;
-                            return false;
-                        }
-                        else if (valueDouble < columnInfo.MinNumericValue)
-                        {
-                            message = "la valeur doit être supérieur à  " + columnInfo.MaxNumericValue;
-                            value = null;
-                            return false;
+                            if (columnInfo.AllowNull)
+                            {
+                                value = null;
+                                message = null;
+                                return true;
+                            }
+                            else
+                            {
+                                value = null;
+                                message = "valeur vide non autorisé";
+                                return false;
+                            }
                         }
                         else
                         {
-                            value = valueDouble;
-                            message = null;
-                            return true;
+                            valueDouble = Double.Parse(valueString.Replace(",", "."), NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture);
+                            if (valueDouble > columnInfo.MaxNumericValue)
+                            {
+                                message = "la valeur doit être inférieur à  " + columnInfo.MaxNumericValue;
+                                value = null;
+                                return false;
+                            }
+                            else if (valueDouble < columnInfo.MinNumericValue)
+                            {
+                                message = "la valeur doit être supérieur à  " + columnInfo.MaxNumericValue;
+                                value = null;
+                                return false;
+                            }
+                            else
+                            {
+                                value = valueDouble;
+                                message = null;
+                                return true;
+                            }
                         }
+                       
 
 
                     }

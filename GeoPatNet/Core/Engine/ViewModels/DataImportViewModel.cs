@@ -149,6 +149,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     String message = null;
                     int total = vm.Datas.Count;
                     int index = 0;
+                    Object propertyValue = null;
                     foreach (List<String> datas in vm.Datas)
                     {
                         index++;
@@ -159,7 +160,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                             {
                                 if (vm.Mapping.ContainsKey(field.ColumnInfo.PropertyName))
                                 {
-                                    Object propertyValue = null;
+                                   
                                     Nullable<Int64> valInt64 = 0;
                                     if (field.ColumnInfo.ControlType == ControlType.Pr)
                                     {
@@ -191,6 +192,64 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                             else
                             {
 
+                            }
+                        }
+                        
+                        foreach (EntityColumnInfo columnInfo in vm.TableInfo.ColumnInfos)
+                        {
+
+                            if (columnInfo.PrimaryKeyName == null && columnInfo.PropertyType != typeof(Byte[]))
+                            {
+                                if (columnInfo.ForeignKeyNames.Count > 0)
+                                {
+                                    DbSet listDbSet = dataService.GetDbSet(columnInfo.PropertyType);
+                                    EntityTableInfo listTableInfo = dataService.GetEntityTableInfo(columnInfo.PropertyType);
+                                    ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");
+                                    List<EntityFieldInfo> fieldInfos = (from f in vm.TableInfo.FieldInfos where f.ColumnInfo != null &&  f.ColumnInfo .Equals (columnInfo ) && f.ParentColumnInfo != null select f).ToList();
+                                    List<Expression> expressions = new List<Expression>();
+                                    IQueryable queryable = listDbSet.AsQueryable();
+                                    foreach (EntityFieldInfo fieldInfo in fieldInfos)
+                                    {
+
+                                        if (vm.Mapping.ContainsKey(fieldInfo.Path) && fieldInfo.ValidateString(datas[vm.Mapping[fieldInfo.Path]], out message, out propertyValue))
+                                        {
+                                            String localDataPath = String.Join(".", (from s in fieldInfo.Path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                                                                                     where fieldInfo.Path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().IndexOf(s) > 0
+                                                                                     select s).ToList());
+
+                                            String[] localDataPaths = localDataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                            Expression expression = null;
+                                            foreach (string path in localDataPaths)
+                                            {
+                                                if (expression == null)
+                                                {
+                                                    expression = Expression.Property(expressionBase, path);
+                                                }
+                                                else
+                                                { expression = Expression.Property(expression, path); }
+                                            }
+                                            expression = Expression.Equal(expression, Expression.Constant(propertyValue));
+                                            expressions.Add(expression);
+                                        }
+                                    }
+                                    if (expressions.Count > 0)
+                                    {
+                                        Expression expressionAnd = expressions.First();
+                                        for (int i = 1; i < expressions.Count; i++)
+                                        { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
+                                        MethodCallExpression whereCallExpression = Expression.Call(
+                                        typeof(Queryable),
+                                        "Where",
+                                        new Type[] { queryable.ElementType },
+                                        queryable.Expression,
+                                        Expression.Lambda(expressionAnd, expressionBase));
+                                        queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                                    }
+                                    foreach (Object o in queryable)
+                                    {
+                                        columnInfo.Property.SetValue(item, o);
+                                    }
+                                }
                             }
                         }
                         /*
@@ -315,12 +374,11 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                          * */
                         if (index % 10 == 0)
                         { vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString(); }
+                       
+                        dbSet.Add(item);
                         try { dataService.DataContext.SaveChanges(); }
                         catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                        }
-                        dbSet.Add(item);
+                        { Console.WriteLine(ex); }   
                         // IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> result = dataService.DataContext.GetValidationErrors();
 
 
