@@ -6,7 +6,8 @@
      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
          xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"            
           xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
-        Title="MainView" Height="600" Width="800">
+        xmlns:m="clr-namespace:Emash.GeoPatNet.Engine.MarkupExtensions;assembly=GeoPatNet.Engine"
+        Title="{m:Translate PrfAppTitle}" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -22,58 +23,43 @@
             </i:Interaction.Behaviors>
                 <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu >
-                    <ribbon:RibbonApplicationSplitMenuItem  Header="Fichier">
+                    <ribbon:RibbonApplicationSplitMenuItem  Header="{m:Translate MainMenuFileHeader}">
 
 
-                        <ribbon:RibbonApplicationMenuItem Command="{Binding Path=ImportConfigurationCommand}" MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-file-import.png" Header="Importer">
-
-
-                        </ribbon:RibbonApplicationMenuItem>
-                        <ribbon:RibbonApplicationMenuItem  Command="{Binding Path=ExportConfigurationCommand}"  MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-file-export.png" Header="Exporter">
-
-
-                        </ribbon:RibbonApplicationMenuItem>
+                       
 
                     </ribbon:RibbonApplicationSplitMenuItem>
 
                     <ribbon:RibbonSeparator></ribbon:RibbonSeparator>
-                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-help.png" Header="Manuel">
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-help.png" Header="{m:Translate MainMenuHelpHeader}">
 
 
                     </ribbon:RibbonApplicationMenuItem>
-                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-about.png" Header="A propos ...">
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-about.png" Header="{m:Translate MainMenuAboutHeader}">
 
 
                     </ribbon:RibbonApplicationMenuItem>
                     <ribbon:RibbonSeparator></ribbon:RibbonSeparator>
-                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-exit.png" Header="Quitter">
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-exit.png" Header="{m:Translate MainMenuQuitHeader}">
 
 
                     </ribbon:RibbonApplicationMenuItem>
                 </ribbon:RibbonApplicationMenu>
 
             </ribbon:Ribbon.ApplicationMenu>
-            <ribbon:RibbonTab Header="Utilisateurs">
+            <ribbon:RibbonTab Header="{m:Translate PrfMainTabUserHeader}">
                
               
 
             </ribbon:RibbonTab>
-            <ribbon:RibbonTab Header="Profils">
+            <ribbon:RibbonTab Header="{m:Translate PrfMainTabProfilHeader}">
 
                 
 
             </ribbon:RibbonTab>
-            <ribbon:RibbonTab Header="Configuration">
+            <ribbon:RibbonTab Header="{m:Translate PrfMainTabConfigurationHeader}">
                 
-                <ribbon:RibbonGroup Header="Import/Export">
-                    <ribbon:RibbonButton Command="{Binding ImportConfigurationCommand}"  Label="Importer"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding ExportConfigurationCommand}"  Label="Exporter"></ribbon:RibbonButton>
-                </ribbon:RibbonGroup>
                 
-                <ribbon:RibbonGroup Header="Configuration">
-                    <ribbon:RibbonButton Command="{Binding ShowDirectoryConfigurationViewCommand}" Label="Répertoire"></ribbon:RibbonButton>
-                    <ribbon:RibbonButton Command="{Binding ShowUpdateConfigurationViewCommand}" Label="Mise à jour"></ribbon:RibbonButton>
-                </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
            
 

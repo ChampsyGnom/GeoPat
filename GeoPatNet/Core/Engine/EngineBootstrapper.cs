@@ -69,7 +69,7 @@ namespace Emash.GeoPatNet.Engine
             this.Container.RegisterType<IMainView,V>(new ContainerControlledLifetimeManager ());
             this.Container.RegisterType<IDataImportViewModel, DataImportViewModel>();
             this.Container.RegisterType<IEngineService, EngineService>(new ContainerControlledLifetimeManager());
-
+            this.Container.RegisterType<ITranslateService, TranslateService>(new ContainerControlledLifetimeManager());
 
             
         }
@@ -100,23 +100,32 @@ namespace Emash.GeoPatNet.Engine
             IReperageService reperageService = this.Container.TryResolve<IReperageService>();
             IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();
             ICartoService cartoService = this.Container.TryResolve<ICartoService>();
+            ITranslateService translateService = this.Container.TryResolve<ITranslateService>();
+            IDocumentService documentService = this.Container.TryResolve<IDocumentService>();
             if (dataService != null)
             {
                // _moduleInitializerTask = new Task(new Action(delegate()
               //  {
-                dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
-                    if (dashBoardService != null)
-                    { dashBoardService.Initialize(); }
+                dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+             
+                if (translateService != null)
+                { translateService.Initialize(); }
 
-                    if (reperageService != null)
-                    { reperageService.Initialize(); }
+                if (dashBoardService != null)
+                { dashBoardService.Initialize(); }
 
-                    if (cartoService != null)
-                    { cartoService.Initialize(); }
+                if (reperageService != null)
+                { reperageService.Initialize(); }
 
-                    this.InitializeApplication();
+                if (cartoService != null)
+                { cartoService.Initialize(); }
 
-                    this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
+                if (documentService != null)
+                { documentService.Initialize(); }
+
+                this.InitializeApplication();
+
+                this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
               //  }));
               //  _moduleInitializerTask.Start();
                    

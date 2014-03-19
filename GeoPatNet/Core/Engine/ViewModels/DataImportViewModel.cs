@@ -19,6 +19,7 @@ using System.Reflection;
 using Emash.GeoPatNet.Infrastructure.Validations;
 using System.Linq.Expressions;
 using Emash.GeoPatNet.Infrastructure.Attributes;
+using System.Data;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class DataImportViewModel : IDataImportViewModel,INotifyPropertyChanged
@@ -123,7 +124,6 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 
         private void ImportFile(List<DataFileViewModel> vms)
         {
-            /*
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             dataService.DataContext.Configuration.AutoDetectChangesEnabled = false;
             dataService.DataContext.Configuration.ValidateOnSaveEnabled = false;
@@ -131,7 +131,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             {
                 if (vm.Import)
                 {
-                     this.Dispatcher.Invoke(new Action(delegate()
+                    this.Dispatcher.Invoke(new Action(delegate()
                     {
                         this.Files.MoveCurrentTo(vm);
                     }));
@@ -153,16 +153,56 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     {
                         index++;
                         Object item = Activator.CreateInstance(vm.TableInfo.EntityType);
+                        foreach (EntityFieldInfo field in vm.TableInfo.FieldInfos)
+                        {
+                            if (field.IsMainTableField)
+                            {
+                                if (vm.Mapping.ContainsKey(field.ColumnInfo.PropertyName))
+                                {
+                                    Object propertyValue = null;
+                                    Nullable<Int64> valInt64 = 0;
+                                    if (field.ColumnInfo.ControlType == ControlType.Pr)
+                                    {
+                                        if (datas[vm.Mapping[field.ColumnInfo.PropertyName]].IndexOf("+") == -1)
+                                        {
+                                            if (Validator.ValidateNullableInt64(datas[vm.Mapping[field.ColumnInfo.PropertyName]], out message, out valInt64))
+                                            {
+                                                field.ColumnInfo.Property.SetValue(item, valInt64);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (field.ValidateString(datas[vm.Mapping[field.ColumnInfo.PropertyName]], out message, out propertyValue))
+                                            {
+                                                field.ColumnInfo.Property.SetValue(item, propertyValue);
+                                            }
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (field.ValidateString(datas[vm.Mapping[field.ColumnInfo.PropertyName]], out message, out propertyValue))
+                                        {
+                                            field.ColumnInfo.Property.SetValue(item, propertyValue);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        /*
                         foreach (EntityColumnInfo columnInfo in vm.TableInfo.ColumnInfos)
                         {
-                            if (columnInfo.PrimaryKeyName == null && columnInfo.PropertyType != typeof (Byte[]))
+                            if (columnInfo.PrimaryKeyName == null && columnInfo.PropertyType != typeof(Byte[]))
                             {
                                 if (columnInfo.ForeignKeyNames.Count > 0)
                                 {
-                                    List<EntityColumnInfo> fkParentColumnsInfos = dataService.FindParentForeignColumnInfos(columnInfo);
+                                    List<EntityColumnInfo> fkParentColumnsInfos = dataService.GetParentUniqueKeyColumnInfos(columnInfo);
                                     Boolean allValuePresent = true;
-                                    if (allValuePresent)
-                                    { }
+                                   
                                     foreach (EntityColumnInfo fkParentColumnsInfo in fkParentColumnsInfos)
                                     {
                                         String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
@@ -175,57 +215,57 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                                     ParameterExpression expressionBase = Expression.Parameter(listTableInfo.EntityType, "item");
                                     //if (allValuePresent)
                                     //{
-                                       
-                                        DbSet listDbSet = dataService.GetDbSet(columnInfo.PropertyType);
-                                        IQueryable queryable = listDbSet.AsQueryable();
-                                        List<Expression> expressions = new List<Expression>();
-                                        foreach (EntityColumnInfo fkParentColumnsInfo in fkParentColumnsInfos)
+
+                                    DbSet listDbSet = dataService.GetDbSet(columnInfo.PropertyType);
+                                    IQueryable queryable = listDbSet.AsQueryable();
+                                    List<Expression> expressions = new List<Expression>();
+                                    foreach (EntityColumnInfo fkParentColumnsInfo in fkParentColumnsInfos)
+                                    {
+                                        String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
+                                        Object propertyValue = null;
+                                        if (vm.Mapping.ContainsKey(dataPath) && Validator.ValidateEntityColumn(datas[vm.Mapping[dataPath]], fkParentColumnsInfo, out message, out propertyValue))
                                         {
-                                            String dataPath = dataService.GetPath(fkParentColumnsInfo.TableInfo, columnInfo.TableInfo) + "." + fkParentColumnsInfo.PropertyName;
-                                            Object propertyValue = null;
-                                            if (vm.Mapping.ContainsKey (dataPath) &&  Validator.ValidateEntityColumn(datas[vm.Mapping[dataPath]], fkParentColumnsInfo, out message, out propertyValue))
+                                            String localDataPath = String.Join(".", (from s in dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                                                                                     where dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().IndexOf(s) > 0
+                                                                                     select s).ToList());
+
+                                            String[] localDataPaths = localDataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                                            Expression expression = null;
+                                            foreach (string path in localDataPaths)
                                             {
-                                                String localDataPath = String.Join(".", (from s in dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
-                                                                                         where dataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().IndexOf(s) > 0
-                                                                                         select s).ToList());
-
-                                                String[] localDataPaths = localDataPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                                                Expression expression = null;
-                                                foreach (string path in localDataPaths)
+                                                if (expression == null)
                                                 {
-                                                    if (expression == null)
-                                                    {
-                                                        expression = Expression.Property(expressionBase, path);
-                                                    }
-                                                    else
-                                                    { expression = Expression.Property(expression, path); }
+                                                    expression = Expression.Property(expressionBase, path);
                                                 }
-                                                expression = Expression.Equal(expression, Expression.Constant(propertyValue));
-                                                expressions.Add(expression);
+                                                else
+                                                { expression = Expression.Property(expression, path); }
                                             }
-
-                                        }
-                                        if (expressions.Count > 0)
-                                        {
-                                            Expression expressionAnd = expressions.First();
-                                            for (int i = 1; i < expressions.Count; i++)
-                                            { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
-                                            MethodCallExpression whereCallExpression = Expression.Call(
-                                            typeof(Queryable),
-                                            "Where",
-                                            new Type[] { queryable.ElementType },
-                                            queryable.Expression,
-                                            Expression.Lambda(expressionAnd, expressionBase));
-                                            queryable = queryable.Provider.CreateQuery(whereCallExpression);
-                                        }
-                                        
-                                        foreach (Object o in queryable)
-                                        {
-                                            columnInfo.Property.SetValue(item, o);
+                                            expression = Expression.Equal(expression, Expression.Constant(propertyValue));
+                                            expressions.Add(expression);
                                         }
 
-                                   
-                                  
+                                    }
+                                    if (expressions.Count > 0)
+                                    {
+                                        Expression expressionAnd = expressions.First();
+                                        for (int i = 1; i < expressions.Count; i++)
+                                        { expressionAnd = Expression.And(expressionAnd, expressions[i]); }
+                                        MethodCallExpression whereCallExpression = Expression.Call(
+                                        typeof(Queryable),
+                                        "Where",
+                                        new Type[] { queryable.ElementType },
+                                        queryable.Expression,
+                                        Expression.Lambda(expressionAnd, expressionBase));
+                                        queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                                    }
+
+                                    foreach (Object o in queryable)
+                                    {
+                                        columnInfo.Property.SetValue(item, o);
+                                    }
+
+
+
                                 }
                                 else
                                 {
@@ -238,11 +278,11 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                                         Nullable<Int64> valInt64 = 0;
                                         if (columnInfo.ControlType == ControlType.Pr)
                                         {
-                                            if(datas[vm.Mapping[columnInfo.PropertyName]].IndexOf ("+") == -1)
+                                            if (datas[vm.Mapping[columnInfo.PropertyName]].IndexOf("+") == -1)
                                             {
                                                 if (Validator.ValidateNullableInt64(datas[vm.Mapping[columnInfo.PropertyName]], out message, out valInt64))
                                                 {
-                                                    property.SetValue(item, valInt64); 
+                                                    property.SetValue(item, valInt64);
                                                 }
                                             }
                                             else
@@ -252,26 +292,27 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                                                     property.SetValue(item, propertyValue);
                                                 }
                                             }
-                                            
+
                                         }
                                         else
                                         {
                                             if (Validator.ValidateEntityColumn(datas[vm.Mapping[columnInfo.PropertyName]], columnInfo, out message, out propertyValue))
                                             {
-                                                 property.SetValue(item, propertyValue); 
-                                                
+                                                property.SetValue(item, propertyValue);
+
 
                                             }
                                         }
-                                        
+
 
                                     }
                                 }
-                                
+
                             }
-                            
-                           
+
+
                         }
+                         * */
                         if (index % 10 == 0)
                         { vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString(); }
                         try { dataService.DataContext.SaveChanges(); }
@@ -280,12 +321,26 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                             Console.WriteLine(ex);
                         }
                         dbSet.Add(item);
-                       // IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> result = dataService.DataContext.GetValidationErrors();
-                       
-                       
+                        // IEnumerable<System.Data.Entity.Validation.DbEntityValidationResult> result = dataService.DataContext.GetValidationErrors();
+
+
                     }
 
                     vm.StateMessage = "Import lignes " + index.ToString() + " / " + total.ToString();
+                }
+            }
+            dataService.DataContext.Configuration.AutoDetectChangesEnabled = true;
+            dataService.DataContext.Configuration.ValidateOnSaveEnabled = true;
+
+            /*
+            IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+            dataService.DataContext.Configuration.AutoDetectChangesEnabled = false;
+            dataService.DataContext.Configuration.ValidateOnSaveEnabled = false;
+            foreach (DataFileViewModel vm in vms)
+            {
+                if (vm.Import)
+                {
+                    
                     
              
                 }

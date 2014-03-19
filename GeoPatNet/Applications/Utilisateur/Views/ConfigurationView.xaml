@@ -7,7 +7,33 @@
              xmlns:c="clr-namespace:Emash.GeoPatNet.Presentation.Controls;assembly=GeoPatNet.Presentation"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <GroupBox Header="Répertoire">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="1" Header="Langue">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Langue actuel : " Margin="2" Grid.Column="0"></TextBlock>
+                <ComboBox SelectedItem="{Binding Path=SelectedLang,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Langs,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Grid.Column="1" Margin="2">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Command="{Binding Path=AddLangCommand}" Grid.ColumnSpan="2" Grid.Row="1" Content="Déployer une nouvelle langue"></Button>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="0" Header="Répertoire">
             <ItemsControl ItemsSource="{Binding Path=Schemas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                 <ItemsControl.ItemContainerStyle>
                     <Style>
@@ -16,7 +42,7 @@
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <GroupBox Margin="4" Header="{Binding Path=Name,Mode=OneWay}" >
+                        <GroupBox Margin="4" Header="{Binding Path=Model.Name,Mode=OneWay}" >
                             <Grid HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -27,14 +53,16 @@
                                     <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
+                                
                                 <TextBlock Grid.Column="0" Grid.Row="0" Margin="2" Text="Documents : "></TextBlock>
-                                <c:SelectDirectoryBox Grid.Column="1" Grid.Row="0" Margin="2"></c:SelectDirectoryBox>
+                                <c:SelectDirectoryBox SelectedDirectory="{Binding Path=DirectoryDocument,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></c:SelectDirectoryBox>
 
                                 <TextBlock Grid.Column="0" Grid.Row="1" Margin="2" Text="Logs : "></TextBlock>
-                                <c:SelectDirectoryBox Grid.Column="1" Grid.Row="1" Margin="2"></c:SelectDirectoryBox>
+                                <c:SelectDirectoryBox SelectedDirectory="{Binding Path=DirectoryLog,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="1" Margin="2"></c:SelectDirectoryBox>
 
                                 <TextBlock Grid.Column="0" Grid.Row="2" Margin="2" Text="Données : "></TextBlock>
-                                <c:SelectDirectoryBox Grid.Column="1" Grid.Row="2" Margin="2"></c:SelectDirectoryBox>
+                                <c:SelectDirectoryBox  SelectedDirectory="{Binding Path=DirectoryData,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="2" Margin="2"></c:SelectDirectoryBox>
+                            
                             </Grid>
                         </GroupBox>
                         

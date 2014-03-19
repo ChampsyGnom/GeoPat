@@ -35,6 +35,7 @@ namespace Emash.GeoPatNet.App.Utilisateur
         {
             base.InitializeApplication();
             IDataService dataService = this.Container.TryResolve<IDataService>();
+            
             DbSet<PrfSchema> schemas = dataService.GetDbSet<PrfSchema>();
             DbSet<PrfTable> tables = dataService.GetDbSet<PrfTable>();
             DbSet<PrfProfil> profils = dataService.GetDbSet<PrfProfil>();
@@ -82,6 +83,7 @@ namespace Emash.GeoPatNet.App.Utilisateur
                     }
                 }
             }
+            
         }
 
       

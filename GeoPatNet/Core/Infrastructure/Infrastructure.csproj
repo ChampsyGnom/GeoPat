@@ -161,10 +161,12 @@
     <Compile Include="Services\IDataContext.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\IDocumentService.cs" />
     <Compile Include="Services\IEngineService.cs" />
     <Compile Include="Services\IReperageService.cs" />
     <Compile Include="Services\ISplashService.cs" />
     <Compile Include="Services\IStatService.cs" />
+    <Compile Include="Services\ITranslateService.cs" />
     <Compile Include="Utils\LinqHelper.cs" />
     <Compile Include="Utils\VisualTreeHelper.cs" />
     <Compile Include="Validations\EntityValidationRuleUniqueKey.cs" />

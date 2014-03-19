@@ -105,6 +105,18 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                         message = null;
                         return true;
                     }
+                    else if (valueString.Equals("OUI"))
+                    {
+                        value = true;
+                        message = null;
+                        return true;
+                    }
+                    else if (valueString.Equals("NON"))
+                    {
+                        value = false;
+                        message = null;
+                        return true;
+                    }
                     else if (valueString.Equals(CultureConfiguration.BooleanFalseString))
                     {
                         value = false;
@@ -200,6 +212,18 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                     if (valueString.Equals(CultureConfiguration.BooleanTrueString))
                     {
                         value = true;
+                        message = null;
+                        return true;
+                    }
+                    else if (valueString.Equals("OUI"))
+                    {
+                        value = true;
+                        message = null;
+                        return true;
+                    }
+                    else if (valueString.Equals("NON"))
+                    {
+                        value = false;
                         message = null;
                         return true;
                     }
