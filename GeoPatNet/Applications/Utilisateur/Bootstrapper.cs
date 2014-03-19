@@ -24,9 +24,10 @@ namespace Emash.GeoPatNet.App.Utilisateur
     {
         protected override void ConfigureContainer()
         {
-                       
-            this.Container.RegisterType<ProfilMasterDetailView>();
-            this.Container.RegisterType<UserMatserDetailView>();
+           
+            this.Container.RegisterType<ProfilMasterDetailView>(new ContainerControlledLifetimeManager ());
+            this.Container.RegisterType<UserMatserDetailView>(new ContainerControlledLifetimeManager());
+            this.Container.RegisterType<ConfigurationView>(new ContainerControlledLifetimeManager());
             base.ConfigureContainer();
         }
 

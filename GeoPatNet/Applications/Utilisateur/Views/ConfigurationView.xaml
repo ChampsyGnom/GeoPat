@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Emash.GeoPatNet.App.Utilisateur.Views.ConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:c="clr-namespace:Emash.GeoPatNet.Presentation.Controls;assembly=GeoPatNet.Presentation"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <GroupBox Header="Répertoire">
+            <ItemsControl ItemsSource="{Binding Path=Schemas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <GroupBox Margin="4" Header="{Binding Path=Name,Mode=OneWay}" >
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Margin="2" Text="Documents : "></TextBlock>
+                                <c:SelectDirectoryBox Grid.Column="1" Grid.Row="0" Margin="2"></c:SelectDirectoryBox>
+
+                                <TextBlock Grid.Column="0" Grid.Row="1" Margin="2" Text="Logs : "></TextBlock>
+                                <c:SelectDirectoryBox Grid.Column="1" Grid.Row="1" Margin="2"></c:SelectDirectoryBox>
+
+                                <TextBlock Grid.Column="0" Grid.Row="2" Margin="2" Text="Données : "></TextBlock>
+                                <c:SelectDirectoryBox Grid.Column="1" Grid.Row="2" Margin="2"></c:SelectDirectoryBox>
+                            </Grid>
+                        </GroupBox>
+                        
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </GroupBox>
+    </Grid>
+</UserControl>

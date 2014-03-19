@@ -18,18 +18,28 @@ namespace Emash.GeoPatNet.App.Utilisateur.ViewModels
     public class MainViewModel : MainViewModelBase
     {
 
-
+        private IRegionManager RegionManager { get; set; }
         public DelegateCommand<SelectionChangedEventArgs> RibbonTabSelectionChangeCommand { get; private set; }
         public MainViewModel(IEventAggregator eventAggregator, IRegionManager regionManager, IUnityContainer container)
             : base(eventAggregator, regionManager, container)
         {
-       
+
+            this.RegionManager = regionManager;
             this.RibbonTabSelectionChangeCommand = new DelegateCommand<SelectionChangedEventArgs>(RibbonTabSelectionChangeExecute);
+           
             
 
         }
         private void RibbonTabSelectionChangeExecute(SelectionChangedEventArgs e)
         {
+            if (RegionManager.Regions["MainRegion"].Views.Count() == 0)
+            { 
+                RegionManager.Regions["MainRegion"].Add (ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<UserMatserDetailView>());
+                RegionManager.Regions["MainRegion"].Add (ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<ProfilMasterDetailView>());
+                RegionManager.Regions["MainRegion"].Add(ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<ConfigurationView>());
+
+                
+            }
             if (e.AddedItems != null && e.AddedItems.Count > 0)
             {
                 if (e.Source != null && e.Source is Ribbon)
@@ -38,17 +48,18 @@ namespace Emash.GeoPatNet.App.Utilisateur.ViewModels
                     int index =  ribbon.Items.IndexOf (e.AddedItems[0]);
                     if (index == 0)
                     {
-                        UserMatserDetailView userMatserDetailView = ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<UserMatserDetailView>();           
-                        this.ActiveContent = userMatserDetailView;
+                        RegionManager.Regions["MainRegion"].Activate (ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<UserMatserDetailView>());
+                      
                     }
                     else if (index == 1)
                     {
-                        ProfilMasterDetailView profilMasterDetailView = ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<ProfilMasterDetailView>();
-                        this.ActiveContent = profilMasterDetailView;
+                        RegionManager.Regions["MainRegion"].Activate(ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<ProfilMasterDetailView>());
+
                     }
-                    else
+                    else if (index == 2)
                     {
-                        this.ActiveContent = null;
+                        RegionManager.Regions["MainRegion"].Activate(ServiceLocator.Current.GetInstance<IUnityContainer>().Resolve<ConfigurationView>());
+
                     }
                 }
             }
