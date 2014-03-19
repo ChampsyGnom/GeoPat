@@ -23,22 +23,11 @@ namespace Emash.GeoPatNet.Data.Models
             set;
         }
         [DisplayName("Code document")]
-        [ColumnName("INF_CD_DOC__CODE")]
+        [ColumnName("INF_CD_DOC__ID")]
         [AllowNull(false)]
         [ControlType(ControlType.Combo)]
         [ForeignKey("INF_CD_DOC__INF_DOC",null)]
         public virtual InfCodeDoc InfCodeDoc
-        {
-            get;
-            set;
-        }
-        [DisplayName("Code")]
-        [ColumnName("INF_CD_DOC__CODE")]
-        [ForeignKey("INF_CD_DOC__INF_DOC","JOIN_o966")]
-        [MaxCharLength(50)]
-        [ControlType(ControlType.Text)]
-        [AllowNull(false)]
-        public String InfCodeDocCode
         {
             get;
             set;
@@ -57,7 +46,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_DOC__ID")]
         [PrimaryKey("INF_DOC_PK")]
-        [ForeignKeyAttribute("ASSOCIATION_54","JOIN_o914")]
+        [ForeignKeyAttribute("ASSOCIATION_54","JOIN_o912")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
@@ -91,17 +80,6 @@ namespace Emash.GeoPatNet.Data.Models
         [ControlType(ControlType.Text)]
         [AllowNull(true)]
         public String Libelle
-        {
-            get;
-            set;
-        }
-        [DisplayName("Répertoire")]
-        [ColumnName("INF_CD_DOC__PATH")]
-        [ForeignKey("INF_CD_DOC__INF_DOC","JOIN_o967")]
-        [MaxCharLength(255)]
-        [ControlType(ControlType.Text)]
-        [AllowNull(false)]
-        public String InfCodeDocPath
         {
             get;
             set;

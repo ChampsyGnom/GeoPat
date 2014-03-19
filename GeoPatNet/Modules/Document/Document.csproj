@@ -96,8 +96,14 @@
     <Compile Include="ViewModels\DocumentBrowserViewModel.cs" />
     <Compile Include="ViewModels\DocumentCodeViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="Views\Block.xaml.cs">
+      <DependentUpon>Block.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DocumentBrowserView.xaml.cs">
       <DependentUpon>DocumentBrowserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadingAnimation.xaml.cs">
+      <DependentUpon>LoadingAnimation.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,17 +118,40 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Data\Data.csproj">
+      <Project>{66d388df-dea6-4507-a54c-7bcde1057ba7}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\Infrastructure\Infrastructure.csproj">
       <Project>{1b3947a0-a99a-4ed4-920c-4fca7f814981}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\Icons\16x16\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\DocumentBrowserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\16x16\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\16x16\non-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

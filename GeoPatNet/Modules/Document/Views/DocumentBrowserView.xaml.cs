@@ -25,15 +25,6 @@ namespace Emash.GeoPatNet.Modules.Document.Views
             InitializeComponent();
         }
 
-        private void ContentControl_Drop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                // Note that you can have more than one file.
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                Console.WriteLine(files);
-            }
-        }
+        
     }
 }
