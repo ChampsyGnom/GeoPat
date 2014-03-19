@@ -93,6 +93,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\DocumentService.cs" />
+    <Compile Include="ViewModels\DocumentBrowserViewModel.cs" />
+    <Compile Include="ViewModels\DocumentCodeViewModel.cs" />
+    <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="Views\DocumentBrowserView.xaml.cs">
+      <DependentUpon>DocumentBrowserView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -111,14 +117,17 @@
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+    <Page Include="Views\DocumentBrowserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
-copy "$(ProjectDir)bin\Debug\GeoPatNet.Document.dll" "$(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"</PostBuildEvent>
+copy "$(ProjectDir)bin\Debug\GeoPatNet.Document.dll" "$(SolutionDir)Applications\Referentiel\bin\debug\Resources\Modules"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

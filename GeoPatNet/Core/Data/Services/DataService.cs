@@ -619,6 +619,19 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
 
 
 
-      
+
+
+
+        public DbSet GetDbSet(string entityName)
+        {
+            foreach (Type type in this.GetType().Assembly.GetTypes())
+            {
+                if (type.Name.Equals(entityName))
+                {
+                    return this.GetDbSet(type);
+                }
+            }
+            return null;
+        }
     }
 }

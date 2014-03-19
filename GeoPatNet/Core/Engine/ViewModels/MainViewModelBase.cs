@@ -42,7 +42,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         public DelegateCommand ExportConfigurationCommand { get; protected set; }
         public DelegateCommand ImportConfigurationDataCommand { get; protected set; }
         public DelegateCommand SwapActiveViewCommand { get; protected set; }
-
+        public DelegateCommand ShowDocumentCommand { get; protected set; }
         public DelegateCommand CustomFilterActiveViewCommand { get; protected set; }
         public DelegateCommand CustomSortActiveViewCommand { get; protected set; }
         public DelegateCommand CustomDisplayActiveViewCommand { get; protected set; }
@@ -85,6 +85,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.ShowCartoCommand = new DelegateCommand(ShowCartoExecute);
             this.DocumentClosingCommand = new DelegateCommand<DocumentClosingEventArgs>(DocumentClosingExecute);
             this.DocumentClosedCommand = new DelegateCommand<DocumentClosedEventArgs>(DocumentClosedExecute);
+            this.ShowDocumentCommand = new DelegateCommand(ShowDocumentExectue, CanShowDocumentExectue);
         }
 
         private void DocumentClosedExecute(DocumentClosedEventArgs arg)
@@ -116,10 +117,29 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         {
             this._container.Resolve<ICartoService>().ShowCarto();
         }
+
+
+        private void ShowDocumentExectue()
+        {
+            ((ActiveContent as FrameworkElement).DataContext as IDocumentable).ShowDocument();
+        }
+
+        private Boolean CanShowDocumentExectue()
+        {
+            return (
+                 this.ActiveContent != null &&
+                 this.ActiveContent is FrameworkElement &&
+                 (ActiveContent as FrameworkElement).DataContext != null &&
+                 (ActiveContent as FrameworkElement).DataContext is IDocumentable);
+        }
+
         public void ShowStatExecute()
         {
             ((ActiveContent as FrameworkElement).DataContext as IStatable).ShowStat();
         }
+
+
+
 
         public Boolean  CanShowStat()
         {
@@ -174,6 +194,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.CustomFilterActiveViewCommand.RaiseCanExecuteChanged();
             this.CustomSortActiveViewCommand.RaiseCanExecuteChanged();
             this.ShowStatCommand.RaiseCanExecuteChanged();
+            this.ShowDocumentCommand.RaiseCanExecuteChanged();
 
         }
         private Boolean CanSwapActiveView()

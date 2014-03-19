@@ -63,6 +63,10 @@
                     <ribbon:RibbonButton Command="{Binding ShowStatCommand}" Label="Statistiques"></ribbon:RibbonButton>
                     <ribbon:RibbonButton Command="{Binding ShowCartoCommand}" Label="Cartographie"></ribbon:RibbonButton>
                 </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup Header="Documents">
+                    <ribbon:RibbonButton Command="{Binding ShowDocumentCommand}" Label="Documents"></ribbon:RibbonButton>
+                    <ribbon:RibbonButton Command="{Binding ShowContactCommand}" Label="Contacts"></ribbon:RibbonButton>
+                </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
             <ribbon:RibbonTab Header="Suivis">
             </ribbon:RibbonTab>

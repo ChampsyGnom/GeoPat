@@ -15,6 +15,7 @@ namespace Emash.GeoPatNet.Infrastructure.Services
         DbContext DataContext { get; }
         void Initialize(string connectionString);
         DbSet GetDbSet(Type entityType);
+        DbSet GetDbSet(String entityName);
         DbSet<T> GetDbSet<T>() where T : class;  
 
         /*

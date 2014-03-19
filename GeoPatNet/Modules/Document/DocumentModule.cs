@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Emash.GeoPatNet.Infrastructure.Events;
 using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Modules.Document.Services;
+using Emash.GeoPatNet.Modules.Document.Views;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
@@ -13,6 +14,8 @@ using Microsoft.Practices.Unity;
 
 namespace Emash.GeoPatNet.Modules.Document
 {
+    [Module(ModuleName = "Document")]
+    [ModuleDependency("Data")]
     public class DocumentModule : IModule
     {
         private IEventAggregator _eventAggregator;
@@ -27,7 +30,7 @@ namespace Emash.GeoPatNet.Modules.Document
             this._container = container;
             this._regionManager = regionManager;
             this._container.RegisterType<IDocumentService, DocumentService>(new ContainerControlledLifetimeManager());
-
+            this._regionManager.RegisterViewWithRegion("DocumentBrowserRegion", typeof(DocumentBrowserView));
            
         }
 

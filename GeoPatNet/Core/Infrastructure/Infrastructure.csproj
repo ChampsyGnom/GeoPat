@@ -122,6 +122,7 @@
     <Compile Include="Capability\ICustomDisplay.cs" />
     <Compile Include="Capability\ICustomSortable.cs" />
     <Compile Include="Capability\ICustomFilterable.cs" />
+    <Compile Include="Capability\IDocumentable.cs" />
     <Compile Include="Capability\ISawpableView.cs" />
     <Compile Include="Capability\IStatable.cs" />
     <Compile Include="ComponentModel\IRowEditableItem.cs" />

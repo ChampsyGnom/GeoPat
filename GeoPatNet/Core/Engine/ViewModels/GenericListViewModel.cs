@@ -36,7 +36,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         ICustomFilterable,
         ICustomSortable,
         ICustomDisplay,
-        IStatable
+        IStatable,
+        IDocumentable
         where M : class, new()
     {
 
@@ -802,6 +803,16 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         {
             IStatService statService = ServiceLocator.Current.GetInstance<IStatService>();
             statService.ShowStatWizzard(this.EntityTableInfo,this.FieldPaths.ToList ());
+        }
+
+        public void ShowDocument()
+        {
+            if (this.ItemsView.CurrentItem != null && this.ItemsView.CurrentItem is GenericListItemViewModel<M>)
+            {
+                GenericListItemViewModel<M> itemVm = this.ItemsView.CurrentItem as GenericListItemViewModel<M>;
+                IDocumentService documentService = ServiceLocator.Current.GetInstance<IDocumentService>();
+                documentService.ShowDocument(typeof (M), itemVm.Model);
+            }
         }
     }
 }
