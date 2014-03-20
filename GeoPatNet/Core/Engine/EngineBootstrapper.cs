@@ -96,6 +96,8 @@ namespace Emash.GeoPatNet.Engine
            
             base.InitializeModules();
             this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
+
+
             IDataService dataService = this.Container.TryResolve<IDataService>();
             IReperageService reperageService = this.Container.TryResolve<IReperageService>();
             IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();
@@ -106,7 +108,7 @@ namespace Emash.GeoPatNet.Engine
             {
                // _moduleInitializerTask = new Task(new Action(delegate()
               //  {
-                dataService.Initialize("HOST=127.0.0.1;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=Emash21;PRELOADREADER=true;");
+                dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
              
                 if (translateService != null)
                 { translateService.Initialize(); }
@@ -125,13 +127,14 @@ namespace Emash.GeoPatNet.Engine
 
                 this.InitializeApplication();
 
-                this.Container.Resolve<ISplashService>().CloseSplash(this.Container.Resolve<V>().Show);
+                this.Container.Resolve<ISplashService>().CloseSplash(null);
+                this.Container.Resolve<V>().Show();
               //  }));
               //  _moduleInitializerTask.Start();
                    
               
             }
-           
+            
             
         }
     }

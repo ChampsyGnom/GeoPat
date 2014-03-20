@@ -130,6 +130,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\PPSplashService.cs" />
     <Compile Include="Services\SplashService.cs" />
     <Compile Include="Views\CustomDisplayView.xaml.cs">
       <DependentUpon>CustomDisplayView.xaml</DependentUpon>
