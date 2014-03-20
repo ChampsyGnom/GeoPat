@@ -111,9 +111,9 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_AIRE__ID")]
         [PrimaryKey("INF_AIRE_PK")]
-        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PARKING","JOIN_o909")]
-        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PRESTATAIRE","JOIN_o911")]
-        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_SERVICE","JOIN_o907")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PARKING","JOIN_o908")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_PRESTATAIRE","JOIN_o910")]
+        [ForeignKeyAttribute("INF_AIRE__INF_AIRE_SERVICE","JOIN_o906")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

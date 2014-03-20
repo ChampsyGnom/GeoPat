@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Emash.GeoPatNet.Infrastructure.Extensions
+namespace System.Windows
 {
     public static class DependencyObjectExtensions
     {

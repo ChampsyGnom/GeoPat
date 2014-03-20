@@ -833,16 +833,14 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfDocCls>().HasRequired<InfDoc>(c => c.InfDoc).WithMany(t => t.InfDocClss);
             modelBuilder.Entity<InfDocCls>().HasRequired<InfCls>(c => c.InfCls).WithMany(t => t.InfDocClss);
             modelBuilder.Entity<InfDocCls>().ToTable("inf_doc_cls", "inf");
+            modelBuilder.Entity<InfDocCls>().Property(t => t.Defaut) .HasColumnName("inf_doc_cls__defaut");
+            modelBuilder.Entity<InfDocCls>().Property(t => t.Defaut).IsRequired();
             modelBuilder.Entity<InfDocCls>().Property(t => t.Id) .HasColumnName("inf_doc_cls__id");
             modelBuilder.Entity<InfDocCls>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<InfDocCls>().Property(t => t.InfClsId) .HasColumnName("inf_cls__id");
             modelBuilder.Entity<InfDocCls>().Property(t => t.InfClsId).IsRequired();
             modelBuilder.Entity<InfDocCls>().Property(t => t.InfDocId) .HasColumnName("inf_doc__id");
             modelBuilder.Entity<InfDocCls>().Property(t => t.InfDocId).IsRequired();
-            modelBuilder.Entity<InfDocCls>().Property(t => t.Photo) .HasColumnName("inf_doc_cls__photo");
-            modelBuilder.Entity<InfDocCls>().Property(t => t.Photo).IsRequired();
-            modelBuilder.Entity<InfDocCls>().Property(t => t.Plan) .HasColumnName("inf_doc_cls__plan");
-            modelBuilder.Entity<InfDocCls>().Property(t => t.Plan).IsRequired();
             modelBuilder.Entity<InfDocCls>().HasKey(t => t.Id);
             modelBuilder.Entity<InfDocCls>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfEclairage>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfEclairages);

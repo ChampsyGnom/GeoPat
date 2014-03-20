@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Emash.GeoPatNet.Infrastructure.Services;
-using Emash.GeoPatNet.Infrastructure.Extensions;
 using Emash.GeoPatNet.Data.Models;
 using Microsoft.Practices.Prism.Commands;
 using System.Windows.Data;

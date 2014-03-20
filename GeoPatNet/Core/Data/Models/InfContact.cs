@@ -46,7 +46,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CONTACT__ID")]
         [PrimaryKey("INF_CONTACT_PK")]
-        [ForeignKeyAttribute("INF_CONTACT__INF_CONTACT_CLS","JOIN_o980")]
+        [ForeignKeyAttribute("INF_CONTACT__INF_CONTACT_CLS","JOIN_o979")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

@@ -36,6 +36,15 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Document par défaut")]
+        [ColumnName("INF_DOC_CLS__DEFAUT")]
+        [ControlType(ControlType.Check)]
+        [AllowNull(false)]
+        public Boolean Defaut
+        {
+            get;
+            set;
+        }
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("INF_DOC_CLS__ID")]
@@ -63,24 +72,6 @@ namespace Emash.GeoPatNet.Data.Models
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 InfDocId
-        {
-            get;
-            set;
-        }
-        [DisplayName("Photo par défaut")]
-        [ColumnName("INF_DOC_CLS__PHOTO")]
-        [ControlType(ControlType.Check)]
-        [AllowNull(false)]
-        public Boolean Photo
-        {
-            get;
-            set;
-        }
-        [DisplayName("Plan par défaut")]
-        [ColumnName("INF_DOC_CLS__PLAN")]
-        [ControlType(ControlType.Check)]
-        [AllowNull(false)]
-        public Boolean Plan
         {
             get;
             set;

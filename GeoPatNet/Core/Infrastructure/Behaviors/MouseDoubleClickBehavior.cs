@@ -23,8 +23,29 @@ namespace Emash.GeoPatNet.Infrastructure.Behaviors
         public static readonly DependencyProperty DoubleClickCommandProperty =
             DependencyProperty.Register("DoubleClickCommand", typeof(DelegateCommand), typeof(MouseDoubleClickBehavior),new PropertyMetadata (null));
 
-       
 
+
+        public DelegateCommand<Object> DoubleClicWithParametersCommand
+        {
+            get { return (DelegateCommand<Object>)GetValue(DoubleClicWithParametersCommandProperty); }
+            set { SetValue(DoubleClicWithParametersCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty DoubleClicWithParametersCommandProperty =
+            DependencyProperty.Register("DoubleClicWithParametersCommand", typeof(DelegateCommand<Object>), typeof(MouseDoubleClickBehavior), new PropertyMetadata(null));
+
+
+
+        public Object DoubleClicWithParametersCommandParameter
+        {
+            get { return (Object)GetValue(DoubleClicWithParametersCommandParameterProperty); }
+            set { SetValue(DoubleClicWithParametersCommandParameterProperty, value); }
+        }
+
+        public static readonly DependencyProperty DoubleClicWithParametersCommandParameterProperty =
+            DependencyProperty.Register("DoubleClicWithParametersCommandParameter", typeof(Object), typeof(MouseDoubleClickBehavior), new PropertyMetadata(null));
+
+     
         #endregion
 
         protected override void OnAttached()
@@ -37,6 +58,11 @@ namespace Emash.GeoPatNet.Infrastructure.Behaviors
         {
             if (this.DoubleClickCommand != null)
             { this.DoubleClickCommand.Execute(); }
+
+            if (this.DoubleClicWithParametersCommand != null)
+            {
+                this.DoubleClicWithParametersCommand.Execute(this.DoubleClicWithParametersCommandParameter);
+            }
         }
 
         protected override void OnDetaching()

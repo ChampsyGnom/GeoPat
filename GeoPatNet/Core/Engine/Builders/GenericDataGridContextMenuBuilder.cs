@@ -12,7 +12,6 @@ using Emash.GeoPatNet.Infrastructure.Behaviors;
 using Emash.GeoPatNet.Infrastructure.Enums;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Microsoft.Practices.Prism.Commands;
-using Emash.GeoPatNet.Infrastructure.Extensions;
 using Emash.GeoPatNet.Presentation.Views;
 namespace Emash.GeoPatNet.Engine.Builders
 {

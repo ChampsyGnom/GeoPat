@@ -65,9 +65,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             view.DataContext = vm;
             DotSpatial.Controls.Map map = (view.cartoControl.mapHost.Child as DotSpatial.Controls.Map);
             map.FunctionMode = DotSpatial.Controls.FunctionMode.Pan;
-            vm.Map = map;
-          // if (this._container.Resolve<CartoViewModel>().TemplatesView.CurrentItem == null && this._container.Resolve<CartoViewModel>().Templates.Count > 0)
-         //  { this._container.Resolve<CartoViewModel>().TemplatesView.MoveCurrentToFirst(); }
+         
             
         }
 

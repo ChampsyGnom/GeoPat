@@ -48,7 +48,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_PRESTATAIRE__ID")]
         [PrimaryKey("INF_PRESTATAIRE_PK")]
-        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE_PRESTATAIRE","JOIN_o984")]
+        [ForeignKeyAttribute("INF_PRESTATAIRE__INF_AIRE_PRESTATAIRE","JOIN_o983")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

@@ -47,6 +47,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         public DelegateCommand CustomSortActiveViewCommand { get; protected set; }
         public DelegateCommand CustomDisplayActiveViewCommand { get; protected set; }
         public DelegateCommand ShowCartoCommand { get; protected set; }
+        public DelegateCommand ShowSynopticCommand { get; protected set; }
         public DelegateCommand<DocumentClosingEventArgs> DocumentClosingCommand { get; protected set; }
         public DelegateCommand<DocumentClosedEventArgs> DocumentClosedCommand { get; protected set; }
 
@@ -86,6 +87,20 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.DocumentClosingCommand = new DelegateCommand<DocumentClosingEventArgs>(DocumentClosingExecute);
             this.DocumentClosedCommand = new DelegateCommand<DocumentClosedEventArgs>(DocumentClosedExecute);
             this.ShowDocumentCommand = new DelegateCommand(ShowDocumentExectue, CanShowDocumentExectue);
+            this.ShowSynopticCommand = new DelegateCommand(ShowSynopticExectue, CanShowSynopticExectue);
+        }
+        private void ShowSynopticExectue()
+        {
+            ((ActiveContent as FrameworkElement).DataContext as ISynopticable).ShowSynoptic();
+        }
+
+        private Boolean CanShowSynopticExectue()
+        {
+            return (
+                 this.ActiveContent != null &&
+                 this.ActiveContent is FrameworkElement &&
+                 (ActiveContent as FrameworkElement).DataContext != null &&
+                 (ActiveContent as FrameworkElement).DataContext is ISynopticable);
         }
 
         private void DocumentClosedExecute(DocumentClosedEventArgs arg)
@@ -195,6 +210,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             this.CustomSortActiveViewCommand.RaiseCanExecuteChanged();
             this.ShowStatCommand.RaiseCanExecuteChanged();
             this.ShowDocumentCommand.RaiseCanExecuteChanged();
+            this.ShowSynopticCommand.RaiseCanExecuteChanged();
 
         }
         private Boolean CanSwapActiveView()

@@ -18,7 +18,6 @@ using Emash.GeoPatNet.Presentation.Views;
 using Emash.GeoPatNet.Infrastructure.Validations;
 using Emash.GeoPatNet.Infrastructure.Utils;
 using Emash.GeoPatNet.Infrastructure.Behaviors;
-using Emash.GeoPatNet.Infrastructure.Extensions;
 using Emash.GeoPatNet.Infrastructure.ComponentModel;
 using Emash.GeoPatNet.Infrastructure.Enums;
 using Emash.GeoPatNet.Infrastructure.Attributes;
@@ -37,7 +36,8 @@ namespace Emash.GeoPatNet.Engine.ViewModels
         ICustomSortable,
         ICustomDisplay,
         IStatable,
-        IDocumentable
+        IDocumentable,
+        ISynopticable
         where M : class, new()
     {
 
@@ -812,6 +812,16 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 GenericListItemViewModel<M> itemVm = this.ItemsView.CurrentItem as GenericListItemViewModel<M>;
                 IDocumentService documentService = ServiceLocator.Current.GetInstance<IDocumentService>();
                 documentService.ShowDocument(typeof (M), itemVm.Model);
+            }
+        }
+
+        public void ShowSynoptic()
+        {
+            if (this.ItemsView.CurrentItem != null && this.ItemsView.CurrentItem is GenericListItemViewModel<M>)
+            {
+                GenericListItemViewModel<M> itemVm = this.ItemsView.CurrentItem as GenericListItemViewModel<M>;
+                ISynopticService synopticService = ServiceLocator.Current.GetInstance<ISynopticService>();
+                synopticService.ShowSynoptic(typeof(M), itemVm.Model);
             }
         }
     }

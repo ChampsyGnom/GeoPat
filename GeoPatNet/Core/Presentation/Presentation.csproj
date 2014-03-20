@@ -106,6 +106,9 @@
     <Compile Include="Adapters\Win32WindowAdapter.cs" />
     <Compile Include="Builders\DataControlTemplateBuilder.cs" />
     <Compile Include="Builders\DataGridTemplateBuilder.cs" />
+    <Compile Include="Controls\DecoupageInfoControl.xaml.cs">
+      <DependentUpon>DecoupageInfoControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SelectDirectoryBox.xaml.cs">
       <DependentUpon>SelectDirectoryBox.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\DecoupageInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SelectDirectoryBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +259,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{66d388df-dea6-4507-a54c-7bcde1057ba7}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{1b3947a0-a99a-4ed4-920c-4fca7f814981}</Project>
       <Name>Infrastructure</Name>

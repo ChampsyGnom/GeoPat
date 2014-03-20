@@ -18,7 +18,7 @@ using Emash.GeoPatNet.Infrastructure.Services;
 using Microsoft.Practices.ServiceLocation;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.ComponentModel;
-using Emash.GeoPatNet.Infrastructure.Extensions;
+
 namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>

@@ -25,6 +25,7 @@ namespace Emash.GeoPatNet.Modules.Document.ViewModels
             }
         }
         #endregion
+        public Boolean IsDefault { get; set; }
         public DocumentCodeViewModel Code { get; set; }
         public String AbsoluteFileName { get; set; }
         public String Libelle { get; set; }
@@ -59,29 +60,37 @@ namespace Emash.GeoPatNet.Modules.Document.ViewModels
             String ext = fileInfo.Extension.Replace(".", "").ToLower();
             if (ext.EndsWith("bmp") || ext.EndsWith("jpeg") || ext.EndsWith("png") || ext.EndsWith("jpg") )
             {
-                FileStream stream = new FileStream(fileInfo.FullName, FileMode.Open);
-                MemoryStream ms = new MemoryStream();
-                byte[] bytes = new byte[1024];
-                int read = 0;
-                while ((read = stream.Read(bytes, 0, 1024)) > 0)
-                {ms.Write(bytes, 0, read);}
-                ms.Flush();
-                ms.Seek(0, SeekOrigin.Begin);                
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.UriSource = null;
-                image.StreamSource = ms;
-                image.EndInit();
-                image.Freeze();
-                ms.Dispose();
-                this._image = image;
-                this.LoadingVisibility = Visibility.Hidden;
-                this.ImageVisibility = Visibility.Visible;
-                this.RaisePropertyChanged("Image");
-                this.RaisePropertyChanged("LoadingVisibility");
-                this.RaisePropertyChanged("ImageVisibility");
+                try
+                {
+                    FileStream stream = new FileStream(fileInfo.FullName, FileMode.Open);
+                    MemoryStream ms = new MemoryStream();
+                    byte[] bytes = new byte[1024];
+                    int read = 0;
+                    while ((read = stream.Read(bytes, 0, 1024)) > 0)
+                    { ms.Write(bytes, 0, read); }
+                    stream.Close();
+                    stream.Dispose();
+                    ms.Flush();
+                    ms.Seek(0, SeekOrigin.Begin);
+                    var image = new BitmapImage();
+                    image.BeginInit();
+                    image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    image.CacheOption = BitmapCacheOption.OnLoad;
+                    image.UriSource = null;
+                    image.StreamSource = ms;
+                    image.EndInit();
+                    image.Freeze();
+                    ms.Dispose();
+                    this._image = image;
+                    this.LoadingVisibility = Visibility.Hidden;
+                    this.ImageVisibility = Visibility.Visible;
+                    this.RaisePropertyChanged("Image");
+                    this.RaisePropertyChanged("LoadingVisibility");
+                    this.RaisePropertyChanged("ImageVisibility");
+                }
+                catch (Exception ex)
+                { }
+                
                 
               
                

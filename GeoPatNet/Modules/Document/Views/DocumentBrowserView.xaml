@@ -35,10 +35,15 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <GroupBox Margin="4" Width="100" Height="100" >
-                                    <Canvas Margin="0" Width="80" Height="80"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                    <i:Interaction.Behaviors>
+                                        <bb:MouseDoubleClickBehavior DoubleClicWithParametersCommandParameter="{Binding}"  DoubleClicWithParametersCommand="{Binding ElementName=documentBrowserView,Path=DataContext.OpenDocumentCommand}" ></bb:MouseDoubleClickBehavior>
+                                    </i:Interaction.Behaviors>
+
+                                    <Canvas  Margin="0" Width="80" Height="80"  HorizontalAlignment="Center" VerticalAlignment="Center" >
                                         <v:LoadingAnimation  Visibility="{Binding Path=LoadingVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"    HorizontalAlignment="Center" VerticalAlignment="Center" ></v:LoadingAnimation>
                                         <Image Visibility="{Binding Path=ImageVisibility,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Width="80" Height="80" Margin="0" Stretch="UniformToFill" Source="{Binding Path=Image,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
-                                            <Image.ToolTip>
+                                            
+                                                <Image.ToolTip>
                                                 <ToolTip>
                                                     <Image Stretch="UniformToFill" Source="{Binding Path=Image,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" MaxWidth="800" MaxHeight="800"></Image>
                                                 </ToolTip>
@@ -48,8 +53,39 @@
                                             <Image  Source="pack://application:,,,/GeoPatNet.Document;component/Resources/Icons/16x16/remove.png" ></Image>
                                         </Button>
 
-                                        <Button Canvas.Top="2" Canvas.Left="2" Background="Transparent" BorderBrush="Transparent">
+                                        <Button CommandParameter="{Binding}" Command="{Binding ElementName=documentBrowserView,Path=DataContext.SetDefaultDocumentCommand}"  Canvas.Top="2" Canvas.Left="2" Background="Transparent" BorderBrush="Transparent">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsDefault,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                                        </DataTrigger>
+
+                                                        <DataTrigger Binding="{Binding Path=IsDefault,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                            <Setter Property="Visibility" Value="Hidden"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
                                             <Image  Source="pack://application:,,,/GeoPatNet.Document;component/Resources/Icons/16x16/non-default.png" ></Image>
+                                        </Button>
+
+
+                                        <Button   Canvas.Top="2" Canvas.Left="2" Background="Transparent" BorderBrush="Transparent">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsDefault,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                                        </DataTrigger>
+
+                                                        <DataTrigger Binding="{Binding Path=IsDefault,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                                            <Setter Property="Visibility" Value="Hidden"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <Image  Source="pack://application:,,,/GeoPatNet.Document;component/Resources/Icons/16x16/default.png" ></Image>
                                         </Button>
 
                                     </Canvas>

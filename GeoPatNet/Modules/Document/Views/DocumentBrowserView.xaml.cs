@@ -22,6 +22,7 @@ namespace Emash.GeoPatNet.Modules.Document.Views
     {
         public DocumentBrowserView()
         {
+             
             InitializeComponent();
         }
 

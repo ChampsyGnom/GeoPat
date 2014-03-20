@@ -15,11 +15,14 @@ using Microsoft.Practices.Prism.Commands;
 
 using System.IO;
 using System.Linq.Expressions;
+using System.Diagnostics;
 namespace Emash.GeoPatNet.Modules.Document.ViewModels
 {
     public class DocumentBrowserViewModel : INotifyPropertyChanged
     {
+        public DelegateCommand<Object> OpenDocumentCommand { get; private set; }
         public DelegateCommand<DocumentViewModel> RemoveDocumentCommand { get; private set; }
+        public DelegateCommand<DocumentViewModel> SetDefaultDocumentCommand { get; private set; }
         public DelegateCommand<System.Windows.DragEventArgs> DropCommand { get; private set; }
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -133,9 +136,69 @@ namespace Emash.GeoPatNet.Modules.Document.ViewModels
             { this.SelectedCode = this.Codes.First(); }
             this.DropCommand = new DelegateCommand<System.Windows.DragEventArgs>(DropExecute);
             this.RemoveDocumentCommand = new DelegateCommand<DocumentViewModel>(RemoveDocumentExecute);
+            this.SetDefaultDocumentCommand = new DelegateCommand<DocumentViewModel>(SetDefaultDocumentExecute);
+            this.OpenDocumentCommand = new DelegateCommand<Object>(OpenDocumentExecute);
 
         }
 
+        private void OpenDocumentExecute(Object docVmObj)
+        {
+            if (docVmObj is DocumentViewModel)
+            {
+                DocumentViewModel docVm = docVmObj as DocumentViewModel;
+                ProcessStartInfo psi = new ProcessStartInfo(docVm.AbsoluteFileName);
+                psi.UseShellExecute = true;
+                Process.Start(psi);
+            }
+           
+        }
+
+        private void SetDefaultDocumentExecute(DocumentViewModel docVm)
+        {
+            if (docVm.IsDefault == false)
+            {
+                String camelSchemaName = EntityTableInfo.SchemaInfo.SchemaName.Substring(0, 1).ToUpper() + EntityTableInfo.SchemaInfo.SchemaName.Substring(1).ToLower();
+                DbSet setDoc = this.DataService.GetDbSet(camelSchemaName + "Doc");
+                DbSet setDocCls = this.DataService.GetDbSet(camelSchemaName + "DocCls");
+                ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(setDocCls.ElementType, "item");
+              
+                Expression exp = Expression.And(
+                Expression.Equal(Expression.Property(expressionBase, "InfClsId"), Expression.Constant(this.ClsId)),
+                Expression.Equal(Expression.Property(Expression.Property(expressionBase, "InfDoc"), "InfCodeDocId"), Expression.Constant(docVm.Code.Id)));
+                IQueryable queryable = setDocCls.AsQueryable();
+                System.Linq.Expressions.Expression whereCallExpression = System.Linq.Expressions.Expression.Call(
+                       typeof(Queryable),
+                       "Where",
+                       new Type[] { queryable.ElementType },
+                       queryable.Expression,
+                       System.Linq.Expressions.Expression.Lambda(exp, expressionBase));
+                queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                PropertyInfo propertyDefaut = setDocCls.ElementType.GetProperty("Defaut");
+                foreach (Object item in queryable)
+                {propertyDefaut.SetValue(item, false);}
+
+
+
+                exp = Expression.And(
+               Expression.Equal(Expression.Property(expressionBase, "InfClsId"), Expression.Constant(this.ClsId)),
+               Expression.Equal(Expression.Property(expressionBase, "InfDocId"), Expression.Constant(docVm.Id)));
+               setDocCls = this.DataService.GetDbSet(camelSchemaName + "DocCls");
+               queryable = setDocCls.AsQueryable();
+                 whereCallExpression = System.Linq.Expressions.Expression.Call(
+                       typeof(Queryable),
+                       "Where",
+                       new Type[] { queryable.ElementType },
+                       queryable.Expression,
+                       System.Linq.Expressions.Expression.Lambda(exp, expressionBase));
+                queryable = queryable.Provider.CreateQuery(whereCallExpression);
+                foreach (Object item in queryable)
+                { propertyDefaut.SetValue(item, true); }
+
+                this.DataService.DataContext.SaveChanges();
+                this.LoadDocument(docVm.Code);
+
+            }
+        }
         private void RemoveDocumentExecute(DocumentViewModel docVm)
         { 
             String camelSchemaName = EntityTableInfo.SchemaInfo.SchemaName.Substring(0, 1).ToUpper() + EntityTableInfo.SchemaInfo.SchemaName.Substring(1).ToLower();
@@ -188,6 +251,8 @@ namespace Emash.GeoPatNet.Modules.Document.ViewModels
                    queryable.Expression,
                    System.Linq.Expressions.Expression.Lambda(exp, expressionBase));
             queryable = queryable.Provider.CreateQuery(whereCallExpression);
+            PropertyInfo propDefaut = setDocCls.ElementType.GetProperty("Defaut");
+
             PropertyInfo propDoc = setDocCls.ElementType.GetProperty("InfDoc");
             PropertyInfo propDocId = propDoc.PropertyType.GetProperty("Id");
             PropertyInfo propDocFileName = propDoc.PropertyType.GetProperty("Filename");
@@ -196,10 +261,13 @@ namespace Emash.GeoPatNet.Modules.Document.ViewModels
             {
                 Object objDoc = propDoc.GetValue(item);
                 DocumentViewModel documentViewModel = new DocumentViewModel();
+
+                Boolean isDefault =(Boolean ) propDefaut.GetValue(item);
                 String fileName = propDocFileName.GetValue (objDoc).ToString ();
                 string libelle = propDocLibelle.GetValue (objDoc ).ToString ();
                 String path = Path.Combine(codeVm.AbsolutePath, fileName);
                 documentViewModel.Code = codeVm;
+                documentViewModel.IsDefault = isDefault;
                 documentViewModel.AbsoluteFileName = path;
                 documentViewModel.Id = (Int64)propDocId.GetValue(objDoc);
                 documentViewModel.Libelle = libelle;
