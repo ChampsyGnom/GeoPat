@@ -11,6 +11,10 @@ using Emash.GeoPatNet.Infrastructure.Events;
 
 namespace Emash.GeoPatNet.Engine.Services
 {
+    /// <summary>
+    /// Service du moteur
+    /// @TODO : reporter l'ouverture d'entité ici c'est plus logique
+    /// </summary>
     public class EngineService : IEngineService
     {
         public IDialogService DialogService { get; private set; }
@@ -19,6 +23,11 @@ namespace Emash.GeoPatNet.Engine.Services
         {
             this.DialogService = dialogService;
         }
+        /// <summary>
+        /// Affiche une mode de dialogue de création d'entité générique et renvoie un objet de type T1 ou null
+        /// </summary>
+        /// <typeparam name="T1">Objet de type T1 si ok ou null si cancel</typeparam>
+        /// <returns></returns>
         public T1 ShowAddDialog<T1>() where T1 : class, new()
         {
             GenericDataDialog window = new GenericDataDialog();
@@ -49,7 +58,12 @@ namespace Emash.GeoPatNet.Engine.Services
 
         
 
-
+        /// <summary>
+        /// Affiche une boite d'édition générique d'entité
+        /// </summary>
+        /// <typeparam name="T1">Type de l'objet entity</typeparam>
+        /// <param name="model">Objet</param>
+        /// <returns></returns>
         public T1 ShowEditDialog<T1>(T1 model) where T1 : class, new()
         {
             GenericDataDialog window = new GenericDataDialog();
@@ -79,34 +93,7 @@ namespace Emash.GeoPatNet.Engine.Services
         }
 
 
-        public T1 ShowAddDialog<T1>(T1 model) where T1 : class, new()
-        {
-            GenericDataDialog window = new GenericDataDialog();
-            GenericListViewModel<T1> vmList = new GenericListViewModel<T1>();
-            T1 item = null;
-            vmList.OnGenericListChange += delegate(object source, GenericListEventArg<T1> e)
-            {
-                if (e is GenericListCommitedEventArg<T1>)
-                {
-                    GenericListCommitedEventArg<T1> evt = (e as GenericListCommitedEventArg<T1>);
-                    if (evt.CommitAction == Infrastructure.Enums.GenericCommitAction.Insert)
-                    {
-                        item = evt.CommitItem;
-                        window.DialogResult = true;
-                        window.Close();
-                    }
-                }
-            };
-            vmList.LockUnlockCommand.Execute();
-            vmList.InsertCommand.Execute();
-            vmList.InsertingItem.SetModel(model);
-            window.DataContext = vmList;
-            window.Owner = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.IsActive);
-            Nullable<Boolean> result = window.ShowDialog();
-            return item;
-        }
-
-
+       
         public T1 ShowAddDialog<T1>(T1 model, string[] fieldPaths) where T1 : class, new()
         {
             GenericDataDialog window = new GenericDataDialog();

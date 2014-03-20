@@ -15,23 +15,30 @@ using Microsoft.Practices.Prism.Commands;
 using Emash.GeoPatNet.Presentation.Views;
 namespace Emash.GeoPatNet.Engine.Builders
 {
+    /// <summary>
+    /// Constructeur de menu contextuel des tableau généric
+    /// Comme i l y as trop long de code on l'isole
+    /// @TODO Afficher les tables parent , c'est tout prévu faut juste revoie lre code pour les field a la place colonnes
+    /// </summary>
     public  class GenericDataGridContextMenuBuilder
     {
         public static void CreateContextMenu<M>(DataGridContextMenuOpeningBehaviorEventArg arg, GenericListViewModel<M> genericListViewModel)
             where M : class, new()
          
         {
+            // Ne marche que si l'on est en mode on consulte des donnée
             if (genericListViewModel.State != GenericDataListState.Display)
             {
                 arg.ContextMenuEventArgs.Handled = true;
                 return;
             }
+            // On récupérer la position , la cellule , la colonne , la valeur pour avoir un vrai menu contextuel
             Point pos = Mouse.GetPosition(arg.DataGrid);
             IInputElement hit = arg.DataGrid.InputHitTest(pos);
             DependencyObject hitDependencyObject = hit as DependencyObject;
             DataGridCell cell = hitDependencyObject.FindParentControl<DataGridCell>();
             GenericDataGridTemplateColumn genericDataGridTemplateColumn = cell.Column as GenericDataGridTemplateColumn;
-           
+            // Si on trouve qualque chose on cré les menus , Filtrer , Trier , Afficher , ...
             if (hitDependencyObject != null)
             {
                 arg.ContextMenu.Items.Clear();

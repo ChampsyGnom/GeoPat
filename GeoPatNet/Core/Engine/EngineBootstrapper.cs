@@ -185,8 +185,8 @@ namespace Emash.GeoPatNet.Engine
             dataService.ProviderConfiguration.SetLoginPassword(dataService.ProviderConfiguration.DefaultItem, login, passord);
 
             Console.WriteLine(dataService.ProviderConfiguration.DefaultItem);
-           
-            dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+
+            dataService.Initialize(login);
              
             if (translateService != null)
             { translateService.Initialize(); }

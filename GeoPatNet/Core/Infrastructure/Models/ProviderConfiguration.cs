@@ -95,6 +95,14 @@ namespace Emash.GeoPatNet.Infrastructure.Models
 
         public string GetPasswordForLogin(ProviderConfigurationItem providerConfigurationItem, string userName)
         {
+            RegistryKey companyKey = Registry.CurrentUser.OpenOrCreateCompanyKey();
+            RegistryKey geoPatKey = companyKey.OpenOrCreateKey("GeoPat");
+            RegistryKey configKey = geoPatKey.OpenOrCreateKey("Configuration");
+            RegistryKey providersKey = configKey.OpenOrCreateKey("Providers");
+            String providerKeyName = providerConfigurationItem.GetHash();
+            RegistryKey keyProvider = providersKey.OpenOrCreateKey(providerKeyName);
+            if (keyProvider.GetValueNames().Contains(userName))
+            {return keyProvider.GetValue(userName).ToString();}
             return "";
         }
 
@@ -113,22 +121,37 @@ namespace Emash.GeoPatNet.Infrastructure.Models
                     ";DATABASE=" +
                     (from p in this.DefaultItem.Parameters where p.Code.Equals("DATABASE") select p.Value).FirstOrDefault() +
                     ";USER ID=" + userName + ";PASSWORD=" + passord + ";PRELOADREADER=true;Timeout=4";
-                connection.Open();
-                if (connection.State == System.Data.ConnectionState.Open)
+                try
                 {
-                    success = true; 
-                    /*
-                    NpgsqlCommand command = new NpgsqlCommand("SELECT * from inf.inf_chaussee", connection);
-                    NpgsqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    connection.Open();
+                    if (connection.State == System.Data.ConnectionState.Open)
                     {
-                        Console.WriteLine(reader.GetValue(0));
+                        success = true;
+                        /*
+                        NpgsqlCommand command = new NpgsqlCommand("SELECT * from inf.inf_chaussee", connection);
+                        NpgsqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Console.WriteLine(reader.GetValue(0));
+                        }
+                        success = true; 
+                         * */
                     }
-                    success = true; 
-                     * */
                 }
-                connection.Close();
-                connection.Dispose();
+                catch (Exception ex)
+                { }
+                finally
+                {
+                    try { connection.Close(); }
+                    catch { }
+                    try
+                    {
+                        connection.Dispose();
+                    }
+                    catch { }
+                }
+               
+               
             }
 
 
@@ -137,7 +160,31 @@ namespace Emash.GeoPatNet.Infrastructure.Models
 
         public void SetLoginPassword(ProviderConfigurationItem providerConfigurationItem, string login, string passord)
         {
-            
+            RegistryKey companyKey = Registry.CurrentUser.OpenOrCreateCompanyKey();
+            RegistryKey geoPatKey = companyKey.OpenOrCreateKey("GeoPat");
+            RegistryKey configKey = geoPatKey.OpenOrCreateKey("Configuration");
+            RegistryKey providersKey = configKey.OpenOrCreateKey("Providers");
+            String providerKeyName = providerConfigurationItem.GetHash();
+            RegistryKey keyProvider = providersKey.OpenOrCreateKey(providerKeyName);
+            keyProvider.SetValue(login, passord);
+
+        }
+
+        public System.Data.Common.DbConnection CreateConnection(string login)
+        {
+            if (this.DefaultItem.ProviderFactoryTypeFullName.Equals("Npgsql.NpgsqlFactory"))
+            {
+                NpgsqlConnection connection = (NpgsqlConnection)NpgsqlFactory.Instance.CreateConnection();
+                connection.ConnectionString = "HOST=" +
+                    (from p in this.DefaultItem.Parameters where p.Code.Equals("HOST") select p.Value).FirstOrDefault() +
+                    ";PORT=" +
+                    (from p in this.DefaultItem.Parameters where p.Code.Equals("PORT") select p.Value).FirstOrDefault() +
+                    ";DATABASE=" +
+                    (from p in this.DefaultItem.Parameters where p.Code.Equals("DATABASE") select p.Value).FirstOrDefault() +
+                    ";USER ID=" + login + ";PASSWORD=" + this.GetPasswordForLogin (this.DefaultItem , login) + ";PRELOADREADER=true;Timeout=4";
+                return connection;
+            }
+            return null;
         }
     }
 }

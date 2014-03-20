@@ -18,6 +18,7 @@ using Emash.GeoPatNet.Infrastructure.Events;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Models;
+using System.Data.Common;
 
 
 
@@ -263,12 +264,12 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
            return  this.DataContext.Set(entityType);
         }
         
-        public void Initialize(string connectionString)
+        public void Initialize(string login)
         {
-            this._connectionString = connectionString;
+
+           DbConnection connection=  this.ProviderConfiguration.CreateConnection(login);
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du service de données ...");
-            NpgsqlConnection connection = (NpgsqlConnection)NpgsqlFactory.Instance.CreateConnection();
-            connection.ConnectionString = _connectionString;
+           
             this.DataContext = new DataContext(connection);           
             Database.SetInitializer<DataContext>(null);
             try { this.DataContext.Database.Initialize(false); }
@@ -279,7 +280,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
     
             this._isAvailable = true;
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Service de données initialisé");
-            Thread.Sleep(100);
+            
             this._schemaInfos = new List<EntitySchemaInfo>();
             PropertyInfo[] dataContextProperties = this.DataContext.GetType().GetProperties();
             List<EntityTableInfo> tableInfos = new List<EntityTableInfo>();
@@ -288,6 +289,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
             {
                 if (dataContextProperty.PropertyType.IsGenericType)
                 {
+                    this._eventAggregator.GetEvent<SplashEvent>().Publish("Service de données " + dataContextProperty.Name);
                     Type[] types = dataContextProperty.PropertyType.GetGenericArguments();
                     if (types.Length == 1)
                     {

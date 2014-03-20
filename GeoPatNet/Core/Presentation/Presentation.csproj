@@ -130,7 +130,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\DialogService.cs" />
-    <Compile Include="Services\PPSplashService.cs" />
     <Compile Include="Services\SplashService.cs" />
     <Compile Include="Views\CustomDisplayView.xaml.cs">
       <DependentUpon>CustomDisplayView.xaml</DependentUpon>
@@ -292,11 +291,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
+    <PostBuildEvent>mkdir $(SolutionDir)Applications\Referentiel\bin\debug\Resources\Modules"
 copy "$(ProjectDir)bin\Debug\GeoPatNet.Presentation.dll" "$(SolutionDir)Applications\Referentiel\bin\debug\Resources\Modules"
-
-mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"
-copy "$(ProjectDir)bin\Debug\GeoPatNet.Presentation.dll" "$(SolutionDir)Applications\Utilisateur\bin\debug\Resources\Modules"</PostBuildEvent>
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
