@@ -18,6 +18,10 @@ namespace Emash.GeoPatNet.Presentation.Services
         {
             RegionDialog dialog = new RegionDialog(regionName);
             dialog.Owner = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.IsActive);
+            if (dialog.Owner == null)
+            { dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen; }
+            else
+            { dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner; }
             dialog.Title = title;
             return dialog;
         }

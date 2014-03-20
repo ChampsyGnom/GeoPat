@@ -186,7 +186,11 @@
     <Compile Include="ViewModels\IDataImportViewModel.cs" />
     <Compile Include="ViewModels\IGenericListViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
+    <Compile Include="ViewModels\IProviderConfigurationCreateViewModel.cs" />
+    <Compile Include="ViewModels\IProviderConfigurationViewModel.cs" />
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Models\ProviderConfiguration.cs" />
+    <Compile Include="Models\ProviderConfigurationItem.cs" />
     <Compile Include="Views\SwapRegionView.xaml.cs">
       <DependentUpon>SwapRegionView.xaml</DependentUpon>
     </Compile>

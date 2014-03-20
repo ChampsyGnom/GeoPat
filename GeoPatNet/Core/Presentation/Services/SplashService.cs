@@ -10,10 +10,12 @@ using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Presentation.Views;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Unity;
+using Emash.GeoPatNet.Infrastructure.Events;
+using System.ComponentModel;
 
 namespace Emash.GeoPatNet.Presentation.Services
 {
-    public class SplashService : ISplashService
+    public class SplashService : ISplashService,INotifyPropertyChanged
     {
         public String Message { get; set; }
         public Int32 Progress { get; set; }
@@ -24,6 +26,14 @@ namespace Emash.GeoPatNet.Presentation.Services
         private ManualResetEvent _resetEvent;
         private Thread _splashThread;
         private SplashView _splashView;
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         public void ShowSplash(int maxTimeOut)
         {
             _resetEvent = new ManualResetEvent(false);
@@ -42,7 +52,7 @@ namespace Emash.GeoPatNet.Presentation.Services
         {
             this._eventAggregator = eventAggregator;            
             this._container = container;
-
+            this._eventAggregator.GetEvent<SplashEvent>().Subscribe(OnSplashEvent);
             this.Message = "Initialisation ...";
             AssemblyDescriptionAttribute descriptionAttribute = System.Reflection.Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute)).FirstOrDefault() as AssemblyDescriptionAttribute;
             AssemblyTitleAttribute titleAttribute = System.Reflection.Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute)).FirstOrDefault() as AssemblyTitleAttribute;
@@ -69,10 +79,20 @@ namespace Emash.GeoPatNet.Presentation.Services
             this.Dispatcher = Dispatcher.CurrentDispatcher;
             _splashView = new SplashView();
             _splashView.Show();
+            _splashView.Activate();            
             _resetEvent.Set();
             System.Windows.Threading.Dispatcher.Run();
         
       
+        }
+
+        private void OnSplashEvent(String message)
+        {
+            this.Dispatcher.Invoke(new Action(delegate()
+            {
+                this.Message = message;
+                this.RaisePropertyChanged("Message");
+            }));
         }
         public void CloseSplash(Action afterSplashClose)
         {

@@ -4,6 +4,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
+        ShowInTaskbar="False"        
         Cursor="Wait"
         WindowStartupLocation="CenterScreen"
         Title="SplashView" Height="200" Width="350">

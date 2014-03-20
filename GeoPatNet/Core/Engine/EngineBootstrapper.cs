@@ -24,6 +24,8 @@ using Xceed.Wpf.AvalonDock.Layout;
 
 using Emash.GeoPatNet.Engine.ViewModels;
 using Emash.GeoPatNet.Engine.Services;
+using Microsoft.Practices.Prism.Events;
+using Emash.GeoPatNet.Infrastructure.Events;
 
 
 
@@ -70,8 +72,11 @@ namespace Emash.GeoPatNet.Engine
             this.Container.RegisterType<IDataImportViewModel, DataImportViewModel>();
             this.Container.RegisterType<IEngineService, EngineService>(new ContainerControlledLifetimeManager());
             this.Container.RegisterType<ITranslateService, TranslateService>(new ContainerControlledLifetimeManager());
+            this.Container.RegisterType<IProviderConfigurationViewModel, ProviderConfigurationViewModel>();
+            this.Container.RegisterType<IProviderConfigurationCreateViewModel, ProviderConfigurationCreateViewModel>();
 
-            
+
+            //
         }
 
 
@@ -96,14 +101,23 @@ namespace Emash.GeoPatNet.Engine
            
             base.InitializeModules();
             this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
-
-
+         
             IDataService dataService = this.Container.TryResolve<IDataService>();
             IReperageService reperageService = this.Container.TryResolve<IReperageService>();
             IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();
             ICartoService cartoService = this.Container.TryResolve<ICartoService>();
             ITranslateService translateService = this.Container.TryResolve<ITranslateService>();
             IDocumentService documentService = this.Container.TryResolve<IDocumentService>();
+            IDialogService dialogService = this.Container.TryResolve<IDialogService>();
+
+            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<SplashEvent>().Publish("Chargement de la configuration ... ");
+            dataService.LoadProviderConfiguration();
+            if (dataService.ProviderConfiguration.DefaultItem == null)
+            {
+               Window window =  dialogService.CreateDialog("ProviderConfigurationRegion", "Choix de la base de données");              
+               Nullable<Boolean> result =  window.ShowDialog();
+
+            }
             if (dataService != null)
             {
                // _moduleInitializerTask = new Task(new Action(delegate()

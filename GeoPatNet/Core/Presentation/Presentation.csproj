@@ -172,6 +172,12 @@
     <Compile Include="Views\GenericDataLabel.xaml.cs">
       <DependentUpon>GenericDataLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProviderConfigurationCreateView.xaml.cs">
+      <DependentUpon>ProviderConfigurationCreateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProviderConfigurationVew.xaml.cs">
+      <DependentUpon>ProviderConfigurationVew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegionDialog.xaml.cs">
       <DependentUpon>RegionDialog.xaml</DependentUpon>
     </Compile>
@@ -247,6 +253,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GenericDataLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProviderConfigurationCreateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProviderConfigurationVew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Infrastructure.Services;
 using Emash.GeoPatNet.Infrastructure.Events;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using Emash.GeoPatNet.Infrastructure.Attributes;
+using Emash.GeoPatNet.Infrastructure.Models;
 
 
 
@@ -24,7 +25,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
 {
     public class DataService : IDataService
     {
-
+        public ProviderConfiguration ProviderConfiguration { get; private set; }
         private IEventAggregator _eventAggregator;
         private IUnityContainer _container;
         public DbContext DataContext { get; private set; }
@@ -632,6 +633,12 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
                 }
             }
             return null;
+        }
+
+
+        public void LoadProviderConfiguration()
+        {
+            this.ProviderConfiguration = new ProviderConfiguration();
         }
     }
 }
