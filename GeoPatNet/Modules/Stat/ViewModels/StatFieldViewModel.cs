@@ -9,9 +9,13 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 {
     public class StatFieldViewModel
     {
-        public EntityColumnInfo TopColumnInfo { get; set; }
-        public EntityColumnInfo BottomColumnInfo { get; set; }
-        public String DisplayName { get; set; }
-        public String FieldPath { get; set; }
+        public EntityFieldInfo Field { get; set; }
+        public String DisplayName
+        {
+            get {
+                return this.Field.DisplayName;
+            }
+        }
+       
     }
 }

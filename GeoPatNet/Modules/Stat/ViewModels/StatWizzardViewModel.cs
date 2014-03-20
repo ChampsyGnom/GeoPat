@@ -58,6 +58,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                 IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
                 if (_selectedStatType.StateType == StateType.Count)
                 {
+                    /*
                     if (_selectedStatField.BottomColumnInfo.ControlType == ControlType.Combo)
                     {
                         List<Object> distinctValues = new List<object>();
@@ -129,10 +130,12 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 
                         }
                         
-                    }
+                    } */
 
                 }
+                    
             }
+                     
         }
 
         private void UpdateWizzardRepresentation()
@@ -157,12 +160,9 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
             if (this._selectedStatType != null && _selectedStatType.StateType == StateType.Count)
             {
                 foreach (StatFieldViewModel statField in AllFields)
-                {
-                    if (statField.BottomColumnInfo.ControlType == Infrastructure.Attributes.ControlType.Combo)
-                    {
-                        
+                {   
                         this.StatFields.Add(statField);
-                    }
+                    
                 }
             }
         }
@@ -196,6 +196,51 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
             this.StatTypes.Add(vmStateTypeCount);
             this.StatFields = new ObservableCollection<StatFieldViewModel>();
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
+
+            foreach (EntityFieldInfo field in entityTableInfo.FieldInfos)
+            {
+                if (field.ParentColumnInfo == null)
+                {
+                    if (field.ColumnInfo.ControlType == ControlType.Check)
+                    {
+                        StatFieldViewModel statField = new StatFieldViewModel();
+                        statField.Field = field;
+                        this.AllFields.Add(statField);
+                    }
+                    else if (field.ColumnInfo.ControlType == ControlType.Date)
+                    {
+                        StatFieldViewModel statField = new StatFieldViewModel();
+                        statField.Field = field;
+                        this.AllFields.Add(statField);
+                    }
+                    else if (field.ColumnInfo.ControlType == ControlType.Decimal)
+                    {
+                        StatFieldViewModel statField = new StatFieldViewModel();
+                        statField.Field = field;
+                        this.AllFields.Add(statField);
+                    }
+                    else if (field.ColumnInfo.ControlType == ControlType.Integer)
+                    {
+                        StatFieldViewModel statField = new StatFieldViewModel();
+                        statField.Field = field;
+                        this.AllFields.Add(statField);
+                    }
+
+                }
+                else
+                {
+                    if (field.ColumnInfo != null && field.ColumnInfo.ControlType == ControlType.Combo)
+                    {
+                        StatFieldViewModel statField = new StatFieldViewModel();
+                        statField.Field = field;
+                        this.AllFields.Add(statField);
+                    }
+                    else {
+                        
+                    }
+                }
+            }
+
             /*
             List<String> basicFieldPaths = dataService.GetTableFieldPaths(entityTableInfo);
 

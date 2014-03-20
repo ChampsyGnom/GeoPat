@@ -184,6 +184,14 @@
     <Compile Include="Services\IStatService.cs" />
     <Compile Include="Services\ISynopticService.cs" />
     <Compile Include="Services\ITranslateService.cs" />
+    <Compile Include="Symbol\SymbolizerLine.cs" />
+    <Compile Include="Symbol\SymbolizerPoint.cs" />
+    <Compile Include="Symbol\Symbolizer.cs" />
+    <Compile Include="Symbol\SymbolizerPolygon.cs" />
+    <Compile Include="Symbol\Symbology.cs" />
+    <Compile Include="Symbol\SymbologyRule.cs" />
+    <Compile Include="Symbol\SymbologyRuleEquals.cs" />
+    <Compile Include="Symbol\SymbologyRuleRange.cs" />
     <Compile Include="Utils\LinqHelper.cs" />
     <Compile Include="Utils\VisualTreeHelper.cs" />
     <Compile Include="Validations\EntityValidationRuleUniqueKey.cs" />
