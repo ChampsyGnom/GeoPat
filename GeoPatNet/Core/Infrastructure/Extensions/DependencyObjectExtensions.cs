@@ -23,6 +23,29 @@ namespace System.Windows
             }
             return null;
         }
+
+        public static T FindChildDataContext<T>(this DependencyObject control) where T :  class
+        {
+            int childNumber = VisualTreeHelper.GetChildrenCount(control);
+            for (int i = 0; i < childNumber; i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(control, i);
+                if (child != null && child is FrameworkElement)
+                {
+                    FrameworkElement frameworkElement = child as FrameworkElement;
+                    if (frameworkElement.DataContext != null && frameworkElement.DataContext is T)
+                    {
+                        return (T) frameworkElement.DataContext;
+                    }
+                    else return FindChildDataContext<T>(child);
+                }
+                else return FindChildDataContext<T>(child);                
+            }
+            return null;
+        }
+
+
+
         public static T FindParentControl<T>(this DependencyObject control) where T : DependencyObject
         {
             DependencyObject parent = VisualTreeHelper.GetParent(control);

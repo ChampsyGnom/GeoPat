@@ -4,9 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+                xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             x:Name="providerConfigurationVew"
              Width="500"
              Height="260"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#DDD" />
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -15,12 +22,51 @@
         <ListBox Margin="4" ItemsSource="{Binding Path=Items,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+                   
+                        <Setter Property="SnapsToDevicePixels" Value="true"/>
+                        <Setter Property="OverridesDefaultStyle" Value="true"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border 
+          Name="Border"
+          Padding="2"
+          SnapsToDevicePixels="true">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="Border" Property="Background"
+                    Value="{StaticResource SelectedBackgroundBrush}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Foreground"
+                    Value="{StaticResource DisabledForegroundBrush}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+             
                 </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <ContentControl ToolTip="Double cliquez sur une base de donnée pour vous y connecter" MouseDoubleClick="ContentControl_MouseDoubleClick" HorizontalAlignment="Stretch">
+                        <i:Interaction.Behaviors>
+                            <b:MouseDoubleClickBehavior DoubleClicWithParametersCommandParameter="{Binding}" DoubleClicWithParametersCommand="{Binding ElementName=providerConfigurationVew,Path=DataContext.SetDefaultProviderItemCommand}"></b:MouseDoubleClickBehavior>
+                        </i:Interaction.Behaviors>
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Margin="2" Grid.Column="0" Text="{Binding Path=DisplayName,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            <Button CommandParameter="{Binding}" Command="{Binding ElementName=providerConfigurationVew,Path=DataContext.RemoveProviderItemCommand}" Grid.Column="1" Margin="2" Content="Supprimer"></Button>
+                        </Grid>
+
+                    </ContentControl>
+                  
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

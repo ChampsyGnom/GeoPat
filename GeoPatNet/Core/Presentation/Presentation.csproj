@@ -175,6 +175,9 @@
     <Compile Include="Views\ProviderConfigurationCreateView.xaml.cs">
       <DependentUpon>ProviderConfigurationCreateView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProviderConfigurationLoginView.xaml.cs">
+      <DependentUpon>ProviderConfigurationLoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProviderConfigurationVew.xaml.cs">
       <DependentUpon>ProviderConfigurationVew.xaml</DependentUpon>
     </Compile>
@@ -257,6 +260,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProviderConfigurationCreateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProviderConfigurationLoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

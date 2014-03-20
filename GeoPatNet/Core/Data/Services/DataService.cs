@@ -639,6 +639,7 @@ namespace Emash.GeoPatNet.Data.Implementation.Services
         public void LoadProviderConfiguration()
         {
             this.ProviderConfiguration = new ProviderConfiguration();
+            this.ProviderConfiguration.Load();
         }
     }
 }

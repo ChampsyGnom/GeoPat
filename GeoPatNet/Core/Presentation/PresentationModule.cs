@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Presentation
 
             this._regionManager.RegisterViewWithRegion("ProviderConfigurationRegion", typeof(ProviderConfigurationVew));
             this._regionManager.RegisterViewWithRegion("ProviderConfigurationCreateRegion", typeof(ProviderConfigurationCreateView));
-
+            this._regionManager.RegisterViewWithRegion("ProviderConfigurationLoginRegion", typeof(ProviderConfigurationLoginView));
             //
            
             

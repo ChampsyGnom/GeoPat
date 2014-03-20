@@ -13,6 +13,6 @@ namespace Emash.GeoPatNet.Infrastructure.Services
 
         Window CreateDialog(String regionName, String title);
 
-       
+        Window CreateDialog(String regionName, String title, Object vm);
     }
 }

@@ -17,17 +17,17 @@ using System.Windows.Shapes;
 namespace Emash.GeoPatNet.Presentation.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ProviderConfigurationVew.xaml
+    /// Logique d'interaction pour ProviderConfigurationLoginView.xaml
     /// </summary>
-    public partial class ProviderConfigurationVew : UserControl
+    public partial class ProviderConfigurationLoginView : UserControl
     {
-        public ProviderConfigurationVew(IProviderConfigurationViewModel vm)
+        public ProviderConfigurationLoginView()
         {
-            this.DataContext = vm;
+           
             InitializeComponent();
         }
 
-        private void ContentControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.FindParentControl<Window>().DialogResult = true;
             this.FindParentControl<Window>().Close();

@@ -60,6 +60,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Ribbon\Microsoft.Windows.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\packages\npgsql\2.1\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\packages\npgsql\2.1\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql.EntityFramework">
+      <HintPath>..\..\packages\npgsql\2.1\Npgsql.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Ribbon\RibbonControlsLibrary.dll</HintPath>
@@ -132,12 +141,16 @@
     <Compile Include="Enums\LocationAttributeType.cs" />
     <Compile Include="Enums\GenericCommitAction.cs" />
     <Compile Include="Enums\GenericDataListState.cs" />
+    <Compile Include="Enums\SplashUserAction.cs" />
     <Compile Include="Events\GenericListEvent.cs" />
     <Compile Include="Events\OpenEntityEvent.cs" />
     <Compile Include="Events\ServiceLoadedEvent.cs" />
     <Compile Include="Events\ServiceLoadedEventArg.cs" />
     <Compile Include="Events\SplashEvent.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
+    <Compile Include="Extensions\RegistryExtension.cs" />
+    <Compile Include="Models\ProviderConfigurationType.cs" />
+    <Compile Include="Models\ProviderParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -187,6 +200,7 @@
     <Compile Include="ViewModels\IGenericListViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\IProviderConfigurationCreateViewModel.cs" />
+    <Compile Include="ViewModels\IProviderConfigurationLoginViewModel.cs" />
     <Compile Include="ViewModels\IProviderConfigurationViewModel.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Models\ProviderConfiguration.cs" />

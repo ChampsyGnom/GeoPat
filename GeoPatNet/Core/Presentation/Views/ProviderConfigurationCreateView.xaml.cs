@@ -26,5 +26,11 @@ namespace Emash.GeoPatNet.Presentation.Views
             this.DataContext = vm;
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.FindParentControl<Window>().DialogResult = true;
+            this.FindParentControl<Window>().Close();
+        }
     }
 }

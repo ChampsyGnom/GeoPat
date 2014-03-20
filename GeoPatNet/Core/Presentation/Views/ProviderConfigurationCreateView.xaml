@@ -5,9 +5,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Width="300"
-             Height="400"
+             Height="300"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Libellé : " Margin="8 2 8 2" Grid.Column="0" Grid.Row="0"></TextBlock>
+        <TextBox Text="{Binding Path=DisplayName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="8 2 8 2" Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBlock Text="Type de base de donnée : " Margin="8 2 8 2" Grid.Column="0" Grid.Row="1"></TextBlock>
+        <ComboBox SelectedItem="{Binding Path=SelectedProviderConfigurationType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="8 2 8 2" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=ProviderConfigurationTypes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=DisplayName,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <GroupBox Margin="2" Header="Paramètres" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+            <ItemsControl ItemsSource="{Binding Path=ProviderParameters,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="2" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                <TextBlock Margin="0" Text="{Binding Path=DisplayName,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                <TextBlock Margin="0"  Text=" : "></TextBlock>
+                            </StackPanel>
+                            <TextBox Grid.Column="1" Margin="2" Text="{Binding Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </GroupBox>
+        <Button Margin="2" Height="32" Content="Valider" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Click="Button_Click"></Button>
     </Grid>
 </UserControl>

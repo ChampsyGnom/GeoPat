@@ -26,6 +26,7 @@ using Emash.GeoPatNet.Engine.ViewModels;
 using Emash.GeoPatNet.Engine.Services;
 using Microsoft.Practices.Prism.Events;
 using Emash.GeoPatNet.Infrastructure.Events;
+using Emash.GeoPatNet.Infrastructure.Models;
 
 
 
@@ -74,9 +75,8 @@ namespace Emash.GeoPatNet.Engine
             this.Container.RegisterType<ITranslateService, TranslateService>(new ContainerControlledLifetimeManager());
             this.Container.RegisterType<IProviderConfigurationViewModel, ProviderConfigurationViewModel>();
             this.Container.RegisterType<IProviderConfigurationCreateViewModel, ProviderConfigurationCreateViewModel>();
-
-
-            //
+            this.Container.RegisterType<IProviderConfigurationLoginViewModel, ProviderConfigurationLoginViewModel>();
+           
         }
 
 
@@ -100,9 +100,11 @@ namespace Emash.GeoPatNet.Engine
         {
            
             base.InitializeModules();
-            this.Container.Resolve<ISplashService>().ShowSplash(MaxIntializeTimeout);
+            this.Container.Resolve<ISplashService>().ShowSplash();
          
-            IDataService dataService = this.Container.TryResolve<IDataService>();
+            IDataService dataService = this.Container.Resolve<IDataService>();
+
+
             IReperageService reperageService = this.Container.TryResolve<IReperageService>();
             IDashboardService dashBoardService = this.Container.TryResolve<IDashboardService>();
             ICartoService cartoService = this.Container.TryResolve<ICartoService>();
@@ -113,43 +115,105 @@ namespace Emash.GeoPatNet.Engine
             ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<SplashEvent>().Publish("Chargement de la configuration ... ");
             dataService.LoadProviderConfiguration();
             if (dataService.ProviderConfiguration.DefaultItem == null)
-            {
-               Window window =  dialogService.CreateDialog("ProviderConfigurationRegion", "Choix de la base de données");              
-               Nullable<Boolean> result =  window.ShowDialog();
+            {this.Container.Resolve<ISplashService>().SplashUserAction = Infrastructure.Enums.SplashUserAction.ChooseDatabase;}
 
+
+            Task taskWaitingUserAction = this.Container.Resolve<ISplashService>().CreateTaskWaitingUserAction(1000);
+            taskWaitingUserAction.Start();
+            taskWaitingUserAction.Wait();
+            if (this.Container.Resolve<ISplashService>().SplashUserAction == Infrastructure.Enums.SplashUserAction.Exit)
+            {
+                this.Container.Resolve<ISplashService>().CloseSplash();
+                this.Container.Resolve<V>().Close();
+                System.Windows.Application.Current.Shutdown();
+                return;
             }
-            if (dataService != null)
+            bool exit = false;
+            if (this.Container.Resolve<ISplashService>().SplashUserAction == Infrastructure.Enums.SplashUserAction.ChooseDatabase)
             {
-               // _moduleInitializerTask = new Task(new Action(delegate()
-              //  {
-                dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
+               
+                while (!exit)
+                {
+                    Window window = dialogService.CreateDialog("ProviderConfigurationRegion", "Choix de la base de données");
+                    Nullable<Boolean> result = window.ShowDialog();
+                    if (result.HasValue && result.Value == true)
+                    {
+                        if (dataService.ProviderConfiguration.DefaultItem != null)
+                        {exit = true; break;}
+                    }
+                    else
+                    {
+                        this.Container.Resolve<ISplashService>().CloseSplash();
+                        this.Container.Resolve<V>().Close();
+                        System.Windows.Application.Current.Shutdown();
+                        return;
+                    }
+                }
+            }
+            string login = "postgres";
+            string passord = dataService.ProviderConfiguration.GetPasswordForLogin(dataService.ProviderConfiguration.DefaultItem , login);
+            bool connected = false;
+            exit = false;
+            while (!connected && !exit)
+            {
+                if (dataService.ProviderConfiguration.TryConnect(login, passord))
+                { connected = true; }
+                else
+                {
+                    ProviderConfigurationLoginViewModel vm = new ProviderConfigurationLoginViewModel();
+                    Window window = dialogService.CreateDialog("ProviderConfigurationLoginRegion", "Connexion",vm);
+                    vm.Login = login;
+                    vm.Password = passord;
+                    Nullable<Boolean> result = window.ShowDialog();
+                    if (result.HasValue && result.Value == true)
+                    {
+
+                        login = vm.Login;
+                        passord = vm.Password;
+                    }
+                    else exit = true;
+
+                }
+            }
+            if (exit)
+            {
+                this.Container.Resolve<ISplashService>().CloseSplash();
+                this.Container.Resolve<V>().Close();
+                System.Windows.Application.Current.Shutdown();
+                return;
+            }
+            dataService.ProviderConfiguration.SetLoginPassword(dataService.ProviderConfiguration.DefaultItem, login, passord);
+
+            Console.WriteLine(dataService.ProviderConfiguration.DefaultItem);
+           
+            dataService.Initialize("HOST=192.168.0.12;PORT=5432;DATABASE=test;USER ID=postgres;PASSWORD=postgres;PRELOADREADER=true;");
              
-                if (translateService != null)
-                { translateService.Initialize(); }
+            if (translateService != null)
+            { translateService.Initialize(); }
 
-                if (dashBoardService != null)
-                { dashBoardService.Initialize(); }
+            if (dashBoardService != null)
+            { dashBoardService.Initialize(); }
 
-                if (reperageService != null)
-                { reperageService.Initialize(); }
+            if (reperageService != null)
+            { reperageService.Initialize(); }
 
-                if (cartoService != null)
-                { cartoService.Initialize(); }
+            if (cartoService != null)
+            { cartoService.Initialize(); }
 
-                if (documentService != null)
-                { documentService.Initialize(); }
+            if (documentService != null)
+            { documentService.Initialize(); }
 
-                this.InitializeApplication();
-
-                this.Container.Resolve<ISplashService>().CloseSplash(null);
-                this.Container.Resolve<V>().Show();
-              //  }));
-              //  _moduleInitializerTask.Start();
+            this.InitializeApplication();
+            this.Container.Resolve<ISplashService>().CloseSplash();
+            this.Container.Resolve<V>().Show();
+          
                    
               
-            }
+            
             
             
         }
+
+       
     }
 }

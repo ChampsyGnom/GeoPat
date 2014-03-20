@@ -136,6 +136,7 @@
     <Compile Include="ViewModels\GenericListItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModelBase.cs" />
     <Compile Include="ViewModels\ProviderConfigurationCreateViewModel.cs" />
+    <Compile Include="ViewModels\ProviderConfigurationLoginViewModel.cs" />
     <Compile Include="ViewModels\ProviderConfigurationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
