@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Emash.GeoPatNet.Infrastructure.Symbol
 {
-    public class SymbologyRuleEquals<T> : SymbologyRule
+    public class SymbologyRuleEquals : SymbologyRule
     {
+       
     }
 }

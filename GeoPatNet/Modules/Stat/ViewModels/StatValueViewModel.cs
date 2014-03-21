@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emash.GeoPatNet.Infrastructure.Symbol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,23 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 {
     public class StatValueViewModel
     {
-        public Object IndependentValue { get; set; }
-        public Double  DependentValue { get; set; }
+        public Symbology Symbology { get; set; }
+        public Object IndependentValue
+        {
+            get
+            {
+                return this.Symbology.DisplayName;
+            }
+        }
+        public Double DependentValue
+        {
+            get
+            {
+                double result = 33;
+
+
+                return result;
+            }
+        }
     }
 }

@@ -12,6 +12,8 @@ using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Utils;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using System.Windows;
+using Emash.GeoPatNet.Infrastructure.Symbol;
 namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 {
     public enum StateType
@@ -36,7 +38,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
         private System.Windows.Visibility _stepConfigurationVisiblity;
         private System.Windows.Visibility _stepPreviewVisiblity;
         private StatFieldViewModel _selectedStatField;
-
+        public ObservableCollection<Symbology> Symbologies { get; private set; }
 
         public StatFieldViewModel SelectedStatField
         {
@@ -44,20 +46,57 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
             set 
             {
                 _selectedStatField = value;
-                this.RaisePropertyChanged("SelectedStatField"); 
-                this.UpdateWizzardRepresentation();
-                this.UpdateStatValues();
+                this.RaisePropertyChanged("SelectedStatField");
+                this.CreateSymbology();
+                this.CreateStatValues();
+              
             }
         }
 
-        private void UpdateStatValues()
+        private void CreateSymbology()
         {
             this.StatValues.Clear();
+            this.Symbologies.Clear();
             if (_selectedStatType != null && _selectedStatField != null)
             {
                 IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
                 if (_selectedStatType.StateType == StateType.Count)
                 {
+                    if (_selectedStatField.Field.ControlType == ControlType.Combo)
+                    {
+                        List<Object> distinctValues = new List<object>();
+                        DbSet dbSet = dataService.GetDbSet(_selectedStatField.Field.ParentColumnInfo.TableInfo.EntityType);
+                        IQueryable queryable = dbSet.AsQueryable();
+                        foreach (Object o in queryable)
+                        {
+                            distinctValues.Add(_selectedStatField.Field.ParentColumnInfo.Property.GetValue(o));
+                        }
+                        distinctValues = (from o in distinctValues orderby o select o).Distinct().ToList();
+                        if (distinctValues.Count > 50)
+                        {
+                            MessageBox.Show(distinctValues + " valeurs différentes pour ce champ, au dessus de 50 valeurs les statistiques sont illisible", "Trop de valeurs", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            foreach (Object obj in distinctValues )
+                            {
+                                Symbology symobology = new Symbology();
+                                SymbologyRuleEquals rule = new SymbologyRuleEquals();
+                                rule.Field = _selectedStatField.Field;
+                                rule.Value = obj;
+                                symobology.DisplayName = obj.ToString ();
+                                symobology.Rule = rule;
+                                Symbolizer symbolizer = new Symbolizer();
+                                symobology.Symbolizer = symbolizer;
+                                this.Symbologies.Add(symobology);
+                            
+                            }
+                           
+                        }
+                        Console.WriteLine("nb val " + distinctValues.Count);
+                       // DbSet dbSetCurrent = dataService.GetDbSet(this.EntityTableInfo.EntityType);
+                       // IQueryable currentQueryable = dbSetCurrent.AsQueryable();
+                    }
                     /*
                     if (_selectedStatField.BottomColumnInfo.ControlType == ControlType.Combo)
                     {
@@ -138,11 +177,17 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                      
         }
 
-        private void UpdateWizzardRepresentation()
+        private void CreateStatValues()
         {
+            this.StatValues.Clear();
             if (this._selectedStatField != null)
-            { 
-                
+            {
+                foreach (Symbology symbology in this.Symbologies)
+                {
+                    StatValueViewModel valueVm = new StatValueViewModel();
+                    valueVm.Symbology = symbology;
+                    this.StatValues.Add(valueVm);
+                }
             }
         }
         private StatTypeViewModel _selectedStatType;
@@ -240,7 +285,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                     }
                 }
             }
-
+            this.Symbologies = new System.Collections.ObjectModel.ObservableCollection<Symbology>();
             /*
             List<String> basicFieldPaths = dataService.GetTableFieldPaths(entityTableInfo);
 
@@ -267,6 +312,8 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                 this.AllFields.Add(vm);
             }
              * */
+
+            
         }
     }
 }
