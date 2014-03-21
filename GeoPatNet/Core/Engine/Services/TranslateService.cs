@@ -11,6 +11,11 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Emash.GeoPatNet.Engine.Services
 {
+    /// <summary>
+    /// Service de traduction
+    /// Tous les binding traductible on se service comme source
+    /// Quand la langue change tous les bindings sont mis à jour en live :)
+    /// </summary>
     public class TranslateService : ITranslateService, INotifyPropertyChanged
     {
         #region INotifyPropertyChanged
@@ -25,13 +30,29 @@ namespace Emash.GeoPatNet.Engine.Services
         }
         #endregion
 
-
+        /// <summary>
+        /// Liste des resources de la langue actuelle
+        /// </summary>
         public Dictionary<String, String> _ressources;
+
+        /// <summary>
+        /// Constante envoyé quand une resource n'est pas trouvé
+        /// </summary>
+        const string NotFoundError = "#StringNotFound#";
+
+        /// <summary>
+        /// Construteur , on initialise le dico des resources
+        /// </summary>
         public TranslateService()
         {
             this._ressources = new Dictionary<string, string>();
         }
-        const string NotFoundError = "#StringNotFound#";
+      
+        /// <summary>
+        /// Traduit du clé
+        /// </summary>
+        /// <param name="key">clé da la valeur</param>
+        /// <returns>Valeur traduite ou contenu de NotFoundError si la clé n'est pas trouvé dans le dico des resources</returns>
         public string Tanslate(string key)
         {
             if (this._ressources == null)
@@ -40,13 +61,22 @@ namespace Emash.GeoPatNet.Engine.Services
             { return this._ressources[key]; }
             else return NotFoundError+" - "+key;
         }
+        /// <summary>
+        /// Accesseur aux resources
+        /// </summary>
+        /// <param name="key">clé de la resources</param>
+        /// <returns></returns>
         public String this[String key]
         {
-            get {
+            get 
+            {
                 return this.Tanslate(key);
             }
         }
 
+        /// <summary>
+        /// charge la langue courante au démarage du moteur
+        /// </summary>
         public void Initialize()
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
@@ -55,7 +85,9 @@ namespace Emash.GeoPatNet.Engine.Services
             this.LoadCurrentLang();
         }
 
-
+        /// <summary>
+        /// Change na langue courante et met à jour touts les bindings
+        /// </summary>
         public void LoadCurrentLang()
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();

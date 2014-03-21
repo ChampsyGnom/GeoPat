@@ -12,6 +12,10 @@ using Microsoft.Practices.Prism.Commands;
 using System.ComponentModel;
 namespace Emash.GeoPatNet.Engine.ViewModels
 {
+    /// <summary>
+    /// ViewModel d'affichage personalisé
+    /// </summary>
+    /// <typeparam name="M"></typeparam>
     public class CustomDisplayViewModel<M> : INotifyPropertyChanged
         where M : new()
     {

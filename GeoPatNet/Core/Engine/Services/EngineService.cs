@@ -93,7 +93,13 @@ namespace Emash.GeoPatNet.Engine.Services
         }
 
 
-       
+       /// <summary>
+       /// Affiche une boite de dialogue d'ajout d'entité
+       /// </summary>
+       /// <typeparam name="T1">Type de l'entité</typeparam>
+       /// <param name="model">Objet entité></param>
+       /// <param name="fieldPaths">Liste des champs autorisé</param>
+       /// <returns></returns>
         public T1 ShowAddDialog<T1>(T1 model, string[] fieldPaths) where T1 : class, new()
         {
             GenericDataDialog window = new GenericDataDialog();
