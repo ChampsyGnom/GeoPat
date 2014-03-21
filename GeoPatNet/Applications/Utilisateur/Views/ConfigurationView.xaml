@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:l="clr-namespace:Emash.GeoPatNet.Infrastructure.Translation;assembly=GeoPatNet.Infrastructure"    
+             xmlns:m="clr-namespace:Emash.GeoPatNet.Infrastructure.MarkupExtensions;assembly=GeoPatNet.Infrastructure"
              xmlns:c="clr-namespace:Emash.GeoPatNet.Presentation.Controls;assembly=GeoPatNet.Presentation"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -11,7 +13,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <GroupBox Grid.Column="1" Header="Langue">
+        <GroupBox Grid.Column="1" Header="{m:Translate {x:Static l:Lang.Prf_GroupBoxLangHeader}}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -22,7 +24,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Langue actuel : " Margin="2" Grid.Column="0"></TextBlock>
+                <TextBlock Text="{m:Translate {x:Static l:Lang.Prf_TextBlockCurrentLangText}}" Margin="2" Grid.Column="0"></TextBlock>
                 <ComboBox SelectedItem="{Binding Path=SelectedLang,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Langs,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Width="120" Grid.Column="1" Margin="2">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -30,10 +32,10 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Command="{Binding Path=AddLangCommand}" Grid.ColumnSpan="2" Grid.Row="1" Content="Déployer une nouvelle langue"></Button>
+                <Button Command="{Binding Path=AddLangCommand}" Grid.ColumnSpan="2" Grid.Row="1" Content="{m:Translate {x:Static l:Lang.Prf_ButtonDeployLangText}}"></Button>
             </Grid>
         </GroupBox>
-        <GroupBox Grid.Column="0" Header="Répertoire">
+        <GroupBox Grid.Column="0" Header="{m:Translate {x:Static l:Lang.Prf_GroupBoxDirectoryHeader}}">
             <ItemsControl ItemsSource="{Binding Path=Schemas,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                 <ItemsControl.ItemContainerStyle>
                     <Style>
@@ -53,14 +55,14 @@
                                     <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                
-                                <TextBlock Grid.Column="0" Grid.Row="0" Margin="2" Text="Documents : "></TextBlock>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Margin="2" Text="{m:Translate {x:Static l:Lang.Prf_TextBlockDirectoryDocText}}"></TextBlock>
                                 <c:SelectDirectoryBox SelectedDirectory="{Binding Path=DirectoryDocument,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" Margin="2"></c:SelectDirectoryBox>
 
-                                <TextBlock Grid.Column="0" Grid.Row="1" Margin="2" Text="Logs : "></TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="1" Margin="2" Text="{m:Translate {x:Static l:Lang.Prf_TextBlockDirectoryLogText}}"></TextBlock>
                                 <c:SelectDirectoryBox SelectedDirectory="{Binding Path=DirectoryLog,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="1" Margin="2"></c:SelectDirectoryBox>
 
-                                <TextBlock Grid.Column="0" Grid.Row="2" Margin="2" Text="Données : "></TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Margin="2" Text="{m:Translate {x:Static l:Lang.Prf_TextBlockDirectoryDataText}}"></TextBlock>
                                 <c:SelectDirectoryBox  SelectedDirectory="{Binding Path=DirectoryData,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="2" Margin="2"></c:SelectDirectoryBox>
                             
                             </Grid>

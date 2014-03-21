@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:l="clr-namespace:Emash.GeoPatNet.Infrastructure.Translation;assembly=GeoPatNet.Infrastructure"    
+             xmlns:m="clr-namespace:Emash.GeoPatNet.Infrastructure.MarkupExtensions;assembly=GeoPatNet.Infrastructure"
              Height="32"
              d:DesignHeight="300" d:DesignWidth="300">
     <ToolBar HorizontalAlignment="Stretch">
@@ -12,25 +14,25 @@
                 <Style TargetType="ToggleButton">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=IsChecked}" Value="True">
-                            <Setter Property="Content" Value="Dévérouiller"></Setter>
+                            <Setter Property="Content" Value="{m:Translate {x:Static l:Lang.Com_DataToolbarUnlockButtonText}}"></Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=IsChecked}" Value="False">
-                            <Setter Property="Content" Value="Vérouiller"></Setter>
+                            <Setter Property="Content" Value="{m:Translate {x:Static l:Lang.Com_DataToolbarLockButtonText}}"></Setter>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
         <Separator></Separator>
-        <Button  Command="{Binding Path=InsertCommand}"  Content="Insérer"></Button>
-        <Button   Command="{Binding Path=DeleteCommand}"  Content="Supprimer"></Button>
+        <Button  Command="{Binding Path=InsertCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarInsertButtonText}}"></Button>
+        <Button   Command="{Binding Path=DeleteCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarDeleteButtonText}}"></Button>
         <Separator></Separator>
-        <Button x:Name="cancelButton"   Command="{Binding Path=CancelCommand}"  Content="Annuler"></Button>
-        <Button x:Name="commitbutton"   Command="{Binding Path=CommitCommand}"  Content="Valider"></Button>
+        <Button x:Name="cancelButton"   Command="{Binding Path=CancelCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarCommitButtonText}}"></Button>
+        <Button x:Name="commitbutton"   Command="{Binding Path=CommitCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarCancelButtonText}}"></Button>
         <Separator></Separator>
-        <Button  Command="{Binding Path=ClearCommand}"  Content="Vider"></Button>
-        <Button    Command="{Binding Path=SearchCommand}"  Content="Chercher"></Button>
+        <Button  Command="{Binding Path=ClearCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarClearButtonText}}"></Button>
+        <Button    Command="{Binding Path=SearchCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarSearchButtonText}}"></Button>
         <Separator></Separator>
-        <Button   Command="{Binding Path=QuitCommand}"  Content="Quitter"></Button>
+        <Button   Command="{Binding Path=QuitCommand}"  Content="{m:Translate {x:Static l:Lang.Com_DataToolbarQuitButtonText}}"></Button>
     </ToolBar>
 </UserControl>

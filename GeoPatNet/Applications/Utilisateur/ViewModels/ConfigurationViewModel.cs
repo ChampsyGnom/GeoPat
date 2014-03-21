@@ -46,12 +46,17 @@ namespace Emash.GeoPatNet.App.Utilisateur.ViewModels
             foreach (PrfParam itemToRemove in itemToRemoves)
             {parameters.Remove(itemToRemove);}
             this.DataService.DataContext.SaveChanges();           
-            PrfParam param = new PrfParam();
-            param.Code = "LANG";
-            param.Valeur = this._selectedLang.CodeIso;
-            parameters.Add(param);
-            this.DataService.DataContext.SaveChanges();
-            ServiceLocator.Current.GetInstance<ITranslateService>().LoadCurrentLang();
+           
+            if (this._selectedLang != null)
+            {
+                PrfParam param = new PrfParam();
+                param.Code = "LANG";
+                param.Valeur = this._selectedLang.CodeIso;
+                parameters.Add(param);
+                this.DataService.DataContext.SaveChanges();
+                ServiceLocator.Current.GetInstance<ITranslateService>().LoadCurrentLang();
+            }
+            
         }
         public ObservableCollection<LangViewModel> Langs  { get; private set; }
         public DelegateCommand AddLangCommand { get; private set; }

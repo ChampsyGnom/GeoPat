@@ -1,9 +1,26 @@
 ﻿CODE;VALEUR
-PrfAppTitle;Gestion des utilisateurs
-PrfMainTabUserHeader;Utilisateurs
-PrfMainTabProfilHeader;Profils
-PrfMainTabConfigurationHeader;Paramètres
-MainMenuFileHeader;Fichier
-MainMenuHelpHeader;Manuel
-MainMenuAboutHeader;A propos ...
-MainMenuQuitHeader;Quitter
+Prf_AppTitle;Gestion des utilisateurs
+Prf_MainTabUserHeader;Utilisateurs
+Prf_MainTabProfilHeader;Profils
+Prf_MainTabConfigurationHeader;Paramètres
+Prf_GroupBoxLangHeader;Langue
+Prf_TextBlockCurrentLangText;Langue actuelle
+Prf_ButtonDeployLangText;Déployer une langue
+Prf_GroupBoxDirectoryHeader;Répertoires
+Prf_TextBlockDirectoryDocText;Documents
+Prf_TextBlockDirectoryLogText;Log
+Prf_TextBlockDirectoryDataText;Données
+Com_MainMenuFileHeader;Fichier
+Com_MainMenuHelpHeader;Manuel
+Com_MainMenuAboutHeader;A propos ...
+Com_MainMenuQuitHeader;Quitter
+Com_DataToolbarUnlockButtonText;Dévérouiller
+Com_DataToolbarLockButtonText;Vérouiller
+Com_DataToolbarInsertButtonText;Insérer
+Com_DataToolbarUpdateButtonText;Modifier
+Com_DataToolbarDeleteButtonText;Supprimer
+Com_DataToolbarSearchButtonText;Chercher
+Com_DataToolbarClearButtonText;Vider
+Com_DataToolbarQuitButtonText;Quitter
+Com_DataToolbarCommitButtonText;Valider
+Com_DataToolbarCancelButtonText;Annuler

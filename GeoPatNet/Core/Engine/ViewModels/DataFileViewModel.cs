@@ -12,6 +12,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
 {
     public class DataFileViewModel : INotifyPropertyChanged
     {
+        
         private String _stateMessage;
 
         public String StateMessage
@@ -147,7 +148,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                 {
                     this._mapping.Add("InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
                     this._mapping.Add("InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
-                    this._mapping.Add("InfCodeType.Code", this._headers.IndexOf("CD_AIRE_INF__TYPE"));
+                    this._mapping.Add("InfCodeAire.Code", this._headers.IndexOf("CD_AIRE_INF__TYPE"));
                     this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
                     this._mapping.Add("NumExploit", this._headers.IndexOf("NUM_EXPLOIT"));
                     this._mapping.Add("Nom", this._headers.IndexOf("NOM"));
@@ -341,6 +342,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
                     this._mapping.Add("Nom", this._headers.IndexOf("NOM_USAGE"));
                     this._mapping.Add("Libelle", this._headers.IndexOf("LIBELLE"));
+                    this._mapping.Add("InfCodePtSing.Code", this._headers.IndexOf("CD_PT_SING_INF__CODE"));
                     this._mapping.Add("Info", this._headers.IndexOf("COMMENTAIRE"));
                     this.Import = true;
 
@@ -454,7 +456,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     this._mapping.Add("AbsDeb", this._headers.IndexOf("ABS_DEB"));
                     this._mapping.Add("InfCodeBifurcation.Code", this._headers.IndexOf("CD_BIF_INF__TYPE"));
                     this._mapping.Add("Nom", this._headers.IndexOf("NOM"));
-                    this._mapping.Add("DateFin", this._headers.IndexOf("DATE_FIN"));
+                    this._mapping.Add("DateFin", this._headers.IndexOf("DATE_MS"));
                     this._mapping.Add("DateMs", this._headers.IndexOf("DATE_MS"));
                     this._mapping.Add("Info", this._headers.IndexOf("OBSERV"));
                     this._mapping.Add("NumExploit", this._headers.IndexOf("NUM_EXPLOIT"));
@@ -475,6 +477,34 @@ namespace Emash.GeoPatNet.Engine.ViewModels
                     
                     this.Import = true;
                 }
+                else if (this.TableInfo.TableName.Equals("INF_AIRE_PRESTATAIRE"))
+                {
+                    //LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;AIRE_INF__ABS_DEB;CD_AIRE_INF__TYPE;CD_PRESTATAIRE_INF__TYPE;PRESTATAIRE_INF__NOM
+                    this._mapping.Add("InfAire.InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfAire.InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("InfAire.AbsDeb", this._headers.IndexOf("AIRE_INF__ABS_DEB"));
+                    this._mapping.Add("InfAire.InfCodeAire.Code", this._headers.IndexOf("CD_AIRE_INF__TYPE"));
+                    this._mapping.Add("InfPrestataire.InfCodePrestataire.Code", this._headers.IndexOf("CD_PRESTATAIRE_INF__TYPE"));
+                    this._mapping.Add("InfPrestataire.Code", this._headers.IndexOf("PRESTATAIRE_INF__NOM"));
+             
+
+                    this.Import = true;
+                }
+
+                else if (this.TableInfo.TableName.Equals("INF_AIRE_SERVICE"))
+                {
+                    //CD_SERVICE_INF__SERVICE;LIAISON_INF__LIAISON;CD_AIRE_INF__TYPE;CHAUSSEE_INF__SENS;AIRE_INF__ABS_DEB
+                    this._mapping.Add("InfAire.InfChaussee.InfLiaison.Code", this._headers.IndexOf("LIAISON_INF__LIAISON"));
+                    this._mapping.Add("InfAire.InfChaussee.Code", this._headers.IndexOf("CHAUSSEE_INF__SENS"));
+                    this._mapping.Add("InfAire.AbsDeb", this._headers.IndexOf("AIRE_INF__ABS_DEB"));
+                    this._mapping.Add("InfAire.InfCodeAire.Code", this._headers.IndexOf("CD_AIRE_INF__TYPE"));
+                    this._mapping.Add("InfCodeService.Code", this._headers.IndexOf("CD_SERVICE_INF__SERVICE"));
+                  
+
+
+                    this.Import = true;
+                }
+                //
             }
             else 
             { }

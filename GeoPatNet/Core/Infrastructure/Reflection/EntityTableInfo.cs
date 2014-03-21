@@ -206,20 +206,39 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
                 {
                     if (this.EntityType.Name.Equals("InfChaussee"))
                     {
-
+                        Nullable<Int64> abs = null;
+                        Int64 parsedAbs = 0;
                         Int64 chausseeId = (Int64)entityObject.GetType().GetProperty("Id").GetValue(entityObject);
-                        Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
+                        if (values[fieldInfoPr.Path].IndexOf("+") != -1)
+                        { abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]); }
+                        else
+                        {
+                            if (Int64.TryParse(values[fieldInfoPr.Path], out parsedAbs))
+                            { abs = parsedAbs; }
+                            else abs = null;
+                        }
+                    
                         fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
                     }
                     else
                     {
+                        Nullable<Int64> abs = null;
+                      
                         EntityColumnInfo columnChaussee = (from c in this.ColumnInfos
                                                            where c.ControlType == ControlType.Combo &&
                                                                c.ColumnName.Equals("INF_CHAUSSEE__ID")
                                                            select c).FirstOrDefault();
                         Object chausseeObj = columnChaussee.Property.GetValue(entityObject);
                         Int64 chausseeId = (Int64)chausseeObj.GetType().GetProperty("Id").GetValue(chausseeObj);
-                        Nullable<Int64> abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]);
+                        Int64 parsedAbs = 0;
+                        if (values[fieldInfoPr.Path].IndexOf("+") != -1)
+                        { abs = reperageService.PrToAbs(chausseeId, values[fieldInfoPr.Path]); }
+                        else
+                        {
+                            if (Int64.TryParse(values[fieldInfoPr.Path], out parsedAbs))
+                            { abs = parsedAbs; }
+                            else abs = null;
+                        }
                         fieldInfoPr.ColumnInfo.Property.SetValue(entityObject, abs);
                     }
                    

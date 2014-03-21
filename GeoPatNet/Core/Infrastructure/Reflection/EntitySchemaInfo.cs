@@ -162,8 +162,7 @@ namespace Emash.GeoPatNet.Infrastructure.Reflection
                                 fieldInfo.TableInfo = tableInfo;
                                 fieldInfo.IsMainTableField = false;
                                 fieldInfo.IsNeeded = false;
-                                fieldInfo.ControlType = parentTableColumnInfo.ControlType;
-                               
+                                fieldInfo.ControlType = parentTableColumnInfo.ControlType;                               
                                 List<EntityTableInfo> tableTree = dataService.TraverseEntityInfoTree(parentTableColumnInfo.TableInfo, tableInfo);
                                 List<String> paths = new List<string>();
                                 foreach (EntityTableInfo parentTableInTree in tableTree)

@@ -1,13 +1,14 @@
 ﻿<ribbon:RibbonWindow x:Class="Emash.GeoPatNet.App.Utilisateur.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen"
         xmlns:r="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
-     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-         xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"            
-          xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
-        xmlns:m="clr-namespace:Emash.GeoPatNet.Engine.MarkupExtensions;assembly=GeoPatNet.Engine"
-        Title="{m:Translate PrfAppTitle}" Height="600" Width="800">
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:b="clr-namespace:Emash.GeoPatNet.Infrastructure.Behaviors;assembly=GeoPatNet.Infrastructure"            
+        xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
+        xmlns:l="clr-namespace:Emash.GeoPatNet.Infrastructure.Translation;assembly=GeoPatNet.Infrastructure"    
+        xmlns:m="clr-namespace:Emash.GeoPatNet.Infrastructure.MarkupExtensions;assembly=GeoPatNet.Infrastructure"
+        Title="{m:Translate {x:Static l:Lang.Prf_AppTitle}}" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -23,41 +24,37 @@
             </i:Interaction.Behaviors>
                 <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu >
-                    <ribbon:RibbonApplicationSplitMenuItem  Header="{m:Translate MainMenuFileHeader}">
 
-
-                       
-
-                    </ribbon:RibbonApplicationSplitMenuItem>
-
-                    <ribbon:RibbonSeparator></ribbon:RibbonSeparator>
-                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-help.png" Header="{m:Translate MainMenuHelpHeader}">
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-help.png"
+                                                      Header="{m:Translate {x:Static l:Lang.Com_MainMenuHelpHeader}}">
 
 
                     </ribbon:RibbonApplicationMenuItem>
-                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-about.png" Header="{m:Translate MainMenuAboutHeader}">
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-about.png"
+                                                      Header="{m:Translate {x:Static l:Lang.Com_MainMenuAboutHeader}}">
 
 
                     </ribbon:RibbonApplicationMenuItem>
                     <ribbon:RibbonSeparator></ribbon:RibbonSeparator>
-                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-exit.png" Header="{m:Translate MainMenuQuitHeader}">
+                    <ribbon:RibbonApplicationMenuItem MinHeight="24" ImageSource="pack://application:,,,/Utilisateur;component/Resources/Icons/32x32/menu-exit.png" 
+                                                      Header="{m:Translate {x:Static l:Lang.Com_MainMenuQuitHeader}}">
 
 
                     </ribbon:RibbonApplicationMenuItem>
                 </ribbon:RibbonApplicationMenu>
 
             </ribbon:Ribbon.ApplicationMenu>
-            <ribbon:RibbonTab Header="{m:Translate PrfMainTabUserHeader}">
+            <ribbon:RibbonTab Header="{m:Translate {x:Static l:Lang.Prf_MainTabUserHeader}}">
                
               
 
             </ribbon:RibbonTab>
-            <ribbon:RibbonTab Header="{m:Translate PrfMainTabProfilHeader}">
+            <ribbon:RibbonTab Header="{m:Translate {x:Static l:Lang.Prf_MainTabProfilHeader}}">
 
                 
 
             </ribbon:RibbonTab>
-            <ribbon:RibbonTab Header="{m:Translate PrfMainTabConfigurationHeader}">
+            <ribbon:RibbonTab Header="{m:Translate {x:Static l:Lang.Prf_MainTabConfigurationHeader}}">
                 
                 
             </ribbon:RibbonTab>

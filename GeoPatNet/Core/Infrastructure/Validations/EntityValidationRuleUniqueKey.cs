@@ -75,7 +75,7 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                                                                        c.ColumnName.Equals("INF_CHAUSSEE__ID") select c).FirstOrDefault();
 
                             List<EntityColumnInfo> columnInfoChausseeUks = dataService.GetAllParentUniqueKeyColumnInfos(columnInfoChaussee);
-                            Console.WriteLine(columnInfoChausseeUks);
+                      
 
 
                             List<EntityFieldInfo> ukFieldChausseeInfos = new List<EntityFieldInfo>();
@@ -89,7 +89,11 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                                                              select f).FirstOrDefault();
                                 ukFieldChausseeInfos.Add(fieldInfo);
                                 if (!valueStrings.ContainsKey(fieldInfo.Path))
-                                { allChausseeValuePresent = false; }
+                                {
+
+                                    allChausseeValuePresent = false;
+                                    
+                                }
 
                             }
                             if (allChausseeValuePresent == true)
@@ -206,7 +210,6 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
             foreach (Object o in queryable)
             { hasSomeRow = true; break; }
 
-            Console.WriteLine("uk fields " + ukFieldInfos);
             if (hasSomeRow)
             {
                 message = "il existe déja un enregistrement avec les mêmes "+String.Join (",", (from f in ukFieldInfos select f.DisplayName ));

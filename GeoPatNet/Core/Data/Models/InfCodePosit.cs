@@ -32,8 +32,8 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_POSIT__ID")]
         [PrimaryKey("INF_CD_POSIT_PK")]
-        [ForeignKeyAttribute("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o966")]
-        [ForeignKeyAttribute("INF_CD_POSIT__INF_SECURITE","JOIN_o968")]
+        [ForeignKeyAttribute("INF_CD_POSIT__INF_ECLAIRAGE","JOIN_o965")]
+        [ForeignKeyAttribute("INF_CD_POSIT__INF_SECURITE","JOIN_o967")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

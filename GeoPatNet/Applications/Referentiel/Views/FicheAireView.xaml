@@ -59,8 +59,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     
-                    <v:GenericDataLabel Margin="2" Grid.Column="0" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.InfCodeLiaison.Code"></v:GenericDataLabel>
-                    <v:GenericDataControl Margin="2" Grid.Column="1" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.InfCodeLiaison.Code"></v:GenericDataControl>
+                
 
                     <v:GenericDataLabel Margin="2" Grid.Column="2" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.Code"></v:GenericDataLabel>
                     <v:GenericDataControl Margin="2" Grid.Column="3" Grid.Row="0" FieldPath="InfChaussee.InfLiaison.Code"></v:GenericDataControl>

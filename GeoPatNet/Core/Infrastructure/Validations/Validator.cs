@@ -145,8 +145,13 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 }
                 else
                 {
+                    if (valueString.IndexOf(" ") != -1)
+                    {
+                        valueString = valueString.Substring(0, valueString.IndexOf(" "));
+                    }
                     if (DateTime.TryParseExact(valueString,CultureConfiguration.DateFormatString,System.Globalization.CultureInfo.InvariantCulture ,System.Globalization.DateTimeStyles.None ,out valueDateTime ))
                     {
+                        value = valueDateTime;
                         message = null;
                         return true;
                     }
@@ -202,8 +207,9 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
             }
             else if (dataType.Equals(typeof(Nullable<Boolean>)))
             {
-                if (String.IsNullOrEmpty(valueString))
+                if (String.IsNullOrEmpty(valueString) || valueString.Equals ("VIDE"))
                 {
+                    value = null;
                     message = null;
                     return true;
                 }
@@ -400,16 +406,22 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 message = str + " n'est pas une date au format " + CultureConfiguration.DateFormatString;
                 return false;
             }
-            else if (DateTime.TryParseExact(str, CultureConfiguration.DateFormatString, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out valueDateTime))
-            {
-
-                return true;
-            }
             else
             {
-                message = str + " n'est pas une date au format " + CultureConfiguration.DateFormatString;
-                return false;
+                if (str.IndexOf(" ") != -1)
+                { str = str.Substring(0, str.IndexOf(" ")); }
+                if (DateTime.TryParseExact(str, CultureConfiguration.DateFormatString, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out valueDateTime))
+                {
+                    valueDateTime = valueDateTime;
+                    return true;
+                }
+                else
+                {
+                    message = str + " n'est pas une date au format " + CultureConfiguration.DateFormatString;
+                    return false;
+                }
             }
+            
 
         }
 
@@ -487,16 +499,23 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                 valueDateTime = null;
                 return true;
             }
-            else if (DateTime.TryParseExact(str, CultureConfiguration.DateFormatString, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedDate))
-            {
-                valueDateTime = parsedDate;
-                return true;
-            }
             else
             {
-                message = str + " n'est pas une date au format " + CultureConfiguration.DateFormatString;
-                return false;
+                if (str.IndexOf(" ") != -1)
+                { str = str.Substring(0, str.IndexOf(" ")); }
+
+                if (DateTime.TryParseExact(str, CultureConfiguration.DateFormatString, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedDate))
+                {
+                    valueDateTime = parsedDate;
+                    return true;
+                }
+                else
+                {
+                    message = str + " n'est pas une date au format " + CultureConfiguration.DateFormatString;
+                    return false;
+                }
             }
+            
         }
 
         public static bool ValidateNullableDouble(string str, out string message, out double? valueNullableDouble)

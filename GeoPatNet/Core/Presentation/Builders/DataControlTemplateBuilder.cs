@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using Emash.GeoPatNet.Infrastructure.Attributes;
 using Emash.GeoPatNet.Infrastructure.Enums;
 using Emash.GeoPatNet.Infrastructure.Reflection;
@@ -196,8 +196,11 @@ namespace Emash.GeoPatNet.Presentation.Builders
 
         private static DataTemplate CreateTemplateSearch(EntityFieldInfo fieldInfo, IDataService dataService, FrameworkElement element)
         {
+            Type propertyType = null;
             DataTemplate dataTemplate = new DataTemplate();
-            Type propertyType = fieldInfo.ColumnInfo.PropertyType;
+            if ( fieldInfo.ColumnInfo != null)
+            { propertyType = fieldInfo.ColumnInfo.PropertyType;}
+           
             if (fieldInfo.ParentColumnInfo != null)
             { propertyType = fieldInfo.ParentColumnInfo.PropertyType; }
             if (fieldInfo.ControlType == ControlType.Combo)

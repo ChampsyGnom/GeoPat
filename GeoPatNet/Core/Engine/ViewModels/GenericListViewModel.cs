@@ -237,6 +237,7 @@ namespace Emash.GeoPatNet.Engine.ViewModels
             {
                 if (entityFieldInfo.IsMainTableField || entityFieldInfo.IsNeeded)
                 { this.FieldPaths.Add(entityFieldInfo.Path); }
+                
                
                
             }

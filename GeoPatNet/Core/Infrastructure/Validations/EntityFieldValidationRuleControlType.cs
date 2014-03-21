@@ -181,7 +181,10 @@ namespace Emash.GeoPatNet.Infrastructure.Validations
                     }
                     else if (columnInfo.ControlType == ControlType.Date)
                     {
-
+                        if (valueString.IndexOf(" ") != -1)
+                        {
+                            valueString = valueString.Substring(0, valueString.IndexOf(" "));
+                        }
                         if (columnInfo.AllowNull)
                         {
                             Nullable<DateTime> valNullableDateTime = null;

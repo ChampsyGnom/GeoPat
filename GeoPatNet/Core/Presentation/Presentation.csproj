@@ -293,6 +293,9 @@
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)Applications\Referentiel\bin\debug\Resources\Modules"
 copy "$(ProjectDir)bin\Debug\GeoPatNet.Presentation.dll" "$(SolutionDir)Applications\Referentiel\bin\debug\Resources\Modules"
+
+mkdir $(SolutionDir)Applications\Utilisateur\bin\debug\Resources\Modules"
+copy "$(ProjectDir)bin\Debug\GeoPatNet.Presentation.dll" "$(SolutionDir)Applications\Utilisateur\bin\debug\Resources\Modules"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

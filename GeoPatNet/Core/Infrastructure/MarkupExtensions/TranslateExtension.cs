@@ -10,7 +10,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Prism.UnityExtensions;
 using System.Windows;
 using System.Windows.Data;
-namespace Emash.GeoPatNet.Engine.MarkupExtensions
+namespace Emash.GeoPatNet.Infrastructure.MarkupExtensions
 {
     /// <summary>
     /// Markup Extension qui peut être utiliser directement dans le XAML pour les chaines qui doivent être traduite
