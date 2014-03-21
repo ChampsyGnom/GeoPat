@@ -1,0 +1,32 @@
+CAMP_OA__ID_CAMP;DSC_OA__NUM_OA;CD_METEO_OA__METEO;INSPECTEUR_OA__NOM;ETAT;DERN_VISITE;DAT_SIGN;DATEV;TEMPERATURE;MOYEN;CONDITIONS
+OA - OH 2;OH  411a;;Jean-Paul DECLOUX;Signé;;22/05/2013 00:00:00;21/05/2013 00:00:00;11;-Appareil photo¤r¤n¤-Lampe torche¤r¤n¤;Hauteur d''eau dans l''OH >0.40m
+OA - OH 2;OH  411b;;Jean-Paul DECLOUX;Signé;;22/05/2013 00:00:00;21/05/2013 00:00:00;11;Appareil photo;
+OA - OH 2;OH 1154b;;Jean-Paul DECLOUX;Signé;;22/05/2013 00:00:00;15/05/2013 00:00:00;14;Appareil photo;
+test;OH  621b;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;24/10/2012 00:00:00;16;Lampe torche¤r¤n¤Appareil Photo Numérique¤r¤n¤Bottes;
+test;OH 1062a;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;29/11/2012 00:00:00;9;Lampe torche¤r¤n¤Appareil photo numérique¤r¤n¤Bottes;
+test;OH 1062b;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;29/10/2012 00:00:00;9;Lampe torche¤r¤n¤Appareil photo numérique¤r¤n¤Bottes;
+test;OH 1166;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;31/10/2012 00:00:00;10;Lampe torche¤r¤n¤Jumelles¤r¤n¤Appareil photo numérique¤r¤n¤Bottes;Ouvrage en charge importante avec les pluies du WE.¤r¤n¤Pas de visite de la chaussée car absence d''accompagnateur sécurité.
+test;OH 1294;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;24/10/2012 00:00:00;15;Lampe torche¤r¤n¤Jumelles¤r¤n¤Appareil photo numérique¤r¤n¤Bottes;Ouvrage en forte charge
+test;PI 1301;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;31/10/2012 00:00:00;13;Jumelles¤r¤n¤Appareil photo numérique;Pas de visite du tablier, car absence d''annonceur sécurité.
+test;PS  621;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;23/10/2012 00:00:00;18;Jumelles¤r¤n¤Appareil Photo Numérique;Pas de viste de l''intrados, hors culées, et des piles, car absence d''accompagnateur sécurité.
+test;PS  909;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;25/10/2012 00:00:00;18;Jumelles¤r¤n¤Appareil photo numérque.;Pas de visite de l''intrados car absence d''un accompagnateur sécurité.
+test;PS 1297;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;30/10/2012 00:00:00;13;Jumelles¤r¤n¤Appareil photo numérique;Pas de visite de l''intrados et des piles car absence d''accompagnateur sécurité.
+test;OH  636b;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;20/11/2012 00:00:00;16;Lampe torche.¤r¤n¤Appareil photo numérique¤r¤n¤Bottes;
+test;OH  636a;;Pascal LALLOZ;Validé;;05/12/2012 00:00:00;20/11/2012 00:00:00;16;Lampe torche¤r¤n¤Appareil photo numérique¤r¤n¤Bottes;
+OA - OH 1;OH  383;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;15/05/2013 00:00:00;14;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  356;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;14/05/2013 00:00:00;14;Moyen visuel: appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  382;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;15/05/2013 00:00:00;14;Moyen visuel: appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  446;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;22/05/2013 00:00:00;15;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  495;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;16/05/2013 00:00:00;11;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  919a;;Jean-Paul DECLOUX - EGIS ;Validé;;11/06/2013 00:00:00;23/05/2013 00:00:00;17;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  919b;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;23/05/2013 00:00:00;17;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  941;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;23/05/2013 00:00:00;17;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH  952;;Jean-Paul DECLOUX - EGIS ;Validé;;10/10/2013 00:00:00;27/05/2013 00:00:00;20;Appareil photo;Inspection détaillée initiale
+OA - OH 1;OH 1062a;;Jean-Paul DECLOUX - E.Int;Validé;;10/10/2013 00:00:00;27/05/2013 00:00:00;20;Appareil photo;Inspection initiale détaillée
+OA - OH 1;OH 1166;;Jean-Paul DECLOUX - E.Int;Validé;;10/10/2013 00:00:00;28/05/2013 00:00:00;17;Appareil photo;Inspection initiale détaillée
+OA - OH 1;OH 1294;;Jean-Paul DECLOUX - E.Int;Validé;;10/10/2013 00:00:00;28/05/2013 00:00:00;17;Appareil photo;Inspection initiale détaillée
+OA - OH 1;OH 1295;;Jean-Paul DECLOUX - E.Int;Validé;;10/10/2013 00:00:00;29/05/2013 00:00:00;16;appareil photo;Inspection initiale détaillée
+OA - OH 1;OH 1300;;Jean-Paul DECLOUX - E.Int;Validé;;10/10/2013 00:00:00;29/05/2013 00:00:00;17;Appareil photo;Inspection initiale détaillée
+OA - OH 2;OH 411b;;Jean-Paul DECLOUX - E.Int;Signé;;06/10/2013 00:00:00;21/05/2013 00:00:00;11;Appareil photo;Inspection détaillée initiale
+OA neufs;PI 737;;P. VERDURE - Egis Geotech;Validé;;30/07/2013 00:00:00;11/04/2013 00:00:00;;Nacelle positive sur VL;PI 389, autorisation SNCF avec interdiction temporaire de circulation de la voie 1 puis 2. A 63 en circulation à double sens sur un tablier.¤r¤n¤PI inspecté sur 2 jours
+OA neufs;PS 577;;P. VERDURE - Egis Geotech;Validé;;30/07/2013 00:00:00;12/04/2013 00:00:00;16;Nacelle sur VL;PSGF 229, pas d''accès à l''autoroute sens 1 et route départementale 10 en circulation.

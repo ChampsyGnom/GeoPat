@@ -1,0 +1,324 @@
+CD_PT_SING_INF__CODE;LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;NOM_USAGE;LIBELLE;COMMENTAIRE
+ACCES;A63;2;101150;1011 E;voie de désenclavement;
+ACCES;A63;2;109050;1090 E;Aire de service de l''Ocèan-E / voie de désenclavement;
+ACCES;A63;2;113820;1138 E;voie de désenclavement;
+ACCES;A63;2;125150;1251 E;voie de désenclavement ;
+ACCES;A63;2;127650;1276 E;Aire de repos de Magescq-E / VD;
+ACCES;A63;2;134780;1347 E;RD10 E ;
+ACCES;A63;2;122200;1222 E;voie de désenclavement;
+ACCES;A63;2;123370;1234 E;BPV SUD - Parking N-E / Voie de désenclavement ;
+ACCES;A63;1;41450;414 W;Voie rétablie RD110;
+ACCES;A63;1;56800;567 W;Aire de service de la Porte des Landes-W / VD;
+ACCES;A63;1;69650;696 W;Aire derepos de Labouheyre-W / VD;
+ACCES;A63;1;74150;741 W;CEI LAB /giratoire D626;
+ACCES;A63;1;86250;862 W;Voie désenclac / PS RD 385 ;
+ACCES;A63;1;89650;896 W;Aire de repos Onesse-W / VD;
+ACCES;A63;1;101050;1010 W;RD 10E;
+ACCES;A63;1;107950;1079 W;Aire de service de l''Ocèan-W/RD10E;
+ACCES;A63;1;113750;1137 W;RD 10E;
+ACCES;A63;1;123250;1232 W;BPV Sud parking côté S-W / RD10E;ELECTRIQUE 
+ACCES;A63;1;125150;1251 W;RD 10E;
+ACCES;A63;1;126750;1267 W;Aire de repos de Magescq-W /RD10E;
+ACCES;A63;1;134580;1345 W;Voie de désenclavement ;
+ACCES;A63;2;41450;414 E;Voie rétablie RD 110;
+ACCES;A63;2;55850;558 E;Aire de service de la Poret des Landes-E/  RD10E;
+ACCES;A63;2;58500;585 E;BPV Nord / CEM EEA;ELECTRIQUE 
+ACCES;A63;2;68750;687 E;voie dé désenclavement lieu dit  TUYAS / Piste 245 ;
+ACCES;A63;2;74150;741 E;CEI/LAB VC rue L Moreau;SOLAIRE 
+ACCES;A63;2;86250;862 E;RD 10E/ RD 385;
+ACCES;A63;2;89250;892 E;Aire de repos d''Onesse-E / RD 10E ;
+ACCES;A63;1;34750;33+0640 - DIRA;RD 108;PK-1 / SOLAIRE 
+ACCES;A63;2;34750;33+0640 / DIRA;RD 108;PK-1
+ACCES;A63;1;58400;584 W;BPV NORD  parking côté S-W;
+ACCES;A63;1;122220;1222 W;RD10E;
+AIRE_R;A63;1;40000;Aire de repos;Aire de Lugos Ouest;
+AIRE_R;A63;3;69750;Aire de repos;Aire de Labouheure;(de chaque coté)
+AIRE_R;A63;2;89130;Aire de repos;Aire de Onesse et Laharie Est;
+AIRE_R;A63;2;39950;Aire de repos;Aire de Lugos Est;
+AIRE_R;A63;1;89930;Aire de repos;Aire de Onesse et Laharie Ouest;
+AIRE_R;A63;1;126950;Aire de repos;Aire de Magescq Ouest;
+AIRE_R;A63;2;127500;Aire de repos;Aire de Magescq Est;
+AIRE_S;A63;3;56750;Aire de service;Porte des Landes;(de chaque coté)
+AIRE_S;A63;3;108750;Aire de service;Aire de l''Océan;(de chaque coté)
+BPV;A63;3;58502;BPV;BPV Nord;
+BPV;A63;3;123249;BPV;BPV Sud;
+DIF;A63;3;130122;N°11;Diffuseur de Magescq;
+DIF;A63;3;137807;N°10;Diffuseur de Soustons;
+DIF;A63;3;139220;N° 9;Echangeur RD824;
+DIF;A63;2;116285;N°12a;1/4 de diffuseur de Castets;
+DIF;A63;3;36052;N°21;Diffuseur de Salles;
+DIF;A63;3;51692;N°18;Diffuseur Le Muret;
+DIF;A63;3;62059;N°17;Diffuseur de Liposthey;
+DIF;A63;3;75946;N°16;Diffuseur de Labouheyre;
+DIF;A63;3;82772;N°15;Diffuseur de Cap de Pin;
+DIF;A63;3;94066;N°14;Diffuseur de Onesse et Laharie;
+DIF;A63;3;104205;N°13;Diffuseur de Le Souquet;
+DIF;A63;3;117368;N°12;Diffuseur de Castets;
+ITPC;A63;3;37000;;;
+ITPC;A63;3;35150;;;
+ITPC;A63;3;39200;;;
+ITPC;A63;3;40800;;;
+ITPC;A63;3;43150;;;
+ITPC;A63;3;45050;;;
+ITPC;A63;3;47500;;;
+ITPC;A63;3;49150;;;
+ITPC;A63;3;49750;;;
+ITPC;A63;3;51050;;;
+ITPC;A63;3;53300;;;
+ITPC;A63;3;55900;;;
+ITPC;A63;3;58950;;;
+ITPC;A63;3;61550;;;
+ITPC;A63;3;73050;;;
+ITPC;A63;3;64950;;;
+ITPC;A63;3;67150;;;
+ITPC;A63;3;68450;;;
+ITPC;A63;3;68950;;;
+ITPC;A63;3;71350;;;
+ITPC;A63;3;75450;;;
+ITPC;A63;3;76350;;;
+ITPC;A63;3;78350;;;
+ITPC;A63;3;80200;;;
+ITPC;A63;3;82900;;;
+ITPC;A63;3;85850;;;
+ITPC;A63;3;88450;;;
+ITPC;A63;3;91350;;;
+ITPC;A63;3;92350;;;
+ITPC;A63;3;95150;;;
+ITPC;A63;3;97050;;;
+ITPC;A63;3;99200;;;
+ITPC;A63;3;101350;;;
+ITPC;A63;3;103850;;;
+ITPC;A63;3;104500;;;
+ITPC;A63;3;107150;;;
+ITPC;A63;3;109300;;;
+ITPC;A63;3;114200;;;
+ITPC;A63;3;112850;;;
+ITPC;A63;3;114850;;;
+ITPC;A63;3;117200;;;
+ITPC;A63;3;117750;;;
+ITPC;A63;3;119900;;;
+ITPC;A63;3;121800;;;
+ITPC;A63;3;124450;;;
+ITPC;A63;3;126800;;;
+ITPC;A63;3;129850;;;
+ITPC;A63;3;130500;;;
+ITPC;A63;3;132200;;;
+ITPC;A63;3;130300;;;
+ITPC;A63;3;137550;;;
+PAU;A63;1;35450;;;
+PAU;A63;2;35450;;;
+PAU;A63;1;37250;;;
+PAU;A63;2;37250;;;
+PAU;A63;1;39000;;;
+PAU;A63;2;39000;;;
+PAU;A63;1;39800;;;
+PAU;A63;2;39800;;;
+PAU;A63;1;40750;;;
+PAU;A63;2;40750;;;
+PAU;A63;1;42500;;;
+PAU;A63;2;42500;;;
+PAU;A63;1;44250;;;
+PAU;A63;2;44250;;;
+PAU;A63;1;45750;;;
+PAU;A63;2;45750;;;
+PAU;A63;1;47250;;;
+PAU;A63;2;47250;;;
+PAU;A63;1;48750;;;
+PAU;A63;2;48750;;;
+PAU;A63;1;50500;;;
+PAU;A63;2;50500;;;
+PAU;A63;1;52550;;;
+PAU;A63;2;52550;;;
+PAU;A63;1;54450;;;
+PAU;A63;2;54450;;;
+PAU;A63;1;55450;;;
+PAU;A63;2;55450;;;
+PAU;A63;1;57550;;;
+PAU;A63;2;57550;;;
+PAU;A63;1;59250;;;
+PAU;A63;2;59250;;;
+PAU;A63;1;61250;;;
+PAU;A63;2;61250;;;
+PAU;A63;1;63250;;;
+PAU;A63;2;63250;;;
+PAU;A63;1;65250;;;
+PAU;A63;2;65250;;;
+PAU;A63;1;67250;;;
+PAU;A63;2;67250;;;
+PAU;A63;1;69000;;;
+PAU;A63;2;69000;;;
+PAU;A63;1;69650;;;
+PAU;A63;2;69650;;;
+PAU;A63;1;70500;;;
+PAU;A63;2;70500;;;
+PAU;A63;1;72100;;;
+PAU;A63;2;72100;;;
+PAU;A63;1;73750;;;
+PAU;A63;2;73750;;;
+PAU;A63;1;75250;;;
+PAU;A63;2;75250;;;
+PAU;A63;1;77250;;;
+PAU;A63;2;77250;;;
+PAU;A63;1;79250;;;
+PAU;A63;2;79250;;;
+PAU;A63;1;81250;;;
+PAU;A63;2;81250;;;
+PAU;A63;1;83250;;;
+PAU;A63;2;83250;;;
+PAU;A63;1;85250;;;
+PAU;A63;2;85250;;;
+PAU;A63;1;60250;;;
+PAU;A63;2;87250;;;
+PAU;A63;2;89150;;;
+PAU;A63;1;89850;;;
+PAU;A63;1;91750;;;
+PAU;A63;2;91750;;;
+PAU;A63;1;95250;;;
+PAU;A63;2;95250;;;
+PAU;A63;1;96750;;;
+PAU;A63;2;96750;;;
+PAU;A63;1;98500;;;
+PAU;A63;2;98500;;;
+PAU;A63;1;100550;;;
+PAU;A63;2;100550;;;
+PAU;A63;1;102300;;;
+PAU;A63;2;102300;;;
+PAU;A63;1;103500;;;
+PAU;A63;2;103500;;;
+PAU;A63;1;105550;;;
+PAU;A63;2;105550;;;
+PAU;A63;1;107500;;;
+PAU;A63;2;107500;;;
+PAU;A63;1;109500;;;
+PAU;A63;2;109500;;;
+PAU;A63;1;111150;;;
+PAU;A63;2;111150;;;
+PAU;A63;1;113050;;;
+PAU;A63;2;113050;;;
+PAU;A63;1;115000;;;
+PAU;A63;2;115000;;;
+PAU;A63;1;116750;;;
+PAU;A63;2;116750;;;
+PAU;A63;1;118750;;;
+PAU;A63;2;118750;;;
+PAU;A63;1;120750;;;
+PAU;A63;2;120750;;;
+PAU;A63;1;122500;;;
+PAU;A63;2;122500;;;
+PAU;A63;1;124500;;;
+PAU;A63;2;124500;;;
+PAU;A63;1;126250;;;
+PAU;A63;2;126250;;;
+PAU;A63;1;127000;;;
+PAU;A63;2;127550;;;
+PAU;A63;1;128250;;;
+PAU;A63;2;128250;;;
+PAU;A63;1;129750;;;
+PAU;A63;2;129750;;;
+PAU;A63;1;131750;;;
+PAU;A63;2;131750;;;
+PAU;A63;1;133750;;;
+PAU;A63;2;133750;;;
+PAU;A63;1;135750;;;
+PAU;A63;2;135750;;;
+PAU;A63;1;137250;;;
+PAU;A63;2;137250;;;
+PAU;A63;1;138500;;;
+PAU;A63;2;138500;;;
+PI;A63;3;73093;PI PASSAGE CYCLE;;
+PI;A63;3;73671;PI SNCF + VOIE;;
+PI;A63;3;74631;PI PSGR;;
+PI;A63;3;94066;PI RD38;;
+PI;A63;3;104893;PI CR;;
+PI;A63;3;115368;PI VOIE DE DESENCLAVEMENT;;
+PI;A63;3;117368;CASTET;;
+PI;A63;3;130122;PI RD16;;
+PS;A63;3;36052;PS RD03;;
+PS;A63;3;40500;PS RD 110;;
+PS;A63;3;43892;PS RD110E1;;
+PS;A63;3;46307;PS RN10;;
+PS;A63;3;51692;PS RN134;;
+PS;A63;3;53792;PS RD348;;
+PS;A63;3;55913;PS RD410;;
+PS;A63;3;57500;PS GRANDE FAUNE;;
+PS;A63;3;62059;PS RD43;;
+PS;A63;3;68667;PS CR246;;
+PS;A63;3;71656;PS CR DU BEL AIR;;
+PS;A63;3;74298;PS RD626;;
+PS;A63;3;75946;PS RD626;;
+PS;A63;3;78217;PS CR36;;
+PS;A63;3;82772;PS RD44;;
+PS;A63;3;86073;PS RD365;;
+PS;A63;3;90879;PS RD385;;
+PS;A63;3;97278;PS VC CAPCOS;;
+PS;A63;3;101210;PS VC LE BOUSCAT;;
+Tr RAU;A63;3;87033;OTRAU870;traversée RAU diam 300 mm Acier ;fonçage / charge 2.14m
+Tr RAU;A63;3;93954;OTRAU939;traversée RAU diam 300 mm Acier ;fonçage / charge 2.19 m
+Tr RAU;A63;3;95120;OTRAU951;traversée RAU diam 300 mm Acier ;fonçage / charge 2.10m
+Tr RAU;A63;3;96839;OTRAU968;traversée RAU diam 300 mm Acier ;fonçage charge 2.67 m
+Tr RAU;A63;3;98735;OTRAU987;traversée RAU diam 300 mm Acier ;fonçage / charge 2.42 m
+Tr RAU;A63;3;100534;OTRAU1000;traversée RAU diam 300 mm Acier ;fonçage / charge 2.63 m
+Tr RAU;A63;3;102636;OTRAU1026;traversée RAU diam 300 mm Acier ;fonçage / charge 1.67 m
+Tr RAU;A63;3;103464;OTRAU1034;traversée RAU diam 300 mm Acier ;fonçage / charge 2.25m
+Tr RAU;A63;3;104250;OTRAU1042;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;105466;OTRAU1054;traversée RAU diam 300 mm Acier ;fonçage / charge 2.32 m
+Tr RAU;A63;3;107250;OTRAU1072;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;109030;OTRAU1090;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;110840;OTRAU1108;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;112750;OTRAU1127;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;114450;OTRAU1144;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;117330;OTRAU1173;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;117450;OTRAU1174;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;120450;OTRAU1204;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;122350;OTRAU1223;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;123450;OTRAU1234;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;124450;OTRAU1244;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;127505;OTRAU1275;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;103270;OTRAU1032;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;131750;OTRAU1317;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;134795;OTRAU1348;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;135550;OTRAU1355;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;137050;OTRAU1370;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;137990;OTRAU1380;traversée RAU diam 300 mm Acier ;fonçage 
+PS;A63;3;104205;PS RD 41;;
+PS;A63;3;107949;PS RD 140;;
+PS;A63;3;111780;PS CR;;
+PS;A63;3;113907;PS CR;;
+PS;A63;3;116285;PS RD42;;
+PS;A63;3;122137;PS CR;;
+PS;A63;3;124723;PS CR;;
+PS;A63;3;129654;PS RD150;;
+PS;A63;3;130942;PS RD423;;
+PS;A63;3;134652;PS RD17;;
+PS;A63;3;137807;PS RD17;;
+PS;A63;3;139220;PS RD824;;
+PS;A63;3;139540;PS RD824;;
+PS;A63;3;139606;PS RD810;;
+Tr RAU;A63;3;35950;OTRAU359;traversée RAU diam  300mm Acier;fonçage / charge  1.26m
+Tr RAU;A63;3;36750;OTRAU367;traversée RAU diam 300 mm Acier ;fonçage
+Tr RAU;A63;3;36950;OTRAU369;traversée RAU diam 300 mm Acier ;fonçage 
+VIA;A63;3;38150;Viaduc DE LA LEYRE;;
+Tr RAU;A63;3;39720;OTRAU397;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;42350;OTRAU423;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;51580;OTRAU516;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;52650;OTRAU526;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;56400;OTRAU564;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;56700;OTRAU567;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;59950;OTRAU599;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;61930;OTRAU619;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;63250;OTRAU632;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;65100;OTRAU651;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;66950;OTRAU669;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;68950;OTRAU689;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;69630;OTRAU696;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;70850;OTRAU708;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;72094;OTRAU721;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;74050;OTRAU740;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;75100;OTRAU851;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;75983;OTRAU760;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;81266;OTRAU813;traversée RAU diam 300 mm Acier ;fonçage / charge 2.29 m
+Tr RAU;A63;3;82700;OTRAU827;traversée RAU diam 300 mm Acier ;fonçage 
+Tr RAU;A63;3;85235;OTRAU852;traversée RAU diam 300 mm Acier ;fonçage  / charge 2.09 m
+Tr RAU;A63;3;87234;OTRAU872;traversée RAU diam 300 mm Acier ;fonçage / charge 2.50m
+Tr RAU;A63;3;89134;OTRAU891;traversée RAU diam 300 mm Acier ;fonçage / charge 2.58m
+Tr RAU;A63;3;90934;OTRAU909;traversée RAU diam 300 mm Acier ;fonçage  / charge 2.68m

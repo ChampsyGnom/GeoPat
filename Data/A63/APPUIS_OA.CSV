@@ -1,0 +1,10 @@
+DSC_OA__NUM_OA;CD_FAM_APPUI_OA__FAM_APP;CD_APPUI_OA__APP;CD_APP_APPUI_OA__APPUI;NBR_APPAREIL;DATE_MS;COMMENTAIRE
+PS 577;Culée 1;CULEES;Inconnu;;;Coté Ouest
+PS 577;Culée 2;CULEES;Inconnu;;;Coté Est
+PS 577;Appui intermédiaire;PILE;Inconnu;;;Pile N°1 - Coté Est
+PS 577;Appui intermédiaire 2;PILE;Inconnu;;;Pile N°2 - Pile centrale
+PS 577;Appui intermédiaire 3;PILE;Inconnu;;;Pile N°3 - Côté Ouest
+PI 737;Culée 1;CULEES;Inconnu;;;Culée N° 0 -  Côté Bayonne
+PI 737;Culée 2;CULEES;Inconnu;;;Culée N° 3 -  Côté Bordeaux
+PI 737;Appui intermédiaire;PILE-VOILE;Inconnu;;;Pile N°1 -  Côté Bayonne
+PI 737;Appui intermédiaire 2;PILE-VOILE;Inconnu;;;Pile N°2 -  Côté Bordeaux

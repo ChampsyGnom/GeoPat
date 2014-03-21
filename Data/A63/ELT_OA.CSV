@@ -1,0 +1,334 @@
+GRP_OA__ID_GRP;PRT_OA__ID_PRT;SPRT_OA__ID_SPRT;ID_ELEM;LIBE;ORDRE;AIDE;INDICE1;INDICE2;INDICE3
+2;204;2041;20414;écaillage;20414;4) ECAILLAGE;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2041;20415;Corrosion plats;20415;5) CORROSION DES PLATS (ÂMES - TALONS - ENTRETOISES);RAS ou Couleur de rouille;Fleur de rouille;Perte de matière
+2;204;2041;20416;Corrosion boulons/rivets;20416;6) CORROSION DES BOULONS;RAS ou Couleur de rouille;Fleur de rouille;Perte de matière
+2;204;2041;20417;Soudures fissurées;20417;7) SOUDURES FISSUREES;Aucune;(null);Présence de fissure
+2;204;2041;20418;Autres défauts;20418;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;204;2042;20420;Protection anti-corrosion :;20420;S = surface affectée par rapport à une surface de référence de 1 m² située dans la zone la plus défavorable;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+2;204;2042;20421; décollement;20421;1) DECOLLEMENT;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2042;20422; farinage;20422;2) FARINAGE;RAS ou S     <     5%;5%   <=  S   <=  10%;S      >      10%
+2;204;2042;20423; cloquage;20423;3) CLOQUAGE;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2042;20424; écaillage;20424;4) ECAILLAGE;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2042;20425;Corrosion plats;20425;5) CORROSION DES PLATS (ÂMES - TALONS - ENTRETOISES);RAS ou Couleur de rouille;Fleur de rouille;Perte de matière
+2;204;2042;20426;Corrosion boulons / rivets;20426;6) CORROSION DES BOULONS;RAS ou Couleur de rouille;Fleur de rouille;Perte de matière
+2;204;2042;20427;Soudures fissurées;20427;7) SOUDURES FISSUREES;Aucune;(null);Présence de fissure
+2;204;2042;20428;Autres défauts;20428;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;204;2043;20430;Protection anti-corrosion :;20430;S = surface affectée par rapport à une surface de référence de 1 m² située dans la zone la plus défavorable;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+2;204;2043;20431;décollement;20431;1) DECOLLEMENT;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2043;20432;farinage;20432;2) FARINAGE;RAS ou S     <     5%;5%   <=  S   <=  10%;S      >      10%
+2;204;2043;20433;cloquage;20433;3) CLOQUAGE;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2043;20434;écaillage;20434;4) ECAILLAGE;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2043;20435;Corrosion plats;20435;5) CORROSION DES PLATS (ÂMES - TALONS - ENTRETOISES);RAS ou Couleur de rouille;Fleur de rouille;Perte de matière
+2;204;2043;20436;Corrosion boulons / rivets;20436;6) CORROSION DES BOULONS;RAS ou Couleur de rouille;Fleur de rouille;Perte de matière
+2;204;2043;20437;Soudures fissurées;20437;7) SOUDURES FISSUREES;Aucune;(null);Présence de fissure
+2;204;2043;20438;Autres défauts;20438;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;204;2044;20440;Fissures;20440;8) FISSURES;RAS ou O     <     0,3;0,3   <=   O   <=   0,5;O      >     0,5
+2;204;2044;20441;Epaufrures;20441;9) EPAUFRURES;RAS ou Sans fers apparents;Avec fers apparents;(null)
+2;204;2044;20442;Fers apparents;20442;10) FERS APPARENTS L = longueur du fer apparent le plus significatif N = nombre de fers apparents;RAS ou L    <    10 cm   et   N   <   10;L    <    10 cm   et   N   >   10;L    <    10 cm   et   N  quelconque
+2;204;2044;20443;Efflorescences / Calcite / Stalagtites;20443;11) EFFLORESCENCES / CALCITE / STALACTITES;RAS ou Secs;Humides;Humides + trace de rouille
+2;204;2044;20444;Autres défauts;20444;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;205;2051;20510;Fissures verticales;20510;1) FISSURES VERTICALES;RAS ou O    <     0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;205;2051;20511;Fissures inclinées;20511;2) FISSURES INCLINEES;RAS ou O    <     0,3;(null);O     >      0,5
+2;205;2051;20512;Défauts sur cachetages;20512;3) DEFAUTS SUR CACHETAGE;RAS ou Fissures, épauflures;Coulures (+ calcite);Coulures + ( calcite) + traces de rouille
+2;205;2051;20513;Autres défauts;20513;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;205;2052;20520;Fissures longitudinales;20520;4) FISSURES LONGITUDINALES;RAS ou O    <     0,3;(null);O     >      0,5
+2;205;2052;20521;Autres défauts;20521;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;205;2053;20530;Fissures longitudinales en extrados;20530;5) FISSURES LONGITUDINALES EN EXTRADOS;RAS ou O    <     0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;205;2053;20531;Fissures en arêtes de poisson;20531;6) FISSURES EN ARÊTES DE POISSON;RAS ou sans objet;(null);Sur présence, Analyse complémentaire
+2;205;2053;20532;Fissures en léger arrondi;20532;7) FISSURES EN LEGER ARRONDI;RAS ou sans objet;(null);Sur présence, Analyse complémentaire
+2;205;2053;20533;Autres défauts;20533;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;205;2054;20540;Fissures;20540;8) FISSURES;RAS ou O    <     0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;205;2054;20541;Autres défauts;20541;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;205;2055;20550;Fissures;20550;9) FISSURES;RAS ou O    <     0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;205;2055;20551;Autres défauts;20551;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;205;2056;20560;Epaufrures;20560;10) EPAUFRURES;RAS ou Sans fers apparents;Avec fers apparents;Avec gaines de précontrainte apparentes
+2;205;2056;20561;Fers apparents;20561;11) FERS APPARENTS L = longueur de fer apparent la plus significative;RAS ou L    <     10 cm;10 cm  <=  L  <= 30 cm;L      >        30 cm
+2;205;2056;20562;Efflorescences / Calcite / Stalactites;20562;12) EFFLORESCENCES / CALCITE / STALACTITES;Secs;Humides;Humides + trace de rouille
+2;205;2056;20563;Autres défauts;20563;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;206;2061;20610;Végétation sur perrés;20610;1) VEGETATION SUR LES PERRES;RAS ou Mousses, lichens;Herbe;Ligneux
+2;206;2061;20611;Dégradation des perrés;20611;2) DEGRADATION DES PERRES;RAS ou Dégradation ponctuelle sur un perré;Dégradation ponctuelle sur les deux perrés;Dégradation généralisée sur un ou les deux perrés
+2;206;2061;20612;Décollement buse / perré;20612;3) DECOLLEMENT BUSE-PERRE O = ouverture du joint remblai-paroi de la buse;RAS ou O     <      1 cm;1 cm   <=  O   <=  2 cm;O      >        2 cm
+2;206;2061;20613;Végétation en extrémité d’ouvrage;20613;4) VEGETATION AUX EXTREMITES;RAS ou Herbe;Arbustes;Arbres
+3;304;3041;30411;Ressuage;30411;2) RESSUAGE S = surface affectée;RAS ou S < 1 m2;1   <=  S  <=  10 m2;S > 10 m2
+3;304;3041;30412;Fissures;30412;3) FISSURES  longitudinales / transversales L = longueur de tablier affectée S = surface affectée;RAS ou L < 10 % S < 10 %;10 %  <=  L   <=  30 % 10 %  <=   S  <=  30 %;L > 30 % S > 30 %
+3;304;3041;30413;Faïençage;30413;4) FAÏENCAGE S = surface affectée;RAS ou S < 5 %;5 %   <=   S  <=  15 %;S > 15 %
+3;304;3041;30414;Nid de poule;30414;5) NID DE POULE si sécurité engagée  => indice 3  sinon P = profondeur;RAS ou P affecte la couche d''usure;P affecte partiellement la couche de roulement;P affecte totalement la couche de roulement (chape d''étanchéité visible).
+3;304;3041;30415;Flaches;30415;6) FLACHES avec rétention d''eau uniquement S = surface affectée;RAS ou S < 1 m²;1 m²   <=  S  <=  2 m²;S > 2 m²
+3;304;3041;30416;Autres défauts;30416;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;305;3050;30500;Battement des éléments;30500;1) BATTEMENT DES ELEMENTS;RAS ou perceptible par le bruit;mouvement   <=  2 mm  perceptible sous trafic;mouvement > 2 mm On fait bouger manuellement le joint
+3;305;3050;30501;Décalage des éléments;30501;2) DECALAGE DES ELEMENTS D = valeur du décalage;RAS ou D < 5 mm;5 mm  <=   D   <=  10 mm;D > 10 mm
+3;305;3050;30502;Absence de fixations;30502;3) ABSENCE DE FIXATIONS P = pourcentage de fixations absentes;RAS ou P < 25 %;25 %   <=   P  <=   50 %;P > 50 %
+3;305;3050;30503;Mouvement des fixations;30503;4) MOUVEMENT DES FIXATIONS;RAS ou Resserrage manuel possible;resserrage manuel impossible mouvement < 1 mm;resserrage manuel impossible mouvement > 1 mm
+3;305;3050;30504;Fissure tranversale solin / chaussée;30504;5) FISSURES TRANSVERSALES SOLIN / CHAUSSEE 0 = valeur de l''ouverture;RAS ou 0 < 1 mm;1 mm  <=  0  <=  5 mm;0 > 5 mm
+3;305;3050;30505;Faïençage des solins;30505;6) FAÏENCAGE DES SOLINS;RAS ou sans mouvement de matériaux;avec mouvement de matériaux;avec départ de matériaux
+3;305;3050;30506;Fluage du solin;30506;7) FLUAGE DU SOLIN P = profondeur des passages de roues;RAS ou P < 10 mm;10 mm  <=    P  <=  30 mm;P > 30 mm
+3;305;3050;30507;Absence de dispositif d''étanchéification;30507;8) ABSENCEDE DISPOSITIF D''ETANCHEIFICATION;RAS ou sans objet;ouvrage en BA;ouvrage en BP
+3;305;3050;30508;Dégradation du dispositif d''étanchéification;30508;9) DEGRADATION DU DISPOSITIF D''ETANCHEIFICATION L = pourcentage du linéaire affecté;RAS ou L < 5 % hors point bas;5 %   <=   L  <=  10 % hors point bas;L > 10 % ou dégradation sous point bas
+3;305;3050;30509;Souffle encombré de dépôts;30509;10) SOUFFLE ENCOMBRE DE DEPOTS L = pourcentage du linéaire affecté;RAS ou L < 5 %;(null);L > 10 %
+3;305;3052;30520;Langue de chat;30520;11) LANGUE DE CHAT S = pourcentage de surface affectée;RAS ou S < 5 %;5  <=  S  <=  10 %;S > 10 %
+3;305;3052;30521;Fluage / Tassement / Orniérage;30521;12) FLUAGE / TASSEMENT / ORNIERAGE P= profondeur;RAS ou P < 10 mm;10 mm  <=   P  <=  30 mm;P > 30 mm
+3;305;3052;30522;Décollement joint - chaussée;30522;13) DECOLLEMENT JOINT - CHAUSSEE L = pourcentage de linéaire de joint affecté;RAS ou L < 5 %;5 %   <=  L   <=  10 %;L > 10 %
+3;305;3052;30523;Autres défauts;30523;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;305;3054;30540;Marche d’escalier;30540;marche d''escalier D = valeur de déplacement vertical;RAS ou Fissure et D < 1cm;1cm <= D <= 3cm;D  >  3cm
+3;305;3054;30541;Autres défauts;30541;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;306;3061;30610;Etanchéité : absence;30610;Absence de dispositif d''étanchéité;RAS ou sans objet;ouvrage en BA;ouvrage en BP
+3;306;3061;30611;Etanchéité : dégradation;30611;Dégradation du dispositif d''étanchéité P = pourcentage de linéaire de joint affecté;RAS ou P < 5 %;5 %   <=   P  <=  10 %;P > 10 %
+3;306;3061;30612;Autres défauts;30612;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;307;3071;30710;Dépôts;30710;1) DEPOTS H = hauteur du dépôt;RAS ou H < 5 mm;5 mm   <=  H   <=  20 mm;H > 20 mm
+3;307;3071;30711;Epaufrures;30711;2) EPAUFRURES;RAS ou pas de fers apparents , pas de risque de chute de gravillons sur voie franchie;fers apparents, pas de risque de chute de gravillons sur voie franchie;risque de chute de gravillons sur voie franchie, avec ou sans fers apparents
+3;307;3071;30712;Fers apparents;30712;3) FERS APPARENTS L = longueur unitaire d''acier dénudé N = nombre d''aciers dénudés;RAS ou L < 10 cm N <10;L < 10 cm N >= 10;L > 10 cm et N quelconque
+3;307;3071;30713;Fissures;30713;4) FISSURES;RAS ou sèches;humides;humides + traces de rouille
+3;307;3071;30714;Ecoulement d’eau;30714;5) ECOULEMENTS D''EAU;RAS ou sans dégradation du béton;avec dégradation du béton;avec dégradation du béton et des armatures
+3;307;3071;30715;Autres défauts;30715;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;307;3072;30720;Eléments non liaisonnés;30720;6) ELEMENTS NON LAISONNES N = nombre de fixations manquantes;RAS ou N < 5;5  <=  N  <=  20;N > 20
+3;307;3072;30721;Eléments endommagés;30721;7) ELEMENTS ENDOMMAGES N = nombres d''éléments affectés;RAS ou N = 1;2  <=  N   <=  5;N > 5
+3;307;3072;30722;Supports corrodés;30722;8) SUPPORTS CORRODES;RAS ou couleur rouille;fleur de rouille;perte de matière
+3;307;3072;30723;Caillebotis corrodés;30723;9) CAILLEBOTIS CORRODES;RAS ou couleur rouille;fleur de rouille;perte de matière
+3;307;3072;30724;Autres défauts;30724;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;308;3080;30800;Eléments accidentés;30800;1) ELEMENTS ACCIDENTES;RAS ou fonctionnement toujours assuré;liaison au support rompue et/ou support dégradé;interruption de la continuité de la file
+3;308;3080;30801;Eléments corrodés;30801;2) ELEMENTS CORRODES;RAS ou couleur rouille;fleur de rouille;perte de matière
+3;308;3080;30802;Supports descellés;30802;3) SUPPORTS DESCELLES N = nombre d''ancrages affectés;RAS ou N = 1;2  <=   N   <=   5;N > 5
+3;308;3080;30803;Mauvaise étanchéité;30803;4) MAUVAISE ETANCHEITE N = nombre d''ancrages affectés;RAS ou N = 1;2  <=   N   <=   5;N  > 5
+3;308;3080;30804;Boulons oxydés;30804;5) BOULONS OXYDES;RAS ou Couleur rouille;fleur de rouille;perte de matière
+3;308;3080;30805;Anomalies sur boulons;30805;6) ANOMALIES SUR BOULONS N = nombre de boulons manquants ou desserrés;RAS ou N < 5;5  <=  N  <=  10;N > 10
+3;308;3080;30806;Eléments dessoudés;30806;7) ELEMENTS DESSOUDES L = longueur cumulée d''éléments dessoudés;RAS ou L < 10 cm;10 cm   <=  L  <  50 cm;L > 50 cm
+3;308;3080;30807;Eléments déboîtés;30807;8) ELEMENTS DEBOITES N = nombre de déboitements;RAS ou N = 1;N = 2;N  >=  3
+3;308;3080;30808;Supports fissurés;30808;9) SUPPORTS FISSURES N = nombre d''éléments fissurés;RAS ou N = 1;N = 2;N  >=  3
+3;308;3080;30809;Jeu insuffisant;30809;10) JEU INSUFFISANT N = nombre d''éléments affectés;RAS ou N = 1;2   <=  N   <  4;N > 4
+3;308;3082;30820;Eléments accidentés;30820;1) ELEMENTS ACCIDENTES;RAS ou fonctionnement toujours assuré;liaison au support rompue et/ou support dégradé;interruption de la continuité de la file
+3;308;3082;30821;Eléments corrodés;30821;2) ELEMENTS CORRODES;RAS ou couleur rouille;fleur de rouille;perte de matière
+3;308;3082;30822;Supports descellés;30822;3) SUPPORTS DESCELLES N = nombre d''ancrages affectés;RAS ou N = 1;2  <=   N   <=   5;N > 5
+3;308;3082;30823;Mauvaise étanchéité;30823;4) MAUVAISE ETANCHEITE N = nombre d''ancrages affectés;RAS ou N = 1;2  <=   N   <=   5;N  > 5
+3;308;3082;30824;Boulons oxydés;30824;5) BOULONS OXYDES;RAS ou Couleur rouille;fleur de rouille;perte de matière
+3;308;3082;30825;Anomalies sur boulons;30825;6) ANOMALIES SUR BOULONS N = nombre de boulons manquants ou desserrés;RAS ou N < 5;5  <=  N  <=  10;N > 10
+3;308;3082;30826;Eléments dessoudés;30826;7) ELEMENTS DESSOUDES L = longueur cumulée d''éléments dessoudés;RAS ou L < 10 cm;10 cm   <=  L  <  50 cm;L > 50 cm
+3;308;3082;30827;Eléments déboîtés;30827;8) ELEMENTS DEBOITES N = nombre de déboitements;RAS ou N = 1;N = 2;N  >=  3
+3;308;3082;30828;Supports fissurés;30828;9) SUPPORTS FISSURES N = nombre d''éléments fissurés;RAS ou N = 1;N = 2;N  >=  3
+3;308;3082;30829;Jeu insuffisant;30829;10) JEU INSUFFISANT N = nombre d''éléments affectés;RAS ou N = 1;2   <=  N   <  4;N > 4
+3;308;3085;30850;Eléments accidentés;30850;1) ELEMENTS ACCIDENTES;RAS ou fonctionnement toujours assuré;liaison au support rompue et/ou support dégradé;interruption de la continuité de la file
+3;308;3085;30851;Eléments corrodés;30851;2) ELEMENTS CORRODES;RAS ou couleur rouille;fleur de rouille;perte de matière
+3;308;3085;30852;Supports descellés;30852;3) SUPPORTS DESCELLES N = nombre d''ancrages affectés;RAS ou N = 1;2  <=   N   <=   5;N > 5
+3;308;3085;30853;Mauvaise étanchéité;30853;4) MAUVAISE ETANCHEITE N = nombre d''ancrages affectés;RAS ou N = 1;2  <=   N   <=   5;N  > 5
+3;308;3085;30854;Boulons oxydés;30854;5) BOULONS OXYDES;RAS ou Couleur rouille;fleur de rouille;perte de matière
+3;308;3085;30855;Anomalies sur boulons;30855;6) ANOMALIES SUR BOULONS N = nombre de boulons manquants ou desserrés;RAS ou N < 5;5  <=  N  <=  10;N > 10
+3;308;3085;30856;Eléments dessoudés;30856;7) ELEMENTS DESSOUDES L = longueur cumulée d''éléments dessoudés;RAS ou L < 10 cm;10 cm   <=  L  <  50 cm;L > 50 cm
+3;308;3085;30857;Eléments déboîtés;30857;8) ELEMENTS DEBOITES N = nombre de déboitements;RAS ou N = 1;N = 2;N  >=  3
+3;308;3085;30858;Supports fissurés;30858;9) SUPPORTS FISSURES N = nombre d''éléments fissurés;RAS ou N = 1;N = 2;N  >=  3
+3;308;3085;30859;Jeu insuffisant;30859;10) JEU INSUFFISANT N = nombre d''éléments affectés;RAS ou N = 1;2   <=  N   <  4;N > 4
+3;309;3091;30910;Point bas;30910;1) POINT BAS P : profondeur du point bas;RAS ou P < 1 cm;1 cm <=   P  <=  3 cm;P > 3 cm
+3;309;3091;30911;Longueur insuffisante;30911;2) LONGUEUR INSUFFISANTE;RAS ou Longueur suffisante;sans dégradation des remblais;avec dégradation des remblais
+3;309;3091;30912;Revêtement fissuré;30912;3) REVETEMENT FISSURE S = pourcentage de surface affectée;RAS ou S < 5 %;5 %   <=  S  <=  10 %;S > 10 %
+3;309;3091;30913;Revêtement détérioré;30913;4) REVETEMENT DETERIORE S = pourcentage de surface affectée;RAS ou S < 2 %;2 %  <=  S  <=  5 %;S > 5 %
+3;309;3091;30914;Absence de revêtement;30914;5) ABSENCE DE REVETEMENT S = pourcentage de surface sans revêtement;RAS ou S < 5 %;5 %   <= S   <=  25 %;S > 25 %
+3;309;3091;30915;Joint trottoir-bordure ou trottoir-corniche ouvert;30915;6) JOINT TROTTOIR-BORDURES OU TROTTOIR-CORNICHES OUVERT L = largeur maximale du joint;RAS ou L < 5 mm;5 mm   <=  L  <= 10 mm;L > 10 mm
+3;309;3091;30916;Bordures descellées;30916;7) BORDURES DESCELLEES N = nombre d''éléments decellés;RAS ou N = 1;2  <=  N  <=  5;N > 5
+3;309;3091;30917;Dépôts;30917;8) DEPOTS L = longueur de trottoirs concernée;RAS ou L < 1 ml;1 ml   <=  L  <=  5 ml;N > 5 ml
+3;309;3091;30918;Végétation;30918;9) VEGETATION L = longueur de trottoir concernée;RAS ou L < 1 ml;1 ml   <=  L  <=  5 ml;L > 5 ml
+3;309;3091;30919;Abouts détériorés;30919;10) ABOUTS DETERIORES;RAS ou altération de surface;fissuration;éclats de béton
+3;310;3101;31010;Absence ponctuelle de protection;31010;1) ABSENCE PONCTUELLE DE PROTECTION;RAS ou sans objet;manque 1 ou 2 dalettes;quelque soit le nombre de dallettes non reposées
+3;310;3101;31011;Fixations détériorées;31011;2) FIXATIONS DETERIOREES P = pourcentage de fixations détériorées;RAS ou P < 25 %;25 %   <=  P  <=  50 %;P > 50 % et / ou rupture de fixation
+3;310;3101;31012;Fuites;31012;3) FUITE;RAS ou sans objet;fourreau percé;fuite sur canalisation (prévenir le concessionnaire du réseau)
+3;310;3101;31013;Suintements;31013;4) SUINTEMENTS L = linéaire affecté;RAS ou sans trace de corrosion;(null);avec trace de corrosion et L > 10 %
+3;310;3101;31014;Dallettes de couverture cassées;31014;5) DALLETTES DE COUVERTURE CASSEES N = nombre de dallettes cassées;RAS ou dallettes fissurées;N = 1;N > 1
+3;310;3101;31015;Pose de dallettes désorganisée;31015;6) POSE DE DALLETTES DESORGANISEE N = nombre de dallettes mal posées;RAS ou N = 1;N > 1;(null)
+3;310;3101;31016;Couverture endommagée;31016;7) COUVERTURE ENDOMMAGEE Dégradation;RAS ou affectant la surface de la couverture;profonde sans risque pour les  réseaux;profonde avec risque pour les réseaux
+3;310;3101;31017;Autres défauts;31017;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;311;3111;31110;Cassure;31110;1) CASSURE T = valeur du tassement chaussées rigides;RAS ou T < 1 cm battement;1 cm   <= T  <=  3 cm battement et pompage;T > 3 cm cassure
+3;311;3111;31111;Autres défauts;31111;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;311;3112;31120;Dislocation;31120;2) DISLOCATION;RAS ou pas d''affouillement;affouillement;affouillement et fondations  apparentes
+3;311;3112;31121;Dépôts, végétation;31121;3) DEPOTS / VEGETATION;RAS ou dépôts;végétation aquatique;végétation ligneuse
+3;311;3112;31122;Autres défauts;31122;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;311;3113;31130;Ravinement;31130;4) RAVINEMENT P = profondeur maximale du sillon;RAS ou P < 10 cm;10 cm   <=  P  <=  20 cm;P > 20 cm
+3;311;3113;31131;Végétation;31131;5) VEGETATION;RAS ou mousse;herbacés;ligneux
+3;311;3113;31132;Glissement;31132;6) GLISSEMENT;RAS ou sans objet;accumulation de matériaux en pied  de perré;apparition du remblai contigu (en partie supérieure)
+3;311;3113;31133;Dislocation;31133;7) DISLOCATION S = surface de perré affectée;RAS ou S < 1 m2;1 m2  <=   S  <=  5 m2;S > 5 m2
+3;311;3113;31134;Affaissement;31134;8) AFFAISSEMENT S = surface de perré affectée;RAS ou S < 1 m2;1 m2  <=   S  <=  5 m2;S > 5 m2
+3;311;3113;31135;Autres défauts;31135;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;311;3114;31140;Détérioration;31140;9) DETERIORATION;RAS ou fils ou grillage détendus;fils ou grillage manquants (passage possible);fils ou grillage manquants (passage possible) et supports destabilisés
+3;311;3114;31141;Non raccordées;31141;10) NON RACCORDEES;Bon état;(null);non raccordées
+3;311;3114;31142;Autres défauts;31142;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;311;3115;31150;Tassement;31150;11) TASSEMENT D = déplacement vertical sur voie circulées en section courante sur BAU et en extrémités de PS;RAS ou fissures et  D < 1 cm;fissures 1 cm  <=   D  <=  3 cm;fissure D > 3 cm
+3;311;3115;31151;Glissement;31151;12) GLISSEMENT;RAS ou fissures;tassement;ouverture, gissement
+3;311;3115;31152;Ravinement;31152;13) RAVINEMENT P = profondeur maximale du sillon;RAS ou P < 10 cm;10 cm  <=   P  <= 20 cm;P > 20 cm
+3;311;3115;31153;Présence d’humidité / Plantes aquatiques;31153;14) PRESENCE D''HUMIDITE / PLANTES AQUATIQUES;RAS ou présence d''humidité;écoulement d''eau;plantes aquatiques
+3;311;3115;31154;Autres défauts;31154;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;311;3116;31160;Accès non entretenu;31160;15) ACCES NON ENTRETENU;RAS ou accès possible mais petit entretien;accès impossible;accès dangereux
+3;311;3116;31161;Passerelle détériorée;31161;16) PASSERELLE DETERIOREE;RAS ou visite possible mais petit entretien;visite impossible;visite dangereuse.
+3;311;3116;31162;Autres défauts;31162;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;312;3121;31210;Colmatées;31210;1)  COLMATEES;RAS ou sans objet;(null);Colmatées
+3;312;3121;31211;Autres défauts;31211;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;312;3122;31220;Obstruées;31220;2) OBSTRUEES;Bon état;(null);
+3;312;3122;31221;Trop courtes;31221;3) TROP COURTES;RAS ou traces d''huimidité;trace d''humidité + désagrégation du béton;trace d''humidité + désagrégation  du béton + corrosion
+3;312;3122;31222;Ecoulement extérieur à la gargouille;31222;4) ECOULEMENT EXTERIEUR A LA GARGOUILLE;RAS ou écoulements seuls;écoulement  + désagrégation du béton;trace d''humidité + désagrégation  du béton + corrosion
+3;312;3122;31223;Autres défauts;31223;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;312;3123;31230;Détériorés;31230;5) DETERIORATION;RAS ou L   <  1ml;1ml   <=  L   <=  5ml;L   >  5ml
+3;312;3123;31231;Autres défauts;31231;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;312;3124;31240;Végétation;31240;6) VEGETATION;RAS ou herbes;ronces;arbustes
+3;312;3124;31241;Détériorées;31241;7) DETERIORATION;RAS ou éléments désorganisés;éléments cassés;départ d''éléments
+3;312;3124;31242;Absence;31242;8)  ABSENCE DE DESCENTE D''EAU;RAS ou P  <  10cm;10cm   <=   P   <=  20cm;P   >  20cm
+3;312;3124;31243;Autres défauts;31243;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;313;3131;31310;Détériorés;31310;1) DETERIORATION;RAS ou ponctuelle;générales;atteignant les supports
+3;313;3131;31311;Autres défauts;31311;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;101;1011;10110;Tassement;10110;1) TASSEMENT;RAS ou Dénivellation < 1 cm;1 cm <= dénivellation  <= 3 cm;Dénivellation > 3 cm
+1;101;1011;10111;Affouillement;10111;2) AFFOUILLEMENT;RAS ou Risques d''affouillement (rivière rapide, pas de parafouille, pas d''enrochements);Profondeur d''affouillement <= 50 cm;Profondeur d''affouillement > 50 cm
+1;101;1011;10112;Autres défauts;10112;Précisez la nature du défaut dans le commentaire;RAS ou Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;101;1012;10120;Epaufrures / Eclats;10120;1) ÉPAUFRURES / ÉCLATS S = surface affectée pour un appui;RAS ou S  < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+1;101;1012;10121;Fissures;10121;2) FISSURES                                                                                                                                                                                                                  O = ouverture maximale en mm;RAS ou O < 0,3;0,3  <=  O <=  0,5;O  >  0,5
+1;101;1012;10122;Faïençage;10122;3) FAïENÇAGE  S = surface affectée pour un appui;RAS ou S < 1 m²;1 m²   <=  S  <=  3 m²;S > 3 m²
+1;101;1012;10123;Fers apparents;10123;4) FERS APPARENTS;RAS ou Longueur cumulée  <= 1 ml;Longueur cumulée > 1 ml  sans perte de section;Longueur cumulée > 1 ml avec perte de section
+1;101;1012;10124;Autres défauts;10124;Précisez la nature du défaut dans le commentaire;RAS ou Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;101;1013;10130;Epaufrures / Eclats;10130;1) ÉPAUFRURES / ÉCLATS S = surface affectée pour un appui;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+1;101;1013;10131;Fissures;10131;2) FISSURES                                                                                                                                                                                                                  O = ouverture maximale en mm;RAS ou O < 0,3;0,3  <=  O <=  0,5;O  >  0,5
+1;101;1013;10132;Faïençage;10132;3) FAïENÇAGE  S = surface affectée pour un appui;RAS ou S < 1 m²;1 m²   <=  S  <=  3 m²;S > 3 m²
+1;101;1013;10133;Fers apparents;10133;4) FERS APPARENTS;RAS ou Longueur cumulée  <= 1 ml;Longueur cumulée > 1 ml  sans perte de section;Longueur cumulée > 1 ml avec perte de section
+1;101;1013;10134;Autres défauts;10134;Précisez la nature du défaut dans le commentaire;RAS ou Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;101;1014;10140;Epaufrures / Eclats;10140;1) ÉPAUFRURES / ÉCLATS S = surface affectée pour un appui;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+1;101;1014;10141;Fissures;10141;2) FISSURES                                                                                                                                                                                                                  O = ouverture maximale en mm;RAS ou O < 0,3;0,3  <=  O <=  0,5;O  >  0,5
+1;101;1014;10142;Faïençage;10142;3) FAïENÇAGE  S = surface affectée pour un appui;RAS ou S < 1 m²;1 m²   <=  S  <=  3 m²;S > 3 m²
+2;206;2061;20614;Fissures;20614;5) FISSURES SUR OUVRAGES DE TÊTE;RAS ou O      <       0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;206;2061;20615;Autres défauts;20615;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;206;2063;20630;Traces d’humidité;20630;6) TRACES D''HUMIDITE;RAS ou Traces d''humidité seules;Traces d''humidité + efflorescences;Traces d''humidité + efflorescence + corrosion
+2;206;2063;20631;Perforation / Déformation locale;20631;7) PERFORATION / DEFORMATION LOCALE;RAS ou Bosse;Trou sans coulure;Trou avec coulure
+2;206;2063;20632;Coulée d’eau;20632;8) COULEE D''EAU;RAS ou Traces d''écoulement;Ecoulement effectif sans départ de matériaux;Ecoulement effectif avec départ de matériaux
+2;206;2063;20633;Traces d’écoulement de terre;20633;9) TRACES D''ECOULEMENT DE TERRE L = linéaire de buse affecté;RAS ou traces : L  <= 5%;traces : L  >  5%;Présence de dépôts
+2;206;2063;20634;Déformation Profil en long;20634;10) DEFORMATION EN PROFIL EN LONG;RAS ou sans objet;(null);Présence de défaut - Analyse complémentaire
+2;206;2063;20635;Déformation Transversale;20635;11) DEFORMATION TRANSVERSALE;RAS ou sans objet;(null);Présence de défaut - Analyse complémentaire
+2;206;2063;20636;Déformation d''extrémité;20636;12) DEFORMATION D''EXTREMITE;RAS ou sans objet;(null);Présence de défaut - Analyse complémentaire
+2;206;2063;20637;Corrosion des plaques;20637;13) CORROSION DES PLAQUES;RAS ou Couleur rouille;Fleur de rouille;Perte de matière
+2;206;2063;20638;Corrosion des boulons;20638;14) CORROSION DES BOULONS;RAS ou Couleur rouille;Fleur de rouille;Perte de matière
+2;206;2063;20639;Efflorescences, stalactites sur voûtes en béton;20639;15) EFFLORESCENCES / STALACTITES;RAS ou Sèches;Humides;Humides + trace de rouille
+2;206;2065;20650;Défaut d’alignement;20650;22) DEFAUT D''ALIGNEMENT;RAS ou sans objet;(null);Présence de défaut - Analyse complémentaire
+2;206;2065;20651;Affouillement;20651;23) AFFOUILLEMENT P = profondeur d''affouillement;RAS ou Risque d''affouillement;P   <=  20 cm;P       >       20 cm
+2;206;2065;20652;Envasement / Dépôts;20652;24) ENVASEMENT / DEPÔTS H = hauteur maximum du dépôt;RAS ou Débris solides;H   <=  20 cm;H       >       20 cm
+2;206;2065;20653;Autres défauts;20653;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;207;2071;20710;Ecoulement;20710;Ecoulement;Normal, conduit propre ou dépôts sans gêne pour l''écoulement;Traversée partiellement bouchée gênant l''écoulement;Traversée bouchée empêchant l''écoulement
+2;207;2071;20711;Capacité;20711;Capacité;Débit/hauteur de crue visible sur conduit  <100%;Débit/hauteur de crue visible sur talus du remblai entre 100%  et 120%;Débit/hauteur de crue visible sur talus du remblai > 120% avec dispositif de protection dégradé
+2;207;2072;20720;Erosion du lit du cours d''eau;20720;Erosion du lit du cours d''eau;Absence;Près de la base de la buse, et/ou des murs de tête, et/ou des perrés, et/ou des talus avec ou sans cavité sous ces derniers;(null)
+2;207;2072;20721;Obstacles à l''écoulement;20721;Obstacles à l''écoulement;Absence ou présence ne nécessitant pas d''autes moyens que le simple entretien courant;Atterrissements, végétation, corps flottants à proximité de l''ouvrage nécessitant des moyens mécanusés;(null)
+2;207;2072;20722;Erosion des berges;20722;Erosion des berges;Absence ou érosion sans dégarnissage en pied des talus ou des perrés ou des murs de tête;Avec dégarnissage en pied des talus ou des perrés ou des murs de tête;(null)
+2;207;2072;20723;Cheminement d''eau sous l''ouvrage;20723;Cheminement d''eau sous l''ouvrage;Absence;(null);Présence d''un vide avec circulation d''eau sous le conduit au niveau de la tête de buse
+3;301;3011;30110;Eclatements;30110;1) ECLATEMENT;RAS ou pas de fer apparents;fers apparents localement;fers apparents et béton désagrégé
+3;301;3011;30111;Fissures;30111;2) FISSURES;RAS ou fissures sèches;fissures humides;fissures humides + traces de rouille
+3;301;3011;30112;Basculement dans le plan du mur;30112;3) BASCULEMENT DANS LE PLAN DU MUR D = valeur du décalage entre le coin  supérieur du mur et l''ouvrage.;RAS ou D < 1 cm;1  <=  D   <= 3 cm;D > 3 cm
+3;301;3011;30113;Basculement perpendiculaire au plan du mur;30113;4) BASCULEMENT PERPENDICULAIRE AU PLAN DU MUR D = valeur du décalage entre le coin supérieur du mur et l ''ouvrage;RAS ou D < 1cm;1  <=  D   <= 3 cm;D > 3 cm
+3;301;3011;30114;Autres défauts;30114;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;302;3021;30210;Epaufrures / Eclats;30210;1) EPAUFRURES / ECLATS;RAS ou pas de fers apparents ni de risques de chutes de gravillons sur voie  franchie;fers apparents sans risques de chutes de gravillons sur voie franchie;risque de chutes de gravillons sur  voie franchie avec ou sans fers apparents
+3;302;3021;30211;Efflorescences / Stalactites;30211;2) EFFLORESCENCES  / STALAGTITES;RAS ou sèches;humides;humides + traces de rouille
+3;302;3021;30212;Faïençage;30212;3) FAIENCAGE L = linéaire de corniches affecté;RAS ou L < 2 % sans départ de matériau;2 %  <=   L   <=  10 % sans départ de matériau;L   >=  10 % et / ou départ de  matériau
+3;302;3021;30213;Fers apparents;30213;4) FERS APPARENTS L = longueur unitaire d''acier dénudé N = nombre d''aciers dénudés;RAS ou L  <=  10 cm et  N < 10 ;L  <= 10 cm et   N  >= 10;L > 10 cm  et N quelconque
+3;302;3021;30214;Mauvais jointoiement entre éléments;30214;5) MAUVAIS JOINTOIEMENT ENTRE  ELEMENTS;RAS ou coulures au droit des joints;coulures + efflorescences;coulures + efflorescences + traces de rouille
+3;302;3021;30215;Fissures;30215;6) FISSURES;RAS ou sèches;humides;humides + traces de rouille
+3;302;3021;30216;Défaut d''étranchéité;30216;7) DEFAUT D''ETANCHEITE SUR CORNICHES-CANIVEAUX  équipés de chape de mortier;RAS ou fissures;faïençage;départ de matériau
+3;302;3021;30217;Trace de rouille;30217;8 ) TRACES DE ROUILLE SUR CORNICHES - CANIVEAU L = longueur unitaire d''acier corrodé N = nombre d''aciers corrodés;RAS ou L  <= 10 cm et  N  <= 10;L   <=  10 cm et    N  > 10;L > 10 cm  et N quelconque
+3;302;3021;30218;Dépôts dans corniches;30218;9) DEPOTS DANS CORNICHES CANIVEAUX H = hauteur de dépôts;RAS ou H < 5 mm;5   <=   H   <=  20 mm;H > 20 mm
+3;302;3021;30219;Autres défauts;30219;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;303;3031;30310;Décollements;30310;1) DECOLLEMENTS DE CHAPE  - étanchéité par feuilles préfabriquées des corniches-caniveau;RAS ou relevés cloqués mais toujours  étanches;décollements;pénétration d''eau au niveau du fil d''eau
+3;303;3031;30311;Autres défauts;30311;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+3;304;3041;30410;Orniérage;30410;1) ORNIERAGE P = profondeur de l''orniérage L = longueur de tablier affectée;RAS ou P > 10 mm L < 10 %;(null);P > 10 mm L = totalité
+1;101;1014;10143;Fers apparents;10143;4) FERS APPARENTS;RAS ou Longueur cumulée  <= 1 ml;Longueur cumulée > 1 ml  sans perte de section;Longueur cumulée > 1 ml avec perte de section
+1;101;1014;10144;Autres défauts;10144;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;101;1015;10150;Tassement;10150;1) TASSEMENT;RAS ou Tassement < 1 cm;1 cm  <=  tassement  <= 3 cm;Tassement > 3 cm
+1;101;1015;10151;Déplacement horizontal;10151;2) DÉPLACEMENT HORIZONTAL                                                                                                                                                                           F = valeur maximum de la flèche ou du fruit;RAS ou F  <   5 cm;5 cm   <=   F  <= 10 cm;F  >  10 cm
+1;101;1015;10152;Fissures / Cassures;10152;3) FISSURES /CASSURES;RAS ou Fissures ou cassures d''angle;Fissures affectant le corps de l''écaille;Cassures affectant le corps de l''écaille
+1;101;1015;10153;Epaufrures/Eclats;10153;4) ÉPAUFRURE / ÉCLATS N = nombre d''écailles affectées;RAS ou N < 3;4  <=  N  <= 10;N >10
+1;101;1015;10154;Ecoulements entre éléments;10154;5) ÉCOULEMENTS ENTRE ÉLÉMENTS N = nombre d''écoulements;RAS ou N = 1;N = 2 ou 3;N > 3
+1;101;1015;10155;Corrosion des armatures;10155;6) CORROSION DES ARMATURES;Bon état;(null);Investigation complémentaire à l''inspection détaillée (pas d''indices de gradation)
+1;101;1015;10156;Autres défauts;10156;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;101;1016;10160;Non visibles;10160;1) NON VISIBLES;RAS ou Restes de coffrage;(null);Peu ou pas visible
+1;101;1016;10161;Elastomère boudiné;10161;2) ÉLASTOMÈRE BOUDINNÉ N = nombre d''appareils d''appui affectés;RAS ou N < 30 %;30 %  <=  N  <=  60 %;N > 60 %
+1;101;1016;10162;Elastomère craquelé;10162;3) ÉLASTOMÈRE CRAQUELÉ N = nombre d''appareils d''appui affectés;RAS ou N < 30;30 %  <=  N  <=  60 %;N > 60 %
+1;101;1016;10163;Frettes corrodées;10163;4) FRETTES CORRODÉES N = nombre d''appareils d''appui affectés;RAS ou N < 30 %;30 %  <=  N  <=  60 %;N > 60 %
+1;101;1016;10164;Distorsion importante;10164;5) DISTORSION IMPORTANTE;RAS ou h/3   <=   a   <=   h/2 Températures < 0° Températures > 20 ° ;h/3  <=   a   <=   h/2 0 °   <=    température  <=   20 °;a > h/2 Température quelconque
+1;101;1016;10165;Dés d’appui épaufrés;10165;6) DÉS D''APPUI ÉPAUFRÉS;RAS ou Epaufrure pas au bord de l''appareil d''appui;Epaufrure au bord de l''appareil d''appui;Epaufrure affecte la surface de l''appareil d''appui
+1;101;1016;10166;Dés d’appui : faces non parallèles;10166;7) DÉS D''APPUI : FACES NON PARALLÈLES D = h1  - h2       ;RAS ou D < 1 mm;1 mm  <=  D  <= 2 mm;D > 2 mm
+1;101;1016;10167;Dés d’appui : fers apparents;10167;8) DÉS D''APPUI : FERS APPARENTS N = nombre de fers apparents pour un dé donné;RAS ou N = 1;N = 2;N   >=   3
+1;101;1016;10168;Décollement dé-élastomère;10168;9) DÉCOLLEMENT DE L''ÉLASTOMÈRE P = pourcentage de surface de décollement pour un appareil d''appui donné ;RAS ou P  < 1 %;1 %  <=  P  <=  5 %;P > 5 %
+1;101;1016;10169;Cheminement;10169;10) CHEMINEMENT;RAS ou Déplacement en deçà du support;Déplacement au niveau du support;Déplacement au delà du support
+1;101;1018;10180;Ecoulements;10180;1) ÉCOULEMENTS;RAS ou Localisés;Généralisés;Stagnation de l''eau
+1;101;1018;10181;Dépôts;10181;2) DÉPÔTS;RAS ou Dépôt ponctuel;Dépôt général sur un sommier / chevêtres;Dépôt général sur 2 sommiers / chevêtres ou plus
+1;101;1018;10182;Béton endommagé;10182;3) BÉTON ENDOMMAGÉ;RAS ou Altération de surface sans fers apparents;Altération de surface avec fers apparents;Altération en profondeur
+1;101;1018;10183;Fissures;10183;4) FISSURES SUR SOMMIERS / CHEVÊTRES BA O = ouverture maximale en mm;RAS ou O  <  0,3;0,3  <=  O  <=  0,5;O   >   0,5 Si chevêtre précontraint,  présence de fissures  --> indice 3
+1;101;1018;10184;Autres défauts;10184;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;102;1024;10242;Elastomère craquelé;10242;3) ÉLASTOMÈRE CRAQUELÉ N = nombre d''appareils d''appui affectés;RAS ou N < 30;30 %  <=  N  <=  60 %;N > 60 %
+1;102;1024;10243;Frettes corrodées;10243;4) FRETTES CORRODÉES N = nombre d''appareils d''appui affectés;RAS ou N < 30 %;30 %  <=  N  <=  60 %;N > 60 %
+1;102;1024;10244;Distorsion importante;10244;5) DISTORSION IMPORTANTE;RAS ou h/3   <=   a   <=   h/2 Températures < 0° Températures > 20 ° ;h/3  <=   a   <=   h/2 0 °   <=    température  <=   20 °;a > h/2 Température quelconque
+1;102;1024;10245;Dés d’appui épaufrés;10245;6) DÉS D''APPUI ÉPAUFRÉS;RAS ou Epaufrure pas au bord de l''appareil d''appui;Epaufrure au bord de l''appareil d''appui;Epaufrure affecte la surface de l''appareil d''appui
+1;102;1024;10246;Dés d’appui : faces non parallèles;10246;7) DÉS D''APPUI : FACES NON PARALLÈLES D = h1  - h2;RAS ou D < 1 mm;1 mm  <=  D  <= 2 mm;D > 2 mm
+1;102;1024;10247;Dés d’appui : fers apparents;10247;8) DÉS D''APPUI : FERS APPARENTS N = nombre de fers apparents pour un dé donné;RAS ou N = 1;N = 2;N   >=   3
+1;102;1024;10248;Décollement dé-élastomère;10248;9) DÉCOLLEMENT DE L''ÉLASTOMÈRE P = pourcentage de surface de décollement pour un appareil d''appui donné ;RAS ou P  < 1 %;1 %  <=  P  <=  5 %;P > 5 %
+1;102;1024;10249;Cheminement;10249;10) CHEMINEMENT;RAS ou Déplacement en deçà du support;Déplacement au niveau du support;Déplacement au delà du support
+1;102;1026;10260;Ecoulements;10260;1) ÉCOULEMENTS;RAS ou Localisés;Généralisés;Stagnation de l''eau
+1;102;1026;10261;Dépôts;10261;2) DÉPÔTS;RAS ou Dépôt ponctuel;Dépôt général sur un sommier / chevêtres;Dépôt général sur 2 sommiers / chevêtres ou plus
+1;102;1026;10262;Béton endommagé;10262;3) BÉTON ENDOMMAGÉ;RAS ou Altération de surface sans fers apparents;Altération de surface avec fers apparents;Altération en profondeur
+1;102;1026;10263;Fissures;10263;4) FISSURES SUR SOMMIERS / CHEVÊTRES BA O = ouverture maximale en mm;RAS ou O  <  0,3;0,3  <=  O  <=  0,5;O   >   0,5 Si chevêtre précontraint,  présence de fissures  --> indice 3
+1;102;1026;10264;Autres défauts;10264;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;201;2011;20110;Traces d’écoulement;20110;1) TRACES D''ECOULEMENTS;RAS ou Salissures par barbacanes;Ecoulements par trous de coffrage;Ecoulements à travers les fissures
+2;201;2011;20111;Fissures verticales;20111;2) FISSURES VERTICALES;RAS ou  O    <      0,8;0,8   <=   O  <=  1,5;O      >      1,5
+2;201;2011;20112;Fissures horizontales;20112;3) FISSURES HORIZONTALES;RAS ou O    <      0,3;(null);O      >     0,5
+2;201;2011;20113;Epaufrures;20113;4) EPAUFRURES;RAS ou Sans fers apparents;Avec fers apparents  d''une longueur  <= 30 cm;Avec fers apparents  d''une longueur  > 30 cm
+2;201;2011;20114;Avancée du mur masque;20114;5) AVANCEE DU MUR MASQUE D = valeur du décalage avec les piédroits adjacents;RAS ou D    <     1 cm;1 cm   <=  D  <=  2 cm;D       >      2 cm
+2;201;2011;20115;Autres défauts;20115;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;201;2012;20120;Fissures longitudinales;20120;6) FISSURES LONGITUDINALES  (dans l''axe de l''autoroute);RAS ou O     <     0,4;0,4   <=   O   <=  0,8;O       >      0,8
+2;201;2012;20121;Fissures transversales;20121;7)) FISSURES TRANSVERSALES;RAS ou O     <     0,3;0,3   <=   O   <=   0,5;O       >      0,5
+2;201;2012;20122;Efflorescences;20122;8) EFFLORESCENCES;RAS ou Sèches;Humides;Humides + Traces de rouilles
+2;201;2012;20123;Autres défauts;20123;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;201;2013;20130;Fissures longitudinales;20130;9) FISSURES LONGITUDINALES  (dans l''axe de l''autoroute);RAS ou O     <      0,4;0,4   <=   O   <=  0,8;O      >      0,8
+2;201;2013;20131;Fissures transversales;20131;10) FISSURES TRANSVERSALES;RAS ou O     <      0,3;0,3   <=   O   <=   0,5;O      >      0,5
+1;101;1019;10190;Fissures;10190;5) FISSURES SUR MÛRS GARDE-GRÈVE O = ouverture maximale en mm;RAS ou O  <   0,3;0,3  <=  O  <=  0,5;O   >   0,5
+1;101;1019;10191;Autres défauts;10191;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;102;1021;10210;Tassements;10210;1) TASSEMENT;RAS ou Dénivellation < 1 cm;1 cm <= dénivellation  <= 3 cm;Dénivellation > 3 cm
+1;102;1021;10211;Affouillement;10211;2) AFFOUILLEMENT;RAS ou Risques d''affouillement (rivière rapide, pas de parafouille, pas d''enrochements);Profondeur d''affouillement <= 50 cm;Profondeur d''affouillement > 50 cm
+1;102;1021;10212;Autres défauts;10212;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;102;1022;10220;Epaufrures / Eclats;10220;1) ÉPAUFRURES / ÉCLATS S = surface affectée pour un appui;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+1;102;1022;10221;Fissures;10221;2) FISSURES                                                                                                                                                                                                                  O = ouverture maximale en mm;RAS ou O < 0,3;0,3  <=  O <=  0,5;O  >  0,5
+1;102;1022;10222;Faïençage;10222;3) FAïENÇAGE  S = surface affectée pour un appui;RAS ou S < 1 m²;1 m²   <=  S  <=  3 m²;S > 3 m²
+1;102;1022;10223;Fers apparents;10223;4) FERS APPARENTS;RAS ou Longueur cumulée  <= 1 ml;Longueur cumulée > 1 ml  sans perte de section;Longueur cumulée > 1 ml avec perte de section
+1;102;1022;10224;Autres défauts;10224;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;102;1023;10230;Epaufrures / Eclats;10230;1) ÉPAUFRURES / ÉCLATS S = surface affectée pour un appui;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+1;102;1023;10231;Fissures;10231;2) FISSURES                                                                                                                                                                                                                  O = ouverture maximale en mm;RAS ou O < 0,3;0,3  <=  O <=  0,5;O  >  0,5
+1;102;1023;10232;Faïençage;10232;3) FAïENÇAGE  S = surface affectée pour un appui;RAS ou S < 1 m²;1 m²   <=  S  <=  3 m²;S > 3 m²
+1;102;1023;10233;Fers apparents;10233;4) FERS APPARENTS;RAS ou Longueur cumulée  <= 1 ml;Longueur cumulée > 1 ml  sans perte de section;Longueur cumulée > 1 ml avec perte de section
+1;102;1023;10234;Autres défauts;10234;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+1;102;1024;10240;Non visibles;10240;1) NON VISIBLES;RAS ou Restes de coffrage;(null);Peu ou pas visible
+1;102;1024;10241;Elastomère boudiné;10241;2) ÉLASTOMÈRE BOUDINNÉ N = nombre d''appareils d''appui affectés;RAS ou N < 30 %;30 %  <=  N  <=  60 %;N > 60 %
+2;201;2013;20132;Fissures courbes;20132;11) FISSURES COURBES;RAS ou O      <      0,3;0,3   <=   O   <=   0,5;O      >      0,5
+2;201;2013;20133;Fissures en « S »;20133;12) FISSURES EN S;RAS ou O      <      0,3;0,3   <=   O   <=   0,5;O      >      0,5
+2;201;2013;20134;Efflorescences / Calcite / Stalagtites;20134;13) EFFLORESCENCES / CALCITE / STALACTITES;RAS ou Secs;Humides;Humides + traces de rouille
+2;201;2013;20135;Traces d’humidité;20135;14) TRACES D''HUMIDITE S = surface d''intrados affectée;RAS ou Traces extérieures et S  <= 10%;Traces extérieures et S   >   10%;Humidité traversante
+2;201;2013;20136;Faïençage;20136;15) FAïENÇAGE S = surface affectée;RAS ou S   <    1 m²;1 m²  <=   S  <=  3 m²;S   >   3 m²
+2;201;2013;20137;Défaut de bétonnage;20137;16) DEFAUT DE BETONNAGE S = surface affectée;RAS ou S   <    1 m²;3 m²   <=   S  <=   5 m²;S   >   5 m²
+2;201;2013;20138;Epaufrures / Eraflures;20138;17) EPAUFRURES / ERAFLURES;RAS ou Eraflures seules;Epauflures - avec ou sans éraflures - sans fers apparents;Epauflures - avec ou sans éraflures - avec fers apparents
+2;201;2013;20139;Fers apparents;20139;18) FERS APPARENTS L = longueur du fer apparent le plus significatif;RAS ou L    <    10 cm;10   <=   L   <=   30 cm;L      >      30 cm
+2;201;2015;20150;Envasement / dépôts;20150;21) ENVASEMENT/DÉPÔTS H = hauteur du dépôt;RAS ou Débris solides;H   <=  20 cm;H      >      20 cm
+2;201;2015;20151;Autres défauts;20151;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;202;2021;20210;Fissures;20210;1) FISSURES;RAS ou O     <     0,3;0,3   <=   O   <=   0,5;O       >      0,5
+2;202;2021;20211;Traces d’écoulement;20211;2) TRACES D''ECOULEMENT L = linéaire de corniches affecté;RAS ou Corniches préfabriquées : écoulements au droit des joints;Corniches coulées en place : L   <=   10%;Corniches coulées en place : L      >     10%
+2;202;2021;20212;Efflorescences  / Calcite / Stalactites;20212;3) EFFLORESCENCES / CALCITE / STALACTITES;RAS ou Secs;Humides;Humides + trace de rouille
+2;202;2021;20213;Cloquage du béton;20213;4) CLOQUAGE S = surface affectée;RAS ou S    <= 10 cm² Hors voies circulées;S   <=  10 cm² Au-dessus des voies circulées;S      >     10 cm²
+2;202;2021;20214;Autres défauts;20214;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;202;2022;20220;Dalles  BA : fissures transversales en milieu de travée;20220;5) DALLES BA : FISSURES TRANSVERSALES EN MILIEU DE TRAVEE;RAS ou O       <        0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;202;2022;20222;Dalles BA-BP : fissures longitudinales axiales;20222;7) DALLES BA/BP : FISSURES LONGITUDINALES AXIALES;RAS ou O       <        0,4;0,4  <=   O   <=  0,8;O     >      0,8
+2;202;2022;20223;Dalles BP : fissures transversales près des lignes d''appui;20223;8) DALLES BP : FISSURES TRANSVERSALES PRES DES LIGNES D''APPUI;RAS ou O       <        0,3;(null);O  >=   0,3
+2;202;2022;20224;Dalles BP  : fissures d’angle;20224;9) DALLES BP : FISSURES D''ANGLE;RAS ou O       <        0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;202;2022;20225;Dalle nervurée : fissures longitudinales du hourdis;20225;10) DALLES NERVUREES : FISSURES LONGITUDINALES DU HOURDIS;RAS ou O       <        0,3;0,3   <=   O   <=   0,5;O     >      0,5
+2;202;2022;20226;Traces d’humidité;20226;11) TRACES D''HUMIDITE S = surface affectée;RAS ou Traces extérieures : S    <=    10%;Traces extérieures : S    >    10%;Humidité traversante
+2;202;2022;20227;Ecoulements;20227;12) ECOULEMENTS;RAS ou Hors pleine dalle                                                                                                                      Sans dégradation du béton;Hors pleine dalle                                                                                                                      Avec dégradation du béton;En pleine dalle
+2;202;2022;20228;Efflorescences / Calcite / Stalactites;20228;13) EFFLORESCENCES / CALCITE / STALACTITES;RAS ou Secs;Humides;Humide + traces de rouille
+2;203;2031;20310;Fissures sur poutres VIPP;20310;1) FISSURES SUR POUTRES VIPP;RAS ou O      <        0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;203;2031;20311;Autres défauts;20311;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;203;2032;20320;Poutres BA : fissures transversales;20320;2) POUTRES BA : FISSURES TRANSVERSALES;RAS ou O      <        0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;203;2032;20321;Poutre VIPP :fissures longitudinales;20321;3) POUTRES VIPP : FISSURES LONGITUDINALES;RAS ou O      <        0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;203;2032;20322;Autres défauts;20322;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;203;2034;20340;Fissures;20340;4) FISSURES;RAS ou O      <        0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;203;2034;20341;Autres défauts;20341;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;203;2035;20350;Poutres BA : fissures transversales;20350;5) POUTRES BA : FISSURES TRANSVERSALES;RAS ou O      <        0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;203;2035;20351;VIPP : fissures transversales;20351;6) VIPP : FISSURES TRANSVERSALES;RAS ou O      <        0,3;0,3   <=   O   <=   0,5;O      >       0,5
+2;203;2035;20352;Autres défauts;20352;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;203;2036;20360;Epaufrures;20360;7) EPAUFRURES;RAS ou Sans fers apparents;Avec fers apparents;Avec gaines de précontrainte apparentes
+2;203;2036;20361;Fers apparents;20361;8) FERS APPARENTS L = longueur du fer apparent le plus significatif N = nombre de fers apparents;RAS ou hourdis  : L <  10 cm  et  N  <  10 poutre/entretoise :  L  <  10 cm;hourdis : L  < 10 cm  et   N > 10 poutre/entretoise : 10 cm <=  L <= 30 cm;hourdis : L > 10 cm et N quelconque poutre/entretoise :  L > 30 cm
+2;203;2036;20362;Efflorescence / Calcite / Stalactites;20362;9) EFFLORESCENCES / CALCITE / STALACTITES;RAS ou Secs;Humides;Humides + traces de rouilles
+2;203;2036;20363;Autres défauts;20363;Précisez la nature du défaut dans le commentaire;Bon état (entretien courant);Nécessite un entretien spécialisé;Nécessite des travaux
+2;204;2041;20410;Protection anti-corrosion :;20410;S = surface affectée par rapport à une surface de référence de 1 m² située dans la zone la plus défavorable;RAS ou S < 0,5m²;0,5 m² <=  S  <= 1 m²;S > 1 m²
+2;204;2041;20411;décollement;20411;1) DECOLLEMENT;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%
+2;204;2041;20412;farinage;20412;2) FARINAGE;RAS ou S     <     5%;5%   <=  S   <=  10%;S      >      10%
+2;204;2041;20413;cloquage;20413;3) CLOQUAGE;RAS ou S     <     1%;1%   <=  S  <=   5%;S      >       5%

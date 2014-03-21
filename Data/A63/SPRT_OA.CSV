@@ -1,0 +1,66 @@
+GRP_OA__ID_GRP;PRT_OA__ID_PRT;ID_SPRT;LIBS;ORDRE
+1;101;1011;Fondations;1
+1;101;1012;Piles-Voiles;2
+1;101;1013;Piles-Fûts;3
+1;101;1014;Murs de fronts;4
+1;101;1015;Terre armée;5
+1;101;1016;Appareils d’appui;6
+1;101;1018;Sommiers / Chevêtres;7
+1;101;1019;Murs garde-grève;8
+1;102;1021;Fondations;9
+1;102;1022;Piles-Voiles;10
+1;102;1023;Piles-Fûts;11
+1;102;1024;Appareils d’appui;12
+1;102;1026;Sommiers / Chevêtres;13
+2;201;2011;Piédroits;14
+2;201;2012;Goussets;15
+2;201;2013;Traverse;16
+2;201;2015;Radier;17
+2;202;2021;Faces latérales;18
+2;202;2022;Intrados;19
+2;203;2031;Ames;20
+2;203;2032;Talons;21
+2;203;2034;Entretoises;22
+2;203;2035;Hourdis;23
+2;203;2036;Poutres / Entretoises / Hourdis;24
+2;204;2041;Ames;25
+2;204;2042;Talons;26
+2;204;2043;Entretoises;27
+2;204;2044;Hourdis;28
+2;205;2051;Ames;29
+2;205;2052;Hourdis supérieur;30
+2;205;2053;Hourdis inférieur;31
+2;205;2054;Encorbellements;32
+2;205;2055;Entretoises;33
+2;205;2056;Ames / Hourdis / Entretoises / Encorbellements;34
+2;206;2061;Ouvrages de tête;35
+2;206;2063;Tube;36
+2;206;2065;Appuis / Fondations / Radier;37
+2;207;2071;Généralité;39
+2;207;2072;Erosion du cours d''eau;40
+3;301;3011;Murs;41
+3;302;3021;Corniches;42
+3;303;3031;Chape d''étanchéité;43
+3;304;3041;couche de roulement;44
+3;305;3050;Joint mécaniques;45
+3;305;3052;Joints souples;46
+3;305;3054;Absence d’équipement;47
+3;306;3061;Joints de trottoir;48
+3;307;3071;Muret;49
+3;307;3072;Couverture;50
+3;308;3080;Glissières / barrières - métal ou béton - Sur accotement;51
+3;308;3082;Glissières / barrières - métal ou béton - Sur T.P.C.;52
+3;308;3085;Garde-corps;53
+3;309;3091;Trottoir;54
+3;310;3101;Réseaux / Fourreaux;55
+3;311;3111;Dalle de transition;56
+3;311;3112;Enrochements;57
+3;311;3113;Perrés;58
+3;311;3114;Clôtures;59
+3;311;3115;Remblais contigus;60
+3;311;3116;Equipements de visite;61
+3;312;3121;Barbacanes;62
+3;312;3122;Gargouilles;63
+3;312;3123;Bourrelets;64
+3;312;3124;Descentes d’eau;65
+3;313;3131;Ecrans;66

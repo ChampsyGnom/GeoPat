@@ -1,0 +1,4 @@
+ID_ENTETE;CD_COMPOSANT_OA__TYPE_COMP;LIBELLE;ORDRE_ENT;GUIDE
+1;LM;Végétation talus-berge;1;Htes herbes|broussaille|arbustes
+2;LB;Végétation sur/ds ouvrage;2;néant|superficielle|dans caniveau
+3;LB;Niveau eau (OH);3;à sec|bas|moyen|haut

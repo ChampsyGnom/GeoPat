@@ -1,0 +1,11 @@
+NOM;DESCRIPTION;MOTSCLES;DEFINITION
+DI;Diffuseur¤r¤n¤¤r¤n¤ voir aussi Di/2, Di/3 et DiP;;Ouvrage de communication obligatoirement numéroté, complet ou non, entre l''autoroute concernée et la voirie ordinaire, intégralement géré par le concessionnaire
+DI/2;Diffuseur éclaté en 2 ¤r¤n¤¤r¤n¤voir aussi Di, Di/3 et DiP;;Diffuseur éclaté en 2 ouvrages distincts par leur PR¤r¤n¤
+DI/3;Diffuseur éclaté en 3¤r¤n¤¤r¤n¤ voir aussi Di, Di/2 et DiP;;Diffuseur éclaté en 3 ouvrages distincts par leur PR¤r¤n¤
+DIP;Diffuseur partagé¤r¤n¤¤r¤n¤ voir aussi Di/2, Di/3 et Di;;Ouvrage de communication obligatoirement numéroté, complet ou non, entre l''autoroute concernée et la voirie ordinaire, dont au moins une bretelle est gérée par une autre société ou la Direction des Routes.¤r¤n¤
+BA;Gare en barrière¤r¤n¤¤r¤n¤ voir aussi Ga, Ga/3;;gare en barrière en section courante d''une autotoute obligatoirement répertorié par un numéro dans la table des gares de péage.
+GA;Gare sur diffuseur ¤r¤n¤¤r¤n¤voir aussi Ba, Ga/3;;gare sur un diffuseur obligatoirement répertorié par un numéro dans la table des gares de péage.¤r¤n¤
+GA/3;Gare sur diffuseur éclaté en ouvrage distinct par leur PR ¤r¤n¤¤r¤n¤voir aussi Ba, Ga;;Lorsque qu''une gare est éclaté en 3 ouvrages distincts par leur PR elle est noté Ga/3 afin d''en faciliter la comtabilisation.¤r¤n¤
+AP;Aire de Parking¤r¤n¤¤r¤n¤ voir aussi : AR, AS;;emplacement du DPAC, associé à un diffuseur, aménagé pour le stationnement des véhicules, pourvu ou non d''équipements comme sanitaires, cabine téléphonique, etc.
+AR;Aire de Repos ¤r¤n¤¤r¤n¤voir aussi : AP, AS;;emplacement du DPAC situé en section courante ou associé à une gare en barrière, aménagé pour le stationnement des véhicules et pourvu d''équipements comme sanitaires, cabine téléphonique, tables et bancs, jeux, etc à l''exclusion de tout service marchand (station service, restaurant, etc...).
+AS;Aire de Service voir aussi : AP,  AR;;aire de repos à laquelle est associée une station service (y compris les services complémentaires offerts par le pétrolier)

@@ -1,0 +1,15 @@
+CD_SENSIBLE_INF__CODE;LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;ABS_FIN;LIBELLE
+Zone sismique;1;3;0;168047;Zone 2
+Zone sismique;2;3;-1;-1;Zone 3
+Zone sismique;5;3;119262;265262;Zone 2
+Zone sismique;2;3;219500;362000;Zone 3
+Zone sismique;2;3;362000;495000;Zone 2
+Zone sismique;5;3;0;50000;Zone 3
+Zone sismique;103;3;693;5087;Zone 2
+Zone sismique;7;3;0;28483;Zone 3
+Zone sismique;3;3;-1;-1;Zone1
+Zone sismique;3;3;160000;198000;Zone 3
+Zone sismique;3;3;198000;235000;Zone 1
+Zone sismique;3;3;235000;428500;Zone 3
+Zone sismique;301;3;800;13400;Zone 1
+Zone sismique;501;1;0;1738;Zone 3

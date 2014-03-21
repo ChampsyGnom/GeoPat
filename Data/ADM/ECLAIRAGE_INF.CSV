@@ -1,0 +1,780 @@
+LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;CD_POSIT_INF__POSIT;CD_ECLAIR_INF__TYPE
+2;1;86922;Rive;simple
+2;1;86982;Rive;simple
+2;1;87041;Rive;simple
+2;1;87047;Rive;simple
+2;1;87080;Rive;simple
+2;1;87081;Rive;simple
+2;1;87115;Rive;simple
+2;1;93038;Rive;simple
+2;1;93076;Rive;simple
+2;2;69815;Rive;simple
+2;2;69832;Rive;simple
+2;2;69877;Rive;simple
+2;2;69918;Rive;simple
+2;2;69965;Rive;simple
+2;2;70003;Rive;simple
+2;2;70081;Rive;simple
+2;2;70169;Rive;simple
+2;2;70214;Rive;simple
+2;2;70258;Rive;simple
+2;2;70310;Rive;simple
+2;2;70338;Rive;simple
+2;2;70358;Rive;simple
+2;2;80349;Rive;simple
+2;2;86449;Rive;simple
+2;2;86585;Rive;simple
+2;2;86812;Rive;simple
+2;2;86837;Rive;simple
+2;2;87015;Rive;simple
+2;2;92856;Rive;simple
+2;2;92891;Rive;simple
+2;2;92920;Rive;simple
+2;2;92953;Rive;simple
+2;2;92993;Rive;simple
+2;2;93028;Rive;simple
+2;2;93066;Rive;simple
+2;2;93110;Rive;simple
+2;2;93138;Rive;simple
+2;2;93145;Rive;simple
+2;2;93171;Rive;simple
+2;2;93181;Rive;simple
+2;2;93206;Rive;simple
+2;2;93212;Rive;simple
+2;2;93229;Rive;simple
+2;2;93320;Rive;simple
+2;2;93355;Rive;simple
+2;2;93387;Rive;simple
+2;2;93421;Rive;simple
+2;2;93457;Rive;simple
+2;2;93492;Rive;simple
+2;2;125335;Rive;simple
+201;2;93236;Rive;des deux cotés
+201;2;93274;Rive;des deux cotés
+201;1;5100;Rive;simple
+201;1;5132;Rive;simple
+201;1;93310;Rive;simple
+201;1;124879;Rive;simple
+201;2;4946;Rive;simple
+201;2;4974;Rive;simple
+3;1;1305;Axe;des deux cotés
+3;1;1344;Axe;des deux cotés
+3;1;1385;Axe;des deux cotés
+3;1;429622;Axe;des deux cotés
+3;1;429666;Axe;des deux cotés
+3;1;429711;Axe;des deux cotés
+3;1;429756;Axe;des deux cotés
+3;1;429801;Axe;des deux cotés
+3;2;1419;Axe;des deux cotés
+3;2;1460;Axe;des deux cotés
+3;2;1510;Axe;des deux cotés
+3;2;1549;Axe;des deux cotés
+3;2;1590;Axe;des deux cotés
+3;2;1630;Axe;des deux cotés
+3;2;1669;Axe;des deux cotés
+3;2;1710;Axe;des deux cotés
+3;2;1750;Axe;des deux cotés
+3;2;1789;Axe;des deux cotés
+3;2;1830;Axe;des deux cotés
+3;2;1870;Axe;des deux cotés
+3;2;1909;Axe;des deux cotés
+3;2;1950;Axe;des deux cotés
+3;2;1990;Axe;des deux cotés
+3;2;2010;Axe;des deux cotés
+3;2;2069;Axe;des deux cotés
+3;2;2109;Axe;des deux cotés
+3;2;2158;Axe;des deux cotés
+3;2;2199;Axe;des deux cotés
+3;2;2239;Axe;des deux cotés
+3;2;2278;Axe;des deux cotés
+3;2;2318;Axe;des deux cotés
+3;2;2359;Axe;des deux cotés
+3;2;2398;Axe;des deux cotés
+3;2;2437;Axe;des deux cotés
+3;2;2479;Axe;des deux cotés
+3;2;2518;Axe;des deux cotés
+3;2;2558;Axe;des deux cotés
+3;2;2598;Axe;des deux cotés
+3;2;2637;Axe;des deux cotés
+3;2;2677;Axe;des deux cotés
+3;2;2717;Axe;des deux cotés
+3;2;2757;Axe;des deux cotés
+3;2;2798;Axe;des deux cotés
+3;2;2837;Axe;des deux cotés
+3;2;2878;Axe;des deux cotés
+3;2;2917;Axe;des deux cotés
+3;2;2957;Axe;des deux cotés
+3;2;2991;Axe;des deux cotés
+3;2;3076;Axe;des deux cotés
+3;2;3116;Axe;des deux cotés
+3;2;3155;Axe;des deux cotés
+3;2;3196;Axe;des deux cotés
+3;2;3256;Axe;des deux cotés
+3;2;3289;Axe;des deux cotés
+3;2;3325;Axe;des deux cotés
+3;2;3366;Axe;des deux cotés
+3;2;3406;Axe;des deux cotés
+3;2;3446;Axe;des deux cotés
+3;2;3486;Axe;des deux cotés
+3;2;3526;Axe;des deux cotés
+3;2;3566;Axe;des deux cotés
+3;2;3605;Axe;des deux cotés
+3;2;3646;Axe;des deux cotés
+3;2;3686;Axe;des deux cotés
+3;2;3726;Axe;des deux cotés
+3;2;3767;Axe;des deux cotés
+3;2;3807;Axe;des deux cotés
+3;2;3847;Axe;des deux cotés
+3;2;3887;Axe;des deux cotés
+3;2;3926;Axe;des deux cotés
+3;2;3967;Axe;des deux cotés
+3;2;3989;Axe;des deux cotés
+3;2;4047;Axe;des deux cotés
+3;2;4087;Axe;des deux cotés
+3;2;4127;Axe;des deux cotés
+3;2;4167;Axe;des deux cotés
+3;2;4208;Axe;des deux cotés
+3;2;4247;Axe;des deux cotés
+3;2;4287;Axe;des deux cotés
+3;2;4327;Axe;des deux cotés
+3;2;4368;Axe;des deux cotés
+3;2;4408;Axe;des deux cotés
+3;2;4448;Axe;des deux cotés
+3;2;4488;Axe;des deux cotés
+3;2;4528;Axe;des deux cotés
+3;2;4568;Axe;des deux cotés
+3;2;4607;Axe;des deux cotés
+3;2;4648;Axe;des deux cotés
+3;2;4688;Axe;des deux cotés
+3;2;4728;Axe;des deux cotés
+3;2;4773;Axe;des deux cotés
+3;2;4808;Axe;des deux cotés
+3;2;4848;Axe;des deux cotés
+3;2;4889;Axe;des deux cotés
+3;2;4928;Axe;des deux cotés
+3;2;4968;Axe;des deux cotés
+3;2;4986;Axe;des deux cotés
+3;2;5047;Axe;des deux cotés
+3;2;5087;Axe;des deux cotés
+3;2;5144;Axe;des deux cotés
+3;2;5177;Axe;des deux cotés
+3;2;5219;Axe;des deux cotés
+3;2;5260;Axe;des deux cotés
+3;2;5299;Axe;des deux cotés
+3;2;5338;Axe;des deux cotés
+3;2;5379;Axe;des deux cotés
+3;2;5418;Axe;des deux cotés
+3;2;5458;Axe;des deux cotés
+3;2;5499;Axe;des deux cotés
+3;2;5538;Axe;des deux cotés
+3;2;5579;Axe;des deux cotés
+3;2;5619;Axe;des deux cotés
+3;2;5659;Axe;des deux cotés
+3;2;5700;Axe;des deux cotés
+3;2;5739;Axe;des deux cotés
+3;2;5779;Axe;des deux cotés
+3;2;5819;Axe;des deux cotés
+3;2;5859;Axe;des deux cotés
+3;2;5899;Axe;des deux cotés
+3;2;5948;Axe;des deux cotés
+3;2;5989;Axe;des deux cotés
+3;2;5996;Axe;des deux cotés
+3;2;6069;Axe;des deux cotés
+3;2;6108;Axe;des deux cotés
+3;2;6149;Axe;des deux cotés
+3;2;6189;Axe;des deux cotés
+3;2;6229;Axe;des deux cotés
+3;2;6269;Axe;des deux cotés
+3;2;6308;Axe;des deux cotés
+3;2;6346;Axe;des deux cotés
+3;2;6379;Axe;des deux cotés
+3;2;6412;Axe;des deux cotés
+3;2;6449;Axe;des deux cotés
+3;2;10502;Axe;des deux cotés
+3;2;10533;Axe;des deux cotés
+3;2;10563;Axe;des deux cotés
+3;2;10593;Axe;des deux cotés
+3;2;10623;Axe;des deux cotés
+3;2;10652;Axe;des deux cotés
+3;2;10683;Axe;des deux cotés
+3;2;10713;Axe;des deux cotés
+3;2;10743;Axe;des deux cotés
+3;2;10773;Axe;des deux cotés
+3;2;10803;Axe;des deux cotés
+3;2;10833;Axe;des deux cotés
+3;2;10863;Axe;des deux cotés
+3;2;10893;Axe;des deux cotés
+3;2;10923;Axe;des deux cotés
+3;2;10953;Axe;des deux cotés
+3;2;10983;Axe;des deux cotés
+3;2;11013;Axe;des deux cotés
+3;2;11016;Axe;des deux cotés
+3;2;11073;Axe;des deux cotés
+3;2;11102;Axe;des deux cotés
+3;2;11132;Axe;des deux cotés
+3;2;11161;Axe;des deux cotés
+3;2;11194;Axe;des deux cotés
+3;2;11240;Axe;des deux cotés
+3;2;11320;Axe;des deux cotés
+3;2;11348;Axe;des deux cotés
+3;2;11382;Axe;des deux cotés
+3;2;11433;Axe;des deux cotés
+3;2;11480;Axe;des deux cotés
+3;2;11545;Axe;des deux cotés
+3;2;11580;Axe;des deux cotés
+3;2;11614;Axe;des deux cotés
+3;2;11671;Axe;des deux cotés
+3;2;11713;Axe;des deux cotés
+3;2;11765;Axe;des deux cotés
+3;2;11793;Axe;des deux cotés
+3;2;11837;Axe;des deux cotés
+3;2;11866;Axe;des deux cotés
+3;2;11902;Axe;des deux cotés
+3;2;11946;Axe;des deux cotés
+3;2;11970;Axe;des deux cotés
+3;2;11995;Axe;des deux cotés
+3;2;12019;Axe;des deux cotés
+5;1;222816;Rive;simple
+5;1;222855;Rive;simple
+5;1;222895;Rive;simple
+5;1;222947;Rive;simple
+5;1;237337;Rive;simple
+5;1;237381;Rive;simple
+5;1;237426;Rive;simple
+5;1;237468;Rive;simple
+5;1;237663;Rive;simple
+5;1;237776;Rive;simple
+5;1;237820;Rive;simple
+3;2;12084;Axe;des deux cotés
+3;2;12110;Axe;des deux cotés
+3;2;12163;Axe;des deux cotés
+3;2;12211;Axe;des deux cotés
+3;2;12257;Axe;des deux cotés
+3;2;12305;Axe;des deux cotés
+3;2;12384;Axe;des deux cotés
+3;2;12424;Axe;des deux cotés
+3;2;12464;Axe;des deux cotés
+3;2;12502;Axe;des deux cotés
+3;2;12543;Axe;des deux cotés
+3;2;12584;Axe;des deux cotés
+3;2;12623;Axe;des deux cotés
+3;2;12662;Axe;des deux cotés
+3;2;12706;Axe;des deux cotés
+3;2;12748;Axe;des deux cotés
+3;2;12790;Axe;des deux cotés
+3;2;12835;Axe;des deux cotés
+3;2;12877;Axe;des deux cotés
+3;2;12926;Axe;des deux cotés
+3;2;12969;Axe;des deux cotés
+3;2;13044;Axe;des deux cotés
+3;2;13112;Axe;des deux cotés
+3;2;13153;Axe;des deux cotés
+3;2;13184;Axe;des deux cotés
+3;2;13214;Axe;des deux cotés
+3;2;13243;Axe;des deux cotés
+3;2;13274;Axe;des deux cotés
+3;2;13304;Axe;des deux cotés
+3;2;13336;Axe;des deux cotés
+3;2;13382;Axe;des deux cotés
+3;2;13414;Axe;des deux cotés
+3;2;13450;Axe;des deux cotés
+3;1;1025;Axe;simple
+3;1;1065;Axe;simple
+3;1;1104;Axe;simple
+3;1;1142;Axe;simple
+3;1;1185;Axe;simple
+3;1;1224;Axe;simple
+3;1;1264;Axe;simple
+3;1;15402;Axe;simple
+3;1;15825;Axe;simple
+3;1;34237;Axe;simple
+3;1;34635;Axe;simple
+3;1;34666;Axe;simple
+3;1;34698;Axe;simple
+3;1;34727;Axe;simple
+3;1;34755;Axe;simple
+3;1;34786;Axe;simple
+3;1;34848;Axe;simple
+3;1;34878;Axe;simple
+3;1;418591;Axe;simple
+3;2;13553;Axe;simple
+3;1;15157;Rive;simple
+3;1;15190;Rive;simple
+3;1;15211;Rive;simple
+3;1;15224;Rive;simple
+3;1;15261;Rive;simple
+3;1;15295;Rive;simple
+3;1;15329;Rive;simple
+3;1;15367;Rive;simple
+3;1;15436;Rive;simple
+3;1;15476;Rive;simple
+3;1;15500;Rive;simple
+3;1;15566;Rive;simple
+3;1;15604;Rive;simple
+3;1;15634;Rive;simple
+3;1;15671;Rive;simple
+3;1;15695;Rive;simple
+3;1;15735;Rive;simple
+3;1;15784;Rive;simple
+3;1;15892;Rive;simple
+3;1;15928;Rive;simple
+3;1;15963;Rive;simple
+3;1;15997;Rive;simple
+3;1;34166;Rive;simple
+3;1;34176;Rive;simple
+3;1;34207;Rive;simple
+3;1;34267;Rive;simple
+3;1;34300;Rive;simple
+3;1;34327;Rive;simple
+3;1;34358;Rive;simple
+3;1;34390;Rive;simple
+3;1;34419;Rive;simple
+3;1;34512;Rive;simple
+3;1;34541;Rive;simple
+3;1;34576;Rive;simple
+3;1;34606;Rive;simple
+3;1;34816;Rive;simple
+3;1;154024;Rive;simple
+3;1;154077;Rive;simple
+3;1;154111;Rive;simple
+3;1;154140;Rive;simple
+3;1;154168;Rive;simple
+3;1;278035;Rive;simple
+3;1;278064;Rive;simple
+3;1;344973;Rive;simple
+3;1;418374;Rive;simple
+3;1;418411;Rive;simple
+3;1;418439;Rive;simple
+3;1;418473;Rive;simple
+3;1;418498;Rive;simple
+3;1;418527;Rive;simple
+3;1;418620;Rive;simple
+3;1;418645;Rive;simple
+3;1;418682;Rive;simple
+3;1;418737;Rive;simple
+3;1;418767;Rive;simple
+3;1;418786;Rive;simple
+3;1;418820;Rive;simple
+3;1;420951;Rive;simple
+3;1;420984;Rive;simple
+3;1;420985;Rive;simple
+3;1;423955;Rive;simple
+3;1;424112;Rive;simple
+3;2;1025;Rive;simple
+3;2;1060;Rive;simple
+3;2;15122;Rive;simple
+3;2;15158;Rive;simple
+3;2;15194;Rive;simple
+3;2;15231;Rive;simple
+3;2;15304;Rive;simple
+3;2;15347;Rive;simple
+3;2;15384;Rive;simple
+1;1;93005;Rive;des deux cotés
+1;1;26633;Axe;simple
+1;1;26710;Axe;simple
+1;1;26753;Axe;simple
+1;1;26880;Axe;simple
+1;1;26961;Axe;simple
+1;1;27000;Axe;simple
+1;1;27047;Axe;simple
+1;1;27080;Axe;simple
+1;1;70175;Axe;simple
+1;1;86354;Axe;simple
+1;1;86392;Axe;simple
+1;1;86440;Axe;simple
+1;1;86482;Axe;simple
+1;1;86556;Axe;simple
+1;1;86592;Axe;simple
+1;2;26387;Axe;simple
+1;2;26426;Axe;simple
+1;2;26465;Axe;simple
+1;2;26510;Axe;simple
+1;2;26546;Axe;simple
+1;2;26621;Axe;simple
+1;2;26668;Axe;simple
+1;2;26745;Axe;simple
+1;2;26785;Axe;simple
+1;2;27041;Axe;simple
+1;2;27081;Axe;simple
+1;2;27115;Axe;simple
+1;1;9683;Rive;simple
+1;1;9715;Rive;simple
+1;1;9729;Rive;simple
+1;1;9782;Rive;simple
+1;1;9874;Rive;simple
+1;1;9916;Rive;simple
+1;1;9964;Rive;simple
+1;1;10040;Rive;simple
+1;1;10130;Rive;simple
+1;1;10217;Rive;simple
+1;1;10270;Rive;simple
+1;1;10320;Rive;simple
+1;1;26424;Rive;simple
+1;1;26456;Rive;simple
+1;1;26517;Rive;simple
+1;1;26643;Rive;simple
+1;1;26666;Rive;simple
+1;1;26778;Rive;simple
+1;1;26796;Rive;simple
+1;1;26840;Rive;simple
+1;1;26922;Rive;simple
+1;1;26982;Rive;simple
+1;1;33038;Rive;simple
+1;1;33076;Rive;simple
+1;1;33110;Rive;simple
+1;1;33145;Rive;simple
+1;1;33181;Rive;simple
+1;1;33212;Rive;simple
+1;1;33229;Rive;simple
+1;1;33320;Rive;simple
+1;1;33355;Rive;simple
+1;1;33387;Rive;simple
+1;1;33421;Rive;simple
+1;1;33457;Rive;simple
+1;1;33492;Rive;simple
+1;1;65335;Rive;simple
+1;2;9815;Rive;simple
+1;2;9832;Rive;simple
+1;2;9877;Rive;simple
+1;2;9918;Rive;simple
+1;2;9965;Rive;simple
+1;2;10003;Rive;simple
+1;2;10081;Rive;simple
+1;2;10169;Rive;simple
+1;2;10214;Rive;simple
+1;2;10258;Rive;simple
+1;2;10310;Rive;simple
+1;2;10338;Rive;simple
+1;2;10358;Rive;simple
+1;2;20349;Rive;simple
+1;2;26449;Rive;simple
+1;2;26585;Rive;simple
+1;2;26812;Rive;simple
+1;2;26837;Rive;simple
+1;2;27015;Rive;simple
+1;2;32856;Rive;simple
+1;2;32891;Rive;simple
+1;2;32920;Rive;simple
+1;2;32953;Rive;simple
+1;2;32993;Rive;simple
+1;2;33028;Rive;simple
+1;2;33066;Rive;simple
+1;2;33138;Rive;simple
+1;2;33171;Rive;simple
+1;2;33206;Rive;simple
+1;2;33236;Rive;simple
+1;2;33274;Rive;simple
+1;2;33310;Rive;simple
+1;2;64879;Rive;simple
+2;1;86633;Rive;des deux cotés
+2;1;86710;Rive;des deux cotés
+2;1;86753;Rive;des deux cotés
+2;2;86880;Rive;des deux cotés
+2;2;86961;Rive;des deux cotés
+2;2;87000;Rive;des deux cotés
+2;1;69683;Rive;simple
+2;1;69715;Rive;simple
+2;1;69729;Rive;simple
+2;1;69782;Rive;simple
+2;1;69874;Rive;simple
+2;1;69916;Rive;simple
+2;1;69964;Rive;simple
+2;1;70040;Rive;simple
+2;1;70130;Rive;simple
+2;1;70217;Rive;simple
+2;1;70270;Rive;simple
+2;1;70320;Rive;simple
+2;1;86387;Rive;simple
+2;1;86424;Rive;simple
+2;1;86426;Rive;simple
+2;1;86456;Rive;simple
+2;1;86465;Rive;simple
+2;1;86510;Rive;simple
+2;1;86517;Rive;simple
+2;1;86546;Rive;simple
+2;1;86621;Rive;simple
+2;1;86643;Rive;simple
+2;1;86666;Rive;simple
+2;1;86668;Rive;simple
+2;1;86745;Rive;simple
+2;1;86778;Rive;simple
+2;1;86785;Rive;simple
+2;1;86796;Rive;simple
+2;1;86840;Rive;simple
+5;1;264856;Rive;simple
+5;2;16337;Rive;simple
+5;2;16359;Rive;simple
+5;2;16393;Rive;simple
+5;2;16434;Rive;simple
+5;2;16470;Rive;simple
+5;2;16497;Rive;simple
+5;2;16550;Rive;simple
+5;2;16585;Rive;simple
+5;2;16617;Rive;simple
+5;2;16645;Rive;simple
+5;2;16714;Rive;simple
+5;2;23788;Rive;simple
+5;2;24407;Rive;simple
+5;2;51858;Rive;simple
+5;2;52197;Rive;simple
+5;2;149187;Rive;simple
+5;2;149218;Rive;simple
+5;2;149256;Rive;simple
+5;2;182010;Rive;simple
+5;2;182056;Rive;simple
+5;2;182537;Rive;simple
+5;2;182567;Rive;simple
+5;2;182604;Rive;simple
+5;2;222427;Rive;simple
+5;2;222459;Rive;simple
+5;2;222490;Rive;simple
+5;2;222522;Rive;simple
+5;2;222553;Rive;simple
+5;2;222585;Rive;simple
+5;2;222621;Rive;simple
+5;2;222659;Rive;simple
+5;2;222678;Rive;simple
+5;2;222753;Rive;simple
+5;2;222786;Rive;simple
+5;2;222819;Rive;simple
+5;2;222853;Rive;simple
+5;2;222886;Rive;simple
+5;2;222919;Rive;simple
+5;2;222953;Rive;simple
+5;2;222984;Rive;simple
+5;2;223017;Rive;simple
+5;2;237384;Rive;simple
+5;2;237417;Rive;simple
+5;2;237453;Rive;simple
+5;2;237482;Rive;simple
+5;2;237512;Rive;simple
+5;2;237547;Rive;simple
+5;2;237588;Rive;simple
+5;2;237624;Rive;simple
+5;2;237695;Rive;simple
+5;2;237723;Rive;simple
+5;2;237754;Rive;simple
+5;2;237786;Rive;simple
+5;2;237816;Rive;simple
+5;2;237849;Rive;simple
+5;2;237884;Rive;simple
+5;2;237914;Rive;simple
+5;2;265074;Rive;simple
+501;1;29;Rive;simple
+501;1;72;Rive;simple
+501;1;149;Rive;simple
+501;1;193;Rive;simple
+501;1;243;Rive;simple
+501;1;322;Rive;simple
+501;1;365;Rive;simple
+501;1;402;Rive;simple
+501;1;442;Rive;simple
+501;2;16;Rive;simple
+501;2;65;Rive;simple
+501;2;89;Rive;simple
+501;2;168;Rive;simple
+501;2;214;Rive;simple
+501;2;255;Rive;simple
+7;2;28105;Axe;des deux cotés
+7;2;28136;Axe;des deux cotés
+7;2;28167;Axe;des deux cotés
+7;2;28195;Axe;des deux cotés
+7;2;28226;Axe;des deux cotés
+7;2;28255;Axe;des deux cotés
+7;2;28286;Axe;des deux cotés
+7;2;28316;Axe;des deux cotés
+7;2;28346;Axe;des deux cotés
+7;2;28377;Axe;des deux cotés
+7;2;28410;Axe;des deux cotés
+7;2;28441;Axe;des deux cotés
+7;2;28473;Axe;des deux cotés
+7;2;28504;Axe;des deux cotés
+7;2;28535;Axe;des deux cotés
+7;1;28103;Rive;des deux cotés
+7;1;28129;Rive;des deux cotés
+7;1;28151;Rive;des deux cotés
+7;1;28175;Rive;des deux cotés
+7;1;28202;Rive;des deux cotés
+7;1;28231;Rive;des deux cotés
+7;1;28254;Rive;des deux cotés
+7;1;28278;Rive;des deux cotés
+7;1;28301;Rive;des deux cotés
+7;1;28326;Rive;des deux cotés
+7;1;28350;Rive;des deux cotés
+7;1;28374;Rive;des deux cotés
+7;1;28399;Rive;des deux cotés
+7;1;28424;Rive;des deux cotés
+7;1;28451;Rive;des deux cotés
+7;1;28474;Rive;des deux cotés
+7;1;28489;Rive;des deux cotés
+7;1;28513;Rive;des deux cotés
+7;1;28534;Rive;des deux cotés
+7;2;28071;Rive;des deux cotés
+7;2;28101;Rive;des deux cotés
+7;2;28259;Rive;des deux cotés
+7;2;28275;Rive;des deux cotés
+7;2;28298;Rive;des deux cotés
+7;2;28320;Rive;des deux cotés
+7;2;28346;Rive;des deux cotés
+7;2;28370;Rive;des deux cotés
+7;2;28398;Rive;des deux cotés
+7;2;28420;Rive;des deux cotés
+7;2;28442;Rive;des deux cotés
+7;2;28464;Rive;des deux cotés
+7;2;28487;Rive;des deux cotés
+7;2;28509;Rive;des deux cotés
+7;2;28534;Rive;des deux cotés
+7;1;10303;Rive;simple
+7;1;10344;Rive;simple
+7;1;10383;Rive;simple
+7;1;10423;Rive;simple
+7;1;10460;Rive;simple
+7;1;10499;Rive;simple
+7;1;10543;Rive;simple
+7;1;10630;Rive;simple
+7;1;10832;Rive;simple
+7;1;10874;Rive;simple
+7;1;27920;Rive;simple
+7;1;27950;Rive;simple
+7;1;27981;Rive;simple
+7;1;28008;Rive;simple
+7;1;28030;Rive;simple
+7;1;28054;Rive;simple
+7;1;28095;Rive;simple
+7;2;10301;Rive;simple
+7;2;10339;Rive;simple
+7;2;10499;Rive;simple
+7;2;10537;Rive;simple
+7;2;10676;Rive;simple
+7;2;10717;Rive;simple
+7;2;10758;Rive;simple
+7;2;10797;Rive;simple
+7;2;27806;Rive;simple
+7;2;27836;Rive;simple
+7;2;27867;Rive;simple
+7;2;27895;Rive;simple
+7;2;27944;Rive;simple
+7;2;27974;Rive;simple
+7;2;28004;Rive;simple
+7;2;28034;Rive;simple
+3;2;15420;Rive;simple
+3;2;15453;Rive;simple
+3;2;15493;Rive;simple
+3;2;15566;Rive;simple
+3;2;15602;Rive;simple
+3;2;15632;Rive;simple
+3;2;15668;Rive;simple
+3;2;15701;Rive;simple
+3;2;15738;Rive;simple
+3;2;15775;Rive;simple
+3;2;15809;Rive;simple
+3;2;15843;Rive;simple
+3;2;15848;Rive;simple
+3;2;15881;Rive;simple
+3;2;15917;Rive;simple
+3;2;15949;Rive;simple
+3;2;15988;Rive;simple
+3;2;34170;Rive;simple
+3;2;34202;Rive;simple
+3;2;34235;Rive;simple
+3;2;34266;Rive;simple
+3;2;34298;Rive;simple
+3;2;34325;Rive;simple
+3;2;34356;Rive;simple
+3;2;34384;Rive;simple
+3;2;34414;Rive;simple
+3;2;34504;Rive;simple
+3;2;34536;Rive;simple
+3;2;34568;Rive;simple
+3;2;34598;Rive;simple
+3;2;34630;Rive;simple
+3;2;34658;Rive;simple
+3;2;34691;Rive;simple
+3;2;34721;Rive;simple
+3;2;34748;Rive;simple
+3;2;34782;Rive;simple
+3;2;34812;Rive;simple
+3;2;34841;Rive;simple
+3;2;34870;Rive;simple
+3;2;153581;Rive;simple
+3;2;154099;Rive;simple
+3;2;193882;Rive;simple
+3;2;227466;Rive;simple
+3;2;228109;Rive;simple
+3;2;277625;Rive;simple
+3;2;277660;Rive;simple
+3;2;278320;Rive;simple
+3;2;345040;Rive;simple
+3;2;418586;Rive;simple
+3;2;418632;Rive;simple
+3;2;418655;Rive;simple
+3;2;418682;Rive;simple
+3;2;418720;Rive;simple
+3;2;418746;Rive;simple
+3;2;418792;Rive;simple
+3;2;418824;Rive;simple
+3;2;418847;Rive;simple
+3;2;418884;Rive;simple
+3;2;418910;Rive;simple
+3;2;418931;Rive;simple
+3;2;418962;Rive;simple
+3;2;418989;Rive;simple
+3;2;419017;Rive;simple
+3;2;419020;Rive;simple
+3;2;419090;Rive;simple
+3;2;419111;Rive;simple
+3;2;419147;Rive;simple
+3;2;421059;Rive;simple
+3;2;423732;Rive;simple
+3;2;424465;Rive;simple
+301;1;12854;Rive;simple
+301;1;12885;Rive;simple
+301;1;12914;Rive;simple
+301;1;12944;Rive;simple
+301;1;12974;Rive;simple
+301;2;12846;Rive;simple
+301;2;12866;Rive;simple
+301;2;12885;Rive;simple
+301;2;12917;Rive;simple
+301;2;12953;Rive;simple
+301;2;12971;Rive;simple
+5;1;237507;Rive;des deux cotés
+5;1;237549;Rive;des deux cotés
+5;1;237638;Rive;des deux cotés
+5;1;237692;Rive;des deux cotés
+5;1;237732;Rive;des deux cotés
+5;1;265061;Axe;simple
+5;1;265104;Axe;simple
+5;1;265146;Axe;simple
+5;1;265188;Axe;simple
+5;1;265229;Axe;simple
+5;2;264861;Axe;simple
+5;2;264901;Axe;simple
+5;2;264945;Axe;simple
+5;2;264982;Axe;simple
+5;2;265028;Axe;simple
+5;2;265065;Axe;simple
+5;2;265107;Axe;simple
+5;2;265150;Axe;simple
+5;2;265192;Axe;simple
+5;2;265233;Axe;simple
+5;1;16453;Rive;simple
+5;1;16481;Rive;simple
+5;1;16511;Rive;simple
+5;1;16578;Rive;simple
+5;1;16612;Rive;simple
+5;1;16641;Rive;simple
+5;1;16672;Rive;simple
+5;1;16738;Rive;simple
+5;1;149598;Rive;simple
+5;1;181995;Rive;simple
+5;1;181996;Rive;simple
+5;1;182573;Rive;simple
+5;1;182616;Rive;simple
+5;1;222444;Rive;simple
+5;1;222489;Rive;simple
+5;1;222536;Rive;simple
+5;1;222581;Rive;simple
+5;1;222626;Rive;simple
+5;1;222671;Rive;simple
+5;1;222760;Rive;simple

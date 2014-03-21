@@ -1,0 +1,1186 @@
+CODE_OA;NUM_OA;LIAISON;SENS;PR_OA;ABS_DEB;NUM_EXPLOIT;NOM_USAGE;FAMILLE;TYPE_OUVRAGE;MATERIAUX;DATE_MS;NBRE_TABLIERS;NBRE_TRAVEE;GABARIT;LONGUEUR;LARGEUR;SECT_COURANTE;IQOA;NOTE_URGENCE
+1226;;2;3;194 +0520;194725;PV195;PV195;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;8
+1227;;2;3;196 +0121;196329;PP211;PP211;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;11
+1228;;2;3;196 +0691;196899;PV217;PV217;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;8
+1229;;2;3;198 +0361;198568;PV234;PV234;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1230;;2;3;200 +0434;200630;PV254;PV254;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1231;;2;3;202 +0010;202203;PV270;PV270;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1232;;2;3;202 +0200;202393;PI n° 272;PI n° 272;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;45.65;0;NON;2;3
+1233;;2;3;203 +0140;203303;PS N° 281;PS N° 281;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;2;11
+1234;;2;3;205 +0234;205430;PP302;PP302;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;16
+1235;;2;3;207 +0260;207447;Sebou;Pont sur oued Sebou;VIA;VIPP;Béton précontraint;;2;11;0;0;0;NON;2;8
+1236;;2;3;208 +0040;208226;PP330;PP330;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;8
+1237;;2;3;209 +0100;209281;PP341;PP341;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;8
+1238;;2;3;209 +0149;209330;PS N° 34;PS N° 34;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;8
+1239;;2;3;211 +0020;211192;PP360;PP360;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;16
+1240;;2;3;212 +0690;212860;PV377;PV377;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;3
+1241;;2;3;213 +0920;214098;PS N° 389;PS N° 389;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2 E;23
+1242;;2;3;214 +0860;215031;PV399;PV399;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1243;;2;3;215 +0572;215729;PI  N°406;PI  N°406;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;34.34;0;NON;2;9
+1244;;2;3;216 +0498;216645;PS N°415;PS N°415;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;0;0;69;0;NON;2;11
+1245;;2;3;217 +0081;217231;PS N°421;PS N°421;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;11
+1246;;2;3;218 +0970;219105;PV440;PV440;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1247;;2;3;219 +0620;219762;PV446;PV446;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1248;;2;3;220 +0077;220217;PP454;PP454;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;3
+1249;;2;3;221 +0860;221997;PS N°469;PS N°469;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;8
+1250;;2;3;223 +0526;223654;PV485;PV485;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;11
+1251;;2;3;224 +0780;224914;PV498;PV498;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;11
+1252;;2;3;226 +0014;226141;PS N°510;PS N°510;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;2;9
+1254;;2;3;228 +0743;228862;PV537;PV537;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1255;;2;3;230 +0720;230839;PS N°557;PS N°557;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;2;14
+1256;;2;3;230 +0880;230999;BOUZEMLANE;Pont sur oued Bouzemlane;VIA;VIPP;Béton précontraint;;2;17;0;0;0;NON;1;0
+1257;;2;3;232 +0680;232792;PS N°577;PS N°577;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;;0
+1258;;2;3;235 +0440;235546;PS N°604;PS N°604;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2 E;38
+1259;;2;3;236 +0640;236743;MATMATA;Pont sur oued Matmata;VIA;VIPP;Béton précontraint;;2;14;0;0;0;NON;2;3
+1260;;2;3;237 +0747;237847;PS N°627;PS N°627;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;8
+1261;;2;3;238 +0680;238777;IFRANE;Pont sur oued Ifrane;VIA;VIPP;Béton précontraint;;2;5;0;0;0;NON;2 S;38
+1262;;2;3;239 +0889;239982;PS N°649;PS N°649;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;11
+1263;;2;3;241 +0056;241146;PS N°661;PS N°661;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;8
+1264;;2;3;241 +0900;241990;PS N°669;PS N°669;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;0;0;69;0;NON;2;12
+1265;;2;3;243 +0619;243686;PV15;PV15;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;35.06;35.06;1;0
+1266;;2;3;245 +0080;245153;PV30;PV30;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;30.85;30.85;1;0
+1267;;2;3;245 +0990;246063;PP39;PP39;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;32.6;32.6;1;0
+1268;;2;3;247 +0799;247877;PV57;PV57;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;30.33;30.33;1;0
+1269;;2;3;248 +0773;248846;PV67;PV67;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;36.48;36.48;1;0
+1270;;2;3;249 +0250;249319;Bouhelou;Pont sur oued Bouhalou;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;2;19
+1271;;2;3;249 +0639;249708;PV76;PV76;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;33.24;33.24;1;0
+1272;;2;3;250 +0799;250791;PV87;PV87;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;42.67;42.67;1;0
+1273;;2;3;252 +0470;252535;PV104;PV104;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;30.48;30.48;1;0
+1274;;2;3;253 +0369;253434;PV113;PV113;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;30.82;30.82;1;0
+1275;;2;3;255 +0271;255327;PV132;PV132;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;30.82;30.82;1;0
+1276;;2;3;255 +0353;255409;Kaouene;Pont sur oued Kaouene;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;3;0;0;0;NON;2;3
+1277;;2;3;255 +0717;255773;PS136;PS136;PS;PIPBA PSPBA (Poutres BA);Béton armé;;0;2;0;48.9;0;NON;1;0
+1278;;2;3;256 +0260;256301;PS142;PS142;PS;PIPBA PSPBA (Poutres BA);Béton armé;;0;2;0;48.9;0;NON;2;3
+1279;;2;3;257 +0031;257082;PS150;PS150;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;2;9
+1280;;2;3;258 +0037;258088;Zireg;Pont sur oued Zireg;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;3;0;0;0;NON;2;22
+1281;;2;3;258 +0285;258336;PS162;PS162;PS;PIPBA PSPBA (Poutres BA);Béton armé;;0;2;0;48.9;0;NON;2;6
+1282;;2;3;259 +0265;259313;PV172;PV172;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;51.48;51.48;1;0
+1283;;2;3;259 +0650;259698;Innaouene;Pont sur oued Innaouene;VIA;VIPP;Béton précontraint;;2;5;0;0;0;NON;2;8
+1284;;2;3;260 +0171;260219;PI181;PI181;PI;PIPBP PSPBP (Poutres BP);Béton précontraint;;0;3;0;87.5;0;NON;2;12
+1285;;2;3;260 +0532;260580;PI185;PI185;PI;PIPBA PSPBA (Poutres BA);Béton armé;;0;1;0;0;0;NON;2;6
+1286;;2;3;261 +0845;261890;PS198;PS198;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;0
+1287;;2;3;263 +0801;263842;PS n° 08;PS n° 08;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;59.33;0;NON;2;21
+1288;;2;3;264 +0450;264500;AMLIL;Pont sur oued Amlil;VIA;VIPP;Béton précontraint;;2;1;0;0;0;NON;2 S;24
+1289;;2;3;265 +0071;265109;PI n°20 ;PI n°20 ;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;26.14;26.14;2;19
+1290;;2;3;265 +0759;265797;PS n° 27;PS n° 27;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;59.21;0;NON;2;15
+1291;;2;3;266 +0200;266229;PS n° 32;PS n° 32;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;69.02;0;NON;2;20
+1292;;2;3;266 +0849;266878;PS n° 38;PS n° 38;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;59.21;0;NON;2;14
+1293;;2;3;267 +0740;267765;AGHROUZ;Pont sur oued Aghrouz;VIA;VIPP;Béton précontraint;;2;8;0;0;0;NON;2 S;35
+1294;;2;3;268 +0216;268248;PV n°  52;PV n°  52;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;43.08;43.08;2;3
+1295;;2;3;269 +0928;269952;PV n° 69 ;PV n° 69 ;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;29.8;29.8;1;3
+1296;;2;3;271 +0404;271417;PS n° 84;PS n° 84;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;59.21;0;NON;2 S;52
+1436;;2;3;175 +0000;175200;PS1BF Br4;PS1BF Br4;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;0;0;75.6;0;NON;2;8
+1437;;2;3;175 +0000;175200;PS1BF Br1;PS1BF Br1;PS;PIPBA PSPBA (Poutres BA);Béton armé;;0;0;0;69.6;0;NON;2;11
+1438;;2;3;175 +0000;175200;PS2BF Br1;PS2BF Br1;PS;PIPBA PSPBA (Poutres BA);Béton armé;;0;0;0;69.6;0;NON;2;8
+1440;PAS_107;3;3;327 +0500;328375;;PAS;PAS;Arc métallique;Métal;;0;0;0;0;0;NON;2;6
+1441;PAS_280;3;3;344 +0700;345230;;PAS;PAS;Arc métallique;Métal;;0;0;0;0;0;NON;1;0
+1442;PS_190;3;3;335 +0747;336494;PS190;PS 190;PS;;;;0;0;0;0;0;NON;2;9
+1443;PS_467;3;3;363 +0447;363649;PS467;PS 467;PS;;;;0;0;0;0;0;NON;2;9
+1444;PS_535;3;3;370 +0402;370535;PS535;PS 535;PS;;;;0;0;0;0;0;NON;2 E;15
+1446;PS_312;3;3;348 +0004;348453;PS312;PS 312;PS;;;;0;0;0;0;0;NON;2;6
+1447;PAS CEF 175+600;2;3;175 +0600;175800;;PAS CEF 175+600;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1448;PAS CEF 296,3;2;3;296 +0300;295007;;PAS CEF 296,3;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;2;8
+1449;PAS CEF 299;2;3;299 +0000;297567;;PAS CEF 299;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1450;PAS CEF 204;2;3;204 +0000;204196;;PAS CEF 204;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1451;PAS CEF 217 SC Ech. Ras Tabouda;2;3;217 +0000;217150;;PAS CEF 217 SC Ech. Ras Tabouda;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;3
+1452;PAS CEF 217 br2 Ech. Ras Tabouda;2;3;217 +0000;217150;;PAS CEF 217 br2 Ech. Ras Tabouda;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1453;PAS CEF 228+400;2;3;228 +0400;228519;;PAS CEF 228+400;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;2 E;15
+1454;PAS CEF 245+200;2;3;245 +0200;245273;;PAS CEF 245+200;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1455;PAS CEF 251;2;3;251 +0000;251070;;PAS CEF 251;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;3
+1456;PAS CEF 253+400;2;3;253 +0400;253465;;PAS CEF 253+400;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;2 E;18
+1457;PAS CEF 254+700;2;3;254 +0700;254757;;PAS CEF 254+700;PAS;Structure treillis + haubans;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+751;A6_PV_7.1;7;3;7 +0995;8104;PV 2;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.1;33.28;33.28;1;3
+752;A6_PV_9.2;7;3;9 +0229;9372;PV 3;PV 3;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;6.82;44.19;44.19;2;14
+753;A6_PV_11.2;7;3;11 +0301;11438;PV 4;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;8.59;89.62;89.62;2;6
+754;A6_PI_12.3;7;3;12 +0402;12571;PI 2;PI 2;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;15.56;36.73;36.73;2 S;27
+755;A6_PI_12.5;7;3;12 +0596;12765;PI 3;PI 3;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11;34.02;34.02;2 S;30
+756;A6_PS_13.3;7;3;13 +0423;13614;PS 6;PS 6;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;55.77;10;10;2;11
+757;A6_VIA_14.2;7;3;14 +0301;14516;VIA;Pont sur oued Smir;VIA;Structure inconnue;;;0;0;0;0;0;NON;2;11
+758;A6_PI_14.8;7;3;14 +0890;15105;PI 4;PI 4;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;25.9;25.25;25.25;2;11
+759;A6_PS_15.7;7;3;15 +0792;16053;PS 7;PS 7;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.12;8;8;2;6
+760;A6_PS_16.5;7;3;16 +0625;16891;PS 8;PS 8;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.12;8;8;2;9
+761;A6_PV_17.1;7;3;17 +0197;17467;PV 05V;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;39.3;39.3;1;3
+762;A6_PV_17.6;7;3;17 +0725;17995;PV 06V;PV 6;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;34.98;34.98;1;3
+763;A6_PI_18.4;7;3;18 +0520;18800;PI 05V;PI 5;PI;Dossier incomplet;;;0;0;0;0;0;NON;2;6
+764;A6_PV_18.4;7;3;18 +0520;18800;PV 7V Bis;PV 7;PV;Structure inconnue;Matériau inconnu;;0;0;0;0;0;NON;2;9
+765;A6_PV_18.5;7;3;18 +0590;18870;PV 7V;PV 8;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;35.49;35.49;1;0
+766;A6_PS_19.0;7;3;19 +0094;19416;PS 9V;PS 9;PS;PIPBA PSPBA (Poutres BA);Béton armé;;2;2;0;27.85;8;8;2;3
+767;A6_PV_20.4;7;3;19 +0974;20296;PV 8;PV 9;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;45.21;45.21;2;3
+768;A6_PI_22.2;7;3;21 +0625;22031;PI 7;PI 7;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;13.17;22.25;22.25;2;6
+769;A6_VIA_22.5;7;3;22 +0519;22945;VIA;Pont sur oued Negro 1;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;2;0;69.9;11.75;11.75;2;14
+770;A6_VIA_22.9;7;3;22 +0962;23388;VIA;Pont sur oued Negro 2;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;2;0;69.9;11.75;11.75;2;6
+771;A6_PS_23.8;7;3;23 +0185;23659;PS 11;PS 10;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.98;8;8;1;0
+772;A6_PAS_24.0;7;3;23 +0785;24259;PAS 2;PAS 2;PAS;;;;0;0;0;0;0;NON;1;0
+773;A6_PAS_25.0;7;3;24 +0967;25476;PAS 3;PAS 3;PAS;;;;0;0;0;0;0;NON;1;0
+774;A6_PV_25.4;7;3;25 +0350;25867;PV 08;PV 10;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;49.18;49.18;2;12
+775;A6_PP_25.8;7;3;25 +0759;26276;PP 258;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.1;43.08;43.08;2;9
+776;A6_PS_27.5;7;3;26 +0452;26985;PS 275;PS 11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;2;3
+777;A6_PP_27.9;7;3;27 +0891;28431;PP 279;PP 1bis;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.1;39.29;39.29;1;8
+778;A6_PAS_29.0;7;3;27 +0991;28531;PAS 4;PAS 4;PAS;;;;0;0;0;0;0;NON;1;0
+779;A7_PI_0.8;3;3;0 +0800;800;PI 1;PI 1;PI;;;;0;0;0;0;0;NON;2;14
+780;A7_PAS_1.2;3;3;1 +0200;1200;PAS 1;PAS 1;PAS;;;;0;0;0;0;0;NON;2;3
+781;A7_PS_2.2;3;3;2 +0180;2189;PS 1;PS 1;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44.9;8;8;2;9
+782;A7_PAS_3.0;3;3;3 +0040;3036;PAS 2;PAS 2;PAS;;;;0;0;0;0;0;NON;2;0
+783;A7_PS_4.8;3;3;4 +0782;4778;PS 2;PS 2;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44.9;8;8;2;8.1
+784;A7_PS_5.9;3;3;5 +0933;5926;PS 3;PS 3;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44.9;8;8;2;6
+785;A7_PS_7.7;3;3;7 +0683;7586;PS 4;PS 4;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44.9;10;10;2;9
+786;A7_PS_9.3;3;3;9 +0312;9323;PS 5;PS 5;PS;Structure inconnue;;;0;0;0;0;0;NON;2;14
+787;A7_PV_12.4;3;3;12 +0410;12438;PV 1;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;3;4.5;50.57;50.57;1;0
+788;A7_PS_13.1;3;3;13 +0115;13167;PS 5;PS 6;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44.9;17.7;17.7;2;12
+789;A7_PV_13.1;3;3;13 +0115;13167;PV 3;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;3;4.96;17.8;17.8;2;19
+790;A7_PS_14.1;3;3;14 +0133;14256;PS 6;PS 7;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44.9;8;8;2;12
+791;A7_PV_14.1;3;3;14 +0133;14256;PV3;PV3;PV;;;;0;0;0;0;0;NON;1;6
+792;A7_PS_16.1;3;3;16 +0998;17038;PS 7;PS 8;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;3;0;77.4;8;8;2;9
+793;A7_PS_19.6;3;3;19 +0633;19701;PS 8;PS 9;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;3;0;77.4;8;8;2;12
+794;A7_PS_21.5;3;3;21 +0494;21544;PS 9;PS 10;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;7.7;7.7;2;15
+795;A7_PS_22.4;3;3;22 +0356;22438;PS 10;PS 11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;56.9;8;8;2;12
+796;A7_PS_23.5;3;3;23 +0479;23546;PS 11;PS 12;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.46;8;8;2;9
+797;A7_PS_24.7;3;3;24 +0680;24741;PS 12;PS 13;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.5;10;10;2;29
+798;A7_PS_25.8;3;3;25 +0790;25869;PS 13;PS 14;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.2;8;8;2;6
+799;A7_PS_27.3;3;3;27 +0328;27386;PS 14bis;PS 15;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;12
+800;A7_PS_28.6;3;3;28 +0577;28641;PS 16;PS 16;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;51.45;8;8;2;9
+801;A7_PP_29.5;3;3;29 +0540;29594;PP 1;PP 0;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;13.98;13.98;1;8
+802;A7_PS_29.5;3;3;29 +0544;29598;PS 17;PS 17;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;50.55;10;10;2;15
+803;A7_PS_30.9;3;3;30 +0885;30939;PS 18;PS 18;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;6
+804;A7_PS_32.3;3;3;32 +0289;32350;PS 19;PS 19;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.5;10;10;2;24
+805;A7_PS_32.8;3;3;32 +0764;32825;PS 19bis;PS 20;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;65.5;11.5;11.5;2;12
+806;A7_PS_33.9;3;3;33 +0857;33926;PS 20;PS 21;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;29
+807;A7_PS_35.1;3;3;36 +0060;36027;PS 21;PS 22;PS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;51.9;8;8;2 S;80
+808;A7_PS_37.5;3;3;37 +0511;37515;PS 22;PS 23;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.72;8;8;2;45
+809;A7_PS_38.4;3;3;38 +0370;38453;PS 23;PS 24;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;44
+810;A7_PS_40.5;3;3;40 +0457;40548;PS 24;PS 25;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;73
+811;A7_PS_43.1;3;3;43 +0982;44072;PS 25;PS 26;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;70
+812;A7_PS_45.2;3;3;45 +0230;45329;PS 26;PS 27;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;60
+813;A7_PS_47.8;3;3;47 +0781;47882;PS 27;PS 28;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.74;8;8;2;62
+814;A7_PP_49.9;3;3;49 +0890;49991;PP 2;PP 0bis;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.1;45.17;45.17;2;6
+815;A7_PI_50.7;3;3;50 +0729;50841;PI 1/2;PI 2;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;26.37;12.5;12.5;2;11
+816;A7_PI_51.7;3;3;51 +0675;51791;PI 3;PI 4;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;11.2;14.83;14.83;2 S;35
+817;A7_PI_52.5;3;3;52 +0515;52617;PI 5;PI 5;PI;Structure inconnue;;;0;0;0;0;0;NON;2 S;43
+818;A7_PI_52.7;3;3;52 +0720;52822;PI 6;PI 6;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2;0
+1030;A7_VIA_325.1;3;3;325 +0356;326257;Pont sur oued Ameznaz;Pont sur oued Ameznas;VIA;VIPP;Béton précontraint;;2;11;0;440.25;11.33;11.33;2 S;54
+1034;A7_VIA_328.7;3;3;329 +0757;330634;Pont sur oued Irohalene;Pont sur oued Irohalane;VIA;VIPP;;;2;4;0;159.9;11.33;11.33;2;6
+1051;A7_VIA_350.4;3;3;351 +0289;351648;Viaduc Amsri;Viaduc sur oued Amzri;VIA;VIPP;Béton précontraint;;2;9;0;360.69;11.33;11.33;2 S;67.1
+1056;A7_VIA_362.7;3;3;369 +0161;369312;Viaduc Tagoulmint;Viaduc sur oued N''Tagoulmint;VIA;VIPP;Béton précontraint;;2;1;0;38.6;11.33;11.33;2;9
+1058;A7_VIA_368.1;3;3;363 +0776;363978;Viaduc Tanamert;Viaduc sur oued N''Tanamert;VIA;VIPP;Béton précontraint;;2;1;0;38.6;11.33;11.33;1;3
+1075;A7_VIA_390.5;3;3;391 +0358;391508;Viaduc 192;Viaduc sur oued Esghiouer;VIA;VIPP;Béton précontraint;;2;6;0;229.25;11.33;11.33;2;6
+1081;A7_VIA_401.1;3;3;402 +0010;402101;Viaduc 298;Viaduc oued Iyig;VIA;VIPP;Béton précontraint;;2;7;0;266.35;11.33;11.33;2;14.6
+1083;A7_VIA_403.8;3;3;404 +0508;404669;Viaduc 325;Viaduc sur Chaaba;VIA;VIPP;Béton précontraint;;2;9;0;342.68;0;NON;1;3
+1094;A7_VIA_426.3;3;3;427 +0428;427703;Pont sur oued N’Taguennza;Pont sur oued N’Taguennza;VIA;VIPP;Béton précontraint;;2;2;0;80;11.33;11.33;2 S;30
+1097;A2_VIA_82.0;2;3;82 +0075;82198;;Pont sur oued Beht;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;2 S;46
+1098;A2_VIA_87.3;2;3;87 +0330;87497;;Pont sur oued Ouchket;VIA;VIPP;Béton précontraint;;2;2;0;0;0;NON;2 S;57
+1099;A2_VIA_87.4;2;3;92 +0417;92612;;Pont sur oued El Kell;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;2 S;50
+1100;A7_PS_283.8;3;3;284 +0800;284692;PS13;PS13;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1101;A7_PS_286.3;3;3;287 +0100;287198;PS37;PS37;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1102;A7_PV_287.2;3;3;288 +0100;288257;PV 47;PV 47;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;1;0
+1103;A7_PS_289.3;3;3;290 +0000;290252;PS67;PS67;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;12
+1104;A7_PV_290.5;3;3;291 +0200;291508;PV79;PV 79;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;1;0
+1105;A7_PV_291.2;3;3;291 +0700;292008;PV87;PV87;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;1;0
+1106;A7_PV_291.7;3;3;292 +0400;292768;PV91;PV91;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;2;3
+1107;A7_PV_292.2;3;3;292 +0600;292968;PV97;PV97;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;1;3
+1108;A7_PS_294.4;3;3;295 +0000;295487;PS119;PS119;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1109;A7_PS_297.2;3;3;297 +0600;298229;PS147;PS147;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1110;A7_PV_299.4;3;3;299 +0435;300140;PV169;PV169;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;2;6
+1111;A7_PS_300.9;3;3;300 +0500;301266;PS184;PS184;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;3
+1112;A7_PS_302.9;3;3;303 +0000;303958;PS204;PS204;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;1;0
+1113;A7_PS_305.4;3;3;305 +0435;306436;PS229;PS229;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;1;3
+1114;A7_PV_307.7;3;3;307 +0695;308658;PV252;PV252;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;1;8
+1115;A7_PS_308.9;3;3;308 +0948;309925;PS264;PS264;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1116;PS270;3;3;309 +0715;310693;PS270;PS270;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1117;A7_PS_310.2;3;3;310 +0215;311174;PS277;PS277;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1118;A7_PV_312.0;3;3;312 +0005;312949;PV295;PV295;PV;PICF (Cadre Fermé);Béton armé;;1;0;4;0;0;NON;2;6
+1119;A7_PS_313.1;3;3;313 +0135;314064;PS306;PS306;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;6
+1120;A7_PS_315.4;3;3;315 +0415;316341;PS329;PS329;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;0;NON;2;17
+1121;A7_PS_318.1;3;3;318 +0100;319071;PS33;PS33;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63;0;NON;2;19
+1122;A7_PP_320.5;3;3;321 +0555;322483;PP48;PP48;PP;PICF (Cadre Fermé);Béton armé;;1;0;2.5;2.59;29.38;29.38;2;9
+1123;A7_PP_322.5;3;3;323 +0547;324442;PP68;PP68;PAS;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;30.6;30.6;2;3
+1125;A7_PP_326.8;3;3;327 +0902;328777;PP111;PP111;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.66;29.81;29.81;1;0
+1126;PS_126;3;3;327 +0500;328375;PS126;PS126;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63;0;NON;2;20
+1127;PV_158;3;3;332 +0507;333288;PV158;PV_158;PV;PICF (Cadre Fermé);Béton armé;;1;0;4.5;4.5;58.9;58.9;2;6
+1128;PI_172;3;3;333 +0967;334751;PI172;PI172;PI;PIPO (Portique Ouvert);Béton armé;;1;0;0;0;28.77;NON;2;3
+1129;PV_197;3;3;336 +0447;337151;PV197;PV_197;PV;PICF (Cadre Fermé);Béton armé;;1;0;4.5;4.5;33.8;33.8;1;3
+1130;PV_213;3;3;338 +0007;338669;PV213;PV213;PV;PICF (Cadre Fermé);Béton armé;;1;0;4.5;4.5;28;28;1;0
+1297;;2;3;271 +0620;271633;SAHB LAGHRIK;Pont sur oued Sahb Laghrik;VIA;VIPP;Béton précontraint;;2;7;0;0;0;NON;2;14
+1298;;2;3;272 +0890;272891;OURGAZ;Pont sur oued Ouergaz;VIA;VIPP;Béton précontraint;;2;12;0;0;0;NON;2;8
+1299;;2;3;274 +0305;274302;PV n°  113;PV n°  113;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;31.16;31.16;2 E;32
+1300;;2;3;277 +0150;277142;PS n° 141;PS n° 141;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;5;0;63.65;0;NON;2;18
+1301;;2;3;278 +0982;278961;PV n°  159;PV n°  159;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;36.52;36.52;1;0
+1302;;2;3;279 +0492;279484;PV n°  164;PV n°  164;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;31.76;31.76;2;11
+1303;;2;3;281 +0019;280953;PV n°  180;PV n°  180;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;30.84;30.84;2;11
+1304;;2;3;282 +0089;281987;PV n°  190;PV n°  190;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;29.34;29.34;2;3
+1305;;2;3;282 +0528;282426;PS n° 195;PS n° 195;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;59.33;0;NON;2;25
+1306;;2;3;283 +0873;283857;PV n° 208;PV n° 208;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;29.82;29.82;2;3
+1307;;2;3;284 +0814;284734;PS n° 218;PS n° 218;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;69;0;NON;2;9
+1308;;2;3;285 +0616;285524;PS n° 226;PS n° 226;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;63.21;0;NON;2;12
+1309;;2;3;286 +0000;285894;LAHDAR;Pont sur oued Lahdar;VIA;VIPP;Béton précontraint;;2;12;0;0;0;NON;2;25
+1310;;2;3;288 +0120;287940;LAHLOU;Pont sur oued Lahlou;VIA;VIPP;Béton précontraint;;2;11;0;0;0;NON;2 S;36
+1311;;2;3;290 +0037;289835;PI n° 270;PI n° 270;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;25.3;25.3;2;3
+1312;;2;3;292 +0502;291267;PV n° 301;PV n° 301;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;52.06;52.06;2;8
+1313;;2;3;293 +0123;291874;PV n° 307;PV n° 307;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;36.86;36.86;2;17
+1314;;2;3;293 +0473;292224;PV n° 289;PV n° 289;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;39.4;39.4;2;14
+1315;;2;3;295 +0832;294546;PV n° 328  ;PV n° 328  ;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;28.68;28.68;2;3
+1316;;2;3;296 +0060;294767;LARBAA;Pont sur oued Larbaa;VIA;VIPP;Béton précontraint;;2;2;0;0;0;NON;2;8
+1317;;2;3;296 +0450;295157;PV n° 334  ;PV n° 334  ;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;25.54;25.54;2;11
+1318;;2;3;296 +0719;295426;PI n° 337;PI n° 337;PI;PICF (Cadre Fermé);Béton armé;;0;2;0;0;33.16;33.16;2;8
+1319;;2;3;297 +0174;295882;PS n° 341;PS n° 341;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;69.01;0;NON;2;12
+1320;;2;3;299 +0019;297586;PS16;PS16;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;0
+1321;;2;3;299 +0585;298152;PS25;PS25;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;2;6
+1322;;2;3;302 +0633;301156;PS56;PS56;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;8
+1323;;2;3;303 +0506;301962;BOUCHEIKH;Pont sur oued Boucheikh;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;2 S;54
+1324;;2;3;303 +0754;302210;PS67;PS67;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;2;3
+1325;;2;3;304 +0332;302749;AGHBAL;Pont sur oued Aghbal;VIA;VIPP;Béton précontraint;;2;3;0;0;0;NON;2 S;48
+1326;;2;3;306 +0315;304703;PV 93;PV 93;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;29.1;29.1;1;0
+1327;;2;3;307 +0269;305619;PV 102;PV 102;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;29.41;29.41;2;6
+1328;;2;3;309 +0884;308229;PV 128;PV 128;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;24.43;24.43;1;0
+1329;;2;3;311 +0574;309917;PV 145;PV 145;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;56.52;56.52;1;0
+1330;;2;3;312 +0993;311278;PV 159;PV 159;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;27.76;27.76;2;3
+1331;;2;3;314 +0135;312428;PS171;PS171;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;0
+1332;;2;3;318 +0000;316196;MSOUN;Pont sur oued Msoun;VIA;VIPP;Béton précontraint;;2;6;0;0;0;NON;2 S;48
+1333;;2;3;317 +0467;315752;PS204;PS204;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;0
+1334;;2;3;318 +0901;317097;PS219;PS219;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;0
+1335;;2;3;319 +0603;317869;PS226;PS226;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;2;3
+1336;;2;3;320 +0671;318914;PS236;PS236;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;62.9;0;NON;2;6
+1337;;2;3;322 +0094;320294;PS250;PS250;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;2;12
+1338;;2;3;326 +0399;324563;PS293;PS293;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;0;NON;1;0
+1339;;2;3;363 +0319;361034;PV04;PV04;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;2;3
+1340;;2;3;367 +0956;365704;PV50;PV50;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;2;11
+1341;;2;3;368 +0594;366349;Ouizzerht;Pont sur oued Ouizzerht;VIA;VIPP;Béton précontraint;;2;2;0;0;0;NON;2 S;24
+1342;;2;3;369 +0675;367431;PS67;PS67;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;9
+1343;;2;3;371 +0230;369980;Moulouya;Pont sur oued Moulouya;VIA;Bi-poutre mixte;Mixte acier / béton;;2;8;0;0;0;NON;2 S;48
+1344;;2;3;372 +0380;371130;PV95;PV95;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;1;3
+1345;;2;3;372 +0980;371730;PV101;PV101;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;2;3
+1346;;2;3;374 +0892;373782;PS120;PS120;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;3
+1347;;2;3;375 +0443;374323;PS125;PS125;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;13.8;13.8;2 S;30
+1348;;2;3;378 +0155;377012;PV152;PV152;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;2;6
+1349;;2;3;380 +0765;379612;PV178;PV178;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;1;0
+1350;;2;3;382 +0631;381469;PI197;PI197;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;28.5;10;10;2;3
+1351;;2;3;386 +0000;384824;EL Abed;Pont sur oued El Abed;VIA;VIPP;Béton précontraint;;2;2;0;0;0;NON;2 S;27
+1352;;2;3;386 +0355;385179;PS234;PS234;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;3
+1353;;2;3;392 +0146;390917;PP292;PP292;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;1;3
+1354;;2;3;394 +0050;392796;PI311;PI311;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;51.72;18;18;1;0
+1355;;2;3;394 +0234;392980;PI313;PI313;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;14;14;14;2 S;40
+1356;;2;3;394 +0531;393277;PI316;PI316;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;11;11;11;2 S;40
+1357;;2;3;394 +0623;393369;PP317;PP317;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;3
+1358;;2;3;394 +0644;393390;ZA;Pont sur oued Za;VIA;VIPP;Béton précontraint;;2;5;0;0;0;NON;2 S;48
+1359;;2;3;329 +0340;327415;PS323;PS323;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;1;0
+1360;;2;3;395 +0680;394419;PV328;PV328;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;1;3
+1361;;2;3;331 +0533;329592;PS345;PS345;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;3
+1363;;2;3;335 +0320;333320;PS383;PS383;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;6
+1364;;2;3;341 +0000;338969;PS440;PS440;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2 S;35
+1365;;2;3;343 +0629;341560;PV466;PV466;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;1;0
+1366;;2;3;345 +0013;342871;Khat Tighrzerine 48;Pont sur oued Khat Tighrzerine 1;VIA;VIPP;Béton précontraint;;2;3;0;0;0;NON;1;0
+1367;;2;3;346 +0800;344661;PP498;PP498;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;1;0
+1368;;2;3;350 +0784;348596;PS537;PS537;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;3
+1369;;2;3;356 +0131;353859;PS591;PS591;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;3
+1370;;2;3;357 +0620;355334;PP606;PP606;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;1;0
+1371;;2;3;358 +0316;355989;PV613;PV613;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5;0;NON;1;0
+1372;;2;3;359 +0280;356944;PP622;PP622;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;1;0
+1373;;2;3;360 +0336;358001;PS633;PS633;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;12.3;12.3;1;0
+1374;;2;3;361 +0248;358932;PS642;PS642;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;0;8;8;2;3
+1375;;2;3;362 +0656;360340;Khat Tighrzerine 65;Pont sur oued Khat Tighrzerine 2;VIA;VIPP;Béton précontraint;;2;6;0;0;0;NON;1;3
+1376;;2;3;426 +0284;424933;PI n°242;PI n°242;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;11.73;25.3;25.3;1;0
+1377;;2;3;413 +0120;411866;PS n°111;PS n°111;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;61.88;10;10;2;6
+1378;;2;3;407 +0580;406391;VIADUC LAMRAYER;Pont sur oued Lamrayer;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;1;0
+1379;;2;3;419 +0660;418382;PV n°176;PV n°176;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.8;29.26;29.26;2 S;35
+1380;;2;3;429 +0480;428084;PS n°274;PS n°274;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;58.9;8;8;2;8
+1381;;2;3;413 +0600;412346;VIADUC AL HACHAC;Pont sur oued Al Hashas;VIA;VIPP;Béton précontraint;;2;6;0;0;0;NON;2;11
+1382;;2;3;424 +0111;422783;PV n°221;PV n°221;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.8;26.83;26.83;2 S;32
+1383;;2;3;423 +0385;422071;PP n° 213;PP n° 213;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;3;31.2;31.2;2 S;32
+1384;;2;3;417 +0250;415989;VIADUC LAGDAH;Pont sur oued Lagdah;VIA;VIPP;Béton précontraint;;2;8;0;0;0;NON;2;3
+1385;;2;3;417 +0960;416699;PP n°159;PP n°159;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;3;32.06;32.06;2 S;27
+1386;;2;3;415 +0360;414099;PS n°133;PS n°133;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;61.88;8;8;1;3
+1387;;2;3;429 +0040;427644;PP n°270;PP n°270;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;3;26.04;26.04;2 S;30
+1388;;2;3;428 +0086;426702;PV n°260;PV n°260;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.8;25.99;25.99;2 S;30
+1389;;2;3;431 +0400;429977;PP n°294;PP n°294;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;3;33.45;33.45;2 S;27
+1390;;2;3;405 +0612;404403;PS n°36;PS n°36;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;73.6;12.3;12.3;1;3
+1391;;2;3;430 +0520;429112;PS n°285;PS n°285;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;61.88;8;8;2;3
+1392;;2;3;430 +0880;429472;VIADUC LAQSOB;Pont sur oued Laqsob;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;2 S;32
+1393;;2;3;404 +0751;403532;PV n°27;PV n°27;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.8;27.44;27.44;2 S;24
+1394;;2;3;432 +0516;431084;PV n°305;PV n°305;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.9;32;32;2 S;27
+1395;;2;3;410 +0798;409591;PP n°87;PP n°87;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;3;27.84;27.84;2 S;32
+1396;;2;3;432 +0560;431128;PV n°39;PV n°39;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.8;27.16;27.16;1;0
+1397;;2;3;434 +0120;432699;PV n° 321;PV n° 321;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;35.42;35.42;2 S;24
+1398;;2;3;435 +0263;433828;PV n° 332;PV n° 332;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;58.9;58.9;2;3
+1399;;2;3;437 +0415;435965;PV n° 354;PV n° 354;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;26.08;26.08;2 S;24
+1400;;2;3;438 +0300;436840;VIADUC BOURDIM;Viaduc Bourdim 1;VIA;VIPP;Béton précontraint;;2;4;0;0;0;NON;2 S;43
+1401;;2;3;439 +0560;438090;PP n°375;PP n°375;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;26.58;26.58;2 S;24
+1402;;2;3;440 +0237;438781;PV n°382;PV n°382;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;27.42;27.42;2 S;24
+1403;;2;3;442 +0431;440972;PV n°404;PV n°404;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;26.86;26.86;2 S;32
+1404;;2;3;444 +0423;442955;PS n°424;PS n°424;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;73.6;0;NON;2;19
+1405;;2;3;445 +0367;443911;PI n°433;PI n°433;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;22.5;22.5;1;0
+1406;;2;3;446 +0967;445491;PV n°449;PV n°449;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;28.8;28.8;2 S;24
+1407;;2;3;448 +0920;447443;PI n°471;PI n°471;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2;3
+1408;;2;3;449 +0425;447948;PP n°466;PP n°466;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2 S;27
+1409;;2;3;450 +0395;448935;PP n°456;PP n°456;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2 S;24
+1410;;2;3;451 +0180;449709;PV n°448;PV n°448;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;32.91;32.91;2 S;32
+1411;;2;3;451 +0385;449914;PS n°446;PS n°446;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;3
+1412;;2;3;452 +0500;451047;PI n°435;PI n°435;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;1;8
+1413;;2;3;453 +0120;451660;PS n°427;PS n°427;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;16
+1414;;2;3;455 +0060;453605;PV n°409;PV n°409;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;52.88;52.88;2 S;27
+1415;;2;3;459 +0273;457803;PS n°367;PS n°367;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;11
+1416;;2;3;461 +0680;460188;PP n°343;PP n°343;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2 S;24
+1417;;2;3;463 +0927;462414;PI n°321;PI n°321;PI;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;1;0
+1418;;2;3;465 +0440;463905;PP n° 306;PP n° 306;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2 S;24
+1419;;2;3;408 +0740;407548;PS n°63;PS n°63;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;61.88;8;8;1;3
+1420;;2;3;467 +0680;466149;PS n°283;PS n°283;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;8
+1421;;2;3;469 +0740;468215;PS n°263;PS n°263;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;8
+1422;;2;3;471 +0480;469950;PP n°245;PP n°245;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2 S;27
+1423;;2;3;473 +0080;471548;PS n°229;PS n°229;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;11
+1424;;2;3;474 +0060;472526;PP n°219;PP n°219;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;0;0;NON;2 S;24
+1425;;2;3;475 +0980;474441;PV n°200;PV n°200;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;27.67;27.67;2 S;24
+1426;;2;3;477 +0910;476365;PS n°181;PS n°181;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;11
+1427;;2;3;479 +0840;478291;PV n°162;PV n°162;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;0;27.79;27.79;2 S;24
+1428;;2;3;481 +0700;480144;PS n°143;PS n°143;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;0;0;NON;2;8
+1429;;2;3;484 +0548;483033;PS n°115;PS n°115;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;0;0;NON;2;6
+1430;;2;3;487 +0000;485492;PV n°90;PV n°90;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;5.1;24.77;24.77;2 S;30
+1431;;2;3;488 +0423;486921;PS n°76;PS n°76;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;6;0;59.2;8;8;2;11
+1432;;2;3;489 +0760;488262;PS n°62;PS n°62;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;63.2;10;10;2;22
+1433;;2;3;450 +0000;448540;VIADUC BOURDIM;Viaduc Bourdim 2;VIA;VIPP;Béton précontraint;;2;3;0;0;0;NON;2 S;48
+1434;;2;3;493 +0200;491862;PS n°28;PS n°28;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;4;0;59.2;8;8;2;14
+1204;PS_11;3;3;428 +0377;428662;PS11;PS_11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;5.1;63;10;10;2;12
+1205;;2;3;175 +0620;175820;PS N° 06;PS N° 06;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;11
+1206;;2;3;175 +0640;175840;PV BIF Br2;PV BIF Br2;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1207;;2;3;175 +0980;176180;PV1 BIF Br1;PV1 BIF Br1;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;3
+1208;;2;3;176 +0097;176292;PS N° 11;PS N° 11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;2;11
+1209;;2;3;175 +0000;175200;PV2 BIF Br1;PV2 BIF Br1;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1210;;2;3;177 +0432;177638;PS N° 24;PS N° 24;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;11
+1211;;2;3;178 +0197;178399;PS N° 32;PS N° 32;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;14
+1212;;2;3;179 +0637;179845;PS N° 46;PS N° 46;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2 E;41
+1213;;2;3;181 +0077;181285;PP61;PP61;PP;PICF (Cadre Fermé);Béton armé;;0;0;0;2.5;0;NON;2;16
+1214;;2;3;182 +0057;182257;PS N° 71;PS N° 71;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;2;11
+1215;;2;3;183 +0120;183319;PS N° 81;PS N° 81;PS;Pont à haubans;;;0;2;0;69.45;0;NON;2;3
+1216;;2;3;183 +0816;184015;PS N° 88;PS N° 88;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;63.2;0;NON;2 S;67
+1217;;2;3;185 +0320;185516;PS N° 103;PS N° 103;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;8
+1218;;2;3;186 +0753;186949;PS N° 118;PS N° 118;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;14
+1219;;2;3;188 +0380;188599;PS N° 134;PS N° 134;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;14
+1220;;2;3;188 +0920;189139;PV139;PV139;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;1;0
+1221;;2;3;189 +0567;189768;PS N° 146;PS N° 146;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;0;0;0;59.2;0;NON;2;11
+1222;;2;3;190 +0628;190832;PV156;PV156;PV;PICF (Cadre Fermé);Béton armé;;0;0;0;4.5;0;NON;2;8
+1223;;2;3;191 +0080;191282;PS N° 161;PS N° 161;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;0;0;69;0;NON;2;8
+1224;;2;3;192 +0021;192223;PI 1 N° 170;PI 1 N° 170;PI;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;0;0;67.6;0;NON;2;14
+1225;;2;3;193 +0379;193573;PS N° 184;PS N° 184;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;0;0;69;0;NON;2;8
+135;A1_VIA_153.0;5;3;111 +0662;111563;OA 4;Pont sur l''oued Loukkos;VIA;VIPP;Béton armé;;2;5;0;186;10.35;10.35;2;17
+136;A1_PV_153.3;5;3;111 +0359;111260;PV 4;PV 56;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;29;29;2;20
+137;A1_PV_154.7;5;3;110 +0102;110004;PV 5;PV 57;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.18;29.16;29.16;2;26
+138;A1_PP_155.4;5;3;109 +0354;109262;PP 2;PP 39;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;30.26;30.26;2;9
+139;A1_PS_156.1;5;3;108 +0685;108584;OA 5;PS 13;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;53.2;10;10;2;9
+140;A1_PV_156.5;5;3;108 +0290;108189;PV 6;PV 58;PV;PICF (Cadre Fermé);Béton armé;;0;1;3.5;4.02;37.42;37.42;2;8
+141;A1_PP_157.3;5;3;107 +0413;107315;PP 3;PP 40;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;31.62;31.62;2;6
+142;A1_PV_158.6;5;3;106 +0143;106065;PV 7;PV 59;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;30.74;30.74;2;6
+143;A1_PV_159.1;5;3;105 +0653;105566;PV 8;PV 60;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;30.08;30.08;2;14
+144;A1_PV_160.2;5;3;104 +0590;104494;PV 9;PV 61;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;30.68;30.68;1;3
+145;A1_PV_162.6;5;3;102 +0185;102079;PV 10;PV 62;PV;PICF (Cadre Fermé);Béton armé;;1;1;4;4.7;45.48;45.48;2;14
+146;A1_PV_162.8;5;3;101 +0942;101827;PV 11;PV 63;PV;PICF (Cadre Fermé);Béton armé;;1;1;4;4.7;32.54;32.54;2;9
+147;A1_PP_163.7;5;3;101 +0100;100985;PP 4;PP 41;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;28.76;28.76;1;3
+148;A1_PV_165.2;5;3;99 +0573;99448;PV 12;PV 64;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;40.48;40.48;1;0
+149;A1_PV_167.4;5;3;97 +0364;97240;PV 13;PV 65;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;34.93;34.93;2;27
+150;A1_PS_169.1;5;3;95 +0676;95555;OA 6;PS 14;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;54.2;8;8;2;3
+151;A1_PV_171.3;5;3;93 +0440;93321;PV 14;PV 66;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;0;NON;2 S;48
+152;A1_PI_173.3;5;3;91 +0432;91309;PI 1;PI 10;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;16.09;36;36;2;3
+153;A1_PI_173.8;5;3;90 +0908;90819;PI 2;PI 11;PI;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;2;3;0;61;12;12;2;17
+154;A1_PV_174.5;5;3;90 +0222;90133;PV 1;PV 67;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;37.96;37.96;2 S;43
+155;A1_PS_175.4;5;3;89 +0304;89210;PS 1;PS 15;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;10;10;2;11
+156;A1_PV_176.7;5;3;88 +0117;87978;PV 2;PV 68;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;38.66;38.66;2 S;33
+157;A1_PV_177.5;5;3;87 +0203;87076;PV 3;PV 69;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;38.66;38.66;2 E;31
+158;A1_PP_178.6;5;3;86 +0090;85967;PP 1;PP 42;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;42.14;42.14;1;8
+159;A1_PV_180.3;5;3;84 +0398;84262;PV 5;PV 70;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;38.1;38.1;2 S;43
+160;A1_PP_181.4;5;3;83 +0313;83168;PP 2;PP 43;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;37.78;37.78;2 S;40
+161;A1_PV_182.5;5;3;82 +0199;82049;PV 5;PV 71;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;38.1;38.1;2;11
+162;A1_PP_183.5;5;3;81 +0282;81106;PP 3;PP 44;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;38.66;38.66;2;11
+163;A1_PI_183.9;5;3;80 +0882;80721;PI 13;PI 12;PI;PIPBP PSPBP (Poutres BP);Béton armé;;2;1;0;38;12.5;12.5;2;19
+164;A1_PV_184.4;5;3;80 +0341;80180;PV 6;PV 72;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;59.13;59.13;2;24
+165;A1_PV_185.6;5;3;79 +0153;78972;PV''7;PV 72 bis;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;38.92;38.92;2;17
+166;A1_PV_186.2;5;3;78 +0496;78319;PV ''8;PV 72 ter;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;41.26;41.26;1;0
+167;A1_PV_186.1;5;3;77 +0782;77607;PV  9;PV 72 pénétrante;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;39.02;NON;2;3
+168;A1_PI_186.1;5;3;77 +0762;77587;PI 4;PI 13;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;14;36;36;2 E;21
+169;A1_PS_187.2;5;3;77 +0521;77346;PS 2;PS 15bis;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;6
+170;A1_PP_188.4;5;3;76 +0308;76138;PP 1;PP 45;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;36.3;36.3;1;3
+171;A1_PV_188.5;5;3;76 +0292;76122;PV 1;PV 73;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;40.99;40.99;2;3
+172;A1_VIA_188.6;5;3;76 +0197;76027;VIADUC LAHLOU;Pont sur l''oued Lahlou;VIA;VIPP;Béton armé;;2;3;0;104.7;11.75;11.75;2;22
+173;A1_PI_188.8;5;3;75 +0981;75820;PI 1;PI 14;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;25;11.75;11.75;2;0
+174;A1_PP_188.9;5;3;75 +0819;75658;PP 2;PP 46;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;46.98;46.98;1;6
+175;A1_PS_189.5;5;3;75 +0242;75081;PS1;PS 16;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;65.95;8;8;2;12
+176;A1_PP_190.3;5;3;74 +0452;74337;PP 4;PP 47;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;40.04;40.04;1;3
+177;A1_PP_190.6;5;3;74 +0067;73952;PP 4;PP 48;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;40.04;40.04;2;6
+178;A1_VIA_192.0;5;3;72 +0730;72594;VIADUC RHARIFA;Pont sur l''oued Gharifa;VIA;VIPP;Béton armé;;2;5;0;173.6;23.5;23.5;2;9
+179;A1_VIA_193.1;5;3;71 +0620;71492;VIADUC AFFLUENT GHARIFA;Pont sur affluent oued Gharifa;VIA;VIPP;Béton armé;;2;2;0;69.8;23.5;23.5;2;8
+180;A1_PS_193.3;5;3;71 +0452;71324;PS 2;PS 17;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;56.91;10;10;2;15
+181;A1_PV_194.4;5;3;70 +0378;70261;PV 2;PV 74;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;35.8;35.8;2;9
+182;A1_PV_194.8;5;3;69 +0883;69778;PV 3;PV 75;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;35.7;35.7;2;11
+183;A1_PS_195.5;5;3;69 +0275;69170;PS 3;PS 18;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.12;8;8;2;6
+184;A1_PV_196.1;5;3;68 +0646;68539;PV 4;PV 76;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;31.84;31.84;2;3
+185;A1_PS_200.7;5;3;64 +0083;63985;PS 4;PS 19;PS;PIPBP PSPBP (Poutres BP);Béton armé;;1;7;0;325.95;10;10;2;23
+186;A1_VIA_201.6;5;3;63 +0118;63032;VIADUC EL HACHEF;Pont sur l''oued El Hachef;VIA;VIPP;Béton armé;;2;5;0;174.5;23.5;23.5;2 ES;72
+187;A1_PI_204.6;5;3;60 +0145;60096;PI 2;PI 15;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;25;11.75;11.75;2;9
+188;A1_VIA_206.1;5;3;58 +0680;58643;VIADUC TAHADART;Viaduc Tahadart;VIA;VIPP;Béton armé;;2;34;0;1370.2;23.8;23.8;1;0
+189;A1_PS_207.8;5;3;56 +0946;56909;PS 5;PS 20;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.12;8;8;2;6
+190;A1_PV_209.5;5;3;55 +0242;55188;PV 5;PV 77;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;30.17;30.17;2;9
+191;A1_PS_211.8;5;3;52 +0899;52880;PS 6;PS 21;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.12;8;8;2;6
+192;A1_PV_213.5;5;3;51 +0240;51240;PV 6;PV 78;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;31.84;31.84;2;9
+193;A1_PV_214.6;501;3;1 +0614;1622;PV  7;PV  79;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;31.45;31.45;1;11
+194;A1_PI_215.0;501;3;1 +0246;1254;PI16;PI16;PI;;;;0;0;0;0;0;NON;2 S;24
+195;A1_PS_215.0;501;3;1 +0246;1254;OUV 1-1;PS 22;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;4;0;0;0;NON;2;12
+196;A2_PS_15.2;2;3;15 +0244;15244;PS 1;PS 1;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;3;0;54.8;8;8;2;38
+197;A2_PS_16.4;2;3;16 +0417;16418;PS 2;PS 2;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;3;0;54;8;8;2 S;62
+623;A4_PV_16.5;5;3;33 +0564;33426;PV 165;PV 6;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.22;26.75;26.75;2;3
+689;A5_PI_59.2;1;3;119 +0157;119403;PI 3;PI 6;PI;VIPP;Béton armé;;2;1;0;39;12;12;2;17
+690;A5_PP_59.4;1;3;119 +0399;119645;PP 6;PP 6;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.14;63;63;1;0
+691;A5_PV_60.2;1;3;120 +0192;120446;PV 6;PV 7;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;37.86;37.86;2 S;24
+692;A5_PP_61.1;1;3;121 +0130;121401;PP 7;PP 7;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.92;36.62;36.62;2 S;32
+693;A5_PS_63.1;1;3;123 +0119;123375;PS 9;PS 12;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;68;10;10;2;11
+694;A5_PS_64.6;1;3;124 +0595;124841;PS 10;PS 13;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;68;8;8;1;0
+695;A5_PS_66.3;1;3;126 +0343;126579;PS 11;PS 14;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;10;10;2;6
+696;A5_PS_66.1;1;3;126 +0950;127186;PS 12;PS 15;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;2;4;0;68;8.25;8.25;1;0
+697;A5_PP_67.9;1;3;127 +0905;128135;PP 8;PP 8;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;45.19;45.19;1;3
+698;A5_PV_69.6;1;3;129 +0620;129827;PV 7;PV 8;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;39.61;39.61;1;0
+699;A5_PP_70.6;1;3;130 +0582;130780;PP 9;PP 8 bis;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;44.06;44.06;1;0
+700;A5_PV_71.7;1;3;131 +0673;131864;PV 8;PV 9;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.63;41.48;41.48;1;0
+701;A5_PS_73.1;1;3;133 +0141;133324;PS 13;PS 16;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;10;10;2;6
+702;A5_PP_74.2;1;3;134 +0185;134360;PP 10;PP 9;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.92;37.56;37.56;1;3
+703;A5_PV_75.4;1;3;135 +0380;135547;PV 9;PV 10;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;37.2;37.2;1;0
+704;A5_PV_77.5;1;3;137 +0458;137608;PV 10;PV 11;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.37;36.93;36.93;1;0
+705;A5_PAS_79.1;1;3;139 +0090;139233;PASSERELLE PIETONS;PAS 3;PAS;PIPBA PSPBA (Poutres BA);Béton armé;;1;6;0;79.7;3.5;3.5;2 S;27
+706;A5_PS_80.1;1;3;140 +0120;140258;PS 11 bIS;PS 17;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;6
+707;A5_PS_80.1;1;3;140 +0950;141088;PS 14;PS 18;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;10;10;1;3
+708;A5_PP_82.5;1;3;142 +0509;142634;PP 12;PP 10;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.92;49.31;49.31;1;0
+709;A5_PS_82.8;1;3;142 +0775;142900;PS 15;PS 19;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;2;4;0;68;8.25;8.25;2;11
+710;A5_PS_83.3;1;3;143 +0255;143358;PS 16;PS 20;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;10;10;2;11
+711;A5_PAS_84.6;1;3;144 +0600;144685;PAS 1;PAS 4;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;37;3.5;3.5;1;6
+712;A5_PS_85.0;1;3;145 +0023;145105;PS 1;PS 21;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.98;8;8;1;11
+713;A5_PV_86.4;1;3;146 +0390;146520;PV 1;PV 12;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.47;36.71;36.71;2;6
+714;A5_PP_87.4;1;3;147 +0400;147533;PP 1;PP 11;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3;41.84;41.84;1;3
+715;A5_PS_88.1;1;3;148 +0130;148171;PS 2;PS 22;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.98;8;8;2;14
+716;A5_PAS_88.8;1;3;148 +0810;148851;PAS 5;PAS 5;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;37;3.5;3.5;2 S;27
+717;A5_PV_89.8;1;3;149 +0820;149772;PV 2;PV 13;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.84;36.69;36.69;2 S;32
+718;A5_PV_92.4;1;3;152 +0433;152426;PV 3;PV 14;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;38.89;5.2;5.2;1;0
+719;A5_PI_94.2;1;3;154 +0151;154238;PI 1;PI 7;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;12.45;36.21;36.21;2 S;24
+720;A5_PP_94.4;1;3;154 +0443;154530;PP12;PP12;PP;;;;0;0;0;0;0;NON;2;6
+721;A5_PV_95.2;1;3;155 +0200;155308;PV 4;PV 15;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;35.2;5.2;5.2;1;0
+722;A5_PS_97.3;1;3;157 +0317;157438;PS 2bis;PS 23;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;11
+723;A5_PS_98.9;1;3;158 +0856;158908;PS 3;PS 24;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.98;8;8;2;16
+724;A5_VIA_101.0;1;3;161 +0000;161068;Pont sur oued Oum Rbia;Pont sur oued Oum Rbia;VIA;Caisson voussoirs coulés en place;Béton précontraint;;2;5;0;449;11.22;11.22;3 S;60.4
+725;A5_PS_101.1;1;3;161 +0056;161124;PS 3bIS;PS 25;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;64.77;8;8;1;8
+726;A5_PS_101.4;1;3;161 +0371;161439;PS 4;PS 26;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;65.58;10.7;10.7;2;16
+727;A5_PAS_101.9;1;3;161 +0850;161918;PAS 6;PAS 6;PAS;;;;0;0;0;0;0;NON;1;3
+728;A5_PS_102.3;1;3;162 +0311;162432;PS 5;PS 27;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.2;12;12;2;9
+729;A5_PS_103.2;1;3;163 +0242;163359;PS 6;PS 28;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;61.03;10;10;2;8
+730;A5_PS_104.1;1;3;164 +0950;164978;PS 7;PS 29;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.98;8;8;1;8
+1131;PI_223;3;3;339 +0007;339643;PI223;PI223;PI;PIPO (Portique Ouvert);Béton armé;;1;0;0;0;38.76;NON;2;3
+1132;PP242;3;3;340 +0907;341537;PP242;PP242;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;27.78;NON;1;0
+1133;A7_PV_340.4;3;3;341 +0486;342091;PV247;PV247;PV;PICF (Cadre Fermé);Béton armé;;1;0;4.5;4.79;30.04;30.04;1;0
+1134;A7_PI_341.4;3;3;342 +0417;343003;PI257;PI257;PI;PIPO (Portique Ouvert);Béton armé;;0;0;0;0;23.25;23.25;2;3
+1135;A7_PI_342.1;3;3;343 +0155;343730;PI264;PI264;PI;PIPO (Portique Ouvert);Béton armé;;1;0;0;0;23.3;23.3;2;3
+1136;A7_PP_343.3;3;3;344 +0318;344848;PP276;PP276;PP;PICF (Cadre Fermé);Béton armé;;1;0;2.5;2.5;28;28;1;0
+1137;A7_PP_345.5;3;3;346 +0520;347006;PP298;PP298;PP;PICF (Cadre Fermé);Béton armé;;1;0;2.5;2.55;0;NON;1;0
+1138;A7_PP_346.1;3;3;347 +0195;347661;PP304;PP304;PP;PICF (Cadre Fermé);Béton armé;;1;0;2.5;2.5;27.9;27.9;1;3
+1139;A7_PP_347.5;3;3;348 +0563;349012;PP318;PP318;PP;PICF (Cadre Fermé);Béton armé;;1;0;2.5;2.5;29.3;29.3;1;3
+1140;A7_PI_350.7;3;3;351 +0771;352130;PI350;PI350;PI;PIPO (Portique Ouvert);Béton armé;;1;0;0;30.3;0;NON;2;6
+1142;A7_PI_360.9;3;3;361 +0953;362184;PI452;PI452;PI;PIPO (Portique Ouvert);Béton armé;;1;0;0;17.26;34.79;34.79;2;3
+1144;A7_PV_363.7;3;3;364 +0738;364925;PV480;PV480;PV;PICF (Cadre Fermé);Béton armé;;1;0;4.5;4.5;32.06;32.06;1;0
+1145;A7_PV_369.2;3;3;370 +0281;370414;PV535;PV535;PV;PICF (Cadre Fermé);Béton armé;;1;0;4.5;4.83;42.88;42.88;2;3
+1150;PV_12;3;3;373 +0506;373627;PV 12;PV_12;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.28;34.43;34.43;1;0
+1152;PP_25;3;3;374 +0878;374985;PP25;PP_25;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;44.68;44.68;1;0
+1153;PV_22;3;3;427 +0280;427555;PV 22;PV 22;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.5;29.56;29.56;2;3
+1154;PI_31;3;3;375 +0477;375580;PI31;PI_31;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;40.07;10;10;2;3
+1155;PP_67;3;3;422 +0788;422800;PP67;PP_67;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;29.74;29.74;1;0
+1157;PV_77;3;3;429 +0079;429365;PV77;PV_77;PV;PICF (Cadre Fermé);Béton armé;;0;1;4.5;4.5;29.44;29.44;1;0
+1158;PS_78;3;3;380 +0190;380325;PS78;PS_78;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;5.1;59.2;8;8;2;3
+1160;PV_94;3;3;388 +0063;388217;PV 94;PV_94;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.5;33.52;33.52;2;3
+819;A7_PV_53.5;3;3;53 +0505;53613;PV 1;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.3;38.53;38.53;2;3
+820;A7_PV_55.4;3;3;55 +0429;55575;PV 2;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.92;60.62;60.62;2;3
+821;A7_PS_57.1;3;3;57 +0980;58127;PS 1;PS 29;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.78;8;8;2;25
+822;A7_PS_58.9;3;3;58 +0850;58982;PS 2;PS 30;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.78;8;8;2;17
+823;A7_PI_59.9;3;3;59 +0928;60055;PI 1;PI 7;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;12.58;14.51;14.51;2 S;32
+824;A7_PV_61.0;3;3;61 +0040;61141;PV 3;PV 6;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;40.73;40.73;2;9
+825;A7_PS_61.7;3;3;61 +0741;61842;PS 3;PS 31;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;56.9;8;8;2 S;49
+826;A7_PP_62.5;3;3;62 +0540;62640;PP 1;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;37.5;37.5;2;6
+827;A7_PS_63.6;3;3;63 +0573;63671;PS 4;PS 32;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.78;8;8;2;9
+828;A7_PI_65.1;3;3;65 +0105;65192;PI 2;PI 8;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;13.88;48.81;48.81;2 S;30
+829;A7_PI_65.4;3;3;65 +0357;65444;PI 3;PI 9;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;18.66;15.88;15.88;2 S;24
+830;A7_PS_66.4;3;3;66 +0362;66447;PS 5;PS 33;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.78;8;8;2;25
+831;A7_PS_67.2;3;3;67 +0150;67221;PS 6;PS 34;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;56.9;8;8;2 S;60
+832;A7_PI_68.2;3;3;68 +0180;68251;PI 4;PI 10;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.86;46.38;46.38;2 S;33
+833;A7_PV_69.2;3;3;69 +0170;68858;PV 11;PV 7;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;37.34;37.34;2;11
+834;A7_PS_70.5;3;3;70 +0549;70224;PS 25;PS 35;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;17
+835;A7_PS_72.3;3;3;72 +0260;71914;PS 42;PS 36;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;17
+836;A7_PV_73.8;3;3;73 +0776;73418;PV 57;PV 8;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.24;37.24;2;6
+837;A7_PS_76.7;3;3;76 +0740;76437;PS 87;PS 37;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;17
+838;A7_PV_78.3;3;3;78 +0349;77944;PV 103;PV 9;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.05;37.05;1;3
+839;A7_PV_79.3;3;3;79 +0340;78838;PV 113;PV 10;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.24;37.24;2;16
+840;A7_PS_81.3;3;3;81 +0269;80951;PS 132;PS 38;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;14
+841;A7_PV_82.2;3;3;82 +0170;81952;PV 141;PV 11;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.5;37.5;1;3
+842;A7_PS_83.7;3;3;83 +0720;83603;PS 157;PS 39;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;17
+843;A7_PS_84.8;3;3;84 +0799;84808;PS 167;PS 40;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.94;10;10;2;11
+844;A7_PS_86.9;3;3;86 +0880;87066;PS 188;PS 41;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;17
+845;A7_PV_88.4;3;3;88 +0402;88770;PV 204;PV 12;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;39.32;39.32;1;3
+846;A7_PV_89.4;3;3;89 +0360;89815;PV 213;PV 13;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.4;37.4;1;3
+847;A7_PI_90.5;3;3;90 +0478;90929;PI 224;PI 11;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11.24;32.5;32.5;2;3
+848;A7_PS_91.9;3;3;91 +0860;92297;PS 238;PS 42;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;12
+849;A7_PV_93.2;3;3;93 +0152;93581;PV 251;PV 14;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.08;37.08;1;3
+850;A7_PV_94.5;3;3;94 +0540;94966;PV 265;PV 15;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;40.98;40.98;2;11
+851;A7_PP_95.4;3;3;95 +0410;95821;PP 274;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.2;38.52;38.52;1;0
+852;A7_PP_96.2;3;3;96 +0220;96609;PP 282;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.2;47.19;47.19;2;3
+853;A7_PV_96.8;3;3;96 +0780;97169;PV 287;PV 16;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;41.2;41.2;1;3
+854;A7_PS_98.2;3;3;98 +0225;98584;PS 302;PS 43;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;6
+855;A7_PV_99.7;3;3;99 +0665;100022;PV 316;PV 17;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;38.34;38.34;1;0
+856;A7_VIA_101.0;3;3;101 +0000;101334;Pont sur oued Zouar;Pont sur oued Zouar;VIA;VIPP;Béton précontraint;;2;5;0;173.5;11.5;11.5;2 S;30
+857;A7_PI_101.4;3;3;101 +0396;101730;PI 333;PI 12;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;13.91;30.72;30.72;1;0
+858;A7_PV_102.8;3;3;102 +0820;103141;PV 348;PV 18;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;41.2;41.2;1;0
+859;A7_PI_103.9;3;3;103 +0902;104203;PI 359;PI 13;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11.16;32.51;32.51;1;0
+860;A7_PI_105.5;3;3;105 +0457;105726;PI 374;PI 14;PI;PIPBP PSPBP (Poutres BP);Béton armé;;2;1;0;17.92;11.5;11.5;2;6
+861;A7_VIA_106.0;3;3;106 +0000;106239;Pont sur oued Oum Rbia;Pont sur oued Oum Rbia;VIA;VIPP;;;2;6;0;0;0;NON;2 S;46
+862;A7_PV_106.8;3;3;106 +0784;107023;PV 387;PV 19;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.6;49.18;49.18;1;3
+863;A7_PP_107.2;3;3;107 +0160;107405;PP 391;PP 4;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.2;48.24;48.24;1;0
+864;A7_PV_108.3;3;3;108 +0320;108569;PV 403;PV 19Bis;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;46.96;46.96;2;6
+865;A7_PS_110.3;3;3;110 +0345;110548;PS 423;PS 44;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;69.3;10;10;2;20
+866;A7_PV_111.9;3;3;111 +0892;112093;PV 438;PV 20;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;40.3;40.3;1;0
+867;A7_PI_113.9;3;3;113 +0912;114091;PI 459;PI 15;PI;PIPO (Portique Ouvert);Béton armé;;1;0;0;34.04;10;10;1;0
+868;A7_PS_115.2;3;3;115 +0200;115345;PS 472;PS 45;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;29
+869;A7_PV_116.3;3;3;116 +0290;116425;PV 482;PV 21;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;41.62;41.62;1;0
+870;A7_PV_118.3;3;3;118 +0260;118264;PV 502;PV 22;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.56;37.56;1;0
+871;A7_PV_119.4;3;3;119 +0400;119393;PV 514;PV 23;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;36.84;36.84;1;0
+872;A7_PV_120.3;3;3;120 +0250;120229;PV 522;PV 24;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.29;37.29;1;0
+873;A7_PV_121.3;3;3;121 +0260;121233;PV 532;PV 25;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.32;37.32;1;0
+874;A7_PV_122.3;3;3;122 +0304;122260;PV 543;PV 26;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.4;43.04;43.04;2;3
+875;A7_PV_124.4;3;3;124 +0360;124295;PV 566;PV 27;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.4;42.64;42.64;2;3
+876;A7_PS_127.8;3;3;127 +0750;127667;PS 590;PS 46;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;70.6;12;12;2;12
+877;A7_PS_127.9;3;3;127 +0900;127817;PS 596;PS 47;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59;8;8;2;16
+878;A7_PV_128.0;3;3;128 +0000;127895;PV BRT5;PV 27Bis;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.3;31.81;NON;1;0
+879;A7_PV_128.5;3;3;128 +0510;128405;PV 605;PV 27Tièrs;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;37.32;37.32;1;3
+880;A7_PI_129.5;3;3;129 +0540;129415;PI 04;PI 16;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;12.05;42.43;42.43;2;8
+881;A7_PV_131.1;3;3;131 +0132;131020;PV 20;PV 28;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.24;37.94;37.94;2 S;27
+882;A7_PV_133.4;3;3;133 +0372;133338;PV 43;PV 29;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.33;37.23;37.23;2;9
+883;A7_PS_134.9;3;3;134 +0850;134871;PS 58;PS 48;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;10;10;2;6
+884;A7_PV_136.9;3;3;136 +0916;136937;PV 78;PV 30;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;37.01;37.01;1;0
+885;A7_PP_137.4;3;3;137 +0430;137532;PP 83;PP 5;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;5.52;45.48;45.48;1;0
+886;A7_PS_138.7;3;3;138 +0703;138839;PS 96;PS 49;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.45;8;8;2;11
+887;A7_PV_140.2;3;3;140 +0244;140036;PV 111;PV 31;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;29.24;29.24;1;0
+888;A7_PS_141.6;3;3;141 +0580;141572;PS 125;PS 50;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.45;8;8;2;11
+889;A7_PV_142.9;3;3;142 +0930;142909;PV 138;PV 32;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;28.84;28.84;1;6
+890;A7_PV_144.5;3;3;144 +0493;144452;PV 154;PV 33;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;28.34;28.34;1;0
+891;A7_PV_146.5;3;3;146 +0460;146477;PV 174;PV 34;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;36.83;36.83;2;3
+892;A7_PS_148.5;3;3;148 +0520;148537;PS 194;PS 51;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;33
+893;A7_PV_150.6;3;3;150 +0600;150634;PV 215;PV 35;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;27.76;27.76;1;3
+894;A7_PI_152.5;3;3;152 +0452;152400;PI 233;PI 17;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;12.35;43.27;43.27;2;19
+895;A7_PP_153.4;3;3;153 +0370;153360;PP 243;PP 6;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.92;29.31;29.31;2;19
+896;A7_PS_155.5;3;3;155 +0480;155557;PS 264;PS 52;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;1;0
+897;A7_PS_156.8;3;3;156 +0800;156899;PS 277;PS 53;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.45;10;10;1;0
+898;A7_VIA_158.0;3;3;158 +0000;158185;Viaduc sur oued Benguerir;Viaduc sur oued Benguerir;VIA;VIPP;Béton armé;;2;3;0;114.1;11.8;11.8;2;34.4
+899;A7_PI_158.0;3;3;158 +0005;158190;PI 289;PI 18;PI;VIPP;Béton armé;;1;3;0;102.1;11.8;11.8;2;18
+900;A7_PI_159.2;3;3;159 +0211;159334;PI 301;PI 19;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.74;10.99;39.78;39.78;2;6
+901;A7_PS_159.9;3;3;159 +0850;159973;PS 307;PS 54;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;69;11.8;11.8;2;9
+902;A7_PS_160.8;3;3;160 +0813;160908;PS 06;PS 55;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;9
+903;A7_PV_161.9;3;3;161 +0853;161950;PV 16;PV 36;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;28.56;28.56;1;3
+904;A7_PS_163.4;3;3;163 +0371;163459;PS 32;PS 56;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;15
+905;A7_PS_164.9;3;3;164 +0928;165052;PS 47;PS 57;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;9
+906;A7_PV_165.9;3;3;165 +0853;166006;PV 56;PV 37;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;36.62;36.62;1;0
+907;A7_PS_168.7;3;3;168 +0713;168969;PS 85;PS 58;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;12
+908;A7_PV_170.3;3;3;170 +0273;170266;PV 101;PV 38;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;27.81;27.81;1;0
+909;A7_PV_172.5;3;3;172 +0453;172444;PV 122;PV 39;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;29.02;29.02;2;6
+910;A7_PS_173.5;3;3;173 +0513;173492;PS 153;PS 59;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;10;10;2;6
+911;A7_PV_175.9;3;3;175 +0913;175877;PV 157;PV 40;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;40.86;40.86;1;0
+912;A7_PS_177.2;3;3;177 +0173;177152;PS 170;PS 60;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;6
+913;A7_PV_179.1;3;3;179 +0093;179002;PV 189;PV 41;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;32.94;32.94;1;0
+914;A7_PS_180.9;3;3;180 +0913;180926;PS 207;PS 61;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;9
+915;A7_PS_182.9;3;3;182 +0853;182947;PS 226;PS 62;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;14
+916;A7_PV_184.6;3;3;184 +0593;184694;PV 244;PV 42;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;27.24;27.24;1;0
+917;A7_PS_186.1;3;3;186 +0055;186160;PS 258;PS 63;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.99;10;10;2;8
+918;A7_PS_187.3;3;3;187 +0253;187414;PS 270;PS 64;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;1;3
+919;A7_PS_190.3;3;3;190 +0313;190361;PS 301;PS 65;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;1;3
+920;A7_PS_192.0;3;3;192 +0013;192090;PS 319;PS 66;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;2;9
+921;A7_PP_193.3;3;3;193 +0273;193348;PP 331;PP 7;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;36.91;36.91;1;3
+922;A7_PP_194.1;3;3;194 +0116;194206;PP 339 (Entre les demis aies de service);PP 8;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.98;36.62;36.62;1;0
+923;A7_PS_194.8;3;3;194 +0793;194883;PS 346;PS 67;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;1;6
+924;A7_PS_196.8;3;3;196 +0843;196899;PS 366;PS 69;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;10;10;1;3
+925;A7_PP_196.9;3;3;196 +0903;196959;PP 367;PP 9;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.96;38.17;38.17;1;3
+928;A71_PV_199.1;301;3;2 +0014;1993;PV 398;PV 43;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;38.26;38.26;2;3
+929;A71_PV_201.8;301;3;3 +0704;3813;PV 416;PV 44;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;36.87;36.87;1;0
+930;A71_PP_203.7;301;3;5 +0551;5713;PP 435;PP 10;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.02;42.17;42.17;1;3
+931;A71_PS_205.5;301;3;7 +0244;7479;PS 453;PS 72;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.99;10.13;10.13;2;3
+932;A71_PI_206.1;301;3;8 +0713;8959;PI 467;PI 20;PI;VIPP;Béton armé;;2;3;0;90.88;12;12;2;9
+933;A71_PV_207.8;301;3;9 +0523;9773;PV 476;PV 45;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;36.7;36.7;1;3
+934;A71_PS_209.4;301;3;11 +0173;11419;PS 492;PS 73;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.2;8;8;1;0
+935;A71_PP_210.0;301;3;11 +0787;12033;PP 498;PP 11;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.96;37.38;37.38;1;0
+936;A7_PS_198.8;3;3;198 +0800;198749;PS 09;PS 70 ;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;75.8;8;8;2;6
+937;A7_PS_198.8;3;3;198 +0800;198749;PS 10;PS 71;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;94;11;11;2;9
+938;A7_PS_199.3;3;3;199 +0335;199376;PS 05;PS1;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;61;8;8;2;22
+939;A7_PS_199.5;3;3;199 +0499;199540;PS 06;PS Bif;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;100.8;8;8;2;6
+940;A7_PP_200.9;3;3;200 +0899;200936;PP 020;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.71;60.08;60.08;2;11
+941;A7_PP_201.3;3;3;201 +0325;201364;PP 025;PP 1bis;PP;PICF (Cadre Fermé);Béton armé;;1;1;3;4.02;29.27;29.27;2;11
+942;A7_PV_203.9;3;3;203 +0874;203918;PV 50;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;31.27;31.27;1;0
+943;A7_PS_205.5;3;3;205 +0453;205499;PS 66;PS 2;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;20
+944;A7_PS_207.4;3;3;207 +0428;207466;PS 86;PS 3;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;28
+945;A7_PS_209.7;3;3;209 +0728;209770;PS 109;PS 4;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;49
+946;A7_PS_210.9;3;3;210 +0940;210979;PS 121;PS 5;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;28
+947;A7_PS_212.7;3;3;212 +0677;212713;PS 138;PS 6;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;26
+948;A7_PS_213.9;3;3;213 +0900;213935;PS 151;PS 7;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;20
+949;A7_PS_214.7;3;3;214 +0710;214741;PS 159;PS 7bis;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;12.5;12.5;2 S;63
+950;A7_PP_214.7;3;3;214 +0711;214742;PP 00;PP 00;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.2;28.94;28.94;2;3
+951;A7_PS_215.4;3;3;215 +0438;215465;PS 166;PS 7tièrs;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.43;11;11;2;12
+952;A7_PS_216.4;3;3;216 +0430;216455;PS 176;PS 8;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;23
+953;A7_PP_217.4;3;3;217 +0442;217470;PP 186;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.1;30.27;30.27;2;8
+954;A7_PS_219.7;3;3;219 +0736;219756;PS 209;PS 9;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;6
+956;A7_PS_220.7;3;3;220 +0700;220719;PS 219;PS 10;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;12
+957;A7_PS_222.0;3;3;222 +0040;222060;PS 232;PS11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;33
+958;A7_PS_224.0;3;3;224 +0016;224033;PS 252;PS 12;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;39
+959;A7_VIA_225.0;3;3;225 +0000;225012;Pont sur oued Tensift;Pont sur oued Tensift;VIA;VIPP;Béton précontraint;;2;9;0;323.9;11.9;11.9;2 S;41
+960;A7_PS_226.5;3;3;226 +0478;226493;PS 276;PS 13;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;23
+961;A7_PS_227.0;3;3;227 +0016;227032;PS 282;PS 13bis;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;61;12.5;12.5;2;25
+962;A7_PS_227.9;3;3;227 +0929;227945;PS 291;PS 14;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;25
+963;A7_PS_229.0;3;3;229 +0019;229031;PS 302;PS 15;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;68.02;10;10;2;15
+964;A7_PV_229.7;3;3;229 +0734;229746;PV 309;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;30.2;30.2;1;0
+965;A7_PP_231.0;3;3;231 +0035;231045;PP 322;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;2;3;27.36;27.36;1;0
+966;A7_PS_231.8;3;3;231 +0755;231765;PS 329;PS 15BIS ;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;12.5;12.5;2;29
+967;A7_PP_231.8;3;3;231 +0755;231765;PP Br 5;PP 3BIS;PP;PICF (Cadre Fermé);Béton armé;;1;1;2;3;27.36;27.36;1;0
+968;A7_PS_232.7;3;3;232 +0657;232668;PS 338;PS16;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;9
+969;A7_PI_234.2;3;3;234 +0164;234180;PI 353;PI1;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;10.9;25.5;25.5;2;3
+970;A7_VIA_234.5;3;3;234 +0500;234516;Viaduc oued Nfiss;Viaduc oued Nfiss;VIA;VIPP;Béton armé;;2;6;0;214.5;11.9;11.9;2 S;33
+971;A7_PP_236.0;3;3;236 +0018;236032;PP 372;PP4;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.1;29.9;29.9;1;0
+972;A7_PV_237.6;3;3;237 +0551;237569;PV 387;PV3;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;28.06;28.06;1;0
+973;A7_PP_238.2;3;3;238 +0220;238240;PP 394;PP4 Bis;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.1;26;26;1;0
+974;A7_PS_239.5;3;3;239 +0470;239496;PS 460;PS17;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2 S;57
+975;A7_PS_241.4;3;3;241 +0364;241384;PS 425;PS18;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;59.32;10;10;2;23
+976;A7_PS_243.9;3;3;243 +0915;243932;PS 451;PS19;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;20
+977;A7_PS_245.1;3;3;245 +0060;245074;PS 462;PS20;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;18
+978;A7_PV_247.8;3;3;247 +0790;247800;PV 489;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;28.42;28.42;1;3
+979;A7_PI_248.2;3;3;248 +0160;248166;PI Ech RN8 BRETELLE E2;PI1 bis;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;15.3;29.4;29.4;2;3
+980;A7_PI_248.8;3;3;248 +0785;248791;PI 0;PI2;PI;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;2;3;0;68;11.8;11.8;2;6
+981;A7_PP_249.4;3;3;249 +0355;249340;PP 08;PP4 Ter;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;28.92;28.92;1;0
+982;A7_PS_250.4;3;3;250 +0388;250385;PS 18;PS21;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2 S;41
+983;A7_PS_251.3;3;3;251 +0275;251269;PS 27;PS22;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;20
+984;A7_PS_252.2;3;3;252 +0206;252195;PS 36;PS23;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;28
+985;A7_PS_253.6;3;3;253 +0624;253615;PS 50;PS24;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;21
+986;A7_PP_254.2;3;3;254 +0235;254219;PP 57;PP4 Quar;PP;PICF (Cadre Fermé);Béton armé;;1;1;3;3.5;28.52;28.52;1;0
+987;A7_PS_256.9;3;3;256 +0923;256898;PS 83;PS25;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;14
+988;A7_PS_259.7;3;3;259 +0732;259694;PS 111;PS26;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;15
+989;A7_PS_260.1;3;3;260 +0986;260945;PS 124;PS27;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;12
+990;A7_PS_262.5;3;3;262 +0476;262424;PS 139;PS28;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;17
+991;A7_VIA_263.7;3;3;263 +0675;263708;Viaduc sur oued Khattara;Viaduc sur oued Khattara;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;3;0;56.22;13.24;13.24;2 S;33
+992;A7_PS_263.9;3;3;263 +0918;263951;PS 153;PS29;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;9
+993;A7_PV_265.5;3;3;265 +0473;265509;PV 169;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.18;27.56;27.56;2;3
+994;A7_VIA_266.3;3;3;266 +0275;266225;Viaduc sur oued Boulakhrass;Viaduc sur oued Boulakhrass;VIA;VIPP;Béton armé;;2;4;0;147.3;11.8;11.8;2 S;27
+995;A7_PS_266.5;3;3;266 +0515;266465;PS 179;PS30;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;12
+996;A7_PS_269.2;3;3;269 +0223;269126;PS 206;PS31;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;23
+997;A7_VIA_270.4;3;3;280 +0000;279835;Viaduc sur oued Chaaba;Viaduc sur Chaaba;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;2;0;50.11;11.8;11.8;2 S;30
+998;A7_PS_270.6;3;3;270 +0601;270492;PS 220;PS32;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2 S;44
+999;A7_PS_273.1;3;3;273 +0087;272962;PS 245;PS33;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;8;8;2;12
+1000;A7_PS_275.4;3;3;275 +0363;275228;PS 268;PS34;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;15
+1001;A7_PS_276.8;3;3;276 +0810;276618;PS 282;PS35;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;8;8;2;12
+1002;A7_PS_277.9;3;3;277 +0850;277701;PS 293;PS35 Bis;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;68;12.3;12.3;2;23
+1003;A7_PS_280.1;3;3;280 +0954;280789;PS 324;PS36;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;10;10;2;9
+1004;A7_PS_281.7;3;3;281 +0659;281480;PS 331;PS36 Bis;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;68;12.3;12.3;2;20
+1010;A7_VIA_290.9;3;3;291 +0035;291343;Pont sur oued Bouanfir;Pont sur oued Bouanfir;VIA;VIPP;Béton précontraint;;2;7;0;266.3;11.33;11.33;2 S;54
+552;A3_PP_47.2;1;3;14 +0380;14380;PP8;PP8;PP;;;;0;0;0;0;0;NON;;0
+553;A3_PV_47.5;1;3;14 +0080;14080;PV16;PV16;PV;;;;0;0;0;0;0;NON;;0
+554;A3_PP_48.5;1;3;13 +0080;13080;PP9;PP9;PP;;;;0;0;0;0;0;NON;;0
+555;A3_PV_49.5;1;3;12 +0080;12080;PV17;PV17;PV;;;;0;0;0;0;0;NON;;0
+556;A3_PP_50.6;1;3;10 +0980;10980;PP10;PP10;PP;;;;0;0;0;0;0;NON;;0
+557;A3_PI_51.4;1;3;10 +0180;10180;PI2;PI2;PI;;;;0;0;0;0;0;NON;;0
+558;A3_VIA_52.0;1;3;9 +0580;9580;Pont sur oued Yqem;Pont sur oued Yquem;VIA;VIPP;Béton précontraint;;0;3;0;0;0;NON;2;11
+559;A3_PS_52.5;1;3;9 +0090;9090;PS12;PS12;PS;;;;0;0;0;0;0;NON;;0
+560;A3_PP_53.6;1;3;7 +0980;7980;PP11;PP11;PP;;;;0;0;0;0;0;NON;;0
+561;A3_PV_55.1;1;3;6 +0480;6480;PV18;PV18;PV;;;;0;0;0;0;0;NON;;0
+562;A3_PP_56.1;1;3;5 +0480;5480;PP12;PP12;PP;;;;0;0;0;0;0;NON;;0
+563;A3_PV_56.9;1;3;4 +0680;4680;PV19;PV19;PV;;;;0;0;0;0;0;NON;;0
+564;A3_PV_58.6;1;3;2 +0980;2980;PV20;PV20;PV;;;;0;0;0;0;0;NON;;0
+565;A3_PAS_59.0;101;3;1 +0420;1420;PAS09;PAS09;PAS;;;;0;0;0;0;0;NON;;0
+566;A3_PS_59.5;101;3;1 +0890;1890;PS13;PS13;PS;;;;0;0;0;0;0;NON;;0
+567;A3_PS_60.9;101;3;3 +0340;3340;PS14;PS14;PS;;;;0;0;0;0;0;NON;;0
+568;A3_PS_62.1;101;3;3 +0480;3480;PS15;PS15;PS;;;;0;0;0;0;0;NON;;0
+569;A5_PI_0.4;1;3;60 +0425;60425;PI 1;PI 1;PI;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;3;0;68.27;14.5;14.5;2;11
+570;A5_PAS_0.4;1;3;60 +0427;60427;PAS 6;PAS 0;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+571;A5_PS_0.8;1;3;60 +0800;60800;PS 1;PS 1;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.8;10;10;1;0
+572;A5_PI_0.1;1;3;60 +0976;60976;PI 2;PI 2;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.46;37.42;37.42;2 S;33
+573;A5_PP_2.3;1;3;62 +0325;62358;PP 1;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;37.49;37.49;1;3
+574;A5_PS_2.9;1;3;62 +0889;62922;PS 2;PS 2;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.8;8;8;1;3
+575;A5_PI_3.4;1;3;63 +0430;63391;PI 3;PI 3;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;10.94;36.6;36.6;2 S;27
+576;A5_PI_4.8;1;3;64 +0750;64691;PI 4;PI 4;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.28;37.97;37.97;2 S;27
+577;A5_PS_5.4;1;3;65 +0418;65393;PS 3;PS 3;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.8;8;8;1;6
+578;A5_PS_7.0;1;3;67 +0001;66940;PS 4;PS 4;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.7;8;8;2;6
+579;A5_PS_9.2;1;3;69 +0247;69174;PS 5;PS 5;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.7;8;8;1;3
+580;A5_PV_10.9;1;3;70 +0900;70940;PV 1;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;35.8;35.8;2;14
+581;A5_PS_11.3;1;3;71 +0332;71379;PS 6;PS 6;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.8;10;10;2;6
+582;A5_PS_12.5;1;3;72 +0484;72504;PS 7;PS 7;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;4;0;62.8;20;20;2;8
+583;A5_PV_13.4;1;3;73 +0354;73393;PV 2;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;37.19;37.19;1;0
+584;A5_PS_14.2;1;3;74 +0153;74230;PS 8;PS 8;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.7;8;8;1;3
+585;A5_PAS_14.7;1;3;74 +0690;74767;PAS 7;PAS 1;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+586;A5_PP_15.5;1;3;75 +0460;75510;PP 2;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.96;36.25;36.25;1;0
+587;A5_PS_16.2;1;3;76 +0208;76245;PS 9;PS 9;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.7;8;8;1;6
+588;A5_PAS_16.4;1;3;76 +0400;76437;PAS 1;PAS 2;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+589;A5_PAS_16.9;1;3;76 +0850;76887;PAS 2;PAS 3;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;3.5;36.9;36.9;2;8
+590;A5_PI_17.4;1;3;77 +0389;77427;PI 5;PI 5;PI;PIPO (Portique Ouvert);Béton armé;;1;2;0;20.83;36.95;36.95;2;6
+591;A5_PS_18.3;1;3;78 +0304;78338;PS 10;PS 10;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.7;8;8;2;9
+592;A5_PAS_18.9;1;3;78 +0900;78934;PAS 8;PAS 4;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+593;A5_PV_19.1;1;3;79 +0090;79127;PV 3;PV 3;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;36.63;36.63;1;0
+594;A5_PI_20.1;1;3;80 +0100;80144;PI 6;PI 6;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;21.56;36.11;36.11;2;6
+595;A5_PAS_20.4;1;3;80 +0400;80444;PAS 5;PAS 5;PAS;;;;0;0;0;0;0;NON;1;0
+596;A5_PS_20.9;1;3;80 +0900;80944;PS 10Bis;PS 11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.8;8;8;1;3
+597;A5_PAS_21.3;1;3;81 +0330;81367;PAS 3;PAS 6;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+598;A5_PS_21.9;1;3;81 +0933;81970;PS 11;PS 12;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62.8;8;8;1;3
+599;A5_PV_22.9;1;3;82 +0920;82960;PV 4;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.81;37.28;37.28;2;11
+600;A5_PP_23.0;1;3;83 +0037;83077;PP 3;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;41.06;41.06;1;0
+601;A5_PAS_23.7;1;3;83 +0700;83740;PAS 5;PAS 7;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+602;A5_PS_25.3;1;3;85 +0332;85368;PS 12;PS 13;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.7;8;8;2;3
+603;A5_PAS_26.0;1;3;86 +0025;86071;PAS 8;PAS 8;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.9;3.5;3.5;1;0
+604;A4_PV_0.0;5;3;49 +1061;50000;PV 0;PV 07 BIF;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;28.74;28.74;2;9
+605;A4_PS_0.4;5;3;49 +0711;49650;PS 1;PS 1;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;2;9
+606;A4_PP_1.4;5;3;48 +0640;48586;PP 14;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;2.96;32.15;32.15;2 E;12
+607;A4_PV_2.1;5;3;47 +0957;47936;PV 21;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.22;28.74;28.74;2;6
+609;A4_PS_3.7;5;3;46 +0326;46307;PS 37;PS 2;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;2;6
+610;A4_PS_4.7;5;3;45 +0417;45374;PS 46;PS 3;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;2;6
+611;A4_PV_5.8;5;3;44 +0290;44239;PV 58;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.24;27.58;27.58;2;17
+612;A4_PV_6.9;5;3;43 +0124;43083;PV 69;PV 2Bis;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.18;28.43;28.43;1;3
+613;A4_PP_8.3;5;3;41 +0756;41694;PP 83;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;2.94;28.1;28.1;1;0
+614;A4_PI_8.9;5;3;41 +0146;41084;PI ONEP;PI 1;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11;25.4;25.4;2 S;30
+615;A4_PP_10.1;5;3;39 +0935;39806;PP 101;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;2.96;30.17;30.17;2;3
+616;A4_PS_10.9;5;3;39 +0167;39038;PS RP4607;PS 4;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;1;3
+617;A4_VIA_11.4;5;3;38 +0607;38436;Pont sur oued Sghir 1;Pont sur oued Sghir;VIA;VIPP;Béton précontraint;;2;3;0;90.2;15;15;2;35
+618;A4_PI_11.8;5;3;38 +0277;38106;PI ONCF;PI 2;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;3;0;57.7;11.5;11.5;2;9
+619;A4_PV_12.1;5;3;37 +0959;37765;PV 121;PV 3;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.22;26.84;26.84;2;11
+620;A4_PV_13.1;5;3;36 +0984;36757;PV 130;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;29.22;29.22;1;8
+621;A4_PS_14.6;5;3;35 +0448;35208;PS 146;PS 5;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;1;0
+622;A4_PV_15.6;5;3;34 +0431;34226;PV 156;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.28;35.01;35.01;2;6
+1458;Auvent métallique GP Fès Ouest;2;3;178 +0000;178202;;Auvent métallique GP Fès Ouest;AUV;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;1;0
+1459;Auvent métallique GP Fès Centre;2;3;182 +0000;182200;;Auvent métallique GP Fès Centre;AUV;Arcs métalliques + haubans;Métal;;0;0;0;0;0;NON;1;0
+1460;Auvent métallique GP Fès Est;2;3;191 +0000;191202;;Auvent métallique GP Fès Est;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1461;Auvent métallique GP Ras Tabouda;2;3;216 +0000;216147;;Auvent métallique GP Ras Tabouda;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1462;Auvent métallique GP Tahla;2;3;241 +0000;241090;;Auvent métallique GP Tahla;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1463;Auvent métallique GP Oued Amlil;2;3;266 +0000;266029;;Auvent métallique GP Oued Amlil;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1464;Auvent métallique GP Taza Ouest;2;3;285 +0000;284908;;Auvent métallique GP Taza Ouest;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1465;Auvent métallique GP Taza Est;2;3;297 +0000;295708;;Auvent métallique GP Taza Est;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;;0
+1466;Auvent métallique GP Msoun;2;3;318 +0000;316196;;Auvent métallique GP Msoun;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1467;Auvent métallique Guercif;2;3;360 +0000;357665;;Auvent métallique Guercif;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1468;Auvent métallique Taourirt Ouest;2;3;394 +0000;392746;;Auvent métallique Taourirt Ouest;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1469;Auvent G.Péage M''DIQ entrée;7;3;14 +0101;14316;;Auvent G.Péage M''DIQ entrée;AUV;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;2;8
+1470;Auvent G.Péage M''DIQ sortie;7;3;14 +0151;14366;;Auvent G.Péage M''DIQ sortie ;AUV;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;2;3
+1471;Auvent G.Péage SMIR sortie;7;3;19 +0074;19396;;Auvent G.Péage SMIR sortie;AUV;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;1;0
+1472;Auvent G.Péage SMIR BPV;7;3;19 +0124;19446;;Auvent G.Péage SMIR BPV;AUV;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;1;0
+1473;Auvent G.Péage Tanger;5;3;49 +0067;49006;;Auvent G.Péage Tanger;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1474;Auvent G.Péage Tanger Est;5;3;27 +0024;26879;;Auvent G.Péage Tanger Est;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1475;Auvent G.Péage Melloussa;5;3;23 +0027;22827;;Auvent G.Péage Melloussa;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1476;Auvent G.Péage Melloussa centre;5;3;24 +0073;23848;;Auvent G.Péage Melloussa centre;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1477;Auvent BPV  PK 400;3;3;400 +0000;400163;;Auvent BPV PK 400;AUV;Auvent métal sur poteaux BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1478;Auvent G.péage Ameskrroud Entrée;3;3;415 +0000;415183;;Auvent G.péage Ameskrroud Entrée;AUV;Structure métal + bardage;Métal;;0;0;0;0;0;NON;1;0
+1479;Auvent G.péage Ameskrroud Sortie;3;3;415 +0000;415183;;Auvent G.péage Ameskrroud Sortie;AUV;Structure métal + bardage;Métal;;0;0;0;0;0;NON;1;0
+1480;Auvent G.péage Argana;3;3;367 +0000;367170;;Auvent G.péage Argana;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1481;Auvent G.péage Imintanout;3;3;310 +0000;310959;;Auvent G.péage Imintanoute;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1482;Auvent G.péage Chichaoua;3;3;282 +0000;281827;;Auvent G.péage Chichaoua;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;2;3
+1483;Auvent G.péage Targa;3;3;232 +0000;232011;;Auvent G.péage Targa;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1484;Auvent G.péage Tamanssourt;3;3;215 +0000;215027;;Auvent G.péage Tamanssourt;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1485;Auvent G.péage Marrakech oudaya;3;3;249 +0000;248985;;Auvent G.péage Marrakech oudaya;AUV;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;1;0
+1486;Auvent GP Taourirt Est;2;3;394 +0500;393246;;Auvent GP Taourirt Est;AUV;Structure treillis;Métal;;0;3;0;0;0;NON;1;0
+1487;Auvent GP El Aioun;2;3;452 +0000;450547;;Auvent GP El Aioun;AUV;Structure treillis;Métal;;0;3;0;0;0;NON;1;0
+1488;Auvent métallique B.P.V Tit Mellil;1;3;70 +0000;70040;;Auvent métallique B.P.V Tit Mellil;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1489;Auvent AV 10 mars Entrée;1;3;77 +0600;77638;;Auvent AV 10 mars Entrée;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;1;0
+1490;Auvent AV 10 mars Sortie;1;3;77 +0600;77638;;Auvent AV 10 mars Sortie;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;2;6
+1491;Auvent Bd Mohammed V Entrée;1;3;80 +0500;80544;;Auvent Bd Mohammed V Entrée;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;2;3
+1492;Auvent GP Oujda;2;3;496 +0000;494628;;Auvent GP Oujda;AUV;Auvent métal sur poteaux BA;Mixte acier / béton;;0;5;0;0;0;NON;1;0
+1493;Auvent GP Sidi Allal Bahraoui;2;3;16 +0400;16401;;Auvent GP Sidi Allal Bahraoui;AUV;Structure treillis + haubans;Métal;;0;5;0;0;0;NON;1;0
+1494;Auvent GP Meknes Est;2;3;129 +0500;129848;;Auvent GP Meknes Est;AUV;Structure treillis + haubans;Métal;;0;3;0;0;0;NON;1;0
+1495;Auvent GP Meknes Ouest;2;3;120 +0700;120834;;Auvent GP Meknes Ouest;AUV;Structure treillis + haubans;Métal;;0;2;0;0;0;NON;1;0
+1496;Auvent GP Khémisset;2;3;68 +0064;68111;;Auvent GP Khémisset;AUV;Structure treillis + haubans;Métal;;0;2;0;0;0;NON;1;0
+1497;Auvent GP Tiflet;2;3;42 +0500;42539;;Auvent GP Tiflet;AUV;Structure treillis + haubans;Métal;;0;2;0;0;0;NON;1;0
+1498;Auvent GP Kénitra Centre;5;3;236 +0294;236415;;Auvent GP Kénitra Centre;AUV;Dalle BA sur poteaux;Béton armé;;0;9;0;0;0;NON;1;0
+1499;Auvent GP Kénitra Nord;5;3;222 +0743;222880;;Auvent GP Kénitra Nord;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;1;0
+1500;Auvent GP Sidi Allal Tazi;5;3;184 +0757;184754;;Auvent GP Sidi Allal Tazi;AUV;Dalle BA sur poteaux;Béton armé;;0;0;0;0;0;NON;2;8
+1501;Auvent GP My Bousselham;5;3;151 +0049;151023;;Auvent GP My Bousselham;AUV;Dalle BA sur poteaux;Béton armé;;0;0;0;0;0;NON;2;8
+1502;Auvent GP Larache;5;3;118 +0608;118519;;Auvent GP Larache;AUV;Dalle BA sur poteaux;Béton armé;;0;0;0;0;0;NON;2;8
+1503;Auvent GP Sidi Yamani;5;3;91 +0432;91309;;Auvent GP Sidi Yamani;AUV;Dalle BA sur poteaux;Béton armé;;0;0;0;0;0;NON;2;8
+1504;Auvent GP Assilah;5;3;77 +0762;77587;;Auvent GP Assilah;AUV;Dalle BA sur poteaux;Béton armé;;0;0;0;0;0;NON;1;0
+1505;Auvent G.Péage Ksar Sghir;5;3;4 +0202;4015;;Auvent G.Péage Ksar Sghir;AUV;Structure treillis;Métal;;0;0;0;0;0;NON;1;0
+1506;PAS 124+000;2;3;124 +0000;124333;;PAS 124+000;PAS;Structure treillis + haubans;Métal;;0;0;0;0;0;NON;1;0
+1507;PAS 320+000;2;3;320 +0000;318243;;PAS 320+000;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1508;PAS 456+000;2;3;456 +0000;454543;;PAS 456+000;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1509;Auvent Bd Mohammed VI Sortie;1;3;80 +0500;80544;;Auvent Bd Mohammed VI Sortie;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;2;6
+1510;Auvent Tit Mellil Sortie;1;3;72 +0800;72820;;Auvent Tit Mellil Sortie;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;2;3
+1511;Auvent Tit Mellil Entrée;1;3;72 +0800;72820;;Auvent Tit Mellil Entrée;AUV;Dalle BA sur poteaux;Béton armé;;0;3;0;0;0;NON;1;0
+1512;Auvent   B.P.V  (Nassim);1;3;66 +0350;66297;;Auvent B.P.V  (Nassim);AUV;Structure métal + bardage;Métal;;0;6;0;0;0;NON;2;0
+1513;Auvent   G.P. Azemmour;1;3;135 +0650;135817;;Auvent   G.P. Azemmour;AUV;Structure métal + bardage;Métal;;0;3;0;0;0;NON;2;3
+1514;Auvent   G.P. Tnin Chtouka;1;3;116 +0115;116360;;Auvent   G.P. Tnin Chtouka;AUV;Structure métal + bardage;Métal;;0;3;0;0;0;NON;2;8
+1515;Auvent   G.P. Bir Jdid;1;3;100 +0290;100559;;Auvent   G.P. Bir Jdid;AUV;Structure métal + bardage;Métal;;0;3;0;0;0;NON;2;3
+1516;Auvent   G.P. Had Soualem;1;3;75 +0660;75710;;Auvent   G.P. Had Soualem;AUV;Structure métal + bardage;Métal;;0;3;0;0;0;NON;2;8
+1517;Auvent   G.P. BPV El Jadida;1;3;143 +0800;143903;;Auvent   G.P. Had Soualem dupliqué;AUV;Structure métal + bardage;Métal;;0;3;0;0;0;NON;2;0
+1518;Auvent G.de péage B.P.V (Marrakech);3;3;211 +0013;211045;;Auvent   G.de péage B.P.V (Marrakech);AUV;Auvent métal sur poteaux BA;Mixte acier / béton;;0;7;0;0;0;NON;1;3
+1519;Auvent G.de péage Benguerir;3;3;159 +0850;159973;;Auvent G.de péage Benguerir;AUV;Structure treillis;Métal;;0;3;0;0;0;NON;1;3
+1520;Auvent G.de péage Skhour Rhamna;3;3;127 +0750;127667;;Auvent G.de péage Skhour Rhamna;AUV;Structure treillis;Métal;;0;3;0;0;0;NON;1;0
+1521;Auvent G.de péage Settat nord;3;3;52 +0515;52617;;Auvent G.de péage Settat nord ;AUV;Auvent métal + haubans;Mixte acier / béton;;0;1;0;0;0;NON;2;16
+1522;Auvent G.de péage Settat Centre;3;3;65 +0000;65087;;Auvent G.de péage Settat Centre;AUV;Structure métal + bardage;Métal;;0;3;0;0;0;NON;1;3
+1523;Auvent G.de péage Aéroport Med V;3;3;13 +0200;13252;;Auvent G.de péage Aéroport Med V;AUV;Structure treillis;Métal;;0;3;0;0;0;NON;2;3
+1524;Auvent G.de péage B.P.V Nouasser;3;3;15 +0600;15646;;Auvent G.de péage B.P.V Nouasser;AUV;Arc métallique;Métal;;0;3;0;0;0;NON;1;0
+1525;PAS CEBS  75+000;2;3;75 +0000;75172;;PAS CEBS  75+000;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1526;PAS CEMA  154+000;2;3;154 +0000;154231;;PAS CEMA  154+000;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;1;0
+1527;PAS CEMA  283+000;2;3;283 +0000;282984;;PAS CEMA  283+000;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;2;3
+1528;A7_TUN;3;3;340 +0000;340630;;Tunnel;TUN;Tunnel;Béton armé;;2;0;0;560;0;NON;2 S;43
+1161;PP_105;3;3;419 +0058;419007;PP105;PP_105;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;51.6;51.6;1;0
+1162;PS_109;3;3;383 +0260;383389;PS109;PS_109;PS;PIDP PSDP (Dalle Précontrainte);Béton armé;;1;4;5.1;59.2;8;8;1;0
+1163;PS_129;3;3;385 +0291;385447;PS129;PS_129;PS;PIDP PSDP (Dalle Précontrainte);Béton armé;;1;4;5.1;59.2;10;10;2;3
+1164;PV_125;3;3;392 +0170;392326;PV 125;PV_125;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.5;44.48;44.48;1;0
+1167;PI_138;3;3;386 +0176;386314;PI138;PI_138;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;11.64;37.11;37.11;2;3
+1168;PV_148;3;3;388 +0533;388687;PV 148;PV_148;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.5;33.96;33.96;2;8
+1170;PV_171;3;3;393 +0871;394024;PV 171;PV_171;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.05;36.59;36.59;2;6
+1172;PV_189;3;3;393 +0923;394076;PV 189;PV_189;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.59;28.48;28.48;2;3
+1175;PI_205;3;3;395 +0500;395436;PI205;PI_205;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;11.89;9.6;9.6;2;3
+1176;PP_212;3;3;393 +0498;393651;PP212;PP_212;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.81;35.89;35.89;1;0
+1178;PI_230;3;3;392 +0378;392534;PI230;PI_230;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;10;39.96;39.96;2;3
+1181;PV_261;3;3;398 +0482;398641;PV 261;PV_261;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.05;41.06;41.06;2;11
+1182;PI_271;3;3;399 +0482;399640;PI271;PI_271;PI;PIPO (Portique Ouvert);Béton armé;;1;1;5.1;16.66;43.25;43.25;2;3
+1183;PS_301;3;3;402 +0478;402569;PS301;PS_301;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;5.1;59.2;8;8;2;6
+1186;PP_361;3;3;408 +0438;408607;PP361;PP_361;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.8;65.48;65.48;1;0
+1187;PS_370;3;3;409 +0338;409521;PS370;PS_370;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;5.1;63.2;8;8;2;6
+1189;PP_409;3;3;413 +0258;413490;PP409;PP_409;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;53.86;53.24;53.24;2;8
+1190;PV_421;3;3;414 +0463;414648;PV 421;PV_421;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.5;29.04;29.04;1;0
+1192;PV_438;3;3;416 +0111;416293;PV 438;PV_438;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;4.5;31.04;31.04;1;0
+1194;PP_449;3;3;417 +0198;417081;PP449;PP_449;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;28;28;2;0
+1196;PS_90;3;3;420 +0483;420458;PS90;PS90;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;0;0;63;10;NON;2;20
+1200;PS_54;3;3;424 +0145;424257;PS54;PS_54;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;5.1;68;12.3;12.3;2;20
+1201;PS_47;3;3;424 +0785;424897;PS47;PS_47;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;5.1;58;8;8;2;12
+1202;A7_PV_426.2;3;3;426 +0183;426359;PV 29;PV 29;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;0;0;NON;2;3
+48;A1_PP_58.8;5;3;205 +0976;206041;PP 3;PP 10;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;37.73;37.73;2;3
+49;A1_PP_59.9;5;3;204 +0865;204926;PP 4;PP 11;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;35.92;35.92;1;11
+50;A1_PV_60.4;5;3;204 +0316;204377;PV 9;PV 20;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.8;34.64;34.64;2;3
+51;A1_PV_62.2;5;3;202 +0535;202583;PV 10;PV 21;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.53;35.53;2;3
+52;A1_PV_62.9;5;3;201 +0827;201876;PV 11;PV 22;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.5;36.5;2 S;43
+53;A1_PP_64.1;5;3;200 +0667;200719;PP 5;PP 12;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.43;35.43;1;3
+54;A1_PP_65.7;5;3;199 +0095;199134;PP 6;PP 13;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.48;35.48;1;3
+56;A1_PV_66.8;5;3;197 +0906;197944;PV 12;PV 23;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.68;35.68;1;8
+57;A1_PP_67.9;5;3;196 +0878;196912;PP 7;PP 14;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.98;35.98;2;6
+58;A1_PV_68.9;5;3;195 +0751;195842;PV 13;PV 24;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.73;35.73;1;3
+59;A1_PP_70.8;5;3;193 +0995;194024;PP 8;PP 15;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.44;35.44;2 S;24
+60;A1_PP_71.4;5;3;193 +0367;193396;PP 9;PP 16;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;36.14;36.14;2;3
+62;A1_PV_71.9;5;3;192 +0840;192869;PV 13 bis;PV 25;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.99;35.99;2 S;27
+63;A1_PP_74.1;5;3;189 +0779;189788;PP 11;PP 17;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.16;35.16;2;12
+64;A1_PP_75.7;5;3;189 +0043;189052;PP 12;PP 18;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.25;35.25;2;6
+65;A1_PP_76.9;5;3;187 +0854;187866;PP 13;PP 19;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;36.3;36.3;2;22
+66;A1_PV_78.5;5;3;186 +0294;186298;PV 14;PV 26;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.53;35.53;2;9
+67;A1_PS_80.0;5;3;184 +0157;184154;PS8;PS8;PS;;;;0;0;0;0;0;NON;2;28
+68;A1_PV_80.0;5;3;184 +0710;184707;PV 14 bis;PV 27;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.6;35.62;35.62;2;11
+69;A1_PV_81.3;5;3;183 +0470;183476;PV 15;PV 28;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.53;35.53;2;20
+70;A1_PP_83.8;5;3;180 +0992;180964;PP 14 bis;PP 20;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.66;35.66;2;6
+134;A1_PV_152.7;5;3;112 +0176;112006;PV 3;PV 55;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;27.56;27.56;2;23
+261;A2_PS_125.9;2;3;125 +0878;126203;OA 06 PS 04;PS23;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48;10;10;2;9
+262;A2_PV_127.1;2;3;127 +0973;128325;PV 3 OA 07;PV 28;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.21;37.92;37.92;1;9
+263;A2_PS_129.3;2;3;129 +0330;129678;OA 08 PS 05;PS 24;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;63;10;10;2 S;52
+264;A2_PS_129.5;2;3;129 +0470;129818;OA 09 PS 06;PS25;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;67.54;13;13;2 S;30
+265;A2_PV_131.2;2;3;131 +0206;131526;PV 4 OA 11;PV 29;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;37;37;2;3
+266;A2_PV_132.9;2;3;132 +0893;133242;PV 5 OA 12;PV 30;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.87;40.76;40.76;1;3
+267;A2_PS_133.6;2;3;133 +0578;133876;OA 13 PS 07;PS 26;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;73;8;8;2;25
+268;A2_PS_134.6;2;3;134 +0600;134908;OA 14 PS 08;PS 27;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47.66;10;10;2 S;65
+269;A2_PS_135.1;2;3;136 +0041;136193;OA 15 PS 09;PS 28;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48;6;6;2;20
+270;A2_PS_137.2;2;3;137 +0150;137375;OA 16 PS 10;PS 29;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;8;8;1;8
+271;A2_PV_139.3;2;3;139 +0304;139573;PV 5 OA  01;PV 31;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;38;38;1;6
+272;A2_PS_140.1;2;3;140 +0050;140311;PS OA 02;PS 30;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;71;8;8;2 S;35
+273;A2_PS_141.9;2;3;141 +0921;142149;PS 0A 03;PS 31;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;6;6;2;8
+274;A2_PV_143.1;2;3;143 +0994;144230;PV OA 04;PV 32;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;39;39;2;14
+275;A2_PS_146.2;2;3;146 +0155;146418;PS OA 05;PS 32;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;10;10;2;24
+277;A2_PI_147.5;2;3;147 +0528;147770;PI5;PI5;PI;Structure inconnue;;;0;0;0;0;0;NON;2;11
+278;A2_PS_149.1;2;3;149 +0065;149282;PS OA 07;PS 34;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;45;6;6;2;30
+279;A2_PS_151.9;2;3;151 +0919;152130;PS OA 08;PS 35;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;8;8;2;25
+280;A2_PS_153.6;2;3;153 +0572;153816;PS OA 09;PS 36;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;45;6;6;2;11
+281;A2_PV_155.5;2;3;155 +0522;155813;PV OA 10;PV 34;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.25;45.22;45.22;1;6
+282;A2_PI_157.2;2;3;157 +0160;157425;PI OA 11;PI 6;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.3;51;51;2;14
+283;A2_PI_160.3;2;3;160 +0315;160473;PI OA 12;PI 7;PI;PICF (Cadre Fermé);Béton armé;;1;1;0;11.47;37.78;37.78;2;17
+284;A2_PV_161.8;2;3;161 +0794;161952;PV OA 13;PV 35;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.88;49.58;49.58;1;3
+285;A2_PS_166.2;2;3;166 +0225;166460;PS OA 14;PS 37;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;1;0;47;8;8;2;12
+286;A2_PV_168.1;2;3;168 +0074;168173;PV OA 15;PV 36;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;37;37;1;3
+287;A2_PI_169.4;2;3;169 +0420;169573;PI OA 16;PI 8;PI;PICF (Cadre Fermé);Béton armé;;1;1;0;11.72;26.95;26.95;2;16
+288;A2_PS_172.7;2;3;172 +0735;172836;PS OA 17;PS 38;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;45;8;8;2 S;24
+289;A2_PV_174.3;2;3;174 +0346;174534;PV OA 18;PV 37;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;37;37;1;0
+290;A2_PS_175.9;2;3;175 +0900;176100;PS OA 19;PS 39;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;45;6;6;2;38
+291;A2_PV_176.9;2;3;176 +0864;177059;PV OA 20;PV 38;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.63;42.5;42.5;1;0
+505;A3_PS_0.0;1;3;61 +0547;61580;PS 1;PS 1;PS;;;;0;0;0;0;0;NON;;0
+506;A3_PAS_0.2;1;3;61 +0347;61380;PAS1;PAS1;PAS;;;;0;0;0;0;0;NON;;0
+507;A3_PAS_0.4;1;3;61 +0147;61180;PAS2;PAS2;PAS;;;;0;0;0;0;0;NON;;0
+508;A3_PAS_0.8;1;3;60 +0780;60780;PAS3;PAS3;PAS;;;;0;0;0;0;0;NON;;0
+509;A3_PS_1.9;1;3;59 +0660;59660;PS2;PS2;PS;;;;0;0;0;0;0;NON;;0
+510;A3_PAS_3.2;1;3;58 +0380;58380;PAS4;PAS4;PAS;;;;0;0;0;0;0;NON;;0
+511;A3_PV_4.1;1;3;57 +0510;57510;PV1;PV1;PV;;;;0;0;0;0;0;NON;;0
+512;A3_PV_5.0;1;3;56 +0580;56580;PV2;PV2;PV;;;;0;0;0;0;0;NON;;0
+513;A3_PS_5.7;1;3;55 +0920;55920;PS3;PS3;PS;;;;0;0;0;0;0;NON;;0
+514;A3_VIA_6.0;1;3;55 +0580;55580;Pont sur oued Mellah;Pont sur oued El Malleh;VIA;VIPP;Béton précontraint;;0;5;0;0;0;NON;2;22
+515;A3_PAS_7.2;1;3;54 +0380;54380;PAS5 ;PAS5 ;PAS;;;;0;0;0;0;0;NON;;0
+516;A3_PV_7.5;1;3;54 +0080;54080;PV3;PV3;PV;;;;0;0;0;0;0;NON;;0
+517;A3_PP_8.3;1;3;53 +0280;53280;PP1;PP1;PP;;;;0;0;0;0;0;NON;;0
+518;A3_PV_8.9;1;3;52 +0680;52680;PV4;PV4;PV;;;;0;0;0;0;0;NON;;0
+519;A3_PS_9.5;1;3;52 +0130;52130;PS4;PS4;PS;;;;0;0;0;0;0;NON;;0
+520;A3_PV_10.4;1;3;51 +0180;51180;PV5;PV5;PV;;;;0;0;0;0;0;NON;;0
+521;A3_PS_10.9;1;3;50 +0650;50650;PS5;PS5;PS;;;;0;0;0;0;0;NON;;0
+522;A3_PV_12.3;1;3;49 +0280;49280;PV6;PV6;PV;;;;0;0;0;0;0;NON;;0
+523;A3_PI_12.9;1;3;48 +0730;48730;PI1;PI1;PI;;;;0;0;0;0;0;NON;;0
+524;A3_PV_13.2;1;3;48 +0380;48380;PV7;PV7;PV;;;;0;0;0;0;0;NON;;0
+525;A3_VIA_14.0;1;3;47 +0580;47580;Pont sur oued Nfifikh;Pont sur oued N''Fifikh;VIA;VIPP;Béton précontraint;;0;3;0;0;0;NON;2;22
+526;A3_PS_14.7;1;3;46 +0900;46900;PS6;PS6;PS;;;;0;0;0;0;0;NON;;0
+527;A3_PP_15.3;1;3;46 +0280;46280;PP2;PP2;PP;;;;0;0;0;0;0;NON;;0
+528;A3_PAS_15.9;1;3;45 +0680;45680;PAS6;PAS6;PAS;;;;0;0;0;0;0;NON;;0
+529;A3_PV_16.7;1;3;44 +0880;44880;PV8;PV8;PV;;;;0;0;0;0;0;NON;;0
+530;A3_PV_18.4;1;3;43 +0180;43180;PV9;PV9;PV;;;;0;0;0;0;0;NON;;0
+531;A3_PS_19.4;1;3;42 +0190;42190;PS7;PS7;PS;;;;0;0;0;0;0;NON;;0
+532;A3_PP_20.3;1;3;41 +0280;41280;PP2bis;PP2bis;PP;;;;0;0;0;0;0;NON;;0
+533;A3_PP_21.8;1;3;39 +0780;39780;PP3;PP3;PP;;;;0;0;0;0;0;NON;;0
+534;A3_PAS_26.3;1;3;35 +0280;35280;PAS7;PAS7;PAS;;;;0;0;0;0;0;NON;;0
+535;A3_PS_33.5;1;3;28 +0060;28060;PS8;PS8;PS;;;;0;0;0;0;0;NON;;0
+536;A3_PP_34.4;1;3;27 +0160;27160;PP4;PP4;PP;;;;0;0;0;0;0;NON;;0
+537;A3_PV_35.4;1;3;26 +0180;26180;PV10;PV10;PV;;;;0;0;0;0;0;NON;;0
+538;A3_PV_36.6;1;3;24 +0980;24980;PV11;PV11;PV;;;;0;0;0;0;0;NON;;0
+539;A3_PS_38.0;1;3;23 +0580;23580;PS9;PS9;PS;;;;0;0;0;0;0;NON;;0
+540;A3_VIA_38.2;1;3;23 +0380;23380;Pont sur oued Cherrat;Pont sur oued Cherrat;VIA;VIPP;Béton précontraint;;0;2;0;0;0;NON;2;8
+541;A3_PS_38.7;1;3;22 +0910;22910;PS10;PS10;PS;;;;0;0;0;0;0;NON;;0
+542;A3_PV_40.1;1;3;21 +0530;21530;PV12;PV12;PV;;;;0;0;0;0;0;NON;;0
+543;A3_PV_41.2;1;3;20 +0380;20380;PV13;PV13;PV;;;;0;0;0;0;0;NON;;0
+544;A3_PP_41.5;1;3;20 +0100;20100;PP5;PP5;PP;;;;0;0;0;0;0;NON;;0
+545;A3_PP_42.1;1;3;19 +0480;19480;PP6;PP6;PP;;;;0;0;0;0;0;NON;;0
+546;A3_PV_42.5;1;3;19 +0080;19080;PV14;PV14;PV;;;;0;0;0;0;0;NON;;0
+547;A3_PV_43.4;1;3;18 +0180;18180;PV15;PV15;PV;;;;0;0;0;0;0;NON;;0
+548;A3_PP_45.1;1;3;16 +0480;16480;PP7;PP7;PP;;;;0;0;0;0;0;NON;;0
+549;A3_PS_45.9;1;3;15 +0680;15680;PS11;PS11;PS;;;;0;0;0;0;0;NON;;0
+550;A3_PP_46.5;1;3;15 +0080;15080;PP7bis;PP7bis;PP;;;;0;0;0;0;0;NON;;0
+551;A3_PAS_47.0;1;3;14 +0580;14580;PAS08;PAS08;PAS;;;;0;0;0;0;0;NON;;0
+731;A5_PV_105.9;1;3;165 +0882;165893;PV 5;PV 16;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;37.24;5.2;5.2;1;0
+732;A5_PV_107.8;1;3;167 +0772;167763;PV 6;PV 17;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;46.25;5.2;5.2;1;3
+733;A5_PI_108.6;1;3;168 +0556;168103;PI 2;PI 8;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;16.64;36.87;36.87;1;0
+734;A51_PI_109.1;103;3;1 +0208;1200;PI 3;PI 9;PI;PIPBA PSPBA (Poutres BA);Béton armé;;1;1;0;23.4;25.25;25.25;1;0
+735;A51_PV_111.2;103;3;3 +0320;3300;PV 7;PV18;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;28.25;5.2;5.2;1;0
+736;A51_PS_111.7;103;3;3 +0820;3800;PS 8;PS 30;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;52.57;8;8;2;9
+737;A51_PV_112.2;103;3;4 +0270;4250;PV 8;PV 19;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;29.81;5.2;5.2;1;0
+738;A51_PS_112.1;103;3;5 +0070;5050;PS 9;PS 31;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58;12;12;1;0
+739;A6_PS_0.5;7;3;0 +0500;500;PS 0;PS 0;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;4;0;62.98;14.15;14.15;2;3
+740;A6_PS_0.8;7;3;0 +0800;800;PS 1bis;PS 1bis;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;55.6;10;10;1;0
+741;A6_PAS_1.1;7;3;1 +0084;1084;PP 011;PAS 1;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;2.6;41.4;41.4;2;11
+742;A6_PS_1.6;7;3;1 +0593;1593;PS 1;PS 1;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;55.3;10;10;1;0
+743;A6_PS_2.2;7;3;2 +0108;2158;PS 2;PS 2;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.12;10;10;2 S;30
+744;A6_PI_3.2;7;3;3 +0169;3219;PI 1;PI 1;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11;33.02;33.02;2 S;27
+745;A6_PS_3.1;7;3;3 +0937;3987;PS 3;PS 3;PS;PIPBP PSPBP (Poutres BP);Béton armé;;1;2;0;71.52;10;10;2 S;24
+746;A6_PV_4.2;7;3;4 +0121;4171;PV 1;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.46;48.02;48.02;2;12
+747;A6_PS_5.2;7;3;5 +0155;5239;PS 4;PS 4;PS;PIPBP PSPBP (Poutres BP);Béton armé;;1;2;0;55.68;10;10;1;0
+748;A6_VIA_5.6;7;3;5 +0600;5684;VIA;Pont sur oued Allila 1;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;34.9;11.75;11.75;2;11
+749;A6_VIA_6.2;7;3;6 +0157;6260;VIA;Pont sur oued Allila 2;VIA;PIPBA PSPBA (Poutres BA);Béton armé;;2;1;0;34.9;11.77;11.77;2;6
+750;A6_PS_6.6;7;3;6 +0588;6691;PS 5;PS 5;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;55.78;10;10;2 S;24
+624;A4_PV_17.8;5;3;32 +0264;32127;PV 178;PV 7;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;29.95;29.95;1;0
+625;A4_PP_19.8;5;3;30 +0213;30162;PP 193;PP 4;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;2.96;31.49;31.49;2;3
+626;A4_PI_20.6;5;3;29 +0509;29391;PI Taifin;PI 3;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;13.12;41.49;41.49;2;14
+627;A4_PI_21.2;5;3;28 +0869;28747;PI RN2;PI 4;PI;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;2;3;0;60.6;11.5;11.5;2;6
+628;A4_PI_22.0;5;3;28 +0004;27882;PI ECH RN2;PI 5;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;17.55;39.2;39.2;2;6
+629;A4_PP_22.2;5;3;27 +0823;27678;PP 222;PP 5;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.1;59.93;59.93;2;3
+630;A4_PV_23.9;5;3;26 +0176;25999;PV 23884;PV 8;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.26;31.15;31.15;2;6
+631;A4_PI_24.4;5;3;25 +0641;25466;PI 244;PI 6;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.46;27.8;27.8;2 S;38
+632;A4_PP_25.5;5;3;24 +0571;24346;PP 255;PP 6;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;3.02;43.46;43.46;2;6
+635;A4_PI_26.7;5;3;23 +0327;23127;PI 267;PI 7;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.44;29.88;29.88;2 S;33
+636;A4_PI_27.9;5;3;22 +0119;21890;PI 279;PI 8;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;12.46;27.8;27.8;2 S;33
+637;A4_PI_29.1;5;3;20 +0056;19834;PI 299;PI 9;PI;PIPBA PSPBA (Poutres BA);Béton armé;;2;3;0;65.88;11.5;11.5;2;6
+638;A4_PV_30.7;5;3;19 +0393;19173;PV 30660;PV 9;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.86;71.63;71.63;2;6
+639;A4_VIA_30.8;5;3;19 +0268;19048;Pont sur oued Ghziellon;Pont sur oued Ghziellon;VIA;VIPP;Béton précontraint;;2;3;0;90.2;11.5;11.5;2 S;54
+640;A4_PI_31.8;5;3;18 +0247;17993;PI 318;PI 10;PI;PICF (Cadre Fermé);Béton armé;;1;1;0;11.57;32.42;32.42;2;6
+641;A4_VIA_31.1;5;3;18 +0097;17843;Pont sur oued Guerrara;Pont sur oued Guerrara;VIA;VIPP;Béton précontraint;;2;3;0;120.2;15;15;2;3
+642;A4_PI_32.1;5;3;17 +0902;17640;PI 321;PI 11;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;15.41;33.08;33.08;2 S;24
+643;A4_PV_32.8;5;3;17 +0277;17015;PV 328;PV 10;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.36;51.56;51.56;2;9
+644;A4_PV_36.9;5;3;13 +0094;12854;PV 1;PV 11;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;32.55;32.55;1;0
+645;A4_PS_38.0;5;3;12 +0031;11779;PS 0;PS 6;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;8;8;1;0
+646;A4_PAS_38.9;5;3;11 +0149;10897;PAS 2;PAS 2;PAS;Arcs triangulés + dalle BA;Mixte acier / béton;;0;0;0;0;0;NON;2;3
+647;A4_VIA_39.3;5;3;11 +0349;11097;VIA;Pont sur la vallée à Dar Foual;VIA;VIPP;Béton précontraint;;2;6;0;263.66;11;11;2 S;64
+648;A4_PS_40.4;5;3;9 +0662;9440;PS 1;PS 7;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.22;10;10;1;3
+649;A4_PI_40.9;5;3;9 +0200;8978;PI 1;PI 12;PI;PICF (Cadre Fermé);Béton armé;;1;1;0;11.78;24.5;24.5;1;0
+650;A4_VIA_41.5;5;3;8 +0528;8314;Pont sur oued Lachbaa;Pont sur oued Lachbaa;VIA;VIPP;Béton précontraint;;2;11;0;457.32;10.99;10.99;2 S;49
+651;A4_PV_42.1;5;3;7 +0966;7778;PV 4;PV 12;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.89;57.56;57.56;2;6
+652;A4_VIA_44.0;5;3;6 +0022;5847;Pont sur oued Ksar Sud;Pont sur oued Ksar Sghir sud;VIA;VIPP;Béton précontraint;;2;19;0;792.01;10.99;10.99;2 S;56.4
+653;A4_PV_45.5;5;3;4 +0592;4405;PV 5;PV 13;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.49;28.11;28.11;2;6
+654;A4_PS_45.8;5;3;4 +0202;4015;PS 2;PS 8;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.2;12;12;2;6
+655;A4_VIA_46.4;5;3;3 +0612;3414;Pont sur oued Ksar Nord;Pont sur oued Ksar Sghir Nord;VIA;VIPP;Béton précontraint;;2;6;0;248.3;10.99;10.99;2 S;60.1
+656;A4_PI_46.1;5;3;3 +0055;2857;PI 2;PI 13;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;22.95;31.16;31.16;2;12
+657;A4_PV_48.1;5;3;2 +0651;2424;PV 6;PV 14;PV;PICF (Cadre Fermé);Béton armé;;1;1;0;5.2;27.87;27.87;1;3
+658;A4_VIA_49.9;5;3;0 +0211;211;Pont sur oued Ghlala;Pont sur oued Ghlala;VIA;VIPP;Béton précontraint;;2;9;0;373.79;10.99;10.99;2 S;73
+659;A5_PI_26.8;1;3;87 +0700;87780;PI 3 Bifurcation;PI 3 ;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;11.8;14.25;14.25;2 S;27
+660;A5_PS_26.9;1;3;86 +0900;86946;;PS 1;PS;;;;0;0;0;0;0;NON;2 S;24
+662;A5_PS_29.1;1;3;89 +0980;89935;PS 1;PS 2;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;63;10;10;2;19
+663;A5_PI_30.1;1;3;91 +0030;90950;PI 1;PI 1;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;10.94;36.7;36.7;2;11
+664;A5_PI_31.7;1;3;91 +0660;91580;PI 2;PI BOUS-BIFURC;PI;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;4;0;13.3;69.39;69.39;2;19
+665;;1;3;91 +0750;91670;;PS 31.750;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;3;0;0;0;NON;1;0
+666;A5_PS_32.2;1;3;92 +0200;92233;PS 2 Bif;PS 3;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;63.58;12;12;2;14
+667;A5_PS_32.2;1;3;92 +0234;92267;PS 3 Bif;PS 4;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;3;0;64.29;12;12;2;6
+668;A5_PS_34.6;1;3;94 +0607;94852;PS 1;PS 5;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;2 S;38
+669;A5_PP_35.2;1;3;95 +0200;95458;PP 1;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.3;38.27;38.27;1;3
+670;A5_PV_35.1;1;3;95 +0950;96208;PV  1;PV  2;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.29;40.13;40.13;2;3
+671;A5_PI_37.3;1;3;97 +0289;97544;PI 1;PI 4;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11.89;36.09;36.09;2;11
+672;A5_PS_39.5;1;3;99 +0526;99787;PS 3;PS 6;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;58.9;8;8;2;6
+673;A5_PP_40.5;1;3;100 +0524;100793;PP 2;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;38.46;38.46;1;6
+674;A5_PV_40.1;1;3;100 +0967;101236;PV 2;PV 3;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.23;41.56;41.56;1;0
+675;A5_PP_42.9;1;3;102 +0914;103158;PP 3;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.18;38.07;38.07;1;6
+676;A5_PS_45.6;1;3;105 +0556;105790;PS 4;PS 7;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;2;8
+677;A5_PS_47.2;1;3;107 +0242;107464;PS 5;PS 8;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;58.9;10;10;1;0
+678;A5_PS_47.9;1;3;107 +0860;108082;PS 06;PS 09;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;71;10;10;2;6
+679;A5_PV_49.4;1;3;109 +0420;109652;PV 3;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;36.47;36.47;1;3
+680;A5_PV_50.4;1;3;110 +0385;110619;PV 4;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.16;36.64;36.64;2 S;30
+681;A5_PAS_51.2;1;3;111 +0200;111427;PASSERELLE PIETONS;PAS 1;PAS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;38.9;3.5;3.5;2 S;24
+682;A5_PP_51.3;1;3;111 +0275;111502;PP 4;PP 4;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.96;35.72;35.72;1;3
+683;A5_PS_52.3;1;3;112 +0255;112488;PS 7;PS 10;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;10;10;1;8
+684;A5_PP_53.1;1;3;113 +0140;113375;PP 5;PP 5;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.96;40.43;40.43;1;3
+685;A5_PV_54.6;1;3;114 +0585;114831;PV 5;PV 6;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;35.94;35.94;1;3
+686;A5_PAS_55.1;1;3;115 +0960;116206;PASSERELLE PIETONS;PAS 2;PAS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;38.9;3.5;3.5;2 S;24
+687;A5_PS_57.6;1;3;117 +0622;117867;PS 8;PS 11;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;62;10;10;1;8
+688;A5_PI_58.4;1;3;118 +0439;118686;PI 2;PI 5;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;10.26;37.37;37.37;2 S;30
+71;A1_PP_85.2;5;3;179 +0508;179503;PP 15;PP 21;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.45;35.45;2;6
+72;A1_PV_85.9;5;3;178 +0848;178843;PV 16;PV 29;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.52;35.52;2;3
+73;A1_PV_87.4;5;3;177 +0301;177299;PV 16 bis;PV 30;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.66;35.66;2;6
+74;A1_PP_88.6;5;3;176 +0157;176146;PP 17;PP 22;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.47;35.47;2;11
+75;A1_PP_90.5;5;3;174 +0257;174266;PP 17 bis;PP 23;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.62;35.62;2;14
+76;A1_PV_91.4;5;3;173 +0374;173356;PV 17;PV 31;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;37.45;37.45;2;22
+77;A1_PP_92.2;5;3;172 +0519;172502;PP 18;PP 24;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.46;35.46;1;6
+78;A1_PP_94.1;5;3;170 +0709;170675;PP 19;PP 25;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.46;35.46;2;6
+79;A1_PV_94.8;5;3;169 +0970;169938;PV 18;PV 32;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.49;35.49;2;20
+80;A1_PV_96.6;5;3;168 +0170;168134;PV 19;PV 33;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.62;35.62;2;12
+81;A1_PI_98.3;5;3;166 +0456;166426;PI 2 CT 2301;PI 3;PI;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;1;0;13.76;12.5;12.5;2;36
+82;A1_PV_99.4;5;3;165 +0401;165374;PV 20;PV 34;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.48;35.48;1;0
+83;A1_VIA_99.7;5;3;165 +0054;165027;Pont sur canal Nador;Pont sur canal Nador;VIA;Viaduc à poutres BA;Béton armé;;2;2;0;45.9;12.6;12.6;2 S;54
+84;A1_PV_100.6;5;3;164 +0113;164079;PV 21;PV 35;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.14;34.59;34.59;1;0
+85;A1_PP_101.4;5;3;163 +0399;163362;PP 22;PP 26;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;36.18;36.18;1;0
+86;A1_PV_104.6;5;3;160 +0153;160109;PV 21 bis;PV 36;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.62;35.62;2;3
+88;A1_PV_109.1;5;3;155 +0613;155590;PV 22 bis;PV 37;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.56;35.56;2 E;30
+89;A1_PP_110.5;5;3;154 +0277;154250;PP 27;PP 28;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;36.46;36.46;2;17
+90;A1_PI_111.3;5;3;153 +0444;153423;PI 3 CT 2301;PI 4;PI;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;1;0;13.76;12.5;12.5;2 S;41
+91;A1_PV_112.8;5;3;151 +0901;151875;PV 23;PV 38;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.14;35.77;35.77;2;9
+92;A1_VIA_113.0;5;3;151 +0749;151723;Pont sur Oued Drader;Pont sur Oued Drader;VIA;VIPP;Béton armé;;2;1;0;31;12.6;12.6;2 E;26
+93;A1_PI_113.1;5;3;151 +0649;151623;PI 4;PI 5;PI;VIPP;Béton précontraint;;2;1;0;26.85;12.6;12.6;2;3
+94;A1_PS_113.7;5;3;151 +0049;151023;PS 6 bis;PS 6 bis;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;67;10;10;2;9
+95;A1_PAS_114.1;5;3;150 +0650;150620;PAS6;PAS6;PAS;;;;0;0;0;0;0;NON;2;0
+96;A1_PV_114.7;5;3;150 +0057;150027;PV 24;PV 39;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.56;35.56;2;20
+97;A1_PP_115.6;5;3;149 +0106;149080;PP 29 ;PP 29 Aire de service;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.5;37.38;37.38;2;3
+98;A1_PV_117.5;5;3;147 +0215;147189;PV 25;PV 40;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.62;35.62;2;6
+99;A1_PV_119.0;5;3;145 +0736;145703;PV 26;PV 41;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.62;35.62;2;22
+100;A1_PP_120.4;5;3;144 +0369;144336;PP 29 bis;PP 29 bis;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;37.38;37.38;2;9
+101;A1_PV_122.4;5;3;142 +0298;142262;PV 27 bis;PV 42;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.4;35.66;35.66;2;6
+102;A1_PV_123.2;5;3;141 +0490;141456;PV 28 bis;PV 44;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.62;35.62;2;9
+103;A1_PV_123.7;5;3;140 +0994;140958;PV 28;PV 43;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;5.36;35.66;35.66;2;6
+104;A1_PV_125.3;5;3;139 +0481;139436;PV 29;PV 45;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.22;37.17;37.17;2;22
+105;A1_PI_126.0;5;3;138 +0700;138664;PI 5;PI 6;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;10.2;32.5;32.5;2 S;27
+106;A1_PP_126.8;5;3;137 +0946;137899;PP 32;PP 30;PP;PICF (Cadre Fermé);Béton armé;;1;1;3;3.7;35.61;35.61;1;11
+107;A1_PV_128.6;5;3;136 +0155;136100;PV 30;PV 46;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.14;36.24;36.24;1;0
+108;A1_PP_128.7;5;3;136 +0055;136000;PP 33;PP 31;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.62;35.62;2;3
+109;A1_PI_130.2;5;3;134 +0548;134491;PI 6;PI 7;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;17.52;32.7;32.7;2 S;33
+110;A1_PV_131.5;5;3;133 +0278;133219;PV 31;PV 47;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;6.01;35.64;35.64;2;6
+111;A1_PV_132.5;5;3;132 +0208;132153;PV 32;PV 48;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;6.01;35.64;35.64;2;3
+112;A1_VIA_133.2;5;3;131 +0552;131487;OF 6 Canal d''irrigation 1;OF 6 Canal d''irrigation 1;VIA;Viaduc à poutres BA;Béton armé;;2;1;0;23.44;12.6;12.6;2 S;35
+113;A1_PP_133.6;5;3;131 +0184;131119;PP 34;PP 32;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.01;44.7;44.7;2;11
+114;A1_PV_134.4;5;3;130 +0317;130250;PV 33;PV 49;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.4;35.66;35.66;2;14
+115;A1_PI_136.2;5;3;128 +0553;128480;PI 7;PI 8;PI;PIPO (Portique Ouvert);Béton armé;;2;1;0;11.68;32.7;32.7;2;6
+116;A1_VIA_136.5;5;3;128 +0253;128180;OF 7 Canald''irrigation 2;OF 7 Canald''irrigation 2;VIA;Viaduc à poutres BA;Béton armé;;2;1;0;23.13;12.6;12.6;1;0
+117;A1_PP_137.0;5;3;127 +0739;127666;PP 35;PP 33;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.86;35.69;35.69;1;8
+118;A1_PV_137.8;5;3;126 +0915;126845;PV 34;PV 50;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.4;35.66;35.66;1;3
+119;A1_PV_138.9;5;3;125 +0832;125759;PV 35;PV 51;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;5.18;35.72;35.72;1;3
+120;A1_PP_140.1;5;3;124 +0598;124533;PP 36;PP 34;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.62;35.62;1;11
+121;A1_PP_141.3;5;3;123 +0404;123337;PP 37;PP 35;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.62;35.62;2;9
+122;A1_PV_143.2;5;3;121 +0565;121509;PV 36;PV 52;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;37.12;37.12;2;14
+123;A1_PP_143.8;5;3;120 +0913;120854;PP 38;PP 36;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;35.62;35.62;2;20
+124;A1_PS_145.0;5;3;119 +0745;119671;PS 7 du C3 RP 2;PS 9;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;2;0;36.97;10;10;2 S;54
+125;A1_PS_146.2;5;3;118 +0608;118519;OA 0;PS10;PS;PIDP PSDP (Dalle Précontrainte);Béton armé;;1;4;0;68;10;10;2 S;27
+126;A1_PS_146.1;5;3;117 +0808;117719;OA 1;PS 11;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;2;4;0;87;8.8;8.8;2;31
+127;A1_PP_147.9;5;3;116 +0875;116791;PP 1;PP 37;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;36.86;36.86;2;14
+128;A1_PV_149.1;5;3;115 +0684;115591;PV 1;PV 53;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;38.04;38.04;1;3
+129;A1_PS_149.8;5;3;114 +0929;114830;PS 12;PS 12;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;0;4;0;71.8;8;8;2;11
+130;A1_PAS_149.9;5;3;114 +0910;114811;Passerelle ONEP / RADEEL;PAS7;PAS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;71.8;4.75;4.75;1;16
+131;A1_PP_150.2;5;3;114 +0598;114499;PP Aire de service;PP 38 Aire de service;PP;PICF (Cadre Fermé);Béton armé;;1;1;3;3.52;40.78;40.78;1;0
+132;A1_PV_150.5;5;3;114 +0282;114183;PV  2;PV 54;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.02;52.9;52.9;2;9
+133;A1_PI_151.3;5;3;113 +0488;113381;OA 3;PI9;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;24.78;10;10;2;6
+198;A2_PS_17.8;2;3;17 +0838;17877;PS 3;PS 3;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48.4;8;8;2;33
+199;A2_PP_18.6;2;3;18 +0578;18602;PP 1;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;33.5;33.5;2;6
+200;A2_PV_20.7;2;3;20 +0749;20773;PV 1;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.33;33.51;33.51;2;6
+201;A2_PV_21.1;2;3;21 +0958;21983;PV 2;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;33.5;33.5;2;3
+202;A2_PS_24.4;2;3;24 +0430;24458;PS 4;PS 4;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;46.4;10;10;2;38
+203;A2_PS_26.1;2;3;26 +0958;26991;PS 5;PS 5;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47.78;6;6;2 S;54
+204;A2_PP_27.3;2;3;27 +0278;27313;PP 2;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;33.5;33.5;1;0
+205;A2_PP_28.9;2;3;28 +0886;28926;PP 3;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.93;33.49;33.49;2;3
+206;A2_PP_29.7;2;3;29 +0663;29701;PP 4;PP 4;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.39;32.91;32.91;2;3
+207;A2_PS_30.5;2;3;30 +0456;30496;PS 6;PS 6;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48;10;10;2;36
+208;A2_PAS_32.6;2;3;32 +0600;32643;PAS1;PAS1;PAS;;;;0;0;0;0;0;NON;1;3
+209;A2_PP_32.1;2;3;32 +0984;33027;PP 5;PP 5;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.94;38;38;2;6
+210;A2_PV_34.1;2;3;34 +0078;34112;PV 3;PV 3;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.46;35.04;35.04;2;0
+211;A2_PV_35.5;2;3;35 +0524;35562;PV 4;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.81;33.49;33.49;2;0
+212;A2_PV_36.1;2;3;36 +0957;36996;PV 5;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.21;33.62;33.62;2;3
+213;A2_PP_38.5;2;3;38 +0473;38506;PP 6;PP 6;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;5.19;33.19;33.19;1;0
+214;A2_PV_39.9;2;3;39 +0893;39925;PV 6;PV 6;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.22;33.5;33.5;2;3
+215;A2_PV_41.7;2;3;41 +0725;41760;PV 7;PV 7;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;33.5;33.5;2;8
+216;A2_PI_42.5;2;3;42 +0477;42516;PI 1;PI 1;PI;POD (Portique Ouvert Double);Béton armé;;1;2;0;16.65;42.5;42.5;2;14
+217;A2_PS_43.2;2;3;43 +0208;43245;PS 7;PS 7;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48.02;10;10;2;22
+218;A2_PV_45.5;2;3;45 +0528;45573;PV 8;PV 8;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.63;33.5;33.5;2;30
+219;A2_PS_46.3;2;3;46 +0318;46366;PS 8;PS 8;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;73.02;6;6;2;25
+220;A2_PAS_48.1;2;3;48 +0100;48143;PAS2;PAS2;PAS;;;;0;0;0;0;0;NON;1;0
+221;A2_PI_49.0;2;3;49 +0002;49050;PI 2;PI 2;PI;PIPO (Portique Ouvert);Béton armé;;1;1;0;11.79;38.66;38.66;2;22
+222;A2_PV_53.9;2;3;53 +0863;53900;PV 9;PV 9;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.3;33.5;33.5;2;11
+223;A2_PS_55.6;2;3;55 +0595;55638;PS 9;PS 9;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48.04;10;10;2;9
+224;A2_PV_59.0;2;3;59 +0048;59084;PV 10;PV 10;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;33.5;33.5;2;3
+225;A2_PP_61.4;2;3;61 +0358;61389;PP 7;PP 7;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;33.5;33.5;2;11
+226;A2_PV_62.5;2;3;62 +0513;62555;PV 11;PV 11;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;33.5;33.5;2;3
+227;A2_PP_63.3;2;3;63 +0276;63309;PP 8;PP 8;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3.08;33.5;33.5;1;0
+228;A2_PV_65.7;2;3;65 +0686;65711;PV 12;PV 12;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.3;41.28;41.28;2 S;35
+229;A2_PS_67.2;2;3;67 +0227;67256;PS 10;PS 10;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;75;10;10;2;11
+230;A2_PI_68.1;2;3;68 +0064;68111;PI 1;PI 3;PI;POD (Portique Ouvert Double);Béton armé;;1;2;0;19.23;41.05;41.05;2;3
+231;A2_PV_68.9;2;3;68 +0938;68985;PV 01;PV 13;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.49;46.34;46.34;2;11
+232;A2_PS_69.6;2;3;69 +0637;69822;PS 01;PS 11;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;65;10;10;2;32
+233;A2_PP_70.3;2;3;70 +0314;70502;PP 01;PP 9;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;49.5;49.5;2;6
+234;A2_PV_72.0;2;3;72 +0024;72214;PV 02;PV 14;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;36;36;2;11
+235;A2_PV_74.1;2;3;74 +0134;74306;PV 03;PV 15;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;29.97;29.97;1;8
+236;A2_PS_80.7;2;3;80 +0704;80868;PS 02;PS 12;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;3;0;51;6;6;2 S;51
+237;A2_PS_82.8;2;3;82 +0836;82959;PS 03;PS 13;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;51;8;8;2 S;27
+238;A2_PP_85.9;2;3;85 +0929;86086;PP 02;PP 10;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;3;39;39;2;3
+239;A2_PS_87.0;2;3;87 +0008;87175;PS 04;PS 14;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;45;10;10;2 S;35
+240;A2_PS_87.9;2;3;87 +0914;88081;PS 05;PS 15;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;4;0;56;8;8;2 S;36
+241;A2_PS_90.8;2;3;90 +0752;90916;PS 06;PS 16;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;10;10;2;19
+242;A2_PV_93.2;2;3;93 +0239;93408;PV 04;PV 16;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;39;39;2;9
+243;A2_PV_94.6;2;3;94 +0647;94812;PV 05;PV 17;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;42.5;42.5;2;9
+244;A2_PV_95.3;2;3;95 +0284;95449;PV 06;PV 18;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;44;44;2;11
+245;A2_PV_97.3;2;3;97 +0301;97457;PV 07;PV 19;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.47;44.17;44.17;1;0
+246;A2_PV_97.9;2;3;97 +0867;98023;PV 08;PV 20;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;39;39;2;3
+247;A2_PS_98.6;2;3;98 +0644;98811;PS 07;PS 17;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;6;6;2 ES;56
+248;A2_PV_100.2;2;3;100 +0164;100331;PV 09;PV 21;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.49;38.33;38.33;2;19
+249;A2_PV_102.9;2;3;102 +0892;103051;PV 10;PV 22;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.28;37.44;37.44;2 S;27
+250;A2_PV_104.3;2;3;104 +0269;104427;PV  11;PV  23;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.53;57.79;57.79;3;18
+251;A2_PV_105.7;2;3;105 +0719;105874;PV 12;PV 24;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;46;46;1;0
+252;A2_PS_107.1;2;3;107 +0144;107295;PS 08;PS 18;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;10;10;2 S;35
+253;A2_PV_111.1;2;3;111 +0083;111229;PV 13;PV 25;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.42;37.4;37.4;2;11
+254;A2_PV_113.7;2;3;113 +0690;113813;PV 14;PV 26;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.2;38;38;1;0
+255;A2_PS_115.5;2;3;115 +0465;115580;PS 09;PS 19;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;47;10;10;2 S;41
+256;A2_PI_116.9;2;3;116 +0924;117091;OA 01;PI O4;PI;PICF (Cadre Fermé);Béton armé;;1;1;0;11.58;37.91;37.91;1;6
+257;A2_PS_120.4;2;3;120 +0380;120514;OA 02 PS1;PS20;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;46;10;10;2;12
+258;A2_PS_120.7;2;3;120 +0717;120851;OA 03 PS 02;PS 21;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;48;13;13;2 S;60
+259;A2_PS_122.0;2;3;122 +0025;122314;OA 04 PS O3;PS 22;PS;PIDP PSDP (Dalle Précontrainte);Béton précontraint;;1;2;0;46;10;10;2;17
+260;A2_PV_124.6;2;3;124 +0574;124907;PV 1 OA 05;PV 27;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.3;60;60;1;0
+4;A1_PS_0.0;5;3;264 +0714;265000;PS1;PS1;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;4;0;69;13.25;13.25;2;31
+5;A1_PP_1.6;5;3;263 +0183;263429;PP 1;PP 1;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;43.74;43.74;1;0
+6;A1_PV_3.0;5;3;261 +0709;261936;PV 1;PV 1;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.37;43.37;2;3
+7;A1_PAS_4.7;5;3;260 +0066;260280;PASSERELLE AU NIVEAU DU PP 2;PAS 1;PAS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;40;3;3;1;0
+8;A1_PP_4.7;5;3;260 +0050;260264;PP 2;PP 2;PP;PICF (Cadre Fermé);Béton armé;;1;1;0;2.4;43.86;43.86;2;11
+9;A1_PP_6.9;5;3;257 +0902;258078;PP 3;PP 3;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;43.55;43.55;2;9
+10;A1_PAS_6.9;5;3;257 +0900;258076;PAS2;PAS2;PAS;;;;0;0;0;0;0;NON;2;6
+11;A1_PS_8.5;5;3;256 +0226;256442;PS 2;PS 2;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.75;10;10;2;25
+12;A1_PP_9.5;5;3;255 +0268;255476;PP 4;PP 4;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;42.28;42.28;2;22
+13;A1_PV_11.6;5;3;253 +0107;253336;PV 2;PV 2;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;44.05;44.05;2;6
+14;A1_PP_12.8;5;3;252 +0002;252213;PP 5;PP 5;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;43.84;43.84;1;3
+15;A1_PS_15.3;5;3;249 +0471;249636;PS 3;PS 3;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.75;10;10;2;38
+16;A1_PV_18.6;5;3;246 +0181;246380;PV 3;PV 3;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.91;43.91;2;17
+17;A1_PV_19.5;5;3;245 +0248;245443;PV 4;PV 4;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.99;43.99;1;3
+18;A1_PP_20.7;5;3;244 +0039;244235;PP 6;PP 6;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;46.92;46.92;2;9
+19;A1_PV_22.9;5;3;241 +0879;242087;PV 5;PV 5;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.61;43.61;2;12
+20;A1_PP_24.0;5;3;240 +0739;240933;PP 7;PP 7;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;44.3;44.3;1;19
+21;A1_PV_25.1;5;3;239 +0667;239828;PV 6;PV 6;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.67;43.67;2;6
+22;A1_PS_28.7;5;3;236 +0094;236215;PS4;PS4;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;60.2;10;10;2 S;46
+23;A1_PV_31.5;5;3;233 +0334;233462;PV 8;PV 7;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.72;43.72;2;14
+24;A1_PS_33.0;5;3;231 +0741;231897;PS 5;PS 5 ;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;1;4;0;66.75;10;10;2;23
+25;A1_PV_34.6;5;3;230 +0060;230291;PV 9;PV 8;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;43.46;43.46;2;22
+26;A1_PV_35.7;5;3;229 +0072;229248;PV 11;PV 9;PV;PICF (Cadre Fermé);Béton armé;;1;1;4.5;5.14;43.84;43.84;2;22
+27;A1_PAS_36.0;5;3;228 +0786;228934;PASSERELLE AU NIVEAU DU PV 11;PAS 3;PAS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44;3;3;2;6
+28;A1_PV_39.3;5;3;225 +0410;225555;PV 12;PV 10;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;44.12;44.12;1;11
+29;A1_PS_40.6;5;3;224 +0158;224297;PS 6;PS 6;PS;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;4;0;66.22;10;10;2 S;76
+30;A1_PI_41.3;5;3;223 +0434;223580;PI1;PI1;PI;;;;0;0;0;0;0;NON;2 S;38
+31;A1_PV_41.1;5;3;222 +0756;222893;PV 1;PV 11;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.07;36.07;2 S;35
+32;A1_PV_43.5;5;3;221 +0325;221422;PV 2;PV 12;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.16;36.16;2;3
+33;A1_PV_45.2;5;3;219 +0598;219710;PV  3;PV 13;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.16;36.16;2 S;27
+34;A1_VIA_45.5;5;3;219 +0250;219362;Pont sur l''oued Sebou;Pont sur l''oued Sebou;VIA;VIPP;Béton armé;;2;6;0;216.25;35.44;35.44;2 S;55.8
+35;A1_PV_46.5;5;3;218 +0182;218307;PV 4;PV 14;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.07;36.07;2 S;35
+36;A1_PV_49.1;5;3;215 +0636;215789;PV 5;PV 15;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.07;36.07;2;11
+37;A1_PS_50.0;5;3;214 +0774;214899;PS7;PS7;PS;;;;0;0;0;0;0;NON;2;36
+38;A1_PV_50.3;5;3;214 +0492;214617;PV 6;PV 16;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.07;36.07;2;11
+39;A1_PAS_51.0;5;3;213 +0776;213873;PASSERELLE AU NIVEAU DU PP 1;PAS 4;PAS;PIPBA PSPBA (Poutres BA);Béton armé;;1;2;0;44;3;3;2 S;27
+40;A1_PP_51.0;5;3;213 +0747;213844;PP 1;PP 8;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;36.16;36.16;2;25
+41;A1_VIA_52.0;5;3;212 +0733;212833;Pont sur le canal Boufakroune;Pont sur le canal Boufakroune;VIA;Viaduc à poutres BA;Béton armé;;2;1;0;25.9;35.44;35.44;2 S;60
+42;A1_PV_52.1;5;3;212 +0623;212723;PV 6 bis;PV 17;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;36.1;36.1;2;9
+43;A1_PAS_53.6;5;3;211 +0138;211228;PAS5;PAS5;PAS;;;;0;0;0;0;0;NON;2 S;27
+44;A1_PP_53.7;5;3;211 +0036;211126;PP 2;PP 9;PP;PICF (Cadre Fermé);Béton armé;;1;1;2.5;2.4;36.1;36.1;1;8
+45;A1_PI_55.0;5;3;209 +0759;209826;PI de la RS 206;PI 2;PI;PIBA PSBA (Dalle Béton Armé);Béton armé;;2;1;0;13.76;12.5;12.5;2 S;66
+46;A1_PV_56.6;5;3;208 +0196;208260;PV 7;PV 18;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.53;35.53;2;14
+47;A1_PV_57.6;5;3;207 +0129;207202;PV 8;PV 19;PV;PICF (Cadre Fermé);Béton armé;;1;1;3.5;4.08;35.53;35.53;2;6

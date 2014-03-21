@@ -1,0 +1,11 @@
+VOIE;POSIT;LIBELLE;ROULABLE
+VM;50;Voie médiane;OUI
+VL;30;Voie lente;OUI
+VR;70;Voie rapide;OUI
+VA;6;Voie d''accélération;OUI
+VD;5;Voie de décélération;OUI
+BAU;1;Bande Arrêt Urgence;NON
+VS;20;Voie Poids Lourd;OUI
+BDG;90;Bande dérasé de gauche;NON
+EEI;80;Elargissement Intétrieur;OUI
+EE;10;Elargissement Extérieur;OUI

@@ -1,0 +1,472 @@
+DSC_OA__NUM_OA;CAMP_OA__ID_CAMP;GRP_OA__ID_GRP;PRT_OA__ID_PRT;SPRT_OA__ID_SPRT;ELT_OA__ID_ELEM;INDICE;OBS
+PS 577;OA neufs;2;201;2013;20139;1;RAS
+PS 577;OA neufs;2;203;2032;20320;1;RAS
+PS 577;OA neufs;2;203;2032;20321;1;RAS
+PS 577;OA neufs;3;301;3011;30110;1;RAS
+PS 577;OA neufs;3;301;3011;30112;1;RAS
+PS 577;OA neufs;3;301;3011;30113;1;RAS
+PS 577;OA neufs;3;313;3131;31310;1;RAS
+PI 737;OA neufs;1;101;1016;10169;2;C0, culée sud les appariel d''appuis sont positionnés au bord des bossages
+PI 737;OA neufs;1;101;1016;10168;1;C0, petit décollement ponctuels de certains appuis.
+PI 737;OA neufs;1;101;1018;10180;1;C3, localement l''eau de la chaussée ruissele sur le mur garde-grève.
+PI 737;OA neufs;1;101;1018;10184;0;Note 2 : C0, présence d''aciers coupés à la surface du sommier. Ces aciers de construction sont oxydés.¤r¤n¤C3, présence de tubes en acier coupés à la surface du sommier. ces tubes sont oxydés.
+PI 737;OA neufs;1;102;1022;10220;1;P2 sud , face C3, présence d''un eclat de béton en place¤r¤n¤P2 nord, face P1, eclat de béton en pied de voile sans acier apparent.
+PI 737;OA neufs;1;102;1022;10221;1;Fissures retombantes d''ouverture 0.1 mm sur les chevêtres de P1 et p2
+PI 737;OA neufs;1;102;1022;10224;0;Note 1 : Présence des tubes de fixation des gardes corps de chantier à la cîme des piles.
+PI 737;OA neufs;1;102;1024;10241;1;P1 et P2, les appareils d''appuis en place sont légérement boudinés, fonctionnement normal. 
+PI 737;OA neufs;1;102;1024;10248;1;P1 sud, deux appuis légérement décollés en angle (2 mm maxi sur 10 cm² maxi).¤r¤n¤P2 nord, deux appuis légérement décollés en angle (2 mm maxi sur 10 cm² maxi).
+PI 737;OA neufs;1;102;1024;10249;1;P2 nord cheminement de certains appuis, ils sont positionné au bord des bossages.
+PI 737;OA neufs;1;102;1026;10263;1;P1 et P2, quelques fissures retombantes d''ouverture maxiimum 0.1 mm
+PI 737;OA neufs;2;204;2042;20424;1;Dégradations de la protection anticorrosion par décollment des feuilles de peinture, apparition de piqures de rouille localisé sans réduction des sections.
+PI 737;OA neufs;2;204;2042;20421;1;Dégradations de la protection anticorrosion par décollment des feuilles de peinture,  les zones concernées par ces défauts sont les extrémités des poutres sur les culées et les joints sur les piles.
+PI 737;OA neufs;2;204;2044;20444;0;Commentaire : il s''agit d''un coffrage perdu
+PI 737;OA neufs;3;311;3113;31135;0;Note 1 : Quelques fissures, d''ouverture maxi 0.2 millimètre sur les éléments préfabriqués du mur de soutenement.
+PI 737;OA neufs;3;304;3041;30410;1;RAS
+PI 737;OA neufs;3;304;3041;30411;1;RAS
+PI 737;OA neufs;3;304;3041;30412;1;RAS
+PI 737;OA neufs;3;304;3041;30413;1;RAS
+PI 737;OA neufs;3;304;3041;30414;1;RAS
+PI 737;OA neufs;3;304;3041;30415;1;RAS
+PI 737;OA neufs;3;305;3050;30500;1;RAS
+PI 737;OA neufs;3;305;3050;30501;1;RAS
+PI 737;OA neufs;3;305;3050;30504;1;RAS
+PI 737;OA neufs;3;305;3050;30505;1;RAS
+PI 737;OA neufs;3;305;3050;30506;1;RAS
+PI 737;OA neufs;3;305;3050;30508;1;RAS
+PI 737;OA neufs;3;305;3050;30509;1;RAS
+PI 737;OA neufs;3;308;3080;30800;1;RAS
+PI 737;OA neufs;3;308;3080;30801;1;RAS
+PI 737;OA neufs;3;308;3080;30802;1;RAS
+PI 737;OA neufs;3;308;3080;30803;1;RAS
+PI 737;OA neufs;3;308;3080;30804;1;RAS
+PI 737;OA neufs;3;308;3080;30805;1;RAS
+PI 737;OA neufs;3;308;3080;30806;1;RAS
+PI 737;OA neufs;3;308;3080;30807;1;RAS
+PI 737;OA neufs;3;308;3080;30808;1;RAS
+PI 737;OA neufs;3;308;3080;30809;1;RAS
+PI 737;OA neufs;3;311;3113;31130;1;RAS
+PI 737;OA neufs;3;311;3113;31131;1;RAS
+PI 737;OA neufs;3;311;3113;31133;1;RAS
+PI 737;OA neufs;3;311;3113;31132;0;Note 1 : RAS
+PI 737;OA neufs;3;305;3050;30502;1;RAS
+PI 737;OA neufs;3;305;3050;30503;1;RAS
+OH  411a;OA - OH 2;2;201;2011;20110;2;Traces d''écoulement non actives:¤r¤n¤- 1er partie d''ouvrage par trous de coffrage¤r¤n¤- 2eme partie d''ouvrage par une fissure créée entre 2 strates de bétonnage, et par trous de coffrage.   
+OH  411a;OA - OH 2;2;201;2011;20112;2;fissures horizontale et verticales dans le mur de fermeture entre la 3eme et la 4eme partie 
+OH  411a;OA - OH 2;2;201;2011;20115;2;Végétation luxuriante.
+OH  411a;OA - OH 2;2;201;2013;20130;1;RAS
+OH  411a;OA - OH 2;2;201;2012;20120;1;RAS
+OH  411a;OA - OH 2;2;201;2015;20150;1;RAS
+OH  411a;OA - OH 2;1;101;1011;10110;0;
+OH  411a;OA - OH 2;3;301;3011;30110;0;
+OH  411a;OA - OH 2;1;102;1021;10210;0;
+OH  411a;OA - OH 2;1;102;1021;10211;0;
+OH  411a;OA - OH 2;2;207;2071;20710;1;RAS
+OH  411a;OA - OH 2;2;207;2072;20720;1;RAS
+OH  411a;OA - OH 2;2;207;2072;20721;1;RAS
+OH  411b;OA - OH 2;2;201;2013;20130;1;Fissure sur le tympan.
+OH  411b;OA - OH 2;2;201;2011;20115;2;Fracture du mur en retour coté nord
+OH  411b;OA - OH 2;2;201;2011;20114;2;Décollement de la jonction entre l''ouvrage existant et l''élargissement
+OH  411b;OA - OH 2;2;201;2011;20113;2;En about du piedroit coté sud.¤r¤n¤En about du chevêtre central coté ouvrage existant.
+OH  411b;OA - OH 2;1;101;1011;10110;0;
+OH  411b;OA - OH 2;3;301;3011;30110;0;
+OH  411b;OA - OH 2;1;102;1021;10210;0;
+OH  411b;OA - OH 2;1;102;1021;10211;0;
+OH  411b;OA - OH 2;1;102;1021;10212;0;
+OH 1154b;OA - OH 2;1;101;1011;10110;0;
+OH 1154b;OA - OH 2;2;206;2061;20610;1;Fissures sur les rampants des murs en retour.
+OH 1154b;OA - OH 2;2;206;2061;20611;1;Fissures avec présence de calcite sur la partie haute des murs en retours sens 2
+OH 1154b;OA - OH 2;2;206;2061;20614;2;Fissure sur le tympan de l''ouvrage en sens 1
+OH 1154b;OA - OH 2;2;206;2063;20639;1;Trace d''écoulement par un trou de coffrage ragréé.
+OH 1154b;OA - OH 2;2;206;2065;20652;1;RAS
+OH 1154b;OA - OH 2;3;301;3011;30110;0;
+OH 1154b;OA - OH 2;2;207;2071;20710;1;RAS
+OH 1154b;OA - OH 2;2;207;2072;20721;1;RAS à l''amont ¤r¤n¤Développement de la végétation à surveiller à l''aval.¤r¤n¤
+OH 1154b;OA - OH 2;2;207;2072;20720;1;RAS
+OH  383;OA - OH 1;2;206;2061;20612;2;Décollement existant sans incidence sur la pérénité de la buse.
+OH  383;OA - OH 1;2;206;2061;20614;2;Fissures sans incidence sur le maintien des perrès.
+OH  383;OA - OH 1;2;206;2063;20630;1;RAS¤r¤n¤
+OH  383;OA - OH 1;2;206;2063;20631;1;RAS
+OH  383;OA - OH 1;2;206;2063;20632;1;RAS
+OH  383;OA - OH 1;2;206;2063;20633;1;RAS
+OH  383;OA - OH 1;2;206;2063;20634;1;RAS
+OH  383;OA - OH 1;2;206;2063;20635;1;RAS
+OH  383;OA - OH 1;2;206;2063;20636;1;RAS
+OH  383;OA - OH 1;2;206;2063;20637;1;RAS
+OH  383;OA - OH 1;2;206;2063;20638;1;RAS
+OH  383;OA - OH 1;2;206;2065;20652;2;Les récents dépots alluvionnaires bloquent l''écoulement de l''eau en sens 1
+OH  383;OA - OH 1;1;101;1011;10110;0;
+OH  383;OA - OH 1;3;301;3011;30110;0;
+OH  383;OA - OH 1;2;207;2071;20710;2;Dépôt de matériaux génant l''écoulement lors de crue de la Leyre.
+OH  356;OA - OH 1;2;201;2011;20110;2;4 traces d''écoulement par trous de coffrage
+OH  356;OA - OH 1;2;201;2011;20113;2;1 fer apparent sur mur axial
+OH  356;OA - OH 1;2;201;2011;20114;2;Décollement du béton de ragréage sur partie supérieure du mur en retour en sens 1
+OH  356;OA - OH 1;2;201;2011;20115;2;Drains des murs en retour envasés
+OH  356;OA - OH 1;2;201;2012;20120;1;RAS
+OH  919b;OA - OH 1;2;201;2011;20113;1;
+OH  919b;OA - OH 1;2;201;2011;20114;2;Décollement du béton de l''ouvrage de tête à sa liaison avec les piedroits.
+OH  919b;OA - OH 1;2;201;2011;20115;1;Ouvrage de raccordement avec l''ouvrage maçonné:¤r¤n¤-Présence de morceau de bois dans le béton.¤r¤n¤-ouverture du joint entre les deux parties d''ouvrage
+OH  919b;OA - OH 1;2;201;2013;20130;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20131;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20132;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20133;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20134;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20135;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20136;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20137;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20138;1;RAS
+OH  919b;OA - OH 1;2;201;2013;20139;1;RAS
+OH  919b;OA - OH 1;2;201;2015;20150;1;RAS
+OH  919b;OA - OH 1;2;201;2015;20151;1;RAS
+OH  919b;OA - OH 1;2;207;2071;20710;1;RAS
+OH  919b;OA - OH 1;2;207;2071;20711;1;RAS
+OH  919b;OA - OH 1;2;207;2072;20720;1;RAS
+OH  919b;OA - OH 1;2;207;2072;20721;1;RAS
+OH  919b;OA - OH 1;2;207;2072;20722;1;RAS
+OH  919b;OA - OH 1;2;207;2072;20723;1;RAS
+OH  919b;OA - OH 1;1;101;1011;10110;0;
+OH  919b;OA - OH 1;3;301;3011;30110;0;
+OH  941;OA - OH 1;1;101;1011;10110;0;
+OH  941;OA - OH 1;2;201;2011;20110;3;Plusieurs fissures d''ouvertures variables laissent passer des fines. Certaines d''entre elles ont déjà fait l''objet de réparation.
+OH  941;OA - OH 1;2;201;2011;20111;2;Présence de fissure dont l''ouverture varie de 0.2 à 1.1 mm
+OH  941;OA - OH 1;2;201;2011;20112;1;RAS
+OH  941;OA - OH 1;2;201;2011;20113;2;Zone avec aciers apparents
+OH  941;OA - OH 1;2;201;2011;20114;2;Couvertine (ragréage) du mur en retour coté Nord Est décollée.
+OH  941;OA - OH 1;2;201;2011;20115;2;Ouverture des joints de construction qui avaient été repris. Ces ouvertures vont jusqu''à plusieurs cm.
+OH  941;OA - OH 1;2;201;2012;20120;1;RAS
+OH  941;OA - OH 1;2;201;2012;20121;1;RAS
+OH  941;OA - OH 1;2;201;2012;20122;1;RAS
+OH  941;OA - OH 1;2;201;2013;20131;3;Hormis les ouvertures correspondantes aux joints de construction, présence de quelques fissures transversales avec calcite.
+OH  941;OA - OH 1;2;201;2013;20132;1;RAS
+OH  941;OA - OH 1;2;201;2013;20133;1;RAS
+OH  941;OA - OH 1;2;201;2013;20134;1;Voir point précédent ''''fissures transversales''''
+OH  941;OA - OH 1;2;201;2013;20135;1;Voir point précédent ''''fissures transversales''''
+OH  941;OA - OH 1;2;201;2013;20136;1;RAS
+OH  941;OA - OH 1;2;201;2013;20137;1;RAS
+OH  941;OA - OH 1;2;201;2013;20138;1;RAS
+OH  941;OA - OH 1;2;201;2013;20139;1;RAS
+OH  941;OA - OH 1;2;201;2013;20130;1;RAS
+OH  941;OA - OH 1;2;201;2015;20150;1;RAS
+OH  941;OA - OH 1;2;201;2015;20151;1;RAS
+OH  941;OA - OH 1;2;207;2071;20710;1;
+OH  941;OA - OH 1;2;207;2071;20711;1;
+OH  941;OA - OH 1;2;207;2072;20720;1;
+OH  941;OA - OH 1;2;207;2072;20721;1;
+OH  941;OA - OH 1;2;207;2072;20722;1;
+OH  941;OA - OH 1;2;207;2072;20723;1;
+OH  941;OA - OH 1;3;301;3011;30110;0;
+OH  952;OA - OH 1;2;201;2011;20110;3;Ecoulement à travers des fissures et joints secs de construction avec entrainement de fines.¤r¤n¤
+OH  952;OA - OH 1;2;201;2011;20111;3;De nombreuses fissures verticales de 0.3 mm à 2.3 mm
+OH  952;OA - OH 1;2;201;2011;20112;1;RAS
+OH  952;OA - OH 1;2;201;2011;20113;2;Deux épaufrures avec acier apparent
+OH  952;OA - OH 1;2;201;2011;20115;2;Ouverture des joints secs de construction
+OH  952;OA - OH 1;2;201;2012;20120;1;RAS 
+OH  952;OA - OH 1;2;201;2012;20121;1;RAS
+OH  952;OA - OH 1;2;201;2012;20122;1;RAS
+OH  952;OA - OH 1;2;201;2013;20130;1;RAS
+OH  952;OA - OH 1;2;201;2013;20131;3;Nombreuse fissures transversales avec efflorescences, calcite, stalagtites et écoulements
+OH  952;OA - OH 1;2;201;2013;20139;2;Deux aciers apparents
+OH  952;OA - OH 1;2;201;2013;20134;2;Voir point précédent ''''fissures transversales''''
+OH  952;OA - OH 1;2;201;2013;20135;3;Voir point précédent ''''fissures transversales''''
+OH  952;OA - OH 1;2;201;2013;20138;1;RAS
+OH  952;OA - OH 1;2;201;2013;20137;1;Quelques défauts de bétonnage sur le piedroit central
+OH  952;OA - OH 1;2;201;2013;20136;1;RAS
+OH  952;OA - OH 1;2;201;2013;20133;1;RAS
+OH  952;OA - OH 1;2;201;2013;20132;1;RAS
+OH  952;OA - OH 1;2;201;2011;20114;1;RAS
+OH  952;OA - OH 1;2;201;2015;20150;1;RAS
+OH  952;OA - OH 1;2;207;2071;20710;2;En amont coté Est le ruisseau est encombré.¤r¤n¤En aval RAS
+OH  952;OA - OH 1;2;207;2071;20711;1;RAS
+OH  952;OA - OH 1;1;101;1011;10110;0;
+OH  952;OA - OH 1;3;301;3011;30110;0;
+OH 1062a;OA - OH 1;2;206;2061;20610;3;Végétation envahissante sur ouvrage de tête
+OH 1062a;OA - OH 1;2;206;2061;20611;1;Disjointement de l''appareil maçonné et décollement des joints.
+OH 1062a;OA - OH 1;2;206;2061;20612;2;Décollement entre le bandeau et le tympan .
+OH 1062a;OA - OH 1;2;206;2061;20613;1;RAS
+OH 1062a;OA - OH 1;2;206;2061;20614;1;RAS
+OH 1062a;OA - OH 1;2;206;2063;20639;2;Arrivées d''eau par jointements détériorés
+OH 1062a;OA - OH 1;2;206;2065;20650;1;RAS
+OH 1062a;OA - OH 1;2;206;2065;20651;1;RAS
+OH 1062a;OA - OH 1;2;206;2065;20652;1;RAS
+OH 1062a;OA - OH 1;2;207;2071;20710;1;RAS
+OH 1062a;OA - OH 1;2;207;2071;20711;1;RAS
+OH 1062a;OA - OH 1;1;101;1011;10110;0;
+OH 1062a;OA - OH 1;3;301;3011;30110;0;
+OH 1166;OA - OH 1;2;206;2061;20610;1;RAS
+OH 1166;OA - OH 1;2;206;2061;20611;1;RAS
+OH 1166;OA - OH 1;2;206;2061;20612;1;RAS
+OH 1166;OA - OH 1;2;206;2061;20613;1;RAS
+OH 1166;OA - OH 1;2;206;2061;20614;1;RAS
+OH 1166;OA - OH 1;2;206;2063;20639;2;Efflorescences avec venues d''eau avec entrainement de fine sur un joint sec de construction et par une fissure à l''axe du 3eme élément à partir de l''amont.
+OH 1166;OA - OH 1;2;206;2065;20652;1;Dépot de sable sur le radier
+OH 1166;OA - OH 1;2;206;2065;20650;1;RAS
+OH 1166;OA - OH 1;2;206;2065;20651;1;RAS
+OH 1166;OA - OH 1;2;207;2071;20710;1;RAS
+OH 1166;OA - OH 1;2;207;2071;20711;1;RAS
+OH 1166;OA - OH 1;2;207;2072;20721;2;Présence de végétation à l''amont de l''OH¤r¤n¤Quelques embacles à l''aval.
+OH 1166;OA - OH 1;2;207;2072;20720;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20138;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20139;1;RAS
+OH 1295;OA - OH 1;2;201;2015;20150;1;RAS
+OH 1295;OA - OH 1;2;207;2071;20710;1;RAS
+OH 1295;OA - OH 1;2;207;2071;20711;1;RAS
+OH 1295;OA - OH 1;2;207;2072;20720;1;RAS
+OH 1295;OA - OH 1;2;207;2072;20721;1;RAS
+OH 1295;OA - OH 1;2;207;2072;20722;1;RAS
+OH 1295;OA - OH 1;2;207;2072;20723;1;RAS
+OH 1295;OA - OH 1;1;101;1011;10110;0;
+OH 1295;OA - OH 1;3;301;3011;30110;0;
+OH 1300;OA - OH 1;2;201;2011;20110;1;RAS
+OH 1300;OA - OH 1;2;201;2011;20111;1;Ouverture des joints secs de construction normale
+OH 1300;OA - OH 1;2;201;2011;20112;1;RAS
+OH 1300;OA - OH 1;2;201;2011;20113;2;Un acier apparent aval Nord
+OH 1300;OA - OH 1;2;201;2011;20114;1;RAS
+OH 1300;OA - OH 1;2;201;2012;20120;1;RAS
+OH 1300;OA - OH 1;2;201;2012;20121;1;RAS
+OH 1300;OA - OH 1;2;201;2012;20122;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20135;2;Joint sec de construction avec trace d''humidité
+OH 1300;OA - OH 1;2;201;2013;20131;1;Ouverture des joints secs de construction normale
+OH 1300;OA - OH 1;2;201;2013;20130;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20132;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20133;1;RAS
+OH  383;OA - OH 1;2;206;2061;20610;2;Présence de végétation sur les perrés demandant entretien.
+OH 1166;OA - OH 1;2;207;2072;20722;1;RAS
+OH 1166;OA - OH 1;1;101;1011;10110;0;
+OH 1166;OA - OH 1;3;301;3011;30110;0;
+OH 1294;OA - OH 1;2;201;2011;20110;3;Ecoulement avec entrainement de fine au niveau  des joints secs de construction.
+OH 1294;OA - OH 1;2;201;2011;20111;1;RAS
+OH 1294;OA - OH 1;2;201;2011;20112;1;RAS
+OH 1294;OA - OH 1;2;201;2011;20113;1;Epaufrure à la jonction piedroit/mur en retour aval Nord.
+OH 1294;OA - OH 1;2;201;2011;20114;1;RAS
+OH 1294;OA - OH 1;2;201;2012;20120;1;RAS
+OH 1294;OA - OH 1;2;201;2012;20121;1;RAS
+OH 1294;OA - OH 1;2;201;2012;20122;1;RAS
+OH 1294;OA - OH 1;2;201;2013;20131;3;Ouverture des joints secs de construction avec écoulement.¤r¤n¤Décalage en niveau des éléments.
+OH 1294;OA - OH 1;2;201;2013;20130;1;Micro fissure avec trace d''humidité à la jonction piédroit traverse.
+OH 1294;OA - OH 1;2;201;2013;20132;1;RAS
+OH 1294;OA - OH 1;2;201;2013;20133;1;RAS
+OH 1294;OA - OH 1;2;201;2013;20134;1;Voir point précédent ''''fissures transversales''''
+OH 1294;OA - OH 1;2;201;2013;20135;1;Voir point précédent ''''fissures transversales''''
+OH 1294;OA - OH 1;2;201;2013;20136;1;RAS
+OH 1294;OA - OH 1;2;201;2013;20137;1;RAS
+OH 1294;OA - OH 1;2;201;2013;20138;1;RAS
+OH 1294;OA - OH 1;2;201;2013;20139;1;RAS
+OH 1294;OA - OH 1;2;207;2071;20710;1;Végétation abondante à l''aval de l''ouvrage
+OH 1294;OA - OH 1;2;207;2071;20711;1;hauteur de crue visible sur piedroit.
+OH 1294;OA - OH 1;1;101;1011;10110;0;
+OH 1294;OA - OH 1;3;301;3011;30110;0;
+OH 1295;OA - OH 1;2;201;2011;20110;1;RAS
+OH 1295;OA - OH 1;2;201;2011;20111;1;Présence de quelques micro-fissures de retrait.
+OH 1295;OA - OH 1;2;201;2011;20112;1;RAS
+OH 1295;OA - OH 1;2;201;2011;20113;1;RAS
+OH 1295;OA - OH 1;2;201;2011;20114;1;RAS
+OH 1295;OA - OH 1;2;201;2012;20120;1;RAS
+OH 1295;OA - OH 1;2;201;2012;20121;1;RAS
+OH 1295;OA - OH 1;2;201;2012;20122;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20130;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20131;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20132;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20133;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20134;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20135;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20136;1;RAS
+OH 1295;OA - OH 1;2;201;2013;20137;1;RAS
+PI 737;OA neufs;3;302;3021;30210;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30211;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30212;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30213;0;Sans objet
+PI 737;OA neufs;3;302;3021;30214;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30215;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30216;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30217;1;Corniche Métal : RAS
+PI 737;OA neufs;3;302;3021;30218;1;Corniche Métal : RAS
+PI 737;OA neufs;2;204;2042;20422;1;RAS
+PI 737;OA neufs;2;204;2042;20423;1;RAS
+PI 737;OA neufs;2;204;2042;20425;1;RAS
+PI 737;OA neufs;2;204;2042;20426;1;RAS
+PI 737;OA neufs;2;204;2042;20427;0;Note 1 : RAS
+PI 737;OA neufs;2;204;2044;20440;1;RAS
+PI 737;OA neufs;2;204;2044;20441;1;RAS
+PI 737;OA neufs;2;204;2044;20442;1;RAS
+PI 737;OA neufs;2;204;2044;20443;1;RAS
+PI 737;OA neufs;1;101;1016;10160;1;RAS
+PI 737;OA neufs;1;101;1016;10161;1;RAS
+PI 737;OA neufs;1;101;1016;10162;1;RAS
+PI 737;OA neufs;1;101;1016;10163;1;RAS
+PI 737;OA neufs;1;101;1016;10164;1;RAS
+PI 737;OA neufs;1;101;1016;10165;1;RAS
+PI 737;OA neufs;1;101;1016;10166;1;RAS
+PI 737;OA neufs;1;101;1016;10167;1;RAS
+PI 737;OA neufs;1;101;1018;10181;1;RAS
+PI 737;OA neufs;1;101;1018;10182;1;RAS
+PI 737;OA neufs;1;101;1018;10183;1;RAS
+PI 737;OA neufs;1;102;1022;10222;1;RAS
+PI 737;OA neufs;1;102;1022;10223;1;RAS
+PI 737;OA neufs;1;102;1024;10240;1;RAS
+PI 737;OA neufs;1;102;1024;10242;1;RAS
+PI 737;OA neufs;1;102;1024;10243;1;RAS
+PI 737;OA neufs;1;102;1024;10244;1;RAS
+PI 737;OA neufs;1;102;1024;10245;1;RAS
+PI 737;OA neufs;1;102;1024;10246;1;RAS
+PI 737;OA neufs;1;102;1024;10247;1;RAS
+PI 737;OA neufs;1;102;1026;10260;1;RAS
+PI 737;OA neufs;1;102;1026;10261;1;RAS
+PI 737;OA neufs;1;102;1026;10262;1;RAS
+PS 577;OA neufs;1;101;1016;10168;3;P1, appuis Na3 décollemnt de 0.2 cm en bas et 0.5 cm en haut.¤r¤n¤RAS sur P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10160;1;P3, appuis non visibles , chaussée de l''autoroute en circulation.¤r¤n¤RAS sur P1 et P2
+PI 737;OA neufs;3;311;3113;31134;1;RAS
+PI 737;OA neufs;3;305;3050;30507;0;Note 1 : RAS
+PS 577;OA neufs;1;102;1024;10245;1;Fissure de 0,3 mm dans l''angle du second bossage sud
+PS 577;OA neufs;2;201;2011;20112;1;P1, fissures horizontalezs à mi-hauteur d''ouverture maxi 0.2 mm.¤r¤n¤P3, 2 fisures horozontales de longueurs décimétriques discontinues.
+PS 577;OA neufs;2;201;2011;20113;1;P3, éclat de béton en place.
+PS 577;OA neufs;2;201;2013;20130;1;Pour les deux traverses, quelques fisures avec locvalement calcite seche, 0.2 mm d''ouverture maximale.
+PS 577;OA neufs;3;301;3011;30111;1;M1 , présence d''une fissure d''ouverture 0.2mm remontante en diagonale.¤r¤n¤M3, présence d''une fissure d''ouverture 0.2mm remontante.
+PS 577;OA neufs;3;313;3131;31311;0;Note 2 : 4 fissures  d''ouverture 0.3 m maxi sur la longrine nord.¤r¤n¤Les tubes de fixation des garde-corps de chantier n''ont pas été enlevés et n''ont pas été rebouchés.
+PS 577;OA neufs;2;201;2013;20131;1;Pour les deux traverses, quelques fisures partant des goussets avec calcite seche, 0.2 mm d''ouverture maximale.
+PS 577;OA neufs;2;201;2013;20134;1;Calcite seche sur les fisures des goussets
+PS 577;OA neufs;2;201;2012;20121;1;Quelques fisures d''ouverture maxi 0.2 mm avec calcite seche
+PS 577;OA neufs;2;201;2012;20122;1;calcite seche sur les fissures
+PS 577;OA neufs;2;201;2011;20111;1;C0, 4 fissures remontantes, d''ouverture maxi 0.2 mm.¤r¤n¤P1, 2 fissures remontantes ouverture maxi 0.2 mm.¤r¤n¤C4, 4 fissures verticales remontante d''ouverture maxi 0.2 mm.¤r¤n¤P3, 2 fissures remontantes ouverture maxi 0.2 mm.
+PS 577;OA neufs;2;203;2032;20322;0;Note 1 : trace de calcite déposé lors du stockage des poutres
+PS 577;OA neufs;1;101;1012;10121;1;P1, 2 fissures verticales ouverture maxi 0.2mm.¤r¤n¤P1, 5 fissures horizontales en partie base , ouverture 0.2 mm maxi, longueur décimétrique concentrées sur les cotés de la pile.¤r¤n¤
+OH 1300;OA - OH 1;2;201;2013;20136;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20137;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20138;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20139;1;RAS
+OH 1300;OA - OH 1;2;201;2015;20150;1;RAS
+OH 1300;OA - OH 1;2;207;2071;20710;1;RAS
+OH 1300;OA - OH 1;2;207;2071;20711;1;RAS
+OH 1300;OA - OH 1;2;207;2072;20720;1;RAS
+OH 1300;OA - OH 1;2;207;2072;20721;1;RAS
+OH 1300;OA - OH 1;2;207;2072;20722;1;RAS
+OH 1300;OA - OH 1;2;207;2072;20723;1;RAS
+OH 1300;OA - OH 1;1;101;1011;10110;0;
+OH 1300;OA - OH 1;3;301;3011;30110;0;
+OH 411b;OA - OH 2;2;201;2013;20130;1;Fissure sur le tympan.
+OH 411b;OA - OH 2;2;201;2011;20115;2;Fracture du mur en retour coté nord
+OH 411b;OA - OH 2;2;201;2011;20114;2;Décollement de la jonction entre l''ouvrage existant et l''élargissement
+OH 411b;OA - OH 2;2;201;2011;20113;2;En about du piedroit coté sud.¤r¤n¤En about du chevêtre central coté ouvrage existant.
+OH 411b;OA - OH 2;1;101;1011;10110;0;
+OH 411b;OA - OH 2;3;301;3011;30110;0;
+OH 411b;OA - OH 2;1;102;1021;10210;0;
+OH 411b;OA - OH 2;1;102;1021;10211;0;
+OH 411b;OA - OH 2;1;102;1021;10212;0;
+PS 577;OA neufs;1;101;1012;10123;2;P1 tête d''acier à la surface de la pile côté nord, aciers de montage.
+PS 577;OA neufs;1;101;1016;10166;3;P1, appuis Na3 décollemnt de 0.2 cm en bas et 0.5 cm en haut.¤r¤n¤RAS sur P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1018;10181;2;P1, dépot de matéraiux divers sur la tête de pile, l''asssianissement est contrarié.
+PS 577;OA neufs;1;101;1018;10180;2;P1 , mauvais écoulement
+PS 577;OA neufs;1;101;1012;10120;1;RAS
+PS 577;OA neufs;1;101;1012;10122;1;RAS
+PS 577;OA neufs;1;101;1016;10161;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10162;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10163;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10164;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10165;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10167;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1016;10169;1;RAS sur P1 et P2¤r¤n¤P3 non visité
+PS 577;OA neufs;1;101;1018;10182;1;RAS
+PS 577;OA neufs;1;101;1018;10183;1;RAS
+PS 577;OA neufs;1;102;1024;10240;1;RAS
+PS 577;OA neufs;1;102;1024;10241;1;RAS
+PS 577;OA neufs;1;102;1024;10242;1;RAS
+PS 577;OA neufs;1;102;1024;10243;1;RAS
+PS 577;OA neufs;1;102;1024;10244;1;RAS
+PS 577;OA neufs;2;201;2011;20110;1;RAS
+PS 577;OA neufs;2;201;2011;20114;1;RAS
+PS 577;OA neufs;2;201;2012;20120;1;RAS
+PS 577;OA neufs;2;201;2013;20132;1;RAS
+PS 577;OA neufs;2;201;2013;20133;1;RAS
+PS 577;OA neufs;2;201;2013;20135;1;RAS
+PS 577;OA neufs;2;201;2013;20136;1;RAS
+PS 577;OA neufs;2;201;2013;20137;1;RAS
+PS 577;OA neufs;2;201;2013;20138;1;RAS
+OH  356;OA - OH 1;2;201;2012;20121;1;RAS
+OH  356;OA - OH 1;2;201;2012;20123;2;Points de ragréage décollés
+OH  356;OA - OH 1;2;201;2013;20130;1;RAS¤r¤n¤
+OH  356;OA - OH 1;2;201;2013;20131;1;RAS
+OH  356;OA - OH 1;2;201;2013;20132;1;RAS
+OH  356;OA - OH 1;2;201;2013;20133;1;RAS
+OH  356;OA - OH 1;2;201;2013;20134;1;RAS
+OH  356;OA - OH 1;2;201;2013;20135;1;RAS
+OH  356;OA - OH 1;2;201;2013;20136;1;RAS
+OH  356;OA - OH 1;2;201;2013;20137;1;RAS
+OH  356;OA - OH 1;2;201;2013;20138;1;RAS
+OH  356;OA - OH 1;2;201;2013;20139;1;Aciers apparents sous retombée de corniche¤r¤n¤Acier apparent avec éclat en début de travaerse sens 2
+OH  356;OA - OH 1;2;201;2015;20150;1;RAS
+OH  356;OA - OH 1;2;201;2015;20151;1;Début de végétation envahissante
+OH  356;OA - OH 1;1;101;1011;10110;0;
+OH  356;OA - OH 1;2;207;2071;20710;1;RAS
+OH  356;OA - OH 1;2;207;2072;20721;2;Végétation à l''amont de l''ouvrage pouvant générer des risques vis à vis de l''ouvrage..
+OH  382;OA - OH 1;2;206;2061;20610;1;Présence de mousses.
+OH  382;OA - OH 1;2;206;2061;20611;2;Le béton des perrès est fracturé
+OH  382;OA - OH 1;2;206;2061;20612;1;Léger décollement de la buse du béton du perré
+OH  382;OA - OH 1;2;206;2061;20614;2;Fissures importantes sur les ouvrages de tête, sans conséquence sur la pérénité de l''ouvrage.
+OH  382;OA - OH 1;2;206;2063;20630;2;De l''eau stagne dans la buse
+OH  382;OA - OH 1;2;206;2063;20631;1;Déformation de la tôle en entrée coté Est
+OH  382;OA - OH 1;2;206;2063;20632;1;RAS
+OH  382;OA - OH 1;2;206;2063;20633;1;RAS
+OH  382;OA - OH 1;2;206;2063;20634;1;RAS
+OH  382;OA - OH 1;2;206;2063;20635;1;RAS
+OH  382;OA - OH 1;2;206;2063;20636;1;RAS
+OH  382;OA - OH 1;2;206;2063;20637;2;Corrosion avec perte de matière sur les plaques du radier.¤r¤n¤Voir document en annexe concernant la vérification de la résistance de la buse.
+OH  382;OA - OH 1;2;206;2063;20638;2;Idem point précédent
+OH  382;OA - OH 1;2;206;2065;20651;3;Risque important d''affouillement en tête de buse amont, décollement constaté entre le radier de la buse et le béton de la bêche.
+OH  382;OA - OH 1;1;101;1011;10110;0;
+OH  382;OA - OH 1;1;102;1021;10210;0;
+OH  382;OA - OH 1;3;301;3011;30110;0;
+OH  382;OA - OH 1;2;207;2072;20721;2;
+OH  446;OA - OH 1;2;201;2011;20110;3;Nombreux écoulements à travers fissures et à partir des joints secs.
+OH  446;OA - OH 1;2;201;2011;20111;2;Voir document annexe répertoriant les fissures, éclats et traces sèches.
+OH  446;OA - OH 1;2;201;2011;20112;2;Quelques fissures biaises sur le peidroit au niveau du lanterneau de l''ouvrage 3 coté sud.
+OH  446;OA - OH 1;2;201;2011;20113;1;Début de décollement d''une surface de 0.4 x 0.5 mètre sur le piédroit nord au niveau du lanterneau de l''ouvrage 2.¤r¤n¤Epaufrures entre la jonction du mur en retour amont nord avec le piedroit.¤r¤n¤Eclat sur le piedroit nord cote aval.
+OH  446;OA - OH 1;2;201;2011;20115;3;Décalage des piédroits entre les ouvrages 3 et 4 allant jusqu''à 50 mm en plan et 60 mm en altitude.¤r¤n¤Mur en retour amont coté nord fracturé.¤r¤n¤Défaut de bétonnage du mur en retour aval nord avec écoulement d''eau et fuite de fine.¤r¤n¤Mur aval nord fi
+OH  446;OA - OH 1;2;201;2012;20122;2;Arrivées d''eau au niveau des goussets avec fuite de fine.
+OH  446;OA - OH 1;2;201;2013;20130;1;Présence de quelques micro-fissures  notamment au niveau de l''ouvrage 4 
+OH  446;OA - OH 1;2;201;2013;20131;2;Joint sec de construction comprimé entre les ouvrages 3 et 4 avec décalage en niveau de l''ordre de 60 mm. Cette compression entraine des éclats de béton.¤r¤n¤Ce défaut  déjà été repéré, présence d''un témoin de tassement.
+OH  446;OA - OH 1;2;201;2013;20138;2;Voir point précédent ''''fissures transversales''''.
+OH  446;OA - OH 1;2;201;2013;20135;1;Voir point précédent ''''fissures transversales''''.
+OH  446;OA - OH 1;2;201;2015;20150;1;Présence de végétaux et de banc de sable, sans incidence sur l''écoulement des eaux.
+OH  446;OA - OH 1;2;201;2015;20151;3;3 zones (voir schéma joint) avec des remontées d''eau au niveau des joints de construction. Ces remontées entrainent des fines.¤r¤n¤Entre les ouvrages 3 et 4 cassure trou de 25 cm de diamètre avec remontée importante de fine.
+OH  446;OA - OH 1;2;207;2071;20710;2;Encombrement à l''aval
+OH  446;OA - OH 1;2;207;2072;20720;1;RAS
+OH  446;OA - OH 1;2;207;2072;20721;1;Végétation dans cours d''eau
+OH  446;OA - OH 1;2;207;2072;20722;1;RAS
+OH  446;OA - OH 1;2;207;2072;20723;1;RAS
+OH  446;OA - OH 1;2;201;2012;20120;1;RAS
+OH  446;OA - OH 1;2;201;2012;20121;2;Les fissures des piedroits sont présentes également dans les goussets.
+OH  446;OA - OH 1;2;201;2013;20132;1;RAS
+OH  446;OA - OH 1;2;201;2013;20133;1;RAS
+OH  446;OA - OH 1;2;201;2013;20134;1;RAS
+OH  446;OA - OH 1;2;201;2013;20136;1;RAS
+OH  446;OA - OH 1;2;201;2013;20137;1;RAS
+OH  446;OA - OH 1;2;201;2013;20139;1;RAS
+OH  446;OA - OH 1;2;207;2071;20711;1;Hauteur de crue visible, inférieure à la capacité de l''ouvrage
+OH  446;OA - OH 1;1;101;1011;10110;0;
+OH  446;OA - OH 1;3;301;3011;30110;0;
+OH  495;OA - OH 1;1;101;1011;10110;0;
+OH  495;OA - OH 1;2;201;2011;20110;2;Des traces d''écoulement visible au niveau des joints sec.
+OH  495;OA - OH 1;2;201;2011;20111;2;Présence de quelques fissures verticales 
+OH  495;OA - OH 1;2;201;2011;20112;1;RAS
+OH  495;OA - OH 1;2;201;2011;20113;2;Il est dénombré 6 zones d''épaufrures avec aciers apparents et dont la surface est limitée à 1 mètre carré chacune.
+OH  495;OA - OH 1;2;201;2011;20115;1;Joints d''angle fissurés 
+OH  495;OA - OH 1;2;201;2013;20131;2;Présence de fissure sèche avec calcite.
+OH  495;OA - OH 1;2;201;2013;20134;1;Voir point précédent ''''fissures transversales''''
+OH  495;OA - OH 1;2;201;2013;20137;1;Le long d''un joint sec, présence d''une zone de béton friable dont l''origine est peut-être due à la présence de boue en fond de coffrage.
+OH  495;OA - OH 1;2;201;2013;20139;2;Aciers apparents
+OH  495;OA - OH 1;3;301;3011;30110;0;
+OH  919a;OA - OH 1;2;206;2061;20610;1;RAS
+OH  919a;OA - OH 1;2;206;2061;20611;1;RAS
+OH  919a;OA - OH 1;2;206;2061;20612;1;RAS
+OH  919a;OA - OH 1;2;206;2061;20613;1;RAS
+OH  919a;OA - OH 1;2;206;2061;20614;2;Quelques fissures présentes sur l''ouvrage de tête
+OH  919a;OA - OH 1;2;206;2063;20639;2;De petites stalactites sont présentes au niveau de la clef avec traces de calcite sur la voute et au niveau du raccordement de la voute avec le piedroit.
+OH  919a;OA - OH 1;2;206;2065;20650;1;RAS
+OH 1300;OA - OH 1;2;201;2013;20134;1;RAS
+OH  919a;OA - OH 1;2;206;2065;20651;1;RAS
+OH  919a;OA - OH 1;2;206;2065;20652;1;RAS
+OH  919a;OA - OH 1;2;207;2071;20710;1;RAS
+OH  919a;OA - OH 1;2;207;2071;20711;1;RAS
+OH  919a;OA - OH 1;1;101;1011;10110;0;
+OH  919a;OA - OH 1;3;301;3011;30110;0;
+OH  919b;OA - OH 1;2;201;2011;20110;2;Traces d''écoulement par trous de coffrage à la jonction piedroits-goussets.
+OH  919b;OA - OH 1;2;201;2011;20111;1;Présence de quelques fissures de retrait dans les piedroits.
+OH  919b;OA - OH 1;2;201;2011;20112;1;

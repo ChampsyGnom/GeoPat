@@ -1,0 +1,30 @@
+CD_CHAPITRE_OA__ID_CHAP;ID_LIGNE;LIBELLE;ORDRE_LIGNE
+10;10;Chaussée;1
+10;20;Trottoir;2
+10;30;Bordure;3
+10;40;Caniveau/fil d''eau;4
+10;50;Gargouilles;5
+10;60;Glissières;6
+10;70;Garde-corps;7
+10;80;Joint de chaussée;8
+10;90;Joint de trottoir;9
+10;100;Corniche;10
+20;110;Dalle;1
+20;120;Poutre;2
+20;130;Cadre;3
+20;140;Buse/voûte;4
+30;150;Aile;1
+30;160;Retour;2
+30;170;Tympan;3
+30;180;Perré;4
+40;190;C0 culée;1
+40;200;C0 appareil d''appui;2
+40;210;P1 pile;3
+40;220;P1 appareil d''appui;4
+40;230;P2 pile;5
+40;240;P2 appareil d''appui;6
+40;250;P3 pile;7
+40;260;P3 appareil d''appui;8
+40;270;C4 culée;9
+40;280;C4 appareil d''appui;10
+50;290;Fonctionnement;1

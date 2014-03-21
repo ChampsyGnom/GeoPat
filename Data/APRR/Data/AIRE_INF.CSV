@@ -94,6 +94,81 @@ Sortie;A31;2;215000;A31-2-215.000;Sortie 11;;VIDE;VIDE;VIDE;Espace clients
 Sortie;A6;1;307000;A6-1-307.000;Sortie 24.1;;VIDE;VIDE;VIDE;Relais clients
 Sortie;A6;2;329000;A6-2-329.000;Sortie 25;;VIDE;VIDE;VIDE;Espace clients
 Sortie;A6;2;381000;A6-2-381.000;Sortie 28;;VIDE;VIDE;VIDE;Espace clients
+AS;A36;2;112100;A36-2-112.100;Aire de Marchaux;;VIDE;VIDE;OUI;
+AR;A36;2;128600;A36-2-128.600;Aire du Bois de Frachère;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AR;A36;2;137500;A36-2-137.500;Aire du Bois de Servole;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AS;A36;2;160600;A36-2-160.600;Aire de Dole-Audelange;;VIDE;VIDE;VIDE;
+AR;A36;2;172100;A36-2-172.100;Aire de Sampans;;VIDE;VIDE;VIDE;
+AR;A36;2;185300;A36-2-185.300;Aire des Noues;;VIDE;VIDE;VIDE;Places caravanes utilisables par les PL
+AS;A36;2;200400;A36-2-200.400;Aire du Bois Guillerot;;VIDE;VIDE;VIDE;12 VL avec remorque + 6 places non goudronnées pour VL avec remorque
+AR;A36;2;208800;A36-2-208.800;Aire de Villy-le-Moutier;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AR;A39;1;5900;A39-1-5.900;Aire de Crimolois (sud);;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
+AR;A39;1;15200;A39-1-15.200;Aire du Bois Défendu;;VIDE;VIDE;VIDE;
+AS;A39;1;24930;A39-1-24.930;Aire de Pont Chêne d''Argent;;VIDE;VIDE;VIDE;Relais Liber-t
+AR;A39;1;51390;A39-1-51.390;Aire de La Vouivre;;VIDE;VIDE;VIDE;
+AR;A39;1;66730;A39-1-66.730;Aire de La Jument Verte;;VIDE;VIDE;VIDE;
+AR;A39;1;100080;A39-1-100.080;Aire de la Vallière;;VIDE;VIDE;VIDE;
+AS;A39;1;114970;A39-1-114.970;Aire du Poulet de Bresse;;OUI;OUI;OUI;
+AR;A39;1;137650;A39-1-137.650;Aire de Marmont;;VIDE;VIDE;VIDE;Espace Clients
+AR;A39;2;5900;A39-2-5.900;Aire de Crimolois (nord);;VIDE;VIDE;VIDE;
+AR;A39;2;16300;A39-2-16.300;Aire de Beire le Fort;;VIDE;VIDE;VIDE;
+AS;A39;2;24460;A39-2-24.460;Aire de Pont Val de Saône;;VIDE;VIDE;VIDE;Station de gonflage
+AR;A39;2;51310;A39-2-51.310;Aire Louis Pasteur;;VIDE;VIDE;VIDE;à confirmer avec mises en service 2011
+AR;A39;2;66730;A39-2-66.730;Aire du Chat Perché;;VIDE;VIDE;VIDE;à confirmer avec mises en service 2011
+AS;A39;2;78300;A39-2-78.300;Aire du Jura;;OUI;OUI;OUI;Point RELAX
+AR;A39;2;100080;A39-2-100.080;Aire de Savigny;;VIDE;VIDE;VIDE;
+AD;A39;2;114970;A39-2-114.970;Accès à l''Aire du Poulet de Bresse;;VIDE;VIDE;OUI;Point RELAX
+AR;A39;2;137650;A39-2-137.650;Aire de Bény;;VIDE;VIDE;VIDE;Station de gonflage gratuit
+PB;A391;1;920;A391-1-0.920;Aire de BERSAILLIN SUD;;VIDE;VIDE;VIDE;Espace clients
+PB;A391;2;920;A391-2-0.920;Aire de BERSAILLIN NORD;;VIDE;VIDE;VIDE;
+AR;A40;1;103000;A40-1-103.000;Aire de La Michaille;;VIDE;VIDE;VIDE;
+AR;A40;1;115500;A40-1-115.500;Aire des Neyrolles;;VIDE;VIDE;VIDE;
+AS;A40;1;130700;A40-1-130.700;Aire de Ceignes-Haut-Bugey;;VIDE;VIDE;VIDE;
+AR;A40;1;140300;A40-1-140.300;Aire de Neuville-sur-Ain;;VIDE;VIDE;VIDE;
+AR;A5;1;46920;A5-1-46.920;Aire de Rasets;;VIDE;VIDE;VIDE;
+AR;A5;1;68000;A5-1-68.000;Aire de Montbard;;VIDE;VIDE;VIDE; Carpophores + 1 panneau APRR 
+AS;A5;1;84980;A5-1-84.980;Aire de Villeneuve l''Archevêque;;VIDE;VIDE;VIDE;6 VL avec remorque + 11 places non goudronnées
+AR;A5;1;109300;A5-1-109.300;Aire de Tomelles;;VIDE;VIDE;VIDE;1 fax pièces PMR + jeux + Wifi
+AR;A5;1;123400;A5-1-123.400;Aire de Saint-Pouange;;VIDE;VIDE;VIDE;7 VL avec remorque + 7 places non goudronnées
+AS;A5;1;140200;A5-1-140.200;Aire de Troyes Fresnoy le Château;;VIDE;VIDE;OUI;Accessible aux deux sens + 2 points RELAX
+AR;A5;1;174810;A5-1-174.810;Aire de Mondeville;;VIDE;VIDE;VIDE;
+AD;A5;1;200070;A5-1-200.070;Aire de Châteauvillain Val Marnay;;VIDE;VIDE;OUI;Point RELAX
+AR;A5;1;219420;A5-1-219.420;Aire du Bois Moyen;;VIDE;VIDE;VIDE;
+PB;A5;2;1490;A5-2-1.490;Aire des Eprunes Est;;VIDE;VIDE;VIDE;Espace clients + CRS
+AS;A5;2;30030;A5-2-30.030;Aire des Jonchets les Récompenses;;VIDE;VIDE;VIDE; 7 VL avec remorque + 14 places non goudronnées
+AR;A5;2;46800;A5-2-46.800;Aire de Gravon;;VIDE;VIDE;VIDE;
+AR;A5;2;67000;A5-2-67.000;Aire de Montaphilant;;VIDE;VIDE;VIDE;RIS
+AS;A5;2;85000;A5-2-85.000;Aire de Villeneuve Vauluisant;;VIDE;VIDE;VIDE;4 bancs
+AR;A5;2;109400;A5-2-109.400;Aire de Fontvannes;;VIDE;VIDE;VIDE;
+AR;A5;2;124600;A5-2-124.600;Aire de La Coloterie;;VIDE;VIDE;VIDE;2 bancs
+AS;A5;2;140200;A5-2-140.200;Aire de Troyes le Plessis;;VIDE;VIDE;OUI;
+AR;A5;2;174810;A5-2-174.810;Aire de Champignol;;VIDE;VIDE;VIDE;
+AS;A5;2;200070;A5-2-200.070;Aire de Châteauvillain Orges;;VIDE;OUI;OUI;Pose de Gendarmerie
+AR;A5;2;219420;A5-2-219.420;Aire de Champs à la croix;;VIDE;VIDE;VIDE;Wifi
+AS;A5A;1;5985;A5A-1-5.985;Aire du Plessis-Picard-Ourdy;;VIDE;VIDE;VIDE; + 196 mètres linéaires de places PL non délimitées
+AS;A6;1;311300;A6-1-311.300;Aire de Beaune Tailly;;VIDE;VIDE;OUI;Parcours santé - Point RELAX
+AR;A6;1;322700;A6-1-322.700;Aire du Curney;;VIDE;VIDE;VIDE;1 Distributeur de Billets
+AS;A6;1;341700;A6-1-341.700;Aire de la Ferté;;VIDE;VIDE;VIDE;8 VL avec remorque + 17 places non goudronnées
+AR;A6;1;351900;A6-1-351.900;Aire de Jugy;;VIDE;VIDE;VIDE;Station de gonflage
+AR;A6;1;363700;A6-1-363.700;Aire de Farges;;VIDE;VIDE;VIDE;16 VL avec remorque + 8 places non goudronnées
+AS;A6;1;374800;A6-1-374.800;Aire de Mâcon Saint-Albain;;VIDE;VIDE;OUI;Parcours santé
+AR;A6;1;397000;A6-1-397.000;Aire de Crèches;;VIDE;VIDE;VIDE;
+AS;A6;1;407800;A6-1-407.800;Aire de Dracé;;VIDE;VIDE;VIDE;
+AR;A6;1;419500;A6-1-419.500;Aire de Patural;;VIDE;VIDE;VIDE;
+PB;A6;1;427400;A6-1-427.400;Aire de Villefranche Limas ouest;;VIDE;VIDE;VIDE;Eclairage public
+AS;A6;1;435600;A6-1-435.600;Aire des Chères Ouest;;VIDE;VIDE;OUI;
+AS;A6;1;450089;A6-1-450;Aire de Dardilly;;VIDE;VIDE;VIDE;Eclairage public
+AS;A6;2;311300;A6-2-311.300;Aire de Beaune Merceuil;;VIDE;VIDE;OUI;
+AR;A6;2;322900;A6-2-322.900;Aire de La Loyère;;VIDE;VIDE;VIDE;
+AS;A6;2;341700;A6-2-341.700;Aire de Saint-Ambreuil;;VIDE;VIDE;VIDE;Eclairage public
+AR;A6;2;351900;A6-2-351.900;Aire de Boyer;;VIDE;VIDE;VIDE;
+AR;A40;1;152630;A40-1-152.630;Aire de Tossiat;;VIDE;VIDE;VIDE;
+AS;A40;1;163240;A40-1-163.240;Aire de Bourg-Jasseron;;VIDE;VIDE;OUI;
+AR;A40;1;191180;A40-1-191.180;Aire du Musée de la Bresse ;;VIDE;VIDE;VIDE;
+AR;A6;2;364700;A6-2-364.700;Aire d''Uchizy;;VIDE;VIDE;VIDE;2 panneaux RIS : CG Yonne + APRR
+AS;A6;2;374800;A6-2-374.800;Aire de Mâcon La Salle;;VIDE;VIDE;OUI;Point RELAX
+AR;A6;2;397000;A6-2-397.000;Aire des Sablons;;VIDE;VIDE;VIDE;Jeu Wicky-vol (en accord Dist-DREX: jeux dangereux)
+AS;A6;2;408400;A6-2-408.400;Aire de Taponas;;VIDE;VIDE;VIDE;1 panneau Sucette - 1 panneau APRR
 AR;A71;1;371730;A71-1-371.730;Aire de Montpertuis;;VIDE;VIDE;VIDE;1 SIGA
 AD;A105;1;5000;A105-1-5.000;Centre routier Paris Sud-Est;;VIDE;VIDE;OUI;Centre Centaure (03 80 34 17 77)  les centres Centaure aident le conducteur à se sensibiliser aux principaux risques d’accidents. Des véhicules spéciaux sont mis à sa disposition, lui permettant de simuler les situations critiques.
 AS;A105;2;5000;A105-2-5.000;Aire de Galande la Mare-Laroche;;VIDE;OUI;OUI;
@@ -321,78 +396,3 @@ AR;A36;2;65810;A36-2-65.810;Aire de Saint-Maurice (sud);;VIDE;VIDE;VIDE;
 AR;A36;2;75600;A36-2-75.600;Aire du Charme;;VIDE;VIDE;VIDE;
 AR;A36;2;84000;A36-2-84.000;Aire de La Combe de Fougère;;VIDE;VIDE;VIDE;(1) VL : + 20 places sur zone de pique-nique¤r¤n¤(*) 10 VL avec remorque + 7 places non goudronnées¤r¤n¤pour VL avec remorque
 AR;A36;2;101600;A36-2-101.600;Aire de Chevaney;;VIDE;VIDE;VIDE;
-AS;A36;2;112100;A36-2-112.100;Aire de Marchaux;;VIDE;VIDE;OUI;
-AR;A36;2;128600;A36-2-128.600;Aire du Bois de Frachère;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
-AR;A36;2;137500;A36-2-137.500;Aire du Bois de Servole;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
-AS;A36;2;160600;A36-2-160.600;Aire de Dole-Audelange;;VIDE;VIDE;VIDE;
-AR;A36;2;172100;A36-2-172.100;Aire de Sampans;;VIDE;VIDE;VIDE;
-AR;A36;2;185300;A36-2-185.300;Aire des Noues;;VIDE;VIDE;VIDE;Places caravanes utilisables par les PL
-AS;A36;2;200400;A36-2-200.400;Aire du Bois Guillerot;;VIDE;VIDE;VIDE;12 VL avec remorque + 6 places non goudronnées pour VL avec remorque
-AR;A36;2;208800;A36-2-208.800;Aire de Villy-le-Moutier;;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
-AR;A39;1;5900;A39-1-5.900;Aire de Crimolois (sud);;VIDE;VIDE;VIDE;Places non goudronnées pour VL avec remorque
-AR;A39;1;15200;A39-1-15.200;Aire du Bois Défendu;;VIDE;VIDE;VIDE;
-AS;A39;1;24930;A39-1-24.930;Aire de Pont Chêne d''Argent;;VIDE;VIDE;VIDE;Relais Liber-t
-AR;A39;1;51390;A39-1-51.390;Aire de La Vouivre;;VIDE;VIDE;VIDE;
-AR;A39;1;66730;A39-1-66.730;Aire de La Jument Verte;;VIDE;VIDE;VIDE;
-AR;A39;1;100080;A39-1-100.080;Aire de la Vallière;;VIDE;VIDE;VIDE;
-AS;A39;1;114970;A39-1-114.970;Aire du Poulet de Bresse;;OUI;OUI;OUI;
-AR;A39;1;137650;A39-1-137.650;Aire de Marmont;;VIDE;VIDE;VIDE;Espace Clients
-AR;A39;2;5900;A39-2-5.900;Aire de Crimolois (nord);;VIDE;VIDE;VIDE;
-AR;A39;2;16300;A39-2-16.300;Aire de Beire le Fort;;VIDE;VIDE;VIDE;
-AS;A39;2;24460;A39-2-24.460;Aire de Pont Val de Saône;;VIDE;VIDE;VIDE;Station de gonflage
-AR;A39;2;51310;A39-2-51.310;Aire Louis Pasteur;;VIDE;VIDE;VIDE;à confirmer avec mises en service 2011
-AR;A39;2;66730;A39-2-66.730;Aire du Chat Perché;;VIDE;VIDE;VIDE;à confirmer avec mises en service 2011
-AS;A39;2;78300;A39-2-78.300;Aire du Jura;;OUI;OUI;OUI;Point RELAX
-AR;A39;2;100080;A39-2-100.080;Aire de Savigny;;VIDE;VIDE;VIDE;
-AD;A39;2;114970;A39-2-114.970;Accès à l''Aire du Poulet de Bresse;;VIDE;VIDE;OUI;Point RELAX
-AR;A39;2;137650;A39-2-137.650;Aire de Bény;;VIDE;VIDE;VIDE;Station de gonflage gratuit
-PB;A391;1;920;A391-1-0.920;Aire de BERSAILLIN SUD;;VIDE;VIDE;VIDE;Espace clients
-PB;A391;2;920;A391-2-0.920;Aire de BERSAILLIN NORD;;VIDE;VIDE;VIDE;
-AR;A40;1;103000;A40-1-103.000;Aire de La Michaille;;VIDE;VIDE;VIDE;
-AR;A40;1;115500;A40-1-115.500;Aire des Neyrolles;;VIDE;VIDE;VIDE;
-AS;A40;1;130700;A40-1-130.700;Aire de Ceignes-Haut-Bugey;;VIDE;VIDE;VIDE;
-AR;A40;1;140300;A40-1-140.300;Aire de Neuville-sur-Ain;;VIDE;VIDE;VIDE;
-AR;A5;1;46920;A5-1-46.920;Aire de Rasets;;VIDE;VIDE;VIDE;
-AR;A5;1;68000;A5-1-68.000;Aire de Montbard;;VIDE;VIDE;VIDE; Carpophores + 1 panneau APRR 
-AS;A5;1;84980;A5-1-84.980;Aire de Villeneuve l''Archevêque;;VIDE;VIDE;VIDE;6 VL avec remorque + 11 places non goudronnées
-AR;A5;1;109300;A5-1-109.300;Aire de Tomelles;;VIDE;VIDE;VIDE;1 fax pièces PMR + jeux + Wifi
-AR;A5;1;123400;A5-1-123.400;Aire de Saint-Pouange;;VIDE;VIDE;VIDE;7 VL avec remorque + 7 places non goudronnées
-AS;A5;1;140200;A5-1-140.200;Aire de Troyes Fresnoy le Château;;VIDE;VIDE;OUI;Accessible aux deux sens + 2 points RELAX
-AR;A5;1;174810;A5-1-174.810;Aire de Mondeville;;VIDE;VIDE;VIDE;
-AD;A5;1;200070;A5-1-200.070;Aire de Châteauvillain Val Marnay;;VIDE;VIDE;OUI;Point RELAX
-AR;A5;1;219420;A5-1-219.420;Aire du Bois Moyen;;VIDE;VIDE;VIDE;
-PB;A5;2;1490;A5-2-1.490;Aire des Eprunes Est;;VIDE;VIDE;VIDE;Espace clients + CRS
-AS;A5;2;30030;A5-2-30.030;Aire des Jonchets les Récompenses;;VIDE;VIDE;VIDE; 7 VL avec remorque + 14 places non goudronnées
-AR;A5;2;46800;A5-2-46.800;Aire de Gravon;;VIDE;VIDE;VIDE;
-AR;A5;2;67000;A5-2-67.000;Aire de Montaphilant;;VIDE;VIDE;VIDE;RIS
-AS;A5;2;85000;A5-2-85.000;Aire de Villeneuve Vauluisant;;VIDE;VIDE;VIDE;4 bancs
-AR;A5;2;109400;A5-2-109.400;Aire de Fontvannes;;VIDE;VIDE;VIDE;
-AR;A5;2;124600;A5-2-124.600;Aire de La Coloterie;;VIDE;VIDE;VIDE;2 bancs
-AS;A5;2;140200;A5-2-140.200;Aire de Troyes le Plessis;;VIDE;VIDE;OUI;
-AR;A5;2;174810;A5-2-174.810;Aire de Champignol;;VIDE;VIDE;VIDE;
-AS;A5;2;200070;A5-2-200.070;Aire de Châteauvillain Orges;;VIDE;OUI;OUI;Pose de Gendarmerie
-AR;A5;2;219420;A5-2-219.420;Aire de Champs à la croix;;VIDE;VIDE;VIDE;Wifi
-AS;A5A;1;5985;A5A-1-5.985;Aire du Plessis-Picard-Ourdy;;VIDE;VIDE;VIDE; + 196 mètres linéaires de places PL non délimitées
-AS;A6;1;311300;A6-1-311.300;Aire de Beaune Tailly;;VIDE;VIDE;OUI;Parcours santé - Point RELAX
-AR;A6;1;322700;A6-1-322.700;Aire du Curney;;VIDE;VIDE;VIDE;1 Distributeur de Billets
-AS;A6;1;341700;A6-1-341.700;Aire de la Ferté;;VIDE;VIDE;VIDE;8 VL avec remorque + 17 places non goudronnées
-AR;A6;1;351900;A6-1-351.900;Aire de Jugy;;VIDE;VIDE;VIDE;Station de gonflage
-AR;A6;1;363700;A6-1-363.700;Aire de Farges;;VIDE;VIDE;VIDE;16 VL avec remorque + 8 places non goudronnées
-AS;A6;1;374800;A6-1-374.800;Aire de Mâcon Saint-Albain;;VIDE;VIDE;OUI;Parcours santé
-AR;A6;1;397000;A6-1-397.000;Aire de Crèches;;VIDE;VIDE;VIDE;
-AS;A6;1;407800;A6-1-407.800;Aire de Dracé;;VIDE;VIDE;VIDE;
-AR;A6;1;419500;A6-1-419.500;Aire de Patural;;VIDE;VIDE;VIDE;
-PB;A6;1;427400;A6-1-427.400;Aire de Villefranche Limas ouest;;VIDE;VIDE;VIDE;Eclairage public
-AS;A6;1;435600;A6-1-435.600;Aire des Chères Ouest;;VIDE;VIDE;OUI;
-AS;A6;1;450089;A6-1-450;Aire de Dardilly;;VIDE;VIDE;VIDE;Eclairage public
-AS;A6;2;311300;A6-2-311.300;Aire de Beaune Merceuil;;VIDE;VIDE;OUI;
-AR;A6;2;322900;A6-2-322.900;Aire de La Loyère;;VIDE;VIDE;VIDE;
-AS;A6;2;341700;A6-2-341.700;Aire de Saint-Ambreuil;;VIDE;VIDE;VIDE;Eclairage public
-AR;A6;2;351900;A6-2-351.900;Aire de Boyer;;VIDE;VIDE;VIDE;
-AR;A40;1;152630;A40-1-152.630;Aire de Tossiat;;VIDE;VIDE;VIDE;
-AS;A40;1;163240;A40-1-163.240;Aire de Bourg-Jasseron;;VIDE;VIDE;OUI;
-AR;A40;1;191180;A40-1-191.180;Aire du Musée de la Bresse ;;VIDE;VIDE;VIDE;
-AR;A6;2;364700;A6-2-364.700;Aire d''Uchizy;;VIDE;VIDE;VIDE;2 panneaux RIS : CG Yonne + APRR
-AS;A6;2;374800;A6-2-374.800;Aire de Mâcon La Salle;;VIDE;VIDE;OUI;Point RELAX
-AR;A6;2;397000;A6-2-397.000;Aire des Sablons;;VIDE;VIDE;VIDE;Jeu Wicky-vol (en accord Dist-DREX: jeux dangereux)
-AS;A6;2;408400;A6-2-408.400;Aire de Taponas;;VIDE;VIDE;VIDE;1 panneau Sucette - 1 panneau APRR

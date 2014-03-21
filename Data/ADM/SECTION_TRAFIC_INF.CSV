@@ -1,0 +1,133 @@
+LIAISON_INF__LIAISON;CHAUSSEE_INF__SENS;ABS_DEB;ABS_FIN;CD_CLASS_TRAF_INF__CODE;TENANT;ABOUTIS
+1;2;60000;72484;T3;Tit Mellil;Casablanca Port
+1;2;72484;77389;T3;Tit Mellil;Casablanca Port
+1;2;77389;80100;T0;Casablanca Port;Casablanca Centre
+1;2;80100;86660;T1-;Casablanca Centre;RS114
+1;2;86660;92200;T1-;RS114;pénétrante terminale nord
+1;2;92200;107860;T1-;pénétrante terminale nord;Had Soualem
+1;2;107860;126950;T0;Had Soualem;Bir Jdid
+1;2;126950;142775;T1-;Bir Jdid;Tnine Chtouka
+1;2;142775;162311;T1-;Tnine Chtouka;Azemmour
+1;2;162311;168556;T1-;Azemmour;El Jadida
+2;1;17400;43800;T1-;Sidi Allal El Bahraoui;Tiflet
+2;1;43800;69000;T3;Tiflet;Khémisset
+2;1;69000;121200;T0;Khémisset;Méknès Ouest
+2;1;121200;130400;T1-;Méknès Ouest;Méknès Est
+2;1;130400;179000;T1-;Méknès Est;Rabat - Fès
+2;1;195080;220497;T1-; RR503; Ras Tabouda
+2;1;220497;245900;T1-; Ras Tabouda; Tahla
+2;1;245900;269414;T1-; Tahla; Oued Amlil
+2;1;269414;288028;T1-; Oued Amlil; Taza Ouest
+2;1;288028;300388;T1+; Taza Ouest; Taza Est
+2;1;300388;324114;T1+; Taza Est; MSOUN
+2;1;324114;363214;T1-; MSOUN; GUERCIF
+2;1;363214;397814;T0; GUERCIF; TAOURIRT
+2;1;397814;405664;T1-; TAOURIRT; TAOURIRT -EST
+2;1;405664;447133;T2; TAOURIRT -EST; laayoun
+2;1;447133;493628;T1+; TAOURIRT -EST; laayoun
+2;2;17400;43800;T1-;Sidi Allal El Bahraoui;Tiflet
+2;2;43800;69000;T3;Tiflet;Khémisset
+2;2;69000;121200;T0;Khémisset;Méknès Ouest
+2;2;121200;130400;T1-;Méknès Ouest;Méknès Est
+2;2;130400;179000;T1-;Méknès Est;Rabat - Fès
+2;2;195080;220497;T1-; RR503; Ras Tabouda
+2;2;220497;245900;T1-; Ras Tabouda; Tahla
+2;2;245900;269414;T1-; Tahla; Oued Amlil
+2;2;269414;288028;T1-; Oued Amlil; Taza Ouest
+2;2;288028;300388;T1+; Taza Ouest; Taza Est
+2;2;300388;324114;T1+; Taza Est; MSOUN
+2;2;324114;363214;T1-; MSOUN; GUERCIF
+2;2;363214;397814;T0; GUERCIF; TAOURIRT
+2;2;397814;405664;T1-; TAOURIRT; TAOURIRT -EST
+2;2;405664;447133;T2; TAOURIRT -EST; laayoun
+2;2;447133;493059;T1+; TAOURIRT -EST; laayoun
+3;1;0;7683;T3;RS114;Bouskoura
+3;1;7683;13115;T1-;Bouskoura;l’aéroport Med V
+3;1;13115;21500;T2;l’aéroport Med V;Berrechid Est
+3;1;21500;32300;T1-;Berrechid Est;Berrechid Nord
+3;1;32300;52515;T1-;Berrechid Nord;Settat Nord
+3;1;52515;65000;T1-;Settat Nord;Settat Centre
+3;1;65000;127750;T3;Settat Centre;Skhour Rhamna
+3;1;127750;160000;T1-;Skhour Rhamna;Benguerir
+3;1;160000;198800;T1-;Benguerir;Marrakech
+3;1;198800;214400;T2;Marrakech;Tamesnat sur la RN 7
+3;1;214400;231300;T1-;Tamesnat sur la RN 7;Marrakech Ouest
+3;1;231300;281335;T1-;Marrakech Ouest;Chichaoua
+3;1;281335;309235;T0;Chichaoua;Imintanout
+3;1;309235;369364;T0;Imintanout;Argana
+3;1;369364;418623;T1-;Argana;Amskroud
+3;1;418623;428353;T3;Amskroud;RN8 Agadir
+3;2;0;7683;T3;RS114;Bouskoura
+3;2;7683;13115;T1-;Bouskoura;l’aéroport Med V
+3;2;13115;21500;T2;l’aéroport Med V;Berrechid Est
+3;2;21500;32300;T1-;Berrechid Est;Berrechid Nord
+3;2;32300;52515;T1-;Berrechid Nord;Settat Nord
+3;2;52515;65000;T1-;Settat Nord;Settat Centre
+3;2;65000;127750;T3;Settat Centre;Skhour Rhamna
+3;2;127750;160000;T1-;Skhour Rhamna;Benguerir
+3;2;160000;198800;T1-;Benguerir;Marrakech
+3;2;198800;214400;T2;Marrakech;Tamesnat sur la RN 7
+3;2;214400;231300;T1-;Tamesnat sur la RN 7;Marrakech Ouest
+3;2;231300;281335;T1-;Marrakech Ouest;Chichaoua
+3;2;281335;309235;T0;Chichaoua;Imintanout
+3;2;309235;369364;T0;Imintanout;Argana
+3;2;369364;418623;T1-;Argana;Amskroud
+3;2;418623;428353;T3;Amskroud;RN8 Agadir
+5;1;3000;17000;T1-;Ksar Sghir;Melloussa
+5;1;17000;27000;T1-;Melloussa;Tanger Est (RN 2)
+5;1;27000;49000;T1-;Melloussa;Tanger Est (RN 2)
+5;1;51000;79020;T1-;Rabat-Tanger-Port Med;Asilah
+5;1;79020;92691;T1-;Asilah;Sidi Elyamani
+5;1;92691;119850;T2;Sidi Elyamani;Larache
+5;1;119850;152300;T1-;Larache;Mly Bousselham
+5;1;152300;185500;T1-;Mly Bousselham;Sidi Allal Tazi
+5;1;185500;224000;T0;Sidi Allal Tazi;Kenitra Nord
+5;1;224000;237500;T0;Kenitra Nord;Kenitra centre
+5;1;237500;266000;T1-;Kenitra centre;RN6
+5;2;3000;17000;T1-;Ksar Sghir;Melloussa
+5;2;17000;27000;T1-;Melloussa;Tanger Est (RN 2)
+5;2;27000;49000;T1-;Melloussa;Tanger Est (RN 2)
+5;2;51000;79020;T1-;Rabat-Tanger-Port Med;Asilah
+5;2;79020;92691;T1-;Asilah;Sidi Elyamani
+5;2;92691;119850;T2;Sidi Elyamani;Larache
+5;2;119850;152300;T1-;Larache;Mly Bousselham
+5;2;152300;185500;T1-;Mly Bousselham;Sidi Allal Tazi
+5;2;185500;224000;T0;Sidi Allal Tazi;Kenitra Nord
+5;2;224000;237500;T0;Kenitra Nord;Kenitra centre
+5;2;237500;266000;T1-;Kenitra centre;RN6
+7;1;9580;15700;T1-;M''diq;Smir
+7;1;15700;27500;T3;Smir;Tétouan (Yakouta)
+7;2;9580;15700;T1-;M''diq;Smir
+7;2;15700;27500;T3;Smir;Tétouan (Yakouta)
+101;1;0;4000;T1+;Contournement Casablanca;Ain harrouda
+101;2;0;4000;T1+;Contournement Casablanca;Ain harrouda
+103;1;0;4394;T0;El Jadida;El Jadida Est
+103;2;0;4394;T0;El Jadida;El Jadida Est
+201;1;178445;197506;T1-;Péntrante Fès;RR503
+201;2;178445;197506;T1-;Péntrante Fès;RR503
+1;1;0;1880;T1-;Hay Riad;Temara
+1;1;1880;9100;T1+;Temara;Ain Atiq
+1;1;9100;15680;T1-;Ain Atiq;Skhirat
+1;1;15680;28080;T1-;Skhirat;Bouznika
+1;1;28080;46780;T1-;Bouznika;Mohammedia est
+1;1;46780;50680;T1-;Mohammedia est;Beni Yekhlef
+1;1;50680;56100;T1-;Beni Yekhlef;Mohammedia ouest
+1;1;56100;57580;T0;Mohammedia ouest;Contournement Casablanca
+1;1;60000;72484;T3;Tit Mellil;Casablanca Port
+1;1;72484;77389;T3;Tit Mellil;Casablanca Port
+1;1;77389;80100;T0;Casablanca Port;Casablanca Centre
+1;1;80100;86660;T1-;Casablanca Centre;RS114
+1;1;86660;92200;T1-;RS114;pénétrante terminale nord
+1;1;92200;107860;T1-;pénétrante terminale nord;Had Soualem
+1;1;107860;126950;T0;Had Soualem;Bir Jdid
+1;1;126950;142775;T1-;Bir Jdid;Tnine Chtouka
+1;1;142775;162311;T3;Tnine Chtouka;Azemmour
+1;1;162311;168556;T1-;Azemmour;El Jadida
+1;2;0;1880;T1-;Hay Riad;Temara
+1;2;1880;9100;T1+;Temara;Ain Atiq
+1;2;9100;15680;T1-;Ain Atiq;Skhirat
+1;2;15680;28080;T1-;Skhirat;Bouznika
+1;2;28080;46780;T1-;Bouznika;Mohammedia est
+1;2;46780;50680;T1-;Mohammedia est;Beni Yekhlef
+1;2;50680;56100;T1-;Beni Yekhlef;Mohammedia ouest
+1;2;56100;57580;T0;Mohammedia ouest;Contournement Casablanca

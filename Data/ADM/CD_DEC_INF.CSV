@@ -1,0 +1,33 @@
+FAM_DEC_INF__FAM_DEC;CD_DEC;LIBELLE
+CEX;CEF;Fès
+CEX;CEO;Oujda
+CEX;CEJ;el Jadida
+CEX;CEA;Agadir
+CEX;CEK;Kénitra
+CEX;CET;Tanger
+CEX;CEBS;Bouskoura
+CEX;CEMA;Marrakech
+CEX;CEM;Meknes
+CEX;CEB;Bouznika
+SECT;1991;A3
+SECT;1995;5
+SECT;1996;5
+SECT;1998;2
+SECT;1999;5-2
+SECT;2001;3
+SECT;2002;5
+SECT;2003;1
+SECT;2004;1
+SECT;2005;5 - 1 - 3
+SECT;2006;1-102
+SECT;2007;5 - 7 - 3 - 301
+SECT;2008;5 - 7 - 3
+SECT;2010;3
+CLIMAT;Aride;Aride
+CLIMAT;Humide;Humide
+CLIMAT;Semi Aride;Semi Aride
+SENSIB;Compressible;Zone compressible
+SENSIB;Inondable;Zone inondable
+SENSIB;Sismique-1;Zone 1 sismique
+SENSIB;Sismique-2;Zone 2 sismique
+SENSIB;Sismique-3;Zone 3 Sismique

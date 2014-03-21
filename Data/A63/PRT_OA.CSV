@@ -1,0 +1,23 @@
+GRP_OA__ID_GRP;ID_PRT;LIBP;ORDRE
+1;101;1. Appuis de rive;1
+1;102;2. Appuis intermédaires;2
+2;201;1. Cadres / Portiques;3
+2;202;2. Dalles BA/BP;4
+2;203;3. Poutres BA/BP;5
+2;204;4. Poutres métalliques;6
+2;205;5. Caissons;7
+2;206;6. Buses/Voûtes;8
+2;207;7. Hydraulique;9
+3;301;1. Murs;10
+3;302;2. Corniches;11
+3;303;3. Chape d’étanchéité;12
+3;304;4. Couche de roulement;13
+3;305;5. Joints sur chaussée;14
+3;306;6. Joints de trottoir;15
+3;307;7. Lanterneau;16
+3;308;8. Dispositifs de retenue;17
+3;309;9. Trottoirs;18
+3;310;10. Réseaux / Fourreaux;19
+3;311;11. Environnement de l''ouvrage;20
+3;312;12. Drainage;21
+3;313;13. Ecrans;22
