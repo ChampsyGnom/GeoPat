@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              MinWidth="600"
              MinHeight="400"
+             x:Name="statWizzardView"
              xmlns:xcwtk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -48,11 +49,120 @@
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Column="0" Grid.Row="1" Header="Aperçu">
-                <chartingToolkit:Chart>
-                    <chartingToolkit:PieSeries  IndependentValueBinding="{Binding Path=IndependentValue}"  DependentValueBinding="{Binding Path=DependentValue}" ItemsSource="{Binding Path=StatValues}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Type d'affichage : " Grid.Column="0" Margin="2"></TextBlock>
+                        <ComboBox 
+                            ItemsSource="{Binding Path=DisplayTypes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
+                            SelectedItem="{Binding Path=SelectedDisplayType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                            Grid.Column="1" 
+                            Margin="2">
+                            
+                        </ComboBox>
+                    </Grid>
+                    <chartingToolkit:Chart Visibility="{Binding Path=VisibilityPie,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"   Grid.Row="1">
+                        <chartingToolkit:PieSeries IndependentValueBinding="{Binding Path=IndependentValue}"  DependentValueBinding="{Binding Path=DependentValue}" ItemsSource="{Binding Path=StatValues}">
+                            
+                                <chartingToolkit:PieSeries.DataPointStyle>
+                                <Style TargetType="Control">
+                                    <Setter Property="Background" >
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </chartingToolkit:PieSeries.DataPointStyle>
+                        </chartingToolkit:PieSeries>
+
+
                         
-                    </chartingToolkit:PieSeries>
-                </chartingToolkit:Chart>
+                    </chartingToolkit:Chart>
+
+                    <chartingToolkit:Chart  Visibility="{Binding Path=VisibilityColumn,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1">
+                        
+
+                        <chartingToolkit:ColumnSeries IndependentValueBinding="{Binding Path=IndependentValue}"  DependentValueBinding="{Binding Path=DependentValue}" ItemsSource="{Binding Path=StatValues}">
+
+                            <chartingToolkit:ColumnSeries.DataPointStyle>
+                                <Style TargetType="Control">
+                                    <Setter Property="Background" >
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </chartingToolkit:ColumnSeries.DataPointStyle>
+                        </chartingToolkit:ColumnSeries>
+
+
+                    </chartingToolkit:Chart>
+
+                    <chartingToolkit:Chart Visibility="{Binding Path=VisibilityLine,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1">
+                        
+
+
+                        <chartingToolkit:LineSeries  IndependentValueBinding="{Binding Path=IndependentValue}"  DependentValueBinding="{Binding Path=DependentValue}" ItemsSource="{Binding Path=StatValues}">
+
+                            <chartingToolkit:LineSeries.DataPointStyle>
+                                <Style TargetType="Control">
+                                    <Setter Property="Background" >
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </chartingToolkit:LineSeries.DataPointStyle>
+                        </chartingToolkit:LineSeries>
+
+
+                    </chartingToolkit:Chart>
+
+                    <chartingToolkit:Chart Grid.Row="1" Visibility="{Binding Path=VisibilityBar,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+                        
+
+
+                        <chartingToolkit:BarSeries  IndependentValueBinding="{Binding Path=IndependentValue}"  DependentValueBinding="{Binding Path=DependentValue}" ItemsSource="{Binding Path=StatValues}">
+
+                            <chartingToolkit:BarSeries.DataPointStyle>
+                                <Style TargetType="Control">
+                                    <Setter Property="Background" >
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </chartingToolkit:BarSeries.DataPointStyle>
+                        </chartingToolkit:BarSeries>
+
+
+                    </chartingToolkit:Chart>
+
+                    <chartingToolkit:Chart Visibility="{Binding Path=VisibilityAera,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1">
+                        
+
+                        <chartingToolkit:AreaSeries  IndependentValueBinding="{Binding Path=IndependentValue}"  DependentValueBinding="{Binding Path=DependentValue}" ItemsSource="{Binding Path=StatValues}">
+
+                            <chartingToolkit:AreaSeries.DataPointStyle>
+                                <Style TargetType="Control">
+                                    <Setter Property="Background" >
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </chartingToolkit:AreaSeries.DataPointStyle>
+                        </chartingToolkit:AreaSeries>
+                    </chartingToolkit:Chart>
+                </Grid>
+               
             </GroupBox>
             <Expander Grid.Row="1" Grid.Column="1" ExpandDirection="Right" >
                 <Expander.Header>
@@ -75,23 +185,26 @@
                         </TextBlock.RenderTransform>
                     </TextBlock>
                 </Expander.Header>
-                <DataGrid HorizontalAlignment="Stretch"  MinWidth="300" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" ItemsSource="{Binding Path=Symbologies,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid HorizontalAlignment="Stretch"  MinWidth="300" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" ItemsSource="{Binding Path=StatValues,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn MinWidth="120" Width="*" Header="Libellé" Binding="{Binding Path=DisplayName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn MinWidth="120"  Width="*"  Header="Valeur" Binding="{Binding Path=Rule.Value,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTemplateColumn MinWidth="120"  Header="Couleur" Width="120">
+                        <DataGridTextColumn MinWidth="120" Width="*" Header="Libellé" Binding="{Binding Path=Symbology.DisplayName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn MinWidth="120"  Width="*"  Header="Valeur" Binding="{Binding Path=Symbology.Rule.Value,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn MinWidth="60"  Width="*"  Header="Nombre" Binding="{Binding Path=DependentValue,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn MinWidth="80"  Width="*"  Header="Pourcentage" Binding="{Binding Path=Percent,Mode=OneWay,UpdateSourceTrigger=PropertyChanged,StringFormat='{}{0}%'}"></DataGridTextColumn>
+
+                        <DataGridTemplateColumn MinWidth="120"  Header="Couleur" Width="80">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border>
                                         <Border.Background>
-                                            <SolidColorBrush Color="{Binding Path=Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
+                                            <SolidColorBrush Color="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></SolidColorBrush>
                                         </Border.Background>
                                     </Border>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                             <DataGridTemplateColumn.CellEditingTemplate>
                                 <DataTemplate>
-                                    <xcwtk:ColorPicker SelectedColor="{Binding Path=Symbolizer.BaseColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></xcwtk:ColorPicker>
+                                    <xcwtk:ColorPicker SelectedColor="{Binding Path=Symbology.Symbolizer.BaseColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></xcwtk:ColorPicker>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>

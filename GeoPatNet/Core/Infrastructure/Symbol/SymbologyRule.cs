@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
+
 
 namespace Emash.GeoPatNet.Infrastructure.Symbol
 {
@@ -36,5 +38,14 @@ namespace Emash.GeoPatNet.Infrastructure.Symbol
             get { return _value; }
             set { _value = value; this.RaisePropertyChanged("Value"); }
         }
+        public abstract Expression CreateLinqExpression(ParameterExpression expressionBase);
+
+        /*
+        public Expression CreateLinqExpression(ParameterExpression expressionBase)
+        {
+           
+
+        }
+         * */
     }
 }

@@ -142,11 +142,13 @@
     <Compile Include="Enums\GenericCommitAction.cs" />
     <Compile Include="Enums\GenericDataListState.cs" />
     <Compile Include="Enums\SplashUserAction.cs" />
+    <Compile Include="Enums\StatDisplayType.cs" />
     <Compile Include="Events\GenericListEvent.cs" />
     <Compile Include="Events\OpenEntityEvent.cs" />
     <Compile Include="Events\ServiceLoadedEvent.cs" />
     <Compile Include="Events\ServiceLoadedEventArg.cs" />
     <Compile Include="Events\SplashEvent.cs" />
+    <Compile Include="Extensions\ColorExtension.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\RegistryExtension.cs" />
     <Compile Include="Models\ProviderConfigurationType.cs" />

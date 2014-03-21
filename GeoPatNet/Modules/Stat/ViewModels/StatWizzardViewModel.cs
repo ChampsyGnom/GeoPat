@@ -14,6 +14,8 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Windows;
 using Emash.GeoPatNet.Infrastructure.Symbol;
+using System.Windows.Media;
+using Emash.GeoPatNet.Infrastructure.Enums;
 namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 {
     public enum StateType
@@ -23,6 +25,71 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
     }
     public  class StatWizzardViewModel : INotifyPropertyChanged
     {
+        //
+
+        public Visibility VisibilityAera
+        {
+            get
+            {
+                if (_selectedDisplayType == StatDisplayType.Aera) return Visibility.Visible;
+                else return Visibility.Hidden;
+            }
+        }
+
+        public Visibility VisibilityLine
+        {
+            get
+            {
+                if (_selectedDisplayType == StatDisplayType.Line) return Visibility.Visible;
+                else return Visibility.Hidden;
+            }
+        }
+
+
+        public Visibility VisibilityBar
+        {
+            get
+            {
+                if (_selectedDisplayType == StatDisplayType.Bar) return Visibility.Visible;
+                else return Visibility.Hidden;
+            }
+        }
+
+        public Visibility VisibilityColumn
+        {
+            get
+            {
+                if (_selectedDisplayType == StatDisplayType.Column) return Visibility.Visible;
+                else return Visibility.Hidden;
+            }
+        }
+
+        public Visibility VisibilityPie
+        {
+            get {
+                if (_selectedDisplayType == StatDisplayType.Pie) return Visibility.Visible;
+                else return Visibility.Hidden;
+            }
+        }
+        private StatDisplayType _selectedDisplayType;
+
+
+        public StatDisplayType SelectedDisplayType
+        {
+            get { return _selectedDisplayType; }
+            set 
+            { 
+                _selectedDisplayType = value; 
+                this.RaisePropertyChanged("SelectedDisplayType");
+                this.RaisePropertyChanged("VisibilityPie");
+                this.RaisePropertyChanged("VisibilityColumn");
+                this.RaisePropertyChanged("VisibilityLine");
+                this.RaisePropertyChanged("VisibilityBar");
+                this.RaisePropertyChanged("VisibilityAera"); 
+            }
+        }
+        public List<StatDisplayType> DisplayTypes { get; private set; }
+            
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
@@ -72,15 +139,20 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                             distinctValues.Add(_selectedStatField.Field.ParentColumnInfo.Property.GetValue(o));
                         }
                         distinctValues = (from o in distinctValues orderby o select o).Distinct().ToList();
-                        if (distinctValues.Count > 50)
+                        if (distinctValues.Count > 200)
                         {
-                            MessageBox.Show(distinctValues + " valeurs différentes pour ce champ, au dessus de 50 valeurs les statistiques sont illisible", "Trop de valeurs", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show(distinctValues.Count  + " valeurs différentes pour ce champ, au dessus de 200 valeurs les statistiques sont illisible", "Trop de valeurs", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
+
+                            double hueStep = 360D / distinctValues.Count;
+                            double hue = 0D;
                             foreach (Object obj in distinctValues )
                             {
+                                Color color = Colors.AliceBlue.FromHsv(hue, 0.8, 0.8);
                                 Symbology symobology = new Symbology();
+                             
                                 SymbologyRuleEquals rule = new SymbologyRuleEquals();
                                 rule.Field = _selectedStatField.Field;
                                 rule.Value = obj;
@@ -88,88 +160,17 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                                 symobology.Rule = rule;
                                 Symbolizer symbolizer = new Symbolizer();
                                 symobology.Symbolizer = symbolizer;
+                                symobology.Symbolizer.BaseColor = color;
                                 this.Symbologies.Add(symobology);
+                                hue += hueStep;
                             
                             }
                            
                         }
-                        Console.WriteLine("nb val " + distinctValues.Count);
-                       // DbSet dbSetCurrent = dataService.GetDbSet(this.EntityTableInfo.EntityType);
-                       // IQueryable currentQueryable = dbSetCurrent.AsQueryable();
+                      
                     }
-                    /*
-                    if (_selectedStatField.BottomColumnInfo.ControlType == ControlType.Combo)
-                    {
-                        List<Object> distinctValues = new List<object>();
-                        DbSet dbSet = dataService.GetDbSet(_selectedStatField.TopColumnInfo.TableInfo.EntityType );
-                        IQueryable queryable = dbSet.AsQueryable();
-                        foreach (Object o in queryable)
-                        {
-                            distinctValues.Add(_selectedStatField.TopColumnInfo .Property.GetValue (o));
-                        }
-                        distinctValues = (from o in distinctValues orderby o select o).Distinct().ToList();
-
-                        DbSet dbSetCurrent = dataService.GetDbSet(this.EntityTableInfo.EntityType );
-                        IQueryable currentQueryable = dbSetCurrent.AsQueryable();
-                        foreach (Object value in distinctValues)
-                        {
-                            List<Expression> expressions = new List<Expression>();
-                        
-                            System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(this.EntityTableInfo.EntityType, "item");
-                       
-                            Expression expression = null;
-                            if (_selectedStatField.FieldPath.IndexOf(".") == -1)
-                            {
-                                expression = Expression.Property(expressionBase, _selectedStatField.FieldPath);
-                                expression = Expression.Equal(expression, Expression.Constant(value));
-                                expressions.Add(expression);
-                            }
-                            else
-                            {
-                                String[] items = _selectedStatField.FieldPath.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-                                for (int i = 0; i < items.Length; i++)
-                                {
-                                    if (i == 0)
-                                    { expression = Expression.Property(expressionBase, items[i]); }
-                                    else
-                                    { expression = Expression.Property(expression, items[i]); }
-                                }
-                                expression = Expression.Equal(expression, Expression.Constant(value));
-                                expressions.Add(expression);
-                            }
-
-
-                            
-
-                            if (expressions.Count > 0)
-                            {
-                                System.Linq.Expressions.Expression expressionAnd = expressions.First();
-                                for (int i = 1; i < expressions.Count; i++)
-                                { expressionAnd = System.Linq.Expressions.Expression.And(expressionAnd, expressions[i]); }
-                                System.Linq.Expressions.MethodCallExpression whereCallExpression = System.Linq.Expressions.Expression.Call(
-                                typeof(Queryable),
-                                "Where",
-                                new Type[] { currentQueryable.ElementType },
-                                currentQueryable.Expression,
-                                System.Linq.Expressions.Expression.Lambda(expressionAnd, expressionBase));
-                                queryable = queryable.Provider.CreateQuery(whereCallExpression);
-                            }
-                            int count = 0;
-                            foreach (Object i in queryable)
-                            { count++; }
-                            if (count > 0)
-                            {
-                                StatValueViewModel valueVm = new StatValueViewModel();
-                                valueVm.DependentValue = count;
-                                valueVm.IndependentValue = value;
-                                this.StatValues.Add(valueVm);
-                            }
-                           
-
-                        }
-                        
-                    } */
+                   
+                  
 
                 }
                     
@@ -182,11 +183,18 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
             this.StatValues.Clear();
             if (this._selectedStatField != null)
             {
+                double total = 0;
                 foreach (Symbology symbology in this.Symbologies)
                 {
                     StatValueViewModel valueVm = new StatValueViewModel();
                     valueVm.Symbology = symbology;
                     this.StatValues.Add(valueVm);
+                    valueVm.Compute();
+                    total += valueVm.DependentValue;
+                }
+                foreach (StatValueViewModel valueVm in this.StatValues)
+                {
+                    valueVm.ComputePercent(total);
                 }
             }
         }
@@ -229,6 +237,13 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 
         public StatWizzardViewModel(EntityTableInfo entityTableInfo, List<String> fieldPaths)
         {
+            this.DisplayTypes = new List<StatDisplayType>();
+            this.DisplayTypes.Add(StatDisplayType.Column);
+            this.DisplayTypes.Add(StatDisplayType.Pie);
+            this.DisplayTypes.Add(StatDisplayType.Line);
+            this.DisplayTypes.Add(StatDisplayType.Bar);
+            this.DisplayTypes.Add(StatDisplayType.Aera);
+           
             this.StatValues = new ObservableCollection<StatValueViewModel>();
             this.EntityTableInfo = entityTableInfo;
             this.AllFields = new List<StatFieldViewModel>();
@@ -286,32 +301,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                 }
             }
             this.Symbologies = new System.Collections.ObjectModel.ObservableCollection<Symbology>();
-            /*
-            List<String> basicFieldPaths = dataService.GetTableFieldPaths(entityTableInfo);
-
-            foreach (String fieldPath in fieldPaths)
-            {
-                StatFieldViewModel vm = new StatFieldViewModel();
-                vm.FieldPath = fieldPath;
-                vm.TopColumnInfo = dataService.GetTopColumnInfo(entityTableInfo.EntityType, fieldPath);
-                vm.BottomColumnInfo = dataService.GetBottomColumnInfo(entityTableInfo.EntityType, fieldPath);
-               
-
-                if (basicFieldPaths.Contains(fieldPath))
-                {
-                    if (fieldPath.IndexOf(".") == -1)
-                    { vm.DisplayName = vm.TopColumnInfo.DisplayName; }
-                    else
-                    { vm.DisplayName = vm.TopColumnInfo.TableInfo.DisplayName; }
-                }
-                else
-                {
-                    vm.DisplayName = vm.TopColumnInfo.TableInfo.DisplayName + " - " + vm.TopColumnInfo.DisplayName;
-                }
-
-                this.AllFields.Add(vm);
-            }
-             * */
+           
 
             
         }
