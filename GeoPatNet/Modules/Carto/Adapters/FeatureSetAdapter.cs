@@ -18,6 +18,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
 {
     public class FeatureSetAdapter : FeatureSetPack
     {
+        public Extent Extent { get; private set; }
         public IDataService DataService { get; private set; }
         public EntityTableInfo TableInfo { get; private set; }
 
@@ -174,6 +175,8 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
      
         private void LoadFeatureFromGeomProperty(DbSet dbSet, PropertyInfo propertyGeom)
         {
+            
+            Envelope env = new Envelope();
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo tableInfo = dataService.GetEntityTableInfo(dbSet.ElementType);
             this.Lines.DataTable = this.CreateDataTable(dbSet.ElementType);
@@ -190,6 +193,8 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                     Geometry geometry = this.CreateGeometryFromWkt(strData);
                     if (geometry != null)
                     {
+
+                        env.ExpandToInclude(geometry.Envelope);
                         if (geometry is LineString || geometry is MultiLineString)
                         {
                             IFeature feature = this.Lines.AddFeature(geometry);
@@ -235,7 +240,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                     
                 }
             }
-            
+            this.Extent = env.ToExtent();
         }
 
         private System.Data.DataTable CreateDataTable(Type type)

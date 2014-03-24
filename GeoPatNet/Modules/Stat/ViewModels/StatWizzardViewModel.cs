@@ -124,12 +124,115 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
         {
             this.StatValues.Clear();
             this.Symbologies.Clear();
+            Symbology symobology;
+            SymbologyRuleEquals rule;
+            Symbolizer symbolizer;
             if (_selectedStatType != null && _selectedStatField != null)
             {
                 IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
                 if (_selectedStatType.StateType == StateType.Count)
                 {
-                    if (_selectedStatField.Field.ControlType == ControlType.Combo)
+                    if (_selectedStatField.Field.ControlType == ControlType.Check )
+                    {
+                      
+                        if (_selectedStatField.Field.ColumnInfo.AllowNull)
+                        {
+                            symobology = new Symbology();
+
+                            rule = new SymbologyRuleEquals();
+                            rule.Field = _selectedStatField.Field;
+                            rule.Value = null;
+                            symobology.DisplayName = "Non renseigné";
+                            symobology.Rule = rule;
+                            symbolizer = new Symbolizer();
+                            symobology.Symbolizer = symbolizer;
+                            symobology.Symbolizer.BaseColor = Colors.Gray;
+                            this.Symbologies.Add(symobology);
+                        }
+
+                        symobology = new Symbology();
+                        rule = new SymbologyRuleEquals();
+                        rule.Field = _selectedStatField.Field;
+                        rule.Value = true;
+                        symobology.DisplayName = "Oui";
+                        symobology.Rule = rule;
+                        symbolizer = new Symbolizer();
+                        symobology.Symbolizer = symbolizer;
+                        symobology.Symbolizer.BaseColor = Colors.Green ;
+                        this.Symbologies.Add(symobology);
+
+
+                        symobology = new Symbology();
+                        rule = new SymbologyRuleEquals();
+                        rule.Field = _selectedStatField.Field;
+                        rule.Value = false;
+                        symobology.DisplayName = "Non";
+                        symobology.Rule = rule;
+                        symbolizer = new Symbolizer();
+                        symobology.Symbolizer = symbolizer;
+                        symobology.Symbolizer.BaseColor = Colors.Red;
+                        this.Symbologies.Add(symobology);
+
+
+
+                    }
+                    else if (_selectedStatField.Field.ControlType == ControlType.Date)
+                    {
+                        if (_selectedStatField.Part == StatFieldPart.Year)
+                        {
+                            if (_selectedStatField.Field.ColumnInfo.AllowNull)
+                            {
+                                symobology = new Symbology();
+                                rule = new SymbologyRuleEquals();
+                                rule.Field = _selectedStatField.Field;
+                                rule.Value = null;
+                                symobology.DisplayName = "Non renseigné";
+                                symobology.Rule = rule;
+                                symbolizer = new Symbolizer();
+                                symobology.Symbolizer = symbolizer;
+                                symobology.Symbolizer.BaseColor = Colors.Gray;
+                                this.Symbologies.Add(symobology);
+                            }
+                            List<DateTime> dates = new List<DateTime>();
+                            DbSet dbSet = dataService.GetDbSet(_selectedStatField.Field.ColumnInfo.TableInfo.EntityType);
+                            IQueryable queryable = dbSet.AsQueryable();
+                            System.Reflection.PropertyInfo propertyDate = _selectedStatField.Field.ColumnInfo.TableInfo.EntityType.GetProperty (_selectedStatField.Field.Path);
+                            foreach (Object obj in queryable)
+                            {
+                                Object objDate = propertyDate.GetValue(obj);
+                                if (objDate != null && objDate is DateTime)
+                                {
+                                    DateTime date = (DateTime)objDate;
+                                    dates.Add(date);
+                                }
+                               
+                            }
+                            if (dates.Count > 0)
+                            {
+                                int minYear = (from d in dates select d.Year).Min();
+                                int maxYear = (from d in dates select d.Year).Min();
+                                for (int year = minYear; year <= maxYear; year++)
+                                {
+                                    symobology = new Symbology();
+                                    rule = new SymbologyRuleEquals();
+                                    rule.Field = _selectedStatField.Field;
+                                    rule.Value = year;
+                                    symobology.DisplayName = year.ToString ();
+                                    symobology.Rule = rule;
+                                    symbolizer = new Symbolizer();
+                                    symobology.Symbolizer = symbolizer;
+                                    symobology.Symbolizer.BaseColor = Colors.Gray;
+                                    this.Symbologies.Add(symobology);
+                                }
+                            }
+                            //System.Linq.Expressions.ParameterExpression expressionBase = System.Linq.Expressions.Expression.Parameter(_selectedStatField.Field.ColumnInfo.TableInfo.EntityType, "item");
+                            //MemberExpression exp = System.Linq.Expressions.Expression.Property(expressionBase, _selectedStatField.Field.Path);
+
+           
+                           
+                        }
+                    }
+                    else if (_selectedStatField.Field.ControlType == ControlType.Combo)
                     {
                         List<Object> distinctValues = new List<object>();
                         DbSet dbSet = dataService.GetDbSet(_selectedStatField.Field.ParentColumnInfo.TableInfo.EntityType);
@@ -141,33 +244,46 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                         distinctValues = (from o in distinctValues orderby o select o).Distinct().ToList();
                         if (distinctValues.Count > 200)
                         {
-                            MessageBox.Show(distinctValues.Count  + " valeurs différentes pour ce champ, au dessus de 200 valeurs les statistiques sont illisible", "Trop de valeurs", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show(distinctValues.Count + " valeurs différentes pour ce champ, au dessus de 200 valeurs les statistiques sont illisible", "Trop de valeurs", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
+                            if (_selectedStatField.Field.ColumnInfo.AllowNull)
+                            {
+                                symobology = new Symbology();
 
+                                rule = new SymbologyRuleEquals();
+                                rule.Field = _selectedStatField.Field;
+                                rule.Value = null;
+                                symobology.DisplayName = "Non renseigné";
+                                symobology.Rule = rule;
+                                symbolizer = new Symbolizer();
+                                symobology.Symbolizer = symbolizer;
+                                symobology.Symbolizer.BaseColor = Colors.Gray;
+                                this.Symbologies.Add(symobology);
+                            }
                             double hueStep = 360D / distinctValues.Count;
                             double hue = 0D;
-                            foreach (Object obj in distinctValues )
+                            foreach (Object obj in distinctValues)
                             {
                                 Color color = Colors.AliceBlue.FromHsv(hue, 0.8, 0.8);
-                                Symbology symobology = new Symbology();
-                             
-                                SymbologyRuleEquals rule = new SymbologyRuleEquals();
+                                symobology = new Symbology();
+
+                                rule = new SymbologyRuleEquals();
                                 rule.Field = _selectedStatField.Field;
                                 rule.Value = obj;
-                                symobology.DisplayName = obj.ToString ();
+                                symobology.DisplayName = obj.ToString();
                                 symobology.Rule = rule;
-                                Symbolizer symbolizer = new Symbolizer();
+                                symbolizer = new Symbolizer();
                                 symobology.Symbolizer = symbolizer;
                                 symobology.Symbolizer.BaseColor = color;
                                 this.Symbologies.Add(symobology);
                                 hue += hueStep;
-                            
+
                             }
-                           
+
                         }
-                      
+
                     }
                    
                   
@@ -270,6 +386,7 @@ namespace Emash.GeoPatNet.Modules.Stat.ViewModels
                     else if (field.ColumnInfo.ControlType == ControlType.Date)
                     {
                         StatFieldViewModel statField = new StatFieldViewModel();
+                        statField.Part = StatFieldPart.Year;
                         statField.Field = field;
                         this.AllFields.Add(statField);
                     }

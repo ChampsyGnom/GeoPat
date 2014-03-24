@@ -34,7 +34,14 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             }
         }
         #endregion
-        public Map Map { get;  set; }
+        private Map _map;
+
+
+        public Map Map
+        {
+            get { return _map; }
+            set { _map = value; }
+        }
       
         public ListCollectionView TemplatesView { get; private set; }
         public ObservableCollection<TemplateViewModel> Templates { get; private set; }
@@ -51,6 +58,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
         private Boolean _isModeZoom;
         private Boolean _isModeMove;
+        public DotSpatial.Data.Extent Extent { get; set; }
 
 
         public Boolean IsModeMove
@@ -466,10 +474,11 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
         private void LoadMap()
         {
-            this.Map.Layers.Clear();
-            this.Map.Projection = KnownCoordinateSystems.Projected.World.WebMercator;
-            if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel )
+           
+            if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel && this.Map != null )
             {
+                this.Map.Layers.Clear();
+                this.Map.Projection = KnownCoordinateSystems.Geographic.World.WGS1984;
                 TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel );
                 List<CartoNodeLayerViewModel> layers = new List<CartoNodeLayerViewModel>();
                 this.RecurseGetLayers(layers, templateViewModel.Nodes);
@@ -477,23 +486,22 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
               
                 foreach (CartoNodeLayerViewModel layerVm in layers)
                 {
+      
                     foreach (IMapLayer layer in layerVm.LayerGroup)
                     {
                         this.Map.Layers.Remove(layer);
-                    
-                       
-                       
-                        
                     }
+
                     layerVm.LayerGroup.Load();
                     foreach (IMapLayer layer in layerVm.LayerGroup)
-                    {
-                        
-                        this.Map.Layers.Add(layer);
+                    {this.Map.Layers.Add(layer);}
+
+                }
+                if (this.Map.Layers.Count > 0 && this.Extent != null)
+                {
 
 
-                    }
-
+                    this.Map.ViewExtents = this.Extent;
                 }
                 Console.WriteLine("Nombre de layer " + this.Map.Layers.Count);                
                 this.Map.MapFrame.ResumeEvents();

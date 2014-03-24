@@ -26,24 +26,12 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
     /// </summary>
     public partial class CartoControl : UserControl
     {
-
-
-
       
         public CartoControl()
         {
             InitializeComponent();
            
         }
-
-       
-
-       
-        
-      
-
-      
-
        
        
     }

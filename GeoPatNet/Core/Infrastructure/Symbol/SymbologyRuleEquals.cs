@@ -12,7 +12,7 @@ namespace Emash.GeoPatNet.Infrastructure.Symbol
 
         public override Expression CreateLinqExpression(ParameterExpression expressionBase)
         {
-            Expression expProperty = null;
+            MemberExpression  expProperty = null;
             if (this.Field.Path.IndexOf(".") != -1)
             {
                 String[] items = this.Field.Path.Split(".".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
@@ -27,8 +27,8 @@ namespace Emash.GeoPatNet.Infrastructure.Symbol
             else
             { expProperty = Expression.Property(expressionBase, this.Field.Path); }
 
-
-            Expression result = Expression.Equal(expProperty, Expression.Constant(this.Value));
+       
+            Expression result = Expression.Equal(expProperty, Expression.Constant(this.Value, expProperty.Type));
             return result;
         }
     }

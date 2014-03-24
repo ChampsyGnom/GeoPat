@@ -60,10 +60,12 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
                 view = this._container.Resolve<CartoView>();
                 region.Add(view);
             }
-            CartoViewModel vm = this._container.Resolve<CartoViewModel>();  
+            DotSpatial.Controls.Map map = view.cartoControl.mapHost.Child as DotSpatial.Controls.Map;
+            CartoViewModel vm = this._container.Resolve<CartoViewModel>();
+            vm.Extent = _referenceFeatureSet.Extent;
+            vm.Map = map;
             region.Activate(view);
             view.DataContext = vm;
-            DotSpatial.Controls.Map map = (view.cartoControl.mapHost.Child as DotSpatial.Controls.Map);
             map.FunctionMode = DotSpatial.Controls.FunctionMode.Pan;
          
             
@@ -80,8 +82,10 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             DbSet<SigCodeTemplate> codeTemplates = dataService.GetDbSet<SigCodeTemplate>();
             this.Seed(dataService, codeTemplates, codeNodes, codeLayers);
             this._eventAggregator.GetEvent<SplashEvent>().Publish("Chargement données cartographiques ...");
-            this._referenceFeatureSet = new FeatureSetAdapter(dataService.GetDbSet(typeof (InfChaussee ))).Lines;
-           
+            FeatureSetAdapter adapter =  new FeatureSetAdapter(dataService.GetDbSet(typeof (InfChaussee )));
+            adapter.Load ();
+            this._referenceFeatureSet = adapter.Lines;
+            Console.WriteLine("ReferenceFeatureSet extent : " + _referenceFeatureSet.Extent);
          
         }
 
