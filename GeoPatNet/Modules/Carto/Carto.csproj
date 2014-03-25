@@ -110,9 +110,7 @@
     <Compile Include="Adapters\FeatureSetAdapter.cs" />
     <Compile Include="CartoModule.cs" />
     <Compile Include="Layers\BruTileLayer.cs" />
-    <Compile Include="Layers\LayerGroup.cs" />
-    <Compile Include="Layers\MetierCategory.cs" />
-    <Compile Include="Layers\MetierLayerGroup.cs" />
+    <Compile Include="Models\Referentiel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,11 +125,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\CartoService.cs" />
-    <Compile Include="ViewModels\CartoNodeLayerMetierViewModel.cs" />
-    <Compile Include="ViewModels\CartoNodeLayerWebViewModel.cs" />
-    <Compile Include="ViewModels\CartoNodeFolderViewModel.cs" />
-    <Compile Include="ViewModels\CartoNodeLayerViewModel.cs" />
-    <Compile Include="ViewModels\CartoNodeViewModel.cs" />
+    <Compile Include="Utils\WktHelper.cs" />
     <Compile Include="ViewModels\CartoViewModel.cs" />
     <Compile Include="ViewModels\TemplateViewModel.cs" />
     <Compile Include="Views\CartoControl.xaml.cs">
@@ -172,6 +166,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)\Applications\Referentiel\bin\debug\Resources\Modules"

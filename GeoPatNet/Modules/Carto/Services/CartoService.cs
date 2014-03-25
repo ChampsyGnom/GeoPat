@@ -14,6 +14,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DotSpatial.Data;
 using Emash.GeoPatNet.Modules.Carto.Adapters;
+using DotSpatial.Controls;
+using DotSpatial.Projections;
+using Emash.GeoPatNet.Modules.Carto.Models;
 
 namespace Emash.GeoPatNet.Modules.Carto.Services
 {
@@ -23,14 +26,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
         private IEventAggregator _eventAggregator;
         private IUnityContainer _container;
         private IRegionManager _regionManager;
-        private IFeatureSet _referenceFeatureSet;
-
-
-        public IFeatureSet ReferenceFeatureSet
-        {
-            get { return _referenceFeatureSet; }
-            
-        }
+        private Referentiel _referentiel;
        
         public CartoService(IEventAggregator eventAggregator, IUnityContainer container, IRegionManager regionManager)
         {
@@ -42,6 +38,21 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             
         
              
+           
+        }
+
+        public void Initialize()
+        {
+
+            this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du module cartographie ...");
+            IDataService dataService = this._container.Resolve<IDataService>();
+            DbSet<SigCodeLayer> codeLayers = dataService.GetDbSet<SigCodeLayer>();
+            DbSet<SigCodeNode> codeNodes = dataService.GetDbSet<SigCodeNode>();
+            DbSet<SigCodeTemplate> codeTemplates = dataService.GetDbSet<SigCodeTemplate>();
+            this.Seed(dataService, codeTemplates, codeNodes, codeLayers);
+            this._eventAggregator.GetEvent<SplashEvent>().Publish("Chargement données cartographiques ...");
+            _referentiel = new Referentiel();
+           
            
         }
         public void ShowCarto()
@@ -62,33 +73,15 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             }
             DotSpatial.Controls.Map map = view.cartoControl.mapHost.Child as DotSpatial.Controls.Map;
             CartoViewModel vm = this._container.Resolve<CartoViewModel>();
-            vm.Extent = _referenceFeatureSet.Extent;
             vm.Map = map;
+            map.FunctionMode = DotSpatial.Controls.FunctionMode.Pan;         
+            vm.Map.Projection = KnownCoordinateSystems.Projected.World.WebMercator;
             region.Activate(view);
             view.DataContext = vm;
-            map.FunctionMode = DotSpatial.Controls.FunctionMode.Pan;
-         
-            
         }
 
 
-        public void Initialize()
-        {
-
-            this._eventAggregator.GetEvent<SplashEvent>().Publish("Initialisation du module cartographie ...");
-            IDataService dataService = this._container.Resolve<IDataService>();
-            DbSet<SigCodeLayer> codeLayers = dataService.GetDbSet<SigCodeLayer>();
-            DbSet<SigCodeNode> codeNodes = dataService.GetDbSet<SigCodeNode>();
-            DbSet<SigCodeTemplate> codeTemplates = dataService.GetDbSet<SigCodeTemplate>();
-            this.Seed(dataService, codeTemplates, codeNodes, codeLayers);
-            this._eventAggregator.GetEvent<SplashEvent>().Publish("Chargement données cartographiques ...");
-            FeatureSetAdapter adapter =  new FeatureSetAdapter(dataService.GetDbSet(typeof (InfChaussee )));
-            adapter.Load ();
-            this._referenceFeatureSet = adapter.Lines;
-            Console.WriteLine("ReferenceFeatureSet extent : " + _referenceFeatureSet.Extent);
-         
-        }
-
+       
         private void Seed(IDataService dataService, DbSet<SigCodeTemplate> codeTemplates, DbSet<SigCodeNode> codeNodes, DbSet<SigCodeLayer> codeLayers)
         {
             this.CreateCodeTemplateIfNeeded(dataService, codeTemplates, "Detail", "Détail");
@@ -143,6 +136,19 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
                 dataService.DataContext.SaveChanges();
             }
         }
-      
+
+
+
+        public FeatureSetPack Geocode(IQueryable queryable)
+        {
+
+            return null;
+        }
+
+
+        public FeatureSet CreateReferentielFeatureSet()
+        {
+            return this._referentiel.CreateFeatureSet();
+        }
     }
 }

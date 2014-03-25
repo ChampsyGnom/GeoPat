@@ -9,7 +9,7 @@
              xmlns:vm="clr-namespace:Emash.GeoPatNet.Modules.Carto.ViewModels"
              xmlns:v="clr-namespace:Emash.GeoPatNet.Modules.Carto.Views"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid x:Name="container">
+    <Grid  x:Name="container">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -71,28 +71,14 @@
                     <Button Command="{Binding Path=DeleteTemplateCommand}"  Grid.Column="1" Margin="2" Content="Supprimer"></Button>
                 </Grid>
                 <TreeView  x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
-                    <i:Interaction.Behaviors>
-                        <b:TreeViewContextMenuOpeningBehavior Command="{Binding Path=TreeViewContextMenuOpeningCommand}" ></b:TreeViewContextMenuOpeningBehavior>
-                    </i:Interaction.Behaviors>
-                        <TreeView.Resources>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" DataType="{x:Type vm:CartoNodeFolderViewModel}">
-                            <TextBlock Margin="2" VerticalAlignment="Center" Text="{Binding Path=DisplayName}"></TextBlock>
-                        </HierarchicalDataTemplate>
-                        <DataTemplate DataType="{x:Type vm:CartoNodeLayerViewModel}">
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox VerticalAlignment="Center" Margin="2" IsChecked="{Binding Path=IsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
-                                <TextBlock VerticalAlignment="Center"  Margin="2"  Text="{Binding Path=DisplayName}"></TextBlock>
-                            </StackPanel>
-                         
-                        </DataTemplate>
-                    </TreeView.Resources>
+                    
                 
                    
                 </TreeView>
                 
             </Grid>
         </Expander>
-        <v:CartoControl x:Name="cartoControl"  Grid.Column="1">
+        <v:CartoControl  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="cartoControl"  Grid.Column="1">
             
         </v:CartoControl>
     </Grid>

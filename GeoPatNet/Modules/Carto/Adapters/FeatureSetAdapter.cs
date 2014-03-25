@@ -21,19 +21,31 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
         public Extent Extent { get; private set; }
         public IDataService DataService { get; private set; }
         public EntityTableInfo TableInfo { get; private set; }
-
         public PropertyInfo PropertyGeom { get; private set; }
         public PropertyInfo PropertyLocRef { get; private set; }
         public PropertyInfo PropertyLocDeb { get; private set; }
         public PropertyInfo PropertyLocFin { get; private set; }
         public DbSet DbSet { get; private set; }
+
+
         public FeatureSetAdapter(DbSet dbSet)
         {
             this.DbSet = dbSet;
             this.DataService = ServiceLocator.Current.GetInstance<IDataService>();
             this.TableInfo = this.DataService.GetEntityTableInfo(dbSet.ElementType);
             this.PropertyGeom = dbSet.ElementType.GetProperty("Geom");
-            
+            if (this.PropertyGeom == null)
+            {
+                foreach (EntityColumnInfo columnInfo in TableInfo.ColumnInfos)
+                {
+                    if (columnInfo.IsLocalisationDeb)
+                    {this.PropertyLocDeb = columnInfo.Property;}
+                    if (columnInfo.IsLocalisationFin)
+                    {this.PropertyLocFin = columnInfo.Property;}
+                    if (columnInfo.IsLocalisationReferenceId)
+                    {this.PropertyLocRef = columnInfo.Property;}
+                }
+            }
         }
         public void Load()
         {
@@ -42,6 +54,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             else if (this.PropertyLocRef != null && this.PropertyLocDeb != null)
             { this.GeocodeFeatureFromReference(this.DbSet, PropertyLocRef, PropertyLocDeb, PropertyLocFin); }
         }
+
         public static Boolean CanAdapt(DbSet dbSet)
         {
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
@@ -72,6 +85,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                     String propertyChausseeName = columnInfoLocRef.Name.Substring(0, columnInfoLocRef.Name.Length - 2);
                     PropertyInfo propertyChaussee = obj.GetType().GetProperty(propertyChausseeName);
                     InfChaussee chaussee = (InfChaussee)propertyChaussee.GetValue(obj);
+                   /*
                     IFeature reference = (from f in cartoService.ReferenceFeatureSet.Features where f.DataRow["Source"] is InfChaussee && (f.DataRow["Source"] as InfChaussee).Id == chaussee.Id select f).FirstOrDefault();
                     if (valueAbs.HasValue && chaussee != null && reference != null)
                     {
@@ -105,14 +119,15 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                                         double posX = lineStringChaussee.Coordinates[i - 1].X + (deltaX * fractionSegment);
                                         double posY = lineStringChaussee.Coordinates[i - 1].Y + (deltaY * fractionSegment);
                                         Point point = new Point(posX, posY);
-                                        dispatcher.Invoke(new Action(delegate()
-                                        {
-                                            Feature feature = this.Points.AddFeature(point) as Feature;
-                                        
-                                            System.Data.DataRow row = this.Points.DataTable.NewRow();
-                                            row["Source"] = obj;
-                                            feature.DataRow = row;
-                                        }));
+
+                                        IFeature feature = this.Points.AddFeature(point);
+                                       // System.Data.DataRow row = this.Points.DataTable.NewRow();
+                                      //  row.BeginEdit();
+                                      //  row["Source"] = obj;
+                                      //  this.Points.DataTable.Rows.Add(row);
+                                     //   feature.DataRow = row;
+                                      //  row.EndEdit();
+                                       
 
                                     }
                                     previousLengthComputed = lengthComputed;
@@ -148,13 +163,14 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                                             double posX = ls.Coordinates[i - 1].X + (deltaX * fractionSegment);
                                             double posY = ls.Coordinates[i - 1].Y + (deltaY * fractionSegment);
                                             Point point = new Point(posX, posY);
-                                            dispatcher.Invoke(new Action(delegate()
-                                            {
-                                                IFeature feature = this.Points.AddFeature(point);
-                                                System.Data.DataRow row = this.Points.DataTable.NewRow();
-                                                row["Source"] = obj;
-                                                feature.DataRow = row;
-                                            }));
+                                            IFeature feature = this.Points.AddFeature(point);
+                                           // System.Data.DataRow row = this.Points.DataTable.NewRow();
+                                          //  row.BeginEdit();
+                                          //  row["Source"] = obj;
+                                          //  this.Points.DataTable.Rows.Add(row);
+                                          //  feature.DataRow = row;
+                                           // row.EndEdit();
+                                       
 
                                         }
                                         previousLengthComputed = lengthComputed;
@@ -163,6 +179,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                             }
                         }
                     }
+                    * */
 
                 }
                 else
@@ -182,10 +199,10 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
             this.Lines.DataTable = this.CreateDataTable(dbSet.ElementType);
             this.Points.DataTable = this.CreateDataTable(dbSet.ElementType);
             this.Polygons.DataTable = this.CreateDataTable(dbSet.ElementType);
-            int index = 0;
+            PropertyInfo propertyId = dbSet.ElementType.GetProperty("Id");
             foreach (Object obj in dbSet)
             {
-                index++;
+              
                 Object data = propertyGeom.GetValue(obj);
                 if (data != null)
                 {
@@ -200,10 +217,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                             IFeature feature = this.Lines.AddFeature(geometry);
                             System.Data.DataRow row = this.Lines.DataTable.NewRow();
                             row.BeginEdit();
-                            row["Source"] = obj;
-                            if (index % 2 == 0)
-                            { row["Analysis"] = -1; }
-                            else { row["Analysis"] = 0; }
+                            row["Id"] = (Int64)propertyId.GetValue(obj);                           
                             this.Lines.DataTable.Rows.Add(row);
                             feature.DataRow = row;
                             row.EndEdit();
@@ -214,10 +228,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                             IFeature feature = this.Points.AddFeature(geometry);
                             System.Data.DataRow row = this.Points.DataTable.NewRow();
                             row.BeginEdit();
-                            if (index % 2 == 0)
-                            { row["Analysis"] = -1; }
-                            else { row["Analysis"] = 0; }                            
-                            row["Source"] = obj;
+                            row["Id"] = (Int64)propertyId.GetValue(obj);           
                             this.Points.DataTable.Rows.Add(row);
                             feature.DataRow = row;
                             row.EndEdit();
@@ -228,10 +239,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
                             IFeature feature = this.Polygons.AddFeature(geometry);
                             System.Data.DataRow row = this.Polygons.DataTable.NewRow();
                             row.BeginEdit();
-                            if (index % 2 == 0)
-                            { row["Analysis"] = -1; }
-                            else { row["Analysis"] = 0; }
-                            row["Source"] = obj;
+                            row["Id"] = (Int64)propertyId.GetValue(obj);           
                             this.Polygons.DataTable.Rows.Add(row);
                             feature.DataRow = row;
                             row.EndEdit();
@@ -246,16 +254,14 @@ namespace Emash.GeoPatNet.Modules.Carto.Adapters
         private System.Data.DataTable CreateDataTable(Type type)
         {
             System.Data.DataTable dataTable = new System.Data.DataTable();
+       
             IDataService dataService = ServiceLocator.Current.GetInstance<IDataService>();
             EntityTableInfo tableInfo = dataService.GetEntityTableInfo(type);
+            dataTable.TableName = tableInfo.EntityType.Name;
             System.Data.DataColumn column = new System.Data.DataColumn();
-            column.DataType = type;
-            column.ColumnName = "Source";
-            dataTable.Columns.Add(column);
-            System.Data.DataColumn columnAnalysis = new System.Data.DataColumn();
-            columnAnalysis.DataType = typeof(Int32);
-            columnAnalysis.ColumnName = "Analysis";
-            dataTable.Columns.Add(columnAnalysis);           
+            column.DataType = typeof(Int64 );
+            column.ColumnName = "Id";
+            dataTable.Columns.Add(column);                
             return dataTable;
         }
 

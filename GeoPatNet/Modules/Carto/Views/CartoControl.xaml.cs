@@ -29,10 +29,13 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
       
         public CartoControl()
         {
+
             InitializeComponent();
+            
            
         }
-       
+
+      
        
     }
 }

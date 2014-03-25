@@ -10,7 +10,8 @@ namespace Emash.GeoPatNet.Infrastructure.Services
     public interface ICartoService
     {
         void ShowCarto();
-        IFeatureSet ReferenceFeatureSet { get; }
         void Initialize();
+        FeatureSetPack Geocode(IQueryable queryable);
+        FeatureSet CreateReferentielFeatureSet();
     }
 }
