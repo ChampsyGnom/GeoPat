@@ -32,11 +32,21 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Entité géocodé")]
+        [ColumnName("SIG_LAYER__ENTITY_NAME")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
+        public String EntityName
+        {
+            get;
+            set;
+        }
         [Browsable(false)]
         [DisplayName("Identifiant")]
         [ColumnName("SIG_LAYER__ID")]
         [PrimaryKey("SIG_LAYER_PK")]
-        [ForeignKeyAttribute("SIG_NODE__SIG_LAYER","JOIN_o90")]
+        [ForeignKeyAttribute("SIG_NODE__SIG_LAYER","JOIN_o91")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

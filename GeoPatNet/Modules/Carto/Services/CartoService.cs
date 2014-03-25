@@ -94,6 +94,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
             this.CreateCodeLayerIfNeeded(dataService, codeLayers, "GoogleMap");
             this.CreateCodeLayerIfNeeded(dataService, codeLayers, "GoogleSatellite");
             this.CreateCodeLayerIfNeeded(dataService, codeLayers, "GoogleTerrain");
+            this.CreateCodeLayerIfNeeded(dataService, codeLayers, "Geocodage");
         }
 
        

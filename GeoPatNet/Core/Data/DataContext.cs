@@ -1317,6 +1317,8 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
             modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
+            modelBuilder.Entity<SigLayer>().Property(t => t.EntityName) .HasColumnName("sig_layer__entity_name");
+            modelBuilder.Entity<SigLayer>().Property(t => t.EntityName).HasMaxLength(200);
             modelBuilder.Entity<SigLayer>().Property(t => t.Id) .HasColumnName("sig_layer__id");
             modelBuilder.Entity<SigLayer>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<SigLayer>().Property(t => t.SigCodeLayerId) .HasColumnName("sig_cd_layer__id");

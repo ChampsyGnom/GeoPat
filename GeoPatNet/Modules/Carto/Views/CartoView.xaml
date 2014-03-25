@@ -71,7 +71,21 @@
                     <Button Command="{Binding Path=DeleteTemplateCommand}"  Grid.Column="1" Margin="2" Content="Supprimer"></Button>
                 </Grid>
                 <TreeView  x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
-                    
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type vm:TemplateNodeFolderViewModel}" ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                        </HierarchicalDataTemplate>
+
+                        <DataTemplate DataType="{x:Type vm:TemplateNodeLayerViewModel}">
+                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                        </DataTemplate>
+
+                    </TreeView.Resources>
+                    <i:Interaction.Behaviors>
+                        <b:TreeViewContextMenuOpeningBehavior Command="{Binding Path=TreeTemplateContextMenuOpeningCommand}">
+
+                        </b:TreeViewContextMenuOpeningBehavior>
+                    </i:Interaction.Behaviors>
                 
                    
                 </TreeView>

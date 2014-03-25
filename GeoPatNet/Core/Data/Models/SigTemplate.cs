@@ -36,7 +36,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("SIG_TEMPLATE__ID")]
         [PrimaryKey("SIG_TEMPLATE_PK")]
-        [ForeignKeyAttribute("SIG_TEMPLATE__SIG_NODE","JOIN_o88")]
+        [ForeignKeyAttribute("SIG_TEMPLATE__SIG_NODE","JOIN_o89")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

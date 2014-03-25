@@ -13,7 +13,7 @@ namespace Emash.GeoPatNet.Infrastructure.Behaviors
     
     public class TreeViewContextMenuOpeningBehavior : Behavior<TreeView>
     {
-        #region SelectedItem Property
+       
 
         public DelegateCommand<TreeViewContextMenuOpeningBehaviorEventArg> Command
         {
@@ -25,7 +25,7 @@ namespace Emash.GeoPatNet.Infrastructure.Behaviors
             DependencyProperty.Register("Command", typeof(DelegateCommand<TreeViewContextMenuOpeningBehaviorEventArg>), typeof(TreeViewContextMenuOpeningBehavior),new PropertyMetadata (null));
 
         
-        #endregion
+       
 
         protected override void OnAttached()
         {

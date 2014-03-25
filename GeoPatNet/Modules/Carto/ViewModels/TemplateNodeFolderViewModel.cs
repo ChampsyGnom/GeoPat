@@ -1,23 +1,30 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Emash.GeoPatNet.Data.Models;
-using System.Collections.ObjectModel;
+
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
-    public class TemplateViewModel
+    public class TemplateNodeFolderViewModel : TemplateNodeViewModel
     {
-        public Int64 Id { get;private  set; }
-        public String DisplayName { get; private set; }
+       
+
         public ObservableCollection<TemplateNodeViewModel> Nodes { get; private set; }
 
-        public TemplateViewModel(SigTemplate templateItem)
+        public TemplateNodeFolderViewModel()
         {
-            this.Id = templateItem.Id;
-            this.DisplayName = templateItem.Libelle;
+           
+        }
+
+        public TemplateNodeFolderViewModel(SigNode model)
+        {
             this.Nodes = new ObservableCollection<TemplateNodeViewModel>();
+            this.Model = model;
+            this.DisplayName = model.Libelle;
         }
     }
 }
