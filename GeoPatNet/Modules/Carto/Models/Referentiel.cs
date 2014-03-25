@@ -17,7 +17,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Models
     public class Referentiel
     {
 
-        private List<ReferentielMultiLineString> MultiLineStrings { get; set; }
+        public List<ReferentielMultiLineString> MultiLineStrings { get; private set; }
         public IDataService DataService { get; private set; }
 
         public Referentiel()
@@ -63,7 +63,7 @@ namespace Emash.GeoPatNet.Modules.Carto.Models
 
     public class ReferentielMultiLineString
     {
-        private InfChaussee Chaussee { get; set; }
+        public InfChaussee Chaussee { get;private  set; }
         public List<ReferentielLineString> LineStrings { get; set; }
         private double AbsDeb { get; set; }
         private double AbsFin { get; set; }
@@ -105,8 +105,8 @@ namespace Emash.GeoPatNet.Modules.Carto.Models
     public class ReferentielLineString
     {
         private InfChaussee Chaussee { get; set; }
-        private double AbsDeb { get; set; }
-        private double AbsFin { get; set; }
+        public double AbsDeb { get; private set; }
+        public double AbsFin { get; private set; }
         public List<ReferentielSegment> Segements { get; set; }
 
         public ReferentielLineString(InfChaussee chaussee, double absDeb, double absFin, LineString ls)

@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Infrastructure.Behaviors;
 using System.Windows.Controls;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using System.Reflection;
+using DotSpatial.Topology;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
@@ -278,14 +279,18 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             DbSet<SigNode> nodeSet = this.DataService.GetDbSet<SigNode>();
             List<TemplateNodeLayerViewModel> layersNodes = new List<TemplateNodeLayerViewModel>();
             this.RecurseLoadTemplate(nodeSet, template, template.Nodes, -1, layersNodes);
-
+            Envelope env = new Envelope();
             layersNodes = (from ln in layersNodes where ln.Model.SigLayer != null orderby ln.Model.SigLayer.MapOrder  select ln).ToList();
             foreach (TemplateNodeLayerViewModel layersNode in layersNodes)
             {
                 layersNode.CreateLayers();
                 foreach (IMapLayer mapLayer in layersNode.Layers)
-                {this.Map.Layers.Add(mapLayer);}
+                {
+                    this.Map.Layers.Add(mapLayer);
+                    env.ExpandToInclude(mapLayer.Extent.ToEnvelope());
+                }
             }
+            this.Map.ViewExtents = env.ToExtent();
         }
 
         private void RecurseLoadTemplate(DbSet<SigNode> nodeSet, TemplateViewModel template, ObservableCollection<TemplateNodeViewModel> nodes, Int64  parentId,List<TemplateNodeLayerViewModel> layersNodes)

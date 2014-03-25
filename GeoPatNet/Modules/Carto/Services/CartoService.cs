@@ -17,6 +17,7 @@ using Emash.GeoPatNet.Modules.Carto.Adapters;
 using DotSpatial.Controls;
 using DotSpatial.Projections;
 using Emash.GeoPatNet.Modules.Carto.Models;
+using DotSpatial.Topology;
 
 namespace Emash.GeoPatNet.Modules.Carto.Services
 {
@@ -140,16 +141,38 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
 
 
 
-        public FeatureSetPack Geocode(IQueryable queryable)
+        public ReferentielMultiLineString GetChausseeMultiLineString(long chausseeId)
         {
-
-            return null;
+            return (from c in _referentiel.MultiLineStrings where c.Chaussee.Id == chausseeId select c).FirstOrDefault();
         }
 
-
-        public FeatureSet CreateReferentielFeatureSet()
+        public DotSpatial.Topology.Geometry Geocode(long chausseeId, long absDeb)
         {
-            return this._referentiel.CreateFeatureSet();
+            ReferentielMultiLineString mls = this.GetChausseeMultiLineString (chausseeId );
+            if (mls != null)
+            {
+                ReferentielLineString ls = (from l in mls.LineStrings where absDeb >= l.AbsDeb && absDeb < l.AbsFin select l).FirstOrDefault();
+                if (ls != null)
+                {
+                    ReferentielSegment seg = (from s in ls.Segements where absDeb >= s.AbsDeb && absDeb < s.AbsFin select s).FirstOrDefault();
+                    if (seg != null)
+                    {
+                        double fraction = (absDeb - seg.AbsDeb) / (seg.AbsFin - seg.AbsDeb);
+                        double x = seg.CoordDeb.X + ((seg.CoordFin.X - seg.CoordDeb.X) * fraction);
+                        double y = seg.CoordDeb.Y + ((seg.CoordFin.Y - seg.CoordDeb.Y) * fraction);
+                        Point pt = new Point(x, y);
+                        return pt;
+                        
+                    }
+                }
+            }
+            return null;
+            
+        }
+
+        public DotSpatial.Topology.Geometry Geocode(long chausseeId, long absDeb, long absFin)
+        {
+            throw new NotImplementedException();
         }
     }
 }

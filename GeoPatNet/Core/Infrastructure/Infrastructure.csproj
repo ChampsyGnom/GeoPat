@@ -38,6 +38,10 @@
     <Reference Include="DotSpatial.Symbology">
       <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Symbology.dll</HintPath>
     </Reference>
+    <Reference Include="DotSpatial.Topology, Version=1.6.0.0, Culture=neutral, PublicKeyToken=a66b5e9434ca3671, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\DotSpatial.Full\DotSpatial.Topology.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>

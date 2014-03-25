@@ -11,7 +11,7 @@ namespace Emash.GeoPatNet.Infrastructure.Services
     {
         void ShowCarto();
         void Initialize();
-        FeatureSetPack Geocode(IQueryable queryable);
-        FeatureSet CreateReferentielFeatureSet();
+        DotSpatial.Topology.Geometry Geocode(long chausseeId, long absDeb);
+        DotSpatial.Topology.Geometry Geocode(long chausseeId, long absDeb, long absFin);
     }
 }
