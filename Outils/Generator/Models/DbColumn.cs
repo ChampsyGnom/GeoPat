@@ -45,9 +45,9 @@ namespace Emash.GeoPatNet.Generator.Models
             else if (DataType.Equals("VBIN"))
             {
                 if (AllowNull)
-                { return this.Name + " geometry"; }
+                { return this.Name + " text"; }
                 else
-                { return this.Name + " geometry NOT NULL"; }
+                { return this.Name + " text NOT NULL"; }
             }
             else if (DataType.Equals("INT4"))
             {

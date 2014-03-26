@@ -153,7 +153,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                     {
                         MenuItem menuItemSchema = new MenuItem();
                         menuItemSchema.Header = schemaInfo.SchemaName;
-                        KeyValuePair<EntitySchemaInfo,List<EntityTableInfo>> dc;
+                      
 
                        foreach (EntityTableInfo tableInfo in this.GeocodableEntityTables[schemaInfo])
                         {
@@ -213,7 +213,19 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                     else if (arg.TreeView.SelectedItem is TemplateNodeLayerViewModel)
                     {
                         TemplateNodeLayerViewModel templateNodeLayerViewModel = (arg.TreeView.SelectedItem as TemplateNodeLayerViewModel);
-                        
+                        MenuItem menuItemStyles = new MenuItem();
+                        menuItemStyles.Header = "Styles";
+                        arg.ContextMenu.Items.Add(menuItemStyles);
+
+
+                     //   menuItemStyles.Items.Add(new Separator());
+
+                        MenuItem menuItemAddStyle = new MenuItem();
+                        menuItemAddStyle.Header = "Créer un style";
+                        menuItemStyles.Items.Add(menuItemAddStyle);
+
+
+                        arg.ContextMenu.Items.Add(new Separator());
                         MenuItem menuItemRemoveTable = new MenuItem();
                         menuItemRemoveTable.Header = "Supprimer cette table";
                         menuItemRemoveTable.Command = new DelegateCommand(new Action(delegate()

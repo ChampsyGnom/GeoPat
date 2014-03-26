@@ -153,6 +153,8 @@
     <Compile Include="Models\InfSectionTrafic.cs" />
     <Compile Include="Models\InfSecurite.cs" />
     <Compile Include="Models\InfSensible.cs" />
+    <Compile Include="Models\InfStyle.cs" />
+    <Compile Include="Models\InfStyleRule.cs" />
     <Compile Include="Models\InfTalus.cs" />
     <Compile Include="Models\InfTpc.cs" />
     <Compile Include="Models\InfTrDec.cs" />

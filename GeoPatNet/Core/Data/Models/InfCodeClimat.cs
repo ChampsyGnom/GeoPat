@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_CLIMAT__ID")]
         [PrimaryKey("INF_CD_CLIMAT_PK")]
-        [ForeignKeyAttribute("INF_CD_CLIMAT__INF_CLIMAT","JOIN_o958")]
+        [ForeignKeyAttribute("INF_CD_CLIMAT__INF_CLIMAT","JOIN_o997")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id
