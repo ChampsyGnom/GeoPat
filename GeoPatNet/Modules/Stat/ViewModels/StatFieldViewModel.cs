@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Emash.GeoPatNet.Infrastructure.Enums;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 
 namespace Emash.GeoPatNet.Modules.Stat.ViewModels
 {
-    public enum StatFieldPart
-    { 
-        All,Year
-    }
+   
     public class StatFieldViewModel
     {
         public EntityFieldInfo Field { get; set; }

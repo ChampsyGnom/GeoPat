@@ -19,6 +19,8 @@ using Emash.GeoPatNet.Infrastructure.Reflection;
 using System.Reflection;
 using DotSpatial.Topology;
 using System.ComponentModel;
+using System.Windows;
+using System.Data.Entity.Infrastructure;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
@@ -41,7 +43,15 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             {return "Cartographie";} 
         }
 
-      
+        public Visibility TemplateVisibility
+        {
+            get
+            {
+                if (this.TemplatesView != null && this.TemplatesView.CurrentItem != null)
+                { return Visibility.Visible; }
+                return Visibility.Hidden;
+            }
+        }
         private Boolean _isModeMove = true;
 
         public Boolean IsModeMove
@@ -143,6 +153,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                     {
                         MenuItem menuItemSchema = new MenuItem();
                         menuItemSchema.Header = schemaInfo.SchemaName;
+                        KeyValuePair<EntitySchemaInfo,List<EntityTableInfo>> dc;
+
                        foreach (EntityTableInfo tableInfo in this.GeocodableEntityTables[schemaInfo])
                         {
                             MenuItem menuItemAddTable = new MenuItem();
@@ -188,31 +200,169 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                             menuItemAddTables.Items.Add(menuItemSchema);
                         }
                         arg.ContextMenu.Items.Add(menuItemAddTables);
+                        arg.ContextMenu.Items.Add(new Separator ());
+                        MenuItem menuItemRemoveFolder = new MenuItem();
+                        menuItemRemoveFolder.Header = "Supprimer ce dossier";
+                        menuItemRemoveFolder.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            this.RemoveFolder(templateViewModel, arg.TreeView.SelectedItem as TemplateNodeFolderViewModel);
+                        }));
+                        arg.ContextMenu.Items.Add(menuItemRemoveFolder);
+                       
                     }
                     else if (arg.TreeView.SelectedItem is TemplateNodeLayerViewModel)
-                    { }
+                    {
+                        TemplateNodeLayerViewModel templateNodeLayerViewModel = (arg.TreeView.SelectedItem as TemplateNodeLayerViewModel);
+                        
+                        MenuItem menuItemRemoveTable = new MenuItem();
+                        menuItemRemoveTable.Header = "Supprimer cette table";
+                        menuItemRemoveTable.Command = new DelegateCommand(new Action(delegate()
+                        {
+                            this.RemoveLayerMetier(templateViewModel, templateNodeLayerViewModel);
+                        }));
+                        arg.ContextMenu.Items.Add(menuItemRemoveTable);
+                        
+                    }
                 }
             }
             else
             { arg.ContextMenuEventArgs.Handled = true;}
         }
+
+        private void RemoveFolder(TemplateViewModel templateViewModel, TemplateNodeFolderViewModel folder)
+        {
+            DbSet<SigNode> nodes = this.DataService.GetDbSet<SigNode>();
+            List<TemplateNodeViewModel> nodeToRemoves = new List<TemplateNodeViewModel>();
+            List<TemplateNodeViewModel> subNodes = (from n in folder.Nodes select n).ToList();
+
+            TemplateNodeFolderViewModel parentFolder = null;
+            foreach (TemplateNodeViewModel node in subNodes)
+            {
+                if (node is TemplateNodeLayerViewModel)
+                {
+                    RemoveLayerMetier(templateViewModel, (node as TemplateNodeLayerViewModel));
+                }
+                else if (node is TemplateNodeFolderViewModel)
+                {
+
+                    TemplateNodeFolderViewModel subFolder = (node as TemplateNodeFolderViewModel);
+                    parentFolder = this.GetParentFolder(templateViewModel, templateViewModel.Nodes, subFolder);
+                    nodes.Remove(subFolder.Model);
+                    this.RemoveFolder(templateViewModel, subFolder);
+                    if (parentFolder != null)
+                    { parentFolder.Nodes.Remove(subFolder); }
+                    else templateViewModel.Nodes.Remove(subFolder);
+                    
+                }
+
+            }
+
+            parentFolder = this.GetParentFolder(templateViewModel, templateViewModel.Nodes, folder);
+
+            if (parentFolder != null)
+            { parentFolder.Nodes.Remove(folder); }
+            else templateViewModel.Nodes.Remove(folder);
+            nodes.Remove(folder.Model);
+            this.DataService.DataContext.SaveChanges();
+        }
+
+        private void RemoveLayerMetier(TemplateViewModel templateViewModel, TemplateNodeLayerViewModel templateNodeLayerViewModel)
+        {
+            DbSet<SigNode> nodes = this.DataService.GetDbSet<SigNode>();
+            DbSet<SigLayer> layers = this.DataService.GetDbSet<SigLayer>();
+
+            TemplateNodeFolderViewModel parentFolder = this.GetParentFolder(templateViewModel, templateViewModel.Nodes, templateNodeLayerViewModel);
+            if (parentFolder != null)
+            {parentFolder.Nodes.Remove(templateNodeLayerViewModel);}
+            else
+            {templateViewModel.Nodes.Remove(templateNodeLayerViewModel);}
+            nodes.Remove(templateNodeLayerViewModel.Model);
+            this.DataService.DataContext.Entry(templateNodeLayerViewModel.Model).Reload();
+            if (templateNodeLayerViewModel.Model.SigLayerId.HasValue)
+            {
+                SigLayer layerToRemove = (from l in layers where l.Id == templateNodeLayerViewModel.Model.SigLayerId.Value select l).FirstOrDefault();
+                if (layerToRemove != null)
+                { layers.Remove(layerToRemove); }
+            }
+            
+          
+            this.DataService.DataContext.SaveChanges();
+
+
+            List<SigNode> nodeMaps = (from n in nodes where n.SigTemplateId == templateViewModel.Id && n.SigLayer != null orderby n.SigLayer.MapOrder select n).ToList();
+            int mapOrder = 0;
+            foreach (SigNode nodeMap in nodeMaps)
+            {
+                nodeMap.SigLayer.MapOrder = mapOrder;
+                mapOrder++;
+            }
+            this.DataService.DataContext.SaveChanges();
+
+            int nodeOrder = 0;
+            if (parentFolder != null)
+            {
+                foreach (TemplateNodeViewModel child in parentFolder.Nodes)
+                {
+                    child.Model.Order = nodeOrder;
+                    nodeOrder++;
+                }
+            }
+            else
+            {
+                foreach (TemplateNodeViewModel child in templateViewModel.Nodes)
+                {
+                    child.Model.Order = nodeOrder;
+                    nodeOrder++;
+                }
+            }
+            
+            this.DataService.DataContext.SaveChanges();
+            foreach (IMapLayer layer in templateNodeLayerViewModel.Layers)
+            {this.Map.Layers.Remove(layer);}
+        }
+
+        public TemplateNodeFolderViewModel GetParentFolder(Object parent, ObservableCollection<TemplateNodeViewModel> list, TemplateNodeViewModel node)
+        {
+            if (list.Contains(node)) return parent as TemplateNodeFolderViewModel;
+            else
+            {
+                foreach (TemplateNodeViewModel n in list)
+                {
+                    if (n is TemplateNodeFolderViewModel)
+                    {
+                        return GetParentFolder(n, (n as TemplateNodeFolderViewModel).Nodes, node);
+                    }
+                }
+            }
+            return null;
+        }
+        
         private Int64  GetNextMapOrder()
         {
             if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel)
             {
                 TemplateViewModel templateViewModel = (this.TemplatesView.CurrentItem as TemplateViewModel);
                 DbSet<SigNode> nodes = this.DataService.GetDbSet<SigNode>();
-                if ((from n in nodes where n.SigTemplateId == templateViewModel.Id && n.SigLayer != null select n.SigLayer.MapOrder).Any())
+                Nullable<Int64> mapOrder = null;
+                foreach (SigNode node in nodes)
                 {
-
-                    long maxOrder = (from n in nodes where n.SigTemplateId == templateViewModel.Id && n.SigLayer != null select n.SigLayer.MapOrder).Max();
-                    return maxOrder + 1;
+                    if (node.SigTemplateId == templateViewModel.Id && node.SigLayer != null)
+                    {
+                        if (mapOrder.HasValue == false || (mapOrder.HasValue == true && mapOrder.Value < node.SigLayer.MapOrder ))
+                        {
+                            mapOrder =  node.SigLayer.MapOrder;
+                        }
+                    }
                 }
+                if (!mapOrder.HasValue )
+                {mapOrder = 0;}
+                return mapOrder.Value;
             }
             return 0;
         }
         private void AddLayerMetier(TemplateViewModel templateViewModel, TemplateNodeFolderViewModel parentFolder, EntityTableInfo tableInfo)
         {
+            long nextMapOrder = this.GetNextMapOrder();
             DbSet<SigNode> nodes = this.DataService.GetDbSet<SigNode>();
             DbSet<SigLayer> layers = this.DataService.GetDbSet<SigLayer>();
 
@@ -236,14 +386,16 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             nodeLayerMetier.Libelle = tableInfo.DisplayName;
             SigLayer layer = new SigLayer();
             layer.Libelle = tableInfo.DisplayName;
-            layer.MapOrder = this.GetNextMapOrder();
+            layer.MapOrder = nextMapOrder;
             layer.EntityName = tableInfo.EntityType.Name;
             layer.SigCodeLayer = (from c in codeLayers where c.Code.Equals("Geocodage") select c).FirstOrDefault();
-            layers.Add(layer);
+            layers.Add(layer);           
             this.DataService.DataContext.SaveChanges();
             nodeLayerMetier.SigLayer = layer;
             nodes.Add(nodeLayerMetier);
             this.DataService.DataContext.SaveChanges();
+            nodeLayerMetier.SigLayer = layer;
+            nodeLayerMetier.SigLayerId = layer.Id;
             TemplateNodeLayerViewModel vm = new TemplateNodeLayerViewModel(nodeLayerMetier);
             if (parentFolder == null)
             { templateViewModel.Nodes.Add(vm); }
@@ -310,6 +462,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                 TemplateViewModel template = (this.TemplatesView.CurrentItem as TemplateViewModel);
                 this.LoadTemplate(template);
             }
+            this.RaisePropertyChanged("TemplateVisibility");
         }
 
         private void LoadTemplate(TemplateViewModel template)

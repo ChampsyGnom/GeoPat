@@ -92,6 +92,7 @@
                     </TreeView.Resources>
                     <TreeView.ItemContainerStyle>
                         <Style TargetType="TreeViewItem">
+                           
                             <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
                         </Style>
                     </TreeView.ItemContainerStyle>
