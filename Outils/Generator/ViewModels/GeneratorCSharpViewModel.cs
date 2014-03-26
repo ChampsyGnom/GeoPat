@@ -40,7 +40,7 @@ namespace Emash.GeoPatNet.Generator.ViewModels
         {
             this._model = model;
             this.DataNamespace = "Emash.GeoPatNet.Data";
-            this.DataPath = @"C:\Users\Champ\Documents\GitHub\GeoPat\GeoPatNet\Core\Data\";
+            this.DataPath = @"C:\Users\loic.EMASH\Documents\GitHub\GeoPat\GeoPatNet\Core\Data";
 
          
     

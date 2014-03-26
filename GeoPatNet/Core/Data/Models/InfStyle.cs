@@ -54,7 +54,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_STYLE__ID")]
         [PrimaryKey("INF_STYLE__PK")]
-        [ForeignKeyAttribute("INF_STYLE__INF_STYLE_RULE","JOIN_o1024")]
+        [ForeignKeyAttribute("INF_STYLE__INF_STYLE_RULE","JOIN_o1021")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

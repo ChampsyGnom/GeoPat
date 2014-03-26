@@ -19,56 +19,6 @@ namespace Emash.GeoPatNet.Data
             get { return _modelBuilder; }
         }
 
-        public DbSet<PrfLang>  PrfLangs
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfParam>  PrfParams
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfProfilRight>  PrfProfilRights
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfRight>  PrfRights
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfUserProfil>  PrfUserProfils
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfProfil>  PrfProfils
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfSchema>  PrfSchemas
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfProfilTable>  PrfProfilTables
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfTable>  PrfTables
-        {
-            get;
-            set;
-        }
-        public DbSet<PrfUser>  PrfUsers
-        {
-            get;
-            set;
-        }
         public DbSet<InfAccident>  InfAccidents
         {
             get;
@@ -364,6 +314,56 @@ namespace Emash.GeoPatNet.Data
             get;
             set;
         }
+        public DbSet<PrfLang>  PrfLangs
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfParam>  PrfParams
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfProfilRight>  PrfProfilRights
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfRight>  PrfRights
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfUserProfil>  PrfUserProfils
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfProfil>  PrfProfils
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfSchema>  PrfSchemas
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfProfilTable>  PrfProfilTables
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfTable>  PrfTables
+        {
+            get;
+            set;
+        }
+        public DbSet<PrfUser>  PrfUsers
+        {
+            get;
+            set;
+        }
         public DbSet<SigLayer>  SigLayers
         {
             get;
@@ -409,134 +409,6 @@ namespace Emash.GeoPatNet.Data
             base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             this._modelBuilder = modelBuilder;
-            modelBuilder.Entity<PrfLang>().ToTable("prf_lang", "prf");
-            modelBuilder.Entity<PrfLang>().Property(t => t.Key) .HasColumnName("prf_lang__key");
-            modelBuilder.Entity<PrfLang>().Property(t => t.Key).IsRequired();
-            modelBuilder.Entity<PrfLang>().Property(t => t.Key).HasMaxLength(200);
-            modelBuilder.Entity<PrfLang>().Property(t => t.CodeIso) .HasColumnName("prf_lang__code_iso");
-            modelBuilder.Entity<PrfLang>().Property(t => t.CodeIso).IsRequired();
-            modelBuilder.Entity<PrfLang>().Property(t => t.CodeIso).HasMaxLength(3);
-            modelBuilder.Entity<PrfLang>().Property(t => t.Id) .HasColumnName("prf_lang__id");
-            modelBuilder.Entity<PrfLang>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfLang>().Property(t => t.Valeur) .HasColumnName("prf_lang__valeur");
-            modelBuilder.Entity<PrfLang>().Property(t => t.Valeur).IsRequired();
-            modelBuilder.Entity<PrfLang>().Property(t => t.Valeur).HasMaxLength(1000);
-            modelBuilder.Entity<PrfLang>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfLang>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfParam>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfParams);
-            modelBuilder.Entity<PrfParam>().ToTable("prf_param", "prf");
-            modelBuilder.Entity<PrfParam>().Property(t => t.Code) .HasColumnName("prf_param__code");
-            modelBuilder.Entity<PrfParam>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<PrfParam>().Property(t => t.Code).HasMaxLength(100);
-            modelBuilder.Entity<PrfParam>().Property(t => t.Id) .HasColumnName("prf_param__id");
-            modelBuilder.Entity<PrfParam>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfParam>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
-            modelBuilder.Entity<PrfParam>().Property(t => t.Valeur) .HasColumnName("prf_param__valeur");
-            modelBuilder.Entity<PrfParam>().Property(t => t.Valeur).IsRequired();
-            modelBuilder.Entity<PrfParam>().Property(t => t.Valeur).HasMaxLength(500);
-            modelBuilder.Entity<PrfParam>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfParam>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfProfilRight>().HasRequired<PrfRight>(c => c.PrfRight).WithMany(t => t.PrfProfilRights);
-            modelBuilder.Entity<PrfProfilRight>().HasRequired<PrfProfil>(c => c.PrfProfil).WithMany(t => t.PrfProfilRights);
-            modelBuilder.Entity<PrfProfilRight>().ToTable("prf_profil_right", "prf");
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.Id) .HasColumnName("prf_profil_right__id");
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfRightId) .HasColumnName("prf_right__id");
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfRightId).IsRequired();
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfProfilId) .HasColumnName("prf_profil__id");
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfProfilId).IsRequired();
-            modelBuilder.Entity<PrfProfilRight>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfProfilRight>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfRight>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfRights);
-            modelBuilder.Entity<PrfRight>().ToTable("prf_right", "prf");
-            modelBuilder.Entity<PrfRight>().Property(t => t.Code) .HasColumnName("prf_right__code");
-            modelBuilder.Entity<PrfRight>().Property(t => t.Code).IsRequired();
-            modelBuilder.Entity<PrfRight>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<PrfRight>().Property(t => t.Id) .HasColumnName("prf_right__id");
-            modelBuilder.Entity<PrfRight>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfRight>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
-            modelBuilder.Entity<PrfRight>().Property(t => t.PrfSchemaId).IsRequired();
-            modelBuilder.Entity<PrfRight>().Property(t => t.Libelle) .HasColumnName("prf_right__libelle");
-            modelBuilder.Entity<PrfRight>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<PrfRight>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfRight>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfUserProfil>().HasRequired<PrfProfil>(c => c.PrfProfil).WithMany(t => t.PrfUserProfils);
-            modelBuilder.Entity<PrfUserProfil>().HasRequired<PrfUser>(c => c.PrfUser).WithMany(t => t.PrfUserProfils);
-            modelBuilder.Entity<PrfUserProfil>().ToTable("prf_user_profil", "prf");
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.Id) .HasColumnName("prf_user_profil__id");
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfProfilId) .HasColumnName("prf_profil__id");
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfProfilId).IsRequired();
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfUserId) .HasColumnName("prf_user__id");
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfUserId).IsRequired();
-            modelBuilder.Entity<PrfUserProfil>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfUserProfil>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfProfil>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfProfils);
-            modelBuilder.Entity<PrfProfil>().ToTable("prf_profil", "prf");
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Code) .HasColumnName("prf_profil__code");
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Code).HasMaxLength(50);
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Id) .HasColumnName("prf_profil__id");
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfProfil>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
-            modelBuilder.Entity<PrfProfil>().Property(t => t.PrfSchemaId).IsRequired();
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Libelle) .HasColumnName("prf_profil__libelle");
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<PrfProfil>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfProfil>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfSchema>().ToTable("prf_schema", "prf");
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Id) .HasColumnName("prf_schema__id");
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Libelle) .HasColumnName("prf_schema__libelle");
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Name) .HasColumnName("prf_schema__name");
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Name).IsRequired();
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Name).HasMaxLength(50);
-            modelBuilder.Entity<PrfSchema>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfSchema>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfProfilTable>().HasRequired<PrfProfil>(c => c.PrfProfil).WithMany(t => t.PrfProfilTables);
-            modelBuilder.Entity<PrfProfilTable>().HasRequired<PrfTable>(c => c.PrfTable).WithMany(t => t.PrfProfilTables);
-            modelBuilder.Entity<PrfProfilTable>().ToTable("prf_profil_table", "prf");
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Write) .HasColumnName("prf_profil_table__write");
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Write).IsRequired();
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Import) .HasColumnName("prf_profil_table__import");
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Import).IsRequired();
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Id) .HasColumnName("prf_profil_table__id");
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfProfilId) .HasColumnName("prf_profil__id");
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfProfilId).IsRequired();
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfTableId) .HasColumnName("prf_table__id");
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfTableId).IsRequired();
-            modelBuilder.Entity<PrfProfilTable>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfTable>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfTables);
-            modelBuilder.Entity<PrfTable>().ToTable("prf_table", "prf");
-            modelBuilder.Entity<PrfTable>().Property(t => t.Id) .HasColumnName("prf_table__id");
-            modelBuilder.Entity<PrfTable>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfTable>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
-            modelBuilder.Entity<PrfTable>().Property(t => t.PrfSchemaId).IsRequired();
-            modelBuilder.Entity<PrfTable>().Property(t => t.Libelle) .HasColumnName("prf_table__libelle");
-            modelBuilder.Entity<PrfTable>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<PrfTable>().Property(t => t.Name) .HasColumnName("prf_table__name");
-            modelBuilder.Entity<PrfTable>().Property(t => t.Name).IsRequired();
-            modelBuilder.Entity<PrfTable>().Property(t => t.Name).HasMaxLength(50);
-            modelBuilder.Entity<PrfTable>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfTable>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
-            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
-            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
-            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfAccident>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfAccidents);
             modelBuilder.Entity<InfAccident>().ToTable("inf_accident", "inf");
             modelBuilder.Entity<InfAccident>().Property(t => t.Annee) .HasColumnName("inf_accident__annee");
@@ -1133,6 +1005,8 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfPrestataire>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfStyleRule>().HasRequired<InfStyle>(c => c.InfStyle).WithMany(t => t.InfStyleRules);
             modelBuilder.Entity<InfStyleRule>().ToTable("inf_style_rule", "inf");
+            modelBuilder.Entity<InfStyleRule>().Property(t => t.Field) .HasColumnName("inf_style_rule__field");
+            modelBuilder.Entity<InfStyleRule>().Property(t => t.Field).HasMaxLength(50);
             modelBuilder.Entity<InfStyleRule>().Property(t => t.LineBorderColor) .HasColumnName("inf_style_rule__line_border_color");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.LineBorderColor).HasMaxLength(15);
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PointBorderColor) .HasColumnName("inf_style_rule__point_border_color");
@@ -1145,6 +1019,8 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PolyColor).HasMaxLength(15);
             modelBuilder.Entity<InfStyleRule>().Property(t => t.LineColor) .HasColumnName("inf_style_rule__line_color");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.LineColor).HasMaxLength(15);
+            modelBuilder.Entity<InfStyleRule>().Property(t => t.Critere) .HasColumnName("inf_style_rule__critere");
+            modelBuilder.Entity<InfStyleRule>().Property(t => t.Critere).HasMaxLength(200);
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PointShape) .HasColumnName("inf_style_rule__point_shape");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PointShape).HasMaxLength(50);
             modelBuilder.Entity<InfStyleRule>().Property(t => t.Id) .HasColumnName("inf_style_rule__id");
@@ -1154,17 +1030,11 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfStyleRule>().Property(t => t.Libelle) .HasColumnName("inf_style_rule__libelle");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.Libelle).IsRequired();
             modelBuilder.Entity<InfStyleRule>().Property(t => t.Libelle).HasMaxLength(200);
-            modelBuilder.Entity<InfStyleRule>().Property(t => t.IsForNull) .HasColumnName("inf_style_rule__is_for_null");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.LineBorderSize) .HasColumnName("inf_style_rule__line_border_size");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PointBorderSize) .HasColumnName("inf_style_rule__point_border_size");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PolyBorderSize) .HasColumnName("inf_style_rule__poly_border_size");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.LineSize) .HasColumnName("inf_style_rule__line_size");
             modelBuilder.Entity<InfStyleRule>().Property(t => t.PointSize) .HasColumnName("inf_style_rule__point_size");
-            modelBuilder.Entity<InfStyleRule>().Property(t => t.NumMaxValue) .HasColumnName("inf_style_rule__num_max_value");
-            modelBuilder.Entity<InfStyleRule>().Property(t => t.NumMinValue) .HasColumnName("inf_style_rule__num_min_value");
-            modelBuilder.Entity<InfStyleRule>().Property(t => t.NumUnqValue) .HasColumnName("inf_style_rule__num_unq_value");
-            modelBuilder.Entity<InfStyleRule>().Property(t => t.TxtUnqValue) .HasColumnName("inf_style_rule__txt_unq_value");
-            modelBuilder.Entity<InfStyleRule>().Property(t => t.TxtUnqValue).HasMaxLength(200);
             modelBuilder.Entity<InfStyleRule>().HasKey(t => t.Id);
             modelBuilder.Entity<InfStyleRule>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<InfRepartitionTrafic>().HasRequired<InfChaussee>(c => c.InfChaussee).WithMany(t => t.InfRepartitionTrafics);
@@ -1376,6 +1246,134 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeService>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeService>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeService>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfLang>().ToTable("prf_lang", "prf");
+            modelBuilder.Entity<PrfLang>().Property(t => t.Key) .HasColumnName("prf_lang__key");
+            modelBuilder.Entity<PrfLang>().Property(t => t.Key).IsRequired();
+            modelBuilder.Entity<PrfLang>().Property(t => t.Key).HasMaxLength(200);
+            modelBuilder.Entity<PrfLang>().Property(t => t.CodeIso) .HasColumnName("prf_lang__code_iso");
+            modelBuilder.Entity<PrfLang>().Property(t => t.CodeIso).IsRequired();
+            modelBuilder.Entity<PrfLang>().Property(t => t.CodeIso).HasMaxLength(3);
+            modelBuilder.Entity<PrfLang>().Property(t => t.Id) .HasColumnName("prf_lang__id");
+            modelBuilder.Entity<PrfLang>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfLang>().Property(t => t.Valeur) .HasColumnName("prf_lang__valeur");
+            modelBuilder.Entity<PrfLang>().Property(t => t.Valeur).IsRequired();
+            modelBuilder.Entity<PrfLang>().Property(t => t.Valeur).HasMaxLength(1000);
+            modelBuilder.Entity<PrfLang>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfLang>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfParam>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfParams);
+            modelBuilder.Entity<PrfParam>().ToTable("prf_param", "prf");
+            modelBuilder.Entity<PrfParam>().Property(t => t.Code) .HasColumnName("prf_param__code");
+            modelBuilder.Entity<PrfParam>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<PrfParam>().Property(t => t.Code).HasMaxLength(100);
+            modelBuilder.Entity<PrfParam>().Property(t => t.Id) .HasColumnName("prf_param__id");
+            modelBuilder.Entity<PrfParam>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfParam>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
+            modelBuilder.Entity<PrfParam>().Property(t => t.Valeur) .HasColumnName("prf_param__valeur");
+            modelBuilder.Entity<PrfParam>().Property(t => t.Valeur).IsRequired();
+            modelBuilder.Entity<PrfParam>().Property(t => t.Valeur).HasMaxLength(500);
+            modelBuilder.Entity<PrfParam>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfParam>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfProfilRight>().HasRequired<PrfRight>(c => c.PrfRight).WithMany(t => t.PrfProfilRights);
+            modelBuilder.Entity<PrfProfilRight>().HasRequired<PrfProfil>(c => c.PrfProfil).WithMany(t => t.PrfProfilRights);
+            modelBuilder.Entity<PrfProfilRight>().ToTable("prf_profil_right", "prf");
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.Id) .HasColumnName("prf_profil_right__id");
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfRightId) .HasColumnName("prf_right__id");
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfRightId).IsRequired();
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfProfilId) .HasColumnName("prf_profil__id");
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.PrfProfilId).IsRequired();
+            modelBuilder.Entity<PrfProfilRight>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfProfilRight>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfRight>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfRights);
+            modelBuilder.Entity<PrfRight>().ToTable("prf_right", "prf");
+            modelBuilder.Entity<PrfRight>().Property(t => t.Code) .HasColumnName("prf_right__code");
+            modelBuilder.Entity<PrfRight>().Property(t => t.Code).IsRequired();
+            modelBuilder.Entity<PrfRight>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<PrfRight>().Property(t => t.Id) .HasColumnName("prf_right__id");
+            modelBuilder.Entity<PrfRight>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfRight>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
+            modelBuilder.Entity<PrfRight>().Property(t => t.PrfSchemaId).IsRequired();
+            modelBuilder.Entity<PrfRight>().Property(t => t.Libelle) .HasColumnName("prf_right__libelle");
+            modelBuilder.Entity<PrfRight>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<PrfRight>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfRight>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfUserProfil>().HasRequired<PrfProfil>(c => c.PrfProfil).WithMany(t => t.PrfUserProfils);
+            modelBuilder.Entity<PrfUserProfil>().HasRequired<PrfUser>(c => c.PrfUser).WithMany(t => t.PrfUserProfils);
+            modelBuilder.Entity<PrfUserProfil>().ToTable("prf_user_profil", "prf");
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.Id) .HasColumnName("prf_user_profil__id");
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfProfilId) .HasColumnName("prf_profil__id");
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfProfilId).IsRequired();
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfUserId) .HasColumnName("prf_user__id");
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.PrfUserId).IsRequired();
+            modelBuilder.Entity<PrfUserProfil>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfUserProfil>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfProfil>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfProfils);
+            modelBuilder.Entity<PrfProfil>().ToTable("prf_profil", "prf");
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Code) .HasColumnName("prf_profil__code");
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Code).HasMaxLength(50);
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Id) .HasColumnName("prf_profil__id");
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfProfil>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
+            modelBuilder.Entity<PrfProfil>().Property(t => t.PrfSchemaId).IsRequired();
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Libelle) .HasColumnName("prf_profil__libelle");
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<PrfProfil>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfProfil>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfSchema>().ToTable("prf_schema", "prf");
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Id) .HasColumnName("prf_schema__id");
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Libelle) .HasColumnName("prf_schema__libelle");
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Name) .HasColumnName("prf_schema__name");
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Name).IsRequired();
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Name).HasMaxLength(50);
+            modelBuilder.Entity<PrfSchema>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfSchema>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfProfilTable>().HasRequired<PrfProfil>(c => c.PrfProfil).WithMany(t => t.PrfProfilTables);
+            modelBuilder.Entity<PrfProfilTable>().HasRequired<PrfTable>(c => c.PrfTable).WithMany(t => t.PrfProfilTables);
+            modelBuilder.Entity<PrfProfilTable>().ToTable("prf_profil_table", "prf");
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Write) .HasColumnName("prf_profil_table__write");
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Write).IsRequired();
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Import) .HasColumnName("prf_profil_table__import");
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Import).IsRequired();
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Id) .HasColumnName("prf_profil_table__id");
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfProfilId) .HasColumnName("prf_profil__id");
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfProfilId).IsRequired();
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfTableId) .HasColumnName("prf_table__id");
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.PrfTableId).IsRequired();
+            modelBuilder.Entity<PrfProfilTable>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfProfilTable>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfTable>().HasRequired<PrfSchema>(c => c.PrfSchema).WithMany(t => t.PrfTables);
+            modelBuilder.Entity<PrfTable>().ToTable("prf_table", "prf");
+            modelBuilder.Entity<PrfTable>().Property(t => t.Id) .HasColumnName("prf_table__id");
+            modelBuilder.Entity<PrfTable>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfTable>().Property(t => t.PrfSchemaId) .HasColumnName("prf_schema__id");
+            modelBuilder.Entity<PrfTable>().Property(t => t.PrfSchemaId).IsRequired();
+            modelBuilder.Entity<PrfTable>().Property(t => t.Libelle) .HasColumnName("prf_table__libelle");
+            modelBuilder.Entity<PrfTable>().Property(t => t.Libelle).HasMaxLength(200);
+            modelBuilder.Entity<PrfTable>().Property(t => t.Name) .HasColumnName("prf_table__name");
+            modelBuilder.Entity<PrfTable>().Property(t => t.Name).IsRequired();
+            modelBuilder.Entity<PrfTable>().Property(t => t.Name).HasMaxLength(50);
+            modelBuilder.Entity<PrfTable>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfTable>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PrfUser>().ToTable("prf_user", "prf");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id) .HasColumnName("prf_user__id");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login) .HasColumnName("prf_user__login");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Login).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom) .HasColumnName("prf_user__nom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Nom).HasMaxLength(100);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword) .HasColumnName("prf_user__passsword");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Passsword).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom) .HasColumnName("prf_user__prenom");
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).IsRequired();
+            modelBuilder.Entity<PrfUser>().Property(t => t.Prenom).HasMaxLength(50);
+            modelBuilder.Entity<PrfUser>().HasKey(t => t.Id);
+            modelBuilder.Entity<PrfUser>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<SigLayer>().HasRequired<SigCodeLayer>(c => c.SigCodeLayer).WithMany(t => t.SigLayers);
             modelBuilder.Entity<SigLayer>().ToTable("sig_layer", "sig");
             modelBuilder.Entity<SigLayer>().Property(t => t.EntityName) .HasColumnName("sig_layer__entity_name");

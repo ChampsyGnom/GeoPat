@@ -37,7 +37,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_PLACE__ID")]
         [PrimaryKey("INF_CD_PLACE_PK")]
-        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE_PARKING","JOIN_o1019")]
+        [ForeignKeyAttribute("INF_CD_PARKING__INF_AIRE_PARKING","JOIN_o1016")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

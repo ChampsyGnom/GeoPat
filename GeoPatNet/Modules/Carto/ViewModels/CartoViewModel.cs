@@ -21,6 +21,7 @@ using DotSpatial.Topology;
 using System.ComponentModel;
 using System.Windows;
 using System.Data.Entity.Infrastructure;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
@@ -222,6 +223,9 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 
                         MenuItem menuItemAddStyle = new MenuItem();
                         menuItemAddStyle.Header = "Créer un style";
+                        menuItemAddStyle.Command = new DelegateCommand(new Action(delegate() {
+                            this.CreateStyle(templateNodeLayerViewModel);
+                        }));
                         menuItemStyles.Items.Add(menuItemAddStyle);
 
 
@@ -239,6 +243,17 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             }
             else
             { arg.ContextMenuEventArgs.Handled = true;}
+        }
+
+        private void CreateStyle(TemplateNodeLayerViewModel templateNodeLayerViewModel)
+        {
+            StyleViewModel vm = new StyleViewModel();
+            vm.DisplayName = "Nouveau style";
+            IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
+            Window window =  dialogService.CreateDialog("CartoStyleRegion", "Création d'un style");
+            window.DataContext = vm;
+            Nullable<Boolean> result = window.ShowDialog();
+
         }
 
         private void RemoveFolder(TemplateViewModel templateViewModel, TemplateNodeFolderViewModel folder)

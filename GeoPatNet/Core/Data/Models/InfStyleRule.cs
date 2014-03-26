@@ -26,6 +26,16 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Champ")]
+        [ColumnName("INF_STYLE_RULE__FIELD")]
+        [MaxCharLength(50)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
+        public String Field
+        {
+            get;
+            set;
+        }
         [DisplayName("Couleur de la bordure des lignes")]
         [ColumnName("INF_STYLE_RULE__LINE_BORDER_COLOR")]
         [MaxCharLength(15)]
@@ -86,6 +96,16 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
+        [DisplayName("Critère")]
+        [ColumnName("INF_STYLE_RULE__CRITERE")]
+        [MaxCharLength(200)]
+        [ControlType(ControlType.Text)]
+        [AllowNull(true)]
+        public String Critere
+        {
+            get;
+            set;
+        }
         [DisplayName("Forme des points")]
         [ColumnName("INF_STYLE_RULE__POINT_SHAPE")]
         [MaxCharLength(50)]
@@ -127,15 +147,6 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Régle pour les valeur null")]
-        [ColumnName("INF_STYLE_RULE__IS_FOR_NULL")]
-        [ControlType(ControlType.Check)]
-        [AllowNull(true)]
-        public Nullable<Boolean> IsForNull
-        {
-            get;
-            set;
-        }
         [DisplayName("Taille de la bordure des lignes")]
         [ColumnName("INF_STYLE_RULE__LINE_BORDER_SIZE")]
         [RangeValue(-999999999999,999999999999)]
@@ -146,7 +157,7 @@ namespace Emash.GeoPatNet.Data.Models
             get;
             set;
         }
-        [DisplayName("Taille de la bordure des poins")]
+        [DisplayName("Taille de la bordure des points")]
         [ColumnName("INF_STYLE_RULE__POINT_BORDER_SIZE")]
         [RangeValue(-999999999999,999999999999)]
         [ControlType(ControlType.Decimal)]
@@ -182,46 +193,6 @@ namespace Emash.GeoPatNet.Data.Models
         [ControlType(ControlType.Decimal)]
         [AllowNull(true)]
         public Nullable<Double> PointSize
-        {
-            get;
-            set;
-        }
-        [DisplayName("Valeur maxi numérique")]
-        [ColumnName("INF_STYLE_RULE__NUM_MAX_VALUE")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Decimal)]
-        [AllowNull(true)]
-        public Nullable<Double> NumMaxValue
-        {
-            get;
-            set;
-        }
-        [DisplayName("Valeur mini numérique")]
-        [ColumnName("INF_STYLE_RULE__NUM_MIN_VALUE")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Decimal)]
-        [AllowNull(true)]
-        public Nullable<Double> NumMinValue
-        {
-            get;
-            set;
-        }
-        [DisplayName("Valeur unique numérique")]
-        [ColumnName("INF_STYLE_RULE__NUM_UNQ_VALUE")]
-        [RangeValue(-999999999999,999999999999)]
-        [ControlType(ControlType.Decimal)]
-        [AllowNull(true)]
-        public Nullable<Double> NumUnqValue
-        {
-            get;
-            set;
-        }
-        [DisplayName("Valeur unique texte")]
-        [ColumnName("INF_STYLE_RULE__TXT_UNQ_VALUE")]
-        [MaxCharLength(200)]
-        [ControlType(ControlType.Text)]
-        [AllowNull(true)]
-        public String TxtUnqValue
         {
             get;
             set;

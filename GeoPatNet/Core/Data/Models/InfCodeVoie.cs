@@ -47,7 +47,7 @@ namespace Emash.GeoPatNet.Data.Models
         [DisplayName("Identifiant")]
         [ColumnName("INF_CD_VOIE__ID")]
         [PrimaryKey("INF_CD_VOIE_PK")]
-        [ForeignKeyAttribute("INF_CD_VOIE__INF_PAVE_VOIE","JOIN_o1012")]
+        [ForeignKeyAttribute("INF_CD_VOIE__INF_PAVE_VOIE","JOIN_o1009")]
         [ControlType(ControlType.None)]
         [AllowNull(false)]
         public Int64 Id

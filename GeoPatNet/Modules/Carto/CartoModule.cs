@@ -32,6 +32,7 @@ namespace Emash.GeoPatNet.Modules.Carto
             this._container.RegisterType<ICartoService, CartoService>(new ContainerControlledLifetimeManager());
             this._regionManager.RegisterViewWithRegion("CartoView", typeof(CartoView));
             this._regionManager.RegisterViewWithRegion("CartoControl", typeof(CartoControl));
+            this._regionManager.RegisterViewWithRegion("CartoStyleRegion", typeof(StyleView));
            
         }
         public void Initialize()
