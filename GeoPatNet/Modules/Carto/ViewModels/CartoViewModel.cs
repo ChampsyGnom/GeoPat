@@ -18,15 +18,55 @@ using System.Windows.Controls;
 using Emash.GeoPatNet.Infrastructure.Reflection;
 using System.Reflection;
 using DotSpatial.Topology;
+using System.ComponentModel;
 
 namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
-    public class CartoViewModel
+    public class CartoViewModel : INotifyPropertyChanged
     {
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        #endregion
         public String DisplayName 
         { 
             get 
             {return "Cartographie";} 
+        }
+
+      
+        private Boolean _isModeMove = true;
+
+        public Boolean IsModeMove
+        {
+            get { return _isModeMove; }
+            set { 
+                _isModeMove = value;
+                if ( this.Map != null)
+                {
+                    if (this.IsModeMove)
+                    { this.Map.FunctionMode = FunctionMode.Pan; }
+                    if (this.IsModeZoom)
+                    { this.Map.FunctionMode = FunctionMode.ZoomIn; }
+                  
+                }
+                this.RaisePropertyChanged("IsModeMove");
+                this.RaisePropertyChanged("IsModeZoom");
+            }
+        }
+        public Boolean IsModeZoom
+        {
+            get { return !_isModeMove; }
+            set {
+                this.IsModeMove = !value;
+            }
         }
         public DelegateCommand<TreeViewContextMenuOpeningBehaviorEventArg> TreeTemplateContextMenuOpeningCommand { get; private set; }
         public DelegateCommand CreateTemplateCommand { get;private  set; }
@@ -284,10 +324,13 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             foreach (TemplateNodeLayerViewModel layersNode in layersNodes)
             {
                 layersNode.CreateLayers();
+                if (layersNode.Envelope != null)
+                { env.ExpandToInclude(layersNode.Envelope); }
+
                 foreach (IMapLayer mapLayer in layersNode.Layers)
                 {
                     this.Map.Layers.Add(mapLayer);
-                    env.ExpandToInclude(mapLayer.Extent.ToEnvelope());
+                  
                 }
             }
             this.Map.ViewExtents = env.ToExtent();

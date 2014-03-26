@@ -73,14 +73,28 @@
                 <TreeView  x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type vm:TemplateNodeFolderViewModel}" ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
-                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                            <TextBlock Margin="2" Grid.Column="1" Text="{Binding Path=DisplayName}"></TextBlock>
+
                         </HierarchicalDataTemplate>
 
                         <DataTemplate DataType="{x:Type vm:TemplateNodeLayerViewModel}">
-                            <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" Margin="2"  IsChecked="{Binding Path=IsVisible,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                                <TextBlock Margin="2" Grid.Column="1" Text="{Binding Path=DisplayName}"></TextBlock>
+                            </Grid>
                         </DataTemplate>
 
                     </TreeView.Resources>
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="TreeViewItem">
+                            <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
                     <i:Interaction.Behaviors>
                         <b:TreeViewContextMenuOpeningBehavior Command="{Binding Path=TreeTemplateContextMenuOpeningCommand}">
 

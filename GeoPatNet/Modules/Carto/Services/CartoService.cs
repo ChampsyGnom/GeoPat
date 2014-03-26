@@ -172,7 +172,70 @@ namespace Emash.GeoPatNet.Modules.Carto.Services
 
         public DotSpatial.Topology.Geometry Geocode(long chausseeId, long absDeb, long absFin)
         {
-            throw new NotImplementedException();
+            ReferentielMultiLineString mls = this.GetChausseeMultiLineString(chausseeId);
+            if (mls != null)
+            {
+                ReferentielLineString lsDeb = (from l in mls.LineStrings where absDeb >= l.AbsDeb && absDeb < l.AbsFin select l).FirstOrDefault();
+                ReferentielLineString lsFin = (from l in mls.LineStrings where absFin >= l.AbsDeb && absFin < l.AbsFin select l).FirstOrDefault();
+                if (lsDeb != null && lsFin != null)
+                {
+                    if (mls.LineStrings.IndexOf(lsDeb) == mls.LineStrings.IndexOf(lsFin))
+                    {
+                        ReferentielSegment segDeb = (from s in lsDeb.Segements where absDeb >= s.AbsDeb && absDeb < s.AbsFin select s).FirstOrDefault();
+                        ReferentielSegment segFin = (from s in lsDeb.Segements where absFin >= s.AbsDeb && absFin < s.AbsFin select s).FirstOrDefault();
+                        if (segDeb != null && segFin != null)
+                        {
+                            if (lsDeb.Segements.IndexOf(segDeb) == lsDeb.Segements.IndexOf(segFin))
+                            {
+                                // sur le meme segment de la linestring
+                                List<Coordinate> coordinates = new List<Coordinate>();
+                                double fractionSegDeb = (absDeb - segDeb.AbsDeb) / (segDeb.AbsFin - segDeb.AbsDeb);
+                                double fractionSegFin = (absFin - segFin.AbsDeb) / (segFin.AbsFin - segFin.AbsDeb);
+                                double xDeb = segDeb.CoordDeb.X + ((segDeb.CoordFin.X - segDeb.CoordDeb.X) * fractionSegDeb);
+                                double yDeb = segDeb.CoordDeb.Y + ((segDeb.CoordFin.Y - segDeb.CoordDeb.Y) * fractionSegDeb);
+                                double xFin = segFin.CoordDeb.X + ((segFin.CoordFin.X - segFin.CoordDeb.X) * fractionSegFin);
+                                double yFin = segFin.CoordDeb.Y + ((segFin.CoordFin.Y - segFin.CoordDeb.Y) * fractionSegFin);
+                                coordinates.Add(new Coordinate(xDeb, yDeb));
+                                coordinates.Add(new Coordinate(xFin, yFin));
+                                LineString ls = new LineString(coordinates);
+                                return ls;
+                                //Console.WriteLine("sur le meme segment de la linestring");
+                            }
+                            else
+                            {
+                                List<Coordinate> coordinates = new List<Coordinate>();
+                                double fractionSegDeb = (absDeb - segDeb.AbsDeb) / (segDeb.AbsFin - segDeb.AbsDeb);
+                                double fractionSegFin = (absFin - segFin.AbsDeb) / (segFin.AbsFin - segFin.AbsDeb);
+                                double xDeb = segDeb.CoordDeb.X + ((segDeb.CoordFin.X - segDeb.CoordDeb.X) * fractionSegDeb);
+                                double yDeb = segDeb.CoordDeb.Y + ((segDeb.CoordFin.Y - segDeb.CoordDeb.Y) * fractionSegDeb);
+                                double xFin = segFin.CoordDeb.X + ((segFin.CoordFin.X - segFin.CoordDeb.X) * fractionSegFin);
+                                double yFin = segFin.CoordDeb.Y + ((segFin.CoordFin.Y - segFin.CoordDeb.Y) * fractionSegFin);
+                                coordinates.Add(new Coordinate(xDeb, yDeb));
+                                int indexSegDeb = lsDeb.Segements.IndexOf(segDeb);
+                                int indexSegFin = lsDeb.Segements.IndexOf(segFin);
+                                for (int i = indexSegDeb; i < indexSegFin; i++)
+                                {
+                                    ReferentielSegment s = lsDeb.Segements[i];
+                                    coordinates.Add(s.CoordFin);
+                                }
+                                coordinates.Add(new Coordinate(xFin, yFin));
+                                LineString ls = new LineString(coordinates);
+                                return ls;
+                                // sur plusieur segment de la linestring
+                               // Console.WriteLine("sur plusieur segment de la linestring");
+                            }
+                        }
+                       
+                    }
+                    else
+                    { 
+                        // sur plusieur lignes de la multilinestring
+                        //Console.WriteLine("sur plusieur lignes de la multilinestring");
+                    }
+                }
+                
+            }
+            return null;
         }
     }
 }

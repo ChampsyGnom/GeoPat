@@ -199,6 +199,7 @@ namespace Emash.GeoPatNet.Data.Models
         [ControlType(ControlType.None)]
         [AllowNull(true)]
         [DisplayName("Géométrie")]
+        [Location(Infrastructure.Enums.LocationAttributeType.ReferenceGeometry )]
         [ColumnName("INF_CHAUSSEE__GEOM")]
         public String Geom
         {

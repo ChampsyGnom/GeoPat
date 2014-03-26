@@ -18,6 +18,20 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public class TemplateNodeLayerViewModel : TemplateNodeViewModel
     {
+        private Boolean _isVisible = true;
+
+        public Boolean IsVisible
+        {
+            get { return _isVisible; }
+            set { 
+                _isVisible = value;
+                foreach (IMapLayer layer in this.Layers)
+                {
+                    layer.IsVisible = _isVisible;
+                }
+                
+            }
+        }
         public Envelope Envelope { get; private set; }
         public List<IMapLayer> Layers { get; private set; }
         public TemplateNodeLayerViewModel(SigNode model)
@@ -89,7 +103,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                             if (geometry is Point)
                             {
                                 featureSetPoint.AddFeature(geometry);
-                                env.ExpandToInclude(geometry.Envelope);
+                                env.ExpandToInclude((geometry as Point).Coordinate);
                             }
                             else if (geometry is LineString)
                             { 
