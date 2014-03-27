@@ -70,7 +70,7 @@
                     <Button Command="{Binding Path=PublishTemplateCommand}"  Grid.Column="0" Margin="2" Content="Publier"></Button>
                     <Button Command="{Binding Path=DeleteTemplateCommand}"  Grid.Column="1" Margin="2" Content="Supprimer"></Button>
                 </Grid>
-                <TreeView  x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
+                <TreeView PreviewMouseRightButtonDown="treeViewTemplate_PreviewMouseRightButtonDown" x:Name="treeViewTemplate" ItemsSource="{Binding ElementName=comboTemplates,Path=SelectedItem.Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.ColumnSpan="2" Grid.Row="3">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type vm:TemplateNodeFolderViewModel}" ItemsSource="{Binding Path=Nodes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                             <TextBlock Margin="2" Grid.Column="1" Text="{Binding Path=DisplayName}"></TextBlock>

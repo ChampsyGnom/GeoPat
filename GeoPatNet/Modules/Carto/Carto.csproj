@@ -146,6 +146,7 @@
     <Compile Include="Services\CartoService.cs" />
     <Compile Include="Utils\WktHelper.cs" />
     <Compile Include="ViewModels\CartoViewModel.cs" />
+    <Compile Include="ViewModels\IStyleRuleViewModel.cs" />
     <Compile Include="ViewModels\StyleRuleViewModel.cs" />
     <Compile Include="ViewModels\StyleViewModel.cs" />
     <Compile Include="ViewModels\TemplateNodeFolderViewModel.cs" />
@@ -157,6 +158,9 @@
     </Compile>
     <Compile Include="Views\CartoView.xaml.cs">
       <DependentUpon>CartoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RuleSymbolizerPreview.xaml.cs">
+      <DependentUpon>RuleSymbolizerPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StyleView.xaml.cs">
       <DependentUpon>StyleView.xaml</DependentUpon>
@@ -189,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CartoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RuleSymbolizerPreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

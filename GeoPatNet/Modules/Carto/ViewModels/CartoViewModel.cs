@@ -136,7 +136,9 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
             if (this.TemplatesView.CurrentItem != null && this.TemplatesView.CurrentItem is TemplateViewModel)
             {
                 TemplateViewModel templateViewModel = ( this.TemplatesView.CurrentItem as TemplateViewModel);
-                arg.ContextMenu.Items.Clear();
+                if (arg.ContextMenu.Items.Count > 0)
+                { arg.ContextMenu.Items.Clear(); }
+            
                 if (arg.TreeView.SelectedItem == null)
                 {
 
@@ -168,6 +170,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                         menuItemAddTables.Items.Add(menuItemSchema);
                     }
                     arg.ContextMenu.Items.Add(menuItemAddTables);
+                  
+                    arg.ContextMenu.IsOpen = true;
                 }
                 else
                 {
@@ -209,6 +213,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                             this.RemoveFolder(templateViewModel, arg.TreeView.SelectedItem as TemplateNodeFolderViewModel);
                         }));
                         arg.ContextMenu.Items.Add(menuItemRemoveFolder);
+                        arg.ContextMenu.IsOpen = true;
                        
                     }
                     else if (arg.TreeView.SelectedItem is TemplateNodeLayerViewModel)
@@ -237,7 +242,7 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
                             this.RemoveLayerMetier(templateViewModel, templateNodeLayerViewModel);
                         }));
                         arg.ContextMenu.Items.Add(menuItemRemoveTable);
-                        
+                        arg.ContextMenu.IsOpen = true;
                     }
                 }
             }

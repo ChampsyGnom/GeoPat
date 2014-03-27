@@ -4,8 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             xmlns:v="clr-namespace:Emash.GeoPatNet.Modules.Carto.Views"
              xmlns:xcwpftk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" Width="524">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -33,84 +36,92 @@
                     </Style.Triggers>
                 </Style>
             </GroupBox.Style>
-            <TabControl MinWidth="200" MinHeight="200">
-                <TabItem Header="Points">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>                 
-                        <TextBlock Text="Forme  : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
-                        <TextBlock Text="Taille  : " Margin="2" Grid.Column="0" Grid.Row="1"></TextBlock>
-                        <TextBlock Text="Couleur  : " Margin="2" Grid.Column="0" Grid.Row="2"></TextBlock> 
-                        <TextBlock Text="Taille des bordures  : " Margin="2" Grid.Column="0" Grid.Row="3"></TextBlock>
-                        <TextBlock Text="Couleur des bordures : " Margin="2" Grid.Column="0" Grid.Row="4"></TextBlock>
-                        <ComboBox Margin="2" Grid.Column="1" Grid.Row="0"></ComboBox>
-                        <xcwpftk:DoubleUpDown Grid.Column="1" Margin="2"  Grid.Row="1"></xcwpftk:DoubleUpDown>
-                        <xcwpftk:ColorPicker Margin="2" Grid.Column="1" Grid.Row="2"></xcwpftk:ColorPicker>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <v:RuleSymbolizerPreview  Grid.Row="2" Grid.ColumnSpan="2" Symbolizer="{Binding Path=BasicRule,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></v:RuleSymbolizerPreview>
+                <TextBlock Text="Couleur : " Grid.Row="0" Grid.Column="0" Margin="2"></TextBlock>
+                <xcwpftk:ColorPicker SelectedColor="{Binding Path=BasicRule.Color,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.Column="1" Grid.Row="0"></xcwpftk:ColorPicker>
+                <TabControl Grid.ColumnSpan="2" Grid.Row="1" MinWidth="200" MinHeight="200">
+                    <TabItem Header="Points">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Forme  : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
+                            <TextBlock Text="Taille  : " Margin="2" Grid.Column="0" Grid.Row="1"></TextBlock>            
+                            <TextBlock Text="Taille des bordures  : " Margin="2" Grid.Column="0" Grid.Row="2"></TextBlock>
+                            <TextBlock Text="Couleur des bordures : " Margin="2" Grid.Column="0" Grid.Row="3"></TextBlock>
 
-                        <xcwpftk:DoubleUpDown Grid.Column="1" Margin="2"  Grid.Row="3"></xcwpftk:DoubleUpDown>
-                        <xcwpftk:ColorPicker Margin="2" Grid.Column="1" Grid.Row="4"></xcwpftk:ColorPicker>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Lignes">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="Taille  : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
-                        <TextBlock Text="Couleur  : " Margin="2" Grid.Column="0" Grid.Row="1"></TextBlock>    
-                        <TextBlock Text="Taille des bordures  : " Margin="2" Grid.Column="0" Grid.Row="2"></TextBlock>
-                        <TextBlock Text="Couleur des bordures : " Margin="2" Grid.Column="0" Grid.Row="3"></TextBlock>
+                            <ComboBox SelectedItem="{Binding Path=BasicRule.PointShape,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=PointShapes,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Margin="2" Grid.Column="1" Grid.Row="0"></ComboBox>
+                            <xcwpftk:DoubleUpDown Value="{Binding Path=BasicRule.PointSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="2"  Grid.Row="1"></xcwpftk:DoubleUpDown>
+                            <xcwpftk:DoubleUpDown  Value="{Binding Path=BasicRule.PointBorderSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Margin="2"  Grid.Row="2"></xcwpftk:DoubleUpDown>
+                            <xcwpftk:ColorPicker  SelectedColor="{Binding Path=BasicRule.PointBorderColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="2" Grid.Column="1" Grid.Row="3"></xcwpftk:ColorPicker>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Lignes">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Taille  : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
+                            <TextBlock Text="Taille des bordures  : " Margin="2" Grid.Column="0" Grid.Row="1"></TextBlock>
+                            <TextBlock Text="Couleur des bordures : " Margin="2" Grid.Column="0" Grid.Row="2"></TextBlock>
 
-                        <xcwpftk:DoubleUpDown Grid.Column="1" Margin="2"  Grid.Row="0"></xcwpftk:DoubleUpDown>
-                        <xcwpftk:ColorPicker Margin="2" Grid.Column="1" Grid.Row="1"></xcwpftk:ColorPicker>
+                            <xcwpftk:DoubleUpDown  Value="{Binding Path=BasicRule.LineSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Margin="2"  Grid.Row="0"></xcwpftk:DoubleUpDown>
+                            <xcwpftk:DoubleUpDown  Value="{Binding Path=BasicRule.LineBorderSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Grid.Column="1" Margin="2"  Grid.Row="1"></xcwpftk:DoubleUpDown>
+                            <xcwpftk:ColorPicker SelectedColor="{Binding Path=BasicRule.LineBorderColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="2" Grid.Column="1" Grid.Row="2"></xcwpftk:ColorPicker>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Polygones">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Taille des bordures  : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
+                            <TextBlock Text="Couleur des bordures : " Margin="2" Grid.Column="0" Grid.Row="1"></TextBlock>
 
-                        <xcwpftk:DoubleUpDown Grid.Column="1" Margin="2"  Grid.Row="2"></xcwpftk:DoubleUpDown>
-                        <xcwpftk:ColorPicker Margin="2" Grid.Column="1" Grid.Row="3"></xcwpftk:ColorPicker>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Polygones">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>                        
-                        <TextBlock Text="Couleur  : " Margin="2" Grid.Column="0" Grid.Row="0"></TextBlock>
-                        <TextBlock Text="Taille des bordures  : " Margin="2" Grid.Column="0" Grid.Row="1"></TextBlock>
-                        <TextBlock Text="Couleur des bordures : " Margin="2" Grid.Column="0" Grid.Row="2"></TextBlock>
-                        <xcwpftk:ColorPicker Margin="2" Grid.Column="1" Grid.Row="0"></xcwpftk:ColorPicker>
-
-                        <xcwpftk:DoubleUpDown Grid.Column="1" Margin="2"  Grid.Row="1"></xcwpftk:DoubleUpDown>
-                        <xcwpftk:ColorPicker Margin="2" Grid.Column="1" Grid.Row="2"></xcwpftk:ColorPicker>
-                    </Grid>
-                </TabItem>
-            </TabControl>
+                            <xcwpftk:DoubleUpDown Value="{Binding Path=BasicRule.PolygonBorderSize,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Grid.Column="1" Margin="2"  Grid.Row="0"></xcwpftk:DoubleUpDown>
+                            <xcwpftk:ColorPicker  SelectedColor="{Binding Path=BasicRule.PolygonBorderColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="2" Grid.Column="1" Grid.Row="1"></xcwpftk:ColorPicker>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+            
         </GroupBox>
     </Grid>
 </UserControl>

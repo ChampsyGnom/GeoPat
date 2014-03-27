@@ -8,6 +8,8 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
 {
     public class StyleViewModel
     {
+        public List<DotSpatial.Symbology.PointShape> PointShapes { get; private set; }
+        public StyleRuleViewModel BasicRule { get; private set; }
         private Boolean _isAnalyse;
 
         public Boolean IsAnalyse
@@ -28,6 +30,15 @@ namespace Emash.GeoPatNet.Modules.Carto.ViewModels
         public StyleViewModel()
         {
             this.Rules = new ObservableCollection<StyleRuleViewModel>();
+            this.BasicRule = new StyleRuleViewModel();
+            this.PointShapes = new List<DotSpatial.Symbology.PointShape>();
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Diamond);
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Ellipse);
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Hexagon);
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Pentagon);
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Rectangle);
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Star);
+            this.PointShapes.Add(DotSpatial.Symbology.PointShape.Triangle);
         }
     }
 }

@@ -9,6 +9,10 @@ namespace  System.Windows.Media
 {
     public static  class ColorExtension
     {
+        public static System.Drawing.Color ToDrawingColor(this Color color)
+        {
+            return System.Drawing.Color.FromArgb(color.A, color.R, color.G, color.B);
+        }
         /// <summary>
         /// Convert HSV to RGB
         /// h is from 0-360

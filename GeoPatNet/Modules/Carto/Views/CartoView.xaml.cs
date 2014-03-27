@@ -27,6 +27,12 @@ namespace Emash.GeoPatNet.Modules.Carto.Views
             InitializeComponent();
         }
 
+        private void treeViewTemplate_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.treeViewTemplate.Focus();
+
+        }
+
        
     }
 }
