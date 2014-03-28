@@ -215,10 +215,7 @@ namespace Emash.GeoPatNet.Generator.IO
                 DbTable table = new DbTable();
                 table.Id = id;
                 table.Name = nodeTable.SelectSingleNode("Code").InnerText;
-                if (table.Name.Equals("INF_CD_SERVICE"))
-                {
-                    Console.WriteLine("Toto");
-                }
+              
                 table.DisplayName = nodeTable.SelectSingleNode("Name").InnerText;
 
                 XmlNodeList nodeTableRules = nodeTable.SelectNodes("AttachedRules/BusinessRule");

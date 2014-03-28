@@ -641,7 +641,8 @@ namespace Emash.GeoPatNet.Data
             modelBuilder.Entity<InfCodeClimat>().Property(t => t.Libelle).HasMaxLength(200);
             modelBuilder.Entity<InfCodeClimat>().HasKey(t => t.Id);
             modelBuilder.Entity<InfCodeClimat>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<InfCodeDec>().HasRequired<InfFamDec>(c => c.InfFamDec).WithMany(t => t.InfCodeDecs);
+           // modelBuilder.Entity<InfCodeClimat>().HasMany < InfCodeClimat>().WithRequired ()
+          // modelBuilder.Entity<InfCodeDec>().HasRequired<InfFamDec>(c => c.InfFamDec).WithMany(t => t.InfCodeDecs).HasForeignKey(u => new { u.MainCityUserID, u.MainCityID),
             modelBuilder.Entity<InfCodeDec>().ToTable("inf_cd_dec", "inf");
             modelBuilder.Entity<InfCodeDec>().Property(t => t.Code) .HasColumnName("inf_cd_dec__code");
             modelBuilder.Entity<InfCodeDec>().Property(t => t.Code).IsRequired();
