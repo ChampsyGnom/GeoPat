@@ -100,6 +100,7 @@
     <Compile Include="IO\PowerAmcMpdReader.cs" />
     <Compile Include="IO\ProjectReader.cs" />
     <Compile Include="IO\ProjectWriter.cs" />
+    <Compile Include="IO\SqlPostgreWriter.cs" />
     <Compile Include="Models\DbColumn.cs" />
     <Compile Include="Models\DbKeyForeign.cs" />
     <Compile Include="Models\DbKeyForeignJoin.cs" />

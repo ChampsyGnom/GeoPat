@@ -69,8 +69,8 @@ namespace Emash.GeoPat.Generator.IO
                         String parentClassName = schemaCamelCase + parentTable.Name.ToCamelCase("_");
                         if (parentClassName.EndsWith(schemaCamelCase))
                         { parentClassName = parentClassName.Substring(0, parentClassName.Length - schemaCamelCase.Length); }
-                        this.WriteLine("public virtual " + parentClassName + " " + parentClassName + " {get;set;}");
-                        this.WriteLine("");
+                        //this.WriteLine("public virtual " + parentClassName + " " + parentClassName + " {get;set;}");
+                       // this.WriteLine("");
                     }
                     foreach (DbKeyForeign fkParent in fkParents)
                     {
@@ -78,14 +78,18 @@ namespace Emash.GeoPat.Generator.IO
                         String childClassName = schemaCamelCase + childTable.Name.ToCamelCase("_");
                         if (childClassName.EndsWith(schemaCamelCase))
                         { childClassName = childClassName.Substring(0, childClassName.Length - schemaCamelCase.Length); }
-                        this.WriteLine("public virtual ICollection<" + childClassName + "> " + childClassName + "s { get; set; }");
-                        this.WriteLine("");
+                     //   this.WriteLine("public virtual ICollection<" + childClassName + "> " + childClassName + "s { get; set; }");
+                      //  this.WriteLine("");
                     }
                     foreach (DbColumn column in Table.Columns)
                     {
-                        String propertyName = column.Name;
-                        if (propertyName.StartsWith(Table.Name))
-                        { propertyName = propertyName.Substring(Table.Name.Length); }
+                        String columnName = column.Name;
+                        if (columnName.StartsWith(Table.Name + "_"))
+                        { columnName = columnName.Substring(Table.Name.Length + 1); }
+                        if (columnName.StartsWith("_"))
+                        {columnName = columnName.Substring(1);}
+                        String propertyName = columnName;
+                   
                         propertyName = propertyName.ToCamelCase("_");
                         if (column.DataType.StartsWith("VARCHAR2"))
                         {
@@ -97,7 +101,7 @@ namespace Emash.GeoPat.Generator.IO
                             if (pk != null && pk.ColumnIds.Contains(column.Id))
                             {this.WriteLine("[Key]");}
                             this.WriteLine("[Description(\"" + column.DisplayName.Replace ("\"","\\\"") + "\")]");
-                            this.WriteLine("[Column(\"" + column.Name + "\",Order=" + columnOrder + ")]");
+                            this.WriteLine("[Column(\"" + columnName + "\",Order=" + columnOrder + ")]");
                             if (!column.AllowNull)
                             {this.WriteLine("[Required()]");}
                             if (column.Length.HasValue)
@@ -116,7 +120,7 @@ namespace Emash.GeoPat.Generator.IO
                             if (pk != null && pk.ColumnIds.Contains(column.Id))
                             { this.WriteLine("[Key]"); }
                             this.WriteLine("[Description(\"" + column.DisplayName.Replace("\"", "\\\"") + "\")]");
-                            this.WriteLine("[Column(\"" + column.Name + "\",Order=" + columnOrder + ")]");
+                            this.WriteLine("[Column(\"" + columnName + "\",Order=" + columnOrder + ")]");
                             if (!column.AllowNull)
                             {
                                 this.WriteLine("[Required()]");
@@ -139,7 +143,7 @@ namespace Emash.GeoPat.Generator.IO
                             if (pk != null && pk.ColumnIds.Contains(column.Id))
                             { this.WriteLine("[Key]"); }
                             this.WriteLine("[Description(\"" + column.DisplayName.Replace("\"", "\\\"") + "\")]");
-                            this.WriteLine("[Column(\"" + column.Name + "\",Order=" + columnOrder + ")]");
+                            this.WriteLine("[Column(\"" + columnName + "\",Order=" + columnOrder + ")]");
                             if (!column.AllowNull)
                             {
                                 this.WriteLine("[Required()]");
@@ -162,7 +166,7 @@ namespace Emash.GeoPat.Generator.IO
                             if (pk != null && pk.ColumnIds.Contains(column.Id))
                             { this.WriteLine("[Key]"); }
                             this.WriteLine("[Description(\"" + column.DisplayName.Replace("\"", "\\\"") + "\")]");
-                            this.WriteLine("[Column(\"" + column.Name + "\",Order=" + columnOrder + ")]");
+                            this.WriteLine("[Column(\"" + columnName + "\",Order=" + columnOrder + ")]");
                             if (!column.AllowNull)
                             {
                                 this.WriteLine("[Required()]");
@@ -185,7 +189,7 @@ namespace Emash.GeoPat.Generator.IO
                             if (pk != null && pk.ColumnIds.Contains(column.Id))
                             { this.WriteLine("[Key]"); }
                             this.WriteLine("[Description(\"" + column.DisplayName.Replace("\"", "\\\"") + "\")]");
-                            this.WriteLine("[Column(\"" + column.Name + "\",Order=" + columnOrder + ")]");
+                            this.WriteLine("[Column(\"" + columnName + "\",Order=" + columnOrder + ")]");
                             if (!column.AllowNull)
                             {
                                 this.WriteLine("[Required()]");

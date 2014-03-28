@@ -44,14 +44,20 @@ namespace Emash.GeoPat.Generator.IO
                  
                     this.WriteLine("using System;");
                     this.WriteLine("using System.Data.Entity;");
+                    this.WriteLine("using System.Data;");
+                    this.WriteLine("using System.Data.Common;");
                     this.WriteLine("using Emash.GeoPat.Data.Models;");
                     this.WriteLine("namespace Emash.GeoPat.Data");
                     this.WriteBracketOpen();
 
 
-
+                      
                     this.WriteLine("public partial class DataContext : DbContext");
                     this.WriteBracketOpen();
+                    this.WriteLine("public DataContext(DbConnection connection) : base(connection,false)");
+                    this.WriteBracketOpen();
+                    this.WriteBracketClose();
+                   
                     foreach (DbSchema schema in this.Project.Schemas)
                     {
                         foreach (DbTable table in schema.Tables)
@@ -101,13 +107,14 @@ namespace Emash.GeoPat.Generator.IO
                                     if (!childColumn.AllowNull)
                                     { isOptional = false; }
                                     String propertyNameChild = childColumn.Name;
-                                    if (propertyNameChild.StartsWith(table.Name))
-                                    { propertyNameChild = propertyNameChild.Substring(table .Name.Length); }
+                                    if (propertyNameChild.StartsWith(table.Name+"__"))
+                                    { propertyNameChild = propertyNameChild.Substring(table .Name.Length+2); }
                                     propertyNameChild = propertyNameChild.ToCamelCase("_");
 
 
                                     keys.Add(propertyNameChild);
                                 }
+                                /*
                                 if (fkChild.DeleteOnCascade)
                                 {
                                     if (isOptional)
@@ -127,12 +134,14 @@ namespace Emash.GeoPat.Generator.IO
                                     else
                                     { this.WriteLine("modelBuilder.Entity<" + className + ">().HasRequired<" + parentClassName + ">(c => c." + parentClassName + ").WithMany(t => t." + className + "s).HasForeignKey(u => new { " + String.Join(",", (from k in keys select "u." + k)) + " }).WillCascadeOnDelete(false);"); }
                                 }
-                                    
+                                    */
                                 //
                                
                             }
+                         
                             foreach (DbKeyForeign fkParent in fkParents)
                             {
+                                bool isOptional = true;
                                 DbTable childTable = (from t in schema.Tables where t.Id.Equals(fkParent.TableIdChild) select t).FirstOrDefault();
                                 String childClassName = schemaCamelCase + childTable.Name.ToCamelCase("_");
                                 if (childClassName.EndsWith(schemaCamelCase))
@@ -140,14 +149,44 @@ namespace Emash.GeoPat.Generator.IO
                                 List<String> keys = new List<string>();
                                 foreach (DbKeyForeignJoin j in fkParent.Joins)
                                 {
+                                    
+
                                     DbColumn parentColumn = (from c in table.Columns where c.Id.Equals(j.ColumnIdParent) select c).FirstOrDefault();
+                                    DbColumn childColumn = (from c in childTable.Columns where c.Id.Equals(j.ColumnIdChild) select c).FirstOrDefault();
+                                   
+                                    if (!childColumn.AllowNull)
+                                    { isOptional = false; }
+
                                     String propertyNameParent = parentColumn.Name;
-                                    if (propertyNameParent.StartsWith(table.Name))
-                                    { propertyNameParent = propertyNameParent.Substring(table.Name.Length); }
+                                    if (propertyNameParent.StartsWith(table.Name+"__"))
+                                    { propertyNameParent = propertyNameParent.Substring(table.Name.Length+2); }
+
+                                    String propertyNameChild = childColumn.Name;
+                                    if (propertyNameChild.StartsWith(childTable.Name + "__"))
+                                    { propertyNameChild = propertyNameChild.Substring(childTable.Name.Length + 2); }
+                                    propertyNameChild = propertyNameChild.ToCamelCase("_");
+
+
                                     propertyNameParent = propertyNameParent.ToCamelCase("_");
-                                    keys.Add(propertyNameParent);
+                                    keys.Add(propertyNameChild);
                                 }
-                                //this.WriteLine("modelBuilder.Entity<" + className + ">().HasMany<" + childClassName + ">(c => c." + childClassName + "s).WithRequired(t => t." + className  + ").HasForeignKey(u => new { " + String.Join(",", (from k in keys select "u." + k)) + " });");
+                                // cas geometri bsn
+                                /*
+                                if (fkParent.DeleteOnCascade)
+                                {
+                                    if (isOptional)
+                                    { this.WriteLine("modelBuilder.Entity<" + className + ">().HasMany<" + childClassName + ">(c => c." + childClassName + "s).WithOptional(t => t." + className + ").HasForeignKey(u => new { " + String.Join(",", (from k in keys select "u." + k)) + " }).WillCascadeOnDelete(true);"); }
+                                    else
+                                    { this.WriteLine("modelBuilder.Entity<" + className + ">().HasMany<" + childClassName + ">(c => c." + childClassName + "s).WithRequired(t => t." + className + ").HasForeignKey(u => new { " + String.Join(",", (from k in keys select "u." + k)) + " }).WillCascadeOnDelete(true);"); }
+                                }
+                                else
+                                {
+                                    if (isOptional)
+                                    { this.WriteLine("modelBuilder.Entity<" + className + ">().HasMany<" + childClassName + ">(c => c." + childClassName + "s).WithOptional(t => t." + className + ").HasForeignKey(u => new { " + String.Join(",", (from k in keys select "u." + k)) + " }).WillCascadeOnDelete(false);"); }
+                                    else
+                                    { this.WriteLine("modelBuilder.Entity<" + className + ">().HasMany<" + childClassName + ">(c => c." + childClassName + "s).WithRequired(t => t." + className + ").HasForeignKey(u => new { " + String.Join(",", (from k in keys select "u." + k)) + " }).WillCascadeOnDelete(false);"); }
+                                }
+                                */
                             }
 
                           
@@ -182,7 +221,10 @@ namespace Emash.GeoPat.Generator.IO
                                     {
                                         this.WriteLine("modelBuilder.Entity<" + className + ">().Property(item => item." + propertyName + ").HasMaxLength(" + column.Length .Value + ");");
                                     }
-                                    this.WriteLine("modelBuilder.Entity<" + className + ">().Property(item => item." + propertyName + ").HasColumnName(\"" + column.Name + "\");");
+                                    String columnName = column.Name;
+                                    if (columnName.StartsWith(table.Name + "__"))
+                                    { columnName = columnName.Substring(table.Name.Length + 2); }
+                                    this.WriteLine("modelBuilder.Entity<" + className + ">().Property(item => item." + propertyName + ").HasColumnName(\"" + columnName + "\");");
                                 }
                             }
                         }

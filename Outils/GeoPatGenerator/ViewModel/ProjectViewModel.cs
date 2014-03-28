@@ -14,6 +14,7 @@ namespace Emash.GeoPat.Generator.ViewModel
         public String LastFileName { get;  set; }
         public DelegateCommand AddDbSchemaCommand { get; private set; }
         public DelegateCommand GenerateCodeDataCommand { get; private set; }
+        public DelegateCommand GenerateSqlPostgreCommand { get; private set; }
         public Project Model { get; private set; }
         public ObservableCollection<DbSchemaViewModel> Schemas { get; private set; }
         public ProjectViewModel(Project model)
@@ -21,11 +22,16 @@ namespace Emash.GeoPat.Generator.ViewModel
             this.Model = model;
             this.AddDbSchemaCommand = new DelegateCommand(AddDbSchemaCommandExecute);
             this.GenerateCodeDataCommand = new DelegateCommand(GenerateCodeDataCommandExecute);
+            this.GenerateSqlPostgreCommand = new DelegateCommand(GenerateSqlPostgreCommandExecute);
             this.Schemas = new ObservableCollection<DbSchemaViewModel>();
             foreach (DbSchema schema in model.Schemas)
             {this.Schemas.Add(new DbSchemaViewModel(schema));}
         }
-
+        private void GenerateSqlPostgreCommandExecute()
+        {
+            SqlPostgreWriter writer = new SqlPostgreWriter(this.Model);
+            writer.Write();
+        }
         private void GenerateCodeDataCommandExecute()
         {
             foreach (DbSchema schema in this.Model.Schemas)
